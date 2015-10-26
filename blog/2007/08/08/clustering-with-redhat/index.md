@@ -3,72 +3,73 @@ title: Clustering with Red Hat
 tags: cluster, high availability, red hat
 ---
 
-This entry presents an overview of how to build a DB2 service cluster using the Red Hat Cluster Suite. This procedure can be useful in learning how to setup clusters for other services.
+This entry presents an overview of how to build a DB2 service cluster using the
+Red Hat Cluster Suite. This procedure can be useful in learning how to setup
+clusters for other services.
 
+##Contents
 
-Contents
+[Cluster options](#cluster-options)
+  Redhat Cluster Software
+      Good
+      Bad
+  Load Balancer
+      Good
+      Bad
 
-    Cluster Options
-        Redhat Cluster Software
-            Good
-            Bad
-        Load Balancer
-            Good
-            Bad
+Installation
+  Install Redhat Linux AS 4 on primary node:
+  Install DB2 on primary node:
+  Prepare additional nodes
 
-    Installation
-        Install Redhat Linux AS 4 on primary node:
-        Install DB2 on primary node:
-        Prepare additional nodes
+Configuring the Cluster Suite
+  Configuring the cluster
+  Additional service considerations
 
-    Configuring the Cluster Suite
-        Configuring the cluster
-        Additional service considerations
+Testing the Cluster
+  Turn off the network
+      Expected results
+      Actual results
+  Unmount the shared partition
+      Expected results
+      Actual results
+  Stop DB2
+      Expected results
+      Actual results
+  Unplug a single network cable
+      Expected results
+      Actual results
+  Shutdown node
+      Expected results
+      Actual results
+  Unplug fiber cable
+      Expected results
+      Actual results
+  Turn off the network during a DB2 write
+      Expected results
+      Actual results
+  Unplug fiber cable during a DB2 write
+      Expected results
+      Actual results
 
-    Testing the Cluster
-        Turn off the network
-            Expected results
-            Actual results
-        Unmount the shared partition
-            Expected results
-            Actual results
-        Stop DB2
-            Expected results
-            Actual results
-        Unplug a single network cable
-            Expected results
-            Actual results
-        Shutdown node
-            Expected results
-            Actual results
-        Unplug fiber cable
-            Expected results
-            Actual results
-        Turn off the network during a DB2 write
-            Expected results
-            Actual results
-        Unplug fiber cable during a DB2 write
-            Expected results
-            Actual results
+Managing the cluster
+  Manual fail over
+      Fail over node
+      Remove node from cluster
+      Perform off line maintenance
+      Return node to cluster
+  Checking cluster status
+      X Windows GUI
+      Command line interface
+  Log files
+      Status check
+      Failover
 
-    Managing the cluster
-        Manual fail over
-            Fail over node
-            Remove node from cluster
-            Perform off line maintenance
-            Return node to cluster
-        Checking cluster status
-            X Windows GUI
-            Command line interface
-        Log files
-            Status check
-            Failover
+Conclusions
+References and Additional Reading
+DB2 init script
 
-    Conclusions
-    References and Additional Reading
-    DB2 init script
-
-Cluster Options
+## Cluster options<a name='cluster-options'></a>
 
 After consideration it was decided to use the Redhat Cluster Suite.
 Redhat Cluster Software

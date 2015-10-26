@@ -1,6 +1,6 @@
 ---
 title: CFEngine tutorial
-tags: CFEngine, configuration management
+tags: cfengine, configuration management
 ---
 
     Overview
