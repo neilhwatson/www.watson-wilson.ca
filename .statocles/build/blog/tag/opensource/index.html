@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link href="/theme/css/normalize.css" rel="stylesheet">
-        <link href="/theme/css/skeleton.css" rel="stylesheet">
-        <link href="/theme/css/statocles-default.css" rel="stylesheet">
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <link href="/theme/css/readability-bootstrap.min.css" rel="stylesheet">
+        <!--<link rel="stylesheet" href="/theme/css/statocles-bootstrap.css" />-->
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
         <title>Neil H. Watson</title>
         <meta content="Statocles 0.059" name="generator">
@@ -13,15 +15,25 @@
     </head>
     <body>
         <header>
-            <nav class="navbar">
+            <nav class="navbar navbar-default navbar-static-top" role="navigation">
                 <div class="container">
-                    <a class="brand" href="/">Neil H. Watson</a>
-                    <ul>
-                        <li>
-                            <a href="/">Blog</a>
-                        </li>
-                    </ul>
-                    
+                <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button class="navbar-toggle" data-target="#top-navbar-collapse-1" data-toggle="collapse" type="button">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="/">Neil H. Watson</a>
+                    </div>
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="top-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <li><a href="/">Blog</a></li>
+                        </ul>
+                        
+                    </div>
                 </div>
             </nav>
             
@@ -30,7 +42,7 @@
             
 <div class="row">
 
-    <div class="nine columns">
+    <div class="col-md-9">
         <main>
 
 
@@ -54,66 +66,24 @@
 
                 <p>Many believe that open source projects cannot be used in the enterprise because of the lack of support. This is untrue.</p>
 
-<p>Many believe that only proprietary software can offer support accompanied by a service level agreement. In fact many open source projects have a commercial arm for the very purpose of offering support contracts. For open source projects that do not have commercial arms many third party consulting companies can pick up the slack. Consulting firms large and small have standard support agreements to offer or may offer custom agreements.
-Open source software with commercial support</p>
 
-<pre><code>Bind
-Cfengine
-MySQL
-Opennms
-Openoffice
-Sendmail
-Zenoss
-Zimbra
-Zope
-</code></pre>
-
-<p>Open source software with third party support</p>
-
-<pre><code>Apache
-Linux (both the kernel and entire distributions)
-Nagios
-Perl
-PHP
-Postfix
-PostgreSQL
-</code></pre>
-
-<p>Caveat emptor</p>
-
-<p>Any organization that offers commercial support is doing so to earn a profit. This suggests that the support they offer may only go as far as the money. If a client makes high demands but are not a high revenue customer to the provider, the provider may choose to cut its losses. Some clients feel that contract law will keep the provider honest. If a client needs to put its lawyer to work the support issue is going to be long overdue. How much will that cost? Ultimately an organization should be prepared to fend for itself through other means.
-Self support
-Training staff.</p>
-
-<p>Who knows how long any software project will last? Open source and proprietary projects alike can disappear overnight. Training staff will provide an organization with a long term resource for current and future support.
-Peer support groups.</p>
-
-<p>Many projects provide mailing lists, web forums or news groups where users, and often active project members, collaborate to solve support problems at no charge. It is often hard for hard core business people to imagine people helping you for nothing. Many of the people on these forums offer help simply for the challenge of solving the problem. “Because it’s there“ still means something to some people. Who are these people? Most are regular “techies” with day jobs. Some may even work in your office. In my experience in information technology, which spans more than a decade, these peer self help groups are usually more valuable than training or commercial support.
-Dark secret</p>
-
-<p>It’s a dark secret that while stating a policy of vendor only support, some of an organization’s most critical infrastructure is already successfully supported internally and not through a vendor. The chances are good that your organization is doing this right now using Apache, Bind, Sendmail or Postfix.</p>
-
-
+                    <p><a href="/blog/2011/03/08/opensource-support/index.html#section-2">Continue reading No support for open source projects...</a></p>
 
             </article>
         </main>
 
         <ul class="pager">
-            <li class="prev">
-                <a class="button disabled" href="" rel="next">
-                    ← Older
-                </a>
+            <li class="previous disabled">
+                <span>← Older</span>
             </li>
-            <li class="next">
-                <a class="button disabled" href="" rel="prev">
-                    Newer →
-                </a>
+            <li class="next disabled">
+                <span>Newer →</span>
             </li>
         </ul>
 
     </div>
 
-    <div class="three columns sidebar">
+    <div class="sidebar col-md-3">
         
         <h1>Tags</h1>
         <ul class="list-inline">
@@ -178,7 +148,7 @@ Dark secret</p>
         <footer>
             
             <div class="container tagline">
-                <a href="http://preaction.github.io/Statocles">Made with Statocles</a><br>
+                <a href="http://preaction.me/statocles">Made with Statocles</a><br>
                 <a href="http://www.perl.org">Powered by Perl</a>
             </div>
         </footer>

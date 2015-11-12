@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>http://ettin/blog/tag/ssh/</id>
     <title>Neil H. Watson</title>
-    <updated>2015-11-12T15:26:11Z</updated>
+    <updated>2015-11-12T17:33:40Z</updated>
     <link href="http://ettin/blog/tag/ssh.atom" rel="self" />
     <link href="http://ettin/blog/tag/ssh/" rel="alternate" />
     <generator version="0.059">Statocles</generator>
@@ -14,99 +14,6 @@
             <p>Problem</p>
 
 <p>You want to distribute public SSH keys.</p>
-
-<p>Solution</p>
-
-<p>There are two possible methods for distributing SSH public keys. The first involves a simple copy.</p>
-
-<p>bundle agent recipe {</p>
-
-<p>files:
-   &quot;/home/neil/.ssh/authorized_keys&quot;
-     handle =&gt; &quot;neil_ssh_pub&quot;,
-     comment =&gt; &quot;Install Neil&#39;s public ssh key&quot;,
-     perms =&gt; mog(&quot;0600&quot;, &quot;neil&quot;, &quot;neil&quot;),
-     copy_from =&gt; remote_cp(&quot;/var/cf-masterfiles/sshkeys/neil-pub&quot;,&quot;venus&quot;);
-}</p>
-
-<p>This promise ensures the file is up to date, via timestamp, as well as the owner, group and mode.</p>
-
-<p>cf3     Promise handle: neil_ssh_pub
-cf3     Promise made by: /home/neil/.ssh/authorized_keys
-cf3
-cf3     Comment:  Install Neil&#39;s public ssh key
-cf3     .........................................................
-cf3
-cf3  -&gt; Handling file existence constraints on
-/home/neil/.ssh/authorized_keys
-cf3  -&gt; Owner of /home/neil/.ssh/authorized_keys was 0, setting to 1000
-cf3  -&gt; Group of /home/neil/.ssh/authorized_keys was 0, setting to 1000
-cf3  -&gt; Object /home/neil/.ssh/authorized_keys had permission 600,
-changed it to 644
-cf3  -&gt; Handling file existence constraints on
-/home/neil/.ssh/authorized_keys
-cf3  -&gt; File permissions on /home/neil/.ssh/authorized_keys as promised
-cf3  -&gt; Copy file /home/neil/.ssh/authorized_keys from
-/vars:/cf-masterfiles/sshkeys/neil-pub check
-cf3 No existing connection to 192.168.0.15 is established...
-cf3 Set cfengine port number to 5308 = 5308
-cf3  -&gt; Connect to venus = 192.168.0.15 on port 5308
-cf3  -&gt; Last saw venus (+192.168.0.15) now
-cf3 Loaded /vars:/cfengine/ppkeys/root-192.168.0.15.pub
-cf3 .....................[.h.a.i.l.].................................
-cf3 Strong authentication of server=venus connection confirmed
-cf3  -&gt; Destination file &quot;/home/neil/.ssh/authorized_keys&quot; already
-exists
-cf3  -&gt; Not attempting to preserve file permissions from the source
-cf3  -&gt; File permissions on /home/neil/.ssh/authorized_keys as promised
-cf3  -&gt; File /home/neil/.ssh/authorized_keys is an up to date copy of
-source
-cf3 Performance(Copy(venus:/vars:/cf-masterfiles/sshkeys/neil-pub &gt;
-/home/neil/.ssh/authorized_keys)): time=0.0001 secs, av=0.0005 +/-
-0.0022</p>
-
-<p>An alternative method would be to edit authorized_keys instead. This allows you to append the file without overwriting any existing information that might be required.</p>
-
-<p>bundle agent recipe {</p>
-
-<p>vars:
-    &quot;keys&quot; slist =&gt; { 
-      &quot;ssh-rsa AAAAB31yc2E...EZFcqZ0CSQ1OPw== neil@pearl.watson-wilson.ca&quot;,
-      &quot;ssh-rsa AAAAB31yc2E...NezfCQz0CSQ1OPw== neil@ruby.watson-wilson.ca&quot;
-    };</p>
-
-<p>files:
-    &quot;/home/neil/.ssh/authorized_keys&quot;
-      handle =&gt; &quot;neil_ssh_pub&quot;,
-      comment =&gt; &quot;Install Neil&#39;s public ssh keys&quot;,
-      perms =&gt; mog(&quot;0644&quot;,&quot;neil&quot;,&quot;neil&quot;),
-      edit_line =&gt; append_if_no_lines( &quot;@{recipe.keys}&quot; );
-}</p>
-
-<p>This bundle appends authorized_keys with the given key lines. Note that we pass the list to the edit_line bundle “append_if_no_lines” as “@{recipe.keys}”. Were we to pass just “@{keys}” to the body part that part would think the list is scoped locally and would be blank. By qualifying it with the bundle&#39;s name the correct list is used.</p>
-
-<p>cf3     Promise handle: 
-cf3     Promise made by: ssh-rsa
-AAAAB3NzaC1yc2EAAAABIwAAAQEA0Rg/vwLT9Hk4+wp5rVtKRgn9cHC3zHWHAW
-cf3 
-cf3     Comment:  Append lines to the file if they don&#39;t already exist
-cf3     .........................................................
-cf3 
-cf3  -&gt; Inserting the promised line &quot;ssh-rsa
-AAAAB3NzaC1yc2EAAAABIwAAAQEA0Rg/vwLT9Hk4+wp5rVtKRg
-n-wilson.ca&quot; into /home/neil/.ssh/authorized_keys after locator
-cf3 
-cf3     .........................................................
-cf3     Promise handle: 
-cf3     Promise made by: ssh-rsa
-AAAAB3NzaC1yc2EaaaabiWaaaqea0rG/VWlt9hK4+WP5RvTkrGN9Chc3Zhwhaw
-cf3 
-cf3     Comment:  Append lines to the file if they don&#39;t already exist
-cf3     .........................................................
-cf3 
-cf3  -&gt; Inserting the promised line &quot;ssh-rsa
-AAAAB3NzaC1yc2EaaaabiWaaaqea0rG/VWlt9hK4+WP5RvTkrG
--wilson.ca&quot; into /home/neil/.ssh/authorized_keys after locator</p>
 
                 <p><a href="http://ettin/blog/2011/05/26/cfengine-ssh-keys/#section-2">Continue reading...</a></p>
             <p>Tags:

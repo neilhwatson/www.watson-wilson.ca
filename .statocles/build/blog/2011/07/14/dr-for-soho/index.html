@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link href="/theme/css/normalize.css" rel="stylesheet">
-        <link href="/theme/css/skeleton.css" rel="stylesheet">
-        <link href="/theme/css/statocles-default.css" rel="stylesheet">
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <link href="/theme/css/readability-bootstrap.min.css" rel="stylesheet">
+        <!--<link rel="stylesheet" href="/theme/css/statocles-bootstrap.css" />-->
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
         <title>Disaster recovery for small business - Neil H. Watson</title>
         <meta content="Statocles 0.059" name="generator">
@@ -11,15 +13,25 @@
     </head>
     <body>
         <header>
-            <nav class="navbar">
+            <nav class="navbar navbar-default navbar-static-top" role="navigation">
                 <div class="container">
-                    <a class="brand" href="/">Neil H. Watson</a>
-                    <ul>
-                        <li>
-                            <a href="/">Blog</a>
-                        </li>
-                    </ul>
-                    
+                <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button class="navbar-toggle" data-target="#top-navbar-collapse-1" data-toggle="collapse" type="button">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="/">Neil H. Watson</a>
+                    </div>
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="top-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <li><a href="/">Blog</a></li>
+                        </ul>
+                        
+                    </div>
                 </div>
             </nav>
             
@@ -27,7 +39,7 @@
         <div class="main container">
             <div class="row">
 
-    <div class="nine columns">
+    <div class="col-md-9">
         <main>
             <header>
                 <h1>Disaster recovery for small business</h1>
@@ -46,21 +58,48 @@
 
             </header>
             <section id="section-1">
-                <p>Not everyone can afford redundant servers and sites. If you are a small business here are some off site disaster recovery options to think about.</p>
+                <p>Not everyone can afford redundant servers and sites. If you are a small
+business here are some off site disaster recovery options to think about.</p>
 
-<p>Where and how do you backup your files now? Do you take these backups off site? One option I use is to send backups to a hosted virtual private server or VPS. Many companies provide both Linux and Windows VPS options for as little at $10 per month. Another option is to use services like Dropbox. Either option allows you to upload backup files to a safe remote location. Before you do this there is one extra step that you must consider.</p>
+            </section>
+            <section id="section-2">
+                <p>Where and how do you backup your files now? Do you take these backups off site?
+One option I use is to send backups to a hosted virtual private server or VPS.
+Many companies provide both Linux and Windows VPS options for as little at $10
+per month. Another option is to use services like Dropbox. Either option allows
+you to upload backup files to a safe remote location. Before you do this there
+is one extra step that you must consider.</p>
 
-<p>Once your data resides on the remote host, who has access to it? The buzz word of the day is the cloud. You cannot control who at the provider can gain access to your backups. The solution to this is encryption. Encrypt the backup files before you send them to the VPS. For example, suppose I have one Linux host. I perform my backups with Tar. I want to use GnuPG to encrypt them. Consult with the GnuPG documentation on how to generate a key pair. Once you have done so you can encrypt your backups like this.</p>
+<p>Once your data resides on the remote host, who has access to it? The buzz word
+of the day is the cloud. You cannot control who at the provider can gain access
+to your backups. The solution to this is encryption. Encrypt the backup files
+before you send them to the VPS. For example, suppose I have one Linux host. I
+perform my backups with Tar. I want to use GnuPG to encrypt them. Consult with
+the GnuPG documentation on how to generate a key pair. Once you have done so
+you can encrypt your backups like this.</p>
 
-<p>gpg -r &quot;Neil Watson&quot; -o - -e mybackup.tar.gz |    ssh vpn.example.com &quot;cat &gt; backups/mybackup.tar.gz.en&quot;</p>
+<pre><code>gpg -r &quot;Neil Watson&quot; -o - -e mybackup.tar.gz |        ssh vpn.example.com &quot;cat &gt; backups/mybackup.tar.gz.en&quot;
+</code></pre>
 
-<p>This instructs GnuGP to encrypt my backup tar file. The encrypted file is sent to standard output. This is piped to SSH where it is redirected to a target file at my remote VPS.</p>
+<p>This instructs GnuGP to encrypt my backup tar file. The encrypted file is sent
+to standard output. This is piped to SSH where it is redirected to a target
+file at my remote VPS.</p>
 
-<p>When you need this backup how will you recover it? You’ll need to download the encrypted file. Then you’ll need to decrypt the file. Suppose, during the disaster you’ve also lost your GnuPG private key? The trick is record this information and back it up separately. Record your VPS credentials and the method you need to access it. This might include the IP address or URL. Record the GnuGP private key to ascii using the armor option. This will allow you import the key anew if lost.</p>
+<p>When you need this backup how will you recover it? You’ll need to download the
+encrypted file. Then you’ll need to decrypt the file. Suppose, during the
+disaster you’ve also lost your GnuPG private key? The trick is record this
+information and back it up separately. Record your VPS credentials and the
+method you need to access it. This might include the IP address or URL. Record
+the GnuGP private key to ascii using the armor option. This will allow you
+import the key anew if lost.</p>
 
-<p>This data must be stored in a safe place. Multiple copies and locations are encouraged. Storage methods could include both paper and CDROM or USB key. Store this data off site. A safety deposit box is ideal.</p>
+<p>This data must be stored in a safe place. Multiple copies and locations are
+encouraged. Storage methods could include both paper and CDROM or USB key.
+Store this data off site. A safety deposit box is ideal.</p>
 
-<p>If this article has you thinking you’ll realize that there are other ways to do this. By all means use them. Just remember to be sure that your data is protected and that your recovery method is stored in a safe place.</p>
+<p>If this article has you thinking you’ll realize that there are other ways to do
+this. By all means use them. Just remember to be sure that your data is
+protected and that your recovery method is stored in a safe place.</p>
 
 <p>If you want my help with your disaster recovery plans please contact me.</p>
 
@@ -70,7 +109,7 @@
 
     </div>
 
-    <div class="three columns sidebar">
+    <div class="col-md-3">
         
         <nav id="tags">
             <h1>Tags</h1>
@@ -123,7 +162,7 @@
         <footer>
             
             <div class="container tagline">
-                <a href="http://preaction.github.io/Statocles">Made with Statocles</a><br>
+                <a href="http://preaction.me/statocles">Made with Statocles</a><br>
                 <a href="http://www.perl.org">Powered by Perl</a>
             </div>
         </footer>

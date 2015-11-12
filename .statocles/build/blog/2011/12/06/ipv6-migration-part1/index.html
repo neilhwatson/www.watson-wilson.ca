@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link href="/theme/css/normalize.css" rel="stylesheet">
-        <link href="/theme/css/skeleton.css" rel="stylesheet">
-        <link href="/theme/css/statocles-default.css" rel="stylesheet">
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <link href="/theme/css/readability-bootstrap.min.css" rel="stylesheet">
+        <!--<link rel="stylesheet" href="/theme/css/statocles-bootstrap.css" />-->
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
         <title>IPv6 Migration part 1 - Neil H. Watson</title>
         <meta content="Statocles 0.059" name="generator">
@@ -11,15 +13,25 @@
     </head>
     <body>
         <header>
-            <nav class="navbar">
+            <nav class="navbar navbar-default navbar-static-top" role="navigation">
                 <div class="container">
-                    <a class="brand" href="/">Neil H. Watson</a>
-                    <ul>
-                        <li>
-                            <a href="/">Blog</a>
-                        </li>
-                    </ul>
-                    
+                <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button class="navbar-toggle" data-target="#top-navbar-collapse-1" data-toggle="collapse" type="button">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="/">Neil H. Watson</a>
+                    </div>
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="top-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <li><a href="/">Blog</a></li>
+                        </ul>
+                        
+                    </div>
                 </div>
             </nav>
             
@@ -27,7 +39,7 @@
         <div class="main container">
             <div class="row">
 
-    <div class="nine columns">
+    <div class="col-md-9">
         <main>
             <header>
                 <h1>IPv6 Migration part 1</h1>
@@ -46,9 +58,12 @@
 
             </header>
             <section id="section-1">
-                <p>The first step in my exploration of IPV6 was to get an IPV6 address via an IPV4 to IPV6 tunnel. A little research lead me to the fine folks at SixXS.</p>
+                <p>The first step in my exploration of IPV6 was to get an IPV6 address via an IPV4
+to IPV6 tunnel. A little research lead me to the fine folks at SixXS.</p>
 
-<p>My ISP does not offer IPV6 addresses at this time. Even if it did I did not want to go all the way down the rabbit hole at this time. Instead I chose the tunnel route. SixXS allows you to set a tunnel from your host to their servers. It is similar to a VPN connection. Your presence at the SixXS end of the tunnel is an IPV6 address. Their website explains in good detail how to get ready for, apply for and set up this tunnel.</p>
+            </section>
+            <section id="section-2">
+                <p>My ISP does not offer IPV6 addresses at this time. Even if it did I did not want to go all the way down the rabbit hole at this time. Instead I chose the tunnel route. SixXS allows you to set a tunnel from your host to their servers. It is similar to a VPN connection. Your presence at the SixXS end of the tunnel is an IPV6 address. Their website explains in good detail how to get ready for, apply for and set up this tunnel.</p>
 
 <p>UPDATE. I have since moved from SixXS to Hurricane Electric. See See here for more details.</p>
 
@@ -109,7 +124,7 @@ rtt min/avg/max/mdev = 41.173/41.576/42.351/0.456 ms</p>
 
     </div>
 
-    <div class="three columns sidebar">
+    <div class="col-md-3">
         
         <nav id="tags">
             <h1>Tags</h1>
@@ -162,7 +177,7 @@ rtt min/avg/max/mdev = 41.173/41.576/42.351/0.456 ms</p>
         <footer>
             
             <div class="container tagline">
-                <a href="http://preaction.github.io/Statocles">Made with Statocles</a><br>
+                <a href="http://preaction.me/statocles">Made with Statocles</a><br>
                 <a href="http://www.perl.org">Powered by Perl</a>
             </div>
         </footer>

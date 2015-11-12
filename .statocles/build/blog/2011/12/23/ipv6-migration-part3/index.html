@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link href="/theme/css/normalize.css" rel="stylesheet">
-        <link href="/theme/css/skeleton.css" rel="stylesheet">
-        <link href="/theme/css/statocles-default.css" rel="stylesheet">
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <link href="/theme/css/readability-bootstrap.min.css" rel="stylesheet">
+        <!--<link rel="stylesheet" href="/theme/css/statocles-bootstrap.css" />-->
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
         <title>IPv6 Migration part 3 - Neil H. Watson</title>
         <meta content="Statocles 0.059" name="generator">
@@ -11,15 +13,25 @@
     </head>
     <body>
         <header>
-            <nav class="navbar">
+            <nav class="navbar navbar-default navbar-static-top" role="navigation">
                 <div class="container">
-                    <a class="brand" href="/">Neil H. Watson</a>
-                    <ul>
-                        <li>
-                            <a href="/">Blog</a>
-                        </li>
-                    </ul>
-                    
+                <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button class="navbar-toggle" data-target="#top-navbar-collapse-1" data-toggle="collapse" type="button">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="/">Neil H. Watson</a>
+                    </div>
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="top-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <li><a href="/">Blog</a></li>
+                        </ul>
+                        
+                    </div>
                 </div>
             </nav>
             
@@ -27,7 +39,7 @@
         <div class="main container">
             <div class="row">
 
-    <div class="nine columns">
+    <div class="col-md-9">
         <main>
             <header>
                 <h1>IPv6 Migration part 3</h1>
@@ -48,7 +60,9 @@
             <section id="section-1">
                 <p>We continue in this series by having a quick look at a dual stack VPS host.</p>
 
-<p>Alas many providers, including my ISP, do not yet offer IPV6 addresses. Fortunately my hosting provider does. I have a multipurpose VPS with them. Before this article the VPS had one IPV4 address. Using my provider&#39;s website I requested an IPV6 address. It’s worth noting that an IPV4 address costs me €2.00 per month. An IPV6 address cost only €0.10 per month.</p>
+            </section>
+            <section id="section-2">
+                <p>Alas many providers, including my ISP, do not yet offer IPV6 addresses. Fortunately my hosting provider does. I have a multipurpose VPS with them. Before this article the VPS had one IPV4 address. Using my provider&#39;s website I requested an IPV6 address. It’s worth noting that an IPV4 address costs me €2.00 per month. An IPV6 address cost only €0.10 per month.</p>
 
 <p>After I made the request, I returned a day later expecting to have to set things up. I was surprised to see everything just worked. IPV6 address can be assigned by stateless configuration. This is built in to IPV6 beyond regular use of DHCPv6. I&#39;m not sure how my provided assigned the IP but it must have been easy and automatic.</p>
 
@@ -94,7 +108,7 @@ rtt min/avg/max/mdev = 158.861/159.709/160.406/0.718 ms</p>
 
     </div>
 
-    <div class="three columns sidebar">
+    <div class="col-md-3">
         
         <nav id="tags">
             <h1>Tags</h1>
@@ -147,7 +161,7 @@ rtt min/avg/max/mdev = 158.861/159.709/160.406/0.718 ms</p>
         <footer>
             
             <div class="container tagline">
-                <a href="http://preaction.github.io/Statocles">Made with Statocles</a><br>
+                <a href="http://preaction.me/statocles">Made with Statocles</a><br>
                 <a href="http://www.perl.org">Powered by Perl</a>
             </div>
         </footer>

@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>http://ettin/blog/tag/cron/</id>
     <title>Neil H. Watson</title>
-    <updated>2015-11-12T15:26:11Z</updated>
+    <updated>2015-11-12T17:33:27Z</updated>
     <link href="http://ettin/blog/tag/cron.atom" rel="self" />
     <link href="http://ettin/blog/tag/cron/" rel="alternate" />
     <generator version="0.059">Statocles</generator>
@@ -12,82 +12,6 @@
         <link href="http://ettin/blog/2011/09/27/cfengine-alt-crond/" rel="alternate" />
         <content type="html"><![CDATA[
             <p>Cfengine’s time based classes and promise theory make it an attractive alternative to venerable crond.</p>
-
-<p>It helps if the reader is familiar with Cfengine syntax. If not, then skip the syntax and just be aware that what is described is possible.</p>
-
-<p>Both crond and Cfengine have flexible time descriptions but, Cfengine offers more.
-Cfengine versus Crond Time criteria    Crond    Cfengine
-Clock hour  0, 1, 2 ... 23    Hr00, Hr01, Hr03 ... Hr23
-Clock minutes  0, 1, 2, .. 59    Min00, Min01, Min02 ... Min59
-Day of week    0, 1, 2 ... 7  Sunday, Monday ... Friday
-Month    1, 2, 3 .. 12  January, February ... December
-Day of month   1, 2, 3 .. 31  Day1, Day2 ... Day31
-Year  n/a   Yr1997, Yr2009
-Six hour shift    0,1,2,3,4,5    Night, Morning, Afternoon, Evening</p>
-
-<p>Let’s look at some time criteria and how both crond and Cfengine can be used to describe them.</p>
-
-<pre><code>May 9 at 0900.
-    In cron
-
-    0 9 9 6 *
-
-    In Cfengine
-
-    May.Day9.Hr09.Min00::
-
-Sundays at 0700.
-    In Cron
-
-    0 7 * * 0
-
-    In Cfengine
-
-    Sunday.Hr07.Min00::
-
-Last Saturday of the month.
-    In Cron: Possible with an external shell script.
-    In Cfengine: Complicated but possible.
-
-    January|March|May|July|August|October|December::
-    &quot;Last_Saturday&quot; and =&gt; { &quot;Saturday&quot;, classmatch(&quot;Day(2[5-9]|3[01])&quot;) };
-
-    April|June|September|November::
-    &quot;Last_Saturday&quot; and =&gt; { &quot;Saturday&quot;, classmatch(&quot;Day(2[4-9]|30)&quot;) };
-
-    February::
-    &quot;Last_Saturday&quot; and =&gt; { &quot;Saturday&quot;, classmatch(&quot;Day2[2-9]&quot;) };
-</code></pre>
-
-<p>You can also use Cfengine to account for organizational holidays. This allows for jobs to be skipped on those days. For example.</p>
-
-<p>classes:
-   &quot;Holidays&quot; or =&gt; { &quot;January.Day1&quot;, &quot;December.Day25&quot; };</p>
-
-<p>commands:</p>
-
-<p>Hr07.Min00.!Holidays::
-      &quot;/usr/bin/tar .... etc&quot;;</p>
-
-<p>Reliability.</p>
-
-<p>This is where Cfengine can outshine crond. If crond misses its time window or if the command fails crond will not retry until the time window returns. Using Cfengine, if the command fails Cfengine will not consider the promise kept. It will try again during the next run. Cfengine runs as frequently as five minute intervals. Consider this typical backup cron job.</p>
-
-<p>0 5 * * * * tar -czf /root/backup.tgz /home /etc /data</p>
-
-<p>We know that the crond job will run at exactly 0500 hours. If something goes wrong nothing will happen for another 24 hours. Now consider a Cfengine backup job.</p>
-
-<p>Hr05::
-   &quot;/usr/bin/tar -czf /root/backup.tgz /home /etc /data&quot;
-      ifelapsed =&gt; if_elapsed(&quot;60&quot;);</p>
-
-<p>The Cfengine job will attempt to execute the tar command during each of its runs during the hour 0500. If the command fails Cfengine will try again during its next run as long as it is during the 0500 hour. If the command succeeds then Cfengine will not attempt to run the tar command again for another 60 minutes. Thus Cfengine promises to successfully execute the command once during the hour 0500.
-Dependencies</p>
-
-<p>Enterprise schedulers can run jobs based on the outcome of other jobs. This works even between hosts. Try doing this with crond without custom work. Cfengine does have this ability. Cfengine Nova, the commercial edition, has something called remote classes. Without going into detail, remote classes allow a host to determine the status of a job on another host. Cfengine can use this status to set conditions and run jobs as desired.
-Conclusions</p>
-
-<p>Most shops stick to standard cron jobs. A few make the leap to enterprise schedulers. Cfengine offers a middle ground in terms of cost and offers the usual features that it is renowned for, host configuration management.</p>
 
                 <p><a href="http://ettin/blog/2011/09/27/cfengine-alt-crond/#section-2">Continue reading...</a></p>
             <p>Tags:
@@ -109,110 +33,6 @@ Conclusions</p>
             <p>Problem</p>
 
 <p>You want Cfengine to manage crontables.</p>
-
-<p>Solution</p>
-
-<p>The recipe we used edit authorized_keys can also be used for crontables.</p>
-
-<p>bundle agent recipe {</p>
-
-<p>vars:
-    &quot;root_cron_jobs&quot; slist =&gt; { 
-      &quot;45 * * * * /var/cfengine/bin/cf-execd -F&quot;,
-      &quot;17 0 * * 0 /usr/bin/apt-get update&quot;
-    };</p>
-
-<p>files:
-    &quot;/var/spool/cron/crontabs/root&quot;
-      handle =&gt; &quot;root_cron_jobs&quot;,
-      comment =&gt; &quot;Promise root cron table entries&quot;,
-      create =&gt; &quot;true&quot;,
-      perms =&gt; mog(&quot;0600&quot;,&quot;root&quot;,&quot;root&quot;),
-      edit_line =&gt; append_if_no_lines( &quot;@{recipe.root_cron_jobs}&quot; );
-}</p>
-
-<p>Now we run the agent.</p>
-
-<p>cf3     Promise handle: 
-cf3     Promise made by: 45 * * * * /vars:/cfengine/bin/cf-execd -F
-cf3 
-cf3     Comment:  Append lines to the file if they don&#39;t already exist
-cf3     .........................................................
-cf3 
-cf3  -&gt; Inserting the promised line &quot;45 * * * *
-/var/cfengine/bin/cf-execd -F&quot; into /vars:/spool/
-cf3 
-cf3     .........................................................
-cf3     Promise handle: 
-cf3     Promise made by: 17 0 * * 0 /usr/bin/apt-get update
-cf3 
-cf3     Comment:  Append lines to the file if they don&#39;t already exist
-cf3     .........................................................
-cf3 
-cf3  -&gt; Inserting the promised line &quot;17 0 * * 0 /usr/bin/apt-get update&quot;
-into /var/spool/cron/c</p>
-
-<p>Vixie cron, found in most Linux and *BSD installs will notice the changed crontab in about a minute. Older cron daemons are more problematic. AIX and Solaris will not notice the change unless specifically told to do so. We do this by triggering a command promise. First add a classes body part to the crontabs file promise. Then add a commands promise to run crontab if the files promise is repaired.</p>
-
-<p>bundle agent recipe {</p>
-
-<p>vars:
-    &quot;root_cron_jobs&quot; slist =&gt; { 
-      &quot;45 * * * * /var/cfengine/bin/cf-execd -F&quot;,
-      &quot;17 0 * * 0 /usr/bin/apt-get update&quot;
-    };</p>
-
-<p>files:
-    &quot;/var/spool/cron/crontabs/root&quot;
-      handle =&gt; &quot;root_cron_jobs&quot;,
-      comment =&gt; &quot;Promise root cron table entries&quot;,
-      create =&gt; &quot;true&quot;,
-      classes =&gt; if_repaired(&quot;root_cron_repaired&quot;),
-      perms =&gt; mog(&quot;0600&quot;,&quot;root&quot;,&quot;root&quot;),
-      edit_line =&gt; append_if_no_lines( &quot;@{recipe.root_cron_jobs}&quot; );</p>
-
-<p>commands:
-    root_cron_repaired.(aix|sunos_5_10)::
-      handle =&gt; &quot;update_cron_daemon&quot;,
-      comment =&gt; &quot;Reread cron tables if it was edited.&quot;,
-      &quot;/usr/bin/crontab /var/spool/crontabs/root&quot;;
-}</p>
-
-<p>Be aware that different versions of Linux and UNIX have cron tables in different locations. You can account for this by using a global variable. Briefly:</p>
-
-<p>bundle common g {</p>
-
-<h1>Global variables and settings</h1>
-
-<p>vars:
-    debian|ubuntu::
-      &quot;crontabs&quot; string =&gt; &quot;/var/spool/crontabs&quot;;</p>
-
-<pre><code>redhat::
-  &quot;crontabs&quot; string =&gt; &quot;/var/spool/cron&quot;,
-</code></pre>
-
-<p>This bundle is read early by Cfengine. The strings defined can be referred to from any bundle. For example</p>
-
-<p>files:
-    &quot;${g.crontabs}/root&quot;
-      handle =&gt; &quot;root_cron_jobs&quot;,
-      comment =&gt; &quot;Promise root cron table entries&quot;,
-      create =&gt; &quot;true&quot;,
-      classes =&gt; if_repaired(&quot;root_cron_repaired&quot;),
-      perms =&gt; mog(&quot;0600&quot;,&quot;root&quot;,&quot;root&quot;),
-      edit_line =&gt; append_if_no_lines( &quot;@{recipe.root_cron_jobs}&quot; );</p>
-
-<p>commands:
-    root_cron_repaired.(aix|sunos_5_10)::
-      handle =&gt; &quot;update_cron_daemon&quot;,
-      comment =&gt; &quot;Reread cron tables if it was edited.&quot;,
-      &quot;/usr/bin/crontab ${g.crontabs}/root&quot;;</p>
-
-<p>Notice how the variable is prefixed with “g”. This tells Cfengine to check the common bundle named “g” that we defined earlier.
-Gravy</p>
-
-<p>Cfengine has enough time and date hard classes that it can function as a replacement for cron. Further, remote classes allow for classes based on the promises of agents on other hosts. This allows for enterprise scheduling. There are white papers on this at cfengine.com.</p>
 
                 <p><a href="http://ettin/blog/2011/05/26/cfengine-cron/#section-2">Continue reading...</a></p>
             <p>Tags:

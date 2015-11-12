@@ -15,99 +15,6 @@
 
 <p>You want to distribute public SSH keys.</p>
 
-<p>Solution</p>
-
-<p>There are two possible methods for distributing SSH public keys. The first involves a simple copy.</p>
-
-<p>bundle agent recipe {</p>
-
-<p>files:
-   &quot;/home/neil/.ssh/authorized_keys&quot;
-     handle =&gt; &quot;neil_ssh_pub&quot;,
-     comment =&gt; &quot;Install Neil&#39;s public ssh key&quot;,
-     perms =&gt; mog(&quot;0600&quot;, &quot;neil&quot;, &quot;neil&quot;),
-     copy_from =&gt; remote_cp(&quot;/var/cf-masterfiles/sshkeys/neil-pub&quot;,&quot;venus&quot;);
-}</p>
-
-<p>This promise ensures the file is up to date, via timestamp, as well as the owner, group and mode.</p>
-
-<p>cf3     Promise handle: neil_ssh_pub
-cf3     Promise made by: /home/neil/.ssh/authorized_keys
-cf3
-cf3     Comment:  Install Neil&#39;s public ssh key
-cf3     .........................................................
-cf3
-cf3  -&gt; Handling file existence constraints on
-/home/neil/.ssh/authorized_keys
-cf3  -&gt; Owner of /home/neil/.ssh/authorized_keys was 0, setting to 1000
-cf3  -&gt; Group of /home/neil/.ssh/authorized_keys was 0, setting to 1000
-cf3  -&gt; Object /home/neil/.ssh/authorized_keys had permission 600,
-changed it to 644
-cf3  -&gt; Handling file existence constraints on
-/home/neil/.ssh/authorized_keys
-cf3  -&gt; File permissions on /home/neil/.ssh/authorized_keys as promised
-cf3  -&gt; Copy file /home/neil/.ssh/authorized_keys from
-/vars:/cf-masterfiles/sshkeys/neil-pub check
-cf3 No existing connection to 192.168.0.15 is established...
-cf3 Set cfengine port number to 5308 = 5308
-cf3  -&gt; Connect to venus = 192.168.0.15 on port 5308
-cf3  -&gt; Last saw venus (+192.168.0.15) now
-cf3 Loaded /vars:/cfengine/ppkeys/root-192.168.0.15.pub
-cf3 .....................[.h.a.i.l.].................................
-cf3 Strong authentication of server=venus connection confirmed
-cf3  -&gt; Destination file &quot;/home/neil/.ssh/authorized_keys&quot; already
-exists
-cf3  -&gt; Not attempting to preserve file permissions from the source
-cf3  -&gt; File permissions on /home/neil/.ssh/authorized_keys as promised
-cf3  -&gt; File /home/neil/.ssh/authorized_keys is an up to date copy of
-source
-cf3 Performance(Copy(venus:/vars:/cf-masterfiles/sshkeys/neil-pub &gt;
-/home/neil/.ssh/authorized_keys)): time=0.0001 secs, av=0.0005 +/-
-0.0022</p>
-
-<p>An alternative method would be to edit authorized_keys instead. This allows you to append the file without overwriting any existing information that might be required.</p>
-
-<p>bundle agent recipe {</p>
-
-<p>vars:
-    &quot;keys&quot; slist =&gt; { 
-      &quot;ssh-rsa AAAAB31yc2E...EZFcqZ0CSQ1OPw== neil@pearl.watson-wilson.ca&quot;,
-      &quot;ssh-rsa AAAAB31yc2E...NezfCQz0CSQ1OPw== neil@ruby.watson-wilson.ca&quot;
-    };</p>
-
-<p>files:
-    &quot;/home/neil/.ssh/authorized_keys&quot;
-      handle =&gt; &quot;neil_ssh_pub&quot;,
-      comment =&gt; &quot;Install Neil&#39;s public ssh keys&quot;,
-      perms =&gt; mog(&quot;0644&quot;,&quot;neil&quot;,&quot;neil&quot;),
-      edit_line =&gt; append_if_no_lines( &quot;@{recipe.keys}&quot; );
-}</p>
-
-<p>This bundle appends authorized_keys with the given key lines. Note that we pass the list to the edit_line bundle “append_if_no_lines” as “@{recipe.keys}”. Were we to pass just “@{keys}” to the body part that part would think the list is scoped locally and would be blank. By qualifying it with the bundle&#39;s name the correct list is used.</p>
-
-<p>cf3     Promise handle: 
-cf3     Promise made by: ssh-rsa
-AAAAB3NzaC1yc2EAAAABIwAAAQEA0Rg/vwLT9Hk4+wp5rVtKRgn9cHC3zHWHAW
-cf3 
-cf3     Comment:  Append lines to the file if they don&#39;t already exist
-cf3     .........................................................
-cf3 
-cf3  -&gt; Inserting the promised line &quot;ssh-rsa
-AAAAB3NzaC1yc2EAAAABIwAAAQEA0Rg/vwLT9Hk4+wp5rVtKRg
-n-wilson.ca&quot; into /home/neil/.ssh/authorized_keys after locator
-cf3 
-cf3     .........................................................
-cf3     Promise handle: 
-cf3     Promise made by: ssh-rsa
-AAAAB3NzaC1yc2EaaaabiWaaaqea0rG/VWlt9hK4+WP5RvTkrGN9Chc3Zhwhaw
-cf3 
-cf3     Comment:  Append lines to the file if they don&#39;t already exist
-cf3     .........................................................
-cf3 
-cf3  -&gt; Inserting the promised line &quot;ssh-rsa
-AAAAB3NzaC1yc2EaaaabiWaaaqea0rG/VWlt9hK4+WP5RvTkrG
--wilson.ca&quot; into /home/neil/.ssh/authorized_keys after locator</p>
-
                     <p><a href="http://ettin/blog/2011/05/26/cfengine-ssh-keys/#section-2">Continue reading...</a></p>
                 <p>Tags:
                     <a href="http://ettin/blog/tag/cfengine/">cfengine</a>
@@ -129,44 +36,6 @@ AAAAB3NzaC1yc2EaaaabiWaaaqea0rG/VWlt9hK4+WP5RvTkrG
 
 <p>You want to prevent certain processes from running.</p>
 
-<p>Solution</p>
-
-<p>In formal Cfengine parlance this promise ensures that there are zero instances of processes running that match the regular expression “snmpd”. If such processes are found a term signal is sent. If that signal is ignored a kill signal is sent.</p>
-
-<p>Be careful because “snmpd” is a regular expression. It may match more than you think. Our intent is to look for a running instance of snmpd but this would also match “vim snmpd.conf”.</p>
-
-<p>bundle agent recipe {</p>
-
-<p>processes:</p>
-
-<pre><code>&quot;snmpd&quot; signals =&gt; { &quot;term&quot;, &quot;kill&quot; },
-   handle =&gt; &quot;Banned_procs&quot;,
-   comment =&gt; &quot;Term process or kill if term fails&quot;,
-   process_count =&gt; banned; 
-</code></pre>
-
-<p>}</p>
-
-<p>body process_count banned {
-  match_range =&gt; irange(&quot;0&quot;,&quot;0&quot;);
-}</p>
-
-<p>Below we see an snmpd process before the agent is run. We see the output of the agent and then we see no snmpd process after the agent is finished.</p>
-
-<p>root@venus:/home/neil/.cfagent/inputs# ps -ef|grep snmp
-snmp     26481     1  0 09:05 ?        00:00:00 /usr/sbin/snmpd -Lsd -Lf
-/dev/null -u snmp -g snmp -I -smux -p /vars:/run/snmpd.pid 127.0.0.1</p>
-
-<p>root@venus:/home/neil/.cfagent/inputs# cf-agent -IKf ./recipe.cf 
-!! Process count for &#39;snmpd&#39; was out of promised range (1 found)
-I: Report relates to a promise with handle &quot;Banned_procs&quot;
-I: Made in version &#39;not specified&#39; of &#39;./recipe.cf&#39; near line 16
-I: Comment: Term process or kill if term fails</p>
-
-<p>-&gt; Signalled &#39;term&#39; (15) to observed process match &#39;26481&#39;</p>
-
-<p>root@venus:/home/neil/.cfagent/inputs# ps -ef|grep snmp</p>
-
                     <p><a href="http://ettin/blog/2011/05/26/cfengine-banning-process/#section-2">Continue reading...</a></p>
                 <p>Tags:
                     <a href="http://ettin/blog/tag/cfengine/">cfengine</a>
@@ -184,31 +53,9 @@ I: Comment: Term process or kill if term fails</p>
             <link>http://ettin/blog/2011/01/25/sec-autid-victory/</link>
             <guid>http://ettin/blog/2011/01/25/sec-autid-victory/</guid>
             <description><![CDATA[
-                <p>It’s vicious cycle. Resources are spent auditing hosts. Many more are spent fixing all of the audit’s deficiencies. Then it’s back to business as usual. Time passes and hosts slowly degrade until the next audit. Repeat.</p>
-
-<p>It might take an hour to plan, schedule and fix each host. That’s 100 hours for 100 hosts. Audit twice a year and you’ve spent 200 hours. What if you have a 1000 hosts? Using Cfengine you can audit your hosts and fix deficiencies automatically every day! Consider these typical policies.</p>
-
-<pre><code>Disable services that are not required.
-No world writable files.
-Limited guid and suid files.
-Tighten file permissions in selected areas.
-Harden services by applying custom configurations.
-Ensure certain applications are not installed.
-</code></pre>
-
-<p>This can be a lot of manual work. Typically I see these policies applied at build time using services like Jumpstart and Kickstart. But what happens after hosts are built? Over time hosts will diverge from the ideal state set at build time. Cfengine can manage all of these requirements automatically and continuously. As Cfengine makes corrections and reports you’ll build a log of information that the auditors will love. It will show compliance.</p>
-
-<p>Go above and beyond with more advanced policies.</p>
-
-<pre><code>Monitor any file for content changes (e.g. Tripwire).
-Monitor host performance for statistical anomalies.
-Kill unwanted processes.
-Change all local root passwords.
-Disable local accounts and ssh keys.
-Change any of these policies and all hosts are updated automatically!
-</code></pre>
-
-<p>Before you finish your next 300 page audit report defeat this cycle. Find out how you turn audits from headaches into business as usual with Cfengine.</p>
+                <p>It’s vicious cycle. Resources are spent auditing hosts. Many more are spent
+fixing all of the audit’s deficiencies. Then it’s back to business as usual.
+Time passes and hosts slowly degrade until the next audit. Repeat.</p>
 
                     <p><a href="http://ettin/blog/2011/01/25/sec-autid-victory/#section-2">Continue reading...</a></p>
                 <p>Tags:

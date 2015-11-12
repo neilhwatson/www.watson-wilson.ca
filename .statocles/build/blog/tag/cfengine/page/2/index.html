@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link href="/theme/css/normalize.css" rel="stylesheet">
-        <link href="/theme/css/skeleton.css" rel="stylesheet">
-        <link href="/theme/css/statocles-default.css" rel="stylesheet">
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <link href="/theme/css/readability-bootstrap.min.css" rel="stylesheet">
+        <!--<link rel="stylesheet" href="/theme/css/statocles-bootstrap.css" />-->
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
         <title>Neil H. Watson</title>
         <meta content="Statocles 0.059" name="generator">
@@ -13,15 +15,25 @@
     </head>
     <body>
         <header>
-            <nav class="navbar">
+            <nav class="navbar navbar-default navbar-static-top" role="navigation">
                 <div class="container">
-                    <a class="brand" href="/">Neil H. Watson</a>
-                    <ul>
-                        <li>
-                            <a href="/">Blog</a>
-                        </li>
-                    </ul>
-                    
+                <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button class="navbar-toggle" data-target="#top-navbar-collapse-1" data-toggle="collapse" type="button">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="/">Neil H. Watson</a>
+                    </div>
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="top-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <li><a href="/">Blog</a></li>
+                        </ul>
+                        
+                    </div>
                 </div>
             </nav>
             
@@ -30,7 +42,7 @@
             
 <div class="row">
 
-    <div class="nine columns">
+    <div class="col-md-9">
         <main>
 
 
@@ -56,56 +68,10 @@
 
                 <p>Problem</p>
 
-<p>You want to monitor free disk space.
-Solution</p>
-
-<p>Cfengine has storage promises that can mount file systems and monitor disk space.</p>
-
-<p>bundle agent recipe {</p>
-
-<p>storage:</p>
-
-<pre><code>&quot;/var&quot;
-  handle =&gt; &quot;var_fs_check&quot;,
-  comment =&gt; &quot;var filesystem check&quot;,
-  volume =&gt; min_free_space(&quot;13G&quot;);
-</code></pre>
-
-<p>}</p>
-
-<p>In this example we see a message printed if the /var filesystem has less than 13 gigabytes of free space.</p>
-
-<p>root@venus:/home/neil/.cfagent/inputs# cf-agent -f ./recipe.cf 
- !! Disk space under 13631488 kB for volume containing /vars: (12113604
- kB free)
- I: Made in version &#39;not specified&#39; of &#39;./recipe.cf&#39; near line 17
- I: Comment: vars: filesystem check</p>
-
-<p>Gravy</p>
-
-<p>Why stop at passive monitoring? A class can be defined when the file system is filling up. This allows for more actions.</p>
-
-<p>bundle agent recipe {</p>
-
-<pre><code>storage:
-
-    &quot;/var&quot;
-        handle =&gt; &quot;var_fs_check&quot;,
-        comment =&gt; &quot;var filesystem check&quot;,
-        classes =&gt; if_notkept(&quot;var_full&quot;),
-        volume =&gt; min_free_space(&quot;13G&quot;);
-
-reports:
-
-    var_full::
-        &quot;Report: /var has to little free space.&quot;;
-</code></pre>
-
-<p>}</p>
-
-<p>Now the class “var_full” is set. In this example we only create a report but any other action would be possible. Perhaps we can initiate a search for core files and delete them. We could delete aged files from /var/tmp. A package cache could be deleted. An alert could be sent to a central monitoring system. We could even do all of these things.</p>
+<p>You want to monitor free disk space.</p>
 
 
+                    <p><a href="/blog/2011/05/26/cfengine-storage/index.html#section-2">Continue reading Disk space monitoring using Cfengine...</a></p>
 
             </article>
             <article>
@@ -131,60 +97,8 @@ reports:
 
 <p>You want to ensure that a process is running.</p>
 
-<p>Solution</p>
 
-<p>This promise searches the process table for the regular expression “snmpd”. If this is not found the class “start_snmpd” is set. This class being set causes the command “/etc/init.d/snmpd start” command to be run.</p>
-
-<p>Beware that “snmpd” is a regular expression. It may match more than you would expect.</p>
-
-<p>bundle agent recipe {</p>
-
-<p>processes:</p>
-
-<pre><code>&quot;snmpd&quot;
-   handle =&gt; &quot;run_snmpd&quot;,
-   comment =&gt; &quot;Promise that snmpd is running&quot;,
-   restart_class =&gt; &quot;start_snmpd&quot;;
-</code></pre>
-
-<p>commands:</p>
-
-<pre><code>start_snmpd::
-  &quot;/etc/init.d/snmpd start&quot;,
-  handle =&gt; &quot;start_snmpd&quot;,
-  comment =&gt; &quot;Start snmpd when required.&quot;;
-</code></pre>
-
-<p>}</p>
-
-<p>Now the output.</p>
-
-<p>root@venus:/home/neil/.cfagent/inputs# ps -ef|grep snmpd</p>
-
-<p>root@venus:/home/neil/.cfagent/inputs# cf-agent -IKf ./recipe.cf 
--&gt; (warning) Promise snmpd kills then restarts - never strictly
-converges
-Promise (version not specified) belongs to bundle &#39;recipe&#39; in file
-&#39;./recipe.cf&#39; near line 16
-Comment: Promise that snmpd is running
--&gt; Making a one-time restart promise for snmpd
--&gt; Executing &#39;/etc/init.d/snmpd start&#39;
-...(timeout=-678,owner=-1,group=-1)
-Q: &quot;...it.d/snmpd star&quot;:  * Starting network management services:
-I: Last 1 QUOTed lines were generated by promiser &quot;/etc/init.d/snmpd
-start&quot;
--&gt; Completed execution of /etc/init.d/snmpd start</p>
-
-<p>root@venus:/home/neil/.cfagent/inputs# ps -ef|grep snmpd
-snmp     26808     1  2 09:24 ?        00:00:00 /usr/sbin/snmpd -Lsd
--Lf /dev/null -u snmp -g snmp -I -smux -p /vars:/run/snmpd.pid
-127.0.0.1</p>
-
-<p>Gravy</p>
-
-<p>Process matching can be very sophisticated if you choose. Beyond regular expression matching you can also match processes based on count range, memory usage and more. See the Cfengine reference guide for more information.</p>
-
-
+                    <p><a href="/blog/2011/05/26/cfengine-start-process/index.html#section-2">Continue reading Starting processes using Cfengine...</a></p>
 
             </article>
             <article>
@@ -211,100 +125,8 @@ snmp     26808     1  2 09:24 ?        00:00:00 /usr/sbin/snmpd -Lsd
 
 <p>You want to distribute public SSH keys.</p>
 
-<p>Solution</p>
 
-<p>There are two possible methods for distributing SSH public keys. The first involves a simple copy.</p>
-
-<p>bundle agent recipe {</p>
-
-<p>files:
-   &quot;/home/neil/.ssh/authorized_keys&quot;
-     handle =&gt; &quot;neil_ssh_pub&quot;,
-     comment =&gt; &quot;Install Neil&#39;s public ssh key&quot;,
-     perms =&gt; mog(&quot;0600&quot;, &quot;neil&quot;, &quot;neil&quot;),
-     copy_from =&gt; remote_cp(&quot;/var/cf-masterfiles/sshkeys/neil-pub&quot;,&quot;venus&quot;);
-}</p>
-
-<p>This promise ensures the file is up to date, via timestamp, as well as the owner, group and mode.</p>
-
-<p>cf3     Promise handle: neil_ssh_pub
-cf3     Promise made by: /home/neil/.ssh/authorized_keys
-cf3
-cf3     Comment:  Install Neil&#39;s public ssh key
-cf3     .........................................................
-cf3
-cf3  -&gt; Handling file existence constraints on
-/home/neil/.ssh/authorized_keys
-cf3  -&gt; Owner of /home/neil/.ssh/authorized_keys was 0, setting to 1000
-cf3  -&gt; Group of /home/neil/.ssh/authorized_keys was 0, setting to 1000
-cf3  -&gt; Object /home/neil/.ssh/authorized_keys had permission 600,
-changed it to 644
-cf3  -&gt; Handling file existence constraints on
-/home/neil/.ssh/authorized_keys
-cf3  -&gt; File permissions on /home/neil/.ssh/authorized_keys as promised
-cf3  -&gt; Copy file /home/neil/.ssh/authorized_keys from
-/vars:/cf-masterfiles/sshkeys/neil-pub check
-cf3 No existing connection to 192.168.0.15 is established...
-cf3 Set cfengine port number to 5308 = 5308
-cf3  -&gt; Connect to venus = 192.168.0.15 on port 5308
-cf3  -&gt; Last saw venus (+192.168.0.15) now
-cf3 Loaded /vars:/cfengine/ppkeys/root-192.168.0.15.pub
-cf3 .....................[.h.a.i.l.].................................
-cf3 Strong authentication of server=venus connection confirmed
-cf3  -&gt; Destination file &quot;/home/neil/.ssh/authorized_keys&quot; already
-exists
-cf3  -&gt; Not attempting to preserve file permissions from the source
-cf3  -&gt; File permissions on /home/neil/.ssh/authorized_keys as promised
-cf3  -&gt; File /home/neil/.ssh/authorized_keys is an up to date copy of
-source
-cf3 Performance(Copy(venus:/vars:/cf-masterfiles/sshkeys/neil-pub &gt;
-/home/neil/.ssh/authorized_keys)): time=0.0001 secs, av=0.0005 +/-
-0.0022</p>
-
-<p>An alternative method would be to edit authorized_keys instead. This allows you to append the file without overwriting any existing information that might be required.</p>
-
-<p>bundle agent recipe {</p>
-
-<p>vars:
-    &quot;keys&quot; slist =&gt; { 
-      &quot;ssh-rsa AAAAB31yc2E...EZFcqZ0CSQ1OPw== neil@pearl.watson-wilson.ca&quot;,
-      &quot;ssh-rsa AAAAB31yc2E...NezfCQz0CSQ1OPw== neil@ruby.watson-wilson.ca&quot;
-    };</p>
-
-<p>files:
-    &quot;/home/neil/.ssh/authorized_keys&quot;
-      handle =&gt; &quot;neil_ssh_pub&quot;,
-      comment =&gt; &quot;Install Neil&#39;s public ssh keys&quot;,
-      perms =&gt; mog(&quot;0644&quot;,&quot;neil&quot;,&quot;neil&quot;),
-      edit_line =&gt; append_if_no_lines( &quot;@{recipe.keys}&quot; );
-}</p>
-
-<p>This bundle appends authorized_keys with the given key lines. Note that we pass the list to the edit_line bundle “append_if_no_lines” as “@{recipe.keys}”. Were we to pass just “@{keys}” to the body part that part would think the list is scoped locally and would be blank. By qualifying it with the bundle&#39;s name the correct list is used.</p>
-
-<p>cf3     Promise handle: 
-cf3     Promise made by: ssh-rsa
-AAAAB3NzaC1yc2EAAAABIwAAAQEA0Rg/vwLT9Hk4+wp5rVtKRgn9cHC3zHWHAW
-cf3 
-cf3     Comment:  Append lines to the file if they don&#39;t already exist
-cf3     .........................................................
-cf3 
-cf3  -&gt; Inserting the promised line &quot;ssh-rsa
-AAAAB3NzaC1yc2EAAAABIwAAAQEA0Rg/vwLT9Hk4+wp5rVtKRg
-n-wilson.ca&quot; into /home/neil/.ssh/authorized_keys after locator
-cf3 
-cf3     .........................................................
-cf3     Promise handle: 
-cf3     Promise made by: ssh-rsa
-AAAAB3NzaC1yc2EaaaabiWaaaqea0rG/VWlt9hK4+WP5RvTkrGN9Chc3Zhwhaw
-cf3 
-cf3     Comment:  Append lines to the file if they don&#39;t already exist
-cf3     .........................................................
-cf3 
-cf3  -&gt; Inserting the promised line &quot;ssh-rsa
-AAAAB3NzaC1yc2EaaaabiWaaaqea0rG/VWlt9hK4+WP5RvTkrG
--wilson.ca&quot; into /home/neil/.ssh/authorized_keys after locator</p>
-
-
+                    <p><a href="/blog/2011/05/26/cfengine-ssh-keys/index.html#section-2">Continue reading SSH public key distribution using Cfengine...</a></p>
 
             </article>
             <article>
@@ -330,111 +152,8 @@ AAAAB3NzaC1yc2EaaaabiWaaaqea0rG/VWlt9hK4+WP5RvTkrG
 
 <p>You want Cfengine to manage crontables.</p>
 
-<p>Solution</p>
 
-<p>The recipe we used edit authorized_keys can also be used for crontables.</p>
-
-<p>bundle agent recipe {</p>
-
-<p>vars:
-    &quot;root_cron_jobs&quot; slist =&gt; { 
-      &quot;45 * * * * /var/cfengine/bin/cf-execd -F&quot;,
-      &quot;17 0 * * 0 /usr/bin/apt-get update&quot;
-    };</p>
-
-<p>files:
-    &quot;/var/spool/cron/crontabs/root&quot;
-      handle =&gt; &quot;root_cron_jobs&quot;,
-      comment =&gt; &quot;Promise root cron table entries&quot;,
-      create =&gt; &quot;true&quot;,
-      perms =&gt; mog(&quot;0600&quot;,&quot;root&quot;,&quot;root&quot;),
-      edit_line =&gt; append_if_no_lines( &quot;@{recipe.root_cron_jobs}&quot; );
-}</p>
-
-<p>Now we run the agent.</p>
-
-<p>cf3     Promise handle: 
-cf3     Promise made by: 45 * * * * /vars:/cfengine/bin/cf-execd -F
-cf3 
-cf3     Comment:  Append lines to the file if they don&#39;t already exist
-cf3     .........................................................
-cf3 
-cf3  -&gt; Inserting the promised line &quot;45 * * * *
-/var/cfengine/bin/cf-execd -F&quot; into /vars:/spool/
-cf3 
-cf3     .........................................................
-cf3     Promise handle: 
-cf3     Promise made by: 17 0 * * 0 /usr/bin/apt-get update
-cf3 
-cf3     Comment:  Append lines to the file if they don&#39;t already exist
-cf3     .........................................................
-cf3 
-cf3  -&gt; Inserting the promised line &quot;17 0 * * 0 /usr/bin/apt-get update&quot;
-into /var/spool/cron/c</p>
-
-<p>Vixie cron, found in most Linux and *BSD installs will notice the changed crontab in about a minute. Older cron daemons are more problematic. AIX and Solaris will not notice the change unless specifically told to do so. We do this by triggering a command promise. First add a classes body part to the crontabs file promise. Then add a commands promise to run crontab if the files promise is repaired.</p>
-
-<p>bundle agent recipe {</p>
-
-<p>vars:
-    &quot;root_cron_jobs&quot; slist =&gt; { 
-      &quot;45 * * * * /var/cfengine/bin/cf-execd -F&quot;,
-      &quot;17 0 * * 0 /usr/bin/apt-get update&quot;
-    };</p>
-
-<p>files:
-    &quot;/var/spool/cron/crontabs/root&quot;
-      handle =&gt; &quot;root_cron_jobs&quot;,
-      comment =&gt; &quot;Promise root cron table entries&quot;,
-      create =&gt; &quot;true&quot;,
-      classes =&gt; if_repaired(&quot;root_cron_repaired&quot;),
-      perms =&gt; mog(&quot;0600&quot;,&quot;root&quot;,&quot;root&quot;),
-      edit_line =&gt; append_if_no_lines( &quot;@{recipe.root_cron_jobs}&quot; );</p>
-
-<p>commands:
-    root_cron_repaired.(aix|sunos_5_10)::
-      handle =&gt; &quot;update_cron_daemon&quot;,
-      comment =&gt; &quot;Reread cron tables if it was edited.&quot;,
-      &quot;/usr/bin/crontab /var/spool/crontabs/root&quot;;
-}</p>
-
-<p>Be aware that different versions of Linux and UNIX have cron tables in different locations. You can account for this by using a global variable. Briefly:</p>
-
-<p>bundle common g {</p>
-
-<h1>Global variables and settings</h1>
-
-<p>vars:
-    debian|ubuntu::
-      &quot;crontabs&quot; string =&gt; &quot;/var/spool/crontabs&quot;;</p>
-
-<pre><code>redhat::
-  &quot;crontabs&quot; string =&gt; &quot;/var/spool/cron&quot;,
-</code></pre>
-
-<p>This bundle is read early by Cfengine. The strings defined can be referred to from any bundle. For example</p>
-
-<p>files:
-    &quot;${g.crontabs}/root&quot;
-      handle =&gt; &quot;root_cron_jobs&quot;,
-      comment =&gt; &quot;Promise root cron table entries&quot;,
-      create =&gt; &quot;true&quot;,
-      classes =&gt; if_repaired(&quot;root_cron_repaired&quot;),
-      perms =&gt; mog(&quot;0600&quot;,&quot;root&quot;,&quot;root&quot;),
-      edit_line =&gt; append_if_no_lines( &quot;@{recipe.root_cron_jobs}&quot; );</p>
-
-<p>commands:
-    root_cron_repaired.(aix|sunos_5_10)::
-      handle =&gt; &quot;update_cron_daemon&quot;,
-      comment =&gt; &quot;Reread cron tables if it was edited.&quot;,
-      &quot;/usr/bin/crontab ${g.crontabs}/root&quot;;</p>
-
-<p>Notice how the variable is prefixed with “g”. This tells Cfengine to check the common bundle named “g” that we defined earlier.
-Gravy</p>
-
-<p>Cfengine has enough time and date hard classes that it can function as a replacement for cron. Further, remote classes allow for classes based on the promises of agents on other hosts. This allows for enterprise scheduling. There are white papers on this at cfengine.com.</p>
-
-
+                    <p><a href="/blog/2011/05/26/cfengine-cron/index.html#section-2">Continue reading Managing crontables with Cfengine...</a></p>
 
             </article>
             <article>
@@ -461,65 +180,24 @@ Gravy</p>
 
 <p>You want to prevent certain processes from running.</p>
 
-<p>Solution</p>
 
-<p>In formal Cfengine parlance this promise ensures that there are zero instances of processes running that match the regular expression “snmpd”. If such processes are found a term signal is sent. If that signal is ignored a kill signal is sent.</p>
-
-<p>Be careful because “snmpd” is a regular expression. It may match more than you think. Our intent is to look for a running instance of snmpd but this would also match “vim snmpd.conf”.</p>
-
-<p>bundle agent recipe {</p>
-
-<p>processes:</p>
-
-<pre><code>&quot;snmpd&quot; signals =&gt; { &quot;term&quot;, &quot;kill&quot; },
-   handle =&gt; &quot;Banned_procs&quot;,
-   comment =&gt; &quot;Term process or kill if term fails&quot;,
-   process_count =&gt; banned; 
-</code></pre>
-
-<p>}</p>
-
-<p>body process_count banned {
-  match_range =&gt; irange(&quot;0&quot;,&quot;0&quot;);
-}</p>
-
-<p>Below we see an snmpd process before the agent is run. We see the output of the agent and then we see no snmpd process after the agent is finished.</p>
-
-<p>root@venus:/home/neil/.cfagent/inputs# ps -ef|grep snmp
-snmp     26481     1  0 09:05 ?        00:00:00 /usr/sbin/snmpd -Lsd -Lf
-/dev/null -u snmp -g snmp -I -smux -p /vars:/run/snmpd.pid 127.0.0.1</p>
-
-<p>root@venus:/home/neil/.cfagent/inputs# cf-agent -IKf ./recipe.cf 
-!! Process count for &#39;snmpd&#39; was out of promised range (1 found)
-I: Report relates to a promise with handle &quot;Banned_procs&quot;
-I: Made in version &#39;not specified&#39; of &#39;./recipe.cf&#39; near line 16
-I: Comment: Term process or kill if term fails</p>
-
-<p>-&gt; Signalled &#39;term&#39; (15) to observed process match &#39;26481&#39;</p>
-
-<p>root@venus:/home/neil/.cfagent/inputs# ps -ef|grep snmp</p>
-
-
+                    <p><a href="/blog/2011/05/26/cfengine-banning-process/index.html#section-2">Continue reading Banning processes using Cfengine...</a></p>
 
             </article>
         </main>
 
         <ul class="pager">
-            <li class="prev">
-                <a class="button button-primary" href="/blog/tag/cfengine/page/3" rel="next">
-                    ← Older
-                </a>
+            <li class="previous ">
+                <a href="/blog/tag/cfengine/page/3" rel="next">← Older</a>
             </li>
-            <li class="next">
-                <a class="button button-primary" href="/blog/tag/cfengine" rel="prev">
-                    Newer →
-                </a>
+            <li class="next ">
+                <a href="/blog/tag/cfengine" rel="prev">Newer →</a>
             </li>
         </ul>
 
     </div>
 
-    <div class="three columns sidebar">
+    <div class="sidebar col-md-3">
         
         <h1>Tags</h1>
         <ul class="list-inline">
@@ -584,7 +262,7 @@ I: Comment: Term process or kill if term fails</p>
         <footer>
             
             <div class="container tagline">
-                <a href="http://preaction.github.io/Statocles">Made with Statocles</a><br>
+                <a href="http://preaction.me/statocles">Made with Statocles</a><br>
                 <a href="http://www.perl.org">Powered by Perl</a>
             </div>
         </footer>

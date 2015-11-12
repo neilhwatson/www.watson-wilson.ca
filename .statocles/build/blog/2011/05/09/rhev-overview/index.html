@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link href="/theme/css/normalize.css" rel="stylesheet">
-        <link href="/theme/css/skeleton.css" rel="stylesheet">
-        <link href="/theme/css/statocles-default.css" rel="stylesheet">
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <link href="/theme/css/readability-bootstrap.min.css" rel="stylesheet">
+        <!--<link rel="stylesheet" href="/theme/css/statocles-bootstrap.css" />-->
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
         <title>A brief overview of Red Hat Enterprise Virtualization - Neil H. Watson</title>
         <meta content="Statocles 0.059" name="generator">
@@ -11,15 +13,25 @@
     </head>
     <body>
         <header>
-            <nav class="navbar">
+            <nav class="navbar navbar-default navbar-static-top" role="navigation">
                 <div class="container">
-                    <a class="brand" href="/">Neil H. Watson</a>
-                    <ul>
-                        <li>
-                            <a href="/">Blog</a>
-                        </li>
-                    </ul>
-                    
+                <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button class="navbar-toggle" data-target="#top-navbar-collapse-1" data-toggle="collapse" type="button">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="/">Neil H. Watson</a>
+                    </div>
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="top-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <li><a href="/">Blog</a></li>
+                        </ul>
+                        
+                    </div>
                 </div>
             </nav>
             
@@ -27,7 +39,7 @@
         <div class="main container">
             <div class="row">
 
-    <div class="nine columns">
+    <div class="col-md-9">
         <main>
             <header>
                 <h1>A brief overview of Red Hat Enterprise Virtualization</h1>
@@ -47,21 +59,54 @@
 
             </header>
             <section id="section-1">
-                <p>Red Hat Enterprise Virtualization is a fairly new product offering from Red Hat. Red Hat acquired RHEV when they purchased Qumranet in September 2008. Qumranet created KVM when they created a Windows desktop virtualization product . RHEV is the evolution of that product and in the hands of Red Hat it offers a virtualization solution for both desktops and servers, Linux and Windows.</p>
+                <p>Red Hat Enterprise Virtualization is a fairly new product offering from Red
+Hat. Red Hat acquired RHEV when they purchased Qumranet in September 2008.
+Qumranet created KVM when they created a Windows desktop virtualization product
+. RHEV is the evolution of that product and in the hands of Red Hat it offers a
+virtualization solution for both desktops and servers, Linux and Windows.</p>
 
-<p>The Windows roots of RHEV mean that currently the command and control manager must run on a Windows server. Red Hat is working hard to eliminate the need for Windows. They plan to create a portable all Java command and control service. This will be open source. It is important to keep these roots in mind while exploring and testing RHEV. These roots explain why things work the way they do.</p>
+            </section>
+            <section id="section-2">
+                <p>The Windows roots of RHEV mean that currently the command and control manager
+must run on a Windows server. Red Hat is working hard to eliminate the need for
+Windows. They plan to create a portable all Java command and control service.
+This will be open source. It is important to keep these roots in mind while
+exploring and testing RHEV. These roots explain why things work the way they
+do.</p>
 
-<p>At its heart RHEV is a cluster. Nodes, called hosts or hypervisors, host KVM virtual machines, called guests. A separate manager server, currently a Microsoft Windows service, acts as the command and control centre. Guests can be made highly available so that they are automatically migrated from host to host in the event of resource failure. In essence the virtual hardware is made highly available.</p>
+<p>At its heart RHEV is a cluster. Nodes, called hosts or hypervisors, host KVM
+virtual machines, called guests. A separate manager server, currently a
+Microsoft Windows service, acts as the command and control centre. Guests can
+be made highly available so that they are automatically migrated from host to
+host in the event of resource failure. In essence the virtual hardware is made
+highly available.</p>
 
-<p>The manager divides guests, hosts, clusters, storage and network resources into logical containers called data centres. This allows resources, such as separate groups of development and QA guests, to be logically separated.</p>
+<p>The manager divides guests, hosts, clusters, storage and network resources into
+logical containers called data centres. This allows resources, such as separate
+groups of development and QA guests, to be logically separated.</p>
 
-<p>As with any virtualization solution guests share the same hardware. In the case of network interfaces, bandwidth can be a bottleneck. While Linux based Ethernet bonding is available there are limits. Typically a guest connects to a network interface via a network bridge. There are incompatibilities between certain types of Ethernet bonding and network bridges. This limits the number of bonding modes available. There are hardware solutions to work around this.</p>
+<p>As with any virtualization solution guests share the same hardware. In the case
+of network interfaces, bandwidth can be a bottleneck. While Linux based
+Ethernet bonding is available there are limits. Typically a guest connects to a
+network interface via a network bridge. There are incompatibilities between
+certain types of Ethernet bonding and network bridges. This limits the number
+of bonding modes available. There are hardware solutions to work around this.</p>
 
-<p>In addition to the Windows dependency the manager itself is a single point of failure. Should it go down guests will continue to run but will not be highly available.</p>
+<p>In addition to the Windows dependency the manager itself is a single point of
+failure. Should it go down guests will continue to run but will not be highly
+available.</p>
 
-<p>Highly available guest often give a false sense of security. Such guests are safe from hardware failure but not software failure. Should a guest hosting an Apache service have Apache fail the guest will not migrate or fix itself. Software clustering is still needed. Red Hat is working on making their Cluster Suite RHEV aware so that a cluster running on guests could fence themselves using RHEV.</p>
+<p>Highly available guest often give a false sense of security. Such guests are
+safe from hardware failure but not software failure. Should a guest hosting an
+Apache service have Apache fail the guest will not migrate or fix itself.
+Software clustering is still needed. Red Hat is working on making their Cluster
+Suite RHEV aware so that a cluster running on guests could fence themselves
+using RHEV.</p>
 
-<p>During my months of testing I did uncovered some bugs. Red Hat provided me with excellent high level support and through this collaboration we were able make significant improvements in RHEV. You can learn more about RHEV at Red Hat or contact me for help on evaluation and implementation.</p>
+<p>During my months of testing I did uncovered some bugs. Red Hat provided me with
+excellent high level support and through this collaboration we were able make
+significant improvements in RHEV. You can learn more about RHEV at Red Hat or
+contact me for help on evaluation and implementation.</p>
 
             </section>
         </main>
@@ -69,7 +114,7 @@
 
     </div>
 
-    <div class="three columns sidebar">
+    <div class="col-md-3">
         
         <nav id="tags">
             <h1>Tags</h1>
@@ -122,7 +167,7 @@
         <footer>
             
             <div class="container tagline">
-                <a href="http://preaction.github.io/Statocles">Made with Statocles</a><br>
+                <a href="http://preaction.me/statocles">Made with Statocles</a><br>
                 <a href="http://www.perl.org">Powered by Perl</a>
             </div>
         </footer>

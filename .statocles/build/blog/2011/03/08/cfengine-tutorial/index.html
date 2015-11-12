@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link href="/theme/css/normalize.css" rel="stylesheet">
-        <link href="/theme/css/skeleton.css" rel="stylesheet">
-        <link href="/theme/css/statocles-default.css" rel="stylesheet">
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <link href="/theme/css/readability-bootstrap.min.css" rel="stylesheet">
+        <!--<link rel="stylesheet" href="/theme/css/statocles-bootstrap.css" />-->
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
         <title>CFEngine tutorial - Neil H. Watson</title>
         <meta content="Statocles 0.059" name="generator">
@@ -11,15 +13,25 @@
     </head>
     <body>
         <header>
-            <nav class="navbar">
+            <nav class="navbar navbar-default navbar-static-top" role="navigation">
                 <div class="container">
-                    <a class="brand" href="/">Neil H. Watson</a>
-                    <ul>
-                        <li>
-                            <a href="/">Blog</a>
-                        </li>
-                    </ul>
-                    
+                <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button class="navbar-toggle" data-target="#top-navbar-collapse-1" data-toggle="collapse" type="button">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="/">Neil H. Watson</a>
+                    </div>
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="top-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <li><a href="/">Blog</a></li>
+                        </ul>
+                        
+                    </div>
                 </div>
             </nav>
             
@@ -27,7 +39,7 @@
         <div class="main container">
             <div class="row">
 
-    <div class="nine columns">
+    <div class="col-md-9">
         <main>
             <header>
                 <h1>CFEngine tutorial</h1>
@@ -59,7 +71,9 @@ to configure multiple hosts continuously. Cfengine runs as a client/server
 application. The server provides new configurations, or policy, while the
 client works to ensure that a client host conforms to them.</p>
 
-<p>The policy is written the descriptive language of Cfengine. This language
+            </section>
+            <section id="section-2">
+                <p>The policy is written the descriptive language of Cfengine. This language
 describes what the running state of a host or hosts should be. The agent, over
 one or more iterations, makes the client conform to this policy in a convergent
 manner.</p>
@@ -888,7 +902,7 @@ a “kill” signal will be tried instead.</p>
 
     </div>
 
-    <div class="three columns sidebar">
+    <div class="col-md-3">
         
         <nav id="tags">
             <h1>Tags</h1>
@@ -941,7 +955,7 @@ a “kill” signal will be tried instead.</p>
         <footer>
             
             <div class="container tagline">
-                <a href="http://preaction.github.io/Statocles">Made with Statocles</a><br>
+                <a href="http://preaction.me/statocles">Made with Statocles</a><br>
                 <a href="http://www.perl.org">Powered by Perl</a>
             </div>
         </footer>

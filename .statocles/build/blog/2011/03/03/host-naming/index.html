@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link href="/theme/css/normalize.css" rel="stylesheet">
-        <link href="/theme/css/skeleton.css" rel="stylesheet">
-        <link href="/theme/css/statocles-default.css" rel="stylesheet">
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <link href="/theme/css/readability-bootstrap.min.css" rel="stylesheet">
+        <!--<link rel="stylesheet" href="/theme/css/statocles-bootstrap.css" />-->
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
         <title>Choosing a host naming convention - Neil H. Watson</title>
         <meta content="Statocles 0.059" name="generator">
@@ -11,15 +13,25 @@
     </head>
     <body>
         <header>
-            <nav class="navbar">
+            <nav class="navbar navbar-default navbar-static-top" role="navigation">
                 <div class="container">
-                    <a class="brand" href="/">Neil H. Watson</a>
-                    <ul>
-                        <li>
-                            <a href="/">Blog</a>
-                        </li>
-                    </ul>
-                    
+                <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button class="navbar-toggle" data-target="#top-navbar-collapse-1" data-toggle="collapse" type="button">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="/">Neil H. Watson</a>
+                    </div>
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="top-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <li><a href="/">Blog</a></li>
+                        </ul>
+                        
+                    </div>
                 </div>
             </nav>
             
@@ -27,7 +39,7 @@
         <div class="main container">
             <div class="row">
 
-    <div class="nine columns">
+    <div class="col-md-9">
         <main>
             <header>
                 <h1>Choosing a host naming convention</h1>
@@ -45,9 +57,15 @@
 
             </header>
             <section id="section-1">
-                <p>Whether realizing it or not every organization goes through the process of selecting a naming convention. Often this is done without much forward planing resulting in unwieldy host and service names. In the worst cases host names are dropped completely and either by habit or lack of a proper DNS service only ip addresses are used.</p>
+                <p>Whether realizing it or not every organization goes through the process of
+selecting a naming convention. Often this is done without much forward planing
+resulting in unwieldy host and service names. In the worst cases host names are
+dropped completely and either by habit or lack of a proper DNS service only ip
+addresses are used.</p>
 
-<p>In the following I will talk about the different types of naming conventions that I’ve experienced or read about. I’ll discuss the pros and cons of each. Before we get to that we’ll need to have a small refresher on domain name services.
+            </section>
+            <section id="section-2">
+                <p>In the following I will talk about the different types of naming conventions that I’ve experienced or read about. I’ll discuss the pros and cons of each. Before we get to that we’ll need to have a small refresher on domain name services.
 DNS review</p>
 
 <p>Domain name service is probably the most important and most overlooked of all network services. In many cases unexplained network problems can be attributed to improper or missing DNS. Some view DNS as complicated voodoo that is more trouble than it is worth.</p>
@@ -166,7 +184,7 @@ Requires a little more work to keep CNAME records in addition to A and PTR recor
 
     </div>
 
-    <div class="three columns sidebar">
+    <div class="col-md-3">
         
         <nav id="tags">
             <h1>Tags</h1>
@@ -219,7 +237,7 @@ Requires a little more work to keep CNAME records in addition to A and PTR recor
         <footer>
             
             <div class="container tagline">
-                <a href="http://preaction.github.io/Statocles">Made with Statocles</a><br>
+                <a href="http://preaction.me/statocles">Made with Statocles</a><br>
                 <a href="http://www.perl.org">Powered by Perl</a>
             </div>
         </footer>

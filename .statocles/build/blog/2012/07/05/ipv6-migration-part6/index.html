@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link href="/theme/css/normalize.css" rel="stylesheet">
-        <link href="/theme/css/skeleton.css" rel="stylesheet">
-        <link href="/theme/css/statocles-default.css" rel="stylesheet">
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <link href="/theme/css/readability-bootstrap.min.css" rel="stylesheet">
+        <!--<link rel="stylesheet" href="/theme/css/statocles-bootstrap.css" />-->
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
         <title>IPv6 Migration part 6 - Neil H. Watson</title>
         <meta content="Statocles 0.059" name="generator">
@@ -11,15 +13,25 @@
     </head>
     <body>
         <header>
-            <nav class="navbar">
+            <nav class="navbar navbar-default navbar-static-top" role="navigation">
                 <div class="container">
-                    <a class="brand" href="/">Neil H. Watson</a>
-                    <ul>
-                        <li>
-                            <a href="/">Blog</a>
-                        </li>
-                    </ul>
-                    
+                <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button class="navbar-toggle" data-target="#top-navbar-collapse-1" data-toggle="collapse" type="button">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="/">Neil H. Watson</a>
+                    </div>
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="top-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <li><a href="/">Blog</a></li>
+                        </ul>
+                        
+                    </div>
                 </div>
             </nav>
             
@@ -27,7 +39,7 @@
         <div class="main container">
             <div class="row">
 
-    <div class="nine columns">
+    <div class="col-md-9">
         <main>
             <header>
                 <h1>IPv6 Migration part 6</h1>
@@ -46,14 +58,36 @@
 
             </header>
             <section id="section-1">
-                <p>Liberation! Using IPV6, I have 18,446,744,073,709,551,616 public IP addresses. This is considered a small offering (/64). Normally, an organization would get a /48 network that contains 65536 /64 subnets.</p>
+                <p>Liberation! Using IPV6, I have 18,446,744,073,709,551,616 public IP addresses.
+This is considered a small offering (/64). Normally, an organization would get
+a /48 network that contains 65536 /64 subnets.</p>
 
-<p>Previously my local IPV6 setup was limited to just my workstation. It initiated the 6in4 tunnel to my IPV6 tunnel broker, Sixxs. Recently this tunnel malfunctioned. I think it was due to it passing through a NAT IPV4 router. I did not discover the problem but, I did move on the next stage. Now my router handles the tunnel and my workstation has a static IPV6 address from the /64 block provided by Sixxs.</p>
+            </section>
+            <section id="section-2">
+                <p>Previously my local IPV6 setup was limited to just my workstation. It initiated
+the 6in4 tunnel to my IPV6 tunnel broker, Sixxs. Recently this tunnel
+malfunctioned. I think it was due to it passing through a NAT IPV4 router. I
+did not discover the problem but, I did move on the next stage. Now my router
+handles the tunnel and my workstation has a static IPV6 address from the /64
+block provided by Sixxs.</p>
 
-<p>My router is an Alix system running Linux. Moving the tunnel from my workstation to the router was quite simple. Note, that in part 1 I was using a static tunnel. With IPV4 addresses in short supply, and poor ISP quality in Canada, I had to move to a dynamic IP address setup. Sixxs provides a daemon called Aiccu to tunnel through dynamic IPV4 setups. Debian has the Aiccu package. With simple apt-get install you are ready to configure your tunnel. The configuration file is /etc/aiccu.conf. Set a username, password, protocol, and server in the file. All of these are provided by Sixxs. The rest of the file can be left at the defaults.
-home-ipv6.png</p>
+<p>My router is an Alix system running Linux. Moving the tunnel from my
+workstation to the router was quite simple. Note, that in part 1 I was using a
+static tunnel. With IPV4 addresses in short supply, and poor ISP quality in
+Canada, I had to move to a dynamic IP address setup. Sixxs provides a daemon
+called Aiccu to tunnel through dynamic IPV4 setups. Debian has the Aiccu
+package. With simple apt-get install you are ready to configure your tunnel.
+The configuration file is /etc/aiccu.conf. Set a username, password, protocol,
+and server in the file. All of these are provided by Sixxs. The rest of the
+file can be left at the defaults.  home-ipv6.png</p>
 
-<p>My router has two interfaces. One faces the Internet and the other faces my internal network. The 6in4 tunnel provides an IPV6 address to the external interface. It is not part of the IPV6 subnet provided to me. That subnet is attached to the inside interface. In those simple steps you have your first IPV6 subnet. If you work with IPV4 then this looks familiar. At this level IPV4 and IPV6 work the same way. Don&#39;t let the IPV6 address syntax scare you. Just remember that IPV6 requires its own firewall. In Linux that is ip6tables.</p>
+<p>My router has two interfaces. One faces the Internet and the other faces my
+internal network. The 6in4 tunnel provides an IPV6 address to the external
+interface. It is not part of the IPV6 subnet provided to me. That subnet is
+attached to the inside interface. In those simple steps you have your first
+IPV6 subnet. If you work with IPV4 then this looks familiar. At this level IPV4
+and IPV6 work the same way. Don&#39;t let the IPV6 address syntax scare you. Just
+remember that IPV6 requires its own firewall. In Linux that is ip6tables.</p>
 
             </section>
         </main>
@@ -61,7 +95,7 @@ home-ipv6.png</p>
 
     </div>
 
-    <div class="three columns sidebar">
+    <div class="col-md-3">
         
         <nav id="tags">
             <h1>Tags</h1>
@@ -114,7 +148,7 @@ home-ipv6.png</p>
         <footer>
             
             <div class="container tagline">
-                <a href="http://preaction.github.io/Statocles">Made with Statocles</a><br>
+                <a href="http://preaction.me/statocles">Made with Statocles</a><br>
                 <a href="http://www.perl.org">Powered by Perl</a>
             </div>
         </footer>

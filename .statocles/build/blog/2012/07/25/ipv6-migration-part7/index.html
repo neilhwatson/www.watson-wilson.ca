@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link href="/theme/css/normalize.css" rel="stylesheet">
-        <link href="/theme/css/skeleton.css" rel="stylesheet">
-        <link href="/theme/css/statocles-default.css" rel="stylesheet">
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <link href="/theme/css/readability-bootstrap.min.css" rel="stylesheet">
+        <!--<link rel="stylesheet" href="/theme/css/statocles-bootstrap.css" />-->
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
         <title>IPv6 Migration part 7 - Neil H. Watson</title>
         <meta content="Statocles 0.059" name="generator">
@@ -11,15 +13,25 @@
     </head>
     <body>
         <header>
-            <nav class="navbar">
+            <nav class="navbar navbar-default navbar-static-top" role="navigation">
                 <div class="container">
-                    <a class="brand" href="/">Neil H. Watson</a>
-                    <ul>
-                        <li>
-                            <a href="/">Blog</a>
-                        </li>
-                    </ul>
-                    
+                <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button class="navbar-toggle" data-target="#top-navbar-collapse-1" data-toggle="collapse" type="button">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="/">Neil H. Watson</a>
+                    </div>
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="top-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <li><a href="/">Blog</a></li>
+                        </ul>
+                        
+                    </div>
                 </div>
             </nav>
             
@@ -27,7 +39,7 @@
         <div class="main container">
             <div class="row">
 
-    <div class="nine columns">
+    <div class="col-md-9">
         <main>
             <header>
                 <h1>IPv6 Migration part 7</h1>
@@ -48,17 +60,47 @@
             <section id="section-1">
                 <p>I&#39;ve broken up with SixXS. Hurricane Electric is my new girl.</p>
 
-<p>It all started when an error in my Cfengine service began restarting SixXS&#39;s tunnel daemon, aiccu, four times per hour. SixXS viewed this as improper behavior and disabled my account. The irony is that my account was disabled by a daemon and not by a human. Let me explain. I contacted SixXS support to have my account turned back on. I explained what had happened and that the problem had been fixed. I was told that I was not supposed to run aiccu under any automatic service. Aiccu is supposed to run on its own. If it breaks, a human is meant to intervene. See the irony? But really, who manages daemons manually these days? Is this the stone age? Sure enough, check out SixXS&#39;s aiccu terms of use.</p>
+            </section>
+            <section id="section-2">
+                <p>It all started when an error in my Cfengine service began restarting SixXS&#39;s
+tunnel daemon, aiccu, four times per hour. SixXS viewed this as improper
+behavior and disabled my account. The irony is that my account was disabled by
+a daemon and not by a human. Let me explain. I contacted SixXS support to have
+my account turned back on. I explained what had happened and that the problem
+had been fixed. I was told that I was not supposed to run aiccu under any
+automatic service. Aiccu is supposed to run on its own. If it breaks, a human
+is meant to intervene. See the irony? But really, who manages daemons manually
+these days? Is this the stone age? Sure enough, check out SixXS&#39;s aiccu terms
+of use.</p>
 
-<p>I tried to convince the SixXS person that automation is good. He was not swayed. Disheartened, I consulted with the nice folks of #ipv6 at Freenode. It seems many have had fights and breakups with SixXS. Eventually I did get my account back, but only after many emails and by promising to manually run and manage aiccu. My heart was broken. I knew, in the future, I would clash with SixXS again on some trivial infraction. In this relationship, is was all SixXS. I knew we had to break up.</p>
+<p>I tried to convince the SixXS person that automation is good. He was not
+swayed. Disheartened, I consulted with the nice folks of #ipv6 at Freenode. It
+seems many have had fights and breakups with SixXS. Eventually I did get my
+account back, but only after many emails and by promising to manually run and
+manage aiccu. My heart was broken. I knew, in the future, I would clash with
+SixXS again on some trivial infraction. In this relationship, is was all SixXS.
+I knew we had to break up.</p>
 
-<p>What mends a broken heart the best? Getting in a better relationship before your ex does. And along came Hurricane Electric. The folks at #ipv6 recommended HE to me. Like SixXS, HE offers free tunnels. Unlike SixXS, HE also offers paid network and hosting services. Their free tunnel service has interesting features.</p>
+<p>What mends a broken heart the best? Getting in a better relationship before
+your ex does. And along came Hurricane Electric. The folks at #ipv6 recommended
+HE to me. Like SixXS, HE offers free tunnels. Unlike SixXS, HE also offers paid
+network and hosting services. Their free tunnel service has interesting
+features.</p>
 
-<pre><code>Users can take online tests to gain IPV6 experience ranks. These ranks are fun to brag about, but they also allow HE staff to gauge your IPV6 knowledge when dealing with you.
-You can have up to 5 tunnels per account. Each tunnel has its own /64 or /48 IPV6 address block.
-Tunnels are simple IP tunnels requiring no daemon. A clever URL based API allows those with a dynamic IPV4 address to quickly change the tunnel to match a changed IPV4 address. This can be automated.
-IRC and SMTP ports are blocked by default. I was able to unblock IRC myself using HE&#39;s tunnel manager web page. I was also able to unblock SMTP after a no hassle email to HE support. I&#39;m told that this was easy for me because I took the HE online tests to reach &#39;Sage&#39; level before hand.
-</code></pre>
+<ol>
+<li>Users can take online tests to gain IPV6 experience ranks. These ranks are
+fun to brag about, but they also allow HE staff to gauge your IPV6 knowledge
+when dealing with you.</li>
+<li>You can have up to 5 tunnels per account. Each tunnel has its own /64 or /48
+IPV6 address block.</li>
+<li>Tunnels are simple IP tunnels requiring no daemon. A clever URL based API
+allows those with a dynamic IPV4 address to quickly change the tunnel to
+match a changed IPV4 address. This can be automated.</li>
+<li>IRC and SMTP ports are blocked by default. I was able to unblock IRC myself
+using HE&#39;s tunnel manager web page. I was also able to unblock SMTP after a
+no hassle email to HE support. I&#39;m told that this was easy for me because I
+took the HE online tests to reach &#39;Sage&#39; level before hand.</li>
+</ol>
 
 <p>I&#39;m happy with HE. Is has not been long, but I feel like HE might be THE ONE.</p>
 
@@ -70,7 +112,7 @@ IRC and SMTP ports are blocked by default. I was able to unblock IRC myself usin
 
     </div>
 
-    <div class="three columns sidebar">
+    <div class="col-md-3">
         
         <nav id="tags">
             <h1>Tags</h1>
@@ -123,7 +165,7 @@ IRC and SMTP ports are blocked by default. I was able to unblock IRC myself usin
         <footer>
             
             <div class="container tagline">
-                <a href="http://preaction.github.io/Statocles">Made with Statocles</a><br>
+                <a href="http://preaction.me/statocles">Made with Statocles</a><br>
                 <a href="http://www.perl.org">Powered by Perl</a>
             </div>
         </footer>
