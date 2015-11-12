@@ -3,7 +3,10 @@ title: IPv6 Migration part 8
 tags: ipv6, networking
 ---
 
-DNS for IPV6 is just like IPV4, but longer. In part 2 I discussed DNS quad A records. Now I'll explain IPV6 PTR records.
+DNS for IPV6 is just like IPV4, but longer. In part 2 I discussed DNS quad A
+records. Now I'll explain IPV6 PTR records.
+
+---
 
 In this example I'll use Bind and the subnet 2001:470:1d:a2f::/64. First load the zone file.
 

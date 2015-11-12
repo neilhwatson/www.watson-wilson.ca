@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="/theme/css/normalize.css" rel="stylesheet">
+        <link href="/theme/css/skeleton.css" rel="stylesheet">
+        <link href="/theme/css/statocles-default.css" rel="stylesheet">
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+        <title>CFEngine tutorial - Neil H. Watson</title>
+        <meta content="Statocles 0.059" name="generator">
+        
+    </head>
+    <body>
+        <header>
+            <nav class="navbar">
+                <div class="container">
+                    <a class="brand" href="/">Neil H. Watson</a>
+                    <ul>
+                        <li>
+                            <a href="/">Blog</a>
+                        </li>
+                    </ul>
+                    
+                </div>
+            </nav>
+            
+        </header>
+        <div class="main container">
+            <div class="row">
+
+    <div class="nine columns">
+        <main>
+            <header>
+                <h1>CFEngine tutorial</h1>
+                <p class="tags">Tags:
+                    <a href="/blog/tag/cfengine/" rel="tag">cfengine</a>
+                    <a href="/blog/tag/configuration-management/" rel="tag">configuration management</a>
+                </p>
+
+                <aside>
+                    <p><time datetime="2011-03-08">
+                        Posted on 2011-03-08
+                    </time>
+                    </p>
+                </aside>
+
+
+            </header>
+            <section id="section-1">
+                <ol>
+<li><p><a href="#overview">Overview</a></p></li>
+<li><p><a href="#basic">Basic example</a></p></li>
+<li><p><a href="#others">Other examples</a></p></li>
+</ol>
+
+<h2><a name="overview"></a>Overview</h2>
+
+<p>Cfengine is a configuration management tool that allows a system administrator
+to configure multiple hosts continuously. Cfengine runs as a client/server
+application. The server provides new configurations, or policy, while the
+client works to ensure that a client host conforms to them.</p>
+
+<p>The policy is written the descriptive language of Cfengine. This language
+describes what the running state of a host or hosts should be. The agent, over
+one or more iterations, makes the client conform to this policy in a convergent
+manner.</p>
+
+<p>Figure: Cfengine Cycle cfcycle.png</p>
+
+<p>As seen in the figure Cfengine agents (cf-agent) contact the policy server
+(cf-serverd) for new or changed policies or files. This is a “pull” method in
+which the client contacts the server instead of a “push” method where the
+server contacts the client. Using the “pull” method allows the client to
+operate autonomously in the absence of the server. This allows for greater
+reliability.</p>
+
+<p>The security implications often associated with pull clients can if desired by
+alleviated by the use of policy mirrors (see figure).</p>
+
+<p>Figure: Cfengine Mirror mirror.png</p>
+
+<p>Cfengine 3 consists of a number of components. As this is an introductory
+tutorial some components will not be covered here.</p>
+
+<ol>
+<li>cf-agent Active agent</li>
+<li>cf-execd Scheduler</li>
+<li>cf-graph Graph data extractor</li>
+<li>cf-know Knowledge modelling agent</li>
+<li>cf-monitord Passive monitoring agent</li>
+<li>cf-promises Promise validator</li>
+<li>cf-runagent Remote run agent</li>
+<li>cf-serverd Server that acts mostly like a file server for cf-agent.</li>
+<li>cf-report Self-knowledge extractor</li>
+</ol>
+
+<p>The daemon formally called cfenvd in previous versions of Cfengine is now
+called cf-monitord.</p>
+
+<p>Cfengine files are normally located in /var/cfengine. Cfengine will create some
+directories automatically in this location. The two important ones that must be
+created by hand are /var/cfengine/bin and /var/cfengine/inputs. The bin
+directory contains the binary components listed earlier. This location allows
+for Cfengine to be more self contained and fault tolerant. For example, the
+traditional location of /usr/local/bin is not always a local file systems
+and therefore less reliable.</p>
+
+<p>The inputs directory contains all of the configuration files that Cfengine will
+use to maintain itself and the client hosts. The majority of work with Cfengine
+will involve files located here. The mandatory files are failsafe.cf, update.cf
+and promises.cf. Other files are user defined and will be discussed later.</p>
+
+<h2><a name="basic"></a>Basic example</h2>
+
+<p>Here I’ll present a basic example of Cfengine. Functionally it will do little
+more than ensuring that Cfengine is running. What is learned from this example
+will be applicable to more practical uses.</p>
+
+<p>Cfengine can run on virtually any UNIX host. It can also run on Windows with
+the help of the Cygwin environment. One can either choose to install Cfengine
+from a distributions application repository (e.g. Debian or Freshports) or
+download the source from Cfengine.org and compile it. The source code contains
+all of the necessary instructions to compile and install Cfengine. Note that
+there are some dependencies that must be met before Cfengine can be built. The
+source code contains information on these also. An automated distribution
+install will take care of these automatically.</p>
+
+<h3>Directories and files</h3>
+
+<ol>
+<li>/var/cfengine/bin Cfengine binaries.</li>
+<li>/var/cfengine/inputs Main configuration files.</li>
+<li>/var/cfengine/ppkeys Storage for authentication keys.</li>
+<li>/var/cf-masterfiles The master files, on the server, that agents will request from the server.</li>
+<li><p>/var/cf-failsafe A backup of important Cfengine files to allow for automatic recovery.</p></li>
+<li><p>promises.cf This is the main configuration file. The agent will automatically start with this file.</p></li>
+<li>update.cf This is a simplified file whose purpose is to ensure the agent is configured properly so that it can do its job.</li>
+<li>failsafe.cf This file is run by the agent if other files are missing or contain errors. This gives the agent the ability to recover itself from failure.</li>
+<li>cf-server.cf This file configures the Cfengine server. It can be named anything but choosing this name is logical.</li>
+<li>cf-execd.cf This file will configure the Cfengine executor. Like cfserver.cf this file could be named something else.</li>
+<li>cfbackup.cf This makes a local backup of Cfengine to ensure the agent can recover from serious data loss.</li>
+<li>crontabs.cf This manages host crontables.</li>
+<li>library.cf This contains a collection of reusable code similar to a subroutine library.</li>
+</ol>
+
+<h3>Key authentication</h3>
+
+<p>Cfengine agents authenticate with a server via key exchange. The cf-key binary
+will create a public and private key pair. This is done for every server and
+client. For two hosts to authenticate each must have a copy of the other’s
+public key file. This exchange is normally done manually but Cfengine may be
+configured to do this one time only. Please refer to the reference manual for
+more information.</p>
+
+<p>The syntax of Cfengine files is relatively simple and somewhat Perl like.
+However, Cfengine tends to be more sensitive to white space.</p>
+
+<ol>
+<li>Sections are contained withing brackets.</li>
+<li>Commas separate parts of the same action.</li>
+<li>Actions are ended with a semicolon.</li>
+<li>Body part lines end with semicolons.</li>
+<li>Variables are identified by $ and usually contained in brackets to separate them from surrounding text.</li>
+<li>Most user defined information is contained within double quotations.</li>
+<li>Comments begin with # or can be included in the promise so that Cfengine will print them during a run (comment =&gt; &quot;My comment&quot;).</li>
+</ol>
+
+<p>If you follow the examples contained in this paper you’ll not have to worry
+much about syntax.</p>
+
+<p>There are three Cfengine commands you&#39;ll need to use for these examples. The
+server is started by cf-serverd. After starting it will fork to the background.
+The command cf-promises will validate a Cfengine policy. It is a good way to
+check for syntax errors. Finally cf-agent is the agent that will do the work.
+Using the -v and -n options will allow you to test and debug your policy.</p>
+
+<p>The promises.cf file is the first file that Cfengine reads.</p>
+
+<pre><code>1  #######################
+2  # promises.cf
+3  #######################
+4  
+5  body common control {
+6      bundlesequence =&gt; {
+7          &quot;update&quot;,
+8          &quot;executor&quot;,
+9          &quot;server&quot;,
+10         &quot;crontabs&quot;,
+11         &quot;cfbackup&quot; # should be last
+12      };
+13  
+14      inputs =&gt; {
+15          &quot;update.cf&quot;,
+16          &quot;library.cf&quot;,
+17          &quot;cf-serverd.cf&quot;,
+18          &quot;cf-execd.cf&quot;,
+19          &quot;crontabs.cf&quot;,
+20          &quot;cfbackup.cf&quot;
+21      };
+22  }
+23  
+24  bundle common g{
+25      vars: 
+26          &quot;masterfiles&quot; string =&gt; &quot;/var/cf-masterfiles&quot;;
+27 &quot;inputs&quot; string =&gt; &quot;${masterfiles}/config/branches/cf3/inputs&quot;;
+28              &quot;workdir&quot; string =&gt; &quot;/var/cfengine&quot;;
+29          # for HA add more policy hosts
+30          &quot;phost&quot; string =&gt; &quot;192.168.0.1&quot;;
+31  }
+32  
+33  body agent control {
+34      # Do not rely on DNS
+35      skipidentify =&gt; &quot;true&quot;;
+36  }
+</code></pre>
+
+<p>Lines 5-12 define the bundlesequence. Previously Cfengine determined actions
+via the actionsequence. In Cfengine 3 the sequence of actions is defined by
+Cfengine and is based on the previous experience of developers and users.
+Cfengine 3 now offers something called a bundle. A bundle is a list of actions
+(e.g. files, shell commands, processes) grouped for a single purpose. These
+bundles will be executed in the order defined by the bundle sequence.</p>
+
+<ol>
+<li>update Update inputs if the policy server has changes to distribute.</li>
+<li>executor: Configure cf-execd.</li>
+<li>server: Configure cf-serverd.</li>
+<li>crontabes: Configure a client host’s crontables.</li>
+<li>cfbackup: Backup Cfengine’s configuration files for automated recovery.</li>
+</ol>
+
+<p>Lines 14-21 import other configuration files. A Cfengine policy can become very
+large. Separating the policy into distinct files makes management easier. In
+this case we separate mostly into bundles with the exception of library.cf
+which hosts reusable code.</p>
+
+<p>Lines 24-31 define some global variables. We will be able to refer to these
+variable throughout our policy (e.g. ${g.masterfiles}).</p>
+
+<p>Lines 33-35 instruct Cfengine to not use DNS to attempt to authenticate clients
+and servers. This is entirely optional and depends on how reliable and
+trustworthy your DNS service is.</p>
+
+<p>The sole purpose of update.cf is to ensure that Cfengine has the latest policy
+files. Once you have this file working do not change it unless absolutely
+necessary.</p>
+
+<pre><code>1  #######################
+2  # update.cf 
+3  #######################
+4  
+5  bundle agent update {
+6  
+7      vars: 
+8      
+9    &quot;masterfiles&quot; string =&gt; &quot;/var/cf-masterfiles&quot;;
+10    &quot;inputs&quot; string =&gt; &quot;${masterfiles}/config/branches/cf3/inputs&quot;;
+11  # for HA add more policy hosts
+12          &quot;phost&quot; string =&gt; &quot;192.168.0.1&quot;;
+13  
+14      files:
+15  
+16      # Fix directories
+17          &quot;/var/cfengine/.&quot;
+18              create =&gt; &quot;true&quot;,
+19              perms =&gt; usystem(&quot;0700&quot;);
+20  
+21          &quot;/var/cfengine/bin/.&quot;
+22              create =&gt; &quot;true&quot;,
+23              perms =&gt; usystem(&quot;0700&quot;);
+24  
+25          &quot;/var/cfengine/ppkeys/.&quot;
+26              perms =&gt; usystem(&quot;0700&quot;);
+27  
+28      # Copy inputs
+29          &quot;/var/cfengine/inputs&quot;
+30              perms =&gt; usystem(&quot;0600&quot;),
+31              copy_from =&gt; umycopy(&quot;${inputs}&quot;),
+32              depth_search =&gt; urecurse(&quot;inf&quot;);
+33  
+34      # Copy binaries
+35          &quot;/var/cfengine/bin/cf-failsafe.sh&quot;
+36              perms =&gt; usystem(&quot;0700&quot;),
+37              copy_from =&gt; 
+38  umycopy(&quot;$(masterfiles)/config/branches/cf3/bin/cf-failsafe.sh&quot;);
+39   
+40          debian_5.64_bit::
+41              &quot;/var/cfengine/bin&quot;
+42              perms =&gt; usystem(&quot;0700&quot;),
+43              copy_from =&gt; 
+44  umycopy(&quot;$(masterfiles)/config/branches/cf3/bin/debian-5-64&quot;),
+45              depth_search =&gt; urecurse(&quot;1&quot;);
+46  }
+47  
+48  body depth_search urecurse(d) {
+49      depth =&gt; &quot;${d}&quot;;
+50      exclude_dirs =&gt; { &quot;\.svn&quot; };
+51  }
+52  
+53  body perms usystem(p) {
+54      mode =&gt; &quot;${p}&quot;;
+55      owners =&gt; { &quot;root&quot; };
+56      groups =&gt; { &quot;root&quot; };
+57  }
+58  
+59  body copy_from umycopy(from) {
+60      source =&gt; &quot;${from}&quot;;
+61      servers =&gt; { &quot;${phost}&quot; };
+62      compare =&gt; &quot;digest&quot;;
+63      verify =&gt; &quot;true&quot;;
+64  #    purge =&gt; &quot;true&quot;;
+65  }
+</code></pre>
+
+<p>The following will jump around a little in an attempt to give the reader the
+entire picture.</p>
+
+<p>Line 5 begins the bundle, for the agent, called “update”.</p>
+
+<p>Lines 7-12 define some local variables. Recall that we define similar variables
+globally in promises.cf. The purpose of update.cf is to keep the configuration
+functional and up to date even if other files are missing or damaged. Thus this
+file is designed to be self contained. It is also run first in the bundle
+sequence so that policies can be updated or repaired before they are in turn
+run.</p>
+
+<p>Line 14 begins the files action. Files actions can involve creation, setting
+permissions, copying, deleting or even editing.</p>
+
+<p>Lines 17-19 ensure that the permissions of /var/cfengine are set to mode 0700.
+Line 18 will actually create the directory if it is missing. Line 19 calls a
+“body part”. Body parts a somewhat like functions or subroutines. In this
+instance the string 0700 it past to the part usystem which is defined on lines
+54 to 58.</p>
+
+<p>Line 53 identifies the body part as being used for permissions (perms), names
+it (usystem) and defines what variable will receive the passed data (p).</p>
+
+<p>Line 54 sets the mode using the variable “p” which was passed from above.</p>
+
+<p>Lines 55-56 set the user and group ownerships.</p>
+
+<p>Line 57 ends the body part.</p>
+
+<p>Lines 21-26 define the directories /var/cfengine/bin and /var/cfengine/ppkeys
+in the same way as /var/cfengine was defined.</p>
+
+<p>Lines 29-32 define the contents of /var/cfengine/inputs.</p>
+
+<p>Line 30 sets the permissions using the “usystem” body part. Note that Cfengine
+will automatically add the executable bit to directories.</p>
+
+<p>Line 31 sets the copy source and calls the body part “umycopy” and passes the
+variable “inputs” to it. The variable inputs was defined on line 10. It tells
+Cfengine the location of the source files that are to be copied to
+/var/cfengine inputs.</p>
+
+<p>Lines 59-65 define the copy_from body part named “umycopy”.</p>
+
+<p>Line 59 identifies the body part, its type (copy_from), its name (umycopy) and
+what variable to store its passed data in (from).</p>
+
+<p>Line 60 defines the copy source with the contents of the “from” variable.</p>
+
+<p>Line 61 defines the source server from the “phost” variable.</p>
+
+<p>Line 62 instructs Cfengine determine if a file needs updating from the source
+by comparing the MD5 hash of each.</p>
+
+<p>Line 63 instructs Cfengine to verify the copied file with the source before
+committing the copy.</p>
+
+<p>Line 64 instructs the agent to delete any files at the destination that are not
+at the source. In effect this removes old files.</p>
+
+<p>Line 32 sets the depth of the recursive copy and calls the body part “urecurse”
+and passes the string “inf” to it.</p>
+
+<p>Lines 48-51 define the “urecurse” body part.</p>
+
+<p>Line 48 identifies the body part, its type (depth_search), its name (urecurse)
+and the variable that will take the data passed to it (d).</p>
+
+<p>Line 49 define the depth of the directories to compare. From line 32 this is
+set to infinite. It could be set to something else which allows for control
+similar to the UNIX “find” command.</p>
+
+<p>Line 50 instructs the search to exclude any paths containing the string “.svn”.
+That string is a regular expression so the period must be escaped for it to be
+taken literally. This line is used because our master files, the source of this
+copy, are found in a Subversion working copy. The .svn directories found in
+Subversion working copies do not need to be copied.</p>
+
+<p>Line 51 ends the “urecurse” body part.</p>
+
+<p>Line 35 defines another copy but this time only a single file: cf-failsafe.sh.</p>
+
+<p>Line 40 defines a class of host. Until now we have not defined any classes.
+Thus any agent would run the actions defined. In this case we define a class of
+“debian_5.64_bit” to instruct the agent to run the following actions only on
+Debian 5 hosts that are 64 bit. When the agent runs it will determine many hard
+classes including the UNIX distribution automatically.</p>
+
+<p>Line 45 defines the depth of the search body part as 1 in this case because we
+only wish to copy that single file.</p>
+
+<p>Cfengine defaults to failsafe.cf if other regular files such as promises.cf
+have errors. There are many ways that one might be creative with this file.</p>
+
+<pre><code>1  #######################
+2  # failsafe.cf 
+3  #######################
+4  
+5  body common control { 
+6      bundlesequence =&gt; { &quot;update&quot; }; 
+7      inputs =&gt; { &quot;update.cf&quot; }; 
+8  }
+</code></pre>
+
+<p>This file simple tells Cfengine to run the update.cf file.</p>
+
+<p>When we discussed update.cf we showed several body parts that acted similarly
+to fuctions or subroutines. Since update.cf is meant to be self contained
+specialized body parts were included in that file. Normally it is efficient to
+reuse the same body parts as much as possible throughout the the Cfengine
+policy. This library.cf file contains a collection of resuable parts. The
+makers of Cfengine now offer a large library of body parts ready for use. This
+is called the Community Open Promise Body Library. It can be a realy time
+saver.</p>
+
+<pre><code>1  # Library of commond code
+2  
+3  body depth_search recurse(d) {
+4      depth =&gt; &quot;${d}&quot;;
+5  # exclude .svn revision control files
+6      exclude_dirs =&gt; { &quot;\.svn&quot; };
+7  }
+8  
+9  body perms system(p,u,g) {
+10      mode =&gt; &quot;${p}&quot;;
+11      owners =&gt; { &quot;${u}&quot; };
+12      groups =&gt; { &quot;${g}&quot; };
+13  }
+14  
+15  body copy_from mycopy(from,server) {
+16      source =&gt; &quot;${from}&quot;;
+17      servers =&gt; { &quot;${server}&quot; };
+18      compare =&gt; &quot;digest&quot;;
+19  }
+</code></pre>
+
+<p>Lines 3-7 define the recursive search body part. It is defined similarly to the
+part in update.cf. Only the name is different. Note the comment in line 5.</p>
+
+<p>Lines 9-13 define the body part that sets file permissions. Unlike the part in
+update.cf this part takes three arguments: the mode, owner and group.</p>
+
+<p>Lines 15-19 define the part that sources where files are copied from. Here we
+pass the source path and the server. Note that on line 17 the server is defined
+more like an array. This allows for the use of redundant servers. Line 18
+defines that copies are compared using MD5 hashes.</p>
+
+<p>The file cf-serverd configures the cf-serverd process.</p>
+
+<pre><code>1  body server control {
+2  # Do not use DNS
+3      skipverify =&gt; { &quot;192.168.0.*&quot; };
+4      allowconnects =&gt; { &quot;192.168.0.0/24&quot; };
+5      allowallconnects =&gt; { &quot;192.168.0.0/24&quot; };
+6      maxconnections =&gt; &quot;5&quot;;
+7      logallconnections =&gt; &quot;true&quot;;
+8      trustkeysfrom =&gt; { &quot;192.168.0.1&quot; };
+9      bindtointerface =&gt; &quot;192.168.0.1&quot;;
+10  
+11      cfruncommand =&gt;
+12              &quot;${g.workdir}/bin/cf-agent&quot;; 
+13      allowusers =&gt; { &quot;root&quot; };
+14  
+15  }
+16  
+17  # ensure server is running.
+18  bundle agent server {
+19      processes:
+20  
+21          &quot;cf-serverd&quot;
+22              restart_class =&gt; &quot;start_cfserverd&quot;;
+23  
+24      commands:
+25  
+26          start_cfserverd::
+27              &quot;${g.workdir}/bin/cf-serverd&quot;;
+28  }
+29  
+30  
+31  bundle server access_rules {
+32      access:
+33          &quot;${g.masterfiles}&quot;
+34              admit =&gt; { &quot;192\.168\.0\..*&quot; };
+35  
+36          # All policy hosts to &#39;push&#39;.
+37          &quot;${g.workdir}/bin/cf-agent&quot;
+38              admit =&gt; { &quot;${g.phost}&quot; };
+39  }
+40  
+41  body runagent control {
+42      hosts =&gt; {
+43          &quot;192.168.0.1&quot;
+44      };
+45  }
+</code></pre>
+
+<p>Line 1 begins the control body for the server. Control is for defining required
+settings.</p>
+
+<p>Line 3 instructs the server to not attempt to verify the given IP range via DNS
+lookups. If you have a very good DNS service you may not want to define this.</p>
+
+<p>Line 4 defines a network from which the server will answer connections.</p>
+
+<p>Line 5 defines the maximum connections the server will allow at one time.</p>
+
+<p>Line 6 defines the maximum number of connections allowed from each node.</p>
+
+<p>Line 7 tells the server to log all connections. This is very useful for
+auditing and troubleshooting.</p>
+
+<p>Line 8 tells the server to trust the key given to it from the stated IP
+address. I only include this as it was needed for my lab setup. In production
+it may be better to not state this and exchange all keys by hand.</p>
+
+<p>Line 9 binds the server to a particular network interface. Unless your host has
+multiple IP addresses you’ll not need this.</p>
+
+<p>Lines 11-12 define the command that will be run when the run agent
+(cf-runagent) contacts the server. The run agent allow push like actions. When
+run on the policy host the run agent will contact the server process on each
+client and instruct it to run the agent now to pull updates from the policy
+server.</p>
+
+<p>Line 13 allows the root user to be able to use the run agent.</p>
+
+<p>Line 18 begins a bundle meant for the cf-agent.</p>
+
+<p>Line 19 begins a processes action.</p>
+
+<p>Line 21 tells the agent to search the processes table (e.g. ps -aux) for the
+string “cf-serverd”.</p>
+
+<p>Line 22 states that if the string from line 21 is not found then define the
+class “start_cfserverd”.</p>
+
+<p>Line 24 begins a commands action.</p>
+
+<p>Line 26 calls the class “start_cfserverd” meaning that only agents with that
+class may issue the next command.</p>
+
+<p>Line 27 defines the command to be run should the agent belong to the class in
+line 20.</p>
+
+<p>Lines 19-27 simply stated, tell the agent to start the cf-serverd process if it
+is not already running.</p>
+
+<p>Line 31 begins a server bundle called access_rules. This allows for a more fine
+grained control of what the agent may ask for from the server.</p>
+
+<p>Line 31 begins an access action.</p>
+
+<p>Line 33 lists a path on the server that the agent may access.</p>
+
+<p>Line 34 defines the IP address, in a regular expression, that the agent must
+have in order to access the path defined in line 27.</p>
+
+<p>Line 37 lists a path to the agent binary.</p>
+
+<p>Line 38 allows the policy host(s) to access this binary. This allows the run
+agent on the policy server to invoke the agent on the clients for the pseudo
+push.  cf-execd.cf</p>
+
+<p>Recall that the executor, cf-execd, is a process that sits in the back ground
+and starts cf-agent at defined intervals.</p>
+
+<pre><code>1  #######################
+2  # cf-execd.cf
+3  #######################
+4  
+5  body executor control {
+6      splaytime =&gt; &quot;1&quot;;
+7      mailto =&gt; &quot;root@example.com&quot;;
+8      smtpserver =&gt; &quot;192.168.0.1&quot;;
+9      mailmaxlines =&gt; &quot;100&quot;;
+10      schedule =&gt; { &quot;Min15_20&quot;, &quot;Min45_50&quot; };
+11      executorfacility =&gt; &quot;LOG_DAEMON&quot;;
+12  }
+13  
+14  bundle agent executor {
+15  
+16      processes:
+17  
+18          &quot;cf-execd&quot;
+19              restart_class =&gt; &quot;start_cfexecd&quot;;
+20  
+21      commands:
+22  
+23          start_cfexecd::
+24              &quot;${g.workdir}/bin/cf-execd&quot;;
+25  
+26  }
+27  
+28  # cf-execd is also added to the root 
+29  # cron table in the cron inputs section.
+</code></pre>
+
+<p>Line 5 begins the control body for the executor.</p>
+
+<p>Line 6 defines a random wait time (about 1 minute) that each executor will wait
+when it”s schedule time is before it starts cf-agent. This it to prevent all
+agents from connecting to the server at exactly the same time. If you have a
+deployment of 1000 hosts this is a good thing.</p>
+
+<p>Line 7 defines the address that any reports should be mailed to.</p>
+
+<p>Line 8 defines the SMTP server that the mail from line 7 should be sent to.</p>
+
+<p>Line 9 defines the maximum size of the email. DDOSing a mail server is never a
+good thing.</p>
+
+<p>Line 10 defines when the executor should start cf-agent. In this case twice per
+hour during the alloted window. Note that exact timing is not a goal of
+Cfengine. It is meant to work gradually.</p>
+
+<p>Line 11 defines the syslog facility for the executor.</p>
+
+<p>Line 14 begins a bundle that cf-agent will use to ensure that executor is
+working properly. This is similar to the agent server bundle in cf-serverd.cf.</p>
+
+<p>Lines 16-19 tell the agent to look for the process “cf-execd” and define a
+restart class if it fails.</p>
+
+<p>Lines 21-24 tell the agent to start the executor, cf-execd, if lines 16-19 did
+not find an already running process.  crontabs.cf</p>
+
+<p>This file configures cron tables for hosts.</p>
+
+<pre><code>1  #######################
+2  # crontabs.cf 
+3  #######################
+4  # IMPORTANT
+5  # Please test crontabs before deploying them.
+6  
+7  bundle agent crontabs {
+8   vars:
+9      &quot;crontabs&quot; string =&gt; &quot;/var/spool/cron/crontabs&quot;;
+10  
+11   files:
+12      &quot;${crontabs}/root&quot;
+13          perms =&gt; system(&quot;0600&quot;,&quot;root&quot;,&quot;root&quot;),
+14          copy_from =&gt; 
+15 mycopy(&quot;${g.masterfiles}/config/branches/cf3/crontabs/ettin/root&quot;,&quot;${g.phost}&quot;);
+16  }
+</code></pre>
+
+<p>Line 7 begins an agent bundle called crontabs.</p>
+
+<p>Lines 8-9 define the variable “crontabs”.</p>
+
+<p>Line 11 begins a files action.</p>
+
+<p>Line 12 defines the target file.</p>
+
+<p>Line 13 calls the “system” body part found in library.cf to set the file”s
+ownership and permissions.</p>
+
+<p>Lines 14-15 call the “mycopy” body part found in library.cf passing the source
+file location and the source server. Notice the use of the global variables
+that were defined in promises.cf.</p>
+
+<p>The file cfbackup.cf file instructs Cfengine to make a failsafe backup of
+itself. Thus even if Cfengine becomes damaged there is still hope of automatic
+recovery.</p>
+
+<pre><code>1  bundle agent cfbackup {
+2  
+3      vars:
+4  
+5          &quot;failsafe&quot; string =&gt; &quot;/var/cf-failsafe&quot;;
+6  
+7      files:
+8  
+9      &quot;${failsafe}/bin/cf-agent&quot;
+10          perms =&gt; system(&quot;0700&quot;,&quot;root&quot;,&quot;root&quot;),
+11 copy_from =&gt; mycopy(&quot;${g.workdir}/bin/cf-agent&quot;, &quot;localhost&quot;);
+12  
+13      &quot;${failsafe}/bin/cf-failsafe.sh&quot;
+14          perms =&gt; system(&quot;0700&quot;,&quot;root&quot;,&quot;root&quot;),
+15 copy_from =&gt; mycopy(&quot;${g.workdir}/bin/cf-failsafe.sh&quot;, &quot;localhost&quot;);
+16  
+17      &quot;${failsafe}/ppkeys&quot;
+18          perms =&gt; system(&quot;0600&quot;,&quot;root&quot;,&quot;root&quot;),
+19 copy_from =&gt; mycopy(&quot;${g.workdir}/ppkeys&quot;, &quot;localhost&quot;),
+20          depth_search =&gt; recurse(&quot;inf&quot;);
+21  
+22      &quot;${failsafe}/inputs/failsafe.cf&quot;
+23          perms =&gt; system(&quot;0600&quot;,&quot;root&quot;,&quot;root&quot;),
+24 copy_from =&gt; mycopy(&quot;${g.workdir}/inputs/failsafe.cf&quot;, &quot;localhost&quot;);
+25  
+26      &quot;${failsafe}/inputs/update.cf&quot;
+27          perms =&gt; system(&quot;0700&quot;,&quot;root&quot;,&quot;root&quot;),
+28 copy_from =&gt; mycopy(&quot;${g.workdir}/inputs/update.cf&quot;, &quot;localhost&quot;);
+29  
+30  }
+</code></pre>
+
+<p>Line 1 begins a agent bundle called cfbackup.</p>
+
+<p>Lines 3-6 define two variables.</p>
+
+<p>Line 8 begins a files action.</p>
+
+<p>Line 10-29 should look familiar by now. They instruct Cfengine to copy files.
+There is one noticeable difference. The mycopy call passes the server
+“localhost&amp;rdqduo and not the central policy server as we”ve seen in the past.
+The purpose of this is to have the local client backup its own files locally.
+Thus if the /var/cfengine directory is damaged it will be possible to recover
+the files from an alternate local location without needing the remote server.</p>
+
+<p>This shell script cf-failsafe.sh is not run by Cfengine but is called by the
+host, via cron, in the event that cf-agent fails to run.</p>
+
+<pre><code>1  #!/bin/sh
+2  
+3  # This file recovers cf from a very damaged state 
+4 
+5  
+6  mkdir /var/cfengine
+7  cp -pr /var/cf-failsafe/* /var/cfengine
+8  /var/cfengine/bin/cf-agent &amp;&amp; /var/cfengine/bin/cf-agent
+9
+</code></pre>
+
+<p>As you can see this is a simple backup script. Recall that in update.cf we
+copied selective files from /var/cfengine to /var/cf-failsafe as a backup. This
+script will be run if cf-agent cannot. In such cases the script will use the
+contents of the /var/cf-failsafe directory to rebuild /var/cfengine (lines 6-7)
+and then run the agent twice to finish the repairs (line 8).</p>
+
+<p>Recall that in the cf-execd.cf file we instructed the agent to ensure that
+cf-execd was running. Then in crontabs-cf we loaded a crontab file. One of the
+entries in that crontab looks like this.</p>
+
+<pre><code>15 4,16 * * * /var/cfengine/bin/cf-agent|| /var/cf-failsafe/bin/cf-failsafe.sh
+</code></pre>
+
+<p>At 0415 and 1614 each day cf-agent will be started. If that fails then the
+failsafe script will be run instead. This is one of the many strategies one can
+use to ensure that Cfengine will continue to run even the face of difficulty.</p>
+
+<h2><a name="other"></a>Other examples</h2>
+
+<p>Now that you’ve seen a basic example, lets look at some further ones to
+illustrate how Cfengine might be used in production.</p>
+
+<h3>Editing files</h3>
+
+<p>In this example we’ll edit the NTP time server’s ntp.conf file. We’ll add our
+own servers to the file allowing for us to define our NTP service across the
+entire organization. This policy will append three “server” entries to the end
+of the file “/etc/ntp.conf”.</p>
+
+<pre><code>1  bundle agent ntp {
+2  
+3    vars:
+4        &quot;ntp1&quot; string =&gt; &quot;tick.example.com&quot;;
+5        &quot;ntp2&quot; string =&gt; &quot;tock.example.com&quot;;
+6        &quot;ntp3&quot; string =&gt; &quot;ding.example.com&quot;;
+7 
+8    classes:
+9        &quot;ntp_servers&quot; or =&gt; { &quot;${ntp1}&quot;, &quot;${ntp2}&quot;, &quot;${ntp3}&quot; };
+10
+11    files:
+12        !ntp_servers::
+13            &quot;/etc/ntp.conf&quot;
+14                edit_line =&gt; 
+15 AppendIfNoLine(&quot;server ${ntp1}&quot;, &quot;server ${ntp2}&quot;, &quot;server ${ntp3}&quot;);
+16  }
+17  
+18  bundle edit_line AppendIfNoLine(a,b,c){
+19    insert_lines:
+20        &quot;${a}&quot; location =&gt; &quot;append&quot;;
+21        &quot;${b}&quot; location =&gt; &quot;append&quot;;
+22        &quot;${c}&quot; location =&gt; &quot;append&quot;;
+23  }
+24  
+25  body location append {
+26    before_after =&gt; &quot;after&quot;;
+27  }
+</code></pre>
+
+<p>Line 1 begins an agent bundle called “ntp”.</p>
+
+<p>Lines 3-6 define 3 variables each containing the FQDN of our NTP servers.</p>
+
+<p>Lines 8-9 use our variables to define a class “ntp_servers” and makes our three
+NTP server members.</p>
+
+<p>Line 11 begins a files action.</p>
+
+<p>Line 12 states that the following actions will be applied to hosts that do not
+belong to the class “ntp_servers”. Presumably this will match all possible NTP
+clients.</p>
+
+<p>Line 13 identifies a target file of /etc/ntp.conf.</p>
+
+<p>Lines 14-15 call the “AppendIfNoLine” bundle passing three strings that each
+contain the word “server”, a space and the name of our three NTP servers.</p>
+
+<p>Line 18 begins an “edit_line” bundle called “AppendIfNoline” The “a,b,c” part
+defines three local variables that will take the arguments that were passed on
+lines 14 and 15.</p>
+
+<p>Lines 19-22 denote our strings, a location body part and its name: “append”.
+This translates roughly to use the defined string at the current location in
+the file for the “append” body part.</p>
+
+<p>Line 25 define the location body part called “append”.</p>
+
+<p>Line 26 tells Cfengine to insert our string after the current location which in
+this case is the end of the file.</p>
+
+<p>That did seem quite complicated for a seemingly simple action. It is a lot but
+keep in mind that Cfengine is capable of far more complex edits. In such cases
+this modular approach will help greatly.</p>
+
+<h3>Disabling files</h3>
+
+<p>This example shows how someone might disable an unwanted file. Disabling a file
+simple involves renaming it and perhaps altering the permissions.</p>
+
+<pre><code>1  bundle agent disableftp {
+2      files:
+3          &quot;/etc/vsftpd/vsftpd.conf&quot;
+4              rename =&gt; disable;
+5  }
+6  
+7  body rename disable{
+8      disable =&gt; &quot;true&quot;;
+9      disable_suffix =&gt; &quot;.cfdisabled&quot;;
+10      disable_mode =&gt; &quot;0600&quot;;
+11  }
+</code></pre>
+
+<p>Line 1 defines an agent bundle called “disableftp”.</p>
+
+<p>Line 2 begins a files action.</p>
+
+<p>Line 3 identifies our target file, an ftp daemon configuration file.</p>
+
+<p>Line 4 calls a rename body part called “disable”.</p>
+
+<p>Line 7 begins the body part called “disable”.</p>
+
+<p>Line 8 tells Cfengine to disable the defined file. Other actions are possible
+such as warn.</p>
+
+<p>Line 9 defines the suffix to be added to the renamed file.</p>
+
+<p>Line 10 defines the mode of the renamed file.</p>
+
+<h3>Disabling processes</h3>
+
+<p>Suppose you want to forbid a process from running on a particular server.</p>
+
+<pre><code>1 processes:
+2      secure_hosts::
+3          &quot;stunnel&quot;   signals =&gt; { &quot;term&quot;, &quot;kill&quot; };
+</code></pre>
+
+<p>Line 1 identifies the processes action.</p>
+
+<p>Line 2 identifies that the next action is for members of the “secure_hosts” class.</p>
+
+<p>Line 3 tells the agent to check for a running process that matches the regular
+expression “stunnel”. If any are found a “term” signal is sent that will
+hopefully end the unwanted processes. If the “term” signal is unsuccessful then
+a “kill” signal will be tried instead.</p>
+
+            </section>
+        </main>
+
+
+    </div>
+
+    <div class="three columns sidebar">
+        
+        <nav id="tags">
+            <h1>Tags</h1>
+            <ul class="list-inline">
+                <li><a href="/blog/tag/apt/">apt</a></li>
+                <li><a href="/blog/tag/backup/">backup</a></li>
+                <li><a href="/blog/tag/cfengine/">cfengine</a></li>
+                <li><a href="/blog/tag/cfengine-cookbook/">cfengine cookbook</a></li>
+                <li><a href="/blog/tag/cheatsheet/">cheatsheet</a></li>
+                <li><a href="/blog/tag/cli/">cli</a></li>
+                <li><a href="/blog/tag/cluster/">cluster</a></li>
+                <li><a href="/blog/tag/configuration-management/">configuration management</a></li>
+                <li><a href="/blog/tag/cron/">cron</a></li>
+                <li><a href="/blog/tag/debian/">debian</a></li>
+                <li><a href="/blog/tag/dns/">dns</a></li>
+                <li><a href="/blog/tag/dr/">dr</a></li>
+                <li><a href="/blog/tag/heartbeat/">heartbeat</a></li>
+                <li><a href="/blog/tag/high-availability/">high availability</a></li>
+                <li><a href="/blog/tag/infosec/">infosec</a></li>
+                <li><a href="/blog/tag/ipv6/">ipv6</a></li>
+                <li><a href="/blog/tag/iscsi/">iscsi</a></li>
+                <li><a href="/blog/tag/kvm/">kvm</a></li>
+                <li><a href="/blog/tag/linux/">linux</a></li>
+                <li><a href="/blog/tag/monitoring/">monitoring</a></li>
+                <li><a href="/blog/tag/multipathd/">multipathd</a></li>
+                <li><a href="/blog/tag/networking/">networking</a></li>
+                <li><a href="/blog/tag/opensource/">opensource</a></li>
+                <li><a href="/blog/tag/oracle/">oracle</a></li>
+                <li><a href="/blog/tag/posix/">posix</a></li>
+                <li><a href="/blog/tag/red-hat/">red hat</a></li>
+                <li><a href="/blog/tag/regex/">regex</a></li>
+                <li><a href="/blog/tag/rhev/">rhev</a></li>
+                <li><a href="/blog/tag/san/">san</a></li>
+                <li><a href="/blog/tag/shell/">shell</a></li>
+                <li><a href="/blog/tag/solaris/">solaris</a></li>
+                <li><a href="/blog/tag/ssh/">ssh</a></li>
+                <li><a href="/blog/tag/subversion/">subversion</a></li>
+                <li><a href="/blog/tag/sun/">sun</a></li>
+                <li><a href="/blog/tag/support/">support</a></li>
+                <li><a href="/blog/tag/svn/">svn</a></li>
+                <li><a href="/blog/tag/sysadmin/">sysadmin</a></li>
+                <li><a href="/blog/tag/vitualization/">vitualization</a></li>
+            </ul>
+        </nav>
+    </div>
+
+</div>
+
+        </div>
+        <footer>
+            
+            <div class="container tagline">
+                <a href="http://preaction.github.io/Statocles">Made with Statocles</a><br>
+                <a href="http://www.perl.org">Powered by Perl</a>
+            </div>
+        </footer>
+    </body>
+</html>

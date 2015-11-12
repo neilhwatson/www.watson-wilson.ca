@@ -3,7 +3,11 @@ title: Victory over security audits
 tags: cfengine, configuration management, infosec
 ---
 
-It’s vicious cycle. Resources are spent auditing hosts. Many more are spent fixing all of the audit’s deficiencies. Then it’s back to business as usual. Time passes and hosts slowly degrade until the next audit. Repeat.
+It’s vicious cycle. Resources are spent auditing hosts. Many more are spent
+fixing all of the audit’s deficiencies. Then it’s back to business as usual.
+Time passes and hosts slowly degrade until the next audit. Repeat.
+
+---
 
 It might take an hour to plan, schedule and fix each host. That’s 100 hours for 100 hosts. Audit twice a year and you’ve spent 200 hours. What if you have a 1000 hosts? Using Cfengine you can audit your hosts and fix deficiencies automatically every day! Consider these typical policies.
 

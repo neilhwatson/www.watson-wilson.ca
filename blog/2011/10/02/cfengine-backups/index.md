@@ -7,6 +7,8 @@ Problem
 
 You want to use Cfengine for scheduling backups instead of crond.
 
+---
+
 Solution
 
 Cfengine is flexible enough to allow for advanced time scheduling (see Cfengine as an atlernative to crond). Its file copying functions allow Cfengine to copy files directly as a backup program including advanced rsync behaviour. Cfengine shell commands allow you to use your own backup tools.

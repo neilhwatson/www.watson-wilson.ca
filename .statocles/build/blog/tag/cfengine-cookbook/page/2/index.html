@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="/theme/css/normalize.css" rel="stylesheet">
+        <link href="/theme/css/skeleton.css" rel="stylesheet">
+        <link href="/theme/css/statocles-default.css" rel="stylesheet">
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+        <title>Neil H. Watson</title>
+        <meta content="Statocles 0.059" name="generator">
+        <link href="/blog/tag/cfengine-cookbook.atom" rel="alternate" type="application/atom+xml">
+        <link href="/blog/tag/cfengine-cookbook.rss" rel="alternate" type="application/rss+xml">
+        
+    </head>
+    <body>
+        <header>
+            <nav class="navbar">
+                <div class="container">
+                    <a class="brand" href="/">Neil H. Watson</a>
+                    <ul>
+                        <li>
+                            <a href="/">Blog</a>
+                        </li>
+                    </ul>
+                    
+                </div>
+            </nav>
+            
+        </header>
+        <div class="main container">
+            
+<div class="row">
+
+    <div class="nine columns">
+        <main>
+
+
+            <article>
+                <header>
+                    <h1><a href="/blog/2011/05/26/cfengine-ssh-keys/">SSH public key distribution using Cfengine</a></h1>
+
+                    <p class="tags">Tags:
+                        <a href="/blog/tag/cfengine/" rel="tag">cfengine</a>
+                        <a href="/blog/tag/cfengine-cookbook/" rel="tag">cfengine cookbook</a>
+                        <a href="/blog/tag/ssh/" rel="tag">ssh</a>
+                        <a href="/blog/tag/infosec/" rel="tag">infosec</a>
+                    </p>
+
+                    <aside>
+                        <p><time datetime="2011-05-26">
+                            Posted on 2011-05-26
+                        </time>
+                        </p>
+                    </aside>
+
+                </header>
+
+                <p>Problem</p>
+
+<p>You want to distribute public SSH keys.</p>
+
+<p>Solution</p>
+
+<p>There are two possible methods for distributing SSH public keys. The first involves a simple copy.</p>
+
+<p>bundle agent recipe {</p>
+
+<p>files:
+   &quot;/home/neil/.ssh/authorized_keys&quot;
+     handle =&gt; &quot;neil_ssh_pub&quot;,
+     comment =&gt; &quot;Install Neil&#39;s public ssh key&quot;,
+     perms =&gt; mog(&quot;0600&quot;, &quot;neil&quot;, &quot;neil&quot;),
+     copy_from =&gt; remote_cp(&quot;/var/cf-masterfiles/sshkeys/neil-pub&quot;,&quot;venus&quot;);
+}</p>
+
+<p>This promise ensures the file is up to date, via timestamp, as well as the owner, group and mode.</p>
+
+<p>cf3     Promise handle: neil_ssh_pub
+cf3     Promise made by: /home/neil/.ssh/authorized_keys
+cf3
+cf3     Comment:  Install Neil&#39;s public ssh key
+cf3     .........................................................
+cf3
+cf3  -&gt; Handling file existence constraints on
+/home/neil/.ssh/authorized_keys
+cf3  -&gt; Owner of /home/neil/.ssh/authorized_keys was 0, setting to 1000
+cf3  -&gt; Group of /home/neil/.ssh/authorized_keys was 0, setting to 1000
+cf3  -&gt; Object /home/neil/.ssh/authorized_keys had permission 600,
+changed it to 644
+cf3  -&gt; Handling file existence constraints on
+/home/neil/.ssh/authorized_keys
+cf3  -&gt; File permissions on /home/neil/.ssh/authorized_keys as promised
+cf3  -&gt; Copy file /home/neil/.ssh/authorized_keys from
+/vars:/cf-masterfiles/sshkeys/neil-pub check
+cf3 No existing connection to 192.168.0.15 is established...
+cf3 Set cfengine port number to 5308 = 5308
+cf3  -&gt; Connect to venus = 192.168.0.15 on port 5308
+cf3  -&gt; Last saw venus (+192.168.0.15) now
+cf3 Loaded /vars:/cfengine/ppkeys/root-192.168.0.15.pub
+cf3 .....................[.h.a.i.l.].................................
+cf3 Strong authentication of server=venus connection confirmed
+cf3  -&gt; Destination file &quot;/home/neil/.ssh/authorized_keys&quot; already
+exists
+cf3  -&gt; Not attempting to preserve file permissions from the source
+cf3  -&gt; File permissions on /home/neil/.ssh/authorized_keys as promised
+cf3  -&gt; File /home/neil/.ssh/authorized_keys is an up to date copy of
+source
+cf3 Performance(Copy(venus:/vars:/cf-masterfiles/sshkeys/neil-pub &gt;
+/home/neil/.ssh/authorized_keys)): time=0.0001 secs, av=0.0005 +/-
+0.0022</p>
+
+<p>An alternative method would be to edit authorized_keys instead. This allows you to append the file without overwriting any existing information that might be required.</p>
+
+<p>bundle agent recipe {</p>
+
+<p>vars:
+    &quot;keys&quot; slist =&gt; { 
+      &quot;ssh-rsa AAAAB31yc2E...EZFcqZ0CSQ1OPw== neil@pearl.watson-wilson.ca&quot;,
+      &quot;ssh-rsa AAAAB31yc2E...NezfCQz0CSQ1OPw== neil@ruby.watson-wilson.ca&quot;
+    };</p>
+
+<p>files:
+    &quot;/home/neil/.ssh/authorized_keys&quot;
+      handle =&gt; &quot;neil_ssh_pub&quot;,
+      comment =&gt; &quot;Install Neil&#39;s public ssh keys&quot;,
+      perms =&gt; mog(&quot;0644&quot;,&quot;neil&quot;,&quot;neil&quot;),
+      edit_line =&gt; append_if_no_lines( &quot;@{recipe.keys}&quot; );
+}</p>
+
+<p>This bundle appends authorized_keys with the given key lines. Note that we pass the list to the edit_line bundle “append_if_no_lines” as “@{recipe.keys}”. Were we to pass just “@{keys}” to the body part that part would think the list is scoped locally and would be blank. By qualifying it with the bundle&#39;s name the correct list is used.</p>
+
+<p>cf3     Promise handle: 
+cf3     Promise made by: ssh-rsa
+AAAAB3NzaC1yc2EAAAABIwAAAQEA0Rg/vwLT9Hk4+wp5rVtKRgn9cHC3zHWHAW
+cf3 
+cf3     Comment:  Append lines to the file if they don&#39;t already exist
+cf3     .........................................................
+cf3 
+cf3  -&gt; Inserting the promised line &quot;ssh-rsa
+AAAAB3NzaC1yc2EAAAABIwAAAQEA0Rg/vwLT9Hk4+wp5rVtKRg
+n-wilson.ca&quot; into /home/neil/.ssh/authorized_keys after locator
+cf3 
+cf3     .........................................................
+cf3     Promise handle: 
+cf3     Promise made by: ssh-rsa
+AAAAB3NzaC1yc2EaaaabiWaaaqea0rG/VWlt9hK4+WP5RvTkrGN9Chc3Zhwhaw
+cf3 
+cf3     Comment:  Append lines to the file if they don&#39;t already exist
+cf3     .........................................................
+cf3 
+cf3  -&gt; Inserting the promised line &quot;ssh-rsa
+AAAAB3NzaC1yc2EaaaabiWaaaqea0rG/VWlt9hK4+WP5RvTkrG
+-wilson.ca&quot; into /home/neil/.ssh/authorized_keys after locator</p>
+
+
+
+            </article>
+            <article>
+                <header>
+                    <h1><a href="/blog/2011/05/26/cfengine-cron/">Managing crontables with Cfengine</a></h1>
+
+                    <p class="tags">Tags:
+                        <a href="/blog/tag/cfengine/" rel="tag">cfengine</a>
+                        <a href="/blog/tag/cfengine-cookbook/" rel="tag">cfengine cookbook</a>
+                        <a href="/blog/tag/cron/" rel="tag">cron</a>
+                    </p>
+
+                    <aside>
+                        <p><time datetime="2011-05-26">
+                            Posted on 2011-05-26
+                        </time>
+                        </p>
+                    </aside>
+
+                </header>
+
+                <p>Problem</p>
+
+<p>You want Cfengine to manage crontables.</p>
+
+<p>Solution</p>
+
+<p>The recipe we used edit authorized_keys can also be used for crontables.</p>
+
+<p>bundle agent recipe {</p>
+
+<p>vars:
+    &quot;root_cron_jobs&quot; slist =&gt; { 
+      &quot;45 * * * * /var/cfengine/bin/cf-execd -F&quot;,
+      &quot;17 0 * * 0 /usr/bin/apt-get update&quot;
+    };</p>
+
+<p>files:
+    &quot;/var/spool/cron/crontabs/root&quot;
+      handle =&gt; &quot;root_cron_jobs&quot;,
+      comment =&gt; &quot;Promise root cron table entries&quot;,
+      create =&gt; &quot;true&quot;,
+      perms =&gt; mog(&quot;0600&quot;,&quot;root&quot;,&quot;root&quot;),
+      edit_line =&gt; append_if_no_lines( &quot;@{recipe.root_cron_jobs}&quot; );
+}</p>
+
+<p>Now we run the agent.</p>
+
+<p>cf3     Promise handle: 
+cf3     Promise made by: 45 * * * * /vars:/cfengine/bin/cf-execd -F
+cf3 
+cf3     Comment:  Append lines to the file if they don&#39;t already exist
+cf3     .........................................................
+cf3 
+cf3  -&gt; Inserting the promised line &quot;45 * * * *
+/var/cfengine/bin/cf-execd -F&quot; into /vars:/spool/
+cf3 
+cf3     .........................................................
+cf3     Promise handle: 
+cf3     Promise made by: 17 0 * * 0 /usr/bin/apt-get update
+cf3 
+cf3     Comment:  Append lines to the file if they don&#39;t already exist
+cf3     .........................................................
+cf3 
+cf3  -&gt; Inserting the promised line &quot;17 0 * * 0 /usr/bin/apt-get update&quot;
+into /var/spool/cron/c</p>
+
+<p>Vixie cron, found in most Linux and *BSD installs will notice the changed crontab in about a minute. Older cron daemons are more problematic. AIX and Solaris will not notice the change unless specifically told to do so. We do this by triggering a command promise. First add a classes body part to the crontabs file promise. Then add a commands promise to run crontab if the files promise is repaired.</p>
+
+<p>bundle agent recipe {</p>
+
+<p>vars:
+    &quot;root_cron_jobs&quot; slist =&gt; { 
+      &quot;45 * * * * /var/cfengine/bin/cf-execd -F&quot;,
+      &quot;17 0 * * 0 /usr/bin/apt-get update&quot;
+    };</p>
+
+<p>files:
+    &quot;/var/spool/cron/crontabs/root&quot;
+      handle =&gt; &quot;root_cron_jobs&quot;,
+      comment =&gt; &quot;Promise root cron table entries&quot;,
+      create =&gt; &quot;true&quot;,
+      classes =&gt; if_repaired(&quot;root_cron_repaired&quot;),
+      perms =&gt; mog(&quot;0600&quot;,&quot;root&quot;,&quot;root&quot;),
+      edit_line =&gt; append_if_no_lines( &quot;@{recipe.root_cron_jobs}&quot; );</p>
+
+<p>commands:
+    root_cron_repaired.(aix|sunos_5_10)::
+      handle =&gt; &quot;update_cron_daemon&quot;,
+      comment =&gt; &quot;Reread cron tables if it was edited.&quot;,
+      &quot;/usr/bin/crontab /var/spool/crontabs/root&quot;;
+}</p>
+
+<p>Be aware that different versions of Linux and UNIX have cron tables in different locations. You can account for this by using a global variable. Briefly:</p>
+
+<p>bundle common g {</p>
+
+<h1>Global variables and settings</h1>
+
+<p>vars:
+    debian|ubuntu::
+      &quot;crontabs&quot; string =&gt; &quot;/var/spool/crontabs&quot;;</p>
+
+<pre><code>redhat::
+  &quot;crontabs&quot; string =&gt; &quot;/var/spool/cron&quot;,
+</code></pre>
+
+<p>This bundle is read early by Cfengine. The strings defined can be referred to from any bundle. For example</p>
+
+<p>files:
+    &quot;${g.crontabs}/root&quot;
+      handle =&gt; &quot;root_cron_jobs&quot;,
+      comment =&gt; &quot;Promise root cron table entries&quot;,
+      create =&gt; &quot;true&quot;,
+      classes =&gt; if_repaired(&quot;root_cron_repaired&quot;),
+      perms =&gt; mog(&quot;0600&quot;,&quot;root&quot;,&quot;root&quot;),
+      edit_line =&gt; append_if_no_lines( &quot;@{recipe.root_cron_jobs}&quot; );</p>
+
+<p>commands:
+    root_cron_repaired.(aix|sunos_5_10)::
+      handle =&gt; &quot;update_cron_daemon&quot;,
+      comment =&gt; &quot;Reread cron tables if it was edited.&quot;,
+      &quot;/usr/bin/crontab ${g.crontabs}/root&quot;;</p>
+
+<p>Notice how the variable is prefixed with “g”. This tells Cfengine to check the common bundle named “g” that we defined earlier.
+Gravy</p>
+
+<p>Cfengine has enough time and date hard classes that it can function as a replacement for cron. Further, remote classes allow for classes based on the promises of agents on other hosts. This allows for enterprise scheduling. There are white papers on this at cfengine.com.</p>
+
+
+
+            </article>
+            <article>
+                <header>
+                    <h1><a href="/blog/2011/05/26/cfengine-banning-process/">Banning processes using Cfengine</a></h1>
+
+                    <p class="tags">Tags:
+                        <a href="/blog/tag/cfengine/" rel="tag">cfengine</a>
+                        <a href="/blog/tag/cfengine-cookbook/" rel="tag">cfengine cookbook</a>
+                        <a href="/blog/tag/configuration-management/" rel="tag">configuration management</a>
+                        <a href="/blog/tag/infosec/" rel="tag">infosec</a>
+                    </p>
+
+                    <aside>
+                        <p><time datetime="2011-05-26">
+                            Posted on 2011-05-26
+                        </time>
+                        </p>
+                    </aside>
+
+                </header>
+
+                <p>Problem</p>
+
+<p>You want to prevent certain processes from running.</p>
+
+<p>Solution</p>
+
+<p>In formal Cfengine parlance this promise ensures that there are zero instances of processes running that match the regular expression “snmpd”. If such processes are found a term signal is sent. If that signal is ignored a kill signal is sent.</p>
+
+<p>Be careful because “snmpd” is a regular expression. It may match more than you think. Our intent is to look for a running instance of snmpd but this would also match “vim snmpd.conf”.</p>
+
+<p>bundle agent recipe {</p>
+
+<p>processes:</p>
+
+<pre><code>&quot;snmpd&quot; signals =&gt; { &quot;term&quot;, &quot;kill&quot; },
+   handle =&gt; &quot;Banned_procs&quot;,
+   comment =&gt; &quot;Term process or kill if term fails&quot;,
+   process_count =&gt; banned; 
+</code></pre>
+
+<p>}</p>
+
+<p>body process_count banned {
+  match_range =&gt; irange(&quot;0&quot;,&quot;0&quot;);
+}</p>
+
+<p>Below we see an snmpd process before the agent is run. We see the output of the agent and then we see no snmpd process after the agent is finished.</p>
+
+<p>root@venus:/home/neil/.cfagent/inputs# ps -ef|grep snmp
+snmp     26481     1  0 09:05 ?        00:00:00 /usr/sbin/snmpd -Lsd -Lf
+/dev/null -u snmp -g snmp -I -smux -p /vars:/run/snmpd.pid 127.0.0.1</p>
+
+<p>root@venus:/home/neil/.cfagent/inputs# cf-agent -IKf ./recipe.cf 
+!! Process count for &#39;snmpd&#39; was out of promised range (1 found)
+I: Report relates to a promise with handle &quot;Banned_procs&quot;
+I: Made in version &#39;not specified&#39; of &#39;./recipe.cf&#39; near line 16
+I: Comment: Term process or kill if term fails</p>
+
+<p>-&gt; Signalled &#39;term&#39; (15) to observed process match &#39;26481&#39;</p>
+
+<p>root@venus:/home/neil/.cfagent/inputs# ps -ef|grep snmp</p>
+
+
+
+            </article>
+            <article>
+                <header>
+                    <h1><a href="/blog/2011/05/24/cfengine-links/">Creating links using Cfengine</a></h1>
+
+                    <p class="tags">Tags:
+                        <a href="/blog/tag/cfengine/" rel="tag">cfengine</a>
+                        <a href="/blog/tag/cfengine-cookbook/" rel="tag">cfengine cookbook</a>
+                        <a href="/blog/tag/configuration-management/" rel="tag">configuration management</a>
+                    </p>
+
+                    <aside>
+                        <p><time datetime="2011-05-24">
+                            Posted on 2011-05-24
+                        </time>
+                        </p>
+                    </aside>
+
+                </header>
+
+                <p>Problem</p>
+
+<p>You Cfengine binaries are in /var/cfengine/bin but you want them in the PATH.</p>
+
+<p>Solution</p>
+
+<p>Symbolic linking the binaries is a good approach. The most simple method follows. Please note that you should look at the introduction entry to this series to better understand the setup.</p>
+
+<p>bundle agent recipe {</p>
+
+<pre><code>files:
+    &quot;/usr/bin/cf-agent&quot;
+        handle =&gt; &quot;cf_agent_link&quot;,
+        comment =&gt; &quot;Link cf-engine binaries&quot;,
+        link_from =&gt; ln_s(&quot;/var/cfengine/bin/cf-agent&quot;);
+
+    &quot;/usr/bin/cf-serverd&quot;
+        handle =&gt; &quot;cf_serverd_link&quot;,
+        comment =&gt; &quot;Link cf-engine binaries&quot;,
+        link_from =&gt; ln_s(&quot;/var/cfengine/bin/cf-serverd&quot;);
+
+    &quot;/usr/bin/cf-execd&quot;
+        handle =&gt; &quot;cf_execd_link&quot;,
+        comment =&gt; &quot;Link cf-engine binaries&quot;,
+        link_from =&gt; ln_s(&quot;/var/cfengine/bin/cf-execd&quot;);
+</code></pre>
+
+<p>}</p>
+
+<p>The promises are clear but somewhat repetitive. A more efficient approach involves using a list.</p>
+
+<p>bundle agent recipe {</p>
+
+<pre><code>vars:
+    &quot;cfbins&quot; slist =&gt; {
+        &quot;agent&quot;, &quot;serverd&quot;, &quot;execd&quot;
+    },
+    comment =&gt; &quot;Cfengine binary files&quot;;
+
+files:
+    &quot;/usr/bin/cf-${cfbins}&quot;
+        handle =&gt; &quot;cf_bin_links&quot;,
+        comment =&gt; &quot;Link cf-engine binaries&quot;,
+        link_from =&gt; ln_s(&quot;/var/cfengine/bin/cf-${cfbins}&quot;);
+</code></pre>
+
+<p>}</p>
+
+<p>This bundle repeats the same link promise for each string in list “cfbins”.</p>
+
+<p>cf3     Promise handle: cf_bin_links
+cf3     Promise made by: /usr/bin/cf-agent
+cf3 
+cf3     Comment:  Link cf-engine binaries
+cf3     .........................................................
+cf3 
+cf3  -&gt; Using literal pathtype for /usr/bin/cf-agent
+cf3  -&gt; Handling file existence constraints on /usr/bin/cf-agent
+cf3  -&gt; Link /usr/bin/cf-agent points to /vars:/cfengine/bin/cf-agent -
+promise kept
+cf3 
+cf3     .........................................................
+cf3     Promise handle: cf_bin_links
+cf3     Promise made by: /usr/bin/cf-serverd
+cf3 
+cf3     Comment:  Link cf-engine binaries
+cf3     .........................................................
+cf3 
+cf3  -&gt; Using literal pathtype for /usr/bin/cf-serverd
+cf3  -&gt; Handling file existence constraints on /usr/bin/cf-serverd
+cf3  -&gt; Link /usr/bin/cf-serverd points to
+/vars:/cfengine/bin/cf-serverd - promise kept
+cf3 
+cf3     .........................................................
+cf3     Promise handle: cf_bin_links
+cf3     Promise made by: /usr/bin/cf-execd
+cf3 
+cf3     Comment:  Link cf-engine binaries
+cf3     .........................................................
+cf3 
+cf3  -&gt; Using literal pathtype for /usr/bin/cf-execd
+cf3  -&gt; Handling file existence constraints on /usr/bin/cf-execd
+cf3  -&gt; Link /usr/bin/cf-execd points to /vars:/cfengine/bin/cf-execd -
+promise kept</p>
+
+<p>Gravy</p>
+
+<p>I keep a personal source repository of profile rc files (e.g. .profile, .muttrc) and custom scripts for my \$HOME/bin path. I typically have a checked out working copy of these files. I have Cfengine make links from the proper location to my the checked out repository.</p>
+
+
+
+            </article>
+        </main>
+
+        <ul class="pager">
+            <li class="prev">
+                <a class="button disabled" href="" rel="next">
+                    ← Older
+                </a>
+            </li>
+            <li class="next">
+                <a class="button button-primary" href="/blog/tag/cfengine-cookbook" rel="prev">
+                    Newer →
+                </a>
+            </li>
+        </ul>
+
+    </div>
+
+    <div class="three columns sidebar">
+        
+        <h1>Tags</h1>
+        <ul class="list-inline">
+            <li><a href="/blog/tag/apt/">apt</a></li>
+            <li><a href="/blog/tag/backup/">backup</a></li>
+            <li><a href="/blog/tag/cfengine/">cfengine</a></li>
+            <li><a href="/blog/tag/cfengine-cookbook/">cfengine cookbook</a></li>
+            <li><a href="/blog/tag/cheatsheet/">cheatsheet</a></li>
+            <li><a href="/blog/tag/cli/">cli</a></li>
+            <li><a href="/blog/tag/cluster/">cluster</a></li>
+            <li><a href="/blog/tag/configuration-management/">configuration management</a></li>
+            <li><a href="/blog/tag/cron/">cron</a></li>
+            <li><a href="/blog/tag/debian/">debian</a></li>
+            <li><a href="/blog/tag/dns/">dns</a></li>
+            <li><a href="/blog/tag/dr/">dr</a></li>
+            <li><a href="/blog/tag/heartbeat/">heartbeat</a></li>
+            <li><a href="/blog/tag/high-availability/">high availability</a></li>
+            <li><a href="/blog/tag/infosec/">infosec</a></li>
+            <li><a href="/blog/tag/ipv6/">ipv6</a></li>
+            <li><a href="/blog/tag/iscsi/">iscsi</a></li>
+            <li><a href="/blog/tag/kvm/">kvm</a></li>
+            <li><a href="/blog/tag/linux/">linux</a></li>
+            <li><a href="/blog/tag/monitoring/">monitoring</a></li>
+            <li><a href="/blog/tag/multipathd/">multipathd</a></li>
+            <li><a href="/blog/tag/networking/">networking</a></li>
+            <li><a href="/blog/tag/opensource/">opensource</a></li>
+            <li><a href="/blog/tag/oracle/">oracle</a></li>
+            <li><a href="/blog/tag/posix/">posix</a></li>
+            <li><a href="/blog/tag/red-hat/">red hat</a></li>
+            <li><a href="/blog/tag/regex/">regex</a></li>
+            <li><a href="/blog/tag/rhev/">rhev</a></li>
+            <li><a href="/blog/tag/san/">san</a></li>
+            <li><a href="/blog/tag/shell/">shell</a></li>
+            <li><a href="/blog/tag/solaris/">solaris</a></li>
+            <li><a href="/blog/tag/ssh/">ssh</a></li>
+            <li><a href="/blog/tag/subversion/">subversion</a></li>
+            <li><a href="/blog/tag/sun/">sun</a></li>
+            <li><a href="/blog/tag/support/">support</a></li>
+            <li><a href="/blog/tag/svn/">svn</a></li>
+            <li><a href="/blog/tag/sysadmin/">sysadmin</a></li>
+            <li><a href="/blog/tag/vitualization/">vitualization</a></li>
+        </ul>
+        <h1>Feeds</h1>
+        <ul class="list-inline">
+            <li>
+                <a href="/blog/tag/cfengine-cookbook.atom" rel="alternate" type="application/atom+xml">
+                    Atom
+                </a>
+            </li>
+            <li>
+                <a href="/blog/tag/cfengine-cookbook.rss" rel="alternate" type="application/rss+xml">
+                    RSS
+                </a>
+            </li>
+        </ul>
+    </div>
+
+</div>
+
+
+        </div>
+        <footer>
+            
+            <div class="container tagline">
+                <a href="http://preaction.github.io/Statocles">Made with Statocles</a><br>
+                <a href="http://www.perl.org">Powered by Perl</a>
+            </div>
+        </footer>
+    </body>
+</html>

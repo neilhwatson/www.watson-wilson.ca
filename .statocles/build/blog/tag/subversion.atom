@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>http://ettin/blog/tag/subversion/</id>
+    <title>Neil H. Watson</title>
+    <updated>2015-11-12T15:26:08Z</updated>
+    <link href="http://ettin/blog/tag/subversion.atom" rel="self" />
+    <link href="http://ettin/blog/tag/subversion/" rel="alternate" />
+    <generator version="0.059">Statocles</generator>
+    <entry>
+        <id>http://ettin/blog/2011/03/08/svn-cheatsheet/</id>
+        <title>Subversion Cheatsheet</title>
+        <link href="http://ettin/blog/2011/03/08/svn-cheatsheet/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p>Add to working copy  svn add <file>
+Backup to hot copy   hot-backup.py /opt/svn /opt/svn-backup
+Change log view   svn log file:///opt/svn/scripts/firewall/firewall-new
+Checkout    svn checkout file:///opt/svn/profile
+Commit changes    svn commit --message &quot;Your log message&quot;
+Copy to working copy    svn copy <file> <file>
+Create respository   svnadmin create --fs-type fsfs /opt/svn
+Delete from working copy   svn delete <file>
+Diff changes   svn diff
+Initial Import    svn import . file:///opt/svn --message &quot;Initial import&quot;
+Merging to current directory  svn merge <merge to@rev> <merge from@rev>
+Move file in working copy  svn move <file1> <file2>
+Remote Checkout   svn checkout svn+ssh://<user>@<hostname>/opt/svn/<project>
+Revert all changes   svn revert <file>
+Review changes    svn status
+Review commit log    svn log
+Update working copy  svn update <file> (may overwrite changes)
+View file   svn cat file:///opt/svn/profile/.profile
+View repository tree    svnlook tree /opt/svn</file></file></project></hostname></user></file2></file1></merge></merge></file></file></file></file></p>
+
+                <p><a href="http://ettin/blog/2011/03/08/svn-cheatsheet/#section-2">Continue reading...</a></p>
+            <p>Tags:
+                <a href="http://ettin/blog/tag/subversion/">subversion</a>
+                <a href="http://ettin/blog/tag/svn/">svn</a>
+                <a href="http://ettin/blog/tag/cheatsheet/">cheatsheet</a>
+            </p>
+        ]]></content>
+        <updated>2011-03-08T00:00:00Z</updated>
+        <category term="subversion" />
+        <category term="svn" />
+        <category term="cheatsheet" />
+    </entry>
+</feed>
+

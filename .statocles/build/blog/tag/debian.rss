@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Neil H. Watson</title>
+        <link>http://ettin/blog/tag/debian/</link>
+        <atom:link href="http://ettin/blog/tag/debian.rss" rel="self" type="application/rss+xml" />
+        <description>Blog feed of Neil H. Watson</description>
+        <generator>Statocles 0.059</generator>
+        <item>
+            <title>Debian Apt Cheatsheet</title>
+            <link>http://ettin/blog/2011/03/08/apt-cheatsheet/</link>
+            <guid>http://ettin/blog/2011/03/08/apt-cheatsheet/</guid>
+            <description><![CDATA[
+                <p>Download and build source package   apt-get -b source <package name>
+Download and install dependencies for source package  apt-get build-dep <package name>
+Download source package    apt-get source <package name>
+Install package “on demand”   auto-apt run <program>
+List contents of a package    apt-file list <package name>
+List installed packages    dpkg -l
+Remove package and configuration files    apt-get --purge remove <package name>
+Search for Debian Packages    http://www.debian.org/distrib/packages
+Search for packages  apt-cache search <string>
+Show package dependencies  apt-cache depends <string>
+Show package information   apt-cache show <string>
+Show package that supplies a given file   apt-file search <file name>
+Show package that supplies a given file   COLUMNS=132 dpkg -S <file name>
+Show source package information  apt-cache showsrc <package name>
+Update apt-file and auto-apt database  apt-file update</package></file></file></string></string></string></package></package></program></package></package></package></p>
+
+                    <p><a href="http://ettin/blog/2011/03/08/apt-cheatsheet/#section-2">Continue reading...</a></p>
+                <p>Tags:
+                    <a href="http://ettin/blog/tag/debian/">debian</a>
+                    <a href="http://ettin/blog/tag/apt/">apt</a>
+                    <a href="http://ettin/blog/tag/cheatsheet/">cheatsheet</a>
+                </p>
+            ]]></description>
+            <pubDate>
+                Tue, 08 Mar 2011 00:00:00 +0000
+            </pubDate>
+        </item>
+    </channel>
+</rss>
+

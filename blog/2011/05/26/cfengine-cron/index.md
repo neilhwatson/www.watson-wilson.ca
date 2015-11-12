@@ -7,6 +7,8 @@ Problem
 
 You want Cfengine to manage crontables.
 
+---
+
 Solution
 
 The recipe we used edit authorized_keys can also be used for crontables.

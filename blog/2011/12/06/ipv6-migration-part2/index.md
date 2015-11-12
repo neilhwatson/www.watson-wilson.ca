@@ -3,7 +3,10 @@ title: IPv6 Migration part 2
 tags: ipv6, networking
 ---
 
-In this part of the series we will learn how to make a service run on an IPV6 address.
+In this part of the series we will learn how to make a service run on an IPV6
+address.
+
+---
 
 In part one of this IPV6 series we discussed the setup of an IPV6 tunnel. In part two we’ll look at setting up an IPV6 available website.
 

@@ -7,6 +7,8 @@ Problem
 
 You want to have your bundlesequence change based on class.
 
+---
+
 Solution
 
 This question comes up regularly on the Cfengine mailing list. The secret is to build a string list based on class. The alternative is to use methods.

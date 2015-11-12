@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>http://ettin/blog/tag/linux/</id>
+    <title>Neil H. Watson</title>
+    <updated>2015-11-12T15:26:10Z</updated>
+    <link href="http://ettin/blog/tag/linux.atom" rel="self" />
+    <link href="http://ettin/blog/tag/linux/" rel="alternate" />
+    <generator version="0.059">Statocles</generator>
+    <entry>
+        <id>http://ettin/blog/2011/03/08/linux-network-cheatsheet/</id>
+        <title>Linux networking cheatsheet</title>
+        <link href="http://ettin/blog/2011/03/08/linux-network-cheatsheet/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p>Network calculation Show network info  ipcalc 10.0.0.0/24
+ipcalc 10.0.0.0/255.255.255.0
+Segment network into 2 50 node subnets    ipcalc 10.0.0.0/24 -s 50 50</p>
+
+<p>Net-tools versus Iptroute2 List interfaces   ip addr list
+ifconfig -a
+ip addr list eth0
+ifconfig eth0
+Link status    ip link list
+ifconfig -a
+ip link list eth0
+ifconfig eth0
+Route table    ip route
+netstat -rn
+Adding routes  ip route add default via 10.0.0.1
+Add/delete IP addresses    ip addr add 10.0.0.2/24 dev eth0
+ifconfig eth0 10.0.0.2 netmask 255.255.255.0
+ip addr del 10.0.0.2/24 dev eth0
+ifconfig eth0 del 10.0.0.2
+Linux Ethernet bonding</p>
+
+<h1>Loading module:</h1>
+
+<h1>for Red Hat AS4, may work with other 2.6 Linuxes.</h1>
+
+<p>install bond0 /sbin/modprobe bonding -o bond0 mode=0 miimon=100</p>
+
+<h1>for Red Hat AS3, may work with other 2.4 Linuxes.</h1>
+
+<p>alias bond0 bonding
+options bond0 -o bonding mode=0 miimon=100</p>
+
+<h1>For Redhat distributions</h1>
+
+<h1>ifcfg-ethx</h1>
+
+<p>DEVICE=ethx
+USERCTL=no
+ONBOOT=yes
+MASTER=bond0
+SLAVE=yes
+BOOTPROTO=none</p>
+
+<h1>ifcfg-bond0</h1>
+
+<p>DEVICE=bond0
+USERCTL=no
+ONBOOT=yes
+IPADDR=172.16.48.66
+NETMASK=255.255.255.0
+GATEWAY=172.16.48.1</p>
+
+<p>Click for more Ethernet bonding information.
+OSI model diagram
+osi-model.gif</p>
+
+                <p><a href="http://ettin/blog/2011/03/08/linux-network-cheatsheet/#section-2">Continue reading...</a></p>
+            <p>Tags:
+                <a href="http://ettin/blog/tag/linux/">linux</a>
+                <a href="http://ettin/blog/tag/networking/">networking</a>
+                <a href="http://ettin/blog/tag/cheatsheet/">cheatsheet</a>
+            </p>
+        ]]></content>
+        <updated>2011-03-08T00:00:00Z</updated>
+        <category term="linux" />
+        <category term="networking" />
+        <category term="cheatsheet" />
+    </entry>
+</feed>
+

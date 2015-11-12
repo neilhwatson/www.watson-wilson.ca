@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="/theme/css/normalize.css" rel="stylesheet">
+        <link href="/theme/css/skeleton.css" rel="stylesheet">
+        <link href="/theme/css/statocles-default.css" rel="stylesheet">
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+        <title>SSH public key distribution using Cfengine - Neil H. Watson</title>
+        <meta content="Statocles 0.059" name="generator">
+        
+    </head>
+    <body>
+        <header>
+            <nav class="navbar">
+                <div class="container">
+                    <a class="brand" href="/">Neil H. Watson</a>
+                    <ul>
+                        <li>
+                            <a href="/">Blog</a>
+                        </li>
+                    </ul>
+                    
+                </div>
+            </nav>
+            
+        </header>
+        <div class="main container">
+            <div class="row">
+
+    <div class="nine columns">
+        <main>
+            <header>
+                <h1>SSH public key distribution using Cfengine</h1>
+                <p class="tags">Tags:
+                    <a href="/blog/tag/cfengine/" rel="tag">cfengine</a>
+                    <a href="/blog/tag/cfengine-cookbook/" rel="tag">cfengine cookbook</a>
+                    <a href="/blog/tag/ssh/" rel="tag">ssh</a>
+                    <a href="/blog/tag/infosec/" rel="tag">infosec</a>
+                </p>
+
+                <aside>
+                    <p><time datetime="2011-05-26">
+                        Posted on 2011-05-26
+                    </time>
+                    </p>
+                </aside>
+
+
+            </header>
+            <section id="section-1">
+                <p>Problem</p>
+
+<p>You want to distribute public SSH keys.</p>
+
+<p>Solution</p>
+
+<p>There are two possible methods for distributing SSH public keys. The first involves a simple copy.</p>
+
+<p>bundle agent recipe {</p>
+
+<p>files:
+   &quot;/home/neil/.ssh/authorized_keys&quot;
+     handle =&gt; &quot;neil_ssh_pub&quot;,
+     comment =&gt; &quot;Install Neil&#39;s public ssh key&quot;,
+     perms =&gt; mog(&quot;0600&quot;, &quot;neil&quot;, &quot;neil&quot;),
+     copy_from =&gt; remote_cp(&quot;/var/cf-masterfiles/sshkeys/neil-pub&quot;,&quot;venus&quot;);
+}</p>
+
+<p>This promise ensures the file is up to date, via timestamp, as well as the owner, group and mode.</p>
+
+<p>cf3     Promise handle: neil_ssh_pub
+cf3     Promise made by: /home/neil/.ssh/authorized_keys
+cf3
+cf3     Comment:  Install Neil&#39;s public ssh key
+cf3     .........................................................
+cf3
+cf3  -&gt; Handling file existence constraints on
+/home/neil/.ssh/authorized_keys
+cf3  -&gt; Owner of /home/neil/.ssh/authorized_keys was 0, setting to 1000
+cf3  -&gt; Group of /home/neil/.ssh/authorized_keys was 0, setting to 1000
+cf3  -&gt; Object /home/neil/.ssh/authorized_keys had permission 600,
+changed it to 644
+cf3  -&gt; Handling file existence constraints on
+/home/neil/.ssh/authorized_keys
+cf3  -&gt; File permissions on /home/neil/.ssh/authorized_keys as promised
+cf3  -&gt; Copy file /home/neil/.ssh/authorized_keys from
+/vars:/cf-masterfiles/sshkeys/neil-pub check
+cf3 No existing connection to 192.168.0.15 is established...
+cf3 Set cfengine port number to 5308 = 5308
+cf3  -&gt; Connect to venus = 192.168.0.15 on port 5308
+cf3  -&gt; Last saw venus (+192.168.0.15) now
+cf3 Loaded /vars:/cfengine/ppkeys/root-192.168.0.15.pub
+cf3 .....................[.h.a.i.l.].................................
+cf3 Strong authentication of server=venus connection confirmed
+cf3  -&gt; Destination file &quot;/home/neil/.ssh/authorized_keys&quot; already
+exists
+cf3  -&gt; Not attempting to preserve file permissions from the source
+cf3  -&gt; File permissions on /home/neil/.ssh/authorized_keys as promised
+cf3  -&gt; File /home/neil/.ssh/authorized_keys is an up to date copy of
+source
+cf3 Performance(Copy(venus:/vars:/cf-masterfiles/sshkeys/neil-pub &gt;
+/home/neil/.ssh/authorized_keys)): time=0.0001 secs, av=0.0005 +/-
+0.0022</p>
+
+<p>An alternative method would be to edit authorized_keys instead. This allows you to append the file without overwriting any existing information that might be required.</p>
+
+<p>bundle agent recipe {</p>
+
+<p>vars:
+    &quot;keys&quot; slist =&gt; { 
+      &quot;ssh-rsa AAAAB31yc2E...EZFcqZ0CSQ1OPw== neil@pearl.watson-wilson.ca&quot;,
+      &quot;ssh-rsa AAAAB31yc2E...NezfCQz0CSQ1OPw== neil@ruby.watson-wilson.ca&quot;
+    };</p>
+
+<p>files:
+    &quot;/home/neil/.ssh/authorized_keys&quot;
+      handle =&gt; &quot;neil_ssh_pub&quot;,
+      comment =&gt; &quot;Install Neil&#39;s public ssh keys&quot;,
+      perms =&gt; mog(&quot;0644&quot;,&quot;neil&quot;,&quot;neil&quot;),
+      edit_line =&gt; append_if_no_lines( &quot;@{recipe.keys}&quot; );
+}</p>
+
+<p>This bundle appends authorized_keys with the given key lines. Note that we pass the list to the edit_line bundle “append_if_no_lines” as “@{recipe.keys}”. Were we to pass just “@{keys}” to the body part that part would think the list is scoped locally and would be blank. By qualifying it with the bundle&#39;s name the correct list is used.</p>
+
+<p>cf3     Promise handle: 
+cf3     Promise made by: ssh-rsa
+AAAAB3NzaC1yc2EAAAABIwAAAQEA0Rg/vwLT9Hk4+wp5rVtKRgn9cHC3zHWHAW
+cf3 
+cf3     Comment:  Append lines to the file if they don&#39;t already exist
+cf3     .........................................................
+cf3 
+cf3  -&gt; Inserting the promised line &quot;ssh-rsa
+AAAAB3NzaC1yc2EAAAABIwAAAQEA0Rg/vwLT9Hk4+wp5rVtKRg
+n-wilson.ca&quot; into /home/neil/.ssh/authorized_keys after locator
+cf3 
+cf3     .........................................................
+cf3     Promise handle: 
+cf3     Promise made by: ssh-rsa
+AAAAB3NzaC1yc2EaaaabiWaaaqea0rG/VWlt9hK4+WP5RvTkrGN9Chc3Zhwhaw
+cf3 
+cf3     Comment:  Append lines to the file if they don&#39;t already exist
+cf3     .........................................................
+cf3 
+cf3  -&gt; Inserting the promised line &quot;ssh-rsa
+AAAAB3NzaC1yc2EaaaabiWaaaqea0rG/VWlt9hK4+WP5RvTkrG
+-wilson.ca&quot; into /home/neil/.ssh/authorized_keys after locator</p>
+
+            </section>
+        </main>
+
+
+    </div>
+
+    <div class="three columns sidebar">
+        
+        <nav id="tags">
+            <h1>Tags</h1>
+            <ul class="list-inline">
+                <li><a href="/blog/tag/apt/">apt</a></li>
+                <li><a href="/blog/tag/backup/">backup</a></li>
+                <li><a href="/blog/tag/cfengine/">cfengine</a></li>
+                <li><a href="/blog/tag/cfengine-cookbook/">cfengine cookbook</a></li>
+                <li><a href="/blog/tag/cheatsheet/">cheatsheet</a></li>
+                <li><a href="/blog/tag/cli/">cli</a></li>
+                <li><a href="/blog/tag/cluster/">cluster</a></li>
+                <li><a href="/blog/tag/configuration-management/">configuration management</a></li>
+                <li><a href="/blog/tag/cron/">cron</a></li>
+                <li><a href="/blog/tag/debian/">debian</a></li>
+                <li><a href="/blog/tag/dns/">dns</a></li>
+                <li><a href="/blog/tag/dr/">dr</a></li>
+                <li><a href="/blog/tag/heartbeat/">heartbeat</a></li>
+                <li><a href="/blog/tag/high-availability/">high availability</a></li>
+                <li><a href="/blog/tag/infosec/">infosec</a></li>
+                <li><a href="/blog/tag/ipv6/">ipv6</a></li>
+                <li><a href="/blog/tag/iscsi/">iscsi</a></li>
+                <li><a href="/blog/tag/kvm/">kvm</a></li>
+                <li><a href="/blog/tag/linux/">linux</a></li>
+                <li><a href="/blog/tag/monitoring/">monitoring</a></li>
+                <li><a href="/blog/tag/multipathd/">multipathd</a></li>
+                <li><a href="/blog/tag/networking/">networking</a></li>
+                <li><a href="/blog/tag/opensource/">opensource</a></li>
+                <li><a href="/blog/tag/oracle/">oracle</a></li>
+                <li><a href="/blog/tag/posix/">posix</a></li>
+                <li><a href="/blog/tag/red-hat/">red hat</a></li>
+                <li><a href="/blog/tag/regex/">regex</a></li>
+                <li><a href="/blog/tag/rhev/">rhev</a></li>
+                <li><a href="/blog/tag/san/">san</a></li>
+                <li><a href="/blog/tag/shell/">shell</a></li>
+                <li><a href="/blog/tag/solaris/">solaris</a></li>
+                <li><a href="/blog/tag/ssh/">ssh</a></li>
+                <li><a href="/blog/tag/subversion/">subversion</a></li>
+                <li><a href="/blog/tag/sun/">sun</a></li>
+                <li><a href="/blog/tag/support/">support</a></li>
+                <li><a href="/blog/tag/svn/">svn</a></li>
+                <li><a href="/blog/tag/sysadmin/">sysadmin</a></li>
+                <li><a href="/blog/tag/vitualization/">vitualization</a></li>
+            </ul>
+        </nav>
+    </div>
+
+</div>
+
+        </div>
+        <footer>
+            
+            <div class="container tagline">
+                <a href="http://preaction.github.io/Statocles">Made with Statocles</a><br>
+                <a href="http://www.perl.org">Powered by Perl</a>
+            </div>
+        </footer>
+    </body>
+</html>

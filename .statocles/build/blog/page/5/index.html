@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="/theme/css/normalize.css" rel="stylesheet">
+        <link href="/theme/css/skeleton.css" rel="stylesheet">
+        <link href="/theme/css/statocles-default.css" rel="stylesheet">
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+        <title>Neil H. Watson</title>
+        <meta content="Statocles 0.059" name="generator">
+        <link href="/blog/index.atom" rel="alternate" type="application/atom+xml">
+        <link href="/blog/index.rss" rel="alternate" type="application/rss+xml">
+        
+    </head>
+    <body>
+        <header>
+            <nav class="navbar">
+                <div class="container">
+                    <a class="brand" href="/">Neil H. Watson</a>
+                    <ul>
+                        <li>
+                            <a href="/">Blog</a>
+                        </li>
+                    </ul>
+                    
+                </div>
+            </nav>
+            
+        </header>
+        <div class="main container">
+            
+<div class="row">
+
+    <div class="nine columns">
+        <main>
+
+
+            <article>
+                <header>
+                    <h1><a href="/blog/2011/05/24/cfengine-links/">Creating links using Cfengine</a></h1>
+
+                    <p class="tags">Tags:
+                        <a href="/blog/tag/cfengine/" rel="tag">cfengine</a>
+                        <a href="/blog/tag/cfengine-cookbook/" rel="tag">cfengine cookbook</a>
+                        <a href="/blog/tag/configuration-management/" rel="tag">configuration management</a>
+                    </p>
+
+                    <aside>
+                        <p><time datetime="2011-05-24">
+                            Posted on 2011-05-24
+                        </time>
+                        </p>
+                    </aside>
+
+                </header>
+
+                <p>Problem</p>
+
+<p>You Cfengine binaries are in /var/cfengine/bin but you want them in the PATH.</p>
+
+<p>Solution</p>
+
+<p>Symbolic linking the binaries is a good approach. The most simple method follows. Please note that you should look at the introduction entry to this series to better understand the setup.</p>
+
+<p>bundle agent recipe {</p>
+
+<pre><code>files:
+    &quot;/usr/bin/cf-agent&quot;
+        handle =&gt; &quot;cf_agent_link&quot;,
+        comment =&gt; &quot;Link cf-engine binaries&quot;,
+        link_from =&gt; ln_s(&quot;/var/cfengine/bin/cf-agent&quot;);
+
+    &quot;/usr/bin/cf-serverd&quot;
+        handle =&gt; &quot;cf_serverd_link&quot;,
+        comment =&gt; &quot;Link cf-engine binaries&quot;,
+        link_from =&gt; ln_s(&quot;/var/cfengine/bin/cf-serverd&quot;);
+
+    &quot;/usr/bin/cf-execd&quot;
+        handle =&gt; &quot;cf_execd_link&quot;,
+        comment =&gt; &quot;Link cf-engine binaries&quot;,
+        link_from =&gt; ln_s(&quot;/var/cfengine/bin/cf-execd&quot;);
+</code></pre>
+
+<p>}</p>
+
+<p>The promises are clear but somewhat repetitive. A more efficient approach involves using a list.</p>
+
+<p>bundle agent recipe {</p>
+
+<pre><code>vars:
+    &quot;cfbins&quot; slist =&gt; {
+        &quot;agent&quot;, &quot;serverd&quot;, &quot;execd&quot;
+    },
+    comment =&gt; &quot;Cfengine binary files&quot;;
+
+files:
+    &quot;/usr/bin/cf-${cfbins}&quot;
+        handle =&gt; &quot;cf_bin_links&quot;,
+        comment =&gt; &quot;Link cf-engine binaries&quot;,
+        link_from =&gt; ln_s(&quot;/var/cfengine/bin/cf-${cfbins}&quot;);
+</code></pre>
+
+<p>}</p>
+
+<p>This bundle repeats the same link promise for each string in list “cfbins”.</p>
+
+<p>cf3     Promise handle: cf_bin_links
+cf3     Promise made by: /usr/bin/cf-agent
+cf3 
+cf3     Comment:  Link cf-engine binaries
+cf3     .........................................................
+cf3 
+cf3  -&gt; Using literal pathtype for /usr/bin/cf-agent
+cf3  -&gt; Handling file existence constraints on /usr/bin/cf-agent
+cf3  -&gt; Link /usr/bin/cf-agent points to /vars:/cfengine/bin/cf-agent -
+promise kept
+cf3 
+cf3     .........................................................
+cf3     Promise handle: cf_bin_links
+cf3     Promise made by: /usr/bin/cf-serverd
+cf3 
+cf3     Comment:  Link cf-engine binaries
+cf3     .........................................................
+cf3 
+cf3  -&gt; Using literal pathtype for /usr/bin/cf-serverd
+cf3  -&gt; Handling file existence constraints on /usr/bin/cf-serverd
+cf3  -&gt; Link /usr/bin/cf-serverd points to
+/vars:/cfengine/bin/cf-serverd - promise kept
+cf3 
+cf3     .........................................................
+cf3     Promise handle: cf_bin_links
+cf3     Promise made by: /usr/bin/cf-execd
+cf3 
+cf3     Comment:  Link cf-engine binaries
+cf3     .........................................................
+cf3 
+cf3  -&gt; Using literal pathtype for /usr/bin/cf-execd
+cf3  -&gt; Handling file existence constraints on /usr/bin/cf-execd
+cf3  -&gt; Link /usr/bin/cf-execd points to /vars:/cfengine/bin/cf-execd -
+promise kept</p>
+
+<p>Gravy</p>
+
+<p>I keep a personal source repository of profile rc files (e.g. .profile, .muttrc) and custom scripts for my \$HOME/bin path. I typically have a checked out working copy of these files. I have Cfengine make links from the proper location to my the checked out repository.</p>
+
+
+
+            </article>
+            <article>
+                <header>
+                    <h1><a href="/blog/2011/05/09/rhev-overview/">A brief overview of Red Hat Enterprise Virtualization</a></h1>
+
+                    <p class="tags">Tags:
+                        <a href="/blog/tag/rhev/" rel="tag">rhev</a>
+                        <a href="/blog/tag/vitualization/" rel="tag">vitualization</a>
+                        <a href="/blog/tag/kvm/" rel="tag">kvm</a>
+                    </p>
+
+                    <aside>
+                        <p><time datetime="2011-05-09">
+                            Posted on 2011-05-09
+                        </time>
+                        </p>
+                    </aside>
+
+                </header>
+
+                <p>Red Hat Enterprise Virtualization is a fairly new product offering from Red Hat. Red Hat acquired RHEV when they purchased Qumranet in September 2008. Qumranet created KVM when they created a Windows desktop virtualization product . RHEV is the evolution of that product and in the hands of Red Hat it offers a virtualization solution for both desktops and servers, Linux and Windows.</p>
+
+<p>The Windows roots of RHEV mean that currently the command and control manager must run on a Windows server. Red Hat is working hard to eliminate the need for Windows. They plan to create a portable all Java command and control service. This will be open source. It is important to keep these roots in mind while exploring and testing RHEV. These roots explain why things work the way they do.</p>
+
+<p>At its heart RHEV is a cluster. Nodes, called hosts or hypervisors, host KVM virtual machines, called guests. A separate manager server, currently a Microsoft Windows service, acts as the command and control centre. Guests can be made highly available so that they are automatically migrated from host to host in the event of resource failure. In essence the virtual hardware is made highly available.</p>
+
+<p>The manager divides guests, hosts, clusters, storage and network resources into logical containers called data centres. This allows resources, such as separate groups of development and QA guests, to be logically separated.</p>
+
+<p>As with any virtualization solution guests share the same hardware. In the case of network interfaces, bandwidth can be a bottleneck. While Linux based Ethernet bonding is available there are limits. Typically a guest connects to a network interface via a network bridge. There are incompatibilities between certain types of Ethernet bonding and network bridges. This limits the number of bonding modes available. There are hardware solutions to work around this.</p>
+
+<p>In addition to the Windows dependency the manager itself is a single point of failure. Should it go down guests will continue to run but will not be highly available.</p>
+
+<p>Highly available guest often give a false sense of security. Such guests are safe from hardware failure but not software failure. Should a guest hosting an Apache service have Apache fail the guest will not migrate or fix itself. Software clustering is still needed. Red Hat is working on making their Cluster Suite RHEV aware so that a cluster running on guests could fence themselves using RHEV.</p>
+
+<p>During my months of testing I did uncovered some bugs. Red Hat provided me with excellent high level support and through this collaboration we were able make significant improvements in RHEV. You can learn more about RHEV at Red Hat or contact me for help on evaluation and implementation.</p>
+
+
+
+            </article>
+            <article>
+                <header>
+                    <h1><a href="/blog/2011/03/08/svn-cheatsheet/">Subversion Cheatsheet</a></h1>
+
+                    <p class="tags">Tags:
+                        <a href="/blog/tag/subversion/" rel="tag">subversion</a>
+                        <a href="/blog/tag/svn/" rel="tag">svn</a>
+                        <a href="/blog/tag/cheatsheet/" rel="tag">cheatsheet</a>
+                    </p>
+
+                    <aside>
+                        <p><time datetime="2011-03-08">
+                            Posted on 2011-03-08
+                        </time>
+                        </p>
+                    </aside>
+
+                </header>
+
+                <p>Add to working copy  svn add <file>
+Backup to hot copy   hot-backup.py /opt/svn /opt/svn-backup
+Change log view   svn log file:///opt/svn/scripts/firewall/firewall-new
+Checkout    svn checkout file:///opt/svn/profile
+Commit changes    svn commit --message &quot;Your log message&quot;
+Copy to working copy    svn copy <file> <file>
+Create respository   svnadmin create --fs-type fsfs /opt/svn
+Delete from working copy   svn delete <file>
+Diff changes   svn diff
+Initial Import    svn import . file:///opt/svn --message &quot;Initial import&quot;
+Merging to current directory  svn merge <merge to@rev> <merge from@rev>
+Move file in working copy  svn move <file1> <file2>
+Remote Checkout   svn checkout svn+ssh://<user>@<hostname>/opt/svn/<project>
+Revert all changes   svn revert <file>
+Review changes    svn status
+Review commit log    svn log
+Update working copy  svn update <file> (may overwrite changes)
+View file   svn cat file:///opt/svn/profile/.profile
+View repository tree    svnlook tree /opt/svn</file></file></project></hostname></user></file2></file1></merge></merge></file></file></file></file></p>
+
+
+
+            </article>
+            <article>
+                <header>
+                    <h1><a href="/blog/2011/03/08/solaris-cheatsheet/">Solaris and Sun/Oracle cheatsheet</a></h1>
+
+                    <p class="tags">Tags:
+                        <a href="/blog/tag/solaris/" rel="tag">solaris</a>
+                        <a href="/blog/tag/sun/" rel="tag">sun</a>
+                        <a href="/blog/tag/oracle/" rel="tag">oracle</a>
+                        <a href="/blog/tag/cheatsheet/" rel="tag">cheatsheet</a>
+                    </p>
+
+                    <aside>
+                        <p><time datetime="2011-03-08">
+                            Posted on 2011-03-08
+                        </time>
+                        </p>
+                    </aside>
+
+                </header>
+
+                <p>0  Go into boot prompt (OK).
+1  Put the system in system administrator mode. All file systems are mounted. Only a small set of essential kernel processes are left running. This mode is for administrative tasks such as installing optional utility packages. All files are accessible and no users are logged in on the system.
+2  Put the system in multi-user mode. All multi-user environment terminal processes and daemons are spawned. This state is commonly referred to as the multi-user state.
+3  Start the remote file sharing processes and dae mons. Mount and advertise remote resources. Run level 3 extends multi-user mode and is known as the remote-file-sharing state.
+4  Is available to be defined as an alternative multi-user environment configuration. It is not necessary for system operation and is usually not used.
+5  Shut the machine down so that it is safe to remove the power. Have the machine remove power, if possible.
+6  Stop the operating system and reboot to the state defined by the initdefault entry in /etc/inittab.</p>
+
+<p>reboot -- -x</p>
+
+<p>Reboot and issue boot -x (boot to non-cluster mode) at boot prompt.</p>
+
+<p>reboot -- -xs</p>
+
+<p>Reboot and issue boot -xs (single user, non-cluster mode) at boot prompt.</p>
+
+<p>reboot -- -r</p>
+
+<p>Reboot and issue boot -r (reconfigure) at boot prompt.</p>
+
+<p>elom and ilom commands Upload elom firmware  </p>
+
+<p>cd /SP/TftpUpdate
+set ServerIP=<tftp address ip>
+set Filename=Telom_X6250-053_040.ROM
+stop /SYS
+set Update=action</tftp></p>
+
+<h1>wait for upload and reboot</h1>
+
+<p>Upload ilom firmware    </p>
+
+<p>load -source tftp://<tftp address ip>/file.pkg</tftp></p>
+
+<p>Sun Cluster (under review) Backup cluster confuration    cluster export &gt; clusterconfig.xml
+Offline device group.   cldg offline <group>
+Offline resource group.    clrg offline <group>
+Onine device group.  cldg online <group>
+Onine resource group.   clrg online <group>
+Restore cluster configuration    clintr delete --force +
+clinst add clusterconfig.xml +
+Show cluster configuration    cluster show
+Status of cluster.   scstat or cluster status
+Status of device group.    cldg status
+Status of resource group.  clrg status
+Swtich device group to another node.   cldg switch -n <node> <group>
+Swtich resource group to another node.    clrg switch -n <node> <group></group></node></group></node></group></group></group></group></p>
+
+
+
+            </article>
+            <article>
+                <header>
+                    <h1><a href="/blog/2011/03/08/shell-cheatsheet/">Shell cheatsheet</a></h1>
+
+                    <p class="tags">Tags:
+                        <a href="/blog/tag/shell/" rel="tag">shell</a>
+                        <a href="/blog/tag/cli/" rel="tag">cli</a>
+                        <a href="/blog/tag/cheatsheet/" rel="tag">cheatsheet</a>
+                    </p>
+
+                    <aside>
+                        <p><time datetime="2011-03-08">
+                            Posted on 2011-03-08
+                        </time>
+                        </p>
+                    </aside>
+
+                </header>
+
+                <p>The following may not apply to all shells.</p>
+
+<h2>Job control</h2>
+
+<ul>
+<li>Resume job after suspend: <code>ctrl-q</code></li>
+<li>Resume job in background: <code>bg &lt;job number&gt;</code></li>
+<li>Resume job in foreground: <code>fg &lt;job number&gt;</code></li>
+<li>Suspend delay (suspend at stdin): <code>ctrl-y</code></li>
+<li>Suspend:  <code>ctrl-z</code></li>
+</ul>
+
+<h2>Command line laziness</h2>
+
+<ul>
+<li>Recall history line 66: <code>!66</code></li>
+<li>Recall last command: <code>!!</code></li>
+<li>Recall last arguement from last command: <code>!$</code></li>
+<li>Recall all arguements from last command: <code>!*</code></li>
+<li>Clear shell history: <code>history -c</code></li>
+<li>Delete shell history entry: <code>history -d &lt;number&gt;</code></li>
+<li>Rename rpmnew files:
+<code>
+find -type f -name &quot;*.rpmnew&quot; |sed &#39;s/\(^.*\)\(\.rpmnew\)$/mv -f \1\2 \1/&#39; |sh
+</code></li>
+<li>Search and replace files in place:
+<code>
+find /path -name &quot;*.*&quot; -exec | perl -pi -e &#39;s///g&#39; {} \;
+</code></li>
+<li>vi cli editing: <code>set -o vi</code> Now esc to enter command mode where vi keys
+work. Pressing enter returns to normal mode.</li>
+</ul>
+
+
+
+            </article>
+        </main>
+
+        <ul class="pager">
+            <li class="prev">
+                <a class="button button-primary" href="/blog/page/6" rel="next">
+                    ← Older
+                </a>
+            </li>
+            <li class="next">
+                <a class="button button-primary" href="/blog/page/4" rel="prev">
+                    Newer →
+                </a>
+            </li>
+        </ul>
+
+    </div>
+
+    <div class="three columns sidebar">
+        
+        <h1>Tags</h1>
+        <ul class="list-inline">
+            <li><a href="/blog/tag/apt/">apt</a></li>
+            <li><a href="/blog/tag/backup/">backup</a></li>
+            <li><a href="/blog/tag/cfengine/">cfengine</a></li>
+            <li><a href="/blog/tag/cfengine-cookbook/">cfengine cookbook</a></li>
+            <li><a href="/blog/tag/cheatsheet/">cheatsheet</a></li>
+            <li><a href="/blog/tag/cli/">cli</a></li>
+            <li><a href="/blog/tag/cluster/">cluster</a></li>
+            <li><a href="/blog/tag/configuration-management/">configuration management</a></li>
+            <li><a href="/blog/tag/cron/">cron</a></li>
+            <li><a href="/blog/tag/debian/">debian</a></li>
+            <li><a href="/blog/tag/dns/">dns</a></li>
+            <li><a href="/blog/tag/dr/">dr</a></li>
+            <li><a href="/blog/tag/heartbeat/">heartbeat</a></li>
+            <li><a href="/blog/tag/high-availability/">high availability</a></li>
+            <li><a href="/blog/tag/infosec/">infosec</a></li>
+            <li><a href="/blog/tag/ipv6/">ipv6</a></li>
+            <li><a href="/blog/tag/iscsi/">iscsi</a></li>
+            <li><a href="/blog/tag/kvm/">kvm</a></li>
+            <li><a href="/blog/tag/linux/">linux</a></li>
+            <li><a href="/blog/tag/monitoring/">monitoring</a></li>
+            <li><a href="/blog/tag/multipathd/">multipathd</a></li>
+            <li><a href="/blog/tag/networking/">networking</a></li>
+            <li><a href="/blog/tag/opensource/">opensource</a></li>
+            <li><a href="/blog/tag/oracle/">oracle</a></li>
+            <li><a href="/blog/tag/posix/">posix</a></li>
+            <li><a href="/blog/tag/red-hat/">red hat</a></li>
+            <li><a href="/blog/tag/regex/">regex</a></li>
+            <li><a href="/blog/tag/rhev/">rhev</a></li>
+            <li><a href="/blog/tag/san/">san</a></li>
+            <li><a href="/blog/tag/shell/">shell</a></li>
+            <li><a href="/blog/tag/solaris/">solaris</a></li>
+            <li><a href="/blog/tag/ssh/">ssh</a></li>
+            <li><a href="/blog/tag/subversion/">subversion</a></li>
+            <li><a href="/blog/tag/sun/">sun</a></li>
+            <li><a href="/blog/tag/support/">support</a></li>
+            <li><a href="/blog/tag/svn/">svn</a></li>
+            <li><a href="/blog/tag/sysadmin/">sysadmin</a></li>
+            <li><a href="/blog/tag/vitualization/">vitualization</a></li>
+        </ul>
+        <h1>Feeds</h1>
+        <ul class="list-inline">
+            <li>
+                <a href="/blog/index.atom" rel="alternate" type="application/atom+xml">
+                    Atom
+                </a>
+            </li>
+            <li>
+                <a href="/blog/index.rss" rel="alternate" type="application/rss+xml">
+                    RSS
+                </a>
+            </li>
+        </ul>
+    </div>
+
+</div>
+
+
+        </div>
+        <footer>
+            
+            <div class="container tagline">
+                <a href="http://preaction.github.io/Statocles">Made with Statocles</a><br>
+                <a href="http://www.perl.org">Powered by Perl</a>
+            </div>
+        </footer>
+    </body>
+</html>

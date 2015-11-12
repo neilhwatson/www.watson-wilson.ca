@@ -3,7 +3,10 @@ title: IPv6 Migration part 4
 tags: ipv6, networking
 ---
 
-This website is now dual stacked to both IPV4 and IPV6. In part four of my IPV6 series I'll tell you what I learned during this migration.
+This website is now dual stacked to both IPV4 and IPV6. In part four of my IPV6
+series I'll tell you what I learned during this migration.
+
+---
 
 This website consists of a web server, a database, an IP address and some DNS records. Before we get to that you should know a little about hosting providers and IPV6.
 

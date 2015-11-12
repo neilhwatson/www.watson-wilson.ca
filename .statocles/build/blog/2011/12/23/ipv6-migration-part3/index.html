@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="/theme/css/normalize.css" rel="stylesheet">
+        <link href="/theme/css/skeleton.css" rel="stylesheet">
+        <link href="/theme/css/statocles-default.css" rel="stylesheet">
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+        <title>IPv6 Migration part 3 - Neil H. Watson</title>
+        <meta content="Statocles 0.059" name="generator">
+        
+    </head>
+    <body>
+        <header>
+            <nav class="navbar">
+                <div class="container">
+                    <a class="brand" href="/">Neil H. Watson</a>
+                    <ul>
+                        <li>
+                            <a href="/">Blog</a>
+                        </li>
+                    </ul>
+                    
+                </div>
+            </nav>
+            
+        </header>
+        <div class="main container">
+            <div class="row">
+
+    <div class="nine columns">
+        <main>
+            <header>
+                <h1>IPv6 Migration part 3</h1>
+                <p class="tags">Tags:
+                    <a href="/blog/tag/ipv6/" rel="tag">ipv6</a>
+                    <a href="/blog/tag/networking/" rel="tag">networking</a>
+                </p>
+
+                <aside>
+                    <p><time datetime="2011-12-23">
+                        Posted on 2011-12-23
+                    </time>
+                    </p>
+                </aside>
+
+
+            </header>
+            <section id="section-1">
+                <p>We continue in this series by having a quick look at a dual stack VPS host.</p>
+
+<p>Alas many providers, including my ISP, do not yet offer IPV6 addresses. Fortunately my hosting provider does. I have a multipurpose VPS with them. Before this article the VPS had one IPV4 address. Using my provider&#39;s website I requested an IPV6 address. It’s worth noting that an IPV4 address costs me €2.00 per month. An IPV6 address cost only €0.10 per month.</p>
+
+<p>After I made the request, I returned a day later expecting to have to set things up. I was surprised to see everything just worked. IPV6 address can be assigned by stateless configuration. This is built in to IPV6 beyond regular use of DHCPv6. I&#39;m not sure how my provided assigned the IP but it must have been easy and automatic.</p>
+
+<p>venet0    Link encap:UNSPEC  HWaddr 00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00 <br>
+          inet addr:127.0.0.1  P-t-P:127.0.0.1  Bcast:0.0.0.0  Mask:255.255.255.255
+          inet6 addr: ::1/128 Scope:Host
+          inet6 addr: 2a02:750:5::464/128 Scope:Global
+          UP BROADCAST POINTOPOINT RUNNING NOARP  MTU:1500  Metric:1
+          RX packets:13899581 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:11227895 errors:0 dropped:6422 overruns:0 carrier:0
+          collisions:0 txqueuelen:0 
+          RX bytes:13392292622 (12.4 GiB)  TX bytes:1196669117 (1.1 GiB)</p>
+
+<p>venet0:0  Link encap:UNSPEC  HWaddr 00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00 <br>
+          inet addr:46.21.104.226  P-t-P:46.21.104.226  Bcast:0.0.0.0  Mask:255.255.255.255
+          UP BROADCAST POINTOPOINT RUNNING NOARP  MTU:1500  Metric:1</p>
+
+<p>This host has one IPV4 address and one IPV6 address. I can access the host through IPV4 and my IPV6 tunnel.</p>
+
+<p>PING 46.21.104.226 (46.21.104.226) 56(84) bytes of data.
+64 bytes from 46.21.104.226: icmp_req=1 ttl=50 time=145 ms
+64 bytes from 46.21.104.226: icmp_req=2 ttl=50 time=145 ms
+64 bytes from 46.21.104.226: icmp_req=3 ttl=50 time=145 ms</p>
+
+<p>--- 46.21.104.226 ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 2001ms
+rtt min/avg/max/mdev = 145.177/145.509/145.784/0.251 ms</p>
+
+<p>PING 2a02:750:5::464(2a02:750:5::464) 56 data bytes
+64 bytes from 2a02:750:5::464: icmp_seq=1 ttl=53 time=160 ms
+64 bytes from 2a02:750:5::464: icmp_seq=2 ttl=53 time=159 ms
+64 bytes from 2a02:750:5::464: icmp_seq=3 ttl=53 time=158 ms</p>
+
+<p>--- 2a02:750:5::464 ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 2002ms
+rtt min/avg/max/mdev = 158.861/159.709/160.406/0.718 ms</p>
+
+<p>Assigning both IPV4 and IPV6 addresses is a good way to transition to IPV6. It allows the host to access both worlds. Most reputable network services will happily work on both types of addresses. Just be aware that services like DHCP and packet filtering are entirely separate.</p>
+
+            </section>
+        </main>
+
+
+    </div>
+
+    <div class="three columns sidebar">
+        
+        <nav id="tags">
+            <h1>Tags</h1>
+            <ul class="list-inline">
+                <li><a href="/blog/tag/apt/">apt</a></li>
+                <li><a href="/blog/tag/backup/">backup</a></li>
+                <li><a href="/blog/tag/cfengine/">cfengine</a></li>
+                <li><a href="/blog/tag/cfengine-cookbook/">cfengine cookbook</a></li>
+                <li><a href="/blog/tag/cheatsheet/">cheatsheet</a></li>
+                <li><a href="/blog/tag/cli/">cli</a></li>
+                <li><a href="/blog/tag/cluster/">cluster</a></li>
+                <li><a href="/blog/tag/configuration-management/">configuration management</a></li>
+                <li><a href="/blog/tag/cron/">cron</a></li>
+                <li><a href="/blog/tag/debian/">debian</a></li>
+                <li><a href="/blog/tag/dns/">dns</a></li>
+                <li><a href="/blog/tag/dr/">dr</a></li>
+                <li><a href="/blog/tag/heartbeat/">heartbeat</a></li>
+                <li><a href="/blog/tag/high-availability/">high availability</a></li>
+                <li><a href="/blog/tag/infosec/">infosec</a></li>
+                <li><a href="/blog/tag/ipv6/">ipv6</a></li>
+                <li><a href="/blog/tag/iscsi/">iscsi</a></li>
+                <li><a href="/blog/tag/kvm/">kvm</a></li>
+                <li><a href="/blog/tag/linux/">linux</a></li>
+                <li><a href="/blog/tag/monitoring/">monitoring</a></li>
+                <li><a href="/blog/tag/multipathd/">multipathd</a></li>
+                <li><a href="/blog/tag/networking/">networking</a></li>
+                <li><a href="/blog/tag/opensource/">opensource</a></li>
+                <li><a href="/blog/tag/oracle/">oracle</a></li>
+                <li><a href="/blog/tag/posix/">posix</a></li>
+                <li><a href="/blog/tag/red-hat/">red hat</a></li>
+                <li><a href="/blog/tag/regex/">regex</a></li>
+                <li><a href="/blog/tag/rhev/">rhev</a></li>
+                <li><a href="/blog/tag/san/">san</a></li>
+                <li><a href="/blog/tag/shell/">shell</a></li>
+                <li><a href="/blog/tag/solaris/">solaris</a></li>
+                <li><a href="/blog/tag/ssh/">ssh</a></li>
+                <li><a href="/blog/tag/subversion/">subversion</a></li>
+                <li><a href="/blog/tag/sun/">sun</a></li>
+                <li><a href="/blog/tag/support/">support</a></li>
+                <li><a href="/blog/tag/svn/">svn</a></li>
+                <li><a href="/blog/tag/sysadmin/">sysadmin</a></li>
+                <li><a href="/blog/tag/vitualization/">vitualization</a></li>
+            </ul>
+        </nav>
+    </div>
+
+</div>
+
+        </div>
+        <footer>
+            
+            <div class="container tagline">
+                <a href="http://preaction.github.io/Statocles">Made with Statocles</a><br>
+                <a href="http://www.perl.org">Powered by Perl</a>
+            </div>
+        </footer>
+    </body>
+</html>

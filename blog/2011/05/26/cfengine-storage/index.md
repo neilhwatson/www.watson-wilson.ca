@@ -6,6 +6,9 @@ tags: cfengine, cfengine cookbook, configuration management, monitoring
 Problem
 
 You want to monitor free disk space.
+
+---
+
 Solution
 
 Cfengine has storage promises that can mount file systems and monitor disk space.

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="/theme/css/normalize.css" rel="stylesheet">
+        <link href="/theme/css/skeleton.css" rel="stylesheet">
+        <link href="/theme/css/statocles-default.css" rel="stylesheet">
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+        <title>Neil H. Watson</title>
+        <meta content="Statocles 0.059" name="generator">
+        <link href="/blog/tag/solaris.atom" rel="alternate" type="application/atom+xml">
+        <link href="/blog/tag/solaris.rss" rel="alternate" type="application/rss+xml">
+        
+    </head>
+    <body>
+        <header>
+            <nav class="navbar">
+                <div class="container">
+                    <a class="brand" href="/">Neil H. Watson</a>
+                    <ul>
+                        <li>
+                            <a href="/">Blog</a>
+                        </li>
+                    </ul>
+                    
+                </div>
+            </nav>
+            
+        </header>
+        <div class="main container">
+            
+<div class="row">
+
+    <div class="nine columns">
+        <main>
+
+
+            <article>
+                <header>
+                    <h1><a href="/blog/2011/03/08/solaris-cheatsheet/">Solaris and Sun/Oracle cheatsheet</a></h1>
+
+                    <p class="tags">Tags:
+                        <a href="/blog/tag/solaris/" rel="tag">solaris</a>
+                        <a href="/blog/tag/sun/" rel="tag">sun</a>
+                        <a href="/blog/tag/oracle/" rel="tag">oracle</a>
+                        <a href="/blog/tag/cheatsheet/" rel="tag">cheatsheet</a>
+                    </p>
+
+                    <aside>
+                        <p><time datetime="2011-03-08">
+                            Posted on 2011-03-08
+                        </time>
+                        </p>
+                    </aside>
+
+                </header>
+
+                <p>0  Go into boot prompt (OK).
+1  Put the system in system administrator mode. All file systems are mounted. Only a small set of essential kernel processes are left running. This mode is for administrative tasks such as installing optional utility packages. All files are accessible and no users are logged in on the system.
+2  Put the system in multi-user mode. All multi-user environment terminal processes and daemons are spawned. This state is commonly referred to as the multi-user state.
+3  Start the remote file sharing processes and dae mons. Mount and advertise remote resources. Run level 3 extends multi-user mode and is known as the remote-file-sharing state.
+4  Is available to be defined as an alternative multi-user environment configuration. It is not necessary for system operation and is usually not used.
+5  Shut the machine down so that it is safe to remove the power. Have the machine remove power, if possible.
+6  Stop the operating system and reboot to the state defined by the initdefault entry in /etc/inittab.</p>
+
+<p>reboot -- -x</p>
+
+<p>Reboot and issue boot -x (boot to non-cluster mode) at boot prompt.</p>
+
+<p>reboot -- -xs</p>
+
+<p>Reboot and issue boot -xs (single user, non-cluster mode) at boot prompt.</p>
+
+<p>reboot -- -r</p>
+
+<p>Reboot and issue boot -r (reconfigure) at boot prompt.</p>
+
+<p>elom and ilom commands Upload elom firmware  </p>
+
+<p>cd /SP/TftpUpdate
+set ServerIP=<tftp address ip>
+set Filename=Telom_X6250-053_040.ROM
+stop /SYS
+set Update=action</tftp></p>
+
+<h1>wait for upload and reboot</h1>
+
+<p>Upload ilom firmware    </p>
+
+<p>load -source tftp://<tftp address ip>/file.pkg</tftp></p>
+
+<p>Sun Cluster (under review) Backup cluster confuration    cluster export &gt; clusterconfig.xml
+Offline device group.   cldg offline <group>
+Offline resource group.    clrg offline <group>
+Onine device group.  cldg online <group>
+Onine resource group.   clrg online <group>
+Restore cluster configuration    clintr delete --force +
+clinst add clusterconfig.xml +
+Show cluster configuration    cluster show
+Status of cluster.   scstat or cluster status
+Status of device group.    cldg status
+Status of resource group.  clrg status
+Swtich device group to another node.   cldg switch -n <node> <group>
+Swtich resource group to another node.    clrg switch -n <node> <group></group></node></group></node></group></group></group></group></p>
+
+
+
+            </article>
+        </main>
+
+        <ul class="pager">
+            <li class="prev">
+                <a class="button disabled" href="" rel="next">
+                    ← Older
+                </a>
+            </li>
+            <li class="next">
+                <a class="button disabled" href="" rel="prev">
+                    Newer →
+                </a>
+            </li>
+        </ul>
+
+    </div>
+
+    <div class="three columns sidebar">
+        
+        <h1>Tags</h1>
+        <ul class="list-inline">
+            <li><a href="/blog/tag/apt/">apt</a></li>
+            <li><a href="/blog/tag/backup/">backup</a></li>
+            <li><a href="/blog/tag/cfengine/">cfengine</a></li>
+            <li><a href="/blog/tag/cfengine-cookbook/">cfengine cookbook</a></li>
+            <li><a href="/blog/tag/cheatsheet/">cheatsheet</a></li>
+            <li><a href="/blog/tag/cli/">cli</a></li>
+            <li><a href="/blog/tag/cluster/">cluster</a></li>
+            <li><a href="/blog/tag/configuration-management/">configuration management</a></li>
+            <li><a href="/blog/tag/cron/">cron</a></li>
+            <li><a href="/blog/tag/debian/">debian</a></li>
+            <li><a href="/blog/tag/dns/">dns</a></li>
+            <li><a href="/blog/tag/dr/">dr</a></li>
+            <li><a href="/blog/tag/heartbeat/">heartbeat</a></li>
+            <li><a href="/blog/tag/high-availability/">high availability</a></li>
+            <li><a href="/blog/tag/infosec/">infosec</a></li>
+            <li><a href="/blog/tag/ipv6/">ipv6</a></li>
+            <li><a href="/blog/tag/iscsi/">iscsi</a></li>
+            <li><a href="/blog/tag/kvm/">kvm</a></li>
+            <li><a href="/blog/tag/linux/">linux</a></li>
+            <li><a href="/blog/tag/monitoring/">monitoring</a></li>
+            <li><a href="/blog/tag/multipathd/">multipathd</a></li>
+            <li><a href="/blog/tag/networking/">networking</a></li>
+            <li><a href="/blog/tag/opensource/">opensource</a></li>
+            <li><a href="/blog/tag/oracle/">oracle</a></li>
+            <li><a href="/blog/tag/posix/">posix</a></li>
+            <li><a href="/blog/tag/red-hat/">red hat</a></li>
+            <li><a href="/blog/tag/regex/">regex</a></li>
+            <li><a href="/blog/tag/rhev/">rhev</a></li>
+            <li><a href="/blog/tag/san/">san</a></li>
+            <li><a href="/blog/tag/shell/">shell</a></li>
+            <li><a href="/blog/tag/solaris/">solaris</a></li>
+            <li><a href="/blog/tag/ssh/">ssh</a></li>
+            <li><a href="/blog/tag/subversion/">subversion</a></li>
+            <li><a href="/blog/tag/sun/">sun</a></li>
+            <li><a href="/blog/tag/support/">support</a></li>
+            <li><a href="/blog/tag/svn/">svn</a></li>
+            <li><a href="/blog/tag/sysadmin/">sysadmin</a></li>
+            <li><a href="/blog/tag/vitualization/">vitualization</a></li>
+        </ul>
+        <h1>Feeds</h1>
+        <ul class="list-inline">
+            <li>
+                <a href="/blog/tag/solaris.atom" rel="alternate" type="application/atom+xml">
+                    Atom
+                </a>
+            </li>
+            <li>
+                <a href="/blog/tag/solaris.rss" rel="alternate" type="application/rss+xml">
+                    RSS
+                </a>
+            </li>
+        </ul>
+    </div>
+
+</div>
+
+
+        </div>
+        <footer>
+            
+            <div class="container tagline">
+                <a href="http://preaction.github.io/Statocles">Made with Statocles</a><br>
+                <a href="http://www.perl.org">Powered by Perl</a>
+            </div>
+        </footer>
+    </body>
+</html>

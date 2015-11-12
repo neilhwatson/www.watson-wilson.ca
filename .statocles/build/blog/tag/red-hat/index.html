@@ -6,7 +6,7 @@
         <link href="/theme/css/statocles-default.css" rel="stylesheet">
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
         <title>Neil H. Watson</title>
-        <meta content="Statocles 0.057" name="generator">
+        <meta content="Statocles 0.059" name="generator">
         <link href="/blog/tag/red-hat.atom" rel="alternate" type="application/atom+xml">
         <link href="/blog/tag/red-hat.rss" rel="alternate" type="application/rss+xml">
         
@@ -530,17 +530,16 @@ load balancing instead of or, in addition to redundancy.</p>
 <h3><a name="refs"></a>References and Additional Reading</h3>
 
 <ol>
-<li>Redhat Cluster Suite http://www.redhat.com/docs/manuals/csgfs/browse/rh-cs-en/index.html</li>
-<li>Linux Ethernet Bonding http://linux-net.osdl.org/index.php/Bonding</li>
-<li>High Availability Linux http://www.linux-ha.org/</li>
-<li>Kernel Parameters for Linux http://publib.boulder.ibm.com/infocenter/db2luw/v9/index.jsp?topic=/com.ibm.db2.udb.uprun.doc/doc/t0008238.htm</li>
+<li><a href="http://www.redhat.com/docs/manuals/csgfs/browse/rh-cs-en/index.html">Redhat Cluster Suite</a></li>
+<li><a href="http://www.linux-ha.org/">High Availability Linux</a></li>
+<li><a href="http://publib.boulder.ibm.com/infocenter/db2luw/v9/index.jsp?topic=/com.ibm.db2.udb.uprun.doc/doc/t0008238.htm">Kernel Parameters for Linux</a></li>
 </ol>
 
 <h3><a name="appendix-a"></a>DB2 init script</h3>
 
 <pre><code>    #!/bin/bash
     #
-    #----------------------------  /etc/init.d/db2 ------------------------
+    #-------------------------  /etc/init.d/db2 ------------------------
     # db2 
     #
     # description:  Start up the db2 service 
@@ -556,14 +555,14 @@ load balancing instead of or, in addition to redundancy.</p>
 
     start() {
         echo -n $&quot;Starting $prog:&quot;
-        initlog -c &quot;/bin/su - $USER -c                 &#39;db2start&#39;&quot; &amp;&amp; success || failure
+        initlog -c &quot;/bin/su - $USER -c &#39;db2start&#39;&quot; &amp;&amp; success || failure
         RETVAL=$?
         echo &quot;&quot;
 
     }
 
     status() {
-        initlog -c &quot;/bin/su - $USER -c                 &#39;db2gcf -s&#39;&quot; &amp;&amp; success || failure
+        initlog -c &quot;/bin/su - $USER -c &#39;db2gcf -s&#39;&quot; &amp;&amp; success || failure
         RETVAL=$?
         echo &quot;&quot;
     }
@@ -582,11 +581,17 @@ load balancing instead of or, in addition to redundancy.</p>
             echo &quot;&quot;
         else
             # DB2 must still be running.  Stop it.
-            initlog -c &quot;/bin/su - $USER -c                     &#39;db2 force application all&#39;&quot;                     &amp;&amp; success || failure &amp;
+            initlog -c &quot;/bin/su - $USER -c \
+                &#39;db2 force application all&#39;&quot; \
+                &amp;&amp; success || failure &amp;
             sleep 5
-            initlog -c &quot;/bin/su - $USER -c                     &#39;db2stop force&#39;&quot; &amp;&amp; success                     || failure &amp;
+            initlog -c &quot;/bin/su - $USER -c \
+                &#39;db2stop force&#39;&quot; &amp;&amp; success \
+                || failure &amp;
             sleep 5
-            initlog -c &quot;/bin/su - $USER -c                     &#39;db2_kill&#39;&quot; &amp;&amp; success                     || failure &amp;
+            initlog -c &quot;/bin/su - $USER -c \
+                &#39;db2_kill&#39;&quot; &amp;&amp; success \
+                || failure &amp;
             echo &quot;&quot;
         fi
     }

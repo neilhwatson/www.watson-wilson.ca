@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="/theme/css/normalize.css" rel="stylesheet">
+        <link href="/theme/css/skeleton.css" rel="stylesheet">
+        <link href="/theme/css/statocles-default.css" rel="stylesheet">
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+        <title>IPv6 Migration part 6 - Neil H. Watson</title>
+        <meta content="Statocles 0.059" name="generator">
+        
+    </head>
+    <body>
+        <header>
+            <nav class="navbar">
+                <div class="container">
+                    <a class="brand" href="/">Neil H. Watson</a>
+                    <ul>
+                        <li>
+                            <a href="/">Blog</a>
+                        </li>
+                    </ul>
+                    
+                </div>
+            </nav>
+            
+        </header>
+        <div class="main container">
+            <div class="row">
+
+    <div class="nine columns">
+        <main>
+            <header>
+                <h1>IPv6 Migration part 6</h1>
+                <p class="tags">Tags:
+                    <a href="/blog/tag/ipv6/" rel="tag">ipv6</a>
+                    <a href="/blog/tag/networking/" rel="tag">networking</a>
+                </p>
+
+                <aside>
+                    <p><time datetime="2012-07-05">
+                        Posted on 2012-07-05
+                    </time>
+                    </p>
+                </aside>
+
+
+            </header>
+            <section id="section-1">
+                <p>Liberation! Using IPV6, I have 18,446,744,073,709,551,616 public IP addresses. This is considered a small offering (/64). Normally, an organization would get a /48 network that contains 65536 /64 subnets.</p>
+
+<p>Previously my local IPV6 setup was limited to just my workstation. It initiated the 6in4 tunnel to my IPV6 tunnel broker, Sixxs. Recently this tunnel malfunctioned. I think it was due to it passing through a NAT IPV4 router. I did not discover the problem but, I did move on the next stage. Now my router handles the tunnel and my workstation has a static IPV6 address from the /64 block provided by Sixxs.</p>
+
+<p>My router is an Alix system running Linux. Moving the tunnel from my workstation to the router was quite simple. Note, that in part 1 I was using a static tunnel. With IPV4 addresses in short supply, and poor ISP quality in Canada, I had to move to a dynamic IP address setup. Sixxs provides a daemon called Aiccu to tunnel through dynamic IPV4 setups. Debian has the Aiccu package. With simple apt-get install you are ready to configure your tunnel. The configuration file is /etc/aiccu.conf. Set a username, password, protocol, and server in the file. All of these are provided by Sixxs. The rest of the file can be left at the defaults.
+home-ipv6.png</p>
+
+<p>My router has two interfaces. One faces the Internet and the other faces my internal network. The 6in4 tunnel provides an IPV6 address to the external interface. It is not part of the IPV6 subnet provided to me. That subnet is attached to the inside interface. In those simple steps you have your first IPV6 subnet. If you work with IPV4 then this looks familiar. At this level IPV4 and IPV6 work the same way. Don&#39;t let the IPV6 address syntax scare you. Just remember that IPV6 requires its own firewall. In Linux that is ip6tables.</p>
+
+            </section>
+        </main>
+
+
+    </div>
+
+    <div class="three columns sidebar">
+        
+        <nav id="tags">
+            <h1>Tags</h1>
+            <ul class="list-inline">
+                <li><a href="/blog/tag/apt/">apt</a></li>
+                <li><a href="/blog/tag/backup/">backup</a></li>
+                <li><a href="/blog/tag/cfengine/">cfengine</a></li>
+                <li><a href="/blog/tag/cfengine-cookbook/">cfengine cookbook</a></li>
+                <li><a href="/blog/tag/cheatsheet/">cheatsheet</a></li>
+                <li><a href="/blog/tag/cli/">cli</a></li>
+                <li><a href="/blog/tag/cluster/">cluster</a></li>
+                <li><a href="/blog/tag/configuration-management/">configuration management</a></li>
+                <li><a href="/blog/tag/cron/">cron</a></li>
+                <li><a href="/blog/tag/debian/">debian</a></li>
+                <li><a href="/blog/tag/dns/">dns</a></li>
+                <li><a href="/blog/tag/dr/">dr</a></li>
+                <li><a href="/blog/tag/heartbeat/">heartbeat</a></li>
+                <li><a href="/blog/tag/high-availability/">high availability</a></li>
+                <li><a href="/blog/tag/infosec/">infosec</a></li>
+                <li><a href="/blog/tag/ipv6/">ipv6</a></li>
+                <li><a href="/blog/tag/iscsi/">iscsi</a></li>
+                <li><a href="/blog/tag/kvm/">kvm</a></li>
+                <li><a href="/blog/tag/linux/">linux</a></li>
+                <li><a href="/blog/tag/monitoring/">monitoring</a></li>
+                <li><a href="/blog/tag/multipathd/">multipathd</a></li>
+                <li><a href="/blog/tag/networking/">networking</a></li>
+                <li><a href="/blog/tag/opensource/">opensource</a></li>
+                <li><a href="/blog/tag/oracle/">oracle</a></li>
+                <li><a href="/blog/tag/posix/">posix</a></li>
+                <li><a href="/blog/tag/red-hat/">red hat</a></li>
+                <li><a href="/blog/tag/regex/">regex</a></li>
+                <li><a href="/blog/tag/rhev/">rhev</a></li>
+                <li><a href="/blog/tag/san/">san</a></li>
+                <li><a href="/blog/tag/shell/">shell</a></li>
+                <li><a href="/blog/tag/solaris/">solaris</a></li>
+                <li><a href="/blog/tag/ssh/">ssh</a></li>
+                <li><a href="/blog/tag/subversion/">subversion</a></li>
+                <li><a href="/blog/tag/sun/">sun</a></li>
+                <li><a href="/blog/tag/support/">support</a></li>
+                <li><a href="/blog/tag/svn/">svn</a></li>
+                <li><a href="/blog/tag/sysadmin/">sysadmin</a></li>
+                <li><a href="/blog/tag/vitualization/">vitualization</a></li>
+            </ul>
+        </nav>
+    </div>
+
+</div>
+
+        </div>
+        <footer>
+            
+            <div class="container tagline">
+                <a href="http://preaction.github.io/Statocles">Made with Statocles</a><br>
+                <a href="http://www.perl.org">Powered by Perl</a>
+            </div>
+        </footer>
+    </body>
+</html>

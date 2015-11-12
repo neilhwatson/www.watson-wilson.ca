@@ -3,7 +3,11 @@ title: IPv6 Migration part 5
 tags: ipv6, networking
 ---
 
-My email server now functions on both IPV4 and IPV6 networks. Postfix is IPV6 ready but, the configuration needed some adjustments.
+My email server now functions on both IPV4 and IPV6 networks. Postfix is IPV6
+ready but, the configuration needed some adjustments.
+
+---
+
 
 In places like mynetworks, found in main.cf, IPV6 addresses must be enclosed in square brackets. This does not include the netmask. For example: [::1]/128
 In main.cf Postfix is told to use IPV6 using inet_protocols. Set this to all and Postfix will listen to IPV4 and IPV6 interfaces.

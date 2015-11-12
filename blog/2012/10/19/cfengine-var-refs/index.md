@@ -3,7 +3,11 @@ title: Variable references with Cfengine
 tags: cfengine
 ---
 
-Variables in Cfengine can be confusing at times. Here are some examples of variable references. References are not strictly required, but they are good practice like using the strict module in Perl.
+Variables in Cfengine can be confusing at times. Here are some examples of
+variable references. References are not strictly required, but they are good
+practice like using the strict module in Perl.
+
+---
 
 bundle agent main {
 

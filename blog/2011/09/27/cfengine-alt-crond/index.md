@@ -5,6 +5,8 @@ tags: cfengine, configuration management, cron
 
 Cfengine’s time based classes and promise theory make it an attractive alternative to venerable crond.
 
+---
+
 It helps if the reader is familiar with Cfengine syntax. If not, then skip the syntax and just be aware that what is described is possible.
 
 Both crond and Cfengine have flexible time descriptions but, Cfengine offers more.

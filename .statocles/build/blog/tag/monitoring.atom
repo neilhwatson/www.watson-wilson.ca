@@ -1,0 +1,80 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>http://ettin/blog/tag/monitoring/</id>
+    <title>Neil H. Watson</title>
+    <updated>2015-11-12T15:26:15Z</updated>
+    <link href="http://ettin/blog/tag/monitoring.atom" rel="self" />
+    <link href="http://ettin/blog/tag/monitoring/" rel="alternate" />
+    <generator version="0.059">Statocles</generator>
+    <entry>
+        <id>http://ettin/blog/2011/05/26/cfengine-storage/</id>
+        <title>Disk space monitoring using Cfengine</title>
+        <link href="http://ettin/blog/2011/05/26/cfengine-storage/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p>Problem</p>
+
+<p>You want to monitor free disk space.
+Solution</p>
+
+<p>Cfengine has storage promises that can mount file systems and monitor disk space.</p>
+
+<p>bundle agent recipe {</p>
+
+<p>storage:</p>
+
+<pre><code>&quot;/var&quot;
+  handle =&gt; &quot;var_fs_check&quot;,
+  comment =&gt; &quot;var filesystem check&quot;,
+  volume =&gt; min_free_space(&quot;13G&quot;);
+</code></pre>
+
+<p>}</p>
+
+<p>In this example we see a message printed if the /var filesystem has less than 13 gigabytes of free space.</p>
+
+<p>root@venus:/home/neil/.cfagent/inputs# cf-agent -f ./recipe.cf 
+ !! Disk space under 13631488 kB for volume containing /vars: (12113604
+ kB free)
+ I: Made in version &#39;not specified&#39; of &#39;./recipe.cf&#39; near line 17
+ I: Comment: vars: filesystem check</p>
+
+<p>Gravy</p>
+
+<p>Why stop at passive monitoring? A class can be defined when the file system is filling up. This allows for more actions.</p>
+
+<p>bundle agent recipe {</p>
+
+<pre><code>storage:
+
+    &quot;/var&quot;
+        handle =&gt; &quot;var_fs_check&quot;,
+        comment =&gt; &quot;var filesystem check&quot;,
+        classes =&gt; if_notkept(&quot;var_full&quot;),
+        volume =&gt; min_free_space(&quot;13G&quot;);
+
+reports:
+
+    var_full::
+        &quot;Report: /var has to little free space.&quot;;
+</code></pre>
+
+<p>}</p>
+
+<p>Now the class “var_full” is set. In this example we only create a report but any other action would be possible. Perhaps we can initiate a search for core files and delete them. We could delete aged files from /var/tmp. A package cache could be deleted. An alert could be sent to a central monitoring system. We could even do all of these things.</p>
+
+                <p><a href="http://ettin/blog/2011/05/26/cfengine-storage/#section-2">Continue reading...</a></p>
+            <p>Tags:
+                <a href="http://ettin/blog/tag/cfengine/">cfengine</a>
+                <a href="http://ettin/blog/tag/cfengine-cookbook/">cfengine cookbook</a>
+                <a href="http://ettin/blog/tag/configuration-management/">configuration management</a>
+                <a href="http://ettin/blog/tag/monitoring/">monitoring</a>
+            </p>
+        ]]></content>
+        <updated>2011-05-26T00:00:00Z</updated>
+        <category term="cfengine" />
+        <category term="cfengine cookbook" />
+        <category term="configuration management" />
+        <category term="monitoring" />
+    </entry>
+</feed>
+

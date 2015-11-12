@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="/theme/css/normalize.css" rel="stylesheet">
+        <link href="/theme/css/skeleton.css" rel="stylesheet">
+        <link href="/theme/css/statocles-default.css" rel="stylesheet">
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+        <title>Linux networking cheatsheet - Neil H. Watson</title>
+        <meta content="Statocles 0.059" name="generator">
+        
+    </head>
+    <body>
+        <header>
+            <nav class="navbar">
+                <div class="container">
+                    <a class="brand" href="/">Neil H. Watson</a>
+                    <ul>
+                        <li>
+                            <a href="/">Blog</a>
+                        </li>
+                    </ul>
+                    
+                </div>
+            </nav>
+            
+        </header>
+        <div class="main container">
+            <div class="row">
+
+    <div class="nine columns">
+        <main>
+            <header>
+                <h1>Linux networking cheatsheet</h1>
+                <p class="tags">Tags:
+                    <a href="/blog/tag/linux/" rel="tag">linux</a>
+                    <a href="/blog/tag/networking/" rel="tag">networking</a>
+                    <a href="/blog/tag/cheatsheet/" rel="tag">cheatsheet</a>
+                </p>
+
+                <aside>
+                    <p><time datetime="2011-03-08">
+                        Posted on 2011-03-08
+                    </time>
+                    </p>
+                </aside>
+
+
+            </header>
+            <section id="section-1">
+                <p>Network calculation Show network info  ipcalc 10.0.0.0/24
+ipcalc 10.0.0.0/255.255.255.0
+Segment network into 2 50 node subnets    ipcalc 10.0.0.0/24 -s 50 50</p>
+
+<p>Net-tools versus Iptroute2 List interfaces   ip addr list
+ifconfig -a
+ip addr list eth0
+ifconfig eth0
+Link status    ip link list
+ifconfig -a
+ip link list eth0
+ifconfig eth0
+Route table    ip route
+netstat -rn
+Adding routes  ip route add default via 10.0.0.1
+Add/delete IP addresses    ip addr add 10.0.0.2/24 dev eth0
+ifconfig eth0 10.0.0.2 netmask 255.255.255.0
+ip addr del 10.0.0.2/24 dev eth0
+ifconfig eth0 del 10.0.0.2
+Linux Ethernet bonding</p>
+
+<h1>Loading module:</h1>
+
+<h1>for Red Hat AS4, may work with other 2.6 Linuxes.</h1>
+
+<p>install bond0 /sbin/modprobe bonding -o bond0 mode=0 miimon=100</p>
+
+<h1>for Red Hat AS3, may work with other 2.4 Linuxes.</h1>
+
+<p>alias bond0 bonding
+options bond0 -o bonding mode=0 miimon=100</p>
+
+<h1>For Redhat distributions</h1>
+
+<h1>ifcfg-ethx</h1>
+
+<p>DEVICE=ethx
+USERCTL=no
+ONBOOT=yes
+MASTER=bond0
+SLAVE=yes
+BOOTPROTO=none</p>
+
+<h1>ifcfg-bond0</h1>
+
+<p>DEVICE=bond0
+USERCTL=no
+ONBOOT=yes
+IPADDR=172.16.48.66
+NETMASK=255.255.255.0
+GATEWAY=172.16.48.1</p>
+
+<p>Click for more Ethernet bonding information.
+OSI model diagram
+osi-model.gif</p>
+
+            </section>
+        </main>
+
+
+    </div>
+
+    <div class="three columns sidebar">
+        
+        <nav id="tags">
+            <h1>Tags</h1>
+            <ul class="list-inline">
+                <li><a href="/blog/tag/apt/">apt</a></li>
+                <li><a href="/blog/tag/backup/">backup</a></li>
+                <li><a href="/blog/tag/cfengine/">cfengine</a></li>
+                <li><a href="/blog/tag/cfengine-cookbook/">cfengine cookbook</a></li>
+                <li><a href="/blog/tag/cheatsheet/">cheatsheet</a></li>
+                <li><a href="/blog/tag/cli/">cli</a></li>
+                <li><a href="/blog/tag/cluster/">cluster</a></li>
+                <li><a href="/blog/tag/configuration-management/">configuration management</a></li>
+                <li><a href="/blog/tag/cron/">cron</a></li>
+                <li><a href="/blog/tag/debian/">debian</a></li>
+                <li><a href="/blog/tag/dns/">dns</a></li>
+                <li><a href="/blog/tag/dr/">dr</a></li>
+                <li><a href="/blog/tag/heartbeat/">heartbeat</a></li>
+                <li><a href="/blog/tag/high-availability/">high availability</a></li>
+                <li><a href="/blog/tag/infosec/">infosec</a></li>
+                <li><a href="/blog/tag/ipv6/">ipv6</a></li>
+                <li><a href="/blog/tag/iscsi/">iscsi</a></li>
+                <li><a href="/blog/tag/kvm/">kvm</a></li>
+                <li><a href="/blog/tag/linux/">linux</a></li>
+                <li><a href="/blog/tag/monitoring/">monitoring</a></li>
+                <li><a href="/blog/tag/multipathd/">multipathd</a></li>
+                <li><a href="/blog/tag/networking/">networking</a></li>
+                <li><a href="/blog/tag/opensource/">opensource</a></li>
+                <li><a href="/blog/tag/oracle/">oracle</a></li>
+                <li><a href="/blog/tag/posix/">posix</a></li>
+                <li><a href="/blog/tag/red-hat/">red hat</a></li>
+                <li><a href="/blog/tag/regex/">regex</a></li>
+                <li><a href="/blog/tag/rhev/">rhev</a></li>
+                <li><a href="/blog/tag/san/">san</a></li>
+                <li><a href="/blog/tag/shell/">shell</a></li>
+                <li><a href="/blog/tag/solaris/">solaris</a></li>
+                <li><a href="/blog/tag/ssh/">ssh</a></li>
+                <li><a href="/blog/tag/subversion/">subversion</a></li>
+                <li><a href="/blog/tag/sun/">sun</a></li>
+                <li><a href="/blog/tag/support/">support</a></li>
+                <li><a href="/blog/tag/svn/">svn</a></li>
+                <li><a href="/blog/tag/sysadmin/">sysadmin</a></li>
+                <li><a href="/blog/tag/vitualization/">vitualization</a></li>
+            </ul>
+        </nav>
+    </div>
+
+</div>
+
+        </div>
+        <footer>
+            
+            <div class="container tagline">
+                <a href="http://preaction.github.io/Statocles">Made with Statocles</a><br>
+                <a href="http://www.perl.org">Powered by Perl</a>
+            </div>
+        </footer>
+    </body>
+</html>

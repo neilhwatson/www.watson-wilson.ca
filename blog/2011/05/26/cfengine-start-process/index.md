@@ -7,6 +7,8 @@ Problem
 
 You want to ensure that a process is running.
 
+---
+
 Solution
 
 This promise searches the process table for the regular expression “snmpd”. If this is not found the class “start_snmpd” is set. This class being set causes the command “/etc/init.d/snmpd start” command to be run.

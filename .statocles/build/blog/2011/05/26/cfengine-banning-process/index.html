@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="/theme/css/normalize.css" rel="stylesheet">
+        <link href="/theme/css/skeleton.css" rel="stylesheet">
+        <link href="/theme/css/statocles-default.css" rel="stylesheet">
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+        <title>Banning processes using Cfengine - Neil H. Watson</title>
+        <meta content="Statocles 0.059" name="generator">
+        
+    </head>
+    <body>
+        <header>
+            <nav class="navbar">
+                <div class="container">
+                    <a class="brand" href="/">Neil H. Watson</a>
+                    <ul>
+                        <li>
+                            <a href="/">Blog</a>
+                        </li>
+                    </ul>
+                    
+                </div>
+            </nav>
+            
+        </header>
+        <div class="main container">
+            <div class="row">
+
+    <div class="nine columns">
+        <main>
+            <header>
+                <h1>Banning processes using Cfengine</h1>
+                <p class="tags">Tags:
+                    <a href="/blog/tag/cfengine/" rel="tag">cfengine</a>
+                    <a href="/blog/tag/cfengine-cookbook/" rel="tag">cfengine cookbook</a>
+                    <a href="/blog/tag/configuration-management/" rel="tag">configuration management</a>
+                    <a href="/blog/tag/infosec/" rel="tag">infosec</a>
+                </p>
+
+                <aside>
+                    <p><time datetime="2011-05-26">
+                        Posted on 2011-05-26
+                    </time>
+                    </p>
+                </aside>
+
+
+            </header>
+            <section id="section-1">
+                <p>Problem</p>
+
+<p>You want to prevent certain processes from running.</p>
+
+<p>Solution</p>
+
+<p>In formal Cfengine parlance this promise ensures that there are zero instances of processes running that match the regular expression “snmpd”. If such processes are found a term signal is sent. If that signal is ignored a kill signal is sent.</p>
+
+<p>Be careful because “snmpd” is a regular expression. It may match more than you think. Our intent is to look for a running instance of snmpd but this would also match “vim snmpd.conf”.</p>
+
+<p>bundle agent recipe {</p>
+
+<p>processes:</p>
+
+<pre><code>&quot;snmpd&quot; signals =&gt; { &quot;term&quot;, &quot;kill&quot; },
+   handle =&gt; &quot;Banned_procs&quot;,
+   comment =&gt; &quot;Term process or kill if term fails&quot;,
+   process_count =&gt; banned; 
+</code></pre>
+
+<p>}</p>
+
+<p>body process_count banned {
+  match_range =&gt; irange(&quot;0&quot;,&quot;0&quot;);
+}</p>
+
+<p>Below we see an snmpd process before the agent is run. We see the output of the agent and then we see no snmpd process after the agent is finished.</p>
+
+<p>root@venus:/home/neil/.cfagent/inputs# ps -ef|grep snmp
+snmp     26481     1  0 09:05 ?        00:00:00 /usr/sbin/snmpd -Lsd -Lf
+/dev/null -u snmp -g snmp -I -smux -p /vars:/run/snmpd.pid 127.0.0.1</p>
+
+<p>root@venus:/home/neil/.cfagent/inputs# cf-agent -IKf ./recipe.cf 
+!! Process count for &#39;snmpd&#39; was out of promised range (1 found)
+I: Report relates to a promise with handle &quot;Banned_procs&quot;
+I: Made in version &#39;not specified&#39; of &#39;./recipe.cf&#39; near line 16
+I: Comment: Term process or kill if term fails</p>
+
+<p>-&gt; Signalled &#39;term&#39; (15) to observed process match &#39;26481&#39;</p>
+
+<p>root@venus:/home/neil/.cfagent/inputs# ps -ef|grep snmp</p>
+
+            </section>
+        </main>
+
+
+    </div>
+
+    <div class="three columns sidebar">
+        
+        <nav id="tags">
+            <h1>Tags</h1>
+            <ul class="list-inline">
+                <li><a href="/blog/tag/apt/">apt</a></li>
+                <li><a href="/blog/tag/backup/">backup</a></li>
+                <li><a href="/blog/tag/cfengine/">cfengine</a></li>
+                <li><a href="/blog/tag/cfengine-cookbook/">cfengine cookbook</a></li>
+                <li><a href="/blog/tag/cheatsheet/">cheatsheet</a></li>
+                <li><a href="/blog/tag/cli/">cli</a></li>
+                <li><a href="/blog/tag/cluster/">cluster</a></li>
+                <li><a href="/blog/tag/configuration-management/">configuration management</a></li>
+                <li><a href="/blog/tag/cron/">cron</a></li>
+                <li><a href="/blog/tag/debian/">debian</a></li>
+                <li><a href="/blog/tag/dns/">dns</a></li>
+                <li><a href="/blog/tag/dr/">dr</a></li>
+                <li><a href="/blog/tag/heartbeat/">heartbeat</a></li>
+                <li><a href="/blog/tag/high-availability/">high availability</a></li>
+                <li><a href="/blog/tag/infosec/">infosec</a></li>
+                <li><a href="/blog/tag/ipv6/">ipv6</a></li>
+                <li><a href="/blog/tag/iscsi/">iscsi</a></li>
+                <li><a href="/blog/tag/kvm/">kvm</a></li>
+                <li><a href="/blog/tag/linux/">linux</a></li>
+                <li><a href="/blog/tag/monitoring/">monitoring</a></li>
+                <li><a href="/blog/tag/multipathd/">multipathd</a></li>
+                <li><a href="/blog/tag/networking/">networking</a></li>
+                <li><a href="/blog/tag/opensource/">opensource</a></li>
+                <li><a href="/blog/tag/oracle/">oracle</a></li>
+                <li><a href="/blog/tag/posix/">posix</a></li>
+                <li><a href="/blog/tag/red-hat/">red hat</a></li>
+                <li><a href="/blog/tag/regex/">regex</a></li>
+                <li><a href="/blog/tag/rhev/">rhev</a></li>
+                <li><a href="/blog/tag/san/">san</a></li>
+                <li><a href="/blog/tag/shell/">shell</a></li>
+                <li><a href="/blog/tag/solaris/">solaris</a></li>
+                <li><a href="/blog/tag/ssh/">ssh</a></li>
+                <li><a href="/blog/tag/subversion/">subversion</a></li>
+                <li><a href="/blog/tag/sun/">sun</a></li>
+                <li><a href="/blog/tag/support/">support</a></li>
+                <li><a href="/blog/tag/svn/">svn</a></li>
+                <li><a href="/blog/tag/sysadmin/">sysadmin</a></li>
+                <li><a href="/blog/tag/vitualization/">vitualization</a></li>
+            </ul>
+        </nav>
+    </div>
+
+</div>
+
+        </div>
+        <footer>
+            
+            <div class="container tagline">
+                <a href="http://preaction.github.io/Statocles">Made with Statocles</a><br>
+                <a href="http://www.perl.org">Powered by Perl</a>
+            </div>
+        </footer>
+    </body>
+</html>

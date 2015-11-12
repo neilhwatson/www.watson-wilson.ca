@@ -7,6 +7,8 @@ Problem
 
 You Cfengine binaries are in /var/cfengine/bin but you want them in the PATH.
 
+---
+
 Solution
 
 Symbolic linking the binaries is a good approach. The most simple method follows. Please note that you should look at the introduction entry to this series to better understand the setup.

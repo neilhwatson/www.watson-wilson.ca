@@ -5,6 +5,8 @@ tags: opensource, support
 
 Many believe that open source projects cannot be used in the enterprise because of the lack of support. This is untrue.
 
+---
+
 Many believe that only proprietary software can offer support accompanied by a service level agreement. In fact many open source projects have a commercial arm for the very purpose of offering support contracts. For open source projects that do not have commercial arms many third party consulting companies can pick up the slack. Consulting firms large and small have standard support agreements to offer or may offer custom agreements.
 Open source software with commercial support
 

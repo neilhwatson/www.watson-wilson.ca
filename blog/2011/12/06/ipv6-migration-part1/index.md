@@ -3,7 +3,10 @@ title: IPv6 Migration part 1
 tags: ipv6, networking
 ---
 
-The first step in my exploration of IPV6 was to get an IPV6 address via an IPV4 to IPV6 tunnel. A little research lead me to the fine folks at SixXS.
+The first step in my exploration of IPV6 was to get an IPV6 address via an IPV4
+to IPV6 tunnel. A little research lead me to the fine folks at SixXS.
+
+---
 
 My ISP does not offer IPV6 addresses at this time. Even if it did I did not want to go all the way down the rabbit hole at this time. Instead I chose the tunnel route. SixXS allows you to set a tunnel from your host to their servers. It is similar to a VPN connection. Your presence at the SixXS end of the tunnel is an IPV6 address. Their website explains in good detail how to get ready for, apply for and set up this tunnel.
 

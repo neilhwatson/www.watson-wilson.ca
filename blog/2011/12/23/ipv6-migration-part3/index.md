@@ -5,6 +5,8 @@ tags: ipv6, networking
 
 We continue in this series by having a quick look at a dual stack VPS host.
 
+---
+
 Alas many providers, including my ISP, do not yet offer IPV6 addresses. Fortunately my hosting provider does. I have a multipurpose VPS with them. Before this article the VPS had one IPV4 address. Using my provider's website I requested an IPV6 address. It’s worth noting that an IPV4 address costs me €2.00 per month. An IPV6 address cost only €0.10 per month.
 
 After I made the request, I returned a day later expecting to have to set things up. I was surprised to see everything just worked. IPV6 address can be assigned by stateless configuration. This is built in to IPV6 beyond regular use of DHCPv6. I'm not sure how my provided assigned the IP but it must have been easy and automatic.

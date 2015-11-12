@@ -7,6 +7,8 @@ Problem
 
 You want to distribute public SSH keys.
 
+---
+
 Solution
 
 There are two possible methods for distributing SSH public keys. The first involves a simple copy.

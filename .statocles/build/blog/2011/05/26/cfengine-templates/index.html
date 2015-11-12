@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="/theme/css/normalize.css" rel="stylesheet">
+        <link href="/theme/css/skeleton.css" rel="stylesheet">
+        <link href="/theme/css/statocles-default.css" rel="stylesheet">
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+        <title>Template files using Cfengine - Neil H. Watson</title>
+        <meta content="Statocles 0.059" name="generator">
+        
+    </head>
+    <body>
+        <header>
+            <nav class="navbar">
+                <div class="container">
+                    <a class="brand" href="/">Neil H. Watson</a>
+                    <ul>
+                        <li>
+                            <a href="/">Blog</a>
+                        </li>
+                    </ul>
+                    
+                </div>
+            </nav>
+            
+        </header>
+        <div class="main container">
+            <div class="row">
+
+    <div class="nine columns">
+        <main>
+            <header>
+                <h1>Template files using Cfengine</h1>
+                <p class="tags">Tags:
+                    <a href="/blog/tag/cfengine/" rel="tag">cfengine</a>
+                    <a href="/blog/tag/cfengine-cookbook/" rel="tag">cfengine cookbook</a>
+                    <a href="/blog/tag/configuration-management/" rel="tag">configuration management</a>
+                </p>
+
+                <aside>
+                    <p><time datetime="2011-05-26">
+                        Posted on 2011-05-26
+                    </time>
+                    </p>
+                </aside>
+
+
+            </header>
+            <section id="section-1">
+                <p>Problem</p>
+
+<p>Sometimes a file’s contents depends upon the class of host that the file resides on. This makes file copy promises impractical. Who wants to copy a different file for so many hosts? Sysadmins are a lazy lot.</p>
+
+<p>Solution</p>
+
+<p>Template files consist of two promises. One promise copies a base file whilst the second promise edits the base file. The key is the contents of the base file. It contains the names of Cfengine variables. These variables are expanded during the edit.</p>
+
+<p>bundle agent recipe {</p>
+
+<p>vars:
+    mars::
+      &quot;manager&quot; string =&gt; &quot;Neil Watson&quot;;
+      &quot;phone&quot; string =&gt; &quot;555-555-5555&quot;;
+      &quot;email&quot; string =&gt; &quot;neil@example.com&quot;;</p>
+
+<pre><code>venus::
+  &quot;manager&quot; string =&gt; &quot;Lisamarie Wilson&quot;;
+  &quot;phone&quot; string =&gt; &quot;555-555-5554&quot;;
+  &quot;email&quot; string =&gt; &quot;lisa@example.com&quot;;
+</code></pre>
+
+<p>files:
+    &quot;/tmp/motd.tmp&quot;
+      handle =&gt; &quot;motd_template&quot;,
+      comment =&gt; &quot;MOTD template file&quot;,
+      perms =&gt; mog(&quot;0644&quot;,&quot;root&quot;,&quot;root&quot;),
+      copy_from =&gt; remote_cp (&quot;/var/cf-masterfiles/motd.tmp&quot;,&quot;localhost&quot;);</p>
+
+<pre><code>&quot;/etc/motd&quot;
+  handle =&gt; &quot;motd_file&quot;,
+  comment =&gt; &quot;Expand motd file from template&quot;,
+  create =&gt; &quot;true&quot;,
+  edit_line =&gt; expand_template(&quot;/tmp/motd.tmp&quot;);
+</code></pre>
+
+<p>}</p>
+
+<p>Here is our template file motd.tmp</p>
+
+<h6>#</h6>
+
+<p>This host is the property of Example.com.  Use is restricted to
+authorized personnel only.</p>
+
+<p>Manager:        ${recipe.manager}
+Phone:          ${recipe.phone}
+Email:          ${recipe.email}</p>
+
+<h6>#</h6>
+
+<p>Here is the verbose output from the agent.</p>
+
+<p>cf3  !! Image file /tmp/motd.tmp out of date (should be copy of
+/vars:/cf-masterfiles/motd.tmp)
+cf3  -&gt; Updated /tmp/motd.tmp from source /vars:/cf-masterfiles/motd.tmp
+on localhost
+cf3  -&gt; Copy of regular file succeeded /vars:/cf-masterfiles/motd.tmp to
+/tmp/motd.tmp.cfnew
+cf3  -&gt; Not attempting to preserve file permissions from the source
+cf3  -&gt; Object /tmp/motd.tmp had permission 600, changed it to 644
+...
+cf3  -&gt; Using literal pathtype for /etc/motd
+cf3  -&gt; File &quot;/etc/motd&quot; exists as promised
+cf3  -&gt; Handling file existence constraints on /etc/motd
+cf3  -&gt; Handling file edits in edit_line bundle expand_template
+cf3 
+cf3       * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+* *
+cf3       BUNDLE expand_template( {&#39;/tmp/motd.tmp&#39;} )
+cf3       * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+* *
+cf3 
+cf3     ? Augment scope expand_template with templatefile
+cf3      ??  Private class context
+cf3 
+cf3 
+cf3       = = = = = = = = = = = = = = = = = = = = = = = = = = = =&gt;
+cf3       insert_lines in bundle expand_template
+cf3       = = = = = = = = = = = = = = = = = = = = = = = = = = = =&gt;
+cf3 
+cf3 
+cf3     .........................................................
+cf3     Promise handle: 
+cf3     Promise made by: /tmp/motd.tmp
+cf3 
+cf3     Comment:  Expand variables in the template file
+cf3     .........................................................
+cf3 
+cf3  -&gt; Promised file line &quot;###################################&quot; exists
+within file /etc/motd (
+cf3  -&gt; Promised file line &quot;This host is the property of
+Example.com.  Use is restricted to aut
+motd (promise kept)
+cf3  -&gt; Promised file line &quot;&quot; exists within file /etc/motd (promise
+kept)
+cf3  -&gt; Inserting the promised line &quot;Manager:   Lisamarie Wilson&quot; into
+/etc/motd after locator
+cf3  -&gt; Inserting the promised line &quot;Phone:             555-555-5554&quot;
+into /etc/motd after loca
+cf3  -&gt; Inserting the promised line &quot;Email:
+lisa@example.com&quot; into /etc/motd after 
+cf3  -&gt; Promised file line &quot;###################################&quot; exists
+within file /etc/motd (
+cf3      ??  Private class context</p>
+
+<p>The output is slightly truncated to fit this page but its meaning is clear enough. First the agent copies motd.tmp to /tmp and then edits /etc/motd using /tmp/motd.tmp as a template and expanding the variables set in the bundle recipe. Note that the variables listed in the template file are specifically scoped to the bundle recipe. The resulting file is below.</p>
+
+<h6>#</h6>
+
+<p>This host is the property of Example.com.  Use is restricted to
+authorized personal only.</p>
+
+<p>Manager:        Lisamarie Wilson
+Phone:          555-555-5554
+Email:          lisa@example.com</p>
+
+<h6>#</h6>
+
+<p>Note that Cfengine edits are very efficient. Cfengine performs the edit in memory first and compares the result with the target file. These edits are only committed to the target file if there are actual changes thus sparing needless writes.</p>
+
+            </section>
+        </main>
+
+
+    </div>
+
+    <div class="three columns sidebar">
+        
+        <nav id="tags">
+            <h1>Tags</h1>
+            <ul class="list-inline">
+                <li><a href="/blog/tag/apt/">apt</a></li>
+                <li><a href="/blog/tag/backup/">backup</a></li>
+                <li><a href="/blog/tag/cfengine/">cfengine</a></li>
+                <li><a href="/blog/tag/cfengine-cookbook/">cfengine cookbook</a></li>
+                <li><a href="/blog/tag/cheatsheet/">cheatsheet</a></li>
+                <li><a href="/blog/tag/cli/">cli</a></li>
+                <li><a href="/blog/tag/cluster/">cluster</a></li>
+                <li><a href="/blog/tag/configuration-management/">configuration management</a></li>
+                <li><a href="/blog/tag/cron/">cron</a></li>
+                <li><a href="/blog/tag/debian/">debian</a></li>
+                <li><a href="/blog/tag/dns/">dns</a></li>
+                <li><a href="/blog/tag/dr/">dr</a></li>
+                <li><a href="/blog/tag/heartbeat/">heartbeat</a></li>
+                <li><a href="/blog/tag/high-availability/">high availability</a></li>
+                <li><a href="/blog/tag/infosec/">infosec</a></li>
+                <li><a href="/blog/tag/ipv6/">ipv6</a></li>
+                <li><a href="/blog/tag/iscsi/">iscsi</a></li>
+                <li><a href="/blog/tag/kvm/">kvm</a></li>
+                <li><a href="/blog/tag/linux/">linux</a></li>
+                <li><a href="/blog/tag/monitoring/">monitoring</a></li>
+                <li><a href="/blog/tag/multipathd/">multipathd</a></li>
+                <li><a href="/blog/tag/networking/">networking</a></li>
+                <li><a href="/blog/tag/opensource/">opensource</a></li>
+                <li><a href="/blog/tag/oracle/">oracle</a></li>
+                <li><a href="/blog/tag/posix/">posix</a></li>
+                <li><a href="/blog/tag/red-hat/">red hat</a></li>
+                <li><a href="/blog/tag/regex/">regex</a></li>
+                <li><a href="/blog/tag/rhev/">rhev</a></li>
+                <li><a href="/blog/tag/san/">san</a></li>
+                <li><a href="/blog/tag/shell/">shell</a></li>
+                <li><a href="/blog/tag/solaris/">solaris</a></li>
+                <li><a href="/blog/tag/ssh/">ssh</a></li>
+                <li><a href="/blog/tag/subversion/">subversion</a></li>
+                <li><a href="/blog/tag/sun/">sun</a></li>
+                <li><a href="/blog/tag/support/">support</a></li>
+                <li><a href="/blog/tag/svn/">svn</a></li>
+                <li><a href="/blog/tag/sysadmin/">sysadmin</a></li>
+                <li><a href="/blog/tag/vitualization/">vitualization</a></li>
+            </ul>
+        </nav>
+    </div>
+
+</div>
+
+        </div>
+        <footer>
+            
+            <div class="container tagline">
+                <a href="http://preaction.github.io/Statocles">Made with Statocles</a><br>
+                <a href="http://www.perl.org">Powered by Perl</a>
+            </div>
+        </footer>
+    </body>
+</html>

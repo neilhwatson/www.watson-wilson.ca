@@ -7,6 +7,8 @@ Problem
 
 You want to prevent certain processes from running.
 
+---
+
 Solution
 
 In formal Cfengine parlance this promise ensures that there are zero instances of processes running that match the regular expression “snmpd”. If such processes are found a term signal is sent. If that signal is ignored a kill signal is sent.

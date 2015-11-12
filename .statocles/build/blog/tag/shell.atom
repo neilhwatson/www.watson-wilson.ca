@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>http://ettin/blog/tag/shell/</id>
+    <title>Neil H. Watson</title>
+    <updated>2015-11-12T15:26:09Z</updated>
+    <link href="http://ettin/blog/tag/shell.atom" rel="self" />
+    <link href="http://ettin/blog/tag/shell/" rel="alternate" />
+    <generator version="0.059">Statocles</generator>
+    <entry>
+        <id>http://ettin/blog/2011/03/08/shell-cheatsheet/</id>
+        <title>Shell cheatsheet</title>
+        <link href="http://ettin/blog/2011/03/08/shell-cheatsheet/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p>The following may not apply to all shells.</p>
+
+<h2>Job control</h2>
+
+<ul>
+<li>Resume job after suspend: <code>ctrl-q</code></li>
+<li>Resume job in background: <code>bg &lt;job number&gt;</code></li>
+<li>Resume job in foreground: <code>fg &lt;job number&gt;</code></li>
+<li>Suspend delay (suspend at stdin): <code>ctrl-y</code></li>
+<li>Suspend:  <code>ctrl-z</code></li>
+</ul>
+
+<h2>Command line laziness</h2>
+
+<ul>
+<li>Recall history line 66: <code>!66</code></li>
+<li>Recall last command: <code>!!</code></li>
+<li>Recall last arguement from last command: <code>!$</code></li>
+<li>Recall all arguements from last command: <code>!*</code></li>
+<li>Clear shell history: <code>history -c</code></li>
+<li>Delete shell history entry: <code>history -d &lt;number&gt;</code></li>
+<li>Rename rpmnew files:
+<code>
+find -type f -name &quot;*.rpmnew&quot; |sed &#39;s/\(^.*\)\(\.rpmnew\)$/mv -f \1\2 \1/&#39; |sh
+</code></li>
+<li>Search and replace files in place:
+<code>
+find /path -name &quot;*.*&quot; -exec | perl -pi -e &#39;s///g&#39; {} \;
+</code></li>
+<li>vi cli editing: <code>set -o vi</code> Now esc to enter command mode where vi keys
+work. Pressing enter returns to normal mode.</li>
+</ul>
+
+                <p><a href="http://ettin/blog/2011/03/08/shell-cheatsheet/#section-2">Continue reading...</a></p>
+            <p>Tags:
+                <a href="http://ettin/blog/tag/shell/">shell</a>
+                <a href="http://ettin/blog/tag/cli/">cli</a>
+                <a href="http://ettin/blog/tag/cheatsheet/">cheatsheet</a>
+            </p>
+        ]]></content>
+        <updated>2011-03-08T00:00:00Z</updated>
+        <category term="shell" />
+        <category term="cli" />
+        <category term="cheatsheet" />
+    </entry>
+    <entry>
+        <id>http://ettin/blog/2011/03/08/gnu-screen-cheatsheet/</id>
+        <title>GNU Screen cheatsheet</title>
+        <link href="http://ettin/blog/2011/03/08/gnu-screen-cheatsheet/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p>Change to other region  ctrl-a tab
+Change to other screen  ctrl-a 0-9
+Dettach  ctrl-a d
+Help  ctrl-a ?
+Kill screen    ctrl-a Kill region    ctrl-a x
+New screen  ctrl-a c
+Reattach    screen -r
+Serial connection    screen /dev/ttyUSB0 9600
+Split    ctrl-a s</p>
+
+                <p><a href="http://ettin/blog/2011/03/08/gnu-screen-cheatsheet/#section-2">Continue reading...</a></p>
+            <p>Tags:
+                <a href="http://ettin/blog/tag/shell/">shell</a>
+                <a href="http://ettin/blog/tag/cli/">cli</a>
+                <a href="http://ettin/blog/tag/cheatsheet/">cheatsheet</a>
+            </p>
+        ]]></content>
+        <updated>2011-03-08T00:00:00Z</updated>
+        <category term="shell" />
+        <category term="cli" />
+        <category term="cheatsheet" />
+    </entry>
+</feed>
+

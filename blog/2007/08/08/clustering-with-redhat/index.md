@@ -7,6 +7,8 @@ This entry presents an overview of how to build a DB2 service cluster using the
 Red Hat Cluster Suite. This procedure can be useful in learning how to setup
 clusters for other services.
 
+---
+
 ##Contents
 
 [Redhat Cluster Software](#rh-cluster-suite)
@@ -444,17 +446,16 @@ load balancing instead of or, in addition to redundancy.
 
 ### <a name='refs'></a>References and Additional Reading
 
-1. Redhat Cluster Suite http://www.redhat.com/docs/manuals/csgfs/browse/rh-cs-en/index.html
-1. Linux Ethernet Bonding http://linux-net.osdl.org/index.php/Bonding
-1. High Availability Linux http://www.linux-ha.org/
-1. Kernel Parameters for Linux http://publib.boulder.ibm.com/infocenter/db2luw/v9/index.jsp?topic=/com.ibm.db2.udb.uprun.doc/doc/t0008238.htm
+1. [Redhat Cluster Suite](http://www.redhat.com/docs/manuals/csgfs/browse/rh-cs-en/index.html)
+1. [High Availability Linux](http://www.linux-ha.org/)
+1. [Kernel Parameters for Linux](http://publib.boulder.ibm.com/infocenter/db2luw/v9/index.jsp?topic=/com.ibm.db2.udb.uprun.doc/doc/t0008238.htm)
 
 
 ### <a name='appendix-a'></a>DB2 init script
 
         #!/bin/bash
         #
-        #----------------------------  /etc/init.d/db2 ------------------------
+        #-------------------------  /etc/init.d/db2 ------------------------
         # db2 
         #
         # description:  Start up the db2 service 
@@ -470,16 +471,14 @@ load balancing instead of or, in addition to redundancy.
 
         start() {
             echo -n $"Starting $prog:"
-            initlog -c "/bin/su - $USER -c \
-                'db2start'" && success || failure
+            initlog -c "/bin/su - $USER -c 'db2start'" && success || failure
             RETVAL=$?
             echo ""
 
         }
 
         status() {
-            initlog -c "/bin/su - $USER -c \
-                'db2gcf -s'" && success || failure
+            initlog -c "/bin/su - $USER -c 'db2gcf -s'" && success || failure
             RETVAL=$?
             echo ""
         }
@@ -498,16 +497,16 @@ load balancing instead of or, in addition to redundancy.
                 echo ""
             else
                 # DB2 must still be running.  Stop it.
-                initlog -c "/bin/su - $USER -c \
-                    'db2 force application all'" \
+                initlog -c "/bin/su - $USER -c \\
+                    'db2 force application all'" \\
                     && success || failure &
                 sleep 5
-                initlog -c "/bin/su - $USER -c \
-                    'db2stop force'" && success \
+                initlog -c "/bin/su - $USER -c \\
+                    'db2stop force'" && success \\
                     || failure &
                 sleep 5
-                initlog -c "/bin/su - $USER -c \
-                    'db2_kill'" && success \
+                initlog -c "/bin/su - $USER -c \\
+                    'db2_kill'" && success \\
                     || failure &
                 echo ""
             fi

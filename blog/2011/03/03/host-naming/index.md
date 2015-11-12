@@ -4,7 +4,13 @@ tags: dns
 ---
 
 
-Whether realizing it or not every organization goes through the process of selecting a naming convention. Often this is done without much forward planing resulting in unwieldy host and service names. In the worst cases host names are dropped completely and either by habit or lack of a proper DNS service only ip addresses are used.
+Whether realizing it or not every organization goes through the process of
+selecting a naming convention. Often this is done without much forward planing
+resulting in unwieldy host and service names. In the worst cases host names are
+dropped completely and either by habit or lack of a proper DNS service only ip
+addresses are used.
+
+---
 
 In the following I will talk about the different types of naming conventions that I’ve experienced or read about. I’ll discuss the pros and cons of each. Before we get to that we’ll need to have a small refresher on domain name services.
 DNS review

@@ -3,7 +3,12 @@ title: Enterprise system administration using configuration management
 tags: configuration management, sysadmin, cfengine
 ---
 
-To maintain the large quantity of servers typically found in enterprise organizations, systems administration must move beyond manual and custom scripts toward a centralized configuration management service. This move can save an organization considerable time and money.
+To maintain the large quantity of servers typically found in enterprise
+organizations, systems administration must move beyond manual and custom
+scripts toward a centralized configuration management service. This move can
+save an organization considerable time and money.
+
+---
 
 
 Contents

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="/theme/css/normalize.css" rel="stylesheet">
+        <link href="/theme/css/skeleton.css" rel="stylesheet">
+        <link href="/theme/css/statocles-default.css" rel="stylesheet">
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+        <title>IPv6 Migration part 1 - Neil H. Watson</title>
+        <meta content="Statocles 0.059" name="generator">
+        
+    </head>
+    <body>
+        <header>
+            <nav class="navbar">
+                <div class="container">
+                    <a class="brand" href="/">Neil H. Watson</a>
+                    <ul>
+                        <li>
+                            <a href="/">Blog</a>
+                        </li>
+                    </ul>
+                    
+                </div>
+            </nav>
+            
+        </header>
+        <div class="main container">
+            <div class="row">
+
+    <div class="nine columns">
+        <main>
+            <header>
+                <h1>IPv6 Migration part 1</h1>
+                <p class="tags">Tags:
+                    <a href="/blog/tag/ipv6/" rel="tag">ipv6</a>
+                    <a href="/blog/tag/networking/" rel="tag">networking</a>
+                </p>
+
+                <aside>
+                    <p><time datetime="2011-12-06">
+                        Posted on 2011-12-06
+                    </time>
+                    </p>
+                </aside>
+
+
+            </header>
+            <section id="section-1">
+                <p>The first step in my exploration of IPV6 was to get an IPV6 address via an IPV4 to IPV6 tunnel. A little research lead me to the fine folks at SixXS.</p>
+
+<p>My ISP does not offer IPV6 addresses at this time. Even if it did I did not want to go all the way down the rabbit hole at this time. Instead I chose the tunnel route. SixXS allows you to set a tunnel from your host to their servers. It is similar to a VPN connection. Your presence at the SixXS end of the tunnel is an IPV6 address. Their website explains in good detail how to get ready for, apply for and set up this tunnel.</p>
+
+<p>UPDATE. I have since moved from SixXS to Hurricane Electric. See See here for more details.</p>
+
+<p>The first preparation was to ready my firewall. This caused me some grief. Typically I&#39;ve configured my firewall by hand but these additional requirements added complexity which made me doubt the firewall&#39;s integrity. In an effort to simplify I built all new firewall rules using Firewall Builder. After the initial learning curve I was off to the races. The relevant rules are:</p>
+
+<p>UPDATE. I have since chaned my firewall software. I now use Shorewall.</p>
+
+<pre><code>Allow protocol 41 between my IPV4 IP and tunnel target at SixXS.
+Allow ICMPv6 between my IPV6 IP and the Internet.
+</code></pre>
+
+<p>More paranoid folks try to block a lot of ICMP traffic. ICMP traffic has a purpose and blocking can cause trouble as it did for me. In this instance SixXS monitors the tunnel using ICMPv6 traffic.</p>
+
+<p>After applying for a tunnel SixXS send me the details. My test host runs Debian. I had to configure an interface for the tunnel:</p>
+
+<p>iface sixxs inet6 v4tunnel
+    address 2604:8800:100:111::2
+    netmask 64
+    endpoint 38.229.76.3
+    ttl 64
+    up ip link set mtu 1280 dev sixxs
+    up ip route add default via 2604:8800:100:111::1 dev sixxs</p>
+
+<p>My IPV6 address is 2604:8800:100:111::2. The endpoint is the target at SixXS to create the tunnel. Then I bring the interface up.</p>
+
+<p>sixxs     Link encap:IPv6-in-IPv4 <br>
+          inet6 addr: fe80::c713:ab18/64 Scope:Link
+          inet6 addr: 2604:8800:100:111::2/64 Scope:Global
+          inet6 addr: fe80::a00:1/64 Scope:Link
+          inet6 addr: fe80::c0a8:1/64 Scope:Link
+          UP POINTOPOINT RUNNING NOARP  MTU:1280  Metric:1
+          RX packets:5134 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:4398 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0 
+          RX bytes:4788682 (4.5 MiB)  TX bytes:623868 (609.2 KiB)</p>
+
+<p>And it works:</p>
+
+<p>ping6 -nc 4 ipv6.google.com</p>
+
+<p>PING ipv6.google.com(2607:f8b0:4001:c01::93) 56 data bytes
+64 bytes from 2607:f8b0:4001:c01::93: icmp_seq=1 ttl=56 time=41.1 ms
+64 bytes from 2607:f8b0:4001:c01::93: icmp_seq=2 ttl=56 time=41.3 ms
+64 bytes from 2607:f8b0:4001:c01::93: icmp_seq=3 ttl=56 time=42.3 ms
+64 bytes from 2607:f8b0:4001:c01::93: icmp_seq=4 ttl=56 time=41.4 ms</p>
+
+<p>--- ipv6.google.com ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3004ms
+rtt min/avg/max/mdev = 41.173/41.576/42.351/0.456 ms</p>
+
+<p>Be aware that firewall tools, like Iptables, require separate rules for IPV6 traffic. A normal IPV4 firewall may allow all IPV6 traffic or block it.</p>
+
+<p>Next time I&#39;ll look at enabling a service using an IPV6 address.</p>
+
+            </section>
+        </main>
+
+
+    </div>
+
+    <div class="three columns sidebar">
+        
+        <nav id="tags">
+            <h1>Tags</h1>
+            <ul class="list-inline">
+                <li><a href="/blog/tag/apt/">apt</a></li>
+                <li><a href="/blog/tag/backup/">backup</a></li>
+                <li><a href="/blog/tag/cfengine/">cfengine</a></li>
+                <li><a href="/blog/tag/cfengine-cookbook/">cfengine cookbook</a></li>
+                <li><a href="/blog/tag/cheatsheet/">cheatsheet</a></li>
+                <li><a href="/blog/tag/cli/">cli</a></li>
+                <li><a href="/blog/tag/cluster/">cluster</a></li>
+                <li><a href="/blog/tag/configuration-management/">configuration management</a></li>
+                <li><a href="/blog/tag/cron/">cron</a></li>
+                <li><a href="/blog/tag/debian/">debian</a></li>
+                <li><a href="/blog/tag/dns/">dns</a></li>
+                <li><a href="/blog/tag/dr/">dr</a></li>
+                <li><a href="/blog/tag/heartbeat/">heartbeat</a></li>
+                <li><a href="/blog/tag/high-availability/">high availability</a></li>
+                <li><a href="/blog/tag/infosec/">infosec</a></li>
+                <li><a href="/blog/tag/ipv6/">ipv6</a></li>
+                <li><a href="/blog/tag/iscsi/">iscsi</a></li>
+                <li><a href="/blog/tag/kvm/">kvm</a></li>
+                <li><a href="/blog/tag/linux/">linux</a></li>
+                <li><a href="/blog/tag/monitoring/">monitoring</a></li>
+                <li><a href="/blog/tag/multipathd/">multipathd</a></li>
+                <li><a href="/blog/tag/networking/">networking</a></li>
+                <li><a href="/blog/tag/opensource/">opensource</a></li>
+                <li><a href="/blog/tag/oracle/">oracle</a></li>
+                <li><a href="/blog/tag/posix/">posix</a></li>
+                <li><a href="/blog/tag/red-hat/">red hat</a></li>
+                <li><a href="/blog/tag/regex/">regex</a></li>
+                <li><a href="/blog/tag/rhev/">rhev</a></li>
+                <li><a href="/blog/tag/san/">san</a></li>
+                <li><a href="/blog/tag/shell/">shell</a></li>
+                <li><a href="/blog/tag/solaris/">solaris</a></li>
+                <li><a href="/blog/tag/ssh/">ssh</a></li>
+                <li><a href="/blog/tag/subversion/">subversion</a></li>
+                <li><a href="/blog/tag/sun/">sun</a></li>
+                <li><a href="/blog/tag/support/">support</a></li>
+                <li><a href="/blog/tag/svn/">svn</a></li>
+                <li><a href="/blog/tag/sysadmin/">sysadmin</a></li>
+                <li><a href="/blog/tag/vitualization/">vitualization</a></li>
+            </ul>
+        </nav>
+    </div>
+
+</div>
+
+        </div>
+        <footer>
+            
+            <div class="container tagline">
+                <a href="http://preaction.github.io/Statocles">Made with Statocles</a><br>
+                <a href="http://www.perl.org">Powered by Perl</a>
+            </div>
+        </footer>
+    </body>
+</html>

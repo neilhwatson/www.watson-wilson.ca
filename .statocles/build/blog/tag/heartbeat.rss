@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Neil H. Watson</title>
+        <link>http://ettin/blog/tag/heartbeat/</link>
+        <atom:link href="http://ettin/blog/tag/heartbeat.rss" rel="self" type="application/rss+xml" />
+        <description>Blog feed of Neil H. Watson</description>
+        <generator>Statocles 0.059</generator>
+        <item>
+            <title>Heartbeat 2 cheatsheet</title>
+            <link>http://ettin/blog/2011/03/07/heatbeat2-cheatsheet/</link>
+            <guid>http://ettin/blog/2011/03/07/heatbeat2-cheatsheet/</guid>
+            <description><![CDATA[
+                <p>Commands
+List cluster resources.    crm_resource -L
+Dump cluster configuration as xml to stdout.    cibadmin -Q
+Place node in standby (maintenance mode). Technically this is adding the standby property.   crm_standby -U <hostname> -v true
+Place local node in standby.  crm_standby -v true
+Place node online or remove the standby property.  crm_standby -D -U <hostname>
+Place local node online or remove standby property.   crm_standby -D
+View cluster status. One time to stdout.  crm_mon -1
+View cluster status. Refresh every 3s.    crm_mon -i3
+One line simple output.    crm_mon -s
+Show inactive resources.   crm_mon -r
+Stop resource.    crm_resource -r <resource> -p target_role -v stopped
+Start resource.   crm_resource -r <resource> -p target_role -v started
+Clear failed resource.  crm_resource -C -H <host> -r <resource>
+Query running cluster for current state (STDOUT).  cibadmin -Q --obj_type resources
+Other resources.  XML definition</resource></host></resource></resource></hostname></hostname></p>
+
+                    <p><a href="http://ettin/blog/2011/03/07/heatbeat2-cheatsheet/#section-2">Continue reading...</a></p>
+                <p>Tags:
+                    <a href="http://ettin/blog/tag/cluster/">cluster</a>
+                    <a href="http://ettin/blog/tag/heartbeat/">heartbeat</a>
+                    <a href="http://ettin/blog/tag/cheatsheet/">cheatsheet</a>
+                </p>
+            ]]></description>
+            <pubDate>
+                Mon, 07 Mar 2011 00:00:00 +0000
+            </pubDate>
+        </item>
+    </channel>
+</rss>
+

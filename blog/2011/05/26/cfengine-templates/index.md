@@ -5,7 +5,11 @@ tags: cfengine, cfengine cookbook, configuration management
 
 Problem
 
-Sometimes a file’s contents depends upon the class of host that the file resides on. This makes file copy promises impractical. Who wants to copy a different file for so many hosts? Sysadmins are a lazy lot.
+Sometimes a file’s contents depends upon the class of host that the file
+resides on. This makes file copy promises impractical. Who wants to copy a
+different file for so many hosts? Sysadmins are a lazy lot.
+
+---
 
 Solution
 

@@ -1,0 +1,5 @@
+Sitemap: http://ettin/sitemap.xml
+User-Agent: *
+Disallow:
+
+
