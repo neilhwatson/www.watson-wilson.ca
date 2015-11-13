@@ -11,21 +11,22 @@ tags: cfengine, configuration management
 
 ## <a name='overview'></a>Overview
 
-Cfengine is a configuration management tool that allows a system administrator
-to configure multiple hosts continuously. Cfengine runs as a client/server
+CFEngine is a configuration management tool that allows a system administrator
+to configure multiple hosts continuously. CFEngine runs as a client/server
 application. The server provides new configurations, or policy, while the
 client works to ensure that a client host conforms to them.
 
 ---
 
-The policy is written the descriptive language of Cfengine. This language
+The policy is written the descriptive language of CFEngine. This language
 describes what the running state of a host or hosts should be. The agent, over
 one or more iterations, makes the client conform to this policy in a convergent
 manner.
 
-Figure: Cfengine Cycle cfcycle.png
+##### Figure: CFEngine cycle 
+![CFEngine cyclet](blog/2011/03/08/cfengine-tutorial/cfcycle.png)
 
-As seen in the figure Cfengine agents (cf-agent) contact the policy server
+As seen in the figure CFEngine agents (cf-agent) contact the policy server
 (cf-serverd) for new or changed policies or files. This is a “pull” method in
 which the client contacts the server instead of a “push” method where the
 server contacts the client. Using the “pull” method allows the client to
@@ -35,9 +36,10 @@ reliability.
 The security implications often associated with pull clients can if desired by
 alleviated by the use of policy mirrors (see figure).
 
-Figure: Cfengine Mirror mirror.png
+##### Figure: CFEngine Mirror 
+![CFEngine mirros](blog/2011/03/08/cfengine-tutorial/mirror.png)
 
-Cfengine 3 consists of a number of components. As this is an introductory
+CFEngine 3 consists of a number of components. As this is an introductory
 tutorial some components will not be covered here.
 
 1. cf-agent Active agent
@@ -50,65 +52,65 @@ tutorial some components will not be covered here.
 1. cf-serverd Server that acts mostly like a file server for cf-agent.
 1. cf-report Self-knowledge extractor
 
-The daemon formally called cfenvd in previous versions of Cfengine is now
+The daemon formally called cfenvd in previous versions of CFEngine is now
 called cf-monitord.
 
-Cfengine files are normally located in /var/cfengine. Cfengine will create some
+CFEngine files are normally located in /var/cfengine. CFEngine will create some
 directories automatically in this location. The two important ones that must be
 created by hand are /var/cfengine/bin and /var/cfengine/inputs. The bin
 directory contains the binary components listed earlier. This location allows
-for Cfengine to be more self contained and fault tolerant. For example, the
+for CFEngine to be more self contained and fault tolerant. For example, the
 traditional location of /usr/local/bin is not always a local file systems
 and therefore less reliable.
 
-The inputs directory contains all of the configuration files that Cfengine will
-use to maintain itself and the client hosts. The majority of work with Cfengine
+The inputs directory contains all of the configuration files that CFEngine will
+use to maintain itself and the client hosts. The majority of work with CFEngine
 will involve files located here. The mandatory files are failsafe.cf, update.cf
 and promises.cf. Other files are user defined and will be discussed later.
 
 ## <a name='basic'></a>Basic example
 
-Here I’ll present a basic example of Cfengine. Functionally it will do little
-more than ensuring that Cfengine is running. What is learned from this example
+Here I’ll present a basic example of CFEngine. Functionally it will do little
+more than ensuring that CFEngine is running. What is learned from this example
 will be applicable to more practical uses.
 
-Cfengine can run on virtually any UNIX host. It can also run on Windows with
-the help of the Cygwin environment. One can either choose to install Cfengine
+CFEngine can run on virtually any UNIX host. It can also run on Windows with
+the help of the Cygwin environment. One can either choose to install CFEngine
 from a distributions application repository (e.g. Debian or Freshports) or
-download the source from Cfengine.org and compile it. The source code contains
-all of the necessary instructions to compile and install Cfengine. Note that
-there are some dependencies that must be met before Cfengine can be built. The
+download the source from CFEngine.org and compile it. The source code contains
+all of the necessary instructions to compile and install CFEngine. Note that
+there are some dependencies that must be met before CFEngine can be built. The
 source code contains information on these also. An automated distribution
 install will take care of these automatically.
 
 ### Directories and files
 
-1. /var/cfengine/bin Cfengine binaries.
+1. /var/cfengine/bin CFEngine binaries.
 1. /var/cfengine/inputs Main configuration files.
 1. /var/cfengine/ppkeys Storage for authentication keys.
 1. /var/cf-masterfiles The master files, on the server, that agents will request from the server.
-1. /var/cf-failsafe A backup of important Cfengine files to allow for automatic recovery.
+1. /var/cf-failsafe A backup of important CFEngine files to allow for automatic recovery.
 
 1. promises.cf This is the main configuration file. The agent will automatically start with this file.
 1. update.cf This is a simplified file whose purpose is to ensure the agent is configured properly so that it can do its job.
 1. failsafe.cf This file is run by the agent if other files are missing or contain errors. This gives the agent the ability to recover itself from failure.
-1. cf-server.cf This file configures the Cfengine server. It can be named anything but choosing this name is logical.
-1. cf-execd.cf This file will configure the Cfengine executor. Like cfserver.cf this file could be named something else.
-1. cfbackup.cf This makes a local backup of Cfengine to ensure the agent can recover from serious data loss.
+1. cf-server.cf This file configures the CFEngine server. It can be named anything but choosing this name is logical.
+1. cf-execd.cf This file will configure the CFEngine executor. Like cfserver.cf this file could be named something else.
+1. cfbackup.cf This makes a local backup of CFEngine to ensure the agent can recover from serious data loss.
 1. crontabs.cf This manages host crontables.
 1. library.cf This contains a collection of reusable code similar to a subroutine library.
 
 ### Key authentication
 
-Cfengine agents authenticate with a server via key exchange. The cf-key binary
+CFEngine agents authenticate with a server via key exchange. The cf-key binary
 will create a public and private key pair. This is done for every server and
 client. For two hosts to authenticate each must have a copy of the other’s
-public key file. This exchange is normally done manually but Cfengine may be
+public key file. This exchange is normally done manually but CFEngine may be
 configured to do this one time only. Please refer to the reference manual for
 more information.
 
-The syntax of Cfengine files is relatively simple and somewhat Perl like.
-However, Cfengine tends to be more sensitive to white space.
+The syntax of CFEngine files is relatively simple and somewhat Perl like.
+However, CFEngine tends to be more sensitive to white space.
 
 1. Sections are contained withing brackets.
 1. Commas separate parts of the same action.
@@ -116,18 +118,18 @@ However, Cfengine tends to be more sensitive to white space.
 1. Body part lines end with semicolons.
 1. Variables are identified by $ and usually contained in brackets to separate them from surrounding text.
 1. Most user defined information is contained within double quotations.
-1. Comments begin with # or can be included in the promise so that Cfengine will print them during a run (comment => "My comment").
+1. Comments begin with # or can be included in the promise so that CFEngine will print them during a run (comment => "My comment").
 
 If you follow the examples contained in this paper you’ll not have to worry
 much about syntax.
 
-There are three Cfengine commands you'll need to use for these examples. The
+There are three CFEngine commands you'll need to use for these examples. The
 server is started by cf-serverd. After starting it will fork to the background.
-The command cf-promises will validate a Cfengine policy. It is a good way to
+The command cf-promises will validate a CFEngine policy. It is a good way to
 check for syntax errors. Finally cf-agent is the agent that will do the work.
 Using the -v and -n options will allow you to test and debug your policy.
 
-The promises.cf file is the first file that Cfengine reads.
+The promises.cf file is the first file that CFEngine reads.
 
     1  #######################
     2  # promises.cf
@@ -166,10 +168,10 @@ The promises.cf file is the first file that Cfengine reads.
     35      skipidentify => "true";
     36  }
 
-Lines 5-12 define the bundlesequence. Previously Cfengine determined actions
-via the actionsequence. In Cfengine 3 the sequence of actions is defined by
-Cfengine and is based on the previous experience of developers and users.
-Cfengine 3 now offers something called a bundle. A bundle is a list of actions
+Lines 5-12 define the bundlesequence. Previously CFEngine determined actions
+via the actionsequence. In CFEngine 3 the sequence of actions is defined by
+CFEngine and is based on the previous experience of developers and users.
+CFEngine 3 now offers something called a bundle. A bundle is a list of actions
 (e.g. files, shell commands, processes) grouped for a single purpose. These
 bundles will be executed in the order defined by the bundle sequence.
 
@@ -177,9 +179,9 @@ bundles will be executed in the order defined by the bundle sequence.
 1. executor: Configure cf-execd.
 1. server: Configure cf-serverd.
 1. crontabes: Configure a client host’s crontables.
-1. cfbackup: Backup Cfengine’s configuration files for automated recovery.
+1. cfbackup: Backup CFEngine’s configuration files for automated recovery.
 
-Lines 14-21 import other configuration files. A Cfengine policy can become very
+Lines 14-21 import other configuration files. A CFEngine policy can become very
 large. Separating the policy into distinct files makes management easier. In
 this case we separate mostly into bundles with the exception of library.cf
 which hosts reusable code.
@@ -187,11 +189,11 @@ which hosts reusable code.
 Lines 24-31 define some global variables. We will be able to refer to these
 variable throughout our policy (e.g. ${g.masterfiles}).
 
-Lines 33-35 instruct Cfengine to not use DNS to attempt to authenticate clients
+Lines 33-35 instruct CFEngine to not use DNS to attempt to authenticate clients
 and servers. This is entirely optional and depends on how reliable and
 trustworthy your DNS service is.
 
-The sole purpose of update.cf is to ensure that Cfengine has the latest policy
+The sole purpose of update.cf is to ensure that CFEngine has the latest policy
 files. Once you have this file working do not change it unless absolutely
 necessary.
 
@@ -296,12 +298,12 @@ in the same way as /var/cfengine was defined.
 
 Lines 29-32 define the contents of /var/cfengine/inputs.
 
-Line 30 sets the permissions using the “usystem” body part. Note that Cfengine
+Line 30 sets the permissions using the “usystem” body part. Note that CFEngine
 will automatically add the executable bit to directories.
 
 Line 31 sets the copy source and calls the body part “umycopy” and passes the
 variable “inputs” to it. The variable inputs was defined on line 10. It tells
-Cfengine the location of the source files that are to be copied to
+CFEngine the location of the source files that are to be copied to
 /var/cfengine inputs.
 
 Lines 59-65 define the copy_from body part named “umycopy”.
@@ -313,10 +315,10 @@ Line 60 defines the copy source with the contents of the “from” variable.
 
 Line 61 defines the source server from the “phost” variable.
 
-Line 62 instructs Cfengine determine if a file needs updating from the source
+Line 62 instructs CFEngine determine if a file needs updating from the source
 by comparing the MD5 hash of each.
 
-Line 63 instructs Cfengine to verify the copied file with the source before
+Line 63 instructs CFEngine to verify the copied file with the source before
 committing the copy.
 
 Line 64 instructs the agent to delete any files at the destination that are not
@@ -353,7 +355,7 @@ classes including the UNIX distribution automatically.
 Line 45 defines the depth of the search body part as 1 in this case because we
 only wish to copy that single file.
 
-Cfengine defaults to failsafe.cf if other regular files such as promises.cf
+CFEngine defaults to failsafe.cf if other regular files such as promises.cf
 have errors. There are many ways that one might be creative with this file.
 
     1  #######################
@@ -365,14 +367,14 @@ have errors. There are many ways that one might be creative with this file.
     7      inputs => { "update.cf" }; 
     8  }
 
-This file simple tells Cfengine to run the update.cf file.
+This file simple tells CFEngine to run the update.cf file.
 
 When we discussed update.cf we showed several body parts that acted similarly
 to fuctions or subroutines. Since update.cf is meant to be self contained
 specialized body parts were included in that file. Normally it is efficient to
-reuse the same body parts as much as possible throughout the the Cfengine
+reuse the same body parts as much as possible throughout the the CFEngine
 policy. This library.cf file contains a collection of resuable parts. The
-makers of Cfengine now offer a large library of body parts ready for use. This
+makers of CFEngine now offer a large library of body parts ready for use. This
 is called the Community Open Promise Body Library. It can be a realy time
 saver.
 
@@ -572,7 +574,7 @@ good thing.
 
 Line 10 defines when the executor should start cf-agent. In this case twice per
 hour during the alloted window. Note that exact timing is not a goal of
-Cfengine. It is meant to work gradually.
+CFEngine. It is meant to work gradually.
 
 Line 11 defines the syslog facility for the executor.
 
@@ -619,8 +621,8 @@ Lines 14-15 call the “mycopy” body part found in library.cf passing the sour
 file location and the source server. Notice the use of the global variables
 that were defined in promises.cf.
 
-The file cfbackup.cf file instructs Cfengine to make a failsafe backup of
-itself. Thus even if Cfengine becomes damaged there is still hope of automatic
+The file cfbackup.cf file instructs CFEngine to make a failsafe backup of
+itself. Thus even if CFEngine becomes damaged there is still hope of automatic
 recovery.
 
     1  bundle agent cfbackup {
@@ -660,14 +662,14 @@ Lines 3-6 define two variables.
 
 Line 8 begins a files action.
 
-Line 10-29 should look familiar by now. They instruct Cfengine to copy files.
+Line 10-29 should look familiar by now. They instruct CFEngine to copy files.
 There is one noticeable difference. The mycopy call passes the server
 “localhost&rdqduo and not the central policy server as we”ve seen in the past.
 The purpose of this is to have the local client backup its own files locally.
 Thus if the /var/cfengine directory is damaged it will be possible to recover
 the files from an alternate local location without needing the remote server.
 
-This shell script cf-failsafe.sh is not run by Cfengine but is called by the
+This shell script cf-failsafe.sh is not run by CFEngine but is called by the
 host, via cron, in the event that cf-agent fails to run.
 
     1  #!/bin/sh
@@ -694,12 +696,12 @@ entries in that crontab looks like this.
 
 At 0415 and 1614 each day cf-agent will be started. If that fails then the
 failsafe script will be run instead. This is one of the many strategies one can
-use to ensure that Cfengine will continue to run even the face of difficulty.
+use to ensure that CFEngine will continue to run even the face of difficulty.
 
 ## <a name='other'></a>Other examples
 
 Now that you’ve seen a basic example, lets look at some further ones to
-illustrate how Cfengine might be used in production.
+illustrate how CFEngine might be used in production.
 
 ### Editing files
 
@@ -764,11 +766,11 @@ the file for the “append” body part.
 
 Line 25 define the location body part called “append”.
 
-Line 26 tells Cfengine to insert our string after the current location which in
+Line 26 tells CFEngine to insert our string after the current location which in
 this case is the end of the file.
 
 That did seem quite complicated for a seemingly simple action. It is a lot but
-keep in mind that Cfengine is capable of far more complex edits. In such cases
+keep in mind that CFEngine is capable of far more complex edits. In such cases
 this modular approach will help greatly.
 
 ### Disabling files
@@ -798,7 +800,7 @@ Line 4 calls a rename body part called “disable”.
 
 Line 7 begins the body part called “disable”.
 
-Line 8 tells Cfengine to disable the defined file. Other actions are possible
+Line 8 tells CFEngine to disable the defined file. Other actions are possible
 such as warn.
 
 Line 9 defines the suffix to be added to the renamed file.

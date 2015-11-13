@@ -3,7 +3,8 @@ title: IPv6 Migration part 7
 tags: ipv6, networking
 ---
 
-I've broken up with SixXS. Hurricane Electric is my new girl.
+I've broken up with [SixXS](https://www.sixxs.net/).
+[Hurricane Electric](http://he.net) is my new girl.
 
 ---
 

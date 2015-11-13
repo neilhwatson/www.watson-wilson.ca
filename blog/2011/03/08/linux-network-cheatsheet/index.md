@@ -3,12 +3,15 @@ title: Linux networking cheatsheet
 tags: linux, networking, cheatsheet
 ---
 
-Network calculation Show network info  ipcalc 10.0.0.0/24
+### Network calculation
+
+Show network info  ipcalc 10.0.0.0/24
 ipcalc 10.0.0.0/255.255.255.0
 Segment network into 2 50 node subnets    ipcalc 10.0.0.0/24 -s 50 50
 
-Net-tools versus Iptroute2 List interfaces   ip addr list
-ifconfig -a
+### Net-tools versus Iptroute2
+
+List interfaces;;`ip addr list`<br>`ifconfig -a`
 ip addr list eth0
 ifconfig eth0
 Link status    ip link list
