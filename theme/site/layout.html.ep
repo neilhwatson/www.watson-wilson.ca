@@ -54,7 +54,9 @@
         </div>
         <footer>
             %= include 'site/footer.html.ep'
-            <div class="container tagline">
+            <h1></h1>
+            <div class='col-md-5'> </div>
+            <div class="col-md-3 container tagline">
                 <a href="http://preaction.me/statocles">Made with Statocles</a><br/>
                 <a href="http://www.perl.org">Powered by Perl</a>
             </div>
