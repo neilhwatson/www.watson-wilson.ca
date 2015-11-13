@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>http://ettin/blog/tag/opensource/</id>
     <title>Neil H. Watson</title>
-    <updated>2015-11-12T17:33:29Z</updated>
+    <updated>2015-11-13T11:43:11Z</updated>
     <link href="http://ettin/blog/tag/opensource.atom" rel="self" />
     <link href="http://ettin/blog/tag/opensource/" rel="alternate" />
     <generator version="0.059">Statocles</generator>
@@ -11,7 +11,8 @@
         <title>No support for open source projects</title>
         <link href="http://ettin/blog/2011/03/08/opensource-support/" rel="alternate" />
         <content type="html"><![CDATA[
-            <p>Many believe that open source projects cannot be used in the enterprise because of the lack of support. This is untrue.</p>
+            <p>Many believe that open source projects cannot be used in the enterprise because
+of the lack of support. This is untrue.</p>
 
                 <p><a href="http://ettin/blog/2011/03/08/opensource-support/#section-2">Continue reading...</a></p>
             <p>Tags:

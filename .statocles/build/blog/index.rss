@@ -29,11 +29,11 @@ naming them.</p>
             </pubDate>
         </item>
         <item>
-            <title>Variable references with Cfengine</title>
+            <title>Variable references with CFEngine</title>
             <link>http://ettin/blog/2012/10/19/cfengine-var-refs/</link>
             <guid>http://ettin/blog/2012/10/19/cfengine-var-refs/</guid>
             <description><![CDATA[
-                <p>Variables in Cfengine can be confusing at times. Here are some examples of
+                <p>Variables in CFEngine can be confusing at times. Here are some examples of
 variable references. References are not strictly required, but they are good
 practice like using the strict module in Perl.</p>
 
@@ -69,7 +69,8 @@ records. Now I&#39;ll explain IPV6 PTR records.</p>
             <link>http://ettin/blog/2012/07/25/ipv6-migration-part7/</link>
             <guid>http://ettin/blog/2012/07/25/ipv6-migration-part7/</guid>
             <description><![CDATA[
-                <p>I&#39;ve broken up with SixXS. Hurricane Electric is my new girl.</p>
+                <p>I&#39;ve broken up with <a href="https://www.sixxs.net/">SixXS</a>.
+<a href="http://he.net">Hurricane Electric</a> is my new girl.</p>
 
                     <p><a href="http://ettin/blog/2012/07/25/ipv6-migration-part7/#section-2">Continue reading...</a></p>
                 <p>Tags:

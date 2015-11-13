@@ -7,11 +7,11 @@
         <description>Blog feed of Neil H. Watson</description>
         <generator>Statocles 0.059</generator>
         <item>
-            <title>SSH public key distribution using Cfengine</title>
+            <title>SSH public key distribution using CFEngine</title>
             <link>http://ettin/blog/2011/05/26/cfengine-ssh-keys/</link>
             <guid>http://ettin/blog/2011/05/26/cfengine-ssh-keys/</guid>
             <description><![CDATA[
-                <p>Problem</p>
+                <h3>Problem</h3>
 
 <p>You want to distribute public SSH keys.</p>
 

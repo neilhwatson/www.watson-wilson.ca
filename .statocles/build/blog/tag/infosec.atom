@@ -2,16 +2,16 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>http://ettin/blog/tag/infosec/</id>
     <title>Neil H. Watson</title>
-    <updated>2015-11-12T17:33:34Z</updated>
+    <updated>2015-11-13T11:43:08Z</updated>
     <link href="http://ettin/blog/tag/infosec.atom" rel="self" />
     <link href="http://ettin/blog/tag/infosec/" rel="alternate" />
     <generator version="0.059">Statocles</generator>
     <entry>
         <id>http://ettin/blog/2011/05/26/cfengine-ssh-keys/</id>
-        <title>SSH public key distribution using Cfengine</title>
+        <title>SSH public key distribution using CFEngine</title>
         <link href="http://ettin/blog/2011/05/26/cfengine-ssh-keys/" rel="alternate" />
         <content type="html"><![CDATA[
-            <p>Problem</p>
+            <h3>Problem</h3>
 
 <p>You want to distribute public SSH keys.</p>
 
@@ -31,10 +31,10 @@
     </entry>
     <entry>
         <id>http://ettin/blog/2011/05/26/cfengine-banning-process/</id>
-        <title>Banning processes using Cfengine</title>
+        <title>Banning processes using CFEngine</title>
         <link href="http://ettin/blog/2011/05/26/cfengine-banning-process/" rel="alternate" />
         <content type="html"><![CDATA[
-            <p>Problem</p>
+            <h3>Problem</h3>
 
 <p>You want to prevent certain processes from running.</p>
 
@@ -57,9 +57,12 @@
         <title>Victory over security audits</title>
         <link href="http://ettin/blog/2011/01/25/sec-autid-victory/" rel="alternate" />
         <content type="html"><![CDATA[
-            <p>It’s vicious cycle. Resources are spent auditing hosts. Many more are spent
-fixing all of the audit’s deficiencies. Then it’s back to business as usual.
-Time passes and hosts slowly degrade until the next audit. Repeat.</p>
+            <p><img alt="Winston Churchill give victory sign" src="http://ettin/blog/2011/01/25/sec-autid-victory/ch-vic.gif" style="float:right"></p>
+
+<p>It’s vicious cycle. Resources are spent auditing hosts. Many more are
+spent fixing all of the audit’s deficiencies. Then it’s back to
+business as usual.  Time passes and hosts slowly degrade until the next
+audit. Repeat.</p>
 
                 <p><a href="http://ettin/blog/2011/01/25/sec-autid-victory/#section-2">Continue reading...</a></p>
             <p>Tags:

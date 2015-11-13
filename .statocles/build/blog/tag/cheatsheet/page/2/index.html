@@ -65,15 +65,48 @@
 
                 </header>
 
-                <p>Change to other region  ctrl-a tab
-Change to other screen  ctrl-a 0-9
-Dettach  ctrl-a d
-Help  ctrl-a ?
-Kill screen    ctrl-a Kill region    ctrl-a x
-New screen  ctrl-a c
-Reattach    screen -r
-Serial connection    screen /dev/ttyUSB0 9600
-Split    ctrl-a s</p>
+                <table>
+<tr>
+    <td>Change to other region</td>
+    <td>`ctrl-a tab`</td>
+</tr>
+<tr>
+    <td>Change to other screen</td>
+    <td>`ctrl-a 0-9`</td>
+</tr>
+<tr>
+    <td>Detach</td>
+    <td>`ctrl-a d`</td>
+</tr>
+<tr>
+    <td>Help</td>
+    <td>`ctrl-a ?`</td>
+</tr>
+<tr>
+    <td>Kill screen</td>
+    <td>`ctrl-a \`</td>
+</tr>
+<tr>
+    <td>Kill region</td>
+    <td>`ctrl-a x`</td>
+</tr>
+<tr>
+    <td>New screen</td>
+    <td>`ctrl-a c`</td>
+</tr>
+<tr>
+    <td>Reattach</td>
+    <td>`screen -r`</td>
+</tr>
+<tr>
+    <td>Serial connection</td>
+    <td>`screen /dev/ttyUSB0 9600`</td>
+</tr>
+<tr>
+    <td>Split</td>
+    <td>`ctrl-a s`</td>
+</tr>
+</table>
 
 
 
@@ -97,21 +130,68 @@ Split    ctrl-a s</p>
 
                 </header>
 
-                <p>Download and build source package   apt-get -b source <package name>
-Download and install dependencies for source package  apt-get build-dep <package name>
-Download source package    apt-get source <package name>
-Install package “on demand”   auto-apt run <program>
-List contents of a package    apt-file list <package name>
-List installed packages    dpkg -l
-Remove package and configuration files    apt-get --purge remove <package name>
-Search for Debian Packages    http://www.debian.org/distrib/packages
-Search for packages  apt-cache search <string>
-Show package dependencies  apt-cache depends <string>
-Show package information   apt-cache show <string>
-Show package that supplies a given file   apt-file search <file name>
-Show package that supplies a given file   COLUMNS=132 dpkg -S <file name>
-Show source package information  apt-cache showsrc <package name>
-Update apt-file and auto-apt database  apt-file update</package></file></file></string></string></string></package></package></program></package></package></package></p>
+                <table>
+<tr>
+    <td>Download and build source package</td>
+    <td>`apt-get -b source <package name>`</package></td>
+</tr>
+<tr>
+    <td>Download and install dependencies for source package</td>
+    <td>`apt-get build-dep <package name>`</package></td>
+</tr>
+<tr>
+    <td>Download source package</td>
+    <td>`apt-get source <package name>`</package></td>
+</tr>
+<tr>
+    <td>Install package &quot;on demand&quot;</td>
+    <td>`auto-apt run <program>`</program></td>
+</tr>
+<tr>
+    <td>List contents of a package</td>
+    <td>`apt-file list <package name>`</package></td>
+</tr>
+<tr>
+    <td>List installed packages</td>
+    <td>`dpkg -l`</td>
+</tr>
+<tr>
+    <td>Remove package and configuration files</td>
+    <td>`apt-get --purge remove <package name>`</package></td>
+</tr>
+<tr>
+    <td>Search for Debian Packages</td>
+    <td>`http://www.debian.org/distrib/packages`</td>
+</tr>
+<tr>
+    <td>Search for packages</td>
+    <td>`apt-cache search <string>`</string></td>
+</tr>
+<tr>
+    <td>Show package dependencies</td>
+    <td>`apt-cache depends <string>`</string></td>
+</tr>
+<tr>
+    <td>Show package information</td>
+    <td>`apt-cache show <string>`</string></td>
+</tr>
+<tr>
+    <td>Show package that supplies a given file</td>
+    <td>`apt-file search <file name>`</file></td>
+</tr>
+<tr>
+    <td>Show package that supplies a given file</td>
+    <td>`COLUMNS=132 dpkg -S <file name>`</file></td>
+</tr>
+<tr>
+    <td>Show source package information</td>
+    <td>`apt-cache showsrc <package name>`</package></td>
+</tr>
+<tr>
+    <td>Update `apt-file and auto-apt database</td>
+    <td>`apt-file update`</td>
+</tr>
+</table>
 
 
 
@@ -135,22 +215,66 @@ Update apt-file and auto-apt database  apt-file update</package></file></file></
 
                 </header>
 
-                <p>Commands
-List cluster resources.    crm_resource -L
-Dump cluster configuration as xml to stdout.    cibadmin -Q
-Place node in standby (maintenance mode). Technically this is adding the standby property.   crm_standby -U <hostname> -v true
-Place local node in standby.  crm_standby -v true
-Place node online or remove the standby property.  crm_standby -D -U <hostname>
-Place local node online or remove standby property.   crm_standby -D
-View cluster status. One time to stdout.  crm_mon -1
-View cluster status. Refresh every 3s.    crm_mon -i3
-One line simple output.    crm_mon -s
-Show inactive resources.   crm_mon -r
-Stop resource.    crm_resource -r <resource> -p target_role -v stopped
-Start resource.   crm_resource -r <resource> -p target_role -v started
-Clear failed resource.  crm_resource -C -H <host> -r <resource>
-Query running cluster for current state (STDOUT).  cibadmin -Q --obj_type resources
-Other resources.  XML definition</resource></host></resource></resource></hostname></hostname></p>
+                <h3>Commands</h3>
+
+<table>
+<tr>
+    <td>List cluster resources.</td>
+    <td>`crm_resource -L`</td>
+</tr>
+<tr>
+    <td>Dump cluster configuration as xml to stdout.</td>
+    <td>`cibadmin -Q`</td>
+</tr>
+<tr>
+    <td>Place node in standby (maintenance mode). Technically this is adding the standby property.</td>
+    <td>`crm_standby -U <hostname> -v true`</hostname></td>
+</tr>
+<tr>
+    <td>Place local node in standby.</td>
+    <td>`crm_standby -v true`</td>
+</tr>
+<tr>
+    <td>Place node online or remove the standby property.</td>
+    <td>`crm_standby -D -U <hostname>`</hostname></td>
+</tr>
+<tr>
+    <td>Place local node online or remove standby property.</td>
+    <td>`crm_standby -D`</td>
+</tr>
+<tr>
+    <td>View cluster status. One time to stdout.</td>
+    <td>`crm_mon -1`</td>
+</tr>
+<tr>
+    <td>View cluster status. Refresh every 3s.</td>
+    <td>`crm_mon -i3`</td>
+</tr>
+<tr>
+    <td>One line simple output.</td>
+    <td>`crm_mon -s`</td>
+</tr>
+<tr>
+    <td>Show inactive resources.</td>
+    <td>`crm_mon -r`</td>
+</tr>
+<tr>
+    <td>Stop resource.</td>
+    <td>`crm_resource -r <resource> -p target_role -v stopped`</resource></td>
+</tr>
+<tr>
+    <td>Start resource.</td>
+    <td>`crm_resource -r <resource> -p target_role -v started`</resource></td>
+</tr>
+<tr>
+    <td>Clear failed resource.</td>
+    <td>`crm_resource -C -H <host> -r <resource>`</resource></host></td>
+</tr>
+<tr>
+    <td>Query running cluster for current state (STDOUT).</td>
+    <td>`cibadmin -Q --obj_type resources`</td>
+</tr>
+</table>
 
 
 

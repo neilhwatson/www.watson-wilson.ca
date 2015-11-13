@@ -7,11 +7,11 @@
         <description>Blog feed of Neil H. Watson</description>
         <generator>Statocles 0.059</generator>
         <item>
-            <title>Disk space monitoring using Cfengine</title>
+            <title>Disk space monitoring using CFEngine</title>
             <link>http://ettin/blog/2011/05/26/cfengine-storage/</link>
             <guid>http://ettin/blog/2011/05/26/cfengine-storage/</guid>
             <description><![CDATA[
-                <p>Problem</p>
+                <h3>Problem</h3>
 
 <p>You want to monitor free disk space.</p>
 

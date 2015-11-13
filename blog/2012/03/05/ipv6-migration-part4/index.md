@@ -16,7 +16,8 @@ Not all hosting providers offer IPV6. Those that do offer IPV6 do not always
 offer the full service. If you are shopping for an IPV6 ready hosting provider
 here is a checklist.
 
-1. How many IPV6 addresses do you get? Convention is that you should be provided with a /64 block. That is not a typo.
+1. How many IPV6 addresses do you get? Convention is that you should be
+   provided with a /64 block. That is not a typo.
 1. Is there a way to manage IPV6 PTR addresses?
 1. Does the network allow dual stack IPV4 and IPV6 addressing?
 1. What does this all cost?

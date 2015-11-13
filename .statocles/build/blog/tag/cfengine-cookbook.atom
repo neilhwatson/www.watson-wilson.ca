@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>http://ettin/blog/tag/cfengine-cookbook/</id>
     <title>Neil H. Watson</title>
-    <updated>2015-11-12T17:33:28Z</updated>
+    <updated>2015-11-13T11:43:09Z</updated>
     <link href="http://ettin/blog/tag/cfengine-cookbook.atom" rel="self" />
     <link href="http://ettin/blog/tag/cfengine-cookbook/" rel="alternate" />
     <generator version="0.059">Statocles</generator>
@@ -11,7 +11,7 @@
         <title>Backups using Cfengine</title>
         <link href="http://ettin/blog/2011/10/02/cfengine-backups/" rel="alternate" />
         <content type="html"><![CDATA[
-            <p>Problem</p>
+            <h3>Problem</h3>
 
 <p>You want to use Cfengine for scheduling backups instead of crond.</p>
 
@@ -31,10 +31,10 @@
     </entry>
     <entry>
         <id>http://ettin/blog/2011/09/16/cfengine-dynamic-bundlesequence/</id>
-        <title>Dynamic bundlesequence in Cfengine</title>
+        <title>Dynamic bundlesequence in CFEngine</title>
         <link href="http://ettin/blog/2011/09/16/cfengine-dynamic-bundlesequence/" rel="alternate" />
         <content type="html"><![CDATA[
-            <p>Problem</p>
+            <h3>Problem</h3>
 
 <p>You want to have your bundlesequence change based on class.</p>
 
@@ -52,10 +52,10 @@
     </entry>
     <entry>
         <id>http://ettin/blog/2011/05/26/cfengine-templates/</id>
-        <title>Template files using Cfengine</title>
+        <title>Template files using CFEngine</title>
         <link href="http://ettin/blog/2011/05/26/cfengine-templates/" rel="alternate" />
         <content type="html"><![CDATA[
-            <p>Problem</p>
+            <h3>Problem</h3>
 
 <p>Sometimes a file’s contents depends upon the class of host that the file
 resides on. This makes file copy promises impractical. Who wants to copy a
@@ -75,10 +75,10 @@ different file for so many hosts? Sysadmins are a lazy lot.</p>
     </entry>
     <entry>
         <id>http://ettin/blog/2011/05/26/cfengine-storage/</id>
-        <title>Disk space monitoring using Cfengine</title>
+        <title>Disk space monitoring using CFEngine</title>
         <link href="http://ettin/blog/2011/05/26/cfengine-storage/" rel="alternate" />
         <content type="html"><![CDATA[
-            <p>Problem</p>
+            <h3>Problem</h3>
 
 <p>You want to monitor free disk space.</p>
 
@@ -101,7 +101,7 @@ different file for so many hosts? Sysadmins are a lazy lot.</p>
         <title>Starting processes using Cfengine</title>
         <link href="http://ettin/blog/2011/05/26/cfengine-start-process/" rel="alternate" />
         <content type="html"><![CDATA[
-            <p>Problem</p>
+            <h3>Problem</h3>
 
 <p>You want to ensure that a process is running.</p>
 

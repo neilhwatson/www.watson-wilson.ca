@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>http://ettin/blog/tag/ipv6/</id>
     <title>Neil H. Watson</title>
-    <updated>2015-11-12T17:33:34Z</updated>
+    <updated>2015-11-13T11:43:08Z</updated>
     <link href="http://ettin/blog/tag/ipv6.atom" rel="self" />
     <link href="http://ettin/blog/tag/ipv6/" rel="alternate" />
     <generator version="0.059">Statocles</generator>
@@ -29,7 +29,8 @@ records. Now I&#39;ll explain IPV6 PTR records.</p>
         <title>IPv6 Migration part 7</title>
         <link href="http://ettin/blog/2012/07/25/ipv6-migration-part7/" rel="alternate" />
         <content type="html"><![CDATA[
-            <p>I&#39;ve broken up with SixXS. Hurricane Electric is my new girl.</p>
+            <p>I&#39;ve broken up with <a href="https://www.sixxs.net/">SixXS</a>.
+<a href="http://he.net">Hurricane Electric</a> is my new girl.</p>
 
                 <p><a href="http://ettin/blog/2012/07/25/ipv6-migration-part7/#section-2">Continue reading...</a></p>
             <p>Tags:

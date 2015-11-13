@@ -7,7 +7,7 @@
         <link href="/theme/css/readability-bootstrap.min.css" rel="stylesheet">
         <!--<link rel="stylesheet" href="/theme/css/statocles-bootstrap.css" />-->
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-        <title>SSH public key distribution using Cfengine - Neil H. Watson</title>
+        <title>SSH public key distribution using CFEngine - Neil H. Watson</title>
         <meta content="Statocles 0.059" name="generator">
         
     </head>
@@ -42,7 +42,7 @@
     <div class="col-md-9">
         <main>
             <header>
-                <h1>SSH public key distribution using Cfengine</h1>
+                <h1>SSH public key distribution using CFEngine</h1>
                 <p class="tags">Tags:
                     <a href="/blog/tag/cfengine/" rel="tag">cfengine</a>
                     <a href="/blog/tag/cfengine-cookbook/" rel="tag">cfengine cookbook</a>
@@ -60,29 +60,32 @@
 
             </header>
             <section id="section-1">
-                <p>Problem</p>
+                <h3>Problem</h3>
 
 <p>You want to distribute public SSH keys.</p>
 
             </section>
             <section id="section-2">
-                <p>Solution</p>
+                <h3>Solution</h3>
 
-<p>There are two possible methods for distributing SSH public keys. The first involves a simple copy.</p>
+<p>There are two possible methods for distributing SSH public keys. The first
+involves a simple copy.</p>
 
-<p>bundle agent recipe {</p>
+<pre><code>bundle agent recipe {
 
-<p>files:
+ files:
    &quot;/home/neil/.ssh/authorized_keys&quot;
      handle =&gt; &quot;neil_ssh_pub&quot;,
      comment =&gt; &quot;Install Neil&#39;s public ssh key&quot;,
      perms =&gt; mog(&quot;0600&quot;, &quot;neil&quot;, &quot;neil&quot;),
      copy_from =&gt; remote_cp(&quot;/var/cf-masterfiles/sshkeys/neil-pub&quot;,&quot;venus&quot;);
-}</p>
+}
+</code></pre>
 
-<p>This promise ensures the file is up to date, via timestamp, as well as the owner, group and mode.</p>
+<p>This promise ensures the file is up to date, via timestamp, as well as the
+owner, group and mode.</p>
 
-<p>cf3     Promise handle: neil_ssh_pub
+<pre><code>cf3     Promise handle: neil_ssh_pub
 cf3     Promise made by: /home/neil/.ssh/authorized_keys
 cf3
 cf3     Comment:  Install Neil&#39;s public ssh key
@@ -114,29 +117,37 @@ cf3  -&gt; File /home/neil/.ssh/authorized_keys is an up to date copy of
 source
 cf3 Performance(Copy(venus:/vars:/cf-masterfiles/sshkeys/neil-pub &gt;
 /home/neil/.ssh/authorized_keys)): time=0.0001 secs, av=0.0005 +/-
-0.0022</p>
+0.0022
+</code></pre>
 
-<p>An alternative method would be to edit authorized_keys instead. This allows you to append the file without overwriting any existing information that might be required.</p>
+<p>An alternative method would be to edit authorized_keys instead. This allows you
+to append the file without overwriting any existing information that might be
+required.</p>
 
-<p>bundle agent recipe {</p>
+<pre><code>bundle agent recipe {
 
-<p>vars:
+  vars:
     &quot;keys&quot; slist =&gt; { 
       &quot;ssh-rsa AAAAB31yc2E...EZFcqZ0CSQ1OPw== neil@pearl.watson-wilson.ca&quot;,
       &quot;ssh-rsa AAAAB31yc2E...NezfCQz0CSQ1OPw== neil@ruby.watson-wilson.ca&quot;
-    };</p>
+    };
 
-<p>files:
+  files:
     &quot;/home/neil/.ssh/authorized_keys&quot;
       handle =&gt; &quot;neil_ssh_pub&quot;,
       comment =&gt; &quot;Install Neil&#39;s public ssh keys&quot;,
       perms =&gt; mog(&quot;0644&quot;,&quot;neil&quot;,&quot;neil&quot;),
       edit_line =&gt; append_if_no_lines( &quot;@{recipe.keys}&quot; );
-}</p>
+}
+</code></pre>
 
-<p>This bundle appends authorized_keys with the given key lines. Note that we pass the list to the edit_line bundle “append_if_no_lines” as “@{recipe.keys}”. Were we to pass just “@{keys}” to the body part that part would think the list is scoped locally and would be blank. By qualifying it with the bundle&#39;s name the correct list is used.</p>
+<p>This bundle appends authorized_keys with the given key lines. Note that we pass
+the list to the edit_line bundle “append_if_no_lines” as “@{recipe.keys}”. Were
+we to pass just “@{keys}” to the body part that part would think the list is
+scoped locally and would be blank. By qualifying it with the bundle&#39;s name the
+correct list is used.</p>
 
-<p>cf3     Promise handle: 
+<pre><code>cf3     Promise handle: 
 cf3     Promise made by: ssh-rsa
 AAAAB3NzaC1yc2EAAAABIwAAAQEA0Rg/vwLT9Hk4+wp5rVtKRgn9cHC3zHWHAW
 cf3 
@@ -157,7 +168,8 @@ cf3     .........................................................
 cf3 
 cf3  -&gt; Inserting the promised line &quot;ssh-rsa
 AAAAB3NzaC1yc2EaaaabiWaaaqea0rG/VWlt9hK4+WP5RvTkrG
--wilson.ca&quot; into /home/neil/.ssh/authorized_keys after locator</p>
+-wilson.ca&quot; into /home/neil/.ssh/authorized_keys after locator
+</code></pre>
 
             </section>
         </main>

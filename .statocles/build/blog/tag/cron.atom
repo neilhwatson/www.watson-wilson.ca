@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>http://ettin/blog/tag/cron/</id>
     <title>Neil H. Watson</title>
-    <updated>2015-11-12T17:33:27Z</updated>
+    <updated>2015-11-13T11:43:14Z</updated>
     <link href="http://ettin/blog/tag/cron.atom" rel="self" />
     <link href="http://ettin/blog/tag/cron/" rel="alternate" />
     <generator version="0.059">Statocles</generator>
@@ -11,7 +11,8 @@
         <title>CFEngine as a crond alternative</title>
         <link href="http://ettin/blog/2011/09/27/cfengine-alt-crond/" rel="alternate" />
         <content type="html"><![CDATA[
-            <p>Cfengine’s time based classes and promise theory make it an attractive alternative to venerable crond.</p>
+            <p>CFEngine’s time based classes and promise theory make it an attractive
+alternative to venerable crond.</p>
 
                 <p><a href="http://ettin/blog/2011/09/27/cfengine-alt-crond/#section-2">Continue reading...</a></p>
             <p>Tags:
@@ -27,12 +28,12 @@
     </entry>
     <entry>
         <id>http://ettin/blog/2011/05/26/cfengine-cron/</id>
-        <title>Managing crontables with Cfengine</title>
+        <title>Managing crontables with CFEngine</title>
         <link href="http://ettin/blog/2011/05/26/cfengine-cron/" rel="alternate" />
         <content type="html"><![CDATA[
-            <p>Problem</p>
+            <h3>Problem</h3>
 
-<p>You want Cfengine to manage crontables.</p>
+<p>You want CFEngine to manage crontables.</p>
 
                 <p><a href="http://ettin/blog/2011/05/26/cfengine-cron/#section-2">Continue reading...</a></p>
             <p>Tags:

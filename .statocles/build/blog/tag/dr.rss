@@ -11,7 +11,7 @@
             <link>http://ettin/blog/2011/10/02/cfengine-backups/</link>
             <guid>http://ettin/blog/2011/10/02/cfengine-backups/</guid>
             <description><![CDATA[
-                <p>Problem</p>
+                <h3>Problem</h3>
 
 <p>You want to use Cfengine for scheduling backups instead of crond.</p>
 

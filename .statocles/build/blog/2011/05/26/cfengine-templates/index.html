@@ -7,7 +7,7 @@
         <link href="/theme/css/readability-bootstrap.min.css" rel="stylesheet">
         <!--<link rel="stylesheet" href="/theme/css/statocles-bootstrap.css" />-->
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-        <title>Template files using Cfengine - Neil H. Watson</title>
+        <title>Template files using CFEngine - Neil H. Watson</title>
         <meta content="Statocles 0.059" name="generator">
         
     </head>
@@ -42,7 +42,7 @@
     <div class="col-md-9">
         <main>
             <header>
-                <h1>Template files using Cfengine</h1>
+                <h1>Template files using CFEngine</h1>
                 <p class="tags">Tags:
                     <a href="/blog/tag/cfengine/" rel="tag">cfengine</a>
                     <a href="/blog/tag/cfengine-cookbook/" rel="tag">cfengine cookbook</a>
@@ -59,7 +59,7 @@
 
             </header>
             <section id="section-1">
-                <p>Problem</p>
+                <h3>Problem</h3>
 
 <p>Sometimes a file’s contents depends upon the class of host that the file
 resides on. This makes file copy promises impractical. Who wants to copy a
@@ -67,56 +67,56 @@ different file for so many hosts? Sysadmins are a lazy lot.</p>
 
             </section>
             <section id="section-2">
-                <p>Solution</p>
+                <h3>Solution</h3>
 
-<p>Template files consist of two promises. One promise copies a base file whilst the second promise edits the base file. The key is the contents of the base file. It contains the names of Cfengine variables. These variables are expanded during the edit.</p>
+<p>Template files consist of two promises. One promise copies a base file whilst
+the second promise edits the base file. The key is the contents of the base
+file. It contains the names of CFEngine variables. These variables are expanded
+during the edit.</p>
 
-<p>bundle agent recipe {</p>
+<pre><code>bundle agent recipe {
 
-<p>vars:
+  vars:
     mars::
       &quot;manager&quot; string =&gt; &quot;Neil Watson&quot;;
       &quot;phone&quot; string =&gt; &quot;555-555-5555&quot;;
-      &quot;email&quot; string =&gt; &quot;neil@example.com&quot;;</p>
+      &quot;email&quot; string =&gt; &quot;neil@example.com&quot;;
 
-<pre><code>venus::
-  &quot;manager&quot; string =&gt; &quot;Lisamarie Wilson&quot;;
-  &quot;phone&quot; string =&gt; &quot;555-555-5554&quot;;
-  &quot;email&quot; string =&gt; &quot;lisa@example.com&quot;;
-</code></pre>
+    venus::
+      &quot;manager&quot; string =&gt; &quot;Lisamarie Wilson&quot;;
+      &quot;phone&quot; string =&gt; &quot;555-555-5554&quot;;
+      &quot;email&quot; string =&gt; &quot;lisa@example.com&quot;;
 
-<p>files:
+  files:
     &quot;/tmp/motd.tmp&quot;
       handle =&gt; &quot;motd_template&quot;,
       comment =&gt; &quot;MOTD template file&quot;,
       perms =&gt; mog(&quot;0644&quot;,&quot;root&quot;,&quot;root&quot;),
-      copy_from =&gt; remote_cp (&quot;/var/cf-masterfiles/motd.tmp&quot;,&quot;localhost&quot;);</p>
+      copy_from =&gt; remote_cp (&quot;/var/cf-masterfiles/motd.tmp&quot;,&quot;localhost&quot;);
 
-<pre><code>&quot;/etc/motd&quot;
-  handle =&gt; &quot;motd_file&quot;,
-  comment =&gt; &quot;Expand motd file from template&quot;,
-  create =&gt; &quot;true&quot;,
-  edit_line =&gt; expand_template(&quot;/tmp/motd.tmp&quot;);
+    &quot;/etc/motd&quot;
+      handle =&gt; &quot;motd_file&quot;,
+      comment =&gt; &quot;Expand motd file from template&quot;,
+      create =&gt; &quot;true&quot;,
+      edit_line =&gt; expand_template(&quot;/tmp/motd.tmp&quot;);
+}
 </code></pre>
-
-<p>}</p>
 
 <p>Here is our template file motd.tmp</p>
 
-<h6>#</h6>
+<pre><code>###################################
+This host is the property of Example.com.  Use is restricted to
+authorized personnel only.
 
-<p>This host is the property of Example.com.  Use is restricted to
-authorized personnel only.</p>
-
-<p>Manager:        ${recipe.manager}
+Manager:        ${recipe.manager}
 Phone:          ${recipe.phone}
-Email:          ${recipe.email}</p>
-
-<h6>#</h6>
+Email:          ${recipe.email}
+###################################
+</code></pre>
 
 <p>Here is the verbose output from the agent.</p>
 
-<p>cf3  !! Image file /tmp/motd.tmp out of date (should be copy of
+<pre><code>cf3  !! Image file /tmp/motd.tmp out of date (should be copy of
 /vars:/cf-masterfiles/motd.tmp)
 cf3  -&gt; Updated /tmp/motd.tmp from source /vars:/cf-masterfiles/motd.tmp
 on localhost
@@ -167,22 +167,29 @@ cf3  -&gt; Inserting the promised line &quot;Email:
 lisa@example.com&quot; into /etc/motd after 
 cf3  -&gt; Promised file line &quot;###################################&quot; exists
 within file /etc/motd (
-cf3      ??  Private class context</p>
+cf3      ??  Private class context
+</code></pre>
 
-<p>The output is slightly truncated to fit this page but its meaning is clear enough. First the agent copies motd.tmp to /tmp and then edits /etc/motd using /tmp/motd.tmp as a template and expanding the variables set in the bundle recipe. Note that the variables listed in the template file are specifically scoped to the bundle recipe. The resulting file is below.</p>
+<p>The output is slightly truncated to fit this page but its meaning is clear
+enough. First the agent copies motd.tmp to /tmp and then edits /etc/motd using
+/tmp/motd.tmp as a template and expanding the variables set in the bundle
+recipe. Note that the variables listed in the template file are specifically
+scoped to the bundle recipe. The resulting file is below.</p>
 
-<h6>#</h6>
+<pre><code>###################################
+This host is the property of Example.com.  Use is restricted to
+authorized personal only.
 
-<p>This host is the property of Example.com.  Use is restricted to
-authorized personal only.</p>
-
-<p>Manager:        Lisamarie Wilson
+Manager:        Lisamarie Wilson
 Phone:          555-555-5554
-Email:          lisa@example.com</p>
+Email:          lisa@example.com
+###################################
+</code></pre>
 
-<h6>#</h6>
-
-<p>Note that Cfengine edits are very efficient. Cfengine performs the edit in memory first and compares the result with the target file. These edits are only committed to the target file if there are actual changes thus sparing needless writes.</p>
+<p>Note that CFEngine edits are very efficient. CFEngine performs the edit in
+memory first and compares the result with the target file. These edits are only
+committed to the target file if there are actual changes thus sparing needless
+writes.</p>
 
             </section>
         </main>

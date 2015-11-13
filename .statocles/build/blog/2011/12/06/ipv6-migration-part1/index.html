@@ -63,11 +63,22 @@ to IPV6 tunnel. A little research lead me to the fine folks at SixXS.</p>
 
             </section>
             <section id="section-2">
-                <p>My ISP does not offer IPV6 addresses at this time. Even if it did I did not want to go all the way down the rabbit hole at this time. Instead I chose the tunnel route. SixXS allows you to set a tunnel from your host to their servers. It is similar to a VPN connection. Your presence at the SixXS end of the tunnel is an IPV6 address. Their website explains in good detail how to get ready for, apply for and set up this tunnel.</p>
+                <p>My ISP does not offer IPV6 addresses at this time. Even if it did I did not
+want to go all the way down the rabbit hole at this time. Instead I chose the
+tunnel route. SixXS allows you to set a tunnel from your host to their servers.
+It is similar to a VPN connection. Your presence at the SixXS end of the tunnel
+is an IPV6 address. Their website explains in good detail how to get ready for,
+apply for and set up this tunnel.</p>
 
-<p>UPDATE. I have since moved from SixXS to Hurricane Electric. See See here for more details.</p>
+<p>UPDATE. I have since moved from <a href="http://sixxs.net">SixXS</a> to <a href="http://ne.net">Hurricane
+Electric</a>. See <a href="/blog/2012/07/25/ipv6-migration-part7/">here</a>
+for more details.</p>
 
-<p>The first preparation was to ready my firewall. This caused me some grief. Typically I&#39;ve configured my firewall by hand but these additional requirements added complexity which made me doubt the firewall&#39;s integrity. In an effort to simplify I built all new firewall rules using Firewall Builder. After the initial learning curve I was off to the races. The relevant rules are:</p>
+<p>The first preparation was to ready my firewall. This caused me some grief.
+Typically I&#39;ve configured my firewall by hand but these additional requirements
+added complexity which made me doubt the firewall&#39;s integrity. In an effort to
+simplify I built all new firewall rules using Firewall Builder. After the
+initial learning curve I was off to the races. The relevant rules are:</p>
 
 <p>UPDATE. I have since chaned my firewall software. I now use Shorewall.</p>
 
@@ -75,21 +86,26 @@ to IPV6 tunnel. A little research lead me to the fine folks at SixXS.</p>
 Allow ICMPv6 between my IPV6 IP and the Internet.
 </code></pre>
 
-<p>More paranoid folks try to block a lot of ICMP traffic. ICMP traffic has a purpose and blocking can cause trouble as it did for me. In this instance SixXS monitors the tunnel using ICMPv6 traffic.</p>
+<p>More paranoid folks try to block a lot of ICMP traffic. ICMP traffic has a
+purpose and blocking can cause trouble as it did for me. In this instance SixXS
+monitors the tunnel using ICMPv6 traffic.</p>
 
-<p>After applying for a tunnel SixXS send me the details. My test host runs Debian. I had to configure an interface for the tunnel:</p>
+<p>After applying for a tunnel SixXS send me the details. My test host runs
+Debian. I had to configure an interface for the tunnel:</p>
 
-<p>iface sixxs inet6 v4tunnel
+<pre><code>iface sixxs inet6 v4tunnel
     address 2604:8800:100:111::2
     netmask 64
     endpoint 38.229.76.3
     ttl 64
     up ip link set mtu 1280 dev sixxs
-    up ip route add default via 2604:8800:100:111::1 dev sixxs</p>
+    up ip route add default via 2604:8800:100:111::1 dev sixxs
+</code></pre>
 
-<p>My IPV6 address is 2604:8800:100:111::2. The endpoint is the target at SixXS to create the tunnel. Then I bring the interface up.</p>
+<p>My IPV6 address is 2604:8800:100:111::2. The endpoint is the target at SixXS to
+create the tunnel. Then I bring the interface up.</p>
 
-<p>sixxs     Link encap:IPv6-in-IPv4 <br>
+<pre><code>sixxs     Link encap:IPv6-in-IPv4  
           inet6 addr: fe80::c713:ab18/64 Scope:Link
           inet6 addr: 2604:8800:100:111::2/64 Scope:Global
           inet6 addr: fe80::a00:1/64 Scope:Link
@@ -98,23 +114,26 @@ Allow ICMPv6 between my IPV6 IP and the Internet.
           RX packets:5134 errors:0 dropped:0 overruns:0 frame:0
           TX packets:4398 errors:0 dropped:0 overruns:0 carrier:0
           collisions:0 txqueuelen:0 
-          RX bytes:4788682 (4.5 MiB)  TX bytes:623868 (609.2 KiB)</p>
+          RX bytes:4788682 (4.5 MiB)  TX bytes:623868 (609.2 KiB)
+</code></pre>
 
 <p>And it works:</p>
 
-<p>ping6 -nc 4 ipv6.google.com</p>
+<pre><code>ping6 -nc 4 ipv6.google.com
 
-<p>PING ipv6.google.com(2607:f8b0:4001:c01::93) 56 data bytes
+PING ipv6.google.com(2607:f8b0:4001:c01::93) 56 data bytes
 64 bytes from 2607:f8b0:4001:c01::93: icmp_seq=1 ttl=56 time=41.1 ms
 64 bytes from 2607:f8b0:4001:c01::93: icmp_seq=2 ttl=56 time=41.3 ms
 64 bytes from 2607:f8b0:4001:c01::93: icmp_seq=3 ttl=56 time=42.3 ms
-64 bytes from 2607:f8b0:4001:c01::93: icmp_seq=4 ttl=56 time=41.4 ms</p>
+64 bytes from 2607:f8b0:4001:c01::93: icmp_seq=4 ttl=56 time=41.4 ms
 
-<p>--- ipv6.google.com ping statistics ---
+--- ipv6.google.com ping statistics ---
 4 packets transmitted, 4 received, 0% packet loss, time 3004ms
-rtt min/avg/max/mdev = 41.173/41.576/42.351/0.456 ms</p>
+rtt min/avg/max/mdev = 41.173/41.576/42.351/0.456 ms
+</code></pre>
 
-<p>Be aware that firewall tools, like Iptables, require separate rules for IPV6 traffic. A normal IPV4 firewall may allow all IPV6 traffic or block it.</p>
+<p>Be aware that firewall tools, like Iptables, require separate rules for IPV6
+traffic. A normal IPV4 firewall may allow all IPV6 traffic or block it.</p>
 
 <p>Next time I&#39;ll look at enabling a service using an IPV6 address.</p>
 

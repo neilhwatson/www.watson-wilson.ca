@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>http://ettin/blog/tag/san/</id>
     <title>Neil H. Watson</title>
-    <updated>2015-11-12T17:33:37Z</updated>
+    <updated>2015-11-13T11:43:13Z</updated>
     <link href="http://ettin/blog/tag/san.atom" rel="self" />
     <link href="http://ettin/blog/tag/san/" rel="alternate" />
     <generator version="0.059">Statocles</generator>
@@ -11,10 +11,11 @@
         <title>Multipathd testing</title>
         <link href="http://ettin/blog/2011/03/08/multipathd-testing/" rel="alternate" />
         <content type="html"><![CDATA[
-            <p>Format and mount the SAN LUN.
-Start a write to the mounted filesystem cat /dev/zero &gt;&gt; /pathto/mnt/testfile &amp;
-Now connect to the multipath daemon in interactive mode multipathd -k
-View current paths with show maps topology</p>
+            <ol>
+<li>Format and mount the SAN LUN.</li>
+<li>Start a write to the mounted filesystem <code>cat /dev/zero &gt;&gt; /pathto/mnt/testfile &amp;</code></li>
+<li>Now connect to the multipath daemon in interactive mode <code>multipathd -k</code></li>
+<li><p>View current paths with show maps topology</p>
 
 <p>multipathd&gt; show maps topology
 reload: mpath5 (360060e801045249004f2a5f900000031) dm-7 HITACHI,DF600F
@@ -22,19 +23,21 @@ reload: mpath5 (360060e801045249004f2a5f900000031) dm-7 HITACHI,DF600F
 _ round-robin 0 [prio=1][active]
  _ 1:0:0:4 sdb 8:16  [active][ready]
 _ round-robin 0 [prio=0][enabled]
- _ 2:0:0:4 sdc 8:32  [active][ready]</p>
-
-<p>There are two paths shown as sdb and sdc. Delete one path.
-del path sdb
-Suspend with ctrl-z and check that the write is still happening.
-ls -l /pathto/mnt If testfile is still growing then the path sdc is working.
-Resume multipath with fg 2. Re-add the path.
-add path sdb
-Now remove the other path.
-del path sdc
-Again suspend iwth ctrl-z and check that the test file is growing. If so then resume multipath and re-add the path.
-add path sdc
-Testing complete. Exit with ctrl-c. Kill the write job with kill %1. Remove the test file.</p>
+ _ 2:0:0:4 sdc 8:32  [active][ready]</p></li>
+<li><p>There are two paths shown as sdb and sdc. Delete one path.
+    del path sdb</p></li>
+<li>Suspend with ctrl-z and check that the write is still happening.
+    ls -l /pathto/mnt If testfile is still growing then the path sdc is working.</li>
+<li>Resume multipath with fg 2. Re-add the path.
+    add path sdb</li>
+<li>Now remove the other path.
+    del path sdc</li>
+<li>Again suspend iwth ctrl-z and check that the test file is growing. If so
+then resume multipath and re-add the path.
+    add path sdc</li>
+<li>Testing complete. Exit with ctrl-c. Kill the write job with kill %1. Remove
+the test file.</li>
+</ol>
 
                 <p><a href="http://ettin/blog/2011/03/08/multipathd-testing/#section-2">Continue reading...</a></p>
             <p>Tags:

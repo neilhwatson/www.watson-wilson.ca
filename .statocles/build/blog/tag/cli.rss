@@ -32,16 +32,16 @@
 <li>Recall all arguements from last command: <code>!*</code></li>
 <li>Clear shell history: <code>history -c</code></li>
 <li>Delete shell history entry: <code>history -d &lt;number&gt;</code></li>
-<li>Rename rpmnew files:
-<code>
-find -type f -name &quot;*.rpmnew&quot; |sed &#39;s/\(^.*\)\(\.rpmnew\)$/mv -f \1\2 \1/&#39; |sh
-</code></li>
-<li>Search and replace files in place:
-<code>
-find /path -name &quot;*.*&quot; -exec | perl -pi -e &#39;s///g&#39; {} \;
-</code></li>
-<li>vi cli editing: <code>set -o vi</code> Now esc to enter command mode where vi keys
-work. Pressing enter returns to normal mode.</li>
+<li><p>Rename rpmnew files:</p>
+
+<pre><code>find -type f -name &quot;*.rpmnew&quot; | sed &#39;s/\(^.*\)\(\.rpmnew\)$/mv -f \1\2 \1/&#39; |sh
+</code></pre></li>
+<li><p>Search and replace files in place:</p>
+
+<pre><code>find /path -name &quot;*.*&quot; -exec | perl -pi -e &#39;s///g&#39; {} \;
+</code></pre></li>
+<li><p>vi cli editing: <code>set -o vi</code> Now esc to enter command mode where vi keys
+work. Pressing enter returns to normal mode.</p></li>
 </ul>
 
                     <p><a href="http://ettin/blog/2011/03/08/shell-cheatsheet/#section-2">Continue reading...</a></p>
@@ -60,15 +60,48 @@ work. Pressing enter returns to normal mode.</li>
             <link>http://ettin/blog/2011/03/08/gnu-screen-cheatsheet/</link>
             <guid>http://ettin/blog/2011/03/08/gnu-screen-cheatsheet/</guid>
             <description><![CDATA[
-                <p>Change to other region  ctrl-a tab
-Change to other screen  ctrl-a 0-9
-Dettach  ctrl-a d
-Help  ctrl-a ?
-Kill screen    ctrl-a Kill region    ctrl-a x
-New screen  ctrl-a c
-Reattach    screen -r
-Serial connection    screen /dev/ttyUSB0 9600
-Split    ctrl-a s</p>
+                <table>
+<tr>
+    <td>Change to other region</td>
+    <td>`ctrl-a tab`</td>
+</tr>
+<tr>
+    <td>Change to other screen</td>
+    <td>`ctrl-a 0-9`</td>
+</tr>
+<tr>
+    <td>Detach</td>
+    <td>`ctrl-a d`</td>
+</tr>
+<tr>
+    <td>Help</td>
+    <td>`ctrl-a ?`</td>
+</tr>
+<tr>
+    <td>Kill screen</td>
+    <td>`ctrl-a \`</td>
+</tr>
+<tr>
+    <td>Kill region</td>
+    <td>`ctrl-a x`</td>
+</tr>
+<tr>
+    <td>New screen</td>
+    <td>`ctrl-a c`</td>
+</tr>
+<tr>
+    <td>Reattach</td>
+    <td>`screen -r`</td>
+</tr>
+<tr>
+    <td>Serial connection</td>
+    <td>`screen /dev/ttyUSB0 9600`</td>
+</tr>
+<tr>
+    <td>Split</td>
+    <td>`ctrl-a s`</td>
+</tr>
+</table>
 
                     <p><a href="http://ettin/blog/2011/03/08/gnu-screen-cheatsheet/#section-2">Continue reading...</a></p>
                 <p>Tags:

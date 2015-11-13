@@ -1,9 +1,9 @@
 ---
-title: Variable references with Cfengine
+title: Variable references with CFEngine
 tags: cfengine
 ---
 
-Variables in Cfengine can be confusing at times. Here are some examples of
+Variables in CFEngine can be confusing at times. Here are some examples of
 variable references. References are not strictly required, but they are good
 practice like using the strict module in Perl.
 

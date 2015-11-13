@@ -11,7 +11,7 @@
             <link>http://ettin/blog/2011/10/02/cfengine-backups/</link>
             <guid>http://ettin/blog/2011/10/02/cfengine-backups/</guid>
             <description><![CDATA[
-                <p>Problem</p>
+                <h3>Problem</h3>
 
 <p>You want to use Cfengine for scheduling backups instead of crond.</p>
 
@@ -28,11 +28,11 @@
             </pubDate>
         </item>
         <item>
-            <title>Dynamic bundlesequence in Cfengine</title>
+            <title>Dynamic bundlesequence in CFEngine</title>
             <link>http://ettin/blog/2011/09/16/cfengine-dynamic-bundlesequence/</link>
             <guid>http://ettin/blog/2011/09/16/cfengine-dynamic-bundlesequence/</guid>
             <description><![CDATA[
-                <p>Problem</p>
+                <h3>Problem</h3>
 
 <p>You want to have your bundlesequence change based on class.</p>
 
@@ -48,11 +48,11 @@
             </pubDate>
         </item>
         <item>
-            <title>Template files using Cfengine</title>
+            <title>Template files using CFEngine</title>
             <link>http://ettin/blog/2011/05/26/cfengine-templates/</link>
             <guid>http://ettin/blog/2011/05/26/cfengine-templates/</guid>
             <description><![CDATA[
-                <p>Problem</p>
+                <h3>Problem</h3>
 
 <p>Sometimes a file’s contents depends upon the class of host that the file
 resides on. This makes file copy promises impractical. Who wants to copy a
@@ -70,11 +70,11 @@ different file for so many hosts? Sysadmins are a lazy lot.</p>
             </pubDate>
         </item>
         <item>
-            <title>Disk space monitoring using Cfengine</title>
+            <title>Disk space monitoring using CFEngine</title>
             <link>http://ettin/blog/2011/05/26/cfengine-storage/</link>
             <guid>http://ettin/blog/2011/05/26/cfengine-storage/</guid>
             <description><![CDATA[
-                <p>Problem</p>
+                <h3>Problem</h3>
 
 <p>You want to monitor free disk space.</p>
 
@@ -95,7 +95,7 @@ different file for so many hosts? Sysadmins are a lazy lot.</p>
             <link>http://ettin/blog/2011/05/26/cfengine-start-process/</link>
             <guid>http://ettin/blog/2011/05/26/cfengine-start-process/</guid>
             <description><![CDATA[
-                <p>Problem</p>
+                <h3>Problem</h3>
 
 <p>You want to ensure that a process is running.</p>
 

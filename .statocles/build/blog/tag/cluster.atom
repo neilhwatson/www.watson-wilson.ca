@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>http://ettin/blog/tag/cluster/</id>
     <title>Neil H. Watson</title>
-    <updated>2015-11-12T17:33:33Z</updated>
+    <updated>2015-11-13T11:43:12Z</updated>
     <link href="http://ettin/blog/tag/cluster.atom" rel="self" />
     <link href="http://ettin/blog/tag/cluster/" rel="alternate" />
     <generator version="0.059">Statocles</generator>
@@ -11,22 +11,66 @@
         <title>Heartbeat 2 cheatsheet</title>
         <link href="http://ettin/blog/2011/03/07/heatbeat2-cheatsheet/" rel="alternate" />
         <content type="html"><![CDATA[
-            <p>Commands
-List cluster resources.    crm_resource -L
-Dump cluster configuration as xml to stdout.    cibadmin -Q
-Place node in standby (maintenance mode). Technically this is adding the standby property.   crm_standby -U <hostname> -v true
-Place local node in standby.  crm_standby -v true
-Place node online or remove the standby property.  crm_standby -D -U <hostname>
-Place local node online or remove standby property.   crm_standby -D
-View cluster status. One time to stdout.  crm_mon -1
-View cluster status. Refresh every 3s.    crm_mon -i3
-One line simple output.    crm_mon -s
-Show inactive resources.   crm_mon -r
-Stop resource.    crm_resource -r <resource> -p target_role -v stopped
-Start resource.   crm_resource -r <resource> -p target_role -v started
-Clear failed resource.  crm_resource -C -H <host> -r <resource>
-Query running cluster for current state (STDOUT).  cibadmin -Q --obj_type resources
-Other resources.  XML definition</resource></host></resource></resource></hostname></hostname></p>
+            <h3>Commands</h3>
+
+<table>
+<tr>
+    <td>List cluster resources.</td>
+    <td>`crm_resource -L`</td>
+</tr>
+<tr>
+    <td>Dump cluster configuration as xml to stdout.</td>
+    <td>`cibadmin -Q`</td>
+</tr>
+<tr>
+    <td>Place node in standby (maintenance mode). Technically this is adding the standby property.</td>
+    <td>`crm_standby -U <hostname> -v true`</hostname></td>
+</tr>
+<tr>
+    <td>Place local node in standby.</td>
+    <td>`crm_standby -v true`</td>
+</tr>
+<tr>
+    <td>Place node online or remove the standby property.</td>
+    <td>`crm_standby -D -U <hostname>`</hostname></td>
+</tr>
+<tr>
+    <td>Place local node online or remove standby property.</td>
+    <td>`crm_standby -D`</td>
+</tr>
+<tr>
+    <td>View cluster status. One time to stdout.</td>
+    <td>`crm_mon -1`</td>
+</tr>
+<tr>
+    <td>View cluster status. Refresh every 3s.</td>
+    <td>`crm_mon -i3`</td>
+</tr>
+<tr>
+    <td>One line simple output.</td>
+    <td>`crm_mon -s`</td>
+</tr>
+<tr>
+    <td>Show inactive resources.</td>
+    <td>`crm_mon -r`</td>
+</tr>
+<tr>
+    <td>Stop resource.</td>
+    <td>`crm_resource -r <resource> -p target_role -v stopped`</resource></td>
+</tr>
+<tr>
+    <td>Start resource.</td>
+    <td>`crm_resource -r <resource> -p target_role -v started`</resource></td>
+</tr>
+<tr>
+    <td>Clear failed resource.</td>
+    <td>`crm_resource -C -H <host> -r <resource>`</resource></host></td>
+</tr>
+<tr>
+    <td>Query running cluster for current state (STDOUT).</td>
+    <td>`cibadmin -Q --obj_type resources`</td>
+</tr>
+</table>
 
                 <p><a href="http://ettin/blog/2011/03/07/heatbeat2-cheatsheet/#section-2">Continue reading...</a></p>
             <p>Tags:

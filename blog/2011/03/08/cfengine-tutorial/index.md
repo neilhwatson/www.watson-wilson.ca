@@ -24,7 +24,7 @@ one or more iterations, makes the client conform to this policy in a convergent
 manner.
 
 ##### Figure: CFEngine cycle 
-![CFEngine cyclet](blog/2011/03/08/cfengine-tutorial/cfcycle.png)
+![CFEngine cyclet](/blog/2011/03/08/cfengine-tutorial/cfcycle.png)
 
 As seen in the figure CFEngine agents (cf-agent) contact the policy server
 (cf-serverd) for new or changed policies or files. This is a “pull” method in
@@ -37,7 +37,7 @@ The security implications often associated with pull clients can if desired by
 alleviated by the use of policy mirrors (see figure).
 
 ##### Figure: CFEngine Mirror 
-![CFEngine mirros](blog/2011/03/08/cfengine-tutorial/mirror.png)
+![CFEngine mirros](/blog/2011/03/08/cfengine-tutorial/mirror.png)
 
 CFEngine 3 consists of a number of components. As this is an introductory
 tutorial some components will not be covered here.

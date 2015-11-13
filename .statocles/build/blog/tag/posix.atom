@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>http://ettin/blog/tag/posix/</id>
     <title>Neil H. Watson</title>
-    <updated>2015-11-12T17:33:28Z</updated>
+    <updated>2015-11-13T11:43:03Z</updated>
     <link href="http://ettin/blog/tag/posix.atom" rel="self" />
     <link href="http://ettin/blog/tag/posix/" rel="alternate" />
     <generator version="0.059">Statocles</generator>
@@ -11,18 +11,56 @@
         <title>POSIX regular expression cheatsheet</title>
         <link href="http://ettin/blog/2011/03/08/posix-regex-cheatsheet/" rel="alternate" />
         <content type="html"><![CDATA[
-            <p>Alphabetic  [:alpha:]
-Alphanumeric   [:alnum:]
-Control characters   [:cntrl:]
-Hex numbers    [:xdigit:]
-Lowercase   [:lower:]
-Nonespace characters    [:graph:]
-Numbers  [:digit:]
-Printable   [:print:]
-Punctuation    [:punct:]
-Tab or space   [:blank:]
-Uppercase   [:upper:]
-White space    [:space:]</p>
+            <table>
+<tr>
+    <td>Alphabetic</td>
+    <td>[:alpha:]</td>
+</tr>
+<tr>
+    <td>Alphanumeric</td>
+    <td>[:alnum:]</td>
+</tr>
+<tr>
+    <td>Control characters</td>
+    <td>[:cntrl:]</td>
+</tr>
+<tr>
+    <td>Hex numbers</td>
+    <td>[:xdigit:]</td>
+</tr>
+<tr>
+    <td>Lowercase</td>
+    <td>[:lower:]</td>
+</tr>
+<tr>
+    <td>Nonespace characters</td>
+    <td>[:graph:]</td>
+</tr>
+<tr>
+    <td>Numbers</td>
+    <td>[:digit:]</td>
+</tr>
+<tr>
+    <td>Printable</td>
+    <td>[:print:]</td>
+</tr>
+<tr>
+    <td>Punctuation</td>
+    <td>[:punct:]</td>
+</tr>
+<tr>
+    <td>Tab or space</td>
+    <td>[:blank:]</td>
+</tr>
+<tr>
+    <td>Uppercase</td>
+    <td>[:upper:]</td>
+</tr>
+<tr>
+    <td>White space</td>
+    <td>[:space:]</td>
+</tr>
+</table>
 
                 <p><a href="http://ettin/blog/2011/03/08/posix-regex-cheatsheet/#section-2">Continue reading...</a></p>
             <p>Tags:

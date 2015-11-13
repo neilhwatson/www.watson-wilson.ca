@@ -7,7 +7,7 @@
         <link href="/theme/css/readability-bootstrap.min.css" rel="stylesheet">
         <!--<link rel="stylesheet" href="/theme/css/statocles-bootstrap.css" />-->
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-        <title>Disk space monitoring using Cfengine - Neil H. Watson</title>
+        <title>Disk space monitoring using CFEngine - Neil H. Watson</title>
         <meta content="Statocles 0.059" name="generator">
         
     </head>
@@ -42,7 +42,7 @@
     <div class="col-md-9">
         <main>
             <header>
-                <h1>Disk space monitoring using Cfengine</h1>
+                <h1>Disk space monitoring using CFEngine</h1>
                 <p class="tags">Tags:
                     <a href="/blog/tag/cfengine/" rel="tag">cfengine</a>
                     <a href="/blog/tag/cfengine-cookbook/" rel="tag">cfengine cookbook</a>
@@ -60,59 +60,65 @@
 
             </header>
             <section id="section-1">
-                <p>Problem</p>
+                <h3>Problem</h3>
 
 <p>You want to monitor free disk space.</p>
 
             </section>
             <section id="section-2">
-                <p>Solution</p>
+                <h3>Solution</h3>
 
-<p>Cfengine has storage promises that can mount file systems and monitor disk space.</p>
+<p>CFEngine has storage promises that can mount file systems and monitor disk
+space.</p>
 
-<p>bundle agent recipe {</p>
+<pre><code>bundle agent recipe {
 
-<p>storage:</p>
+  storage:
 
-<pre><code>&quot;/var&quot;
-  handle =&gt; &quot;var_fs_check&quot;,
-  comment =&gt; &quot;var filesystem check&quot;,
-  volume =&gt; min_free_space(&quot;13G&quot;);
+    &quot;/var&quot;
+      handle =&gt; &quot;var_fs_check&quot;,
+      comment =&gt; &quot;var filesystem check&quot;,
+      volume =&gt; min_free_space(&quot;13G&quot;);
+}
 </code></pre>
 
-<p>}</p>
+<p>In this example we see a message printed if the /var filesystem has less than
+13 gigabytes of free space.</p>
 
-<p>In this example we see a message printed if the /var filesystem has less than 13 gigabytes of free space.</p>
-
-<p>root@venus:/home/neil/.cfagent/inputs# cf-agent -f ./recipe.cf 
+<pre><code>root@venus:/home/neil/.cfagent/inputs# cf-agent -f ./recipe.cf 
  !! Disk space under 13631488 kB for volume containing /vars: (12113604
  kB free)
  I: Made in version &#39;not specified&#39; of &#39;./recipe.cf&#39; near line 17
- I: Comment: vars: filesystem check</p>
-
-<p>Gravy</p>
-
-<p>Why stop at passive monitoring? A class can be defined when the file system is filling up. This allows for more actions.</p>
-
-<p>bundle agent recipe {</p>
-
-<pre><code>storage:
-
-    &quot;/var&quot;
-        handle =&gt; &quot;var_fs_check&quot;,
-        comment =&gt; &quot;var filesystem check&quot;,
-        classes =&gt; if_notkept(&quot;var_full&quot;),
-        volume =&gt; min_free_space(&quot;13G&quot;);
-
-reports:
-
-    var_full::
-        &quot;Report: /var has to little free space.&quot;;
+ I: Comment: vars: filesystem check
 </code></pre>
 
-<p>}</p>
+<h3>Gravy</h3>
 
-<p>Now the class “var_full” is set. In this example we only create a report but any other action would be possible. Perhaps we can initiate a search for core files and delete them. We could delete aged files from /var/tmp. A package cache could be deleted. An alert could be sent to a central monitoring system. We could even do all of these things.</p>
+<p>Why stop at passive monitoring? A class can be defined when the file system is
+filling up. This allows for more actions.</p>
+
+<pre><code>bundle agent recipe {
+
+    storage:
+
+        &quot;/var&quot;
+            handle =&gt; &quot;var_fs_check&quot;,
+            comment =&gt; &quot;var filesystem check&quot;,
+            classes =&gt; if_notkept(&quot;var_full&quot;),
+            volume =&gt; min_free_space(&quot;13G&quot;);
+
+    reports:
+
+        var_full::
+            &quot;Report: /var has to little free space.&quot;;
+}
+</code></pre>
+
+<p>Now the class “var_full” is set. In this example we only create a report but
+any other action would be possible. Perhaps we can initiate a search for core
+files and delete them. We could delete aged files from /var/tmp. A package
+cache could be deleted. An alert could be sent to a central monitoring system.
+We could even do all of these things.</p>
 
             </section>
         </main>

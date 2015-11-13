@@ -59,59 +59,60 @@
 
             </header>
             <section id="section-1">
-                <p>Problem</p>
+                <h3>Problem</h3>
 
 <p>You Cfengine binaries are in /var/cfengine/bin but you want them in the PATH.</p>
 
             </section>
             <section id="section-2">
-                <p>Solution</p>
+                <h3>Solution</h3>
 
-<p>Symbolic linking the binaries is a good approach. The most simple method follows. Please note that you should look at the introduction entry to this series to better understand the setup.</p>
+<p>Symbolic linking the binaries is a good approach. The most simple method
+follows. Please note that you should look at the introduction entry to this
+series to better understand the setup.</p>
 
-<p>bundle agent recipe {</p>
+<pre><code>bundle agent recipe {
 
-<pre><code>files:
-    &quot;/usr/bin/cf-agent&quot;
-        handle =&gt; &quot;cf_agent_link&quot;,
-        comment =&gt; &quot;Link cf-engine binaries&quot;,
-        link_from =&gt; ln_s(&quot;/var/cfengine/bin/cf-agent&quot;);
+    files:
+        &quot;/usr/bin/cf-agent&quot;
+            handle =&gt; &quot;cf_agent_link&quot;,
+            comment =&gt; &quot;Link cf-engine binaries&quot;,
+            link_from =&gt; ln_s(&quot;/var/cfengine/bin/cf-agent&quot;);
 
-    &quot;/usr/bin/cf-serverd&quot;
-        handle =&gt; &quot;cf_serverd_link&quot;,
-        comment =&gt; &quot;Link cf-engine binaries&quot;,
-        link_from =&gt; ln_s(&quot;/var/cfengine/bin/cf-serverd&quot;);
+        &quot;/usr/bin/cf-serverd&quot;
+            handle =&gt; &quot;cf_serverd_link&quot;,
+            comment =&gt; &quot;Link cf-engine binaries&quot;,
+            link_from =&gt; ln_s(&quot;/var/cfengine/bin/cf-serverd&quot;);
 
-    &quot;/usr/bin/cf-execd&quot;
-        handle =&gt; &quot;cf_execd_link&quot;,
-        comment =&gt; &quot;Link cf-engine binaries&quot;,
-        link_from =&gt; ln_s(&quot;/var/cfengine/bin/cf-execd&quot;);
+        &quot;/usr/bin/cf-execd&quot;
+            handle =&gt; &quot;cf_execd_link&quot;,
+            comment =&gt; &quot;Link cf-engine binaries&quot;,
+            link_from =&gt; ln_s(&quot;/var/cfengine/bin/cf-execd&quot;);
+}
 </code></pre>
 
-<p>}</p>
+<p>The promises are clear but somewhat repetitive. A more efficient approach
+involves using a list.</p>
 
-<p>The promises are clear but somewhat repetitive. A more efficient approach involves using a list.</p>
+<pre><code>bundle agent recipe {
 
-<p>bundle agent recipe {</p>
+    vars:
+        &quot;cfbins&quot; slist =&gt; {
+            &quot;agent&quot;, &quot;serverd&quot;, &quot;execd&quot;
+        },
+        comment =&gt; &quot;Cfengine binary files&quot;;
 
-<pre><code>vars:
-    &quot;cfbins&quot; slist =&gt; {
-        &quot;agent&quot;, &quot;serverd&quot;, &quot;execd&quot;
-    },
-    comment =&gt; &quot;Cfengine binary files&quot;;
-
-files:
-    &quot;/usr/bin/cf-${cfbins}&quot;
-        handle =&gt; &quot;cf_bin_links&quot;,
-        comment =&gt; &quot;Link cf-engine binaries&quot;,
-        link_from =&gt; ln_s(&quot;/var/cfengine/bin/cf-${cfbins}&quot;);
+    files:
+        &quot;/usr/bin/cf-${cfbins}&quot;
+            handle =&gt; &quot;cf_bin_links&quot;,
+            comment =&gt; &quot;Link cf-engine binaries&quot;,
+            link_from =&gt; ln_s(&quot;/var/cfengine/bin/cf-${cfbins}&quot;);
+}
 </code></pre>
-
-<p>}</p>
 
 <p>This bundle repeats the same link promise for each string in list “cfbins”.</p>
 
-<p>cf3     Promise handle: cf_bin_links
+<pre><code>cf3     Promise handle: cf_bin_links
 cf3     Promise made by: /usr/bin/cf-agent
 cf3 
 cf3     Comment:  Link cf-engine binaries
@@ -143,12 +144,15 @@ cf3     .........................................................
 cf3 
 cf3  -&gt; Using literal pathtype for /usr/bin/cf-execd
 cf3  -&gt; Handling file existence constraints on /usr/bin/cf-execd
-cf3  -&gt; Link /usr/bin/cf-execd points to /vars:/cfengine/bin/cf-execd -
-promise kept</p>
+cf3  -&gt; Link /usr/bin/cf-execd points to /vars:/cfengine/bin/cf-execd - promise kept
+</code></pre>
 
-<p>Gravy</p>
+<h3>Gravy</h3>
 
-<p>I keep a personal source repository of profile rc files (e.g. .profile, .muttrc) and custom scripts for my \$HOME/bin path. I typically have a checked out working copy of these files. I have Cfengine make links from the proper location to my the checked out repository.</p>
+<p>I keep a personal source repository of profile rc files (e.g. .profile,
+.muttrc) and custom scripts for my \$HOME/bin path. I typically have a checked
+out working copy of these files. I have Cfengine make links from the proper
+location to my the checked out repository.</p>
 
             </section>
         </main>

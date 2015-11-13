@@ -5,52 +5,68 @@ tags: linux, networking, cheatsheet
 
 ### Network calculation
 
-Show network info  ipcalc 10.0.0.0/24
-ipcalc 10.0.0.0/255.255.255.0
-Segment network into 2 50 node subnets    ipcalc 10.0.0.0/24 -s 50 50
+<table>
+<tr>
+	<td>Show network info</td>
+	<td>`ipcalc 10.0.0.0/24<br>`ipcalc 10.0.0.0/255.255.255.0`</td>
+</tr>
+<tr>
+	<td>Segment network into 2 50 node subnets</td>
+	<td>`ipcalc 10.0.0.0/24 -s 50 50`</td>
+</tr>
+</table>
 
 ### Net-tools versus Iptroute2
 
-List interfaces;;`ip addr list`<br>`ifconfig -a`
-ip addr list eth0
-ifconfig eth0
-Link status    ip link list
-ifconfig -a
-ip link list eth0
-ifconfig eth0
-Route table    ip route
-netstat -rn
-Adding routes  ip route add default via 10.0.0.1
-Add/delete IP addresses    ip addr add 10.0.0.2/24 dev eth0
-ifconfig eth0 10.0.0.2 netmask 255.255.255.0
-ip addr del 10.0.0.2/24 dev eth0
-ifconfig eth0 del 10.0.0.2
-Linux Ethernet bonding
+<table>
+<tr>
+	<td>List interfaces</td>
+	<td>`ip addr list`<br>`ifconfig -a`<br>`ip addr list eth0`<br>`ifconfig eth0`</td>
+</tr>
+<tr>
+	<td>Link status</td>
+	<td>`ip link list`<br>`ifconfig -a`<br>`ip link list eth0`<br>`ifconfig eth0`</td>
+</tr>
+<tr>
+	<td>Route table</td>
+	<td>`ip route`<br>`netstat -rn`</td>
+</tr>
+<tr>
+	<td>Adding routes</td>
+	<td>`ip route add default via 10.0.0.1`</td>
+</tr>
+<tr>
+	<td>Add/delete IP addresses</td>
+	<td>`ip addr add 10.0.0.2/24 dev eth0`<br>`ifconfig eth0 10.0.0.2 netmask 255.255.255.0`<br>`ip addr del 10.0.0.2/24 dev eth0`<br>`ifconfig eth0 del 10.0.0.2`</td>
+</tr>
+</table>
 
-# Loading module:
-# for Red Hat AS4, may work with other 2.6 Linuxes.
-install bond0 /sbin/modprobe bonding -o bond0 mode=0 miimon=100
-# for Red Hat AS3, may work with other 2.4 Linuxes.
-alias bond0 bonding
-options bond0 -o bonding mode=0 miimon=100
-# For Redhat distributions
-# ifcfg-ethx
-DEVICE=ethx
-USERCTL=no
-ONBOOT=yes
-MASTER=bond0
-SLAVE=yes
-BOOTPROTO=none
+### Linux Ethernet bonding
 
-# ifcfg-bond0
-DEVICE=bond0
-USERCTL=no
-ONBOOT=yes
-IPADDR=172.16.48.66
-NETMASK=255.255.255.0
-GATEWAY=172.16.48.1
+    # Loading module:
+    # for Red Hat AS4, may work with other 2.6 Linuxes.
+    install bond0 /sbin/modprobe bonding -o bond0 mode=0 miimon=100
+    # for Red Hat AS3, may work with other 2.4 Linuxes.
+    alias bond0 bonding
+    options bond0 -o bonding mode=0 miimon=100
 
-Click for more Ethernet bonding information.
-OSI model diagram
-osi-model.gif
+#### For Redhat distributions
 
+    # ifcfg-ethx
+    DEVICE=ethx
+    USERCTL=no
+    ONBOOT=yes
+    MASTER=bond0
+    SLAVE=yes
+    BOOTPROTO=none
+
+    # ifcfg-bond0
+    DEVICE=bond0
+    USERCTL=no
+    ONBOOT=yes
+    IPADDR=172.16.48.66
+    NETMASK=255.255.255.0
+    GATEWAY=172.16.48.1
+
+### OSI model diagram
+![OSI model diagram](/blog/2011/03/08/linux-network-cheatsheet/osi-model.gif)

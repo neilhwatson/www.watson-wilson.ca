@@ -65,18 +65,56 @@
 
                 </header>
 
-                <p>Alphabetic  [:alpha:]
-Alphanumeric   [:alnum:]
-Control characters   [:cntrl:]
-Hex numbers    [:xdigit:]
-Lowercase   [:lower:]
-Nonespace characters    [:graph:]
-Numbers  [:digit:]
-Printable   [:print:]
-Punctuation    [:punct:]
-Tab or space   [:blank:]
-Uppercase   [:upper:]
-White space    [:space:]</p>
+                <table>
+<tr>
+    <td>Alphabetic</td>
+    <td>[:alpha:]</td>
+</tr>
+<tr>
+    <td>Alphanumeric</td>
+    <td>[:alnum:]</td>
+</tr>
+<tr>
+    <td>Control characters</td>
+    <td>[:cntrl:]</td>
+</tr>
+<tr>
+    <td>Hex numbers</td>
+    <td>[:xdigit:]</td>
+</tr>
+<tr>
+    <td>Lowercase</td>
+    <td>[:lower:]</td>
+</tr>
+<tr>
+    <td>Nonespace characters</td>
+    <td>[:graph:]</td>
+</tr>
+<tr>
+    <td>Numbers</td>
+    <td>[:digit:]</td>
+</tr>
+<tr>
+    <td>Printable</td>
+    <td>[:print:]</td>
+</tr>
+<tr>
+    <td>Punctuation</td>
+    <td>[:punct:]</td>
+</tr>
+<tr>
+    <td>Tab or space</td>
+    <td>[:blank:]</td>
+</tr>
+<tr>
+    <td>Uppercase</td>
+    <td>[:upper:]</td>
+</tr>
+<tr>
+    <td>White space</td>
+    <td>[:space:]</td>
+</tr>
+</table>
 
 
 
@@ -99,7 +137,8 @@ White space    [:space:]</p>
 
                 </header>
 
-                <p>Many believe that open source projects cannot be used in the enterprise because of the lack of support. This is untrue.</p>
+                <p>Many believe that open source projects cannot be used in the enterprise because
+of the lack of support. This is untrue.</p>
 
 
                     <p><a href="/blog/2011/03/08/opensource-support/index.html#section-2">Continue reading No support for open source projects...</a></p>
@@ -124,10 +163,11 @@ White space    [:space:]</p>
 
                 </header>
 
-                <p>Format and mount the SAN LUN.
-Start a write to the mounted filesystem cat /dev/zero &gt;&gt; /pathto/mnt/testfile &amp;
-Now connect to the multipath daemon in interactive mode multipathd -k
-View current paths with show maps topology</p>
+                <ol>
+<li>Format and mount the SAN LUN.</li>
+<li>Start a write to the mounted filesystem <code>cat /dev/zero &gt;&gt; /pathto/mnt/testfile &amp;</code></li>
+<li>Now connect to the multipath daemon in interactive mode <code>multipathd -k</code></li>
+<li><p>View current paths with show maps topology</p>
 
 <p>multipathd&gt; show maps topology
 reload: mpath5 (360060e801045249004f2a5f900000031) dm-7 HITACHI,DF600F
@@ -135,19 +175,21 @@ reload: mpath5 (360060e801045249004f2a5f900000031) dm-7 HITACHI,DF600F
 _ round-robin 0 [prio=1][active]
  _ 1:0:0:4 sdb 8:16  [active][ready]
 _ round-robin 0 [prio=0][enabled]
- _ 2:0:0:4 sdc 8:32  [active][ready]</p>
-
-<p>There are two paths shown as sdb and sdc. Delete one path.
-del path sdb
-Suspend with ctrl-z and check that the write is still happening.
-ls -l /pathto/mnt If testfile is still growing then the path sdc is working.
-Resume multipath with fg 2. Re-add the path.
-add path sdb
-Now remove the other path.
-del path sdc
-Again suspend iwth ctrl-z and check that the test file is growing. If so then resume multipath and re-add the path.
-add path sdc
-Testing complete. Exit with ctrl-c. Kill the write job with kill %1. Remove the test file.</p>
+ _ 2:0:0:4 sdc 8:32  [active][ready]</p></li>
+<li><p>There are two paths shown as sdb and sdc. Delete one path.
+    del path sdb</p></li>
+<li>Suspend with ctrl-z and check that the write is still happening.
+    ls -l /pathto/mnt If testfile is still growing then the path sdc is working.</li>
+<li>Resume multipath with fg 2. Re-add the path.
+    add path sdb</li>
+<li>Now remove the other path.
+    del path sdc</li>
+<li>Again suspend iwth ctrl-z and check that the test file is growing. If so
+then resume multipath and re-add the path.
+    add path sdc</li>
+<li>Testing complete. Exit with ctrl-c. Kill the write job with kill %1. Remove
+the test file.</li>
+</ol>
 
 
 
@@ -171,61 +213,76 @@ Testing complete. Exit with ctrl-c. Kill the write job with kill %1. Remove the 
 
                 </header>
 
-                <p>Network calculation Show network info  ipcalc 10.0.0.0/24
-ipcalc 10.0.0.0/255.255.255.0
-Segment network into 2 50 node subnets    ipcalc 10.0.0.0/24 -s 50 50</p>
+                <h3>Network calculation</h3>
 
-<p>Net-tools versus Iptroute2 List interfaces   ip addr list
-ifconfig -a
-ip addr list eth0
-ifconfig eth0
-Link status    ip link list
-ifconfig -a
-ip link list eth0
-ifconfig eth0
-Route table    ip route
-netstat -rn
-Adding routes  ip route add default via 10.0.0.1
-Add/delete IP addresses    ip addr add 10.0.0.2/24 dev eth0
-ifconfig eth0 10.0.0.2 netmask 255.255.255.0
-ip addr del 10.0.0.2/24 dev eth0
-ifconfig eth0 del 10.0.0.2
-Linux Ethernet bonding</p>
+<table>
+<tr>
+    <td>Show network info</td>
+    <td>`ipcalc 10.0.0.0/24<br>`ipcalc 10.0.0.0/255.255.255.0`</td>
+</tr>
+<tr>
+    <td>Segment network into 2 50 node subnets</td>
+    <td>`ipcalc 10.0.0.0/24 -s 50 50`</td>
+</tr>
+</table>
 
-<h1>Loading module:</h1>
+<h3>Net-tools versus Iptroute2</h3>
 
-<h1>for Red Hat AS4, may work with other 2.6 Linuxes.</h1>
+<table>
+<tr>
+    <td>List interfaces</td>
+    <td>`ip addr list`<br>`ifconfig -a`<br>`ip addr list eth0`<br>`ifconfig eth0`</td>
+</tr>
+<tr>
+    <td>Link status</td>
+    <td>`ip link list`<br>`ifconfig -a`<br>`ip link list eth0`<br>`ifconfig eth0`</td>
+</tr>
+<tr>
+    <td>Route table</td>
+    <td>`ip route`<br>`netstat -rn`</td>
+</tr>
+<tr>
+    <td>Adding routes</td>
+    <td>`ip route add default via 10.0.0.1`</td>
+</tr>
+<tr>
+    <td>Add/delete IP addresses</td>
+    <td>`ip addr add 10.0.0.2/24 dev eth0`<br>`ifconfig eth0 10.0.0.2 netmask 255.255.255.0`<br>`ip addr del 10.0.0.2/24 dev eth0`<br>`ifconfig eth0 del 10.0.0.2`</td>
+</tr>
+</table>
 
-<p>install bond0 /sbin/modprobe bonding -o bond0 mode=0 miimon=100</p>
+<h3>Linux Ethernet bonding</h3>
 
-<h1>for Red Hat AS3, may work with other 2.4 Linuxes.</h1>
+<pre><code># Loading module:
+# for Red Hat AS4, may work with other 2.6 Linuxes.
+install bond0 /sbin/modprobe bonding -o bond0 mode=0 miimon=100
+# for Red Hat AS3, may work with other 2.4 Linuxes.
+alias bond0 bonding
+options bond0 -o bonding mode=0 miimon=100
+</code></pre>
 
-<p>alias bond0 bonding
-options bond0 -o bonding mode=0 miimon=100</p>
+<h4>For Redhat distributions</h4>
 
-<h1>For Redhat distributions</h1>
-
-<h1>ifcfg-ethx</h1>
-
-<p>DEVICE=ethx
+<pre><code># ifcfg-ethx
+DEVICE=ethx
 USERCTL=no
 ONBOOT=yes
 MASTER=bond0
 SLAVE=yes
-BOOTPROTO=none</p>
+BOOTPROTO=none
 
-<h1>ifcfg-bond0</h1>
-
-<p>DEVICE=bond0
+# ifcfg-bond0
+DEVICE=bond0
 USERCTL=no
 ONBOOT=yes
 IPADDR=172.16.48.66
 NETMASK=255.255.255.0
-GATEWAY=172.16.48.1</p>
+GATEWAY=172.16.48.1
+</code></pre>
 
-<p>Click for more Ethernet bonding information.
-OSI model diagram
-osi-model.gif</p>
+<h3>OSI model diagram</h3>
+
+<p><img alt="OSI model diagram" src="/blog/2011/03/08/linux-network-cheatsheet/osi-model.gif"></p>
 
 
 
@@ -249,15 +306,48 @@ osi-model.gif</p>
 
                 </header>
 
-                <p>Change to other region  ctrl-a tab
-Change to other screen  ctrl-a 0-9
-Dettach  ctrl-a d
-Help  ctrl-a ?
-Kill screen    ctrl-a Kill region    ctrl-a x
-New screen  ctrl-a c
-Reattach    screen -r
-Serial connection    screen /dev/ttyUSB0 9600
-Split    ctrl-a s</p>
+                <table>
+<tr>
+    <td>Change to other region</td>
+    <td>`ctrl-a tab`</td>
+</tr>
+<tr>
+    <td>Change to other screen</td>
+    <td>`ctrl-a 0-9`</td>
+</tr>
+<tr>
+    <td>Detach</td>
+    <td>`ctrl-a d`</td>
+</tr>
+<tr>
+    <td>Help</td>
+    <td>`ctrl-a ?`</td>
+</tr>
+<tr>
+    <td>Kill screen</td>
+    <td>`ctrl-a \`</td>
+</tr>
+<tr>
+    <td>Kill region</td>
+    <td>`ctrl-a x`</td>
+</tr>
+<tr>
+    <td>New screen</td>
+    <td>`ctrl-a c`</td>
+</tr>
+<tr>
+    <td>Reattach</td>
+    <td>`screen -r`</td>
+</tr>
+<tr>
+    <td>Serial connection</td>
+    <td>`screen /dev/ttyUSB0 9600`</td>
+</tr>
+<tr>
+    <td>Split</td>
+    <td>`ctrl-a s`</td>
+</tr>
+</table>
 
 
 

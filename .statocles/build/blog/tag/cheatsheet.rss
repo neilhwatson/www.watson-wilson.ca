@@ -11,25 +11,84 @@
             <link>http://ettin/blog/2011/03/08/svn-cheatsheet/</link>
             <guid>http://ettin/blog/2011/03/08/svn-cheatsheet/</guid>
             <description><![CDATA[
-                <p>Add to working copy  svn add <file>
-Backup to hot copy   hot-backup.py /opt/svn /opt/svn-backup
-Change log view   svn log file:///opt/svn/scripts/firewall/firewall-new
-Checkout    svn checkout file:///opt/svn/profile
-Commit changes    svn commit --message &quot;Your log message&quot;
-Copy to working copy    svn copy <file> <file>
-Create respository   svnadmin create --fs-type fsfs /opt/svn
-Delete from working copy   svn delete <file>
-Diff changes   svn diff
-Initial Import    svn import . file:///opt/svn --message &quot;Initial import&quot;
-Merging to current directory  svn merge <merge to@rev> <merge from@rev>
-Move file in working copy  svn move <file1> <file2>
-Remote Checkout   svn checkout svn+ssh://<user>@<hostname>/opt/svn/<project>
-Revert all changes   svn revert <file>
-Review changes    svn status
-Review commit log    svn log
-Update working copy  svn update <file> (may overwrite changes)
-View file   svn cat file:///opt/svn/profile/.profile
-View repository tree    svnlook tree /opt/svn</file></file></project></hostname></user></file2></file1></merge></merge></file></file></file></file></p>
+                <table>
+<tr>
+    <td>Add to working copy</td>
+    <td>`svn add <file>`</file></td>
+</tr>
+<tr>
+    <td>Backup to hot copy</td>
+    <td>`hot-backup.py /opt/svn /opt/svn-backup`</td>
+</tr>
+<tr>
+    <td>Change log view</td>
+    <td>`svn log file:///opt/svn/scripts/firewall/firewall-new`</td>
+</tr>
+<tr>
+    <td>Checkout</td>
+    <td>`svn checkout file:///opt/svn/profile`</td>
+</tr>
+<tr>
+    <td>Commit changes</td>
+    <td>`svn commit --message &quot;Your log message&quot;`</td>
+</tr>
+<tr>
+    <td>Copy to working copy</td>
+    <td>`svn copy <file> <file>`</file></file></td>
+</tr>
+<tr>
+    <td>Create respository</td>
+    <td>`svnadmin create --fs-type fsfs /opt/svn`</td>
+</tr>
+<tr>
+    <td>Delete from working copy</td>
+    <td>`svn delete <file>`</file></td>
+</tr>
+<tr>
+    <td>Diff changes</td>
+    <td>`svn diff`</td>
+</tr>
+<tr>
+    <td>Initial Import</td>
+    <td>`svn import . file:///opt/svn --message &quot;Initial import&quot;`</td>
+</tr>
+<tr>
+    <td>Merging to current directory</td>
+    <td>`svn merge <merge to@rev> <merge from@rev>`</merge></merge></td>
+</tr>
+<tr>
+    <td>Move file in working copy</td>
+    <td>`svn move <file1> <file2>`</file2></file1></td>
+</tr>
+<tr>
+    <td>Remote Checkout</td>
+    <td>`svn checkout svn+ssh://<user>@<hostname>/opt/svn/<project>`</project></hostname></user></td>
+</tr>
+<tr>
+    <td>Revert all changes</td>
+    <td>`svn revert <file>`</file></td>
+</tr>
+<tr>
+    <td>Review changes</td>
+    <td>`svn status`</td>
+</tr>
+<tr>
+    <td>Review commit log</td>
+    <td>`svn log`</td>
+</tr>
+<tr>
+    <td>Update working copy</td>
+    <td>`svn update <file> (may overwrite changes)`</file></td>
+</tr>
+<tr>
+    <td>View file</td>
+    <td>`svn cat file:///opt/svn/profile/.profile`</td>
+</tr>
+<tr>
+    <td>View repository tree</td>
+    <td>`svnlook tree /opt/svn`</td>
+</tr>
+</table>
 
                     <p><a href="http://ettin/blog/2011/03/08/svn-cheatsheet/#section-2">Continue reading...</a></p>
                 <p>Tags:
@@ -47,53 +106,64 @@ View repository tree    svnlook tree /opt/svn</file></file></project></hostname>
             <link>http://ettin/blog/2011/03/08/solaris-cheatsheet/</link>
             <guid>http://ettin/blog/2011/03/08/solaris-cheatsheet/</guid>
             <description><![CDATA[
-                <p>0  Go into boot prompt (OK).
-1  Put the system in system administrator mode. All file systems are mounted. Only a small set of essential kernel processes are left running. This mode is for administrative tasks such as installing optional utility packages. All files are accessible and no users are logged in on the system.
-2  Put the system in multi-user mode. All multi-user environment terminal processes and daemons are spawned. This state is commonly referred to as the multi-user state.
-3  Start the remote file sharing processes and dae mons. Mount and advertise remote resources. Run level 3 extends multi-user mode and is known as the remote-file-sharing state.
-4  Is available to be defined as an alternative multi-user environment configuration. It is not necessary for system operation and is usually not used.
-5  Shut the machine down so that it is safe to remove the power. Have the machine remove power, if possible.
-6  Stop the operating system and reboot to the state defined by the initdefault entry in /etc/inittab.</p>
+                <h3>Init levels</h3>
 
-<p>reboot -- -x</p>
-
-<p>Reboot and issue boot -x (boot to non-cluster mode) at boot prompt.</p>
-
-<p>reboot -- -xs</p>
-
-<p>Reboot and issue boot -xs (single user, non-cluster mode) at boot prompt.</p>
-
-<p>reboot -- -r</p>
-
-<p>Reboot and issue boot -r (reconfigure) at boot prompt.</p>
-
-<p>elom and ilom commands Upload elom firmware  </p>
-
-<p>cd /SP/TftpUpdate
-set ServerIP=<tftp address ip>
-set Filename=Telom_X6250-053_040.ROM
-stop /SYS
-set Update=action</tftp></p>
-
-<h1>wait for upload and reboot</h1>
-
-<p>Upload ilom firmware    </p>
-
-<p>load -source tftp://<tftp address ip>/file.pkg</tftp></p>
-
-<p>Sun Cluster (under review) Backup cluster confuration    cluster export &gt; clusterconfig.xml
-Offline device group.   cldg offline <group>
-Offline resource group.    clrg offline <group>
-Onine device group.  cldg online <group>
-Onine resource group.   clrg online <group>
-Restore cluster configuration    clintr delete --force +
-clinst add clusterconfig.xml +
-Show cluster configuration    cluster show
-Status of cluster.   scstat or cluster status
-Status of device group.    cldg status
-Status of resource group.  clrg status
-Swtich device group to another node.   cldg switch -n <node> <group>
-Swtich resource group to another node.    clrg switch -n <node> <group></group></node></group></node></group></group></group></group></p>
+<table>
+<tr>
+    <td>0</td>
+    <td>Go into boot prompt (OK).</td>
+</tr>
+<tr>
+    <td>1</td>
+    <td>Put the system in system administrator mode. All file systems are
+    mounted. Only a small set of essential kernel processes are left running.
+    This mode is for administrative tasks such as installing optional utility
+    packages. All files are accessible and no users are logged in on the
+    system.</td>
+</tr>
+<tr>
+    <td>2</td>
+    <td>Put the system in multi-user mode. All multi-user environment terminal
+    processes and daemons are spawned. This state is commonly referred to as
+    the multi-user state.</td>
+</tr>
+<tr>
+    <td>3</td>
+    <td>Start the remote file sharing processes and dae mons. Mount and
+    advertise remote resources. Run level 3 extends multi-user mode and is
+    known as the remote-file-sharing state.</td>
+</tr>
+<tr>
+    <td>4</td>
+    <td>Is available to be defined as an alternative multi-user environment
+    configuration. It is not necessary for system operation and is usually not
+    used.</td>
+</tr>
+<tr>
+    <td>5</td>
+    <td>Shut the machine down so that it is safe to remove the power. Have the
+    machine remove power, if possible.</td>
+</tr>
+<tr>
+    <td>6</td>
+    <td>Stop the operating system and reboot to the state defined by the
+    initdefault entry in /etc/inittab.</td>
+</tr>
+<tr>
+    <td><code><pre>reboot -- -x</pre></code></td>
+    <td>Reboot and issue boot -x (boot to non-cluster mode) at boot
+    prompt.</td>
+</tr>
+<tr>
+    <td><code><pre>`reboot -- -xs`</pre></code></td>
+    <td>Reboot and issue `boot -xs` (single user, non-cluster mode) at boot
+    prompt.</td>
+</tr>
+<tr>
+    <td><code><pre>`reboot -- -r`</pre></code></td>
+    <td>Reboot and issue boot -r (reconfigure) at boot prompt.</td>
+</tr>
+</table>
 
                     <p><a href="http://ettin/blog/2011/03/08/solaris-cheatsheet/#section-2">Continue reading...</a></p>
                 <p>Tags:
@@ -133,16 +203,16 @@ Swtich resource group to another node.    clrg switch -n <node> <group></group><
 <li>Recall all arguements from last command: <code>!*</code></li>
 <li>Clear shell history: <code>history -c</code></li>
 <li>Delete shell history entry: <code>history -d &lt;number&gt;</code></li>
-<li>Rename rpmnew files:
-<code>
-find -type f -name &quot;*.rpmnew&quot; |sed &#39;s/\(^.*\)\(\.rpmnew\)$/mv -f \1\2 \1/&#39; |sh
-</code></li>
-<li>Search and replace files in place:
-<code>
-find /path -name &quot;*.*&quot; -exec | perl -pi -e &#39;s///g&#39; {} \;
-</code></li>
-<li>vi cli editing: <code>set -o vi</code> Now esc to enter command mode where vi keys
-work. Pressing enter returns to normal mode.</li>
+<li><p>Rename rpmnew files:</p>
+
+<pre><code>find -type f -name &quot;*.rpmnew&quot; | sed &#39;s/\(^.*\)\(\.rpmnew\)$/mv -f \1\2 \1/&#39; |sh
+</code></pre></li>
+<li><p>Search and replace files in place:</p>
+
+<pre><code>find /path -name &quot;*.*&quot; -exec | perl -pi -e &#39;s///g&#39; {} \;
+</code></pre></li>
+<li><p>vi cli editing: <code>set -o vi</code> Now esc to enter command mode where vi keys
+work. Pressing enter returns to normal mode.</p></li>
 </ul>
 
                     <p><a href="http://ettin/blog/2011/03/08/shell-cheatsheet/#section-2">Continue reading...</a></p>
@@ -161,18 +231,56 @@ work. Pressing enter returns to normal mode.</li>
             <link>http://ettin/blog/2011/03/08/posix-regex-cheatsheet/</link>
             <guid>http://ettin/blog/2011/03/08/posix-regex-cheatsheet/</guid>
             <description><![CDATA[
-                <p>Alphabetic  [:alpha:]
-Alphanumeric   [:alnum:]
-Control characters   [:cntrl:]
-Hex numbers    [:xdigit:]
-Lowercase   [:lower:]
-Nonespace characters    [:graph:]
-Numbers  [:digit:]
-Printable   [:print:]
-Punctuation    [:punct:]
-Tab or space   [:blank:]
-Uppercase   [:upper:]
-White space    [:space:]</p>
+                <table>
+<tr>
+    <td>Alphabetic</td>
+    <td>[:alpha:]</td>
+</tr>
+<tr>
+    <td>Alphanumeric</td>
+    <td>[:alnum:]</td>
+</tr>
+<tr>
+    <td>Control characters</td>
+    <td>[:cntrl:]</td>
+</tr>
+<tr>
+    <td>Hex numbers</td>
+    <td>[:xdigit:]</td>
+</tr>
+<tr>
+    <td>Lowercase</td>
+    <td>[:lower:]</td>
+</tr>
+<tr>
+    <td>Nonespace characters</td>
+    <td>[:graph:]</td>
+</tr>
+<tr>
+    <td>Numbers</td>
+    <td>[:digit:]</td>
+</tr>
+<tr>
+    <td>Printable</td>
+    <td>[:print:]</td>
+</tr>
+<tr>
+    <td>Punctuation</td>
+    <td>[:punct:]</td>
+</tr>
+<tr>
+    <td>Tab or space</td>
+    <td>[:blank:]</td>
+</tr>
+<tr>
+    <td>Uppercase</td>
+    <td>[:upper:]</td>
+</tr>
+<tr>
+    <td>White space</td>
+    <td>[:space:]</td>
+</tr>
+</table>
 
                     <p><a href="http://ettin/blog/2011/03/08/posix-regex-cheatsheet/#section-2">Continue reading...</a></p>
                 <p>Tags:
@@ -190,61 +298,76 @@ White space    [:space:]</p>
             <link>http://ettin/blog/2011/03/08/linux-network-cheatsheet/</link>
             <guid>http://ettin/blog/2011/03/08/linux-network-cheatsheet/</guid>
             <description><![CDATA[
-                <p>Network calculation Show network info  ipcalc 10.0.0.0/24
-ipcalc 10.0.0.0/255.255.255.0
-Segment network into 2 50 node subnets    ipcalc 10.0.0.0/24 -s 50 50</p>
+                <h3>Network calculation</h3>
 
-<p>Net-tools versus Iptroute2 List interfaces   ip addr list
-ifconfig -a
-ip addr list eth0
-ifconfig eth0
-Link status    ip link list
-ifconfig -a
-ip link list eth0
-ifconfig eth0
-Route table    ip route
-netstat -rn
-Adding routes  ip route add default via 10.0.0.1
-Add/delete IP addresses    ip addr add 10.0.0.2/24 dev eth0
-ifconfig eth0 10.0.0.2 netmask 255.255.255.0
-ip addr del 10.0.0.2/24 dev eth0
-ifconfig eth0 del 10.0.0.2
-Linux Ethernet bonding</p>
+<table>
+<tr>
+    <td>Show network info</td>
+    <td>`ipcalc 10.0.0.0/24<br>`ipcalc 10.0.0.0/255.255.255.0`</td>
+</tr>
+<tr>
+    <td>Segment network into 2 50 node subnets</td>
+    <td>`ipcalc 10.0.0.0/24 -s 50 50`</td>
+</tr>
+</table>
 
-<h1>Loading module:</h1>
+<h3>Net-tools versus Iptroute2</h3>
 
-<h1>for Red Hat AS4, may work with other 2.6 Linuxes.</h1>
+<table>
+<tr>
+    <td>List interfaces</td>
+    <td>`ip addr list`<br>`ifconfig -a`<br>`ip addr list eth0`<br>`ifconfig eth0`</td>
+</tr>
+<tr>
+    <td>Link status</td>
+    <td>`ip link list`<br>`ifconfig -a`<br>`ip link list eth0`<br>`ifconfig eth0`</td>
+</tr>
+<tr>
+    <td>Route table</td>
+    <td>`ip route`<br>`netstat -rn`</td>
+</tr>
+<tr>
+    <td>Adding routes</td>
+    <td>`ip route add default via 10.0.0.1`</td>
+</tr>
+<tr>
+    <td>Add/delete IP addresses</td>
+    <td>`ip addr add 10.0.0.2/24 dev eth0`<br>`ifconfig eth0 10.0.0.2 netmask 255.255.255.0`<br>`ip addr del 10.0.0.2/24 dev eth0`<br>`ifconfig eth0 del 10.0.0.2`</td>
+</tr>
+</table>
 
-<p>install bond0 /sbin/modprobe bonding -o bond0 mode=0 miimon=100</p>
+<h3>Linux Ethernet bonding</h3>
 
-<h1>for Red Hat AS3, may work with other 2.4 Linuxes.</h1>
+<pre><code># Loading module:
+# for Red Hat AS4, may work with other 2.6 Linuxes.
+install bond0 /sbin/modprobe bonding -o bond0 mode=0 miimon=100
+# for Red Hat AS3, may work with other 2.4 Linuxes.
+alias bond0 bonding
+options bond0 -o bonding mode=0 miimon=100
+</code></pre>
 
-<p>alias bond0 bonding
-options bond0 -o bonding mode=0 miimon=100</p>
+<h4>For Redhat distributions</h4>
 
-<h1>For Redhat distributions</h1>
-
-<h1>ifcfg-ethx</h1>
-
-<p>DEVICE=ethx
+<pre><code># ifcfg-ethx
+DEVICE=ethx
 USERCTL=no
 ONBOOT=yes
 MASTER=bond0
 SLAVE=yes
-BOOTPROTO=none</p>
+BOOTPROTO=none
 
-<h1>ifcfg-bond0</h1>
-
-<p>DEVICE=bond0
+# ifcfg-bond0
+DEVICE=bond0
 USERCTL=no
 ONBOOT=yes
 IPADDR=172.16.48.66
 NETMASK=255.255.255.0
-GATEWAY=172.16.48.1</p>
+GATEWAY=172.16.48.1
+</code></pre>
 
-<p>Click for more Ethernet bonding information.
-OSI model diagram
-osi-model.gif</p>
+<h3>OSI model diagram</h3>
+
+<p><img alt="OSI model diagram" src="http://ettin/blog/2011/03/08/linux-network-cheatsheet/osi-model.gif"></p>
 
                     <p><a href="http://ettin/blog/2011/03/08/linux-network-cheatsheet/#section-2">Continue reading...</a></p>
                 <p>Tags:

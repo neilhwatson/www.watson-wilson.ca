@@ -7,7 +7,7 @@
         <link href="/theme/css/readability-bootstrap.min.css" rel="stylesheet">
         <!--<link rel="stylesheet" href="/theme/css/statocles-bootstrap.css" />-->
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-        <title>Variable references with Cfengine - Neil H. Watson</title>
+        <title>Variable references with CFEngine - Neil H. Watson</title>
         <meta content="Statocles 0.059" name="generator">
         
     </head>
@@ -42,7 +42,7 @@
     <div class="col-md-9">
         <main>
             <header>
-                <h1>Variable references with Cfengine</h1>
+                <h1>Variable references with CFEngine</h1>
                 <p class="tags">Tags:
                     <a href="/blog/tag/cfengine/" rel="tag">cfengine</a>
                 </p>
@@ -57,7 +57,7 @@
 
             </header>
             <section id="section-1">
-                <p>Variables in Cfengine can be confusing at times. Here are some examples of
+                <p>Variables in CFEngine can be confusing at times. Here are some examples of
 variable references. References are not strictly required, but they are good
 practice like using the strict module in Perl.</p>
 
@@ -65,45 +65,43 @@ practice like using the strict module in Perl.</p>
             <section id="section-2">
                 <p>bundle agent main {</p>
 
-<p>vars:
-      &quot;meta_purpose&quot; string =&gt; &quot;Demonstrate references&quot;;</p>
+<pre><code>   vars:
+      &quot;meta_purpose&quot; string =&gt; &quot;Demonstrate references&quot;;
 
-<pre><code>  &quot;my_scalar&quot; string       =&gt; &quot;This is a scalar typed as astring&quot;;
-  &quot;my_list&quot; slist          =&gt; { &quot;one&quot;, &quot;two&quot;, &quot;three&quot; };
-  &quot;my_array[red]&quot; string   =&gt; &quot;Red element of associative array&quot;;
-  &quot;my_array[blue]&quot; string  =&gt; &quot;Blue element of associative array&quot;;
-  &quot;my_array[green]&quot; string =&gt; &quot;Green element of associative array&quot;;
-</code></pre>
+      &quot;my_scalar&quot; string       =&gt; &quot;This is a scalar typed as astring&quot;;
+      &quot;my_list&quot; slist          =&gt; { &quot;one&quot;, &quot;two&quot;, &quot;three&quot; };
+      &quot;my_array[red]&quot; string   =&gt; &quot;Red element of associative array&quot;;
+      &quot;my_array[blue]&quot; string  =&gt; &quot;Blue element of associative array&quot;;
+      &quot;my_array[green]&quot; string =&gt; &quot;Green element of associative array&quot;;
 
-<p>methods:
+   methods:
       &quot;any&quot; usebundle =&gt; test(
          &quot;main.my_scalar&quot;,
          &quot;main.my_list&quot;,
          &quot;main.my_array&quot;
          );
-}</p>
+}
 
-<p>bundle agent test(scalarref, listref, arrayref) {</p>
+bundle agent test(scalarref, listref, arrayref) {
 
-<p>vars:
+   vars:
       &quot;local_scalar&quot;
-         string =&gt; &quot;${${scalarref}}&quot;;</p>
+         string =&gt; &quot;${${scalarref}}&quot;;
 
-<pre><code>  &quot;local_list&quot;
-     slist =&gt; { &quot;@{${listref}}&quot; };
+      &quot;local_list&quot;
+         slist =&gt; { &quot;@{${listref}}&quot; };
 
-  &quot;arrayref_index&quot;
-     slist =&gt; getindices(&quot;${arrayref}&quot;);
+      &quot;arrayref_index&quot;
+         slist =&gt; getindices(&quot;${arrayref}&quot;);
 
-  &quot;local_array[${arrayref_index}]&quot;
-     string =&gt; &quot;${${arrayref}[${arrayref_index}]}&quot;;
+      &quot;local_array[${arrayref_index}]&quot;
+         string =&gt; &quot;${${arrayref}[${arrayref_index}]}&quot;;
 
-  &quot;local_array_index&quot;
-     policy =&gt; &#39;free&#39;,
-     slist =&gt; getindices(&quot;local_array&quot;);
-</code></pre>
+      &quot;local_array_index&quot;
+         policy =&gt; &#39;free&#39;,
+         slist =&gt; getindices(&quot;local_array&quot;);
 
-<p>reports:
+   reports:
       cfengine::
          &quot;scalarref         =&gt; ${${scalarref}}&quot;;
          &quot;local_scalar      =&gt; ${local_scalar}&quot;;
@@ -112,11 +110,12 @@ practice like using the strict module in Perl.</p>
          &quot;arrayref item     =&gt; ${${arrayref}[${arrayref_index}]}&quot;;
          &quot;local_array_index =&gt; ${local_array_index}&quot;;
          &quot;local_array item  =&gt; ${local_array[${local_array_index}]}&quot;;
-}</p>
+}
+</code></pre>
 
 <p>Now let&#39;s run it:</p>
 
-<p>$ cf-agent -f ./references.cf 
+<pre><code>$ cf-agent -f ./references.cf 
 R: scalarref         =&gt; This is a scalar typed as astring
 R: local_scalar      =&gt; This is a scalar typed as astring
 R: local_list        =&gt; one
@@ -133,7 +132,8 @@ R: local_array_index =&gt; red
 R: local_array_index =&gt; blue
 R: local_array item  =&gt; Green element of associative array
 R: local_array item  =&gt; Red element of associative array
-R: local_array item  =&gt; Blue element of associative array</p>
+R: local_array item  =&gt; Blue element of associative array
+</code></pre>
 
             </section>
         </main>

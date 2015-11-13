@@ -11,7 +11,8 @@
             <link>http://ettin/blog/2011/09/27/cfengine-alt-crond/</link>
             <guid>http://ettin/blog/2011/09/27/cfengine-alt-crond/</guid>
             <description><![CDATA[
-                <p>Cfengine’s time based classes and promise theory make it an attractive alternative to venerable crond.</p>
+                <p>CFEngine’s time based classes and promise theory make it an attractive
+alternative to venerable crond.</p>
 
                     <p><a href="http://ettin/blog/2011/09/27/cfengine-alt-crond/#section-2">Continue reading...</a></p>
                 <p>Tags:
@@ -25,13 +26,13 @@
             </pubDate>
         </item>
         <item>
-            <title>Managing crontables with Cfengine</title>
+            <title>Managing crontables with CFEngine</title>
             <link>http://ettin/blog/2011/05/26/cfengine-cron/</link>
             <guid>http://ettin/blog/2011/05/26/cfengine-cron/</guid>
             <description><![CDATA[
-                <p>Problem</p>
+                <h3>Problem</h3>
 
-<p>You want Cfengine to manage crontables.</p>
+<p>You want CFEngine to manage crontables.</p>
 
                     <p><a href="http://ettin/blog/2011/05/26/cfengine-cron/#section-2">Continue reading...</a></p>
                 <p>Tags:

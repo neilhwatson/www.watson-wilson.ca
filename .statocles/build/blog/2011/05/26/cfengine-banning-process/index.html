@@ -7,7 +7,7 @@
         <link href="/theme/css/readability-bootstrap.min.css" rel="stylesheet">
         <!--<link rel="stylesheet" href="/theme/css/statocles-bootstrap.css" />-->
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-        <title>Banning processes using Cfengine - Neil H. Watson</title>
+        <title>Banning processes using CFEngine - Neil H. Watson</title>
         <meta content="Statocles 0.059" name="generator">
         
     </head>
@@ -42,7 +42,7 @@
     <div class="col-md-9">
         <main>
             <header>
-                <h1>Banning processes using Cfengine</h1>
+                <h1>Banning processes using CFEngine</h1>
                 <p class="tags">Tags:
                     <a href="/blog/tag/cfengine/" rel="tag">cfengine</a>
                     <a href="/blog/tag/cfengine-cookbook/" rel="tag">cfengine cookbook</a>
@@ -60,49 +60,61 @@
 
             </header>
             <section id="section-1">
-                <p>Problem</p>
+                <h3>Problem</h3>
 
 <p>You want to prevent certain processes from running.</p>
 
             </section>
             <section id="section-2">
-                <p>Solution</p>
+                <h3>Solution</h3>
 
-<p>In formal Cfengine parlance this promise ensures that there are zero instances of processes running that match the regular expression “snmpd”. If such processes are found a term signal is sent. If that signal is ignored a kill signal is sent.</p>
+<p>In formal CFEngine parlance this promise ensures that there are zero instances
+of processes running that match the regular expression “snmpd”. If such
+processes are found a term signal is sent. If that signal is ignored a kill
+signal is sent.</p>
 
-<p>Be careful because “snmpd” is a regular expression. It may match more than you think. Our intent is to look for a running instance of snmpd but this would also match “vim snmpd.conf”.</p>
+<p>Be careful because “snmpd” is a regular expression. It may match more than you
+think. Our intent is to look for a running instance of snmpd but this would
+also match “vim snmpd.conf”.</p>
 
-<p>bundle agent recipe {</p>
+<pre><code>bundle agent recipe {
 
-<p>processes:</p>
+  processes:
 
-<pre><code>&quot;snmpd&quot; signals =&gt; { &quot;term&quot;, &quot;kill&quot; },
-   handle =&gt; &quot;Banned_procs&quot;,
-   comment =&gt; &quot;Term process or kill if term fails&quot;,
-   process_count =&gt; banned; 
+    &quot;snmpd&quot; signals =&gt; { &quot;term&quot;, &quot;kill&quot; },
+       handle =&gt; &quot;Banned_procs&quot;,
+       comment =&gt; &quot;Term process or kill if term fails&quot;,
+       process_count =&gt; banned; 
+}
+
+body process_count banned {
+  match_range =&gt; irange(&quot;0&quot;,&quot;0&quot;);
+}
 </code></pre>
 
-<p>}</p>
+<p>Below we see an snmpd process before the agent is run. We see the output of the
+agent and then we see no snmpd process after the agent is finished.</p>
 
-<p>body process_count banned {
-  match_range =&gt; irange(&quot;0&quot;,&quot;0&quot;);
-}</p>
-
-<p>Below we see an snmpd process before the agent is run. We see the output of the agent and then we see no snmpd process after the agent is finished.</p>
-
-<p>root@venus:/home/neil/.cfagent/inputs# ps -ef|grep snmp
+<pre><code>root@venus:/home/neil/.cfagent/inputs# ps -ef|grep snmp
 snmp     26481     1  0 09:05 ?        00:00:00 /usr/sbin/snmpd -Lsd -Lf
-/dev/null -u snmp -g snmp -I -smux -p /vars:/run/snmpd.pid 127.0.0.1</p>
+/dev/null -u snmp -g snmp -I -smux -p /vars:/run/snmpd.pid 127.0.0.1
 
-<p>root@venus:/home/neil/.cfagent/inputs# cf-agent -IKf ./recipe.cf 
+root@venus:/home/neil/.cfagent/inputs# cf-agent -IKf ./recipe.cf 
 !! Process count for &#39;snmpd&#39; was out of promised range (1 found)
 I: Report relates to a promise with handle &quot;Banned_procs&quot;
 I: Made in version &#39;not specified&#39; of &#39;./recipe.cf&#39; near line 16
-I: Comment: Term process or kill if term fails</p>
+I: Comment: Term process or kill if term fails
 
-<p>-&gt; Signalled &#39;term&#39; (15) to observed process match &#39;26481&#39;</p>
+-&gt; Signalled &#39;term&#39; (15) to observed process match &#39;26481&#39;
 
-<p>root@venus:/home/neil/.cfagent/inputs# ps -ef|grep snmp</p>
+root@venus:/home/neil/.cfagent/inputs# ps -ef|grep snmpd
+</code></pre>
+
+<h3>Gravy</h3>
+
+<p>Process matching can be very sophisticated if you choose. Beyond regular
+expression matching you can also match processes based on count range, memory
+usage and more. See the CFEngine reference guide for more information.</p>
 
             </section>
         </main>

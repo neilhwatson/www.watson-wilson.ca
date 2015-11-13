@@ -7,11 +7,11 @@
         <description>Blog feed of Neil H. Watson</description>
         <generator>Statocles 0.059</generator>
         <item>
-            <title>SSH public key distribution using Cfengine</title>
+            <title>SSH public key distribution using CFEngine</title>
             <link>http://ettin/blog/2011/05/26/cfengine-ssh-keys/</link>
             <guid>http://ettin/blog/2011/05/26/cfengine-ssh-keys/</guid>
             <description><![CDATA[
-                <p>Problem</p>
+                <h3>Problem</h3>
 
 <p>You want to distribute public SSH keys.</p>
 
@@ -28,11 +28,11 @@
             </pubDate>
         </item>
         <item>
-            <title>Banning processes using Cfengine</title>
+            <title>Banning processes using CFEngine</title>
             <link>http://ettin/blog/2011/05/26/cfengine-banning-process/</link>
             <guid>http://ettin/blog/2011/05/26/cfengine-banning-process/</guid>
             <description><![CDATA[
-                <p>Problem</p>
+                <h3>Problem</h3>
 
 <p>You want to prevent certain processes from running.</p>
 
@@ -53,9 +53,12 @@
             <link>http://ettin/blog/2011/01/25/sec-autid-victory/</link>
             <guid>http://ettin/blog/2011/01/25/sec-autid-victory/</guid>
             <description><![CDATA[
-                <p>It’s vicious cycle. Resources are spent auditing hosts. Many more are spent
-fixing all of the audit’s deficiencies. Then it’s back to business as usual.
-Time passes and hosts slowly degrade until the next audit. Repeat.</p>
+                <p><img alt="Winston Churchill give victory sign" src="http://ettin/blog/2011/01/25/sec-autid-victory/ch-vic.gif" style="float:right"></p>
+
+<p>It’s vicious cycle. Resources are spent auditing hosts. Many more are
+spent fixing all of the audit’s deficiencies. Then it’s back to
+business as usual.  Time passes and hosts slowly degrade until the next
+audit. Repeat.</p>
 
                     <p><a href="http://ettin/blog/2011/01/25/sec-autid-victory/#section-2">Continue reading...</a></p>
                 <p>Tags:

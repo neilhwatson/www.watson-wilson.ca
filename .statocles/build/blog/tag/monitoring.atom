@@ -2,16 +2,16 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>http://ettin/blog/tag/monitoring/</id>
     <title>Neil H. Watson</title>
-    <updated>2015-11-12T17:33:28Z</updated>
+    <updated>2015-11-13T11:43:11Z</updated>
     <link href="http://ettin/blog/tag/monitoring.atom" rel="self" />
     <link href="http://ettin/blog/tag/monitoring/" rel="alternate" />
     <generator version="0.059">Statocles</generator>
     <entry>
         <id>http://ettin/blog/2011/05/26/cfengine-storage/</id>
-        <title>Disk space monitoring using Cfengine</title>
+        <title>Disk space monitoring using CFEngine</title>
         <link href="http://ettin/blog/2011/05/26/cfengine-storage/" rel="alternate" />
         <content type="html"><![CDATA[
-            <p>Problem</p>
+            <h3>Problem</h3>
 
 <p>You want to monitor free disk space.</p>
 
