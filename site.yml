@@ -84,8 +84,8 @@ site:
         # "text", the text of the link, and "href", the URL to link to.
         nav:
             main:
-                - text: 'Blog'
-                  href: '/'
+                - text: 'About me'
+                  href: '/page/about'
 
         # deploy: This is the deploy object, used to deploy this site.
         deploy:
