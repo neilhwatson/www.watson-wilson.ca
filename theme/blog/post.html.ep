@@ -72,18 +72,31 @@
 </div>
 
 <div class='row'>
-   <img style='float:left' atl='Neil Watson' src='https://gravatar.com/avatar/1f0969599955a953e592034929ed7a23' >
-
    <div class='col-md-1'>
-      <!-- Tweet this -->
-      <a href="https://twitter.com/share" class="twitter-share-button" data-via="neil_h_watson">Tweet</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-<a href="https://twitter.com/neil_h_watson" class="twitter-follow-button" data-show-count="false">Follow @neil_h_watson</a>
+       <img atl='Neil Watson' src='https://gravatar.com/avatar/1f0969599955a953e592034929ed7a23' >
    </div>
 
-   <div class='col-md-1'>
-      <!-- follow me on twitter -->
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+       <div class='col-md-1'>
+          <!-- Tweet this -->
+          <a href="https://twitter.com/share" class="twitter-share-button" data-via="neil_h_watson" data-count="none">Tweet</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+       </div>
 
-   </div>
+       <div class='col-md-1'>
+            <!-- reddit this -->
+            <a href="//www.reddit.com/submit" onclick="window.location = '//www.reddit.com/submit?url=' + encodeURIComponent(window.location); return false"><img src="//www.redditstatic.com/spreddit7.gif" alt="submit to reddit" border="0" /></a>
+       </div>
+
+       <div class='col-md-1'>
+          <!-- follow me on twitter -->
+          <a href="https://twitter.com/neil_h_watson" class="twitter-follow-button" data-show-count="false" data-show-screen-name="false">Follow @neil_h_watson</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+        </div>
+
+       <div class='col-md-1'>
+           <!-- follw me on github -->
+            <a aria-label="Follow @neilhwatson on GitHub" data-style="mega" href="https://github.com/neilhwatson" class="github-button">Follow</a>
+            <script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
+       </div>
+
 </div>
