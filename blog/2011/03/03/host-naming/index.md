@@ -3,7 +3,9 @@ title: Choosing a host naming convention
 tags: dns
 ---
 
-<img style='float:right' alt='Hello, my name is Dns' src='/static/images/hello_my_name_is_dns.svg' width=125px>
+<object style='float:right' data='/static/images/hello_my_name_is_dns.svg' type='image/svg+xhtml' width='300px'>
+    Hello, my name is Dns
+</object>
 
 Whether realizing it or not every organization goes through the process of
 selecting a naming convention. Often this is done without much forward planing
