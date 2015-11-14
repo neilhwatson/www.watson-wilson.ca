@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>http://ettin/blog/tag/dns/</id>
     <title>Neil H. Watson</title>
-    <updated>2015-11-13T21:17:10Z</updated>
+    <updated>2015-11-14T08:59:10Z</updated>
     <link href="http://ettin/blog/tag/dns.atom" rel="self" />
     <link href="http://ettin/blog/tag/dns/" rel="alternate" />
     <generator version="0.059">Statocles</generator>
@@ -32,7 +32,9 @@ naming them.</p>
         <title>Choosing a host naming convention</title>
         <link href="http://ettin/blog/2011/03/03/host-naming/" rel="alternate" />
         <content type="html"><![CDATA[
-            <p>Whether realizing it or not every organization goes through the process of
+            <p><img alt="Hello, my name is Dns" src="http://ettin/static/images/hello_my_name_is_dns.svg" style="float:right" width="125px"></p>
+
+<p>Whether realizing it or not every organization goes through the process of
 selecting a naming convention. Often this is done without much forward planing
 resulting in unwieldy host and service names. In the worst cases host names are
 dropped completely and either by habit or lack of a proper DNS service only ip

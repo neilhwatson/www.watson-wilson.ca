@@ -1,13 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-        <loc>http://ettin/blog/tag/networking/</loc>
+        <loc>http://ettin/blog/tag/cfengine-cookbook/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2012-08-01</lastmod>
+        <lastmod>2011-10-02</lastmod>
     </url>
     <url>
-        <loc>http://ettin/blog/2011/03/08/solaris-cheatsheet/</loc>
+        <loc>http://ettin/blog/2013/02/22/dns-renaming/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2013-02-22</lastmod>
+    </url>
+    <url>
+        <loc>http://ettin/blog/2011/03/08/posix-regex-cheatsheet/</loc>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
         <lastmod>2011-03-08</lastmod>
@@ -19,205 +25,7 @@
         <lastmod>2011-03-08</lastmod>
     </url>
     <url>
-        <loc>http://ettin/blog/tag/kvm/</loc>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-        <lastmod>2011-05-09</lastmod>
-    </url>
-    <url>
-        <loc>http://ettin/blog/tag/apt/</loc>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-        <lastmod>2011-03-08</lastmod>
-    </url>
-    <url>
-        <loc>http://ettin/blog/2011/03/08/posix-regex-cheatsheet/</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.5</priority>
-        <lastmod>2011-03-08</lastmod>
-    </url>
-    <url>
-        <loc>http://ettin/blog/page/2/</loc>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-        <lastmod>2013-02-22</lastmod>
-    </url>
-    <url>
-        <loc>http://ettin/blog/2012/10/19/cfengine-var-refs/</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.5</priority>
-        <lastmod>2012-10-19</lastmod>
-    </url>
-    <url>
-        <loc>http://ettin/blog/tag/linux/</loc>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-        <lastmod>2011-03-08</lastmod>
-    </url>
-    <url>
-        <loc>http://ettin/blog/2011/12/06/ipv6-migration-part1/</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.5</priority>
-        <lastmod>2011-12-06</lastmod>
-    </url>
-    <url>
-        <loc>http://ettin/blog/tag/sun/</loc>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-        <lastmod>2011-03-08</lastmod>
-    </url>
-    <url>
-        <loc>http://ettin/blog/2011/05/26/cfengine-cron/</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.5</priority>
-        <lastmod>2011-05-26</lastmod>
-    </url>
-    <url>
-        <loc>http://ettin/blog/tag/opensource/</loc>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-        <lastmod>2011-03-08</lastmod>
-    </url>
-    <url>
-        <loc>http://ettin/blog/tag/infosec/</loc>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-        <lastmod>2011-05-26</lastmod>
-    </url>
-    <url>
-        <loc>http://ettin/blog/tag/networking/page/2/</loc>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-        <lastmod>2012-08-01</lastmod>
-    </url>
-    <url>
-        <loc>http://ettin/blog/tag/cli/</loc>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-        <lastmod>2011-03-08</lastmod>
-    </url>
-    <url>
-        <loc>http://ettin/blog/2011/03/08/cfengine-tutorial/</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.5</priority>
-        <lastmod>2011-03-08</lastmod>
-    </url>
-    <url>
-        <loc>http://ettin/blog/tag/solaris/</loc>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-        <lastmod>2011-03-08</lastmod>
-    </url>
-    <url>
-        <loc>http://ettin/blog/2007/08/08/clustering-with-redhat/</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.5</priority>
-        <lastmod>2007-08-08</lastmod>
-    </url>
-    <url>
-        <loc>http://ettin/blog/tag/cfengine/page/3/</loc>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-        <lastmod>2012-10-19</lastmod>
-    </url>
-    <url>
-        <loc>http://ettin/blog/tag/cluster/</loc>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-        <lastmod>2011-03-07</lastmod>
-    </url>
-    <url>
-        <loc>http://ettin/blog/tag/cron/</loc>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-        <lastmod>2011-09-27</lastmod>
-    </url>
-    <url>
-        <loc>http://ettin/blog/page/5/</loc>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-        <lastmod>2013-02-22</lastmod>
-    </url>
-    <url>
-        <loc>http://ettin/blog/tag/shell/</loc>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-        <lastmod>2011-03-08</lastmod>
-    </url>
-    <url>
-        <loc>http://ettin/blog/tag/oracle/</loc>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-        <lastmod>2011-03-08</lastmod>
-    </url>
-    <url>
-        <loc>http://ettin/blog/tag/support/</loc>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-        <lastmod>2011-03-08</lastmod>
-    </url>
-    <url>
-        <loc>http://ettin/blog/page/8/</loc>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-        <lastmod>2013-02-22</lastmod>
-    </url>
-    <url>
-        <loc>http://ettin/blog/tag/high-availability/</loc>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-        <lastmod>2007-08-08</lastmod>
-    </url>
-    <url>
-        <loc>http://ettin/</loc>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-        <lastmod>2013-02-22</lastmod>
-    </url>
-    <url>
-        <loc>http://ettin/blog/tag/cfengine/</loc>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-        <lastmod>2012-10-19</lastmod>
-    </url>
-    <url>
-        <loc>http://ettin/page/about/</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.5</priority>
-        <lastmod>2015-11-13</lastmod>
-    </url>
-    <url>
-        <loc>http://ettin/blog/tag/cheatsheet/page/2/</loc>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-        <lastmod>2011-03-08</lastmod>
-    </url>
-    <url>
-        <loc>http://ettin/blog/2011/10/02/cfengine-backups/</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.5</priority>
-        <lastmod>2011-10-02</lastmod>
-    </url>
-    <url>
-        <loc>http://ettin/blog/page/6/</loc>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-        <lastmod>2013-02-22</lastmod>
-    </url>
-    <url>
-        <loc>http://ettin/blog/2012/03/05/ipv6-migration-part4/</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.5</priority>
-        <lastmod>2012-03-05</lastmod>
-    </url>
-    <url>
-        <loc>http://ettin/blog/tag/red-hat/</loc>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-        <lastmod>2007-08-08</lastmod>
-    </url>
-    <url>
-        <loc>http://ettin/blog/tag/iscsi/</loc>
+        <loc>http://ettin/blog/tag/debian/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
         <lastmod>2011-03-08</lastmod>
@@ -235,16 +43,112 @@
         <lastmod>2011-09-27</lastmod>
     </url>
     <url>
-        <loc>http://ettin/blog/2011/09/16/cfengine-dynamic-bundlesequence/</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.5</priority>
-        <lastmod>2011-09-16</lastmod>
-    </url>
-    <url>
         <loc>http://ettin/blog/tag/cfengine/page/2/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
         <lastmod>2012-10-19</lastmod>
+    </url>
+    <url>
+        <loc>http://ettin/blog/tag/monitoring/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2011-05-26</lastmod>
+    </url>
+    <url>
+        <loc>http://ettin/blog/2011/05/24/cfengine-links/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2011-05-24</lastmod>
+    </url>
+    <url>
+        <loc>http://ettin/blog/tag/backup/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2011-10-02</lastmod>
+    </url>
+    <url>
+        <loc>http://ettin/blog/tag/san/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2011-03-08</lastmod>
+    </url>
+    <url>
+        <loc>http://ettin/blog/2012/10/19/cfengine-var-refs/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2012-10-19</lastmod>
+    </url>
+    <url>
+        <loc>http://ettin/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2013-02-22</lastmod>
+    </url>
+    <url>
+        <loc>http://ettin/blog/tag/kvm/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2011-05-09</lastmod>
+    </url>
+    <url>
+        <loc>http://ettin/blog/2011/03/08/svn-cheatsheet/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2011-03-08</lastmod>
+    </url>
+    <url>
+        <loc>http://ettin/blog/2011/03/08/apt-cheatsheet/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2011-03-08</lastmod>
+    </url>
+    <url>
+        <loc>http://ettin/blog/2012/03/05/ipv6-migration-part4/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2012-03-05</lastmod>
+    </url>
+    <url>
+        <loc>http://ettin/blog/page/5/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2013-02-22</lastmod>
+    </url>
+    <url>
+        <loc>http://ettin/blog/tag/iscsi/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2011-03-08</lastmod>
+    </url>
+    <url>
+        <loc>http://ettin/blog/2011/03/08/multipathd-testing/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2011-03-08</lastmod>
+    </url>
+    <url>
+        <loc>http://ettin/blog/tag/heartbeat/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2011-03-07</lastmod>
+    </url>
+    <url>
+        <loc>http://ettin/blog/tag/sun/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2011-03-08</lastmod>
+    </url>
+    <url>
+        <loc>http://ettin/blog/tag/subversion/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2011-03-08</lastmod>
+    </url>
+    <url>
+        <loc>http://ettin/blog/tag/ssh/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2011-05-26</lastmod>
     </url>
     <url>
         <loc>http://ettin/blog/tag/ipv6/</loc>
@@ -253,22 +157,28 @@
         <lastmod>2012-08-01</lastmod>
     </url>
     <url>
-        <loc>http://ettin/blog/2011/03/07/heatbeat2-cheatsheet/</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.5</priority>
-        <lastmod>2011-03-07</lastmod>
+        <loc>http://ettin/blog/tag/dr/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2011-10-02</lastmod>
     </url>
     <url>
-        <loc>http://ettin/blog/tag/svn/</loc>
+        <loc>http://ettin/blog/2011/03/08/shell-cheatsheet/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2011-03-08</lastmod>
+    </url>
+    <url>
+        <loc>http://ettin/blog/tag/solaris/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
         <lastmod>2011-03-08</lastmod>
     </url>
     <url>
-        <loc>http://ettin/blog/tag/ipv6/page/2/</loc>
+        <loc>http://ettin/blog/tag/shell/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2012-08-01</lastmod>
+        <lastmod>2011-03-08</lastmod>
     </url>
     <url>
         <loc>http://ettin/blog/tag/multipathd/</loc>
@@ -277,10 +187,22 @@
         <lastmod>2011-03-08</lastmod>
     </url>
     <url>
-        <loc>http://ettin/blog/2012/07/05/ipv6-migration-part6/</loc>
+        <loc>http://ettin/blog/page/6/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2013-02-22</lastmod>
+    </url>
+    <url>
+        <loc>http://ettin/blog/tag/networking/page/2/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2012-08-01</lastmod>
+    </url>
+    <url>
+        <loc>http://ettin/blog/2011/05/26/cfengine-cron/</loc>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
-        <lastmod>2012-07-05</lastmod>
+        <lastmod>2011-05-26</lastmod>
     </url>
     <url>
         <loc>http://ettin/blog/2011/05/26/cfengine-banning-process/</loc>
@@ -289,27 +211,87 @@
         <lastmod>2011-05-26</lastmod>
     </url>
     <url>
-        <loc>http://ettin/blog/2012/03/10/ipv6-migration-part5/</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.5</priority>
-        <lastmod>2012-03-10</lastmod>
-    </url>
-    <url>
-        <loc>http://ettin/blog/tag/dr/</loc>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-        <lastmod>2011-10-02</lastmod>
-    </url>
-    <url>
-        <loc>http://ettin/blog/page/7/</loc>
+        <loc>http://ettin/blog/page/3/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
         <lastmod>2013-02-22</lastmod>
     </url>
     <url>
-        <loc>http://ettin/blog/tag/san/</loc>
+        <loc>http://ettin/blog/page/8/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
+        <lastmod>2013-02-22</lastmod>
+    </url>
+    <url>
+        <loc>http://ettin/blog/2012/07/05/ipv6-migration-part6/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2012-07-05</lastmod>
+    </url>
+    <url>
+        <loc>http://ettin/blog/tag/cfengine/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2012-10-19</lastmod>
+    </url>
+    <url>
+        <loc>http://ettin/blog/2011/03/08/gnu-screen-cheatsheet/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2011-03-08</lastmod>
+    </url>
+    <url>
+        <loc>http://ettin/blog/2011/03/07/heatbeat2-cheatsheet/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2011-03-07</lastmod>
+    </url>
+    <url>
+        <loc>http://ettin/blog/tag/configuration-management/page/2/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2011-09-27</lastmod>
+    </url>
+    <url>
+        <loc>http://ettin/blog/2011/05/26/cfengine-ssh-keys/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2011-05-26</lastmod>
+    </url>
+    <url>
+        <loc>http://ettin/blog/2011/07/14/dr-for-soho/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2011-07-14</lastmod>
+    </url>
+    <url>
+        <loc>http://ettin/blog/2011/12/06/ipv6-migration-part2/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2011-12-06</lastmod>
+    </url>
+    <url>
+        <loc>http://ettin/blog/2011/09/16/cfengine-dynamic-bundlesequence/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2011-09-16</lastmod>
+    </url>
+    <url>
+        <loc>http://ettin/blog/tag/dns/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2013-02-22</lastmod>
+    </url>
+    <url>
+        <loc>http://ettin/blog/tag/oracle/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2011-03-08</lastmod>
+    </url>
+    <url>
+        <loc>http://ettin/blog/2011/03/08/cfengine-tutorial/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
         <lastmod>2011-03-08</lastmod>
     </url>
     <url>
@@ -325,130 +307,16 @@
         <lastmod>2011-03-08</lastmod>
     </url>
     <url>
-        <loc>http://ettin/blog/2011/03/08/gnu-screen-cheatsheet/</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.5</priority>
-        <lastmod>2011-03-08</lastmod>
-    </url>
-    <url>
-        <loc>http://ettin/blog/tag/debian/</loc>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-        <lastmod>2011-03-08</lastmod>
-    </url>
-    <url>
-        <loc>http://ettin/blog/tag/posix/</loc>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-        <lastmod>2011-03-08</lastmod>
-    </url>
-    <url>
-        <loc>http://ettin/blog/2011/12/06/ipv6-migration-part2/</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.5</priority>
-        <lastmod>2011-12-06</lastmod>
-    </url>
-    <url>
-        <loc>http://ettin/blog/2011/03/08/shell-cheatsheet/</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.5</priority>
-        <lastmod>2011-03-08</lastmod>
-    </url>
-    <url>
-        <loc>http://ettin/blog/2011/05/26/cfengine-start-process/</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.5</priority>
-        <lastmod>2011-05-26</lastmod>
-    </url>
-    <url>
-        <loc>http://ettin/blog/2013/02/22/dns-renaming/</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.5</priority>
-        <lastmod>2013-02-22</lastmod>
-    </url>
-    <url>
-        <loc>http://ettin/blog/page/4/</loc>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-        <lastmod>2013-02-22</lastmod>
-    </url>
-    <url>
-        <loc>http://ettin/blog/2012/07/25/ipv6-migration-part7/</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.5</priority>
-        <lastmod>2012-07-25</lastmod>
-    </url>
-    <url>
-        <loc>http://ettin/blog/2011/05/26/cfengine-templates/</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.5</priority>
-        <lastmod>2011-05-26</lastmod>
-    </url>
-    <url>
-        <loc>http://ettin/blog/2011/05/26/cfengine-storage/</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.5</priority>
-        <lastmod>2011-05-26</lastmod>
-    </url>
-    <url>
-        <loc>http://ettin/blog/tag/monitoring/</loc>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-        <lastmod>2011-05-26</lastmod>
-    </url>
-    <url>
-        <loc>http://ettin/blog/tag/backup/</loc>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-        <lastmod>2011-10-02</lastmod>
-    </url>
-    <url>
-        <loc>http://ettin/blog/tag/subversion/</loc>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-        <lastmod>2011-03-08</lastmod>
-    </url>
-    <url>
-        <loc>http://ettin/blog/tag/cfengine-cookbook/page/2/</loc>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-        <lastmod>2011-10-02</lastmod>
-    </url>
-    <url>
-        <loc>http://ettin/blog/2011/03/08/svn-cheatsheet/</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.5</priority>
-        <lastmod>2011-03-08</lastmod>
-    </url>
-    <url>
-        <loc>http://ettin/blog/tag/cfengine-cookbook/</loc>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-        <lastmod>2011-10-02</lastmod>
-    </url>
-    <url>
-        <loc>http://ettin/blog/2011/12/23/ipv6-migration-part3/</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.5</priority>
-        <lastmod>2011-12-23</lastmod>
-    </url>
-    <url>
-        <loc>http://ettin/blog/tag/regex/</loc>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-        <lastmod>2011-03-08</lastmod>
-    </url>
-    <url>
-        <loc>http://ettin/blog/2011/05/09/rhev-overview/</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.5</priority>
-        <lastmod>2011-05-09</lastmod>
-    </url>
-    <url>
         <loc>http://ettin/blog/tag/vitualization/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
         <lastmod>2011-05-09</lastmod>
+    </url>
+    <url>
+        <loc>http://ettin/blog/tag/cfengine/page/3/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2012-10-19</lastmod>
     </url>
     <url>
         <loc>http://ettin/blog/2011/01/25/sec-autid-victory/</loc>
@@ -457,28 +325,88 @@
         <lastmod>2011-01-25</lastmod>
     </url>
     <url>
-        <loc>http://ettin/blog/2011/07/14/dr-for-soho/</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.5</priority>
-        <lastmod>2011-07-14</lastmod>
-    </url>
-    <url>
-        <loc>http://ettin/blog/2011/05/26/cfengine-ssh-keys/</loc>
+        <loc>http://ettin/blog/2011/05/26/cfengine-start-process/</loc>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
         <lastmod>2011-05-26</lastmod>
     </url>
     <url>
-        <loc>http://ettin/blog/page/3/</loc>
+        <loc>http://ettin/blog/tag/cfengine-cookbook/page/2/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2011-10-02</lastmod>
+    </url>
+    <url>
+        <loc>http://ettin/blog/2011/12/06/ipv6-migration-part1/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2011-12-06</lastmod>
+    </url>
+    <url>
+        <loc>http://ettin/page/about/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2015-11-14</lastmod>
+    </url>
+    <url>
+        <loc>http://ettin/blog/tag/infosec/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2011-05-26</lastmod>
+    </url>
+    <url>
+        <loc>http://ettin/blog/2011/05/26/cfengine-templates/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2011-05-26</lastmod>
+    </url>
+    <url>
+        <loc>http://ettin/blog/tag/opensource/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2011-03-08</lastmod>
+    </url>
+    <url>
+        <loc>http://ettin/blog/2012/08/01/ipv6-migration-part8/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2012-08-01</lastmod>
+    </url>
+    <url>
+        <loc>http://ettin/blog/2011/05/09/rhev-overview/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2011-05-09</lastmod>
+    </url>
+    <url>
+        <loc>http://ettin/blog/tag/cron/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2011-09-27</lastmod>
+    </url>
+    <url>
+        <loc>http://ettin/blog/tag/regex/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2011-03-08</lastmod>
+    </url>
+    <url>
+        <loc>http://ettin/blog/page/4/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
         <lastmod>2013-02-22</lastmod>
     </url>
     <url>
-        <loc>http://ettin/blog/2011/09/27/cfengine-alt-crond/</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.5</priority>
-        <lastmod>2011-09-27</lastmod>
+        <loc>http://ettin/blog/tag/support/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2011-03-08</lastmod>
+    </url>
+    <url>
+        <loc>http://ettin/blog/tag/ipv6/page/2/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2012-08-01</lastmod>
     </url>
     <url>
         <loc>http://ettin/blog/2011/03/08/enterprise-sysadmin/</loc>
@@ -490,7 +418,61 @@
         <loc>http://ettin/page/</loc>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
-        <lastmod>2015-11-13</lastmod>
+        <lastmod>2015-11-14</lastmod>
+    </url>
+    <url>
+        <loc>http://ettin/blog/tag/cheatsheet/page/2/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2011-03-08</lastmod>
+    </url>
+    <url>
+        <loc>http://ettin/blog/tag/cluster/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2011-03-07</lastmod>
+    </url>
+    <url>
+        <loc>http://ettin/blog/2011/03/08/solaris-cheatsheet/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2011-03-08</lastmod>
+    </url>
+    <url>
+        <loc>http://ettin/blog/tag/red-hat/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2007-08-08</lastmod>
+    </url>
+    <url>
+        <loc>http://ettin/blog/2011/09/27/cfengine-alt-crond/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2011-09-27</lastmod>
+    </url>
+    <url>
+        <loc>http://ettin/blog/tag/apt/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2011-03-08</lastmod>
+    </url>
+    <url>
+        <loc>http://ettin/blog/tag/high-availability/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2007-08-08</lastmod>
+    </url>
+    <url>
+        <loc>http://ettin/blog/tag/linux/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2011-03-08</lastmod>
+    </url>
+    <url>
+        <loc>http://ettin/blog/2011/05/26/cfengine-storage/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2011-05-26</lastmod>
     </url>
     <url>
         <loc>http://ettin/blog/2011/03/03/host-naming/</loc>
@@ -499,58 +481,76 @@
         <lastmod>2011-03-03</lastmod>
     </url>
     <url>
-        <loc>http://ettin/blog/tag/heartbeat/</loc>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-        <lastmod>2011-03-07</lastmod>
-    </url>
-    <url>
-        <loc>http://ettin/blog/2011/05/24/cfengine-links/</loc>
+        <loc>http://ettin/blog/2012/03/10/ipv6-migration-part5/</loc>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
-        <lastmod>2011-05-24</lastmod>
+        <lastmod>2012-03-10</lastmod>
+    </url>
+    <url>
+        <loc>http://ettin/blog/tag/cli/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2011-03-08</lastmod>
+    </url>
+    <url>
+        <loc>http://ettin/blog/page/7/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2013-02-22</lastmod>
+    </url>
+    <url>
+        <loc>http://ettin/blog/page/2/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2013-02-22</lastmod>
+    </url>
+    <url>
+        <loc>http://ettin/blog/2007/08/08/clustering-with-redhat/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2007-08-08</lastmod>
+    </url>
+    <url>
+        <loc>http://ettin/blog/2011/10/02/cfengine-backups/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2011-10-02</lastmod>
+    </url>
+    <url>
+        <loc>http://ettin/blog/tag/posix/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2011-03-08</lastmod>
+    </url>
+    <url>
+        <loc>http://ettin/blog/2011/12/23/ipv6-migration-part3/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2011-12-23</lastmod>
+    </url>
+    <url>
+        <loc>http://ettin/blog/tag/svn/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2011-03-08</lastmod>
+    </url>
+    <url>
+        <loc>http://ettin/blog/2012/07/25/ipv6-migration-part7/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2012-07-25</lastmod>
+    </url>
+    <url>
+        <loc>http://ettin/blog/tag/networking/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2012-08-01</lastmod>
     </url>
     <url>
         <loc>http://ettin/blog/tag/sysadmin/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
         <lastmod>2011-03-08</lastmod>
-    </url>
-    <url>
-        <loc>http://ettin/blog/2011/03/08/multipathd-testing/</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.5</priority>
-        <lastmod>2011-03-08</lastmod>
-    </url>
-    <url>
-        <loc>http://ettin/blog/tag/dns/</loc>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-        <lastmod>2013-02-22</lastmod>
-    </url>
-    <url>
-        <loc>http://ettin/blog/2012/08/01/ipv6-migration-part8/</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.5</priority>
-        <lastmod>2012-08-01</lastmod>
-    </url>
-    <url>
-        <loc>http://ettin/blog/tag/ssh/</loc>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-        <lastmod>2011-05-26</lastmod>
-    </url>
-    <url>
-        <loc>http://ettin/blog/2011/03/08/apt-cheatsheet/</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.5</priority>
-        <lastmod>2011-03-08</lastmod>
-    </url>
-    <url>
-        <loc>http://ettin/blog/tag/configuration-management/page/2/</loc>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-        <lastmod>2011-09-27</lastmod>
     </url>
 </urlset>
 

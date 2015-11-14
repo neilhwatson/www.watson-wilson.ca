@@ -33,7 +33,9 @@ naming them.</p>
             <link>http://ettin/blog/2011/03/03/host-naming/</link>
             <guid>http://ettin/blog/2011/03/03/host-naming/</guid>
             <description><![CDATA[
-                <p>Whether realizing it or not every organization goes through the process of
+                <p><img alt="Hello, my name is Dns" src="http://ettin/static/images/hello_my_name_is_dns.svg" style="float:right" width="125px"></p>
+
+<p>Whether realizing it or not every organization goes through the process of
 selecting a naming convention. Often this is done without much forward planing
 resulting in unwieldy host and service names. In the worst cases host names are
 dropped completely and either by habit or lack of a proper DNS service only ip
