@@ -32,6 +32,7 @@
                         <ul class="nav navbar-nav">
                             <li><a href="/page/about">About me</a></li>
                             <li><a href="/static/resume_neil_h_watson.pdf">Resume</a></li>
+                            <li><a href="/page/projects">Projects</a></li>
                         </ul>
                         
                     </div>
@@ -47,6 +48,61 @@
         <main>
 
 
+            <article>
+                <header>
+                    <h1><a href="/blog/2011/03/08/shell-cheatsheet/">Shell cheatsheet</a></h1>
+
+                    <p class="tags">Tags:
+                        <a href="/blog/tag/shell/" rel="tag">shell</a>
+                        <a href="/blog/tag/cli/" rel="tag">cli</a>
+                        <a href="/blog/tag/cheatsheet/" rel="tag">cheatsheet</a>
+                    </p>
+
+                    <aside>
+                        <p><time datetime="2011-03-08">
+                            Posted on 2011-03-08
+                        </time>
+                        </p>
+                    </aside>
+
+                </header>
+
+                <p>The following may not apply to all shells.</p>
+
+<h2>Job control</h2>
+
+<ul>
+<li>Resume job after suspend: <code>ctrl-q</code></li>
+<li>Resume job in background: <code>bg &lt;job number&gt;</code></li>
+<li>Resume job in foreground: <code>fg &lt;job number&gt;</code></li>
+<li>Suspend delay (suspend at stdin): <code>ctrl-y</code></li>
+<li>Suspend:  <code>ctrl-z</code></li>
+</ul>
+
+<h2>Command line laziness</h2>
+
+<ul>
+<li>Recall history line 66: <code>!66</code></li>
+<li>Recall last command: <code>!!</code></li>
+<li>Recall last arguement from last command: <code>!$</code></li>
+<li>Recall all arguements from last command: <code>!*</code></li>
+<li>Clear shell history: <code>history -c</code></li>
+<li>Delete shell history entry: <code>history -d &lt;number&gt;</code></li>
+<li><p>Rename rpmnew files:</p>
+
+<pre><code>find -type f -name &quot;*.rpmnew&quot; | sed &#39;s/\(^.*\)\(\.rpmnew\)$/mv -f \1\2 \1/&#39; |sh
+</code></pre></li>
+<li><p>Search and replace files in place:</p>
+
+<pre><code>find /path -name &quot;*.*&quot; -exec | perl -pi -e &#39;s///g&#39; {} \;
+</code></pre></li>
+<li><p>vi cli editing: <code>set -o vi</code> Now esc to enter command mode where vi keys
+work. Pressing enter returns to normal mode.</p></li>
+</ul>
+
+
+
+            </article>
             <article>
                 <header>
                     <h1><a href="/blog/2011/03/08/posix-regex-cheatsheet/">POSIX regular expression cheatsheet</a></h1>
@@ -288,71 +344,6 @@ GATEWAY=172.16.48.1
 
 
             </article>
-            <article>
-                <header>
-                    <h1><a href="/blog/2011/03/08/gnu-screen-cheatsheet/">GNU Screen cheatsheet</a></h1>
-
-                    <p class="tags">Tags:
-                        <a href="/blog/tag/shell/" rel="tag">shell</a>
-                        <a href="/blog/tag/cli/" rel="tag">cli</a>
-                        <a href="/blog/tag/cheatsheet/" rel="tag">cheatsheet</a>
-                    </p>
-
-                    <aside>
-                        <p><time datetime="2011-03-08">
-                            Posted on 2011-03-08
-                        </time>
-                        </p>
-                    </aside>
-
-                </header>
-
-                <table>
-<tr>
-    <td>Change to other region</td>
-    <td>`ctrl-a tab`</td>
-</tr>
-<tr>
-    <td>Change to other screen</td>
-    <td>`ctrl-a 0-9`</td>
-</tr>
-<tr>
-    <td>Detach</td>
-    <td>`ctrl-a d`</td>
-</tr>
-<tr>
-    <td>Help</td>
-    <td>`ctrl-a ?`</td>
-</tr>
-<tr>
-    <td>Kill screen</td>
-    <td>`ctrl-a \`</td>
-</tr>
-<tr>
-    <td>Kill region</td>
-    <td>`ctrl-a x`</td>
-</tr>
-<tr>
-    <td>New screen</td>
-    <td>`ctrl-a c`</td>
-</tr>
-<tr>
-    <td>Reattach</td>
-    <td>`screen -r`</td>
-</tr>
-<tr>
-    <td>Serial connection</td>
-    <td>`screen /dev/ttyUSB0 9600`</td>
-</tr>
-<tr>
-    <td>Split</td>
-    <td>`ctrl-a s`</td>
-</tr>
-</table>
-
-
-
-            </article>
         </main>
 
         <ul class="pager">
@@ -388,6 +379,7 @@ GATEWAY=172.16.48.1
             <li><a href="/blog/tag/infosec/">infosec</a></li>
             <li><a href="/blog/tag/ipv6/">ipv6</a></li>
             <li><a href="/blog/tag/iscsi/">iscsi</a></li>
+            <li><a href="/blog/tag/jekyll/">jekyll</a></li>
             <li><a href="/blog/tag/kvm/">kvm</a></li>
             <li><a href="/blog/tag/linux/">linux</a></li>
             <li><a href="/blog/tag/monitoring/">monitoring</a></li>
@@ -395,6 +387,7 @@ GATEWAY=172.16.48.1
             <li><a href="/blog/tag/networking/">networking</a></li>
             <li><a href="/blog/tag/opensource/">opensource</a></li>
             <li><a href="/blog/tag/oracle/">oracle</a></li>
+            <li><a href="/blog/tag/perl/">perl</a></li>
             <li><a href="/blog/tag/posix/">posix</a></li>
             <li><a href="/blog/tag/red-hat/">red hat</a></li>
             <li><a href="/blog/tag/regex/">regex</a></li>
@@ -403,12 +396,14 @@ GATEWAY=172.16.48.1
             <li><a href="/blog/tag/shell/">shell</a></li>
             <li><a href="/blog/tag/solaris/">solaris</a></li>
             <li><a href="/blog/tag/ssh/">ssh</a></li>
+            <li><a href="/blog/tag/statocles/">statocles</a></li>
             <li><a href="/blog/tag/subversion/">subversion</a></li>
             <li><a href="/blog/tag/sun/">sun</a></li>
             <li><a href="/blog/tag/support/">support</a></li>
             <li><a href="/blog/tag/svn/">svn</a></li>
             <li><a href="/blog/tag/sysadmin/">sysadmin</a></li>
             <li><a href="/blog/tag/vitualization/">vitualization</a></li>
+            <li><a href="/blog/tag/website/">website</a></li>
         </ul>
         <h1>Feeds</h1>
         <ul class="list-inline">

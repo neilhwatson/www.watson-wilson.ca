@@ -88,6 +88,8 @@ site:
                   href: '/page/about'
                 - text: 'Resume'
                   href: '/static/resume_neil_h_watson.pdf'
+                - text: 'Projects'
+                  href: '/page/projects'
 
         # deploy: This is the deploy object, used to deploy this site.
         deploy:
