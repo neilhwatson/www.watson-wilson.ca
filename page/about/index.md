@@ -79,10 +79,45 @@ title: About me
   </a>
 </div>
 
+# 
+
+I am a veteran system administrator and architect with a variety of industry
+experience including automotive manufacturing, software development, high
+finance, government, and service hosting. I have extensive experience managing
+and monitoring large Data Center environments. By saving time through
+automation I have been able to focus on new and larger projects. I know how to
+achieve results even in the face of divergent goals. I am an effective
+communicator within all levels of an organization. My documentation skills are
+exemplary.
+
+<h3>My specialties include, but are not limited to</h3>
+
+- Solution design
+- Configuration management
+- Systems and network monitoring
+- Performance investigation and tuning
+- Security audits
+- High availability
+- Scripting and automation
+- Disaster recovery
+
 ### Find me on line
 
-- [Github](https://github.com/neilhwatson)
-- [Linkedin](https://ca.linkedin.com/in/neilhwatson)
-- [Twitter](https://twitter.com/neil_h_watson)
-- [Resume](/static/resume_neil_h_watson.pdf)
+<div class='col-md-2'>
+<!-- follw me on github -->
+    <a alt-label="Follow @neilhwatson on GitHub" data-style="mega" href="https://github.com/neilhwatson" class="github-button">Github</a>
+    <script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
+</div>
+
+<div class='col-md-2'>
+<!-- follow me on twitter -->
+    <a href="https://twitter.com/neil_h_watson" class="twitter-follow-button" data-show-count="false" data-show-screen-name="false">Twitter @neil_h_watson</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+</div>
+
+<div class='col-md-2'>
+<!-- linkedin profile -->
+<script src="//platform.linkedin.com/in.js" type="text/javascript"></script>
+<script type="IN/MemberProfile" data-id="https://www.linkedin.com/in/neilhwatson" data-related="false" data-text="Neil Watson"></script>
+</div>
 

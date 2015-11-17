@@ -3,6 +3,8 @@ title: IPv6 Migration part 5
 tags: ipv6, networking
 ---
 
+<img style='float:right' alt='Success with IPv6' src='/static/images/ipv6-success-kid.jpg' width='300' >
+
 My email server now functions on both IPV4 and IPV6 networks. Postfix is IPV6
 ready but, the configuration needed some adjustments.
 

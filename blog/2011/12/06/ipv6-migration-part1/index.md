@@ -3,6 +3,8 @@ title: IPv6 Migration part 1
 tags: ipv6, networking
 ---
 
+<img style='float:right' alt='Success with IPv6' src='/static/images/ipv6-success-kid.jpg' width='300' >
+
 The first step in my exploration of IPV6 was to get an IPV6 address via an IPV4
 to IPV6 tunnel. A little research lead me to the fine folks at SixXS.
 
@@ -25,7 +27,7 @@ added complexity which made me doubt the firewall's integrity. In an effort to
 simplify I built all new firewall rules using Firewall Builder. After the
 initial learning curve I was off to the races. The relevant rules are:
 
-UPDATE. I have since chaned my firewall software. I now use Shorewall.
+UPDATE. I have since changed my firewall software. I now use Shorewall.
 
     Allow protocol 41 between my IPV4 IP and tunnel target at SixXS.
     Allow ICMPv6 between my IPV6 IP and the Internet.
