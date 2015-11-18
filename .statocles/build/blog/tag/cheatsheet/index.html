@@ -70,79 +70,79 @@
                 <table>
 <tr>
     <td>Add to working copy</td>
-    <td>`svn add <file>`</file></td>
+    <td><code>svn add <file></file></code></td>
 </tr>
 <tr>
     <td>Backup to hot copy</td>
-    <td>`hot-backup.py /opt/svn /opt/svn-backup`</td>
+    <td><code>hot-backup.py /opt/svn /opt/svn-backup</code></td>
 </tr>
 <tr>
     <td>Change log view</td>
-    <td>`svn log file:///opt/svn/scripts/firewall/firewall-new`</td>
+    <td><code>svn log file:///opt/svn/scripts/firewall/firewall-new</code></td>
 </tr>
 <tr>
     <td>Checkout</td>
-    <td>`svn checkout file:///opt/svn/profile`</td>
+    <td><code>svn checkout file:///opt/svn/profile</code></td>
 </tr>
 <tr>
     <td>Commit changes</td>
-    <td>`svn commit --message &quot;Your log message&quot;`</td>
+    <td><code>svn commit --message &quot;Your log message&quot;</code></td>
 </tr>
 <tr>
     <td>Copy to working copy</td>
-    <td>`svn copy <file> <file>`</file></file></td>
+    <td><code>svn copy <file> <file></file></file></code></td>
 </tr>
 <tr>
     <td>Create respository</td>
-    <td>`svnadmin create --fs-type fsfs /opt/svn`</td>
+    <td><code>svnadmin create --fs-type fsfs /opt/svn</code></td>
 </tr>
 <tr>
     <td>Delete from working copy</td>
-    <td>`svn delete <file>`</file></td>
+    <td><code>svn delete <file></file></code></td>
 </tr>
 <tr>
     <td>Diff changes</td>
-    <td>`svn diff`</td>
+    <td><code>svn diff</code></td>
 </tr>
 <tr>
     <td>Initial Import</td>
-    <td>`svn import . file:///opt/svn --message &quot;Initial import&quot;`</td>
+    <td><code>svn import . file:///opt/svn --message &quot;Initial import&quot;</code></td>
 </tr>
 <tr>
     <td>Merging to current directory</td>
-    <td>`svn merge <merge to@rev> <merge from@rev>`</merge></merge></td>
+    <td><code>svn merge <merge to@rev> <merge from@rev></merge></merge></code></td>
 </tr>
 <tr>
     <td>Move file in working copy</td>
-    <td>`svn move <file1> <file2>`</file2></file1></td>
+    <td><code>svn move <file1> <file2></file2></file1></code></td>
 </tr>
 <tr>
     <td>Remote Checkout</td>
-    <td>`svn checkout svn+ssh://<user>@<hostname>/opt/svn/<project>`</project></hostname></user></td>
+    <td><code>svn checkout svn+ssh://<user>@<hostname>/opt/svn/<project></project></hostname></user></code></td>
 </tr>
 <tr>
     <td>Revert all changes</td>
-    <td>`svn revert <file>`</file></td>
+    <td><code>svn revert <file></file></code></td>
 </tr>
 <tr>
     <td>Review changes</td>
-    <td>`svn status`</td>
+    <td><code>svn status</code></td>
 </tr>
 <tr>
     <td>Review commit log</td>
-    <td>`svn log`</td>
+    <td><code>svn log</code></td>
 </tr>
 <tr>
     <td>Update working copy</td>
-    <td>`svn update <file> (may overwrite changes)`</file></td>
+    <td><code>svn update <file> (may overwrite changes)</file></code></td>
 </tr>
 <tr>
     <td>View file</td>
-    <td>`svn cat file:///opt/svn/profile/.profile`</td>
+    <td><code>svn cat file:///opt/svn/profile/.profile</code></td>
 </tr>
 <tr>
     <td>View repository tree</td>
-    <td>`svnlook tree /opt/svn`</td>
+    <td><code>svnlook tree /opt/svn</code></td>
 </tr>
 </table>
 
@@ -384,11 +384,11 @@ work. Pressing enter returns to normal mode.</p></li>
 <table>
 <tr>
     <td>Show network info</td>
-    <td>`ipcalc 10.0.0.0/24<br>`ipcalc 10.0.0.0/255.255.255.0`</td>
+    <td><code>ipcalc 10.0.0.0/24<br></code>ipcalc 10.0.0.0/255.255.255.0`</td>
 </tr>
 <tr>
     <td>Segment network into 2 50 node subnets</td>
-    <td>`ipcalc 10.0.0.0/24 -s 50 50`</td>
+    <td><code>ipcalc 10.0.0.0/24 -s 50 50</code></td>
 </tr>
 </table>
 
@@ -397,23 +397,23 @@ work. Pressing enter returns to normal mode.</p></li>
 <table>
 <tr>
     <td>List interfaces</td>
-    <td>`ip addr list`<br>`ifconfig -a`<br>`ip addr list eth0`<br>`ifconfig eth0`</td>
+    <td><code>ip addr list</code><br><code>ifconfig -a</code><br><code>ip addr list eth0</code><br><code>ifconfig eth0</code></td>
 </tr>
 <tr>
     <td>Link status</td>
-    <td>`ip link list`<br>`ifconfig -a`<br>`ip link list eth0`<br>`ifconfig eth0`</td>
+    <td><code>ip link list</code><br><code>ifconfig -a</code><br><code>ip link list eth0</code><br><code>ifconfig eth0</code></td>
 </tr>
 <tr>
     <td>Route table</td>
-    <td>`ip route`<br>`netstat -rn`</td>
+    <td><code>ip route</code><br><code>netstat -rn</code></td>
 </tr>
 <tr>
     <td>Adding routes</td>
-    <td>`ip route add default via 10.0.0.1`</td>
+    <td><code>ip route add default via 10.0.0.1</code></td>
 </tr>
 <tr>
     <td>Add/delete IP addresses</td>
-    <td>`ip addr add 10.0.0.2/24 dev eth0`<br>`ifconfig eth0 10.0.0.2 netmask 255.255.255.0`<br>`ip addr del 10.0.0.2/24 dev eth0`<br>`ifconfig eth0 del 10.0.0.2`</td>
+    <td><code>ip addr add 10.0.0.2/24 dev eth0</code><br><code>ifconfig eth0 10.0.0.2 netmask 255.255.255.0</code><br><code>ip addr del 10.0.0.2/24 dev eth0</code><br><code>ifconfig eth0 del 10.0.0.2</code></td>
 </tr>
 </table>
 

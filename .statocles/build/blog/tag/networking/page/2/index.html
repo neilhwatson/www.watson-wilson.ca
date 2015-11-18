@@ -148,11 +148,11 @@ to IPV6 tunnel. A little research lead me to the fine folks at SixXS.</p>
 <table>
 <tr>
     <td>Show network info</td>
-    <td>`ipcalc 10.0.0.0/24<br>`ipcalc 10.0.0.0/255.255.255.0`</td>
+    <td><code>ipcalc 10.0.0.0/24<br></code>ipcalc 10.0.0.0/255.255.255.0`</td>
 </tr>
 <tr>
     <td>Segment network into 2 50 node subnets</td>
-    <td>`ipcalc 10.0.0.0/24 -s 50 50`</td>
+    <td><code>ipcalc 10.0.0.0/24 -s 50 50</code></td>
 </tr>
 </table>
 
@@ -161,23 +161,23 @@ to IPV6 tunnel. A little research lead me to the fine folks at SixXS.</p>
 <table>
 <tr>
     <td>List interfaces</td>
-    <td>`ip addr list`<br>`ifconfig -a`<br>`ip addr list eth0`<br>`ifconfig eth0`</td>
+    <td><code>ip addr list</code><br><code>ifconfig -a</code><br><code>ip addr list eth0</code><br><code>ifconfig eth0</code></td>
 </tr>
 <tr>
     <td>Link status</td>
-    <td>`ip link list`<br>`ifconfig -a`<br>`ip link list eth0`<br>`ifconfig eth0`</td>
+    <td><code>ip link list</code><br><code>ifconfig -a</code><br><code>ip link list eth0</code><br><code>ifconfig eth0</code></td>
 </tr>
 <tr>
     <td>Route table</td>
-    <td>`ip route`<br>`netstat -rn`</td>
+    <td><code>ip route</code><br><code>netstat -rn</code></td>
 </tr>
 <tr>
     <td>Adding routes</td>
-    <td>`ip route add default via 10.0.0.1`</td>
+    <td><code>ip route add default via 10.0.0.1</code></td>
 </tr>
 <tr>
     <td>Add/delete IP addresses</td>
-    <td>`ip addr add 10.0.0.2/24 dev eth0`<br>`ifconfig eth0 10.0.0.2 netmask 255.255.255.0`<br>`ip addr del 10.0.0.2/24 dev eth0`<br>`ifconfig eth0 del 10.0.0.2`</td>
+    <td><code>ip addr add 10.0.0.2/24 dev eth0</code><br><code>ifconfig eth0 10.0.0.2 netmask 255.255.255.0</code><br><code>ip addr del 10.0.0.2/24 dev eth0</code><br><code>ifconfig eth0 del 10.0.0.2</code></td>
 </tr>
 </table>
 

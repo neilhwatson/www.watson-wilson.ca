@@ -8,71 +8,71 @@
         <generator>Statocles 0.059</generator>
         <item>
             <title>Heartbeat 2 cheatsheet</title>
-            <link>http://watson-wilson.ca/blog/2011/03/07/heatbeat2-cheatsheet/</link>
-            <guid>http://watson-wilson.ca/blog/2011/03/07/heatbeat2-cheatsheet/</guid>
+            <link>http://watson-wilson.ca/blog/2011/03/07/heartbeat2-cheatsheet/</link>
+            <guid>http://watson-wilson.ca/blog/2011/03/07/heartbeat2-cheatsheet/</guid>
             <description><![CDATA[
                 <h3>Commands</h3>
 
 <table>
 <tr>
     <td>List cluster resources.</td>
-    <td>`crm_resource -L`</td>
+    <td><code>crm_resource -L</code></td>
 </tr>
 <tr>
     <td>Dump cluster configuration as xml to stdout.</td>
-    <td>`cibadmin -Q`</td>
+    <td><code>cibadmin -Q</code></td>
 </tr>
 <tr>
     <td>Place node in standby (maintenance mode). Technically this is adding the standby property.</td>
-    <td>`crm_standby -U <hostname> -v true`</hostname></td>
+    <td><code>crm_standby -U <hostname> -v true</hostname></code></td>
 </tr>
 <tr>
     <td>Place local node in standby.</td>
-    <td>`crm_standby -v true`</td>
+    <td><code>crm_standby -v true</code></td>
 </tr>
 <tr>
     <td>Place node online or remove the standby property.</td>
-    <td>`crm_standby -D -U <hostname>`</hostname></td>
+    <td><code>crm_standby -D -U <hostname></hostname></code></td>
 </tr>
 <tr>
     <td>Place local node online or remove standby property.</td>
-    <td>`crm_standby -D`</td>
+    <td><code>crm_standby -D</code></td>
 </tr>
 <tr>
     <td>View cluster status. One time to stdout.</td>
-    <td>`crm_mon -1`</td>
+    <td><code>crm_mon -1</code></td>
 </tr>
 <tr>
     <td>View cluster status. Refresh every 3s.</td>
-    <td>`crm_mon -i3`</td>
+    <td><code>crm_mon -i3</code></td>
 </tr>
 <tr>
     <td>One line simple output.</td>
-    <td>`crm_mon -s`</td>
+    <td><code>crm_mon -s</code></td>
 </tr>
 <tr>
     <td>Show inactive resources.</td>
-    <td>`crm_mon -r`</td>
+    <td><code>crm_mon -r</code></td>
 </tr>
 <tr>
     <td>Stop resource.</td>
-    <td>`crm_resource -r <resource> -p target_role -v stopped`</resource></td>
+    <td><code>crm_resource -r <resource> -p target_role -v stopped</resource></code></td>
 </tr>
 <tr>
     <td>Start resource.</td>
-    <td>`crm_resource -r <resource> -p target_role -v started`</resource></td>
+    <td><code>crm_resource -r <resource> -p target_role -v started</resource></code></td>
 </tr>
 <tr>
     <td>Clear failed resource.</td>
-    <td>`crm_resource -C -H <host> -r <resource>`</resource></host></td>
+    <td><code>crm_resource -C -H <host> -r <resource></resource></host></code></td>
 </tr>
 <tr>
     <td>Query running cluster for current state (STDOUT).</td>
-    <td>`cibadmin -Q --obj_type resources`</td>
+    <td><code>cibadmin -Q --obj_type resources</code></td>
 </tr>
 </table>
 
-                    <p><a href="http://watson-wilson.ca/blog/2011/03/07/heatbeat2-cheatsheet/#section-2">Continue reading...</a></p>
+                    <p><a href="http://watson-wilson.ca/blog/2011/03/07/heartbeat2-cheatsheet/#section-2">Continue reading...</a></p>
                 <p>Tags:
                     <a href="http://watson-wilson.ca/blog/tag/cluster/">cluster</a>
                     <a href="http://watson-wilson.ca/blog/tag/heartbeat/">heartbeat</a>
