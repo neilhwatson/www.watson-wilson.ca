@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>http://watson-wilson.ca/blog/tag/cheatsheet/</id>
     <title>Neil H. Watson</title>
-    <updated>2015-11-18T13:59:33Z</updated>
+    <updated>2015-11-18T15:11:55Z</updated>
     <link href="http://watson-wilson.ca/blog/tag/cheatsheet.atom" rel="self" />
     <link href="http://watson-wilson.ca/blog/tag/cheatsheet/" rel="alternate" />
     <generator version="0.059">Statocles</generator>
@@ -308,7 +308,7 @@ work. Pressing enter returns to normal mode.</p></li>
 <table>
 <tr>
     <td>Show network info</td>
-    <td><code>ipcalc 10.0.0.0/24<br></code>ipcalc 10.0.0.0/255.255.255.0`</td>
+    <td><code>ipcalc 10.0.0.0/24</code><br><code>ipcalc 10.0.0.0/255.255.255.0</code></td>
 </tr>
 <tr>
     <td>Segment network into 2 50 node subnets</td>
