@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>http://watson-wilson.ca/blog/tag/rhev/</id>
     <title>Neil H. Watson</title>
-    <updated>2015-11-17T22:11:50Z</updated>
+    <updated>2015-11-18T09:50:14Z</updated>
     <link href="http://watson-wilson.ca/blog/tag/rhev.atom" rel="self" />
     <link href="http://watson-wilson.ca/blog/tag/rhev/" rel="alternate" />
     <generator version="0.059">Statocles</generator>
@@ -22,12 +22,14 @@ virtualization solution for both desktops and servers, Linux and Windows.</p>
                 <a href="http://watson-wilson.ca/blog/tag/rhev/">rhev</a>
                 <a href="http://watson-wilson.ca/blog/tag/vitualization/">vitualization</a>
                 <a href="http://watson-wilson.ca/blog/tag/kvm/">kvm</a>
+                <a href="http://watson-wilson.ca/blog/tag/red-hat/">red hat</a>
             </p>
         ]]></content>
         <updated>2011-05-09T00:00:00Z</updated>
         <category term="rhev" />
         <category term="vitualization" />
         <category term="kvm" />
+        <category term="red hat" />
     </entry>
 </feed>
 

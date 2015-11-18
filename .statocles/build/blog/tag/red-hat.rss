@@ -7,6 +7,29 @@
         <description>Blog feed of Neil H. Watson</description>
         <generator>Statocles 0.059</generator>
         <item>
+            <title>A brief overview of Red Hat Enterprise Virtualization</title>
+            <link>http://watson-wilson.ca/blog/2011/05/09/rhev-overview/</link>
+            <guid>http://watson-wilson.ca/blog/2011/05/09/rhev-overview/</guid>
+            <description><![CDATA[
+                <p>Red Hat Enterprise Virtualization is a fairly new product offering from Red
+Hat. Red Hat acquired RHEV when they purchased Qumranet in September 2008.
+Qumranet created KVM when they created a Windows desktop virtualization product
+. RHEV is the evolution of that product and in the hands of Red Hat it offers a
+virtualization solution for both desktops and servers, Linux and Windows.</p>
+
+                    <p><a href="http://watson-wilson.ca/blog/2011/05/09/rhev-overview/#section-2">Continue reading...</a></p>
+                <p>Tags:
+                    <a href="http://watson-wilson.ca/blog/tag/rhev/">rhev</a>
+                    <a href="http://watson-wilson.ca/blog/tag/vitualization/">vitualization</a>
+                    <a href="http://watson-wilson.ca/blog/tag/kvm/">kvm</a>
+                    <a href="http://watson-wilson.ca/blog/tag/red-hat/">red hat</a>
+                </p>
+            ]]></description>
+            <pubDate>
+                Mon, 09 May 2011 00:00:00 +0000
+            </pubDate>
+        </item>
+        <item>
             <title>Clustering with Red Hat</title>
             <link>http://watson-wilson.ca/blog/2007/08/08/clustering-with-redhat/</link>
             <guid>http://watson-wilson.ca/blog/2007/08/08/clustering-with-redhat/</guid>

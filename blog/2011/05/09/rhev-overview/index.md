@@ -1,6 +1,6 @@
 ---
 title: A brief overview of Red Hat Enterprise Virtualization
-tags: rhev, vitualization, kvm
+tags: rhev, vitualization, kvm, red hat
 ---
 
 Red Hat Enterprise Virtualization is a fairly new product offering from Red
