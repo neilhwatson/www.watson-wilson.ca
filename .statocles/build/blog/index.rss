@@ -2,25 +2,25 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Neil H. Watson</title>
-        <link>http://ettin/blog/</link>
-        <atom:link href="http://ettin/blog/index.rss" rel="self" type="application/rss+xml" />
+        <link>http://watson-wilson.ca/blog/</link>
+        <atom:link href="http://watson-wilson.ca/blog/index.rss" rel="self" type="application/rss+xml" />
         <description>Blog feed of Neil H. Watson</description>
         <generator>Statocles 0.059</generator>
         <item>
             <title>New site</title>
-            <link>http://ettin/blog/2015/11/17/new_site/</link>
-            <guid>http://ettin/blog/2015/11/17/new_site/</guid>
+            <link>http://watson-wilson.ca/blog/2015/11/17/new_site/</link>
+            <guid>http://watson-wilson.ca/blog/2015/11/17/new_site/</guid>
             <description><![CDATA[
-                <p><img alt="Perl logo" src="http://ettin/static/images/perl_camel.gif" style="float:right"></p>
+                <p><img alt="Perl logo" src="http://watson-wilson.ca/static/images/perl_camel.gif" style="float:right"></p>
 
 <p>I used to power my site with <a href="https://movabletype.org/">Movable Type</a>, but that was removed from Debian. I have another site that is powered by <a href="http://wordpress.com">Wordpress</a>, but maintaining it is costly. I have to constantly be on top of security issues, and the built in editor is tedious for a console cowboy like me. I do not use hosting services, because doing it myself helps keep my skills sharp.</p>
 
-                    <p><a href="http://ettin/blog/2015/11/17/new_site/#section-2">Continue reading...</a></p>
+                    <p><a href="http://watson-wilson.ca/blog/2015/11/17/new_site/#section-2">Continue reading...</a></p>
                 <p>Tags:
-                    <a href="http://ettin/blog/tag/website/">website</a>
-                    <a href="http://ettin/blog/tag/perl/">perl</a>
-                    <a href="http://ettin/blog/tag/jekyll/">jekyll</a>
-                    <a href="http://ettin/blog/tag/statocles/">statocles</a>
+                    <a href="http://watson-wilson.ca/blog/tag/website/">website</a>
+                    <a href="http://watson-wilson.ca/blog/tag/perl/">perl</a>
+                    <a href="http://watson-wilson.ca/blog/tag/jekyll/">jekyll</a>
+                    <a href="http://watson-wilson.ca/blog/tag/statocles/">statocles</a>
                 </p>
             ]]></description>
             <pubDate>
@@ -29,8 +29,8 @@
         </item>
         <item>
             <title>Avoid the cost of renaming hundreds of hosts</title>
-            <link>http://ettin/blog/2013/02/22/dns-renaming/</link>
-            <guid>http://ettin/blog/2013/02/22/dns-renaming/</guid>
+            <link>http://watson-wilson.ca/blog/2013/02/22/dns-renaming/</link>
+            <guid>http://watson-wilson.ca/blog/2013/02/22/dns-renaming/</guid>
             <description><![CDATA[
                 <p>Your hosts are named after your data centre. Now you must move hundreds of
 hosts to another data centre. Do you rename them or abandon the naming
@@ -40,9 +40,9 @@ convention?</p>
 Host are not static. They change functions and locations. Think ahead before
 naming them.</p>
 
-                    <p><a href="http://ettin/blog/2013/02/22/dns-renaming/#section-2">Continue reading...</a></p>
+                    <p><a href="http://watson-wilson.ca/blog/2013/02/22/dns-renaming/#section-2">Continue reading...</a></p>
                 <p>Tags:
-                    <a href="http://ettin/blog/tag/dns/">dns</a>
+                    <a href="http://watson-wilson.ca/blog/tag/dns/">dns</a>
                 </p>
             ]]></description>
             <pubDate>
@@ -51,16 +51,16 @@ naming them.</p>
         </item>
         <item>
             <title>Variable references with CFEngine</title>
-            <link>http://ettin/blog/2012/10/19/cfengine-var-refs/</link>
-            <guid>http://ettin/blog/2012/10/19/cfengine-var-refs/</guid>
+            <link>http://watson-wilson.ca/blog/2012/10/19/cfengine-var-refs/</link>
+            <guid>http://watson-wilson.ca/blog/2012/10/19/cfengine-var-refs/</guid>
             <description><![CDATA[
                 <p>Variables in CFEngine can be confusing at times. Here are some examples of
 variable references. References are not strictly required, but they are good
 practice like using the strict module in Perl.</p>
 
-                    <p><a href="http://ettin/blog/2012/10/19/cfengine-var-refs/#section-2">Continue reading...</a></p>
+                    <p><a href="http://watson-wilson.ca/blog/2012/10/19/cfengine-var-refs/#section-2">Continue reading...</a></p>
                 <p>Tags:
-                    <a href="http://ettin/blog/tag/cfengine/">cfengine</a>
+                    <a href="http://watson-wilson.ca/blog/tag/cfengine/">cfengine</a>
                 </p>
             ]]></description>
             <pubDate>
@@ -69,16 +69,16 @@ practice like using the strict module in Perl.</p>
         </item>
         <item>
             <title>IPv6 Migration part 8</title>
-            <link>http://ettin/blog/2012/08/01/ipv6-migration-part8/</link>
-            <guid>http://ettin/blog/2012/08/01/ipv6-migration-part8/</guid>
+            <link>http://watson-wilson.ca/blog/2012/08/01/ipv6-migration-part8/</link>
+            <guid>http://watson-wilson.ca/blog/2012/08/01/ipv6-migration-part8/</guid>
             <description><![CDATA[
                 <p>DNS for IPV6 is just like IPV4, but longer. In part 2 I discussed DNS quad A
 records. Now I&#39;ll explain IPV6 PTR records.</p>
 
-                    <p><a href="http://ettin/blog/2012/08/01/ipv6-migration-part8/#section-2">Continue reading...</a></p>
+                    <p><a href="http://watson-wilson.ca/blog/2012/08/01/ipv6-migration-part8/#section-2">Continue reading...</a></p>
                 <p>Tags:
-                    <a href="http://ettin/blog/tag/ipv6/">ipv6</a>
-                    <a href="http://ettin/blog/tag/networking/">networking</a>
+                    <a href="http://watson-wilson.ca/blog/tag/ipv6/">ipv6</a>
+                    <a href="http://watson-wilson.ca/blog/tag/networking/">networking</a>
                 </p>
             ]]></description>
             <pubDate>
@@ -87,18 +87,18 @@ records. Now I&#39;ll explain IPV6 PTR records.</p>
         </item>
         <item>
             <title>IPv6 Migration part 7</title>
-            <link>http://ettin/blog/2012/07/25/ipv6-migration-part7/</link>
-            <guid>http://ettin/blog/2012/07/25/ipv6-migration-part7/</guid>
+            <link>http://watson-wilson.ca/blog/2012/07/25/ipv6-migration-part7/</link>
+            <guid>http://watson-wilson.ca/blog/2012/07/25/ipv6-migration-part7/</guid>
             <description><![CDATA[
-                <p><img alt="Success with IPv6" src="http://ettin/static/images/ipv6-success-kid.jpg" style="float:right" width="300"></p>
+                <p><img alt="Success with IPv6" src="http://watson-wilson.ca/static/images/ipv6-success-kid.jpg" style="float:right" width="300"></p>
 
 <p>I&#39;ve broken up with <a href="https://www.sixxs.net/">SixXS</a>.
 <a href="http://he.net">Hurricane Electric</a> is my new girl.</p>
 
-                    <p><a href="http://ettin/blog/2012/07/25/ipv6-migration-part7/#section-2">Continue reading...</a></p>
+                    <p><a href="http://watson-wilson.ca/blog/2012/07/25/ipv6-migration-part7/#section-2">Continue reading...</a></p>
                 <p>Tags:
-                    <a href="http://ettin/blog/tag/ipv6/">ipv6</a>
-                    <a href="http://ettin/blog/tag/networking/">networking</a>
+                    <a href="http://watson-wilson.ca/blog/tag/ipv6/">ipv6</a>
+                    <a href="http://watson-wilson.ca/blog/tag/networking/">networking</a>
                 </p>
             ]]></description>
             <pubDate>

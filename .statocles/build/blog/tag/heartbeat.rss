@@ -2,14 +2,14 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Neil H. Watson</title>
-        <link>http://ettin/blog/tag/heartbeat/</link>
-        <atom:link href="http://ettin/blog/tag/heartbeat.rss" rel="self" type="application/rss+xml" />
+        <link>http://watson-wilson.ca/blog/tag/heartbeat/</link>
+        <atom:link href="http://watson-wilson.ca/blog/tag/heartbeat.rss" rel="self" type="application/rss+xml" />
         <description>Blog feed of Neil H. Watson</description>
         <generator>Statocles 0.059</generator>
         <item>
             <title>Heartbeat 2 cheatsheet</title>
-            <link>http://ettin/blog/2011/03/07/heatbeat2-cheatsheet/</link>
-            <guid>http://ettin/blog/2011/03/07/heatbeat2-cheatsheet/</guid>
+            <link>http://watson-wilson.ca/blog/2011/03/07/heatbeat2-cheatsheet/</link>
+            <guid>http://watson-wilson.ca/blog/2011/03/07/heatbeat2-cheatsheet/</guid>
             <description><![CDATA[
                 <h3>Commands</h3>
 
@@ -72,11 +72,11 @@
 </tr>
 </table>
 
-                    <p><a href="http://ettin/blog/2011/03/07/heatbeat2-cheatsheet/#section-2">Continue reading...</a></p>
+                    <p><a href="http://watson-wilson.ca/blog/2011/03/07/heatbeat2-cheatsheet/#section-2">Continue reading...</a></p>
                 <p>Tags:
-                    <a href="http://ettin/blog/tag/cluster/">cluster</a>
-                    <a href="http://ettin/blog/tag/heartbeat/">heartbeat</a>
-                    <a href="http://ettin/blog/tag/cheatsheet/">cheatsheet</a>
+                    <a href="http://watson-wilson.ca/blog/tag/cluster/">cluster</a>
+                    <a href="http://watson-wilson.ca/blog/tag/heartbeat/">heartbeat</a>
+                    <a href="http://watson-wilson.ca/blog/tag/cheatsheet/">cheatsheet</a>
                 </p>
             ]]></description>
             <pubDate>

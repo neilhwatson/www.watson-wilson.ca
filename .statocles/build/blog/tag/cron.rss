@@ -2,23 +2,23 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Neil H. Watson</title>
-        <link>http://ettin/blog/tag/cron/</link>
-        <atom:link href="http://ettin/blog/tag/cron.rss" rel="self" type="application/rss+xml" />
+        <link>http://watson-wilson.ca/blog/tag/cron/</link>
+        <atom:link href="http://watson-wilson.ca/blog/tag/cron.rss" rel="self" type="application/rss+xml" />
         <description>Blog feed of Neil H. Watson</description>
         <generator>Statocles 0.059</generator>
         <item>
             <title>CFEngine as a crond alternative</title>
-            <link>http://ettin/blog/2011/09/27/cfengine-alt-crond/</link>
-            <guid>http://ettin/blog/2011/09/27/cfengine-alt-crond/</guid>
+            <link>http://watson-wilson.ca/blog/2011/09/27/cfengine-alt-crond/</link>
+            <guid>http://watson-wilson.ca/blog/2011/09/27/cfengine-alt-crond/</guid>
             <description><![CDATA[
                 <p>CFEngine’s time based classes and promise theory make it an attractive
 alternative to venerable crond.</p>
 
-                    <p><a href="http://ettin/blog/2011/09/27/cfengine-alt-crond/#section-2">Continue reading...</a></p>
+                    <p><a href="http://watson-wilson.ca/blog/2011/09/27/cfengine-alt-crond/#section-2">Continue reading...</a></p>
                 <p>Tags:
-                    <a href="http://ettin/blog/tag/cfengine/">cfengine</a>
-                    <a href="http://ettin/blog/tag/configuration-management/">configuration management</a>
-                    <a href="http://ettin/blog/tag/cron/">cron</a>
+                    <a href="http://watson-wilson.ca/blog/tag/cfengine/">cfengine</a>
+                    <a href="http://watson-wilson.ca/blog/tag/configuration-management/">configuration management</a>
+                    <a href="http://watson-wilson.ca/blog/tag/cron/">cron</a>
                 </p>
             ]]></description>
             <pubDate>
@@ -27,18 +27,18 @@ alternative to venerable crond.</p>
         </item>
         <item>
             <title>Managing crontables with CFEngine</title>
-            <link>http://ettin/blog/2011/05/26/cfengine-cron/</link>
-            <guid>http://ettin/blog/2011/05/26/cfengine-cron/</guid>
+            <link>http://watson-wilson.ca/blog/2011/05/26/cfengine-cron/</link>
+            <guid>http://watson-wilson.ca/blog/2011/05/26/cfengine-cron/</guid>
             <description><![CDATA[
                 <h3>Problem</h3>
 
 <p>You want CFEngine to manage crontables.</p>
 
-                    <p><a href="http://ettin/blog/2011/05/26/cfengine-cron/#section-2">Continue reading...</a></p>
+                    <p><a href="http://watson-wilson.ca/blog/2011/05/26/cfengine-cron/#section-2">Continue reading...</a></p>
                 <p>Tags:
-                    <a href="http://ettin/blog/tag/cfengine/">cfengine</a>
-                    <a href="http://ettin/blog/tag/cfengine-cookbook/">cfengine cookbook</a>
-                    <a href="http://ettin/blog/tag/cron/">cron</a>
+                    <a href="http://watson-wilson.ca/blog/tag/cfengine/">cfengine</a>
+                    <a href="http://watson-wilson.ca/blog/tag/cfengine-cookbook/">cfengine cookbook</a>
+                    <a href="http://watson-wilson.ca/blog/tag/cron/">cron</a>
                 </p>
             ]]></description>
             <pubDate>

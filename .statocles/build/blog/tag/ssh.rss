@@ -2,25 +2,25 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Neil H. Watson</title>
-        <link>http://ettin/blog/tag/ssh/</link>
-        <atom:link href="http://ettin/blog/tag/ssh.rss" rel="self" type="application/rss+xml" />
+        <link>http://watson-wilson.ca/blog/tag/ssh/</link>
+        <atom:link href="http://watson-wilson.ca/blog/tag/ssh.rss" rel="self" type="application/rss+xml" />
         <description>Blog feed of Neil H. Watson</description>
         <generator>Statocles 0.059</generator>
         <item>
             <title>SSH public key distribution using CFEngine</title>
-            <link>http://ettin/blog/2011/05/26/cfengine-ssh-keys/</link>
-            <guid>http://ettin/blog/2011/05/26/cfengine-ssh-keys/</guid>
+            <link>http://watson-wilson.ca/blog/2011/05/26/cfengine-ssh-keys/</link>
+            <guid>http://watson-wilson.ca/blog/2011/05/26/cfengine-ssh-keys/</guid>
             <description><![CDATA[
                 <h3>Problem</h3>
 
 <p>You want to distribute public SSH keys.</p>
 
-                    <p><a href="http://ettin/blog/2011/05/26/cfengine-ssh-keys/#section-2">Continue reading...</a></p>
+                    <p><a href="http://watson-wilson.ca/blog/2011/05/26/cfengine-ssh-keys/#section-2">Continue reading...</a></p>
                 <p>Tags:
-                    <a href="http://ettin/blog/tag/cfengine/">cfengine</a>
-                    <a href="http://ettin/blog/tag/cfengine-cookbook/">cfengine cookbook</a>
-                    <a href="http://ettin/blog/tag/ssh/">ssh</a>
-                    <a href="http://ettin/blog/tag/infosec/">infosec</a>
+                    <a href="http://watson-wilson.ca/blog/tag/cfengine/">cfengine</a>
+                    <a href="http://watson-wilson.ca/blog/tag/cfengine-cookbook/">cfengine cookbook</a>
+                    <a href="http://watson-wilson.ca/blog/tag/ssh/">ssh</a>
+                    <a href="http://watson-wilson.ca/blog/tag/infosec/">infosec</a>
                 </p>
             ]]></description>
             <pubDate>

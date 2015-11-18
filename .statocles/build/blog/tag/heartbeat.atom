@@ -1,15 +1,15 @@
 <?xml version="1.0"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>http://ettin/blog/tag/heartbeat/</id>
+    <id>http://watson-wilson.ca/blog/tag/heartbeat/</id>
     <title>Neil H. Watson</title>
-    <updated>2015-11-17T13:28:03Z</updated>
-    <link href="http://ettin/blog/tag/heartbeat.atom" rel="self" />
-    <link href="http://ettin/blog/tag/heartbeat/" rel="alternate" />
+    <updated>2015-11-17T22:01:15Z</updated>
+    <link href="http://watson-wilson.ca/blog/tag/heartbeat.atom" rel="self" />
+    <link href="http://watson-wilson.ca/blog/tag/heartbeat/" rel="alternate" />
     <generator version="0.059">Statocles</generator>
     <entry>
-        <id>http://ettin/blog/2011/03/07/heatbeat2-cheatsheet/</id>
+        <id>http://watson-wilson.ca/blog/2011/03/07/heatbeat2-cheatsheet/</id>
         <title>Heartbeat 2 cheatsheet</title>
-        <link href="http://ettin/blog/2011/03/07/heatbeat2-cheatsheet/" rel="alternate" />
+        <link href="http://watson-wilson.ca/blog/2011/03/07/heatbeat2-cheatsheet/" rel="alternate" />
         <content type="html"><![CDATA[
             <h3>Commands</h3>
 
@@ -72,11 +72,11 @@
 </tr>
 </table>
 
-                <p><a href="http://ettin/blog/2011/03/07/heatbeat2-cheatsheet/#section-2">Continue reading...</a></p>
+                <p><a href="http://watson-wilson.ca/blog/2011/03/07/heatbeat2-cheatsheet/#section-2">Continue reading...</a></p>
             <p>Tags:
-                <a href="http://ettin/blog/tag/cluster/">cluster</a>
-                <a href="http://ettin/blog/tag/heartbeat/">heartbeat</a>
-                <a href="http://ettin/blog/tag/cheatsheet/">cheatsheet</a>
+                <a href="http://watson-wilson.ca/blog/tag/cluster/">cluster</a>
+                <a href="http://watson-wilson.ca/blog/tag/heartbeat/">heartbeat</a>
+                <a href="http://watson-wilson.ca/blog/tag/cheatsheet/">cheatsheet</a>
             </p>
         ]]></content>
         <updated>2011-03-07T00:00:00Z</updated>

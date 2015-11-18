@@ -1,15 +1,15 @@
 <?xml version="1.0"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>http://ettin/blog/tag/dns/</id>
+    <id>http://watson-wilson.ca/blog/tag/dns/</id>
     <title>Neil H. Watson</title>
-    <updated>2015-11-17T13:27:55Z</updated>
-    <link href="http://ettin/blog/tag/dns.atom" rel="self" />
-    <link href="http://ettin/blog/tag/dns/" rel="alternate" />
+    <updated>2015-11-17T22:01:05Z</updated>
+    <link href="http://watson-wilson.ca/blog/tag/dns.atom" rel="self" />
+    <link href="http://watson-wilson.ca/blog/tag/dns/" rel="alternate" />
     <generator version="0.059">Statocles</generator>
     <entry>
-        <id>http://ettin/blog/2013/02/22/dns-renaming/</id>
+        <id>http://watson-wilson.ca/blog/2013/02/22/dns-renaming/</id>
         <title>Avoid the cost of renaming hundreds of hosts</title>
-        <link href="http://ettin/blog/2013/02/22/dns-renaming/" rel="alternate" />
+        <link href="http://watson-wilson.ca/blog/2013/02/22/dns-renaming/" rel="alternate" />
         <content type="html"><![CDATA[
             <p>Your hosts are named after your data centre. Now you must move hundreds of
 hosts to another data centre. Do you rename them or abandon the naming
@@ -19,18 +19,18 @@ convention?</p>
 Host are not static. They change functions and locations. Think ahead before
 naming them.</p>
 
-                <p><a href="http://ettin/blog/2013/02/22/dns-renaming/#section-2">Continue reading...</a></p>
+                <p><a href="http://watson-wilson.ca/blog/2013/02/22/dns-renaming/#section-2">Continue reading...</a></p>
             <p>Tags:
-                <a href="http://ettin/blog/tag/dns/">dns</a>
+                <a href="http://watson-wilson.ca/blog/tag/dns/">dns</a>
             </p>
         ]]></content>
         <updated>2013-02-22T00:00:00Z</updated>
         <category term="dns" />
     </entry>
     <entry>
-        <id>http://ettin/blog/2011/03/03/host-naming/</id>
+        <id>http://watson-wilson.ca/blog/2011/03/03/host-naming/</id>
         <title>Choosing a host naming convention</title>
-        <link href="http://ettin/blog/2011/03/03/host-naming/" rel="alternate" />
+        <link href="http://watson-wilson.ca/blog/2011/03/03/host-naming/" rel="alternate" />
         <content type="html"><![CDATA[
             <p><object data="/static/images/hello_my_name_is_dns.svg" style="float:right" type="image/svg+xhtml" width="300px">
     Hello, my name is Dns
@@ -42,9 +42,9 @@ resulting in unwieldy host and service names. In the worst cases host names are
 dropped completely and either by habit or lack of a proper DNS service only ip
 addresses are used.</p>
 
-                <p><a href="http://ettin/blog/2011/03/03/host-naming/#section-2">Continue reading...</a></p>
+                <p><a href="http://watson-wilson.ca/blog/2011/03/03/host-naming/#section-2">Continue reading...</a></p>
             <p>Tags:
-                <a href="http://ettin/blog/tag/dns/">dns</a>
+                <a href="http://watson-wilson.ca/blog/tag/dns/">dns</a>
             </p>
         ]]></content>
         <updated>2011-03-03T00:00:00Z</updated>

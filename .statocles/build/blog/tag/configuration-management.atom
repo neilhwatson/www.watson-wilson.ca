@@ -1,24 +1,24 @@
 <?xml version="1.0"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>http://ettin/blog/tag/configuration-management/</id>
+    <id>http://watson-wilson.ca/blog/tag/configuration-management/</id>
     <title>Neil H. Watson</title>
-    <updated>2015-11-17T13:27:57Z</updated>
-    <link href="http://ettin/blog/tag/configuration-management.atom" rel="self" />
-    <link href="http://ettin/blog/tag/configuration-management/" rel="alternate" />
+    <updated>2015-11-17T22:01:16Z</updated>
+    <link href="http://watson-wilson.ca/blog/tag/configuration-management.atom" rel="self" />
+    <link href="http://watson-wilson.ca/blog/tag/configuration-management/" rel="alternate" />
     <generator version="0.059">Statocles</generator>
     <entry>
-        <id>http://ettin/blog/2011/09/27/cfengine-alt-crond/</id>
+        <id>http://watson-wilson.ca/blog/2011/09/27/cfengine-alt-crond/</id>
         <title>CFEngine as a crond alternative</title>
-        <link href="http://ettin/blog/2011/09/27/cfengine-alt-crond/" rel="alternate" />
+        <link href="http://watson-wilson.ca/blog/2011/09/27/cfengine-alt-crond/" rel="alternate" />
         <content type="html"><![CDATA[
             <p>CFEngine’s time based classes and promise theory make it an attractive
 alternative to venerable crond.</p>
 
-                <p><a href="http://ettin/blog/2011/09/27/cfengine-alt-crond/#section-2">Continue reading...</a></p>
+                <p><a href="http://watson-wilson.ca/blog/2011/09/27/cfengine-alt-crond/#section-2">Continue reading...</a></p>
             <p>Tags:
-                <a href="http://ettin/blog/tag/cfengine/">cfengine</a>
-                <a href="http://ettin/blog/tag/configuration-management/">configuration management</a>
-                <a href="http://ettin/blog/tag/cron/">cron</a>
+                <a href="http://watson-wilson.ca/blog/tag/cfengine/">cfengine</a>
+                <a href="http://watson-wilson.ca/blog/tag/configuration-management/">configuration management</a>
+                <a href="http://watson-wilson.ca/blog/tag/cron/">cron</a>
             </p>
         ]]></content>
         <updated>2011-09-27T00:00:00Z</updated>
@@ -27,19 +27,19 @@ alternative to venerable crond.</p>
         <category term="cron" />
     </entry>
     <entry>
-        <id>http://ettin/blog/2011/09/16/cfengine-dynamic-bundlesequence/</id>
+        <id>http://watson-wilson.ca/blog/2011/09/16/cfengine-dynamic-bundlesequence/</id>
         <title>Dynamic bundlesequence in CFEngine</title>
-        <link href="http://ettin/blog/2011/09/16/cfengine-dynamic-bundlesequence/" rel="alternate" />
+        <link href="http://watson-wilson.ca/blog/2011/09/16/cfengine-dynamic-bundlesequence/" rel="alternate" />
         <content type="html"><![CDATA[
             <h3>Problem</h3>
 
 <p>You want to have your bundlesequence change based on class.</p>
 
-                <p><a href="http://ettin/blog/2011/09/16/cfengine-dynamic-bundlesequence/#section-2">Continue reading...</a></p>
+                <p><a href="http://watson-wilson.ca/blog/2011/09/16/cfengine-dynamic-bundlesequence/#section-2">Continue reading...</a></p>
             <p>Tags:
-                <a href="http://ettin/blog/tag/cfengine/">cfengine</a>
-                <a href="http://ettin/blog/tag/cfengine-cookbook/">cfengine cookbook</a>
-                <a href="http://ettin/blog/tag/configuration-management/">configuration management</a>
+                <a href="http://watson-wilson.ca/blog/tag/cfengine/">cfengine</a>
+                <a href="http://watson-wilson.ca/blog/tag/cfengine-cookbook/">cfengine cookbook</a>
+                <a href="http://watson-wilson.ca/blog/tag/configuration-management/">configuration management</a>
             </p>
         ]]></content>
         <updated>2011-09-16T00:00:00Z</updated>
@@ -48,9 +48,9 @@ alternative to venerable crond.</p>
         <category term="configuration management" />
     </entry>
     <entry>
-        <id>http://ettin/blog/2011/05/26/cfengine-templates/</id>
+        <id>http://watson-wilson.ca/blog/2011/05/26/cfengine-templates/</id>
         <title>Template files using CFEngine</title>
-        <link href="http://ettin/blog/2011/05/26/cfengine-templates/" rel="alternate" />
+        <link href="http://watson-wilson.ca/blog/2011/05/26/cfengine-templates/" rel="alternate" />
         <content type="html"><![CDATA[
             <h3>Problem</h3>
 
@@ -58,11 +58,11 @@ alternative to venerable crond.</p>
 resides on. This makes file copy promises impractical. Who wants to copy a
 different file for so many hosts? Sysadmins are a lazy lot.</p>
 
-                <p><a href="http://ettin/blog/2011/05/26/cfengine-templates/#section-2">Continue reading...</a></p>
+                <p><a href="http://watson-wilson.ca/blog/2011/05/26/cfengine-templates/#section-2">Continue reading...</a></p>
             <p>Tags:
-                <a href="http://ettin/blog/tag/cfengine/">cfengine</a>
-                <a href="http://ettin/blog/tag/cfengine-cookbook/">cfengine cookbook</a>
-                <a href="http://ettin/blog/tag/configuration-management/">configuration management</a>
+                <a href="http://watson-wilson.ca/blog/tag/cfengine/">cfengine</a>
+                <a href="http://watson-wilson.ca/blog/tag/cfengine-cookbook/">cfengine cookbook</a>
+                <a href="http://watson-wilson.ca/blog/tag/configuration-management/">configuration management</a>
             </p>
         ]]></content>
         <updated>2011-05-26T00:00:00Z</updated>
@@ -71,20 +71,20 @@ different file for so many hosts? Sysadmins are a lazy lot.</p>
         <category term="configuration management" />
     </entry>
     <entry>
-        <id>http://ettin/blog/2011/05/26/cfengine-storage/</id>
+        <id>http://watson-wilson.ca/blog/2011/05/26/cfengine-storage/</id>
         <title>Disk space monitoring using CFEngine</title>
-        <link href="http://ettin/blog/2011/05/26/cfengine-storage/" rel="alternate" />
+        <link href="http://watson-wilson.ca/blog/2011/05/26/cfengine-storage/" rel="alternate" />
         <content type="html"><![CDATA[
             <h3>Problem</h3>
 
 <p>You want to monitor free disk space.</p>
 
-                <p><a href="http://ettin/blog/2011/05/26/cfengine-storage/#section-2">Continue reading...</a></p>
+                <p><a href="http://watson-wilson.ca/blog/2011/05/26/cfengine-storage/#section-2">Continue reading...</a></p>
             <p>Tags:
-                <a href="http://ettin/blog/tag/cfengine/">cfengine</a>
-                <a href="http://ettin/blog/tag/cfengine-cookbook/">cfengine cookbook</a>
-                <a href="http://ettin/blog/tag/configuration-management/">configuration management</a>
-                <a href="http://ettin/blog/tag/monitoring/">monitoring</a>
+                <a href="http://watson-wilson.ca/blog/tag/cfengine/">cfengine</a>
+                <a href="http://watson-wilson.ca/blog/tag/cfengine-cookbook/">cfengine cookbook</a>
+                <a href="http://watson-wilson.ca/blog/tag/configuration-management/">configuration management</a>
+                <a href="http://watson-wilson.ca/blog/tag/monitoring/">monitoring</a>
             </p>
         ]]></content>
         <updated>2011-05-26T00:00:00Z</updated>
@@ -94,19 +94,19 @@ different file for so many hosts? Sysadmins are a lazy lot.</p>
         <category term="monitoring" />
     </entry>
     <entry>
-        <id>http://ettin/blog/2011/05/26/cfengine-start-process/</id>
+        <id>http://watson-wilson.ca/blog/2011/05/26/cfengine-start-process/</id>
         <title>Starting processes using Cfengine</title>
-        <link href="http://ettin/blog/2011/05/26/cfengine-start-process/" rel="alternate" />
+        <link href="http://watson-wilson.ca/blog/2011/05/26/cfengine-start-process/" rel="alternate" />
         <content type="html"><![CDATA[
             <h3>Problem</h3>
 
 <p>You want to ensure that a process is running.</p>
 
-                <p><a href="http://ettin/blog/2011/05/26/cfengine-start-process/#section-2">Continue reading...</a></p>
+                <p><a href="http://watson-wilson.ca/blog/2011/05/26/cfengine-start-process/#section-2">Continue reading...</a></p>
             <p>Tags:
-                <a href="http://ettin/blog/tag/cfengine/">cfengine</a>
-                <a href="http://ettin/blog/tag/cfengine-cookbook/">cfengine cookbook</a>
-                <a href="http://ettin/blog/tag/configuration-management/">configuration management</a>
+                <a href="http://watson-wilson.ca/blog/tag/cfengine/">cfengine</a>
+                <a href="http://watson-wilson.ca/blog/tag/cfengine-cookbook/">cfengine cookbook</a>
+                <a href="http://watson-wilson.ca/blog/tag/configuration-management/">configuration management</a>
             </p>
         ]]></content>
         <updated>2011-05-26T00:00:00Z</updated>

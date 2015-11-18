@@ -2,14 +2,14 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Neil H. Watson</title>
-        <link>http://ettin/blog/tag/regex/</link>
-        <atom:link href="http://ettin/blog/tag/regex.rss" rel="self" type="application/rss+xml" />
+        <link>http://watson-wilson.ca/blog/tag/regex/</link>
+        <atom:link href="http://watson-wilson.ca/blog/tag/regex.rss" rel="self" type="application/rss+xml" />
         <description>Blog feed of Neil H. Watson</description>
         <generator>Statocles 0.059</generator>
         <item>
             <title>POSIX regular expression cheatsheet</title>
-            <link>http://ettin/blog/2011/03/08/posix-regex-cheatsheet/</link>
-            <guid>http://ettin/blog/2011/03/08/posix-regex-cheatsheet/</guid>
+            <link>http://watson-wilson.ca/blog/2011/03/08/posix-regex-cheatsheet/</link>
+            <guid>http://watson-wilson.ca/blog/2011/03/08/posix-regex-cheatsheet/</guid>
             <description><![CDATA[
                 <table>
 <tr>
@@ -62,11 +62,11 @@
 </tr>
 </table>
 
-                    <p><a href="http://ettin/blog/2011/03/08/posix-regex-cheatsheet/#section-2">Continue reading...</a></p>
+                    <p><a href="http://watson-wilson.ca/blog/2011/03/08/posix-regex-cheatsheet/#section-2">Continue reading...</a></p>
                 <p>Tags:
-                    <a href="http://ettin/blog/tag/posix/">posix</a>
-                    <a href="http://ettin/blog/tag/regex/">regex</a>
-                    <a href="http://ettin/blog/tag/cheatsheet/">cheatsheet</a>
+                    <a href="http://watson-wilson.ca/blog/tag/posix/">posix</a>
+                    <a href="http://watson-wilson.ca/blog/tag/regex/">regex</a>
+                    <a href="http://watson-wilson.ca/blog/tag/cheatsheet/">cheatsheet</a>
                 </p>
             ]]></description>
             <pubDate>

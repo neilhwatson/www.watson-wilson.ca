@@ -1,26 +1,26 @@
 <?xml version="1.0"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>http://ettin/blog/tag/ssh/</id>
+    <id>http://watson-wilson.ca/blog/tag/ssh/</id>
     <title>Neil H. Watson</title>
-    <updated>2015-11-17T13:27:55Z</updated>
-    <link href="http://ettin/blog/tag/ssh.atom" rel="self" />
-    <link href="http://ettin/blog/tag/ssh/" rel="alternate" />
+    <updated>2015-11-17T22:01:15Z</updated>
+    <link href="http://watson-wilson.ca/blog/tag/ssh.atom" rel="self" />
+    <link href="http://watson-wilson.ca/blog/tag/ssh/" rel="alternate" />
     <generator version="0.059">Statocles</generator>
     <entry>
-        <id>http://ettin/blog/2011/05/26/cfengine-ssh-keys/</id>
+        <id>http://watson-wilson.ca/blog/2011/05/26/cfengine-ssh-keys/</id>
         <title>SSH public key distribution using CFEngine</title>
-        <link href="http://ettin/blog/2011/05/26/cfengine-ssh-keys/" rel="alternate" />
+        <link href="http://watson-wilson.ca/blog/2011/05/26/cfengine-ssh-keys/" rel="alternate" />
         <content type="html"><![CDATA[
             <h3>Problem</h3>
 
 <p>You want to distribute public SSH keys.</p>
 
-                <p><a href="http://ettin/blog/2011/05/26/cfengine-ssh-keys/#section-2">Continue reading...</a></p>
+                <p><a href="http://watson-wilson.ca/blog/2011/05/26/cfengine-ssh-keys/#section-2">Continue reading...</a></p>
             <p>Tags:
-                <a href="http://ettin/blog/tag/cfengine/">cfengine</a>
-                <a href="http://ettin/blog/tag/cfengine-cookbook/">cfengine cookbook</a>
-                <a href="http://ettin/blog/tag/ssh/">ssh</a>
-                <a href="http://ettin/blog/tag/infosec/">infosec</a>
+                <a href="http://watson-wilson.ca/blog/tag/cfengine/">cfengine</a>
+                <a href="http://watson-wilson.ca/blog/tag/cfengine-cookbook/">cfengine cookbook</a>
+                <a href="http://watson-wilson.ca/blog/tag/ssh/">ssh</a>
+                <a href="http://watson-wilson.ca/blog/tag/infosec/">infosec</a>
             </p>
         ]]></content>
         <updated>2011-05-26T00:00:00Z</updated>

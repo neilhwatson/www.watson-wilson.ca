@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Neil H. Watson</title>
-        <link>http://ettin/blog/tag/cfengine/</link>
-        <atom:link href="http://ettin/blog/tag/cfengine.rss" rel="self" type="application/rss+xml" />
+        <link>http://watson-wilson.ca/blog/tag/cfengine/</link>
+        <atom:link href="http://watson-wilson.ca/blog/tag/cfengine.rss" rel="self" type="application/rss+xml" />
         <description>Blog feed of Neil H. Watson</description>
         <generator>Statocles 0.059</generator>
         <item>
             <title>Variable references with CFEngine</title>
-            <link>http://ettin/blog/2012/10/19/cfengine-var-refs/</link>
-            <guid>http://ettin/blog/2012/10/19/cfengine-var-refs/</guid>
+            <link>http://watson-wilson.ca/blog/2012/10/19/cfengine-var-refs/</link>
+            <guid>http://watson-wilson.ca/blog/2012/10/19/cfengine-var-refs/</guid>
             <description><![CDATA[
                 <p>Variables in CFEngine can be confusing at times. Here are some examples of
 variable references. References are not strictly required, but they are good
 practice like using the strict module in Perl.</p>
 
-                    <p><a href="http://ettin/blog/2012/10/19/cfengine-var-refs/#section-2">Continue reading...</a></p>
+                    <p><a href="http://watson-wilson.ca/blog/2012/10/19/cfengine-var-refs/#section-2">Continue reading...</a></p>
                 <p>Tags:
-                    <a href="http://ettin/blog/tag/cfengine/">cfengine</a>
+                    <a href="http://watson-wilson.ca/blog/tag/cfengine/">cfengine</a>
                 </p>
             ]]></description>
             <pubDate>
@@ -26,19 +26,19 @@ practice like using the strict module in Perl.</p>
         </item>
         <item>
             <title>Backups using Cfengine</title>
-            <link>http://ettin/blog/2011/10/02/cfengine-backups/</link>
-            <guid>http://ettin/blog/2011/10/02/cfengine-backups/</guid>
+            <link>http://watson-wilson.ca/blog/2011/10/02/cfengine-backups/</link>
+            <guid>http://watson-wilson.ca/blog/2011/10/02/cfengine-backups/</guid>
             <description><![CDATA[
                 <h3>Problem</h3>
 
 <p>You want to use Cfengine for scheduling backups instead of crond.</p>
 
-                    <p><a href="http://ettin/blog/2011/10/02/cfengine-backups/#section-2">Continue reading...</a></p>
+                    <p><a href="http://watson-wilson.ca/blog/2011/10/02/cfengine-backups/#section-2">Continue reading...</a></p>
                 <p>Tags:
-                    <a href="http://ettin/blog/tag/cfengine/">cfengine</a>
-                    <a href="http://ettin/blog/tag/cfengine-cookbook/">cfengine cookbook</a>
-                    <a href="http://ettin/blog/tag/backup/">backup</a>
-                    <a href="http://ettin/blog/tag/dr/">dr</a>
+                    <a href="http://watson-wilson.ca/blog/tag/cfengine/">cfengine</a>
+                    <a href="http://watson-wilson.ca/blog/tag/cfengine-cookbook/">cfengine cookbook</a>
+                    <a href="http://watson-wilson.ca/blog/tag/backup/">backup</a>
+                    <a href="http://watson-wilson.ca/blog/tag/dr/">dr</a>
                 </p>
             ]]></description>
             <pubDate>
@@ -47,17 +47,17 @@ practice like using the strict module in Perl.</p>
         </item>
         <item>
             <title>CFEngine as a crond alternative</title>
-            <link>http://ettin/blog/2011/09/27/cfengine-alt-crond/</link>
-            <guid>http://ettin/blog/2011/09/27/cfengine-alt-crond/</guid>
+            <link>http://watson-wilson.ca/blog/2011/09/27/cfengine-alt-crond/</link>
+            <guid>http://watson-wilson.ca/blog/2011/09/27/cfengine-alt-crond/</guid>
             <description><![CDATA[
                 <p>CFEngine’s time based classes and promise theory make it an attractive
 alternative to venerable crond.</p>
 
-                    <p><a href="http://ettin/blog/2011/09/27/cfengine-alt-crond/#section-2">Continue reading...</a></p>
+                    <p><a href="http://watson-wilson.ca/blog/2011/09/27/cfengine-alt-crond/#section-2">Continue reading...</a></p>
                 <p>Tags:
-                    <a href="http://ettin/blog/tag/cfengine/">cfengine</a>
-                    <a href="http://ettin/blog/tag/configuration-management/">configuration management</a>
-                    <a href="http://ettin/blog/tag/cron/">cron</a>
+                    <a href="http://watson-wilson.ca/blog/tag/cfengine/">cfengine</a>
+                    <a href="http://watson-wilson.ca/blog/tag/configuration-management/">configuration management</a>
+                    <a href="http://watson-wilson.ca/blog/tag/cron/">cron</a>
                 </p>
             ]]></description>
             <pubDate>
@@ -66,18 +66,18 @@ alternative to venerable crond.</p>
         </item>
         <item>
             <title>Dynamic bundlesequence in CFEngine</title>
-            <link>http://ettin/blog/2011/09/16/cfengine-dynamic-bundlesequence/</link>
-            <guid>http://ettin/blog/2011/09/16/cfengine-dynamic-bundlesequence/</guid>
+            <link>http://watson-wilson.ca/blog/2011/09/16/cfengine-dynamic-bundlesequence/</link>
+            <guid>http://watson-wilson.ca/blog/2011/09/16/cfengine-dynamic-bundlesequence/</guid>
             <description><![CDATA[
                 <h3>Problem</h3>
 
 <p>You want to have your bundlesequence change based on class.</p>
 
-                    <p><a href="http://ettin/blog/2011/09/16/cfengine-dynamic-bundlesequence/#section-2">Continue reading...</a></p>
+                    <p><a href="http://watson-wilson.ca/blog/2011/09/16/cfengine-dynamic-bundlesequence/#section-2">Continue reading...</a></p>
                 <p>Tags:
-                    <a href="http://ettin/blog/tag/cfengine/">cfengine</a>
-                    <a href="http://ettin/blog/tag/cfengine-cookbook/">cfengine cookbook</a>
-                    <a href="http://ettin/blog/tag/configuration-management/">configuration management</a>
+                    <a href="http://watson-wilson.ca/blog/tag/cfengine/">cfengine</a>
+                    <a href="http://watson-wilson.ca/blog/tag/cfengine-cookbook/">cfengine cookbook</a>
+                    <a href="http://watson-wilson.ca/blog/tag/configuration-management/">configuration management</a>
                 </p>
             ]]></description>
             <pubDate>
@@ -86,8 +86,8 @@ alternative to venerable crond.</p>
         </item>
         <item>
             <title>Template files using CFEngine</title>
-            <link>http://ettin/blog/2011/05/26/cfengine-templates/</link>
-            <guid>http://ettin/blog/2011/05/26/cfengine-templates/</guid>
+            <link>http://watson-wilson.ca/blog/2011/05/26/cfengine-templates/</link>
+            <guid>http://watson-wilson.ca/blog/2011/05/26/cfengine-templates/</guid>
             <description><![CDATA[
                 <h3>Problem</h3>
 
@@ -95,11 +95,11 @@ alternative to venerable crond.</p>
 resides on. This makes file copy promises impractical. Who wants to copy a
 different file for so many hosts? Sysadmins are a lazy lot.</p>
 
-                    <p><a href="http://ettin/blog/2011/05/26/cfengine-templates/#section-2">Continue reading...</a></p>
+                    <p><a href="http://watson-wilson.ca/blog/2011/05/26/cfengine-templates/#section-2">Continue reading...</a></p>
                 <p>Tags:
-                    <a href="http://ettin/blog/tag/cfengine/">cfengine</a>
-                    <a href="http://ettin/blog/tag/cfengine-cookbook/">cfengine cookbook</a>
-                    <a href="http://ettin/blog/tag/configuration-management/">configuration management</a>
+                    <a href="http://watson-wilson.ca/blog/tag/cfengine/">cfengine</a>
+                    <a href="http://watson-wilson.ca/blog/tag/cfengine-cookbook/">cfengine cookbook</a>
+                    <a href="http://watson-wilson.ca/blog/tag/configuration-management/">configuration management</a>
                 </p>
             ]]></description>
             <pubDate>

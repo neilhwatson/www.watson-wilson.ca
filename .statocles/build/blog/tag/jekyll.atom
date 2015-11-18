@@ -1,26 +1,26 @@
 <?xml version="1.0"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>http://ettin/blog/tag/jekyll/</id>
+    <id>http://watson-wilson.ca/blog/tag/jekyll/</id>
     <title>Neil H. Watson</title>
-    <updated>2015-11-17T13:27:55Z</updated>
-    <link href="http://ettin/blog/tag/jekyll.atom" rel="self" />
-    <link href="http://ettin/blog/tag/jekyll/" rel="alternate" />
+    <updated>2015-11-17T22:01:04Z</updated>
+    <link href="http://watson-wilson.ca/blog/tag/jekyll.atom" rel="self" />
+    <link href="http://watson-wilson.ca/blog/tag/jekyll/" rel="alternate" />
     <generator version="0.059">Statocles</generator>
     <entry>
-        <id>http://ettin/blog/2015/11/17/new_site/</id>
+        <id>http://watson-wilson.ca/blog/2015/11/17/new_site/</id>
         <title>New site</title>
-        <link href="http://ettin/blog/2015/11/17/new_site/" rel="alternate" />
+        <link href="http://watson-wilson.ca/blog/2015/11/17/new_site/" rel="alternate" />
         <content type="html"><![CDATA[
-            <p><img alt="Perl logo" src="http://ettin/static/images/perl_camel.gif" style="float:right"></p>
+            <p><img alt="Perl logo" src="http://watson-wilson.ca/static/images/perl_camel.gif" style="float:right"></p>
 
 <p>I used to power my site with <a href="https://movabletype.org/">Movable Type</a>, but that was removed from Debian. I have another site that is powered by <a href="http://wordpress.com">Wordpress</a>, but maintaining it is costly. I have to constantly be on top of security issues, and the built in editor is tedious for a console cowboy like me. I do not use hosting services, because doing it myself helps keep my skills sharp.</p>
 
-                <p><a href="http://ettin/blog/2015/11/17/new_site/#section-2">Continue reading...</a></p>
+                <p><a href="http://watson-wilson.ca/blog/2015/11/17/new_site/#section-2">Continue reading...</a></p>
             <p>Tags:
-                <a href="http://ettin/blog/tag/website/">website</a>
-                <a href="http://ettin/blog/tag/perl/">perl</a>
-                <a href="http://ettin/blog/tag/jekyll/">jekyll</a>
-                <a href="http://ettin/blog/tag/statocles/">statocles</a>
+                <a href="http://watson-wilson.ca/blog/tag/website/">website</a>
+                <a href="http://watson-wilson.ca/blog/tag/perl/">perl</a>
+                <a href="http://watson-wilson.ca/blog/tag/jekyll/">jekyll</a>
+                <a href="http://watson-wilson.ca/blog/tag/statocles/">statocles</a>
             </p>
         ]]></content>
         <updated>2015-11-17T00:00:00Z</updated>

@@ -1,23 +1,23 @@
 <?xml version="1.0"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>http://ettin/blog/tag/ipv6/</id>
+    <id>http://watson-wilson.ca/blog/tag/ipv6/</id>
     <title>Neil H. Watson</title>
-    <updated>2015-11-17T13:28:02Z</updated>
-    <link href="http://ettin/blog/tag/ipv6.atom" rel="self" />
-    <link href="http://ettin/blog/tag/ipv6/" rel="alternate" />
+    <updated>2015-11-17T22:01:02Z</updated>
+    <link href="http://watson-wilson.ca/blog/tag/ipv6.atom" rel="self" />
+    <link href="http://watson-wilson.ca/blog/tag/ipv6/" rel="alternate" />
     <generator version="0.059">Statocles</generator>
     <entry>
-        <id>http://ettin/blog/2012/08/01/ipv6-migration-part8/</id>
+        <id>http://watson-wilson.ca/blog/2012/08/01/ipv6-migration-part8/</id>
         <title>IPv6 Migration part 8</title>
-        <link href="http://ettin/blog/2012/08/01/ipv6-migration-part8/" rel="alternate" />
+        <link href="http://watson-wilson.ca/blog/2012/08/01/ipv6-migration-part8/" rel="alternate" />
         <content type="html"><![CDATA[
             <p>DNS for IPV6 is just like IPV4, but longer. In part 2 I discussed DNS quad A
 records. Now I&#39;ll explain IPV6 PTR records.</p>
 
-                <p><a href="http://ettin/blog/2012/08/01/ipv6-migration-part8/#section-2">Continue reading...</a></p>
+                <p><a href="http://watson-wilson.ca/blog/2012/08/01/ipv6-migration-part8/#section-2">Continue reading...</a></p>
             <p>Tags:
-                <a href="http://ettin/blog/tag/ipv6/">ipv6</a>
-                <a href="http://ettin/blog/tag/networking/">networking</a>
+                <a href="http://watson-wilson.ca/blog/tag/ipv6/">ipv6</a>
+                <a href="http://watson-wilson.ca/blog/tag/networking/">networking</a>
             </p>
         ]]></content>
         <updated>2012-08-01T00:00:00Z</updated>
@@ -25,19 +25,19 @@ records. Now I&#39;ll explain IPV6 PTR records.</p>
         <category term="networking" />
     </entry>
     <entry>
-        <id>http://ettin/blog/2012/07/25/ipv6-migration-part7/</id>
+        <id>http://watson-wilson.ca/blog/2012/07/25/ipv6-migration-part7/</id>
         <title>IPv6 Migration part 7</title>
-        <link href="http://ettin/blog/2012/07/25/ipv6-migration-part7/" rel="alternate" />
+        <link href="http://watson-wilson.ca/blog/2012/07/25/ipv6-migration-part7/" rel="alternate" />
         <content type="html"><![CDATA[
-            <p><img alt="Success with IPv6" src="http://ettin/static/images/ipv6-success-kid.jpg" style="float:right" width="300"></p>
+            <p><img alt="Success with IPv6" src="http://watson-wilson.ca/static/images/ipv6-success-kid.jpg" style="float:right" width="300"></p>
 
 <p>I&#39;ve broken up with <a href="https://www.sixxs.net/">SixXS</a>.
 <a href="http://he.net">Hurricane Electric</a> is my new girl.</p>
 
-                <p><a href="http://ettin/blog/2012/07/25/ipv6-migration-part7/#section-2">Continue reading...</a></p>
+                <p><a href="http://watson-wilson.ca/blog/2012/07/25/ipv6-migration-part7/#section-2">Continue reading...</a></p>
             <p>Tags:
-                <a href="http://ettin/blog/tag/ipv6/">ipv6</a>
-                <a href="http://ettin/blog/tag/networking/">networking</a>
+                <a href="http://watson-wilson.ca/blog/tag/ipv6/">ipv6</a>
+                <a href="http://watson-wilson.ca/blog/tag/networking/">networking</a>
             </p>
         ]]></content>
         <updated>2012-07-25T00:00:00Z</updated>
@@ -45,18 +45,18 @@ records. Now I&#39;ll explain IPV6 PTR records.</p>
         <category term="networking" />
     </entry>
     <entry>
-        <id>http://ettin/blog/2012/07/05/ipv6-migration-part6/</id>
+        <id>http://watson-wilson.ca/blog/2012/07/05/ipv6-migration-part6/</id>
         <title>IPv6 Migration part 6</title>
-        <link href="http://ettin/blog/2012/07/05/ipv6-migration-part6/" rel="alternate" />
+        <link href="http://watson-wilson.ca/blog/2012/07/05/ipv6-migration-part6/" rel="alternate" />
         <content type="html"><![CDATA[
             <p>Liberation! Using IPV6, I have 18,446,744,073,709,551,616 public IP addresses.
 This is considered a small offering (/64). Normally, an organization would get
 a /48 network that contains 65536 /64 subnets.</p>
 
-                <p><a href="http://ettin/blog/2012/07/05/ipv6-migration-part6/#section-2">Continue reading...</a></p>
+                <p><a href="http://watson-wilson.ca/blog/2012/07/05/ipv6-migration-part6/#section-2">Continue reading...</a></p>
             <p>Tags:
-                <a href="http://ettin/blog/tag/ipv6/">ipv6</a>
-                <a href="http://ettin/blog/tag/networking/">networking</a>
+                <a href="http://watson-wilson.ca/blog/tag/ipv6/">ipv6</a>
+                <a href="http://watson-wilson.ca/blog/tag/networking/">networking</a>
             </p>
         ]]></content>
         <updated>2012-07-05T00:00:00Z</updated>
@@ -64,19 +64,19 @@ a /48 network that contains 65536 /64 subnets.</p>
         <category term="networking" />
     </entry>
     <entry>
-        <id>http://ettin/blog/2012/03/10/ipv6-migration-part5/</id>
+        <id>http://watson-wilson.ca/blog/2012/03/10/ipv6-migration-part5/</id>
         <title>IPv6 Migration part 5</title>
-        <link href="http://ettin/blog/2012/03/10/ipv6-migration-part5/" rel="alternate" />
+        <link href="http://watson-wilson.ca/blog/2012/03/10/ipv6-migration-part5/" rel="alternate" />
         <content type="html"><![CDATA[
-            <p><img alt="Success with IPv6" src="http://ettin/static/images/ipv6-success-kid.jpg" style="float:right" width="300"></p>
+            <p><img alt="Success with IPv6" src="http://watson-wilson.ca/static/images/ipv6-success-kid.jpg" style="float:right" width="300"></p>
 
 <p>My email server now functions on both IPV4 and IPV6 networks. Postfix is IPV6
 ready but, the configuration needed some adjustments.</p>
 
-                <p><a href="http://ettin/blog/2012/03/10/ipv6-migration-part5/#section-2">Continue reading...</a></p>
+                <p><a href="http://watson-wilson.ca/blog/2012/03/10/ipv6-migration-part5/#section-2">Continue reading...</a></p>
             <p>Tags:
-                <a href="http://ettin/blog/tag/ipv6/">ipv6</a>
-                <a href="http://ettin/blog/tag/networking/">networking</a>
+                <a href="http://watson-wilson.ca/blog/tag/ipv6/">ipv6</a>
+                <a href="http://watson-wilson.ca/blog/tag/networking/">networking</a>
             </p>
         ]]></content>
         <updated>2012-03-10T00:00:00Z</updated>
@@ -84,17 +84,17 @@ ready but, the configuration needed some adjustments.</p>
         <category term="networking" />
     </entry>
     <entry>
-        <id>http://ettin/blog/2012/03/05/ipv6-migration-part4/</id>
+        <id>http://watson-wilson.ca/blog/2012/03/05/ipv6-migration-part4/</id>
         <title>IPv6 Migration part 4</title>
-        <link href="http://ettin/blog/2012/03/05/ipv6-migration-part4/" rel="alternate" />
+        <link href="http://watson-wilson.ca/blog/2012/03/05/ipv6-migration-part4/" rel="alternate" />
         <content type="html"><![CDATA[
             <p>This website is now dual stacked to both IPV4 and IPV6. In part four of my IPV6
 series I&#39;ll tell you what I learned during this migration.</p>
 
-                <p><a href="http://ettin/blog/2012/03/05/ipv6-migration-part4/#section-2">Continue reading...</a></p>
+                <p><a href="http://watson-wilson.ca/blog/2012/03/05/ipv6-migration-part4/#section-2">Continue reading...</a></p>
             <p>Tags:
-                <a href="http://ettin/blog/tag/ipv6/">ipv6</a>
-                <a href="http://ettin/blog/tag/networking/">networking</a>
+                <a href="http://watson-wilson.ca/blog/tag/ipv6/">ipv6</a>
+                <a href="http://watson-wilson.ca/blog/tag/networking/">networking</a>
             </p>
         ]]></content>
         <updated>2012-03-05T00:00:00Z</updated>

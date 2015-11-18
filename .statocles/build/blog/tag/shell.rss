@@ -2,14 +2,14 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Neil H. Watson</title>
-        <link>http://ettin/blog/tag/shell/</link>
-        <atom:link href="http://ettin/blog/tag/shell.rss" rel="self" type="application/rss+xml" />
+        <link>http://watson-wilson.ca/blog/tag/shell/</link>
+        <atom:link href="http://watson-wilson.ca/blog/tag/shell.rss" rel="self" type="application/rss+xml" />
         <description>Blog feed of Neil H. Watson</description>
         <generator>Statocles 0.059</generator>
         <item>
             <title>Shell cheatsheet</title>
-            <link>http://ettin/blog/2011/03/08/shell-cheatsheet/</link>
-            <guid>http://ettin/blog/2011/03/08/shell-cheatsheet/</guid>
+            <link>http://watson-wilson.ca/blog/2011/03/08/shell-cheatsheet/</link>
+            <guid>http://watson-wilson.ca/blog/2011/03/08/shell-cheatsheet/</guid>
             <description><![CDATA[
                 <p>The following may not apply to all shells.</p>
 
@@ -44,11 +44,11 @@
 work. Pressing enter returns to normal mode.</p></li>
 </ul>
 
-                    <p><a href="http://ettin/blog/2011/03/08/shell-cheatsheet/#section-2">Continue reading...</a></p>
+                    <p><a href="http://watson-wilson.ca/blog/2011/03/08/shell-cheatsheet/#section-2">Continue reading...</a></p>
                 <p>Tags:
-                    <a href="http://ettin/blog/tag/shell/">shell</a>
-                    <a href="http://ettin/blog/tag/cli/">cli</a>
-                    <a href="http://ettin/blog/tag/cheatsheet/">cheatsheet</a>
+                    <a href="http://watson-wilson.ca/blog/tag/shell/">shell</a>
+                    <a href="http://watson-wilson.ca/blog/tag/cli/">cli</a>
+                    <a href="http://watson-wilson.ca/blog/tag/cheatsheet/">cheatsheet</a>
                 </p>
             ]]></description>
             <pubDate>
@@ -57,8 +57,8 @@ work. Pressing enter returns to normal mode.</p></li>
         </item>
         <item>
             <title>GNU Screen cheatsheet</title>
-            <link>http://ettin/blog/2011/03/08/gnu-screen-cheatsheet/</link>
-            <guid>http://ettin/blog/2011/03/08/gnu-screen-cheatsheet/</guid>
+            <link>http://watson-wilson.ca/blog/2011/03/08/gnu-screen-cheatsheet/</link>
+            <guid>http://watson-wilson.ca/blog/2011/03/08/gnu-screen-cheatsheet/</guid>
             <description><![CDATA[
                 <table>
 <tr>
@@ -103,11 +103,11 @@ work. Pressing enter returns to normal mode.</p></li>
 </tr>
 </table>
 
-                    <p><a href="http://ettin/blog/2011/03/08/gnu-screen-cheatsheet/#section-2">Continue reading...</a></p>
+                    <p><a href="http://watson-wilson.ca/blog/2011/03/08/gnu-screen-cheatsheet/#section-2">Continue reading...</a></p>
                 <p>Tags:
-                    <a href="http://ettin/blog/tag/shell/">shell</a>
-                    <a href="http://ettin/blog/tag/cli/">cli</a>
-                    <a href="http://ettin/blog/tag/cheatsheet/">cheatsheet</a>
+                    <a href="http://watson-wilson.ca/blog/tag/shell/">shell</a>
+                    <a href="http://watson-wilson.ca/blog/tag/cli/">cli</a>
+                    <a href="http://watson-wilson.ca/blog/tag/cheatsheet/">cheatsheet</a>
                 </p>
             ]]></description>
             <pubDate>

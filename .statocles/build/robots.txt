@@ -1,4 +1,4 @@
-Sitemap: http://ettin/sitemap.xml
+Sitemap: http://watson-wilson.ca/sitemap.xml
 User-Agent: *
 Disallow:
 

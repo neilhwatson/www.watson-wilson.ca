@@ -1,15 +1,15 @@
 <?xml version="1.0"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>http://ettin/blog/tag/rhev/</id>
+    <id>http://watson-wilson.ca/blog/tag/rhev/</id>
     <title>Neil H. Watson</title>
-    <updated>2015-11-17T13:28:00Z</updated>
-    <link href="http://ettin/blog/tag/rhev.atom" rel="self" />
-    <link href="http://ettin/blog/tag/rhev/" rel="alternate" />
+    <updated>2015-11-17T22:01:03Z</updated>
+    <link href="http://watson-wilson.ca/blog/tag/rhev.atom" rel="self" />
+    <link href="http://watson-wilson.ca/blog/tag/rhev/" rel="alternate" />
     <generator version="0.059">Statocles</generator>
     <entry>
-        <id>http://ettin/blog/2011/05/09/rhev-overview/</id>
+        <id>http://watson-wilson.ca/blog/2011/05/09/rhev-overview/</id>
         <title>A brief overview of Red Hat Enterprise Virtualization</title>
-        <link href="http://ettin/blog/2011/05/09/rhev-overview/" rel="alternate" />
+        <link href="http://watson-wilson.ca/blog/2011/05/09/rhev-overview/" rel="alternate" />
         <content type="html"><![CDATA[
             <p>Red Hat Enterprise Virtualization is a fairly new product offering from Red
 Hat. Red Hat acquired RHEV when they purchased Qumranet in September 2008.
@@ -17,11 +17,11 @@ Qumranet created KVM when they created a Windows desktop virtualization product
 . RHEV is the evolution of that product and in the hands of Red Hat it offers a
 virtualization solution for both desktops and servers, Linux and Windows.</p>
 
-                <p><a href="http://ettin/blog/2011/05/09/rhev-overview/#section-2">Continue reading...</a></p>
+                <p><a href="http://watson-wilson.ca/blog/2011/05/09/rhev-overview/#section-2">Continue reading...</a></p>
             <p>Tags:
-                <a href="http://ettin/blog/tag/rhev/">rhev</a>
-                <a href="http://ettin/blog/tag/vitualization/">vitualization</a>
-                <a href="http://ettin/blog/tag/kvm/">kvm</a>
+                <a href="http://watson-wilson.ca/blog/tag/rhev/">rhev</a>
+                <a href="http://watson-wilson.ca/blog/tag/vitualization/">vitualization</a>
+                <a href="http://watson-wilson.ca/blog/tag/kvm/">kvm</a>
             </p>
         ]]></content>
         <updated>2011-05-09T00:00:00Z</updated>

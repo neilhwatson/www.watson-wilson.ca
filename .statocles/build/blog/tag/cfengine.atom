@@ -1,43 +1,43 @@
 <?xml version="1.0"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>http://ettin/blog/tag/cfengine/</id>
+    <id>http://watson-wilson.ca/blog/tag/cfengine/</id>
     <title>Neil H. Watson</title>
-    <updated>2015-11-17T13:28:02Z</updated>
-    <link href="http://ettin/blog/tag/cfengine.atom" rel="self" />
-    <link href="http://ettin/blog/tag/cfengine/" rel="alternate" />
+    <updated>2015-11-17T22:01:08Z</updated>
+    <link href="http://watson-wilson.ca/blog/tag/cfengine.atom" rel="self" />
+    <link href="http://watson-wilson.ca/blog/tag/cfengine/" rel="alternate" />
     <generator version="0.059">Statocles</generator>
     <entry>
-        <id>http://ettin/blog/2012/10/19/cfengine-var-refs/</id>
+        <id>http://watson-wilson.ca/blog/2012/10/19/cfengine-var-refs/</id>
         <title>Variable references with CFEngine</title>
-        <link href="http://ettin/blog/2012/10/19/cfengine-var-refs/" rel="alternate" />
+        <link href="http://watson-wilson.ca/blog/2012/10/19/cfengine-var-refs/" rel="alternate" />
         <content type="html"><![CDATA[
             <p>Variables in CFEngine can be confusing at times. Here are some examples of
 variable references. References are not strictly required, but they are good
 practice like using the strict module in Perl.</p>
 
-                <p><a href="http://ettin/blog/2012/10/19/cfengine-var-refs/#section-2">Continue reading...</a></p>
+                <p><a href="http://watson-wilson.ca/blog/2012/10/19/cfengine-var-refs/#section-2">Continue reading...</a></p>
             <p>Tags:
-                <a href="http://ettin/blog/tag/cfengine/">cfengine</a>
+                <a href="http://watson-wilson.ca/blog/tag/cfengine/">cfengine</a>
             </p>
         ]]></content>
         <updated>2012-10-19T00:00:00Z</updated>
         <category term="cfengine" />
     </entry>
     <entry>
-        <id>http://ettin/blog/2011/10/02/cfengine-backups/</id>
+        <id>http://watson-wilson.ca/blog/2011/10/02/cfengine-backups/</id>
         <title>Backups using Cfengine</title>
-        <link href="http://ettin/blog/2011/10/02/cfengine-backups/" rel="alternate" />
+        <link href="http://watson-wilson.ca/blog/2011/10/02/cfengine-backups/" rel="alternate" />
         <content type="html"><![CDATA[
             <h3>Problem</h3>
 
 <p>You want to use Cfengine for scheduling backups instead of crond.</p>
 
-                <p><a href="http://ettin/blog/2011/10/02/cfengine-backups/#section-2">Continue reading...</a></p>
+                <p><a href="http://watson-wilson.ca/blog/2011/10/02/cfengine-backups/#section-2">Continue reading...</a></p>
             <p>Tags:
-                <a href="http://ettin/blog/tag/cfengine/">cfengine</a>
-                <a href="http://ettin/blog/tag/cfengine-cookbook/">cfengine cookbook</a>
-                <a href="http://ettin/blog/tag/backup/">backup</a>
-                <a href="http://ettin/blog/tag/dr/">dr</a>
+                <a href="http://watson-wilson.ca/blog/tag/cfengine/">cfengine</a>
+                <a href="http://watson-wilson.ca/blog/tag/cfengine-cookbook/">cfengine cookbook</a>
+                <a href="http://watson-wilson.ca/blog/tag/backup/">backup</a>
+                <a href="http://watson-wilson.ca/blog/tag/dr/">dr</a>
             </p>
         ]]></content>
         <updated>2011-10-02T00:00:00Z</updated>
@@ -47,18 +47,18 @@ practice like using the strict module in Perl.</p>
         <category term="dr" />
     </entry>
     <entry>
-        <id>http://ettin/blog/2011/09/27/cfengine-alt-crond/</id>
+        <id>http://watson-wilson.ca/blog/2011/09/27/cfengine-alt-crond/</id>
         <title>CFEngine as a crond alternative</title>
-        <link href="http://ettin/blog/2011/09/27/cfengine-alt-crond/" rel="alternate" />
+        <link href="http://watson-wilson.ca/blog/2011/09/27/cfengine-alt-crond/" rel="alternate" />
         <content type="html"><![CDATA[
             <p>CFEngine’s time based classes and promise theory make it an attractive
 alternative to venerable crond.</p>
 
-                <p><a href="http://ettin/blog/2011/09/27/cfengine-alt-crond/#section-2">Continue reading...</a></p>
+                <p><a href="http://watson-wilson.ca/blog/2011/09/27/cfengine-alt-crond/#section-2">Continue reading...</a></p>
             <p>Tags:
-                <a href="http://ettin/blog/tag/cfengine/">cfengine</a>
-                <a href="http://ettin/blog/tag/configuration-management/">configuration management</a>
-                <a href="http://ettin/blog/tag/cron/">cron</a>
+                <a href="http://watson-wilson.ca/blog/tag/cfengine/">cfengine</a>
+                <a href="http://watson-wilson.ca/blog/tag/configuration-management/">configuration management</a>
+                <a href="http://watson-wilson.ca/blog/tag/cron/">cron</a>
             </p>
         ]]></content>
         <updated>2011-09-27T00:00:00Z</updated>
@@ -67,19 +67,19 @@ alternative to venerable crond.</p>
         <category term="cron" />
     </entry>
     <entry>
-        <id>http://ettin/blog/2011/09/16/cfengine-dynamic-bundlesequence/</id>
+        <id>http://watson-wilson.ca/blog/2011/09/16/cfengine-dynamic-bundlesequence/</id>
         <title>Dynamic bundlesequence in CFEngine</title>
-        <link href="http://ettin/blog/2011/09/16/cfengine-dynamic-bundlesequence/" rel="alternate" />
+        <link href="http://watson-wilson.ca/blog/2011/09/16/cfengine-dynamic-bundlesequence/" rel="alternate" />
         <content type="html"><![CDATA[
             <h3>Problem</h3>
 
 <p>You want to have your bundlesequence change based on class.</p>
 
-                <p><a href="http://ettin/blog/2011/09/16/cfengine-dynamic-bundlesequence/#section-2">Continue reading...</a></p>
+                <p><a href="http://watson-wilson.ca/blog/2011/09/16/cfengine-dynamic-bundlesequence/#section-2">Continue reading...</a></p>
             <p>Tags:
-                <a href="http://ettin/blog/tag/cfengine/">cfengine</a>
-                <a href="http://ettin/blog/tag/cfengine-cookbook/">cfengine cookbook</a>
-                <a href="http://ettin/blog/tag/configuration-management/">configuration management</a>
+                <a href="http://watson-wilson.ca/blog/tag/cfengine/">cfengine</a>
+                <a href="http://watson-wilson.ca/blog/tag/cfengine-cookbook/">cfengine cookbook</a>
+                <a href="http://watson-wilson.ca/blog/tag/configuration-management/">configuration management</a>
             </p>
         ]]></content>
         <updated>2011-09-16T00:00:00Z</updated>
@@ -88,9 +88,9 @@ alternative to venerable crond.</p>
         <category term="configuration management" />
     </entry>
     <entry>
-        <id>http://ettin/blog/2011/05/26/cfengine-templates/</id>
+        <id>http://watson-wilson.ca/blog/2011/05/26/cfengine-templates/</id>
         <title>Template files using CFEngine</title>
-        <link href="http://ettin/blog/2011/05/26/cfengine-templates/" rel="alternate" />
+        <link href="http://watson-wilson.ca/blog/2011/05/26/cfengine-templates/" rel="alternate" />
         <content type="html"><![CDATA[
             <h3>Problem</h3>
 
@@ -98,11 +98,11 @@ alternative to venerable crond.</p>
 resides on. This makes file copy promises impractical. Who wants to copy a
 different file for so many hosts? Sysadmins are a lazy lot.</p>
 
-                <p><a href="http://ettin/blog/2011/05/26/cfengine-templates/#section-2">Continue reading...</a></p>
+                <p><a href="http://watson-wilson.ca/blog/2011/05/26/cfengine-templates/#section-2">Continue reading...</a></p>
             <p>Tags:
-                <a href="http://ettin/blog/tag/cfengine/">cfengine</a>
-                <a href="http://ettin/blog/tag/cfengine-cookbook/">cfengine cookbook</a>
-                <a href="http://ettin/blog/tag/configuration-management/">configuration management</a>
+                <a href="http://watson-wilson.ca/blog/tag/cfengine/">cfengine</a>
+                <a href="http://watson-wilson.ca/blog/tag/cfengine-cookbook/">cfengine cookbook</a>
+                <a href="http://watson-wilson.ca/blog/tag/configuration-management/">configuration management</a>
             </p>
         ]]></content>
         <updated>2011-05-26T00:00:00Z</updated>
