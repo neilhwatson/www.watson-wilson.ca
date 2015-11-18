@@ -1,247 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-        <loc>http://watson-wilson.ca/blog/2011/05/26/cfengine-storage/</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.5</priority>
-        <lastmod>2011-05-26</lastmod>
-    </url>
-    <url>
-        <loc>http://watson-wilson.ca/blog/tag/cron/</loc>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-        <lastmod>2011-09-27</lastmod>
-    </url>
-    <url>
-        <loc>http://watson-wilson.ca/blog/tag/red-hat/</loc>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-        <lastmod>2007-08-08</lastmod>
-    </url>
-    <url>
-        <loc>http://watson-wilson.ca/blog/tag/san/</loc>
+        <loc>http://watson-wilson.ca/blog/tag/multipathd/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
         <lastmod>2011-03-08</lastmod>
-    </url>
-    <url>
-        <loc>http://watson-wilson.ca/blog/tag/statocles/</loc>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-        <lastmod>2015-11-17</lastmod>
-    </url>
-    <url>
-        <loc>http://watson-wilson.ca/blog/2012/03/10/ipv6-migration-part5/</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.5</priority>
-        <lastmod>2012-03-10</lastmod>
-    </url>
-    <url>
-        <loc>http://watson-wilson.ca/blog/page/6/</loc>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-        <lastmod>2015-11-17</lastmod>
-    </url>
-    <url>
-        <loc>http://watson-wilson.ca/blog/2011/03/08/enterprise-sysadmin/</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.5</priority>
-        <lastmod>2011-03-08</lastmod>
-    </url>
-    <url>
-        <loc>http://watson-wilson.ca/blog/tag/cheatsheet/</loc>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-        <lastmod>2011-03-08</lastmod>
-    </url>
-    <url>
-        <loc>http://watson-wilson.ca/blog/2011/12/06/ipv6-migration-part2/</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.5</priority>
-        <lastmod>2011-12-06</lastmod>
-    </url>
-    <url>
-        <loc>http://watson-wilson.ca/blog/page/8/</loc>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-        <lastmod>2015-11-17</lastmod>
-    </url>
-    <url>
-        <loc>http://watson-wilson.ca/blog/tag/oracle/</loc>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-        <lastmod>2011-03-08</lastmod>
-    </url>
-    <url>
-        <loc>http://watson-wilson.ca/blog/tag/linux/</loc>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-        <lastmod>2011-03-08</lastmod>
-    </url>
-    <url>
-        <loc>http://watson-wilson.ca/blog/page/7/</loc>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-        <lastmod>2015-11-17</lastmod>
-    </url>
-    <url>
-        <loc>http://watson-wilson.ca/blog/tag/networking/</loc>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-        <lastmod>2012-08-01</lastmod>
-    </url>
-    <url>
-        <loc>http://watson-wilson.ca/blog/2011/05/26/cfengine-templates/</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.5</priority>
-        <lastmod>2011-05-26</lastmod>
-    </url>
-    <url>
-        <loc>http://watson-wilson.ca/blog/2011/03/08/svn-cheatsheet/</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.5</priority>
-        <lastmod>2011-03-08</lastmod>
-    </url>
-    <url>
-        <loc>http://watson-wilson.ca/blog/tag/support/</loc>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-        <lastmod>2011-03-08</lastmod>
-    </url>
-    <url>
-        <loc>http://watson-wilson.ca/blog/tag/jekyll/</loc>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-        <lastmod>2015-11-17</lastmod>
     </url>
     <url>
         <loc>http://watson-wilson.ca/blog/tag/cheatsheet/page/2/</loc>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-        <lastmod>2011-03-08</lastmod>
-    </url>
-    <url>
-        <loc>http://watson-wilson.ca/blog/2011/09/27/cfengine-alt-crond/</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.5</priority>
-        <lastmod>2011-09-27</lastmod>
-    </url>
-    <url>
-        <loc>http://watson-wilson.ca/blog/2011/12/23/ipv6-migration-part3/</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.5</priority>
-        <lastmod>2011-12-23</lastmod>
-    </url>
-    <url>
-        <loc>http://watson-wilson.ca/blog/2011/10/02/cfengine-backups/</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.5</priority>
-        <lastmod>2011-10-02</lastmod>
-    </url>
-    <url>
-        <loc>http://watson-wilson.ca/blog/tag/dr/</loc>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-        <lastmod>2011-10-02</lastmod>
-    </url>
-    <url>
-        <loc>http://watson-wilson.ca/blog/2011/03/08/multipathd-testing/</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.5</priority>
-        <lastmod>2011-03-08</lastmod>
-    </url>
-    <url>
-        <loc>http://watson-wilson.ca/blog/tag/cluster/</loc>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-        <lastmod>2011-03-07</lastmod>
-    </url>
-    <url>
-        <loc>http://watson-wilson.ca/blog/2013/02/22/dns-renaming/</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.5</priority>
-        <lastmod>2013-02-22</lastmod>
-    </url>
-    <url>
-        <loc>http://watson-wilson.ca/blog/2007/08/08/clustering-with-redhat/</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.5</priority>
-        <lastmod>2007-08-08</lastmod>
-    </url>
-    <url>
-        <loc>http://watson-wilson.ca/blog/tag/cfengine/</loc>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-        <lastmod>2012-10-19</lastmod>
-    </url>
-    <url>
-        <loc>http://watson-wilson.ca/blog/tag/opensource/</loc>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-        <lastmod>2011-03-08</lastmod>
-    </url>
-    <url>
-        <loc>http://watson-wilson.ca/blog/tag/subversion/</loc>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-        <lastmod>2011-03-08</lastmod>
-    </url>
-    <url>
-        <loc>http://watson-wilson.ca/blog/tag/shell/</loc>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-        <lastmod>2011-03-08</lastmod>
-    </url>
-    <url>
-        <loc>http://watson-wilson.ca/blog/tag/kvm/</loc>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-        <lastmod>2011-05-09</lastmod>
-    </url>
-    <url>
-        <loc>http://watson-wilson.ca/blog/2011/03/03/host-naming/</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.5</priority>
-        <lastmod>2011-03-03</lastmod>
-    </url>
-    <url>
-        <loc>http://watson-wilson.ca/blog/2011/05/24/cfengine-links/</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.5</priority>
-        <lastmod>2011-05-24</lastmod>
-    </url>
-    <url>
-        <loc>http://watson-wilson.ca/blog/2011/03/08/linux-network-cheatsheet/</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.5</priority>
-        <lastmod>2011-03-08</lastmod>
-    </url>
-    <url>
-        <loc>http://watson-wilson.ca/blog/tag/cfengine-cookbook/</loc>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-        <lastmod>2011-10-02</lastmod>
-    </url>
-    <url>
-        <loc>http://watson-wilson.ca/page/</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.5</priority>
-        <lastmod>2015-11-17</lastmod>
-    </url>
-    <url>
-        <loc>http://watson-wilson.ca/blog/tag/ipv6/page/2/</loc>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-        <lastmod>2012-08-01</lastmod>
-    </url>
-    <url>
-        <loc>http://watson-wilson.ca/blog/2011/03/08/gnu-screen-cheatsheet/</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.5</priority>
-        <lastmod>2011-03-08</lastmod>
-    </url>
-    <url>
-        <loc>http://watson-wilson.ca/blog/tag/regex/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
         <lastmod>2011-03-08</lastmod>
@@ -253,28 +19,58 @@
         <lastmod>2012-08-01</lastmod>
     </url>
     <url>
-        <loc>http://watson-wilson.ca/blog/2011/03/08/solaris-cheatsheet/</loc>
+        <loc>http://watson-wilson.ca/page/projects/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2015-11-17</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/2011/03/07/heatbeat2-cheatsheet/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2011-03-07</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/tag/dr/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2011-10-02</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/tag/cfengine-cookbook/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2011-10-02</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/tag/iscsi/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2011-03-08</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/2011/05/26/cfengine-banning-process/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2011-05-26</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/2011/03/08/multipathd-testing/</loc>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
         <lastmod>2011-03-08</lastmod>
     </url>
     <url>
-        <loc>http://watson-wilson.ca/blog/2011/12/06/ipv6-migration-part1/</loc>
+        <loc>http://watson-wilson.ca/blog/2011/03/08/linux-network-cheatsheet/</loc>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
-        <lastmod>2011-12-06</lastmod>
+        <lastmod>2011-03-08</lastmod>
     </url>
     <url>
-        <loc>http://watson-wilson.ca/blog/tag/ipv6/</loc>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-        <lastmod>2012-08-01</lastmod>
-    </url>
-    <url>
-        <loc>http://watson-wilson.ca/blog/tag/cfengine/page/3/</loc>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-        <lastmod>2012-10-19</lastmod>
+        <loc>http://watson-wilson.ca/blog/2011/05/24/cfengine-links/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2011-05-24</lastmod>
     </url>
     <url>
         <loc>http://watson-wilson.ca/blog/2011/05/09/rhev-overview/</loc>
@@ -283,10 +79,244 @@
         <lastmod>2011-05-09</lastmod>
     </url>
     <url>
+        <loc>http://watson-wilson.ca/blog/tag/website/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2015-11-17</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/2011/03/08/gnu-screen-cheatsheet/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2011-03-08</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/page/5/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2015-11-17</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/2011/09/27/cfengine-alt-crond/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2011-09-27</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/tag/solaris/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2011-03-08</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/tag/san/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2011-03-08</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/2011/12/23/ipv6-migration-part3/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2011-12-23</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/tag/regex/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2011-03-08</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/tag/perl/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2015-11-17</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/tag/ipv6/page/2/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2012-08-01</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/2007/08/08/clustering-with-redhat/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2007-08-08</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/tag/subversion/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2011-03-08</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/2013/02/22/dns-renaming/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2013-02-22</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/tag/kvm/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2011-05-09</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/tag/statocles/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2015-11-17</lastmod>
+    </url>
+    <url>
         <loc>http://watson-wilson.ca/blog/tag/cli/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
         <lastmod>2011-03-08</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/tag/infosec/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2011-05-26</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/2011/05/26/cfengine-storage/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2011-05-26</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/page/7/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2015-11-17</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/tag/cfengine/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2012-10-19</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/2011/12/06/ipv6-migration-part2/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2011-12-06</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/tag/sysadmin/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2011-03-08</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/tag/apt/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2011-03-08</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/tag/rhev/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2011-05-09</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/tag/posix/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2011-03-08</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/tag/ssh/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2011-05-26</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/tag/cfengine-cookbook/page/2/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2011-10-02</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/2011/03/08/cfengine-tutorial/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2011-03-08</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/2011/05/26/cfengine-cron/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2011-05-26</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/2011/10/02/cfengine-backups/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2011-10-02</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/tag/ipv6/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2012-08-01</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/tag/support/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2011-03-08</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/tag/cfengine/page/3/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2012-10-19</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/tag/red-hat/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2007-08-08</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/2011/03/08/svn-cheatsheet/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2011-03-08</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/tag/opensource/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2011-03-08</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/2012/03/05/ipv6-migration-part4/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2012-03-05</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/2011/05/26/cfengine-start-process/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2011-05-26</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/2011/03/08/apt-cheatsheet/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2011-03-08</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/2011/03/03/host-naming/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2011-03-03</lastmod>
     </url>
     <url>
         <loc>http://watson-wilson.ca/blog/page/3/</loc>
@@ -295,7 +325,13 @@
         <lastmod>2015-11-17</lastmod>
     </url>
     <url>
-        <loc>http://watson-wilson.ca/blog/tag/sysadmin/</loc>
+        <loc>http://watson-wilson.ca/blog/2012/07/05/ipv6-migration-part6/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2012-07-05</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/tag/debian/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
         <lastmod>2011-03-08</lastmod>
@@ -307,121 +343,19 @@
         <lastmod>2011-03-08</lastmod>
     </url>
     <url>
-        <loc>http://watson-wilson.ca/blog/tag/debian/</loc>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-        <lastmod>2011-03-08</lastmod>
-    </url>
-    <url>
-        <loc>http://watson-wilson.ca/blog/tag/svn/</loc>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-        <lastmod>2011-03-08</lastmod>
-    </url>
-    <url>
-        <loc>http://watson-wilson.ca/blog/tag/networking/page/2/</loc>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-        <lastmod>2012-08-01</lastmod>
-    </url>
-    <url>
-        <loc>http://watson-wilson.ca/blog/2011/03/08/posix-regex-cheatsheet/</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.5</priority>
-        <lastmod>2011-03-08</lastmod>
-    </url>
-    <url>
-        <loc>http://watson-wilson.ca/blog/tag/posix/</loc>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-        <lastmod>2011-03-08</lastmod>
-    </url>
-    <url>
-        <loc>http://watson-wilson.ca/blog/tag/cfengine-cookbook/page/2/</loc>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-        <lastmod>2011-10-02</lastmod>
-    </url>
-    <url>
-        <loc>http://watson-wilson.ca/blog/2011/07/14/dr-for-soho/</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.5</priority>
-        <lastmod>2011-07-14</lastmod>
-    </url>
-    <url>
-        <loc>http://watson-wilson.ca/blog/tag/monitoring/</loc>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-        <lastmod>2011-05-26</lastmod>
-    </url>
-    <url>
-        <loc>http://watson-wilson.ca/blog/tag/multipathd/</loc>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-        <lastmod>2011-03-08</lastmod>
-    </url>
-    <url>
-        <loc>http://watson-wilson.ca/blog/tag/vitualization/</loc>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-        <lastmod>2011-05-09</lastmod>
-    </url>
-    <url>
-        <loc>http://watson-wilson.ca/blog/2011/05/26/cfengine-banning-process/</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.5</priority>
-        <lastmod>2011-05-26</lastmod>
-    </url>
-    <url>
-        <loc>http://watson-wilson.ca/blog/tag/heartbeat/</loc>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-        <lastmod>2011-03-07</lastmod>
-    </url>
-    <url>
-        <loc>http://watson-wilson.ca/blog/tag/apt/</loc>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-        <lastmod>2011-03-08</lastmod>
-    </url>
-    <url>
         <loc>http://watson-wilson.ca/blog/2012/10/19/cfengine-var-refs/</loc>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
         <lastmod>2012-10-19</lastmod>
     </url>
     <url>
-        <loc>http://watson-wilson.ca/blog/2011/03/07/heatbeat2-cheatsheet/</loc>
+        <loc>http://watson-wilson.ca/blog/2011/03/08/opensource-support/</loc>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
-        <lastmod>2011-03-07</lastmod>
+        <lastmod>2011-03-08</lastmod>
     </url>
     <url>
-        <loc>http://watson-wilson.ca/blog/page/5/</loc>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-        <lastmod>2015-11-17</lastmod>
-    </url>
-    <url>
-        <loc>http://watson-wilson.ca/blog/tag/configuration-management/page/2/</loc>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-        <lastmod>2011-09-27</lastmod>
-    </url>
-    <url>
-        <loc>http://watson-wilson.ca/blog/tag/website/</loc>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-        <lastmod>2015-11-17</lastmod>
-    </url>
-    <url>
-        <loc>http://watson-wilson.ca/blog/2015/11/17/new_site/</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.5</priority>
-        <lastmod>2015-11-17</lastmod>
-    </url>
-    <url>
-        <loc>http://watson-wilson.ca/blog/tag/ssh/</loc>
+        <loc>http://watson-wilson.ca/blog/tag/monitoring/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
         <lastmod>2011-05-26</lastmod>
@@ -433,34 +367,10 @@
         <lastmod>2011-09-16</lastmod>
     </url>
     <url>
-        <loc>http://watson-wilson.ca/blog/2011/05/26/cfengine-ssh-keys/</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.5</priority>
-        <lastmod>2011-05-26</lastmod>
-    </url>
-    <url>
-        <loc>http://watson-wilson.ca/blog/2011/05/26/cfengine-cron/</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.5</priority>
-        <lastmod>2011-05-26</lastmod>
-    </url>
-    <url>
-        <loc>http://watson-wilson.ca/blog/tag/iscsi/</loc>
+        <loc>http://watson-wilson.ca/blog/tag/networking/page/2/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2011-03-08</lastmod>
-    </url>
-    <url>
-        <loc>http://watson-wilson.ca/blog/tag/cfengine/page/2/</loc>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-        <lastmod>2012-10-19</lastmod>
-    </url>
-    <url>
-        <loc>http://watson-wilson.ca/blog/2012/07/05/ipv6-migration-part6/</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.5</priority>
-        <lastmod>2012-07-05</lastmod>
+        <lastmod>2012-08-01</lastmod>
     </url>
     <url>
         <loc>http://watson-wilson.ca/blog/tag/dns/</loc>
@@ -469,34 +379,22 @@
         <lastmod>2013-02-22</lastmod>
     </url>
     <url>
-        <loc>http://watson-wilson.ca/blog/page/4/</loc>
+        <loc>http://watson-wilson.ca/blog/tag/networking/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
+        <lastmod>2012-08-01</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/page/404/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
         <lastmod>2015-11-17</lastmod>
     </url>
     <url>
-        <loc>http://watson-wilson.ca/blog/2011/03/08/cfengine-tutorial/</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.5</priority>
-        <lastmod>2011-03-08</lastmod>
-    </url>
-    <url>
-        <loc>http://watson-wilson.ca/blog/tag/rhev/</loc>
+        <loc>http://watson-wilson.ca/blog/page/8/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2011-05-09</lastmod>
-    </url>
-    <url>
-        <loc>http://watson-wilson.ca/blog/tag/high-availability/</loc>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-        <lastmod>2007-08-08</lastmod>
-    </url>
-    <url>
-        <loc>http://watson-wilson.ca/blog/2012/07/25/ipv6-migration-part7/</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.5</priority>
-        <lastmod>2012-07-25</lastmod>
+        <lastmod>2015-11-17</lastmod>
     </url>
     <url>
         <loc>http://watson-wilson.ca/blog/2011/01/25/sec-autid-victory/</loc>
@@ -505,19 +403,187 @@
         <lastmod>2011-01-25</lastmod>
     </url>
     <url>
-        <loc>http://watson-wilson.ca/blog/2011/03/08/apt-cheatsheet/</loc>
+        <loc>http://watson-wilson.ca/blog/tag/cheatsheet/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2011-03-08</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/2015/11/17/new_site/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2015-11-17</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/tag/cfengine/page/2/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2012-10-19</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/page/4/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2015-11-17</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/2011/07/14/dr-for-soho/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2011-07-14</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/page/about/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2015-11-17</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/tag/linux/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2011-03-08</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/2011/03/08/posix-regex-cheatsheet/</loc>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
         <lastmod>2011-03-08</lastmod>
     </url>
     <url>
-        <loc>http://watson-wilson.ca/blog/2011/03/08/opensource-support/</loc>
+        <loc>http://watson-wilson.ca/blog/2011/05/26/cfengine-ssh-keys/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2011-05-26</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/page/2/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2015-11-17</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/2011/05/26/cfengine-templates/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2011-05-26</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/tag/high-availability/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2007-08-08</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/tag/backup/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2011-10-02</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/tag/cluster/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2011-03-07</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/tag/configuration-management/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2011-09-27</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/tag/vitualization/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2011-05-09</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/2012/03/10/ipv6-migration-part5/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2012-03-10</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/tag/configuration-management/page/2/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2011-09-27</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/tag/svn/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2011-03-08</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/2011/03/08/solaris-cheatsheet/</loc>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
         <lastmod>2011-03-08</lastmod>
     </url>
     <url>
-        <loc>http://watson-wilson.ca/blog/tag/perl/</loc>
+        <loc>http://watson-wilson.ca/blog/page/6/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2015-11-17</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/tag/cron/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2011-09-27</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/2012/07/25/ipv6-migration-part7/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2012-07-25</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/page/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2015-11-17</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2015-11-17</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/tag/oracle/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2011-03-08</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/tag/shell/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2011-03-08</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/2011/12/06/ipv6-migration-part1/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2011-12-06</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/2011/03/08/enterprise-sysadmin/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2011-03-08</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/tag/heartbeat/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2011-03-07</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/tag/jekyll/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
         <lastmod>2015-11-17</lastmod>
@@ -527,66 +593,6 @@
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
         <lastmod>2011-03-08</lastmod>
-    </url>
-    <url>
-        <loc>http://watson-wilson.ca/blog/tag/backup/</loc>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-        <lastmod>2011-10-02</lastmod>
-    </url>
-    <url>
-        <loc>http://watson-wilson.ca/blog/2012/03/05/ipv6-migration-part4/</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.5</priority>
-        <lastmod>2012-03-05</lastmod>
-    </url>
-    <url>
-        <loc>http://watson-wilson.ca/page/projects/</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.5</priority>
-        <lastmod>2015-11-17</lastmod>
-    </url>
-    <url>
-        <loc>http://watson-wilson.ca/blog/tag/configuration-management/</loc>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-        <lastmod>2011-09-27</lastmod>
-    </url>
-    <url>
-        <loc>http://watson-wilson.ca/blog/tag/solaris/</loc>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-        <lastmod>2011-03-08</lastmod>
-    </url>
-    <url>
-        <loc>http://watson-wilson.ca/</loc>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-        <lastmod>2015-11-17</lastmod>
-    </url>
-    <url>
-        <loc>http://watson-wilson.ca/blog/page/2/</loc>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-        <lastmod>2015-11-17</lastmod>
-    </url>
-    <url>
-        <loc>http://watson-wilson.ca/blog/2011/05/26/cfengine-start-process/</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.5</priority>
-        <lastmod>2011-05-26</lastmod>
-    </url>
-    <url>
-        <loc>http://watson-wilson.ca/blog/tag/infosec/</loc>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-        <lastmod>2011-05-26</lastmod>
-    </url>
-    <url>
-        <loc>http://watson-wilson.ca/page/about/</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.5</priority>
-        <lastmod>2015-11-17</lastmod>
     </url>
 </urlset>
 
