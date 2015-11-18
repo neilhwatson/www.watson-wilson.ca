@@ -57,18 +57,18 @@
         <ul class="pager">
             <li class="previous <%= !$self->next ? 'disabled' : '' %>">
                 % if ( $self->next ) {
-                <a rel="next" href="<%= $self->next %>">&larr; Older</a>
+                <a rel="next" href="<%= $self->next %>"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>Older</a>
                 % }
                 % else {
-                <span>&larr; Older</span>
+                <span><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>Older</span>
                 % }
             </li>
             <li class="next <%= !$self->prev ? 'disabled' : '' %>">
                 % if ( $self->prev ) {
-                <a rel="prev" href="<%= $self->prev %>">Newer &rarr;</a>
+                <a rel="prev" href="<%= $self->prev %>">Newer<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a>
                 % }
                 % else {
-                <span>Newer &rarr;</span>
+                <span>Newer<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></span>
                 % }
             </li>
         </ul>
