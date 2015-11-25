@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Neil H. Watson</title>
+        <link>http://watson-wilson.ca/blog/tag/cloud/</link>
+        <atom:link href="http://watson-wilson.ca/blog/tag/cloud.rss" rel="self" type="application/rss+xml" />
+        <description>Blog feed of Neil H. Watson</description>
+        <generator>Statocles 0.059</generator>
+        <item>
+            <title>Terraform: config management for the cloud</title>
+            <link>http://watson-wilson.ca/blog/2015/11/25/terraform/</link>
+            <guid>http://watson-wilson.ca/blog/2015/11/25/terraform/</guid>
+            <description><![CDATA[
+                <p><a href="https://terraform.io/"><img alt="terraform logo" src="https://raw.githubusercontent.com/hashicorp/terraform/master/website/source/assets/images/logo-static.png" style="float:right" width="120px"></a></p>
+
+<p>I saw a great <a href="https://terraform.io/">Terraform</a> presentation last week at a
+Devops <a href="http://www.meetup.com/DevOpsTO/">meetup</a>. Terraform is a configuration
+management tool for virtual infrastructure. You can define your AWS or similar
+environment using a descriptive language.</p>
+
+<ul>
+<li><a href="http://slides.com/adammeghji/universe-terraform#/">Slides</a></li>
+<li><a href="https://github.com/adammeghji/terraform-demo">Sample code</a></li>
+<li><a href="https://plus.google.com/events/cfjrv6r27e3k6t65n28fdmp6j9c">Recording</a></li>
+</ul>
+
+                    <p><a href="http://watson-wilson.ca/blog/2015/11/25/terraform/#section-2">Continue reading...</a></p>
+                <p>Tags:
+                    <a href="http://watson-wilson.ca/blog/tag/configuration-management/">configuration management</a>
+                    <a href="http://watson-wilson.ca/blog/tag/cloud/">cloud</a>
+                    <a href="http://watson-wilson.ca/blog/tag/terraform/">terraform</a>
+                </p>
+            ]]></description>
+            <pubDate>
+                Wed, 25 Nov 2015 00:00:00 +0000
+            </pubDate>
+        </item>
+    </channel>
+</rss>
+

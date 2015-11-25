@@ -2,10 +2,40 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>http://watson-wilson.ca/blog/</id>
     <title>Neil H. Watson</title>
-    <updated>2015-11-25T08:55:36Z</updated>
+    <updated>2015-11-25T10:25:41Z</updated>
     <link href="http://watson-wilson.ca/blog/index.atom" rel="self" />
     <link href="http://watson-wilson.ca/blog/" rel="alternate" />
     <generator version="0.059">Statocles</generator>
+    <entry>
+        <id>http://watson-wilson.ca/blog/2015/11/25/terraform/</id>
+        <title>Terraform: config management for the cloud</title>
+        <link href="http://watson-wilson.ca/blog/2015/11/25/terraform/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p><a href="https://terraform.io/"><img alt="terraform logo" src="https://raw.githubusercontent.com/hashicorp/terraform/master/website/source/assets/images/logo-static.png" style="float:right" width="120px"></a></p>
+
+<p>I saw a great <a href="https://terraform.io/">Terraform</a> presentation last week at a
+Devops <a href="http://www.meetup.com/DevOpsTO/">meetup</a>. Terraform is a configuration
+management tool for virtual infrastructure. You can define your AWS or similar
+environment using a descriptive language.</p>
+
+<ul>
+<li><a href="http://slides.com/adammeghji/universe-terraform#/">Slides</a></li>
+<li><a href="https://github.com/adammeghji/terraform-demo">Sample code</a></li>
+<li><a href="https://plus.google.com/events/cfjrv6r27e3k6t65n28fdmp6j9c">Recording</a></li>
+</ul>
+
+                <p><a href="http://watson-wilson.ca/blog/2015/11/25/terraform/#section-2">Continue reading...</a></p>
+            <p>Tags:
+                <a href="http://watson-wilson.ca/blog/tag/configuration-management/">configuration management</a>
+                <a href="http://watson-wilson.ca/blog/tag/cloud/">cloud</a>
+                <a href="http://watson-wilson.ca/blog/tag/terraform/">terraform</a>
+            </p>
+        ]]></content>
+        <updated>2015-11-25T00:00:00Z</updated>
+        <category term="configuration management" />
+        <category term="cloud" />
+        <category term="terraform" />
+    </entry>
     <entry>
         <id>http://watson-wilson.ca/blog/2015/11/25/perl-cheatsheet/</id>
         <title>Perl cheatsheet</title>
@@ -89,24 +119,6 @@ practice like using the strict module in Perl.</p>
         ]]></content>
         <updated>2012-10-19T00:00:00Z</updated>
         <category term="cfengine" />
-    </entry>
-    <entry>
-        <id>http://watson-wilson.ca/blog/2012/08/01/ipv6-migration-part8/</id>
-        <title>IPv6 Migration part 8</title>
-        <link href="http://watson-wilson.ca/blog/2012/08/01/ipv6-migration-part8/" rel="alternate" />
-        <content type="html"><![CDATA[
-            <p>DNS for IPV6 is just like IPV4, but longer. In part 2 I discussed DNS quad A
-records. Now I&#39;ll explain IPV6 PTR records.</p>
-
-                <p><a href="http://watson-wilson.ca/blog/2012/08/01/ipv6-migration-part8/#section-2">Continue reading...</a></p>
-            <p>Tags:
-                <a href="http://watson-wilson.ca/blog/tag/ipv6/">ipv6</a>
-                <a href="http://watson-wilson.ca/blog/tag/networking/">networking</a>
-            </p>
-        ]]></content>
-        <updated>2012-08-01T00:00:00Z</updated>
-        <category term="ipv6" />
-        <category term="networking" />
     </entry>
 </feed>
 
