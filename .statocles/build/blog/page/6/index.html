@@ -50,6 +50,89 @@
 
             <article>
                 <header>
+                    <h1><a href="/blog/2011/03/08/solaris-cheatsheet/">Solaris and Sun/Oracle cheatsheet</a></h1>
+
+                    <p class="tags">Tags:
+                        <a href="/blog/tag/solaris/" rel="tag">solaris</a>
+                        <a href="/blog/tag/sun/" rel="tag">sun</a>
+                        <a href="/blog/tag/oracle/" rel="tag">oracle</a>
+                        <a href="/blog/tag/cheatsheet/" rel="tag">cheatsheet</a>
+                    </p>
+
+                    <aside>
+                        <p><time datetime="2011-03-08">
+                            Posted on 2011-03-08
+                        </time>
+                        </p>
+                    </aside>
+
+                </header>
+
+                <h3>Init levels</h3>
+
+<table>
+<tr>
+    <td>0</td>
+    <td>Go into boot prompt (OK).</td>
+</tr>
+<tr>
+    <td>1</td>
+    <td>Put the system in system administrator mode. All file systems are
+    mounted. Only a small set of essential kernel processes are left running.
+    This mode is for administrative tasks such as installing optional utility
+    packages. All files are accessible and no users are logged in on the
+    system.</td>
+</tr>
+<tr>
+    <td>2</td>
+    <td>Put the system in multi-user mode. All multi-user environment terminal
+    processes and daemons are spawned. This state is commonly referred to as
+    the multi-user state.</td>
+</tr>
+<tr>
+    <td>3</td>
+    <td>Start the remote file sharing processes and dae mons. Mount and
+    advertise remote resources. Run level 3 extends multi-user mode and is
+    known as the remote-file-sharing state.</td>
+</tr>
+<tr>
+    <td>4</td>
+    <td>Is available to be defined as an alternative multi-user environment
+    configuration. It is not necessary for system operation and is usually not
+    used.</td>
+</tr>
+<tr>
+    <td>5</td>
+    <td>Shut the machine down so that it is safe to remove the power. Have the
+    machine remove power, if possible.</td>
+</tr>
+<tr>
+    <td>6</td>
+    <td>Stop the operating system and reboot to the state defined by the
+    initdefault entry in /etc/inittab.</td>
+</tr>
+<tr>
+    <td><code><pre>reboot -- -x</pre></code></td>
+    <td>Reboot and issue boot -x (boot to non-cluster mode) at boot
+    prompt.</td>
+</tr>
+<tr>
+    <td><code><pre>`reboot -- -xs`</pre></code></td>
+    <td>Reboot and issue `boot -xs` (single user, non-cluster mode) at boot
+    prompt.</td>
+</tr>
+<tr>
+    <td><code><pre>`reboot -- -r`</pre></code></td>
+    <td>Reboot and issue boot -r (reconfigure) at boot prompt.</td>
+</tr>
+</table>
+
+
+                    <p><a href="/blog/2011/03/08/solaris-cheatsheet/index.html#section-2">Continue reading Solaris and Sun/Oracle cheatsheet...</a></p>
+
+            </article>
+            <article>
+                <header>
                     <h1><a href="/blog/2011/03/08/shell-cheatsheet/">Shell cheatsheet</a></h1>
 
                     <p class="tags">Tags:
@@ -251,99 +334,6 @@ the test file.</li>
 
 
             </article>
-            <article>
-                <header>
-                    <h1><a href="/blog/2011/03/08/linux-network-cheatsheet/">Linux networking cheatsheet</a></h1>
-
-                    <p class="tags">Tags:
-                        <a href="/blog/tag/linux/" rel="tag">linux</a>
-                        <a href="/blog/tag/networking/" rel="tag">networking</a>
-                        <a href="/blog/tag/cheatsheet/" rel="tag">cheatsheet</a>
-                    </p>
-
-                    <aside>
-                        <p><time datetime="2011-03-08">
-                            Posted on 2011-03-08
-                        </time>
-                        </p>
-                    </aside>
-
-                </header>
-
-                <h3>Network calculation</h3>
-
-<table>
-<tr>
-    <td>Show network info</td>
-    <td><code>ipcalc 10.0.0.0/24</code><br><code>ipcalc 10.0.0.0/255.255.255.0</code></td>
-</tr>
-<tr>
-    <td>Segment network into 2 50 node subnets</td>
-    <td><code>ipcalc 10.0.0.0/24 -s 50 50</code></td>
-</tr>
-</table>
-
-<h3>Net-tools versus Iptroute2</h3>
-
-<table>
-<tr>
-    <td>List interfaces</td>
-    <td><code>ip addr list</code><br><code>ifconfig -a</code><br><code>ip addr list eth0</code><br><code>ifconfig eth0</code></td>
-</tr>
-<tr>
-    <td>Link status</td>
-    <td><code>ip link list</code><br><code>ifconfig -a</code><br><code>ip link list eth0</code><br><code>ifconfig eth0</code></td>
-</tr>
-<tr>
-    <td>Route table</td>
-    <td><code>ip route</code><br><code>netstat -rn</code></td>
-</tr>
-<tr>
-    <td>Adding routes</td>
-    <td><code>ip route add default via 10.0.0.1</code></td>
-</tr>
-<tr>
-    <td>Add/delete IP addresses</td>
-    <td><code>ip addr add 10.0.0.2/24 dev eth0</code><br><code>ifconfig eth0 10.0.0.2 netmask 255.255.255.0</code><br><code>ip addr del 10.0.0.2/24 dev eth0</code><br><code>ifconfig eth0 del 10.0.0.2</code></td>
-</tr>
-</table>
-
-<h3>Linux Ethernet bonding</h3>
-
-<pre><code># Loading module:
-# for Red Hat AS4, may work with other 2.6 Linuxes.
-install bond0 /sbin/modprobe bonding -o bond0 mode=0 miimon=100
-# for Red Hat AS3, may work with other 2.4 Linuxes.
-alias bond0 bonding
-options bond0 -o bonding mode=0 miimon=100
-</code></pre>
-
-<h4>For Redhat distributions</h4>
-
-<pre><code># ifcfg-ethx
-DEVICE=ethx
-USERCTL=no
-ONBOOT=yes
-MASTER=bond0
-SLAVE=yes
-BOOTPROTO=none
-
-# ifcfg-bond0
-DEVICE=bond0
-USERCTL=no
-ONBOOT=yes
-IPADDR=172.16.48.66
-NETMASK=255.255.255.0
-GATEWAY=172.16.48.1
-</code></pre>
-
-<h3>OSI model diagram</h3>
-
-<p><img alt="OSI model diagram" src="/blog/2011/03/08/linux-network-cheatsheet/osi-model.gif"></p>
-
-
-
-            </article>
         </main>
 
         <ul class="pager">
@@ -389,10 +379,12 @@ GATEWAY=172.16.48.1
             <li><a href="/blog/tag/oracle/">oracle</a></li>
             <li><a href="/blog/tag/perl/">perl</a></li>
             <li><a href="/blog/tag/posix/">posix</a></li>
+            <li><a href="/blog/tag/programming/">programming</a></li>
             <li><a href="/blog/tag/red-hat/">red hat</a></li>
             <li><a href="/blog/tag/regex/">regex</a></li>
             <li><a href="/blog/tag/rhev/">rhev</a></li>
             <li><a href="/blog/tag/san/">san</a></li>
+            <li><a href="/blog/tag/scripting/">scripting</a></li>
             <li><a href="/blog/tag/shell/">shell</a></li>
             <li><a href="/blog/tag/solaris/">solaris</a></li>
             <li><a href="/blog/tag/ssh/">ssh</a></li>

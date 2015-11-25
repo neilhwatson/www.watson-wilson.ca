@@ -7,6 +7,27 @@
         <description>Blog feed of Neil H. Watson</description>
         <generator>Statocles 0.059</generator>
         <item>
+            <title>Perl cheatsheet</title>
+            <link>http://watson-wilson.ca/blog/2015/11/25/perl-cheatsheet/</link>
+            <guid>http://watson-wilson.ca/blog/2015/11/25/perl-cheatsheet/</guid>
+            <description><![CDATA[
+                <p>If you are looking for my Perl cheatsheet, it&#39;s over
+<a href="https://github.com/neilhwatson/nustuff/blob/master/perl/cheatsheet.pod">here</a>.
+Lots of interesting stuff in that repo.</p>
+
+                    <p><a href="http://watson-wilson.ca/blog/2015/11/25/perl-cheatsheet/#section-2">Continue reading...</a></p>
+                <p>Tags:
+                    <a href="http://watson-wilson.ca/blog/tag/perl/">perl</a>
+                    <a href="http://watson-wilson.ca/blog/tag/cheatsheet/">cheatsheet</a>
+                    <a href="http://watson-wilson.ca/blog/tag/programming/">programming</a>
+                    <a href="http://watson-wilson.ca/blog/tag/scripting/">scripting</a>
+                </p>
+            ]]></description>
+            <pubDate>
+                Wed, 25 Nov 2015 00:00:00 +0000
+            </pubDate>
+        </item>
+        <item>
             <title>Subversion Cheatsheet</title>
             <link>http://watson-wilson.ca/blog/2011/03/08/svn-cheatsheet/</link>
             <guid>http://watson-wilson.ca/blog/2011/03/08/svn-cheatsheet/</guid>
@@ -286,93 +307,6 @@ work. Pressing enter returns to normal mode.</p></li>
                 <p>Tags:
                     <a href="http://watson-wilson.ca/blog/tag/posix/">posix</a>
                     <a href="http://watson-wilson.ca/blog/tag/regex/">regex</a>
-                    <a href="http://watson-wilson.ca/blog/tag/cheatsheet/">cheatsheet</a>
-                </p>
-            ]]></description>
-            <pubDate>
-                Tue, 08 Mar 2011 00:00:00 +0000
-            </pubDate>
-        </item>
-        <item>
-            <title>Linux networking cheatsheet</title>
-            <link>http://watson-wilson.ca/blog/2011/03/08/linux-network-cheatsheet/</link>
-            <guid>http://watson-wilson.ca/blog/2011/03/08/linux-network-cheatsheet/</guid>
-            <description><![CDATA[
-                <h3>Network calculation</h3>
-
-<table>
-<tr>
-    <td>Show network info</td>
-    <td><code>ipcalc 10.0.0.0/24</code><br><code>ipcalc 10.0.0.0/255.255.255.0</code></td>
-</tr>
-<tr>
-    <td>Segment network into 2 50 node subnets</td>
-    <td><code>ipcalc 10.0.0.0/24 -s 50 50</code></td>
-</tr>
-</table>
-
-<h3>Net-tools versus Iptroute2</h3>
-
-<table>
-<tr>
-    <td>List interfaces</td>
-    <td><code>ip addr list</code><br><code>ifconfig -a</code><br><code>ip addr list eth0</code><br><code>ifconfig eth0</code></td>
-</tr>
-<tr>
-    <td>Link status</td>
-    <td><code>ip link list</code><br><code>ifconfig -a</code><br><code>ip link list eth0</code><br><code>ifconfig eth0</code></td>
-</tr>
-<tr>
-    <td>Route table</td>
-    <td><code>ip route</code><br><code>netstat -rn</code></td>
-</tr>
-<tr>
-    <td>Adding routes</td>
-    <td><code>ip route add default via 10.0.0.1</code></td>
-</tr>
-<tr>
-    <td>Add/delete IP addresses</td>
-    <td><code>ip addr add 10.0.0.2/24 dev eth0</code><br><code>ifconfig eth0 10.0.0.2 netmask 255.255.255.0</code><br><code>ip addr del 10.0.0.2/24 dev eth0</code><br><code>ifconfig eth0 del 10.0.0.2</code></td>
-</tr>
-</table>
-
-<h3>Linux Ethernet bonding</h3>
-
-<pre><code># Loading module:
-# for Red Hat AS4, may work with other 2.6 Linuxes.
-install bond0 /sbin/modprobe bonding -o bond0 mode=0 miimon=100
-# for Red Hat AS3, may work with other 2.4 Linuxes.
-alias bond0 bonding
-options bond0 -o bonding mode=0 miimon=100
-</code></pre>
-
-<h4>For Redhat distributions</h4>
-
-<pre><code># ifcfg-ethx
-DEVICE=ethx
-USERCTL=no
-ONBOOT=yes
-MASTER=bond0
-SLAVE=yes
-BOOTPROTO=none
-
-# ifcfg-bond0
-DEVICE=bond0
-USERCTL=no
-ONBOOT=yes
-IPADDR=172.16.48.66
-NETMASK=255.255.255.0
-GATEWAY=172.16.48.1
-</code></pre>
-
-<h3>OSI model diagram</h3>
-
-<p><img alt="OSI model diagram" src="http://watson-wilson.ca/blog/2011/03/08/linux-network-cheatsheet/osi-model.gif"></p>
-
-                    <p><a href="http://watson-wilson.ca/blog/2011/03/08/linux-network-cheatsheet/#section-2">Continue reading...</a></p>
-                <p>Tags:
-                    <a href="http://watson-wilson.ca/blog/tag/linux/">linux</a>
-                    <a href="http://watson-wilson.ca/blog/tag/networking/">networking</a>
                     <a href="http://watson-wilson.ca/blog/tag/cheatsheet/">cheatsheet</a>
                 </p>
             ]]></description>

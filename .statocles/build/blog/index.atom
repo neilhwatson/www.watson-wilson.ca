@@ -2,10 +2,33 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>http://watson-wilson.ca/blog/</id>
     <title>Neil H. Watson</title>
-    <updated>2015-11-20T14:09:29Z</updated>
+    <updated>2015-11-25T08:55:36Z</updated>
     <link href="http://watson-wilson.ca/blog/index.atom" rel="self" />
     <link href="http://watson-wilson.ca/blog/" rel="alternate" />
     <generator version="0.059">Statocles</generator>
+    <entry>
+        <id>http://watson-wilson.ca/blog/2015/11/25/perl-cheatsheet/</id>
+        <title>Perl cheatsheet</title>
+        <link href="http://watson-wilson.ca/blog/2015/11/25/perl-cheatsheet/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p>If you are looking for my Perl cheatsheet, it&#39;s over
+<a href="https://github.com/neilhwatson/nustuff/blob/master/perl/cheatsheet.pod">here</a>.
+Lots of interesting stuff in that repo.</p>
+
+                <p><a href="http://watson-wilson.ca/blog/2015/11/25/perl-cheatsheet/#section-2">Continue reading...</a></p>
+            <p>Tags:
+                <a href="http://watson-wilson.ca/blog/tag/perl/">perl</a>
+                <a href="http://watson-wilson.ca/blog/tag/cheatsheet/">cheatsheet</a>
+                <a href="http://watson-wilson.ca/blog/tag/programming/">programming</a>
+                <a href="http://watson-wilson.ca/blog/tag/scripting/">scripting</a>
+            </p>
+        ]]></content>
+        <updated>2015-11-25T00:00:00Z</updated>
+        <category term="perl" />
+        <category term="cheatsheet" />
+        <category term="programming" />
+        <category term="scripting" />
+    </entry>
     <entry>
         <id>http://watson-wilson.ca/blog/2015/11/17/new_site/</id>
         <title>New site</title>
@@ -82,26 +105,6 @@ records. Now I&#39;ll explain IPV6 PTR records.</p>
             </p>
         ]]></content>
         <updated>2012-08-01T00:00:00Z</updated>
-        <category term="ipv6" />
-        <category term="networking" />
-    </entry>
-    <entry>
-        <id>http://watson-wilson.ca/blog/2012/07/25/ipv6-migration-part7/</id>
-        <title>IPv6 Migration part 7</title>
-        <link href="http://watson-wilson.ca/blog/2012/07/25/ipv6-migration-part7/" rel="alternate" />
-        <content type="html"><![CDATA[
-            <p><img alt="Success with IPv6" src="http://watson-wilson.ca/static/images/ipv6-success-kid.jpg" style="float:right" width="300"></p>
-
-<p>I&#39;ve broken up with <a href="https://www.sixxs.net/">SixXS</a>.
-<a href="http://he.net">Hurricane Electric</a> is my new girl.</p>
-
-                <p><a href="http://watson-wilson.ca/blog/2012/07/25/ipv6-migration-part7/#section-2">Continue reading...</a></p>
-            <p>Tags:
-                <a href="http://watson-wilson.ca/blog/tag/ipv6/">ipv6</a>
-                <a href="http://watson-wilson.ca/blog/tag/networking/">networking</a>
-            </p>
-        ]]></content>
-        <updated>2012-07-25T00:00:00Z</updated>
         <category term="ipv6" />
         <category term="networking" />
     </entry>

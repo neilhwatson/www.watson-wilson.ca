@@ -2,10 +2,33 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>http://watson-wilson.ca/blog/tag/perl/</id>
     <title>Neil H. Watson</title>
-    <updated>2015-11-20T14:09:38Z</updated>
+    <updated>2015-11-25T08:55:30Z</updated>
     <link href="http://watson-wilson.ca/blog/tag/perl.atom" rel="self" />
     <link href="http://watson-wilson.ca/blog/tag/perl/" rel="alternate" />
     <generator version="0.059">Statocles</generator>
+    <entry>
+        <id>http://watson-wilson.ca/blog/2015/11/25/perl-cheatsheet/</id>
+        <title>Perl cheatsheet</title>
+        <link href="http://watson-wilson.ca/blog/2015/11/25/perl-cheatsheet/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p>If you are looking for my Perl cheatsheet, it&#39;s over
+<a href="https://github.com/neilhwatson/nustuff/blob/master/perl/cheatsheet.pod">here</a>.
+Lots of interesting stuff in that repo.</p>
+
+                <p><a href="http://watson-wilson.ca/blog/2015/11/25/perl-cheatsheet/#section-2">Continue reading...</a></p>
+            <p>Tags:
+                <a href="http://watson-wilson.ca/blog/tag/perl/">perl</a>
+                <a href="http://watson-wilson.ca/blog/tag/cheatsheet/">cheatsheet</a>
+                <a href="http://watson-wilson.ca/blog/tag/programming/">programming</a>
+                <a href="http://watson-wilson.ca/blog/tag/scripting/">scripting</a>
+            </p>
+        ]]></content>
+        <updated>2015-11-25T00:00:00Z</updated>
+        <category term="perl" />
+        <category term="cheatsheet" />
+        <category term="programming" />
+        <category term="scripting" />
+    </entry>
     <entry>
         <id>http://watson-wilson.ca/blog/2015/11/17/new_site/</id>
         <title>New site</title>

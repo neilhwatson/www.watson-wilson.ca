@@ -7,6 +7,27 @@
         <description>Blog feed of Neil H. Watson</description>
         <generator>Statocles 0.059</generator>
         <item>
+            <title>Perl cheatsheet</title>
+            <link>http://watson-wilson.ca/blog/2015/11/25/perl-cheatsheet/</link>
+            <guid>http://watson-wilson.ca/blog/2015/11/25/perl-cheatsheet/</guid>
+            <description><![CDATA[
+                <p>If you are looking for my Perl cheatsheet, it&#39;s over
+<a href="https://github.com/neilhwatson/nustuff/blob/master/perl/cheatsheet.pod">here</a>.
+Lots of interesting stuff in that repo.</p>
+
+                    <p><a href="http://watson-wilson.ca/blog/2015/11/25/perl-cheatsheet/#section-2">Continue reading...</a></p>
+                <p>Tags:
+                    <a href="http://watson-wilson.ca/blog/tag/perl/">perl</a>
+                    <a href="http://watson-wilson.ca/blog/tag/cheatsheet/">cheatsheet</a>
+                    <a href="http://watson-wilson.ca/blog/tag/programming/">programming</a>
+                    <a href="http://watson-wilson.ca/blog/tag/scripting/">scripting</a>
+                </p>
+            ]]></description>
+            <pubDate>
+                Wed, 25 Nov 2015 00:00:00 +0000
+            </pubDate>
+        </item>
+        <item>
             <title>New site</title>
             <link>http://watson-wilson.ca/blog/2015/11/17/new_site/</link>
             <guid>http://watson-wilson.ca/blog/2015/11/17/new_site/</guid>

@@ -16,6 +16,8 @@ tags: linux, networking, cheatsheet
 </tr>
 </table>
 
+---
+
 ### Net-tools versus Iptroute2
 
 <table>
