@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>http://watson-wilson.ca/blog/</id>
     <title>Neil H. Watson</title>
-    <updated>2015-11-25T10:25:41Z</updated>
+    <updated>2015-12-04T09:57:40Z</updated>
     <link href="http://watson-wilson.ca/blog/index.atom" rel="self" />
     <link href="http://watson-wilson.ca/blog/" rel="alternate" />
-    <generator version="0.059">Statocles</generator>
+    <generator version="0.060">Statocles</generator>
     <entry>
         <id>http://watson-wilson.ca/blog/2015/11/25/terraform/</id>
         <title>Terraform: config management for the cloud</title>

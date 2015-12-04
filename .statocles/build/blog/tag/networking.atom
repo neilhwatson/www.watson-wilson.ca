@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>http://watson-wilson.ca/blog/tag/networking/</id>
     <title>Neil H. Watson</title>
-    <updated>2015-11-25T10:25:38Z</updated>
+    <updated>2015-12-04T09:57:43Z</updated>
     <link href="http://watson-wilson.ca/blog/tag/networking.atom" rel="self" />
     <link href="http://watson-wilson.ca/blog/tag/networking/" rel="alternate" />
-    <generator version="0.059">Statocles</generator>
+    <generator version="0.060">Statocles</generator>
     <entry>
         <id>http://watson-wilson.ca/blog/2012/08/01/ipv6-migration-part8/</id>
         <title>IPv6 Migration part 8</title>
