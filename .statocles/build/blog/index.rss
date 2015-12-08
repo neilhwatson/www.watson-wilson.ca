@@ -7,6 +7,26 @@
         <description>Blog feed of Neil H. Watson</description>
         <generator>Statocles 0.060</generator>
         <item>
+            <title>Installing Spacewalk</title>
+            <link>http://watson-wilson.ca/blog/2015/12/08/spacewalk/</link>
+            <guid>http://watson-wilson.ca/blog/2015/12/08/spacewalk/</guid>
+            <description><![CDATA[
+                <p>Here&#39;s a quick procedure for installing <a href="http://spacewalk.redhat.com/">Spacewalk</a>.</p>
+
+                    <p><a href="http://watson-wilson.ca/blog/2015/12/08/spacewalk/#section-2">Continue reading...</a></p>
+                <p>Tags:
+                    <a href="http://watson-wilson.ca/blog/tag/satellite/">satellite</a>
+                    <a href="http://watson-wilson.ca/blog/tag/spacewalk/">spacewalk</a>
+                    <a href="http://watson-wilson.ca/blog/tag/provisioning/">provisioning</a>
+                    <a href="http://watson-wilson.ca/blog/tag/patching/">patching</a>
+                    <a href="http://watson-wilson.ca/blog/tag/red-hat/">red hat</a>
+                </p>
+            ]]></description>
+            <pubDate>
+                Tue, 08 Dec 2015 00:00:00 +0000
+            </pubDate>
+        </item>
+        <item>
             <title>Terraform: config management for the cloud</title>
             <link>http://watson-wilson.ca/blog/2015/11/25/terraform/</link>
             <guid>http://watson-wilson.ca/blog/2015/11/25/terraform/</guid>
@@ -97,24 +117,6 @@ naming them.</p>
             ]]></description>
             <pubDate>
                 Fri, 22 Feb 2013 00:00:00 +0000
-            </pubDate>
-        </item>
-        <item>
-            <title>Variable references with CFEngine</title>
-            <link>http://watson-wilson.ca/blog/2012/10/19/cfengine-var-refs/</link>
-            <guid>http://watson-wilson.ca/blog/2012/10/19/cfengine-var-refs/</guid>
-            <description><![CDATA[
-                <p>Variables in CFEngine can be confusing at times. Here are some examples of
-variable references. References are not strictly required, but they are good
-practice like using the strict module in Perl.</p>
-
-                    <p><a href="http://watson-wilson.ca/blog/2012/10/19/cfengine-var-refs/#section-2">Continue reading...</a></p>
-                <p>Tags:
-                    <a href="http://watson-wilson.ca/blog/tag/cfengine/">cfengine</a>
-                </p>
-            ]]></description>
-            <pubDate>
-                Fri, 19 Oct 2012 00:00:00 +0000
             </pubDate>
         </item>
     </channel>

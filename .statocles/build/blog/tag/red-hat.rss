@@ -7,6 +7,26 @@
         <description>Blog feed of Neil H. Watson</description>
         <generator>Statocles 0.060</generator>
         <item>
+            <title>Installing Spacewalk</title>
+            <link>http://watson-wilson.ca/blog/2015/12/08/spacewalk/</link>
+            <guid>http://watson-wilson.ca/blog/2015/12/08/spacewalk/</guid>
+            <description><![CDATA[
+                <p>Here&#39;s a quick procedure for installing <a href="http://spacewalk.redhat.com/">Spacewalk</a>.</p>
+
+                    <p><a href="http://watson-wilson.ca/blog/2015/12/08/spacewalk/#section-2">Continue reading...</a></p>
+                <p>Tags:
+                    <a href="http://watson-wilson.ca/blog/tag/satellite/">satellite</a>
+                    <a href="http://watson-wilson.ca/blog/tag/spacewalk/">spacewalk</a>
+                    <a href="http://watson-wilson.ca/blog/tag/provisioning/">provisioning</a>
+                    <a href="http://watson-wilson.ca/blog/tag/patching/">patching</a>
+                    <a href="http://watson-wilson.ca/blog/tag/red-hat/">red hat</a>
+                </p>
+            ]]></description>
+            <pubDate>
+                Tue, 08 Dec 2015 00:00:00 +0000
+            </pubDate>
+        </item>
+        <item>
             <title>A brief overview of Red Hat Enterprise Virtualization</title>
             <link>http://watson-wilson.ca/blog/2011/05/09/rhev-overview/</link>
             <guid>http://watson-wilson.ca/blog/2011/05/09/rhev-overview/</guid>
