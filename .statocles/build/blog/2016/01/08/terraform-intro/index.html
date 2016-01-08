@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <link href="/theme/css/readability-bootstrap.min.css" rel="stylesheet">
+        <!--<link rel="stylesheet" href="/theme/css/statocles-bootstrap.css" />-->
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+        <title>Introduction to Terraform - Neil H. Watson</title>
+        <meta content="Statocles 0.065" name="generator">
+        
+
+        <!-- For source highlighting -->
+        <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/default.min.css" rel="stylesheet">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+
+    </head>
+    <body>
+        <header>
+            <nav class="navbar navbar-default navbar-static-top" role="navigation">
+                <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button class="navbar-toggle" data-target="#top-navbar-collapse-1" data-toggle="collapse" type="button">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="/">Neil H. Watson</a>
+                    </div>
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="top-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <li><a href="/page/about">About me</a></li>
+                            <li><a href="/static/resume_neil_h_watson.pdf">Resume</a></li>
+                            <li><a href="/page/projects">Projects</a></li>
+                        </ul>
+                        
+                    </div>
+                </div>
+            </nav>
+            
+        </header>
+        <div class="main container">
+            <div class="row">
+
+    <div class="col-md-9">
+        <main>
+            <header>
+                <h1>Introduction to Terraform</h1>
+                <p class="tags">Tags:
+                    <a href="/blog/tag/terraform/" rel="tag">terraform</a>
+                    <a href="/blog/tag/cloud/" rel="tag">cloud</a>
+                    <a href="/blog/tag/configuration-management/" rel="tag">configuration management</a>
+                </p>
+
+                <aside>
+                    <p><time datetime="2016-01-08">
+                        Posted on 2016-01-08
+                    </time>
+                    </p>
+                </aside>
+
+
+            </header>
+            <section id="section-1">
+                <p><a href="https://terraform.io/"><img alt="terraform logo" src="https://raw.githubusercontent.com/hashicorp/terraform/master/website/source/assets/images/logo-static.png" style="float:right" width="120px"></a></p>
+
+<p><a href="https://terraform.io/">Terraform</a> allows you to manage your AWS, and other
+cloud infrastructure, the same way you would manage servers using configuration
+management products like CFEngine or Puppet. Terraform is idempotent and
+convergent so only required changes are applied.</p>
+
+            </section>
+            <section id="section-2">
+                <p>I whipped up this example to build:</p>
+
+<ol>
+<li>An SSH public key to be installed on the created EC2 instance.</li>
+<li>A security group allowing HTTP and HTTPS.</li>
+<li>A security group allowing SSH.</li>
+<li>A tc2.micro EC2 instance with the above applied to it.</li>
+</ol>
+
+<p>The &#39;provider&#39; part of the file indicates to terraform to use its AWS provider
+with the given credentials. If you know AWS at all the terraform code is not
+hard to follow.</p>
+
+<p>Create a file in your current directory called demo.tf. When you run terrafrom
+it searches the current directory for .tf files and reads them according to
+your instructions. For example:</p>
+
+<ul>
+<li><code>Terraform plan</code> will report what must be done, but perform no changes.</li>
+<li><code>Terraform apply</code> will make the changes shown above.</li>
+<li><code>Terraform show</code> will show the current state.</li>
+<li><code>Terraform destroy</code> will <em>destroy everything that is defined</em>.</li>
+</ul>
+
+<p>Note that there seems to be a built in order in which terraform runs that is
+not related to the order of the file. This is much like normal ordering in
+CFEngine. For example, when I run this code with nothing configured in AWS, it
+will try to build the server instance first, but fails because the groups and keys
+are not yet defined. But the groups and keys will be created next, so,
+run terraform a second time and it will converge, by creating just the instance
+while leaving the already existing groups and keys as they are.</p>
+
+<pre><code>
+provider &quot;aws&quot; {
+   access_key = &quot;your_key_here&quot;
+   secret_key = &quot;your_secret_here&quot;
+   region = &quot;us-east-1&quot;
+}
+
+resource &quot;aws_key_pair&quot; &quot;neptune&quot; {
+   key_name = &quot;neptune&quot;
+   public_key = &quot;ssh-rsa AAA removed for brevity 1XCr neil@neptune&quot;
+}
+
+resource &quot;aws_security_group&quot; &quot;ssh&quot; {
+   name = &quot;ssh&quot;
+   description = &quot;Allow inbound ssh&quot;
+   ingress = {
+      from_port = 0
+      to_port   = 22
+      protocol  = &quot;tcp&quot;
+      cidr_blocks = [ &quot;0.0.0.0/0&quot; ]
+   }
+}
+
+resource &quot;aws_security_group&quot; &quot;http&quot; {
+   name = &quot;http&quot;
+   description = &quot;Allow inbound http&quot;
+   ingress = {
+      from_port = 0
+      to_port   = 80 
+      protocol  = &quot;tcp&quot;
+      cidr_blocks = [ &quot;0.0.0.0/0&quot; ]
+   }
+   egress = {
+      from_port = 0
+      to_port   = 80
+      protocol  = &quot;tcp&quot;
+      cidr_blocks = [ &quot;0.0.0.0/0&quot; ]
+   }
+   egress = {
+      from_port = 0
+      to_port   = 443
+      protocol  = &quot;tcp&quot;
+      cidr_blocks = [ &quot;0.0.0.0/0&quot; ]
+   }
+}
+
+resource &quot;aws_instance&quot; &quot;tfdemo&quot; {
+
+    ami = &quot;ami-60b6c60a&quot;
+    instance_type = &quot;t2.micro&quot;
+
+   key_name = &quot;neptune&quot;
+   security_groups = [ &quot;ssh&quot;, &quot;http&quot;, &quot;default&quot; ]
+}
+</code></pre>
+
+<p>I shown only a small portion of what terraform can do. Most
+<a href="https://terraform.io/docs/providers/aws/index.html">things</a> you might want to
+do in AWS can be defined in Terraform and not just AWS. Terraform also supports
+Cloudflare, DigitalOcean, Docker, Google Cloud, vSphere, Azure, and
+<a href="https://terraform.io/docs/providers/index.html">more</a>.</p>
+
+            </section>
+        </main>
+
+
+    </div>
+
+    <div class="col-md-3">
+        <iframe frameborder="0" src="https://duckduckgo.com/search.html?site=watson-wilson.ca&amp;prefill=Search DuckDuckGo" style="overflow:hidden;margin:0;padding:0;width:350px;height:40px;"></iframe>
+
+        <nav id="tags">
+            <h1>Tags</h1>
+            <ul class="list-inline">
+                <li><a href="/blog/tag/apt/">apt</a></li>
+                <li><a href="/blog/tag/backup/">backup</a></li>
+                <li><a href="/blog/tag/cfengine/">cfengine</a></li>
+                <li><a href="/blog/tag/cfengine-cookbook/">cfengine cookbook</a></li>
+                <li><a href="/blog/tag/cheatsheet/">cheatsheet</a></li>
+                <li><a href="/blog/tag/cli/">cli</a></li>
+                <li><a href="/blog/tag/cloud/">cloud</a></li>
+                <li><a href="/blog/tag/cluster/">cluster</a></li>
+                <li><a href="/blog/tag/configuration-management/">configuration management</a></li>
+                <li><a href="/blog/tag/cron/">cron</a></li>
+                <li><a href="/blog/tag/debian/">debian</a></li>
+                <li><a href="/blog/tag/dns/">dns</a></li>
+                <li><a href="/blog/tag/dr/">dr</a></li>
+                <li><a href="/blog/tag/heartbeat/">heartbeat</a></li>
+                <li><a href="/blog/tag/high-availability/">high availability</a></li>
+                <li><a href="/blog/tag/infosec/">infosec</a></li>
+                <li><a href="/blog/tag/ipv6/">ipv6</a></li>
+                <li><a href="/blog/tag/iscsi/">iscsi</a></li>
+                <li><a href="/blog/tag/jekyll/">jekyll</a></li>
+                <li><a href="/blog/tag/kvm/">kvm</a></li>
+                <li><a href="/blog/tag/linux/">linux</a></li>
+                <li><a href="/blog/tag/monitoring/">monitoring</a></li>
+                <li><a href="/blog/tag/multipathd/">multipathd</a></li>
+                <li><a href="/blog/tag/networking/">networking</a></li>
+                <li><a href="/blog/tag/opensource/">opensource</a></li>
+                <li><a href="/blog/tag/oracle/">oracle</a></li>
+                <li><a href="/blog/tag/patching/">patching</a></li>
+                <li><a href="/blog/tag/perl/">perl</a></li>
+                <li><a href="/blog/tag/posix/">posix</a></li>
+                <li><a href="/blog/tag/programming/">programming</a></li>
+                <li><a href="/blog/tag/provisioning/">provisioning</a></li>
+                <li><a href="/blog/tag/red-hat/">red hat</a></li>
+                <li><a href="/blog/tag/regex/">regex</a></li>
+                <li><a href="/blog/tag/rhev/">rhev</a></li>
+                <li><a href="/blog/tag/san/">san</a></li>
+                <li><a href="/blog/tag/satellite/">satellite</a></li>
+                <li><a href="/blog/tag/scripting/">scripting</a></li>
+                <li><a href="/blog/tag/shell/">shell</a></li>
+                <li><a href="/blog/tag/solaris/">solaris</a></li>
+                <li><a href="/blog/tag/spacewalk/">spacewalk</a></li>
+                <li><a href="/blog/tag/ssh/">ssh</a></li>
+                <li><a href="/blog/tag/statocles/">statocles</a></li>
+                <li><a href="/blog/tag/subversion/">subversion</a></li>
+                <li><a href="/blog/tag/sun/">sun</a></li>
+                <li><a href="/blog/tag/support/">support</a></li>
+                <li><a href="/blog/tag/svn/">svn</a></li>
+                <li><a href="/blog/tag/sysadmin/">sysadmin</a></li>
+                <li><a href="/blog/tag/terraform/">terraform</a></li>
+                <li><a href="/blog/tag/vitualization/">vitualization</a></li>
+                <li><a href="/blog/tag/website/">website</a></li>
+            </ul>
+        </nav>
+    </div>
+
+</div>
+
+<div class="row">
+   <div class="col-md-1">
+       <img atl="Neil Watson" src="https://gravatar.com/avatar/1f0969599955a953e592034929ed7a23">
+   </div>
+
+       <div class="col-md-1">
+            <!-- reddit this -->
+            <a href="//www.reddit.com/submit" onclick="window.location = &#39;//www.reddit.com/submit?url=&#39; + encodeURIComponent(window.location); return false"><img alt="submit to reddit" border="0" src="//www.redditstatic.com/spreddit7.gif"></a>
+       </div>
+
+       <div class="col-md-1">
+          <!-- Tweet this -->
+          <a class="twitter-share-button" data-count="none" data-via="neil_h_watson" href="https://twitter.com/share">Tweet</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+       </div>
+
+       <div class="col-md-1">
+          <!-- follow me on twitter -->
+          <a class="twitter-follow-button" data-show-count="false" data-show-screen-name="false" href="https://twitter.com/neil_h_watson">Follow @neil_h_watson</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+        </div>
+
+       <div class="col-md-1">
+           <!-- follw me on github -->
+            <a aria-label="Follow @neilhwatson on GitHub" class="github-button" data-style="mega" href="https://github.com/neilhwatson">Follow</a>
+            <script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
+       </div>
+
+</div>
+
+        </div>
+        <footer>
+            
+            <h1></h1>
+            <div class="col-md-5"> </div>
+            <div class="col-md-3 container tagline">
+                <a href="http://preaction.me/statocles">Made with Statocles</a><br>
+                <a href="http://www.perl.org">Powered by Perl</a>
+            </div>
+        </footer>
+    </body>
+</html>

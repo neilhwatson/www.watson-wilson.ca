@@ -5,7 +5,7 @@
         <link>http://watson-wilson.ca/blog/tag/iscsi/</link>
         <atom:link href="http://watson-wilson.ca/blog/tag/iscsi.rss" rel="self" type="application/rss+xml" />
         <description>Blog feed of Neil H. Watson</description>
-        <generator>Statocles 0.060</generator>
+        <generator>Statocles 0.065</generator>
         <item>
             <title>Multipathd testing</title>
             <link>http://watson-wilson.ca/blog/2011/03/08/multipathd-testing/</link>

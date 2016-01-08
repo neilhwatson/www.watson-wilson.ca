@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>http://watson-wilson.ca/blog/tag/vitualization/</id>
     <title>Neil H. Watson</title>
-    <updated>2015-12-08T14:16:01Z</updated>
+    <updated>2016-01-08T11:36:22Z</updated>
     <link href="http://watson-wilson.ca/blog/tag/vitualization.atom" rel="self" />
     <link href="http://watson-wilson.ca/blog/tag/vitualization/" rel="alternate" />
-    <generator version="0.060">Statocles</generator>
+    <generator version="0.065">Statocles</generator>
     <entry>
         <id>http://watson-wilson.ca/blog/2011/05/09/rhev-overview/</id>
         <title>A brief overview of Red Hat Enterprise Virtualization</title>

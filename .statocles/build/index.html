@@ -8,10 +8,16 @@
         <!--<link rel="stylesheet" href="/theme/css/statocles-bootstrap.css" />-->
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
         <title>Neil H. Watson</title>
-        <meta content="Statocles 0.060" name="generator">
+        <meta content="Statocles 0.065" name="generator">
         <link href="/blog/index.atom" rel="alternate" type="application/atom+xml">
         <link href="/blog/index.rss" rel="alternate" type="application/rss+xml">
         
+
+        <!-- For source highlighting -->
+        <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/default.min.css" rel="stylesheet">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+
     </head>
     <body>
         <header>
@@ -48,6 +54,36 @@
         <main>
 
 
+            <article>
+                <header>
+                    <h1><a href="/blog/2016/01/08/terraform-intro/">Introduction to Terraform</a></h1>
+
+                    <p class="tags">Tags:
+                        <a href="/blog/tag/terraform/" rel="tag">terraform</a>
+                        <a href="/blog/tag/cloud/" rel="tag">cloud</a>
+                        <a href="/blog/tag/configuration-management/" rel="tag">configuration management</a>
+                    </p>
+
+                    <aside>
+                        <p><time datetime="2016-01-08">
+                            Posted on 2016-01-08
+                        </time>
+                        </p>
+                    </aside>
+
+                </header>
+
+                <p><a href="https://terraform.io/"><img alt="terraform logo" src="https://raw.githubusercontent.com/hashicorp/terraform/master/website/source/assets/images/logo-static.png" style="float:right" width="120px"></a></p>
+
+<p><a href="https://terraform.io/">Terraform</a> allows you to manage your AWS, and other
+cloud infrastructure, the same way you would manage servers using configuration
+management products like CFEngine or Puppet. Terraform is idempotent and
+convergent so only required changes are applied.</p>
+
+
+                    <p><a href="/blog/2016/01/08/terraform-intro/index.html#section-2">Continue reading Introduction to Terraform...</a></p>
+
+            </article>
             <article>
                 <header>
                     <h1><a href="/blog/2015/12/08/spacewalk/">Installing Spacewalk</a></h1>
@@ -163,34 +199,6 @@ Lots of interesting stuff in that repo.</p>
 
 
                     <p><a href="/blog/2015/11/17/new_site/index.html#section-2">Continue reading New site...</a></p>
-
-            </article>
-            <article>
-                <header>
-                    <h1><a href="/blog/2013/02/22/dns-renaming/">Avoid the cost of renaming hundreds of hosts</a></h1>
-
-                    <p class="tags">Tags:
-                        <a href="/blog/tag/dns/" rel="tag">dns</a>
-                    </p>
-
-                    <aside>
-                        <p><time datetime="2013-02-22">
-                            Posted on 2013-02-22
-                        </time>
-                        </p>
-                    </aside>
-
-                </header>
-
-                <p>Your hosts are named after your data centre. Now you must move hundreds of
-hosts to another data centre. Do you rename them or abandon the naming
-convention?</p>
-
-<p>A client of mine is facing this challenge. I&#39;ve discussed host naming before..
-Host are not static. They change functions and locations. Think ahead before
-naming them.</p>
-
-
 
             </article>
         </main>

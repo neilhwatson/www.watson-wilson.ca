@@ -36,6 +36,12 @@ site:
 
     args:
 
+        plugins:
+            highlight:
+                $class: Statocles::Plugin::Highlight
+                #$args:
+                    #style: default
+
         # title: This is the title of the site, shown in the <title> tag
         title: 'Neil H. Watson'
 

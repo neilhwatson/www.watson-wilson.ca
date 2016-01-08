@@ -8,10 +8,16 @@
         <!--<link rel="stylesheet" href="/theme/css/statocles-bootstrap.css" />-->
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
         <title>Neil H. Watson</title>
-        <meta content="Statocles 0.060" name="generator">
+        <meta content="Statocles 0.065" name="generator">
         <link href="/blog/index.atom" rel="alternate" type="application/atom+xml">
         <link href="/blog/index.rss" rel="alternate" type="application/rss+xml">
         
+
+        <!-- For source highlighting -->
+        <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/default.min.css" rel="stylesheet">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+
     </head>
     <body>
         <header>
@@ -48,6 +54,33 @@
         <main>
 
 
+            <article>
+                <header>
+                    <h1><a href="/blog/2011/05/24/cfengine-links/">Creating links using Cfengine</a></h1>
+
+                    <p class="tags">Tags:
+                        <a href="/blog/tag/cfengine/" rel="tag">cfengine</a>
+                        <a href="/blog/tag/cfengine-cookbook/" rel="tag">cfengine cookbook</a>
+                        <a href="/blog/tag/configuration-management/" rel="tag">configuration management</a>
+                    </p>
+
+                    <aside>
+                        <p><time datetime="2011-05-24">
+                            Posted on 2011-05-24
+                        </time>
+                        </p>
+                    </aside>
+
+                </header>
+
+                <h3>Problem</h3>
+
+<p>You Cfengine binaries are in /var/cfengine/bin but you want them in the PATH.</p>
+
+
+                    <p><a href="/blog/2011/05/24/cfengine-links/index.html#section-2">Continue reading Creating links using Cfengine...</a></p>
+
+            </article>
             <article>
                 <header>
                     <h1><a href="/blog/2011/05/09/rhev-overview/">A brief overview of Red Hat Enterprise Virtualization</a></h1>
@@ -313,79 +346,6 @@ virtualization solution for both desktops and servers, Linux and Windows.</p>
 <li><p>vi cli editing: <code>set -o vi</code> Now esc to enter command mode where vi keys
 work. Pressing enter returns to normal mode.</p></li>
 </ul>
-
-
-
-            </article>
-            <article>
-                <header>
-                    <h1><a href="/blog/2011/03/08/posix-regex-cheatsheet/">POSIX regular expression cheatsheet</a></h1>
-
-                    <p class="tags">Tags:
-                        <a href="/blog/tag/posix/" rel="tag">posix</a>
-                        <a href="/blog/tag/regex/" rel="tag">regex</a>
-                        <a href="/blog/tag/cheatsheet/" rel="tag">cheatsheet</a>
-                    </p>
-
-                    <aside>
-                        <p><time datetime="2011-03-08">
-                            Posted on 2011-03-08
-                        </time>
-                        </p>
-                    </aside>
-
-                </header>
-
-                <table>
-<tr>
-    <td>Alphabetic</td>
-    <td>[:alpha:]</td>
-</tr>
-<tr>
-    <td>Alphanumeric</td>
-    <td>[:alnum:]</td>
-</tr>
-<tr>
-    <td>Control characters</td>
-    <td>[:cntrl:]</td>
-</tr>
-<tr>
-    <td>Hex numbers</td>
-    <td>[:xdigit:]</td>
-</tr>
-<tr>
-    <td>Lowercase</td>
-    <td>[:lower:]</td>
-</tr>
-<tr>
-    <td>Nonespace characters</td>
-    <td>[:graph:]</td>
-</tr>
-<tr>
-    <td>Numbers</td>
-    <td>[:digit:]</td>
-</tr>
-<tr>
-    <td>Printable</td>
-    <td>[:print:]</td>
-</tr>
-<tr>
-    <td>Punctuation</td>
-    <td>[:punct:]</td>
-</tr>
-<tr>
-    <td>Tab or space</td>
-    <td>[:blank:]</td>
-</tr>
-<tr>
-    <td>Uppercase</td>
-    <td>[:upper:]</td>
-</tr>
-<tr>
-    <td>White space</td>
-    <td>[:space:]</td>
-</tr>
-</table>
 
 
 
