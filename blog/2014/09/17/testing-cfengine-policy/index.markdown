@@ -29,7 +29,7 @@ tags:
   - software testing
 title: Testing CFEngine policy
 ---
-![f4-crashtest](http://watson-wilson.ca/wp-content/uploads/2014/07/f4-crashtest.jpg)
+![f4-crashtest](/static/images/f4-crashtest.jpg)
 
 After 2 productive days at [Devopsdays Toronto](http://www.devopsdays.org/events/2014-toronto/)
 I've been thinking more about how to test CFEngine policy. Not just

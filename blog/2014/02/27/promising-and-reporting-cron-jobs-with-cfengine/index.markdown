@@ -25,7 +25,7 @@ tags:
   - EFL
 title: Promising and reporting cron jobs with CFEngine
 ---
-![image of stopwatch](http://watson-wilson.ca/static/images/stopwatch_13154_sm.gif)
+![image of stopwatch](/static/images/stopwatch_13154_sm.gif)
 
 Previously I discusses how use [CFEngine as a cron replacment](http://watson-wilson.ca/2011/09/cfengine-as-an-alternative-to-crond.html).
 I'd like to revisit that using EFL and Delta Reporting.
@@ -67,4 +67,4 @@ in cron.
 Using [Delta Reporting](/products/delta-reporting/) we can audit the
 history of our jobs, reporting last status and status of the past.
 
-[![delta reporting screen shot of fetchmail promiser](http://watson-wilson.ca/static/images/dr_efl_command_ss.png)](http://watson-wilson.ca/static/images/dr_efl_command_ss.png)
+[![delta reporting screen shot of fetchmail promiser](/static/images/dr_efl_command_ss.png)](/static/images/dr_efl_command_ss.png)

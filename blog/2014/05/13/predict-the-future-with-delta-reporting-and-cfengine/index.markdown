@@ -21,7 +21,7 @@ tags:
   - delta reporting
 title: Predict the future with Delta Reporting and CFEngine
 ---
-[caption id="attachment_908" align="alignright" width="320"]![Trending promises repaired and host count.](http://watson-wilson.ca/wp-content/uploads/2014/05/dr-trend-graph_s.png)Trending
+[caption id="attachment_908" align="alignright" width="320"]![Trending promises repaired and host count.](/static/images/dr-trend-graph_s.png)Trending
 promises repaired and host count.[/caption]
 
 Until now Delta Reporting was only able to show you the outcome history

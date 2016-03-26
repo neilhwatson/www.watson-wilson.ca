@@ -21,7 +21,7 @@ tags:
   - EFL
 title: Why use EFL with CFEngine?
 ---
-![Evolve Free Library screen shoot](http://watson-wilson.ca/static/images/efl_copy_files.png)
+![Evolve Free Library screen shoot](/static/images/efl_copy_files.png)
 
 EFL saves time and money by making CFEngine simpler to deploy and
 maintain.

@@ -21,7 +21,7 @@ tags:
   - EFL
 title: EFL is tested for your confidence
 ---
-![EFL has more than 170 tests](http://watson-wilson.ca/static/images/efl_tests.png)
+![EFL has more than 170 tests](/static/images/efl_tests.png)
 
 Take confidence that [EFL](https://github.com/evolvethinking/evolve_cfengine_freelib)
 is tested with each change and against each new CFEngine release. We

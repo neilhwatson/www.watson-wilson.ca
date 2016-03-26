@@ -35,7 +35,7 @@ tags:
   - software testing
 title: 'Testing CFEngine policy using EFL, TAP, and Perl'
 ---
-![Prove and TAP output](http://watson-wilson.ca/static/images/efl_tests.png)
+![Prove and TAP output](/static/images/efl_tests.png)
 
 It's a dirty secret that few test their CFEngine policies, and fewer
 still test them well. Now EFL has two bundles for testing that produce

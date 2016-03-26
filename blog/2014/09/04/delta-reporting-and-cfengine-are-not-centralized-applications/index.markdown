@@ -31,7 +31,7 @@ flexible.
 
 ---
 
-[caption id="attachment_996" align="alignnone" width="163"][![CFEngine typical centralized architecture](http://watson-wilson.ca/wp-content/uploads/2014/09/client-server-centralized.png)](http://watson-wilson.ca/wp-content/uploads/2014/09/client-server-centralized.png)
+[caption id="attachment_996" align="alignnone" width="163"][![CFEngine typical centralized architecture](/static/images/client-server-centralized.png)](/static/images/client-server-centralized.png)
 CFEngine typical centralized architecture[/caption]
 
 A typical installation of CFEngine has all agent hosts connecting to a
@@ -42,7 +42,7 @@ server for DMZ agents and is itself an agent of the internal server. In
 isolated networks you can deploy additional CFEngine servers to support
 local agent hosts.
 
-[caption id="attachment_997" align="alignnone" width="430"][![CFEngine decentralized architecture](http://watson-wilson.ca/wp-content/uploads/2014/09/client-server-decentralized.png)](http://watson-wilson.ca/wp-content/uploads/2014/09/client-server-decentralized.png)
+[caption id="attachment_997" align="alignnone" width="430"][![CFEngine decentralized architecture](/static/images/client-server-decentralized.png)](/static/images/client-server-decentralized.png)
 CFEngine decentralized architecture[/caption]
 
 [Delta Reporting's](https://github.com/evolvethinking/delta_reporting)
@@ -51,7 +51,7 @@ CFEngine server loads DR's data to a database that can be local or
 remote. Multiple CFEngine servers can share the same DR database, and
 you can have isolated DR instances in high security networks.
 
-[caption id="attachment_998" align="alignnone" width="430"][![Delta Reporting decentralized architecture](http://watson-wilson.ca/wp-content/uploads/2014/09/delta-reporting-decentralized.png)](http://watson-wilson.ca/wp-content/uploads/2014/09/delta-reporting-decentralized.png)
+[caption id="attachment_998" align="alignnone" width="430"][![Delta Reporting decentralized architecture](/static/images/delta-reporting-decentralized.png)](/static/images/delta-reporting-decentralized.png)
 Delta Reporting decentralized architecture[/caption]
 
 It is no exaggeration that CFEngine is decentralized and scales

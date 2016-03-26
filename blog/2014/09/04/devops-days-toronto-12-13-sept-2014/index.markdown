@@ -21,7 +21,7 @@ tags:
   - devops
 title: Devops Days Toronto 12-13  Sept 2014
 ---
-![Devops days toronto 2014 logo](http://watson-wilson.ca/static/images/devopsdaystoronto.png)
+![Devops days toronto 2014 logo](/static/images/devopsdaystoronto.png)
 
 Evolve Thinking is proud to sponsor [Devops Days Toronto 2014](http://www.devopsdays.org/events/2014-toronto/),
 September 12 and 13. Find me there and ask me anything.

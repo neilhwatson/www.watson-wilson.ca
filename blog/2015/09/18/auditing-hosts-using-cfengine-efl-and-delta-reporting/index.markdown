@@ -33,7 +33,7 @@ tags:
   - software testing
 title: 'Auditing hosts using CFEngine, EFL, and Delta Reporting'
 ---
-![](http://watson-wilson.ca/wp-content/uploads/2015/09/Liste-300px.png)
+![](/static/images/Liste-300px.png)
 
 Sometimes you want to audit a host without changing it. This can be
 hard with CFEngine, but with [EFL](https://github.com/evolvethinking/evolve_cfengine_freelib)
@@ -189,7 +189,7 @@ Reporting](https://github.com/evolvethinking/delta_reporting). By
 integrating the first two bundles into my production policy I can use
 DR to search for class membership.
 
-[caption id="attachment_1146" align="aligncenter" width="904"][![Auditing hosts using Delta Reporting](http://watson-wilson.ca/static/images/auditing1.png)](http://watson-wilson.ca/static/images/auditing1.png)
+[caption id="attachment_1146" align="aligncenter" width="904"][![Auditing hosts using Delta Reporting](/static/images/auditing1.png)](/static/images/auditing1.png)
 Auditing hosts using Delta Reporting[/caption]
 
 **Without writing any new CFEngine policy** I was able to audit my

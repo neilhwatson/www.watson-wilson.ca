@@ -27,4 +27,4 @@ title: Toronto devops CFEngine slide deck
 ---
 
 
-It was nice meeting everyone last night. Here is the [slide deck](http://watson-wilson.ca/wp-content/uploads/2014/08/devops-talks.pdf).
+It was nice meeting everyone last night. Here is the [slide deck](/static/images/devops-talks.pdf).

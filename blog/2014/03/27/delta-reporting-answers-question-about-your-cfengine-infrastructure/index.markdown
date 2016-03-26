@@ -21,9 +21,9 @@ tags:
   - delta reporting
 title: Delta Reporting answers questions about your CFEngine infrastructure
 ---
-[![dr-logo-100](http://watson-wilson.ca/wp-content/uploads/2014/02/dr-logo-100.png)](/products/delta-reporting)
+![dr-logo-100](/static/images/dr-logo-100.png)
 
-Learn what [Delta Reporting](/products/delta-reporting) can answer for
+Learn what [Delta Reporting](https://github.com/evolvethinking/delta_reporting) can answer for
 you, all from one place.
 
 ---
@@ -84,11 +84,10 @@ cf-agent evaluated the class.
 
 ## More info ##
 
-  * See the [Delta Reporting](/products/delta-reporting) information
-    page.
+  * See the [Delta Reporting](https://github.com/evolvethinking/delta_reporting)
+    information page.
 
   * Delta Reporting is open source, under the GPL3 licence. [Get the
     source](https://github.com/evolvethinking/delta_reporting).
 
-  * Evolve Thinking, the creator of Delta Reporting, offers [support,
-    integration, and custom development servers](/services).
+  * Contact me for support and professional services for Delta Reporting.

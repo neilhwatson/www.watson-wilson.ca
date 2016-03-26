@@ -29,8 +29,11 @@ tags:
   - EFL
 title: 'CFEngine best practices: deployment, upgrades, and scaling'
 ---
-![sts-atlantis](http://watson-wilson.ca/wp-content/uploads/2014/08/sts-atlantis.jpg)Part
-3 of CFEngine best practices. ---
+![sts-atlantis](/static/images/sts-atlantis.jpg)
+
+Part 3 of CFEngine best practices.
+
+---
 
 #### Version control ####
 
@@ -62,22 +65,20 @@ When you bootstrap CFEngine 3, using its built in bootstrap feature,
 cf-agent will delete all files in inputs including any related to
 CFEngine 2. If you want to run 2 and 3 in parallel you'll need a
 wrapper script around CFEngine 3's bootstrap process to backup and
-restore CFEngine 2's inputs. [here](https://dev.cfengine.com/issues/3605)
+restore CFEngine 2's inputs. [here](https://tracker.mender.io/browse/CFE-959)
 is an interesting discussion on this topic. With both agents running in
 parallel you can reduce your CF2 policy and increase your CF3 in
 gradually.
 
 #### Upgrading from CFEngine 3.n to 3.n+1 ####
 
-Figure 1: Steps to upgrading CFEngine, hyperbole
+##### Steps to upgrading CFEngine, hyperbole
 
   1. Test
 
   2. Test
 
   3. Repeat previous steps
-
-####  ####
 
 As I said in [part 1](http://watson-wilson.ca/cfengine-best-practices-testing/)
 of this series, mistakes in CFEngine will be horrifyingly duplicated to
@@ -90,7 +91,7 @@ regression bugs. Trust is earned. Make CFEngine, and any other
 software, earn your trust. Here's a more practical approach to
 upgrading.
 
-Figure 2: Steps to upgrading CFEngine, practical
+##### Steps to upgrading CFEngine, practical
 
   1. Keep watch on CFEngine bug and mailing list traffic.
 
@@ -102,8 +103,6 @@ Figure 2: Steps to upgrading CFEngine, practical
   4. Upgrade clients in batches.
 
   5. Repeat server and client upgrade steps for qa and production.
-
-####  ####
 
 As release candidates come out, you'll get a chance to experience and
 see what others experience with the proposed new version. Watch the
@@ -120,9 +119,9 @@ log the promise and class status of all your agent hosts. This
 information can help you spot problems in your upgrade and in normal
 production.
 
-Figure 3: Delta Reporting showing an ntp process promise on multiple
+Figure 1: Delta Reporting showing an ntp process promise on multiple
 hosts
-[![Reporting on ntp process promises](http://watson-wilson.ca/wp-content/uploads/2014/07/dr-process-report.png)](http://watson-wilson.ca/wp-content/uploads/2014/07/dr-process-report.png)
+[![Reporting on ntp process promises](/static/images/dr-process-report.png)](/static/images/dr-process-report.png)
 
 #### Upgrading policy ####
 
@@ -166,7 +165,7 @@ high load promises, like packages, less frequently.
 
 It would be nice if we could bootstrap an agent to multiple servers.
 Sadly, this feature does not exist at this time, but you can [vote for
-it](https://dev.cfengine.com/issues/3570). In the mean time we must
+it](https://tracker.mender.io/browse/CFE-941). In the mean time we must
 perform some tricks to make the agent contact redundant policy servers.
 
 A *copy_from* body has a servers attribute that takes a list argument.
@@ -202,7 +201,7 @@ location to the final location. If the server is unreachable the agent
 cannot promise any new files, but it can continue to promise existing
 ones.
 
-Figure 4: Caching source files ` `
+Figure 2: Caching source files 
 
     files:
        "${efl_c.cache}/${${config_file[${s}]}}" -> { "${${promisee[${s}]}}" }

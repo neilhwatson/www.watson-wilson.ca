@@ -12,7 +12,7 @@
         <author><name>nwatson</name></author>
         <link href="http://watson-wilson.ca/blog/2014/10/30/changes-in-virt-install-and-kickstart-in-rhel7/" rel="alternate" />
         <content type="html"><![CDATA[
-            <p><img alt="mre case" src="http://watson-wilson.ca/wp-content/uploads/2014/10/mre-case.jpg"></p>
+            <p><img alt="mre case" src="http://watson-wilson.ca/static/images/mre-case.jpg"></p>
 
 <p>If you are planning to move to RHEL7 you may have to change your
 kickstart and <a href="http://linux.die.net/man/1/virt-install">virt-install</a>

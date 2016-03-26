@@ -25,7 +25,7 @@ tags:
   - provisioning
 title: New packages promises in EFL
 ---
-![A package](http://watson-wilson.ca/wp-content/uploads/2015/07/cubimal-package.png)
+![A package](/static/images/cubimal-package.png)
 
 Good news everyone. CFEngine 3.7 has revamped packages promises making
 them simpler and more reliable. These new promises are now used in EFL

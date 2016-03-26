@@ -75,223 +75,12 @@
 
                 </header>
 
-                <p><img alt="sts-atlantis" src="http://watson-wilson.ca/wp-content/uploads/2014/08/sts-atlantis.jpg">Part
-3 of CFEngine best practices. ---</p>
+                <p><img alt="sts-atlantis" src="/static/images/sts-atlantis.jpg"></p>
 
-<h4>Version control</h4>
-
-<p>Put your CFEngine policy and supporting programs, data files, and
-documentation into version control. Like any other code you&#39;ll benefit
-from knowing its history. You can use branches to promote new policy
-from testing to production. I recommend using three branches: dev, qa,
-and production. Have servers and agents dedicated to each branch. The
-greater the variety of hosts in each branch, the greater the chance of
-catching bugs early. Always edit code in development only and promote
-those changes to qa and then production.</p>
-
-<p>I frequently use cf-agent to pull new policy into masterfiles directly
-from version control. This provides automatic deployment upon commit. <a href="https://github.com/evolvethinking/evolve_cfengine_freelib">EFL</a>
-has a ready to use bundle, <em>efl_rcs_pull</em> to handle RCS pulls, and it
-works with most RCS products.</p>
-
-<h4>Upgrading from CFEngine 2</h4>
-
-<p>Because CFEngine 3 is not backwards compatible with CFEngine 2 the
-upgrade path is steep and rocky. Many are just now starting this climb.
-The best upgrade path is to set up separate CFEngine 3 servers, and
-install CFEngine 3 on your clients while continuing to use CFEngine 2.
-CFEngine 2&#39;s <em>cfagent</em> can run in parallel with the CFEngine 3 <em>cf-agent</em>.
-The two versions do not share any common files so there is no overlap.
-They do share common directories; the most important is inputs.</p>
-
-<p>When you bootstrap CFEngine 3, using its built in bootstrap feature,
-cf-agent will delete all files in inputs including any related to
-CFEngine 2. If you want to run 2 and 3 in parallel you&#39;ll need a
-wrapper script around CFEngine 3&#39;s bootstrap process to backup and
-restore CFEngine 2&#39;s inputs. <a href="https://dev.cfengine.com/issues/3605">here</a>
-is an interesting discussion on this topic. With both agents running in
-parallel you can reduce your CF2 policy and increase your CF3 in
-gradually.</p>
-
-<h4>Upgrading from CFEngine 3.n to 3.n+1</h4>
-
-<p>Figure 1: Steps to upgrading CFEngine, hyperbole</p>
-
-<ol>
-<li><p>Test</p></li>
-<li><p>Test</p></li>
-<li><p>Repeat previous steps</p></li>
-</ol>
-
-<h4>#</h4>
-
-<p>As I said in <a href="http://watson-wilson.ca/cfengine-best-practices-testing/">part 1</a>
-of this series, mistakes in CFEngine will be horrifyingly duplicated to
-all of your hosts. This can be a career limiting event. A new version
-of CFEngine can expose pre-existing bugs in your policy, or introduce
-its own new bugs. An example of the former: in version 3.5.0 the syntax
-checker became more strict, reporting errors that previous versions
-missed. Examples of the latter include many fixed and outstanding
-regression bugs. Trust is earned. Make CFEngine, and any other
-software, earn your trust. Here&#39;s a more practical approach to
-upgrading.</p>
-
-<p>Figure 2: Steps to upgrading CFEngine, practical</p>
-
-<ol>
-<li><p>Keep watch on CFEngine bug and mailing list traffic.</p></li>
-<li><p>Keep policy compatible with both old and new versions until entire
-upgrade is complete.</p></li>
-<li><p>Upgrade the development server.</p></li>
-<li><p>Upgrade clients in batches.</p></li>
-<li><p>Repeat server and client upgrade steps for qa and production.</p></li>
-</ol>
-
-<h4>#</h4>
-
-<p>As release candidates come out, you&#39;ll get a chance to experience and
-see what others experience with the proposed new version. Watch the
-bugs that get resolved and those that remain open. There may be new
-syntax or features that are not compatible with your current version of
-CFEngine. Do not consider these until after the upgrade. Be sure your
-policy runs properly on both versions. When you are ready to take the
-plunge, upgrade the server first. When it passes all tests proceed with
-clients, in small batches, enlarging the batches as you gain
-confidence.</p>
-
-<p>Reporting tools like <a href="https://github.com/evolvethinking/delta_reporting">Delta Reporting</a>
-log the promise and class status of all your agent hosts. This
-information can help you spot problems in your upgrade and in normal
-production.</p>
-
-<p>Figure 3: Delta Reporting showing an ntp process promise on multiple
-hosts
-<a href="http://watson-wilson.ca/wp-content/uploads/2014/07/dr-process-report.png"><img alt="Reporting on ntp process promises" src="http://watson-wilson.ca/wp-content/uploads/2014/07/dr-process-report.png"></a></p>
-
-<h4>Upgrading policy</h4>
-
-<p>New versions of CFEngine ship with new base policy. The base policy is
-in its own <a href="https://github.com/cfengine/masterfiles">repository</a> so you
-can upgrade it between CFEngine releases. Merging this new policy with
-your existing one is always tedious, but your regimented use of version
-control will make this easier. To reduce the merging work limit the
-amount of changes you make to the shipped policy. I usually only
-changes inputs, bundlesequence (to call my master methods bundle), and
-variables and options set in <em>def.cf</em>.</p>
-
-<p>Tip If you plan to use CFEngine on an IPV6 interface, beware that the
-default policy will not work. You must change the server control body,
-setting <em>bindtointerface</em> to a double colon (::). See <a href="https://github.com/cfengine/masterfiles/pull/152">here</a>
-and <a href="https://docs.cfengine.com/latest/reference-components-cf-serverd.html#bindtointerface">here</a>
-for more information.</p>
-
-<h4>Handling many clients with a single server</h4>
-
-<p>A single server can handle thousands of CFEngine clients, but there are
-tricks to extend that number further. This simplest is splaytime. The
-schedule daemon cf-exed checks its current hard classes versus the time
-classes specified in its control body schedule attribute. If there is a
-match, the <em>exec_command</em> is run. If you have a thousand hosts all of
-them will start at the same time causing the server needless load and
-dropped connections. Splaytime is set in cf-execd&#39;s control body. Each
-agent generates a deterministic time between zero and splaytime minutes
-and waits that amount of time before running the exec_command. Thus
-your agent starts are splayed. Always set splaytime to the interval or
-your run schedule less one minute.</p>
-
-<p>Cf-serverd is a file server. Some agent promises can request a lot of
-files from the server. To reduce this load, reduce the frequency of
-these promises. Use the <em>ifelapsed</em> action body attribute. An ifelapsed
-of 60 means the agent will not evaluate the promise more than once
-every 60 minutes. This feature can also reduce agent load by running
-high load promises, like packages, less frequently.</p>
-
-<h4>Redundant CFEngine servers</h4>
-
-<p>It would be nice if we could bootstrap an agent to multiple servers.
-Sadly, this feature does not exist at this time, but you can <a href="https://dev.cfengine.com/issues/3570">vote for
-it</a>. In the mean time we must
-perform some tricks to make the agent contact redundant policy servers.</p>
-
-<p>A <em>copy_from</em> body has a servers attribute that takes a list argument.
-In spite of having no multi-server bootstrap, the agent can already
-talk to multiple servers by populating the servers list. The agent
-tries each server in the list, in order. Set your policy to randomize
-this list using the <em>shuffle</em> function and you add load balancing.</p>
-
-<p>The trouble with having no multi-server bootstrap is that we are left
-to handle key exchanges between agents and multiple servers. There are
-multiple ways to do this. I won&#39;t go into detail here, but give you a
-high overview instead.</p>
-
-<p>Recall that for agent and server to trust each other there must be
-access promises, each must have the other&#39;s public key stored in the
-ppkeys directory, and the server&#39;s allowconnects and allowallconnects
-must include the agent. You can have all redundant servers share the
-same private keys or give them separate keys. Either way you&#39;ll need to
-sync some or all of the ppkeys directory between the servers so that
-each has a copy of all agent public keys. Also, ensure that each client
-has a copy of each server&#39;s public key.</p>
-
-<h4>Make policy that makes the agent self reliant</h4>
-
-<p>In spite of all your efforts, at some point your agents will not be
-able to reach the server. What then? The agents will not be able to
-fetch new policy, but they should be able to run existing policy if the
-policy is robust enough. One best practice is to cache files that are
-copied from the server. Rather than promising the final promiser file
-direct from the policy server, promise the file from the policy server
-to a cache location (/var/cache/cfengine/), then promise from the cache
-location to the final location. If the server is unreachable the agent
-cannot promise any new files, but it can continue to promise existing
-ones.</p>
-
-<p>Figure 4: Caching source files <code></code></p>
-
-<pre><code>files:
-   &quot;${efl_c.cache}/${${config_file[${s}]}}&quot; -&gt; { &quot;${${promisee[${s}]}}&quot; }
-      comment =&gt; &quot;Cache the source file&quot;,
-      handle =&gt; &quot;efl_service_files_cache&quot;,
-      create =&gt; &quot;true&quot;,
-      copy_from =&gt; efl_cpf( &quot;${${source_file[${s}]}}&quot;, &quot;@{${${server[${s}]}}}&quot; );
-
-   &quot;${${config_file[${s}]}}&quot; -&gt; { &quot;${${promisee[${s}]}}&quot; }
-      comment =&gt; &quot;Promise contents of configuration file from the cache&quot;,
-      handle =&gt; &quot;efl_service_files_config&quot;,
-      create =&gt; &quot;true&quot;,
-      copy_from =&gt; efl_cpf( &quot;${efl_c.cache}/${${config_file[${s}]}}&quot;, &quot;localhost&quot; );
-</code></pre>
-
-<h4>Limiting agent input files</h4>
-
-<p>When using CFEngine&#39;s bootstrap feature all the contents of the
-server&#39;s masterfiles directory is copied to the agent&#39;s inputs
-directory. You may want to limit which input files are copied. A good
-approach is to keep only the most basic files in masterfiles, including
-policy for the agent to download other files from directories <em>outside</em>
-of masterfiles.</p>
-
-<p>You should only try to limit files that contain private information,
-the same information what you would encrypt. Try not to be too paranoid
-about limiting inputs because it adds complexity.</p>
-
-<p>How will you restrict agent access to private data? You cannot use
-classes because any agent can have any class using the -D command
-switch. You must limit access using server access promises.</p>
-
-<h4>Summary</h4>
-
-<ol>
-<li><p>Use version control, everywhere.</p></li>
-<li><p>CFEngine 2 and 3 can run in parallel for gradual migration.</p></li>
-<li><p>Upgrade policy and CFEngine 3 with extensive planning and testing.</p></li>
-<li><p>Use splaytime and ifelasped to reduce agent and server load.</p></li>
-<li><p>Make CFEngine policy servers in redundant pairs.</p></li>
-<li><p>Make policy reliable even when the server is unavailable.</p></li>
-<li><p>You can limit selected inputs to agents, but do so with caution.</p></li>
-</ol>
+<p>Part 3 of CFEngine best practices.</p>
 
 
+                    <p><a href="/blog/2014/08/07/cfengine-best-practices-deployment-upgrades-and-scaling/index.html#section-2">Continue reading CFEngine best practices: deployment, upgrades, and scaling...</a></p>
 
             </article>
             <article>
@@ -315,7 +104,7 @@ switch. You must limit access using server access promises.</p>
 
                 </header>
 
-                <p><img alt="stormtrooper-apple" src="http://watson-wilson.ca/wp-content/uploads/2014/07/stormtrooper-apple.jpg"></p>
+                <p><img alt="stormtrooper-apple" src="/static/images/stormtrooper-apple.jpg"></p>
 
 <p>Continuing on from <a href="http://watson-wilson.ca/cfengine-best-practices-testing/">testing best practices</a>,
 let&#39;s look at other best practices to make you a CFEngine ninja.</p>
@@ -373,7 +162,7 @@ for this in EFL after CFEngine&#39;s 3.6 release.</p>
 
                 </header>
 
-                <p><a href="http://watson-wilson.ca/wp-content/uploads/2014/02/dr-logo-100.png"><img alt="dr-logo-100" src="http://watson-wilson.ca/wp-content/uploads/2014/02/dr-logo-100.png"></a>We
+                <p><a href="/static/images/dr-logo-100.png"><img alt="dr-logo-100" src="/static/images/dr-logo-100.png"></a>We
 are excited to announce the release of Delta Reporting under GPL3.</p>
 
 
@@ -400,7 +189,7 @@ are excited to announce the release of Delta Reporting under GPL3.</p>
 
                 </header>
 
-                <p><img alt="image of stopwatch" src="http://watson-wilson.ca/static/images/stopwatch_13154_sm.gif"></p>
+                <p><img alt="image of stopwatch" src="/static/images/stopwatch_13154_sm.gif"></p>
 
 <p>Previously I discusses how use <a href="http://watson-wilson.ca/2011/09/cfengine-as-an-alternative-to-crond.html">CFEngine as a cron replacment</a>.
 I&#39;d like to revisit that using EFL and Delta Reporting.</p>

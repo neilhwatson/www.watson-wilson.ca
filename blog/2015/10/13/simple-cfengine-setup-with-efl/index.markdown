@@ -21,7 +21,7 @@ tags:
   - EFL
 title: Simple CFEngine setup with EFL
 ---
-![image of stopwatch](http://watson-wilson.ca/static/images/stopwatch_13154_sm.gif)
+![image of stopwatch](/static/images/stopwatch_13154_sm.gif)
 
 CFEngine can be confusing and frustrating for new users. I'll try to
 offer you a condensed and easy to follow procedure, including the [EFL](https://github.com/evolvethinking/evolve_cfengine_freelib)

@@ -41,7 +41,7 @@ tags:
   - redhat
 title: Changes in virt-install and Kickstart in RHEL7
 ---
-![mre case](http://watson-wilson.ca/wp-content/uploads/2014/10/mre-case.jpg)
+![mre case](/static/images/mre-case.jpg)
 
 If you are planning to move to RHEL7 you may have to change your
 kickstart and [virt-install](http://linux.die.net/man/1/virt-install)

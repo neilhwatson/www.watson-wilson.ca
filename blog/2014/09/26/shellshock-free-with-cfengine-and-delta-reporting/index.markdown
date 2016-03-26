@@ -29,7 +29,7 @@ tags:
   - security
 title: Shellshock free with CFEngine and Delta Reporting
 ---
-[caption id="attachment_1052" align="alignnone" width="716"][![Hosts reported free of shell shock](http://watson-wilson.ca/static/images/shell_shock.png)](http://watson-wilson.ca/static/images/shell_shock.png)
+[caption id="attachment_1052" align="alignnone" width="716"][![Hosts reported free of shell shock](/static/images/shell_shock.png)](/static/images/shell_shock.png)
 Hosts reported free of shell shock[/caption]
 
 Above is a screenshot from Evolve's production [Delta Reporting](https://github.com/evolvethinking/delta_reporting)

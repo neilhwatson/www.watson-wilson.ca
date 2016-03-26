@@ -32,7 +32,7 @@ addon.</p>
             <link>http://watson-wilson.ca/blog/2015/09/18/auditing-hosts-using-cfengine-efl-and-delta-reporting/</link>
             <guid>http://watson-wilson.ca/blog/2015/09/18/auditing-hosts-using-cfengine-efl-and-delta-reporting/</guid>
             <description><![CDATA[
-                <p><img alt="" src="http://watson-wilson.ca/wp-content/uploads/2015/09/Liste-300px.png"></p>
+                <p><img alt="" src="http://watson-wilson.ca/static/images/Liste-300px.png"></p>
 
 <p>Sometimes you want to audit a host without changing it. This can be
 hard with CFEngine, but with <a href="https://github.com/evolvethinking/evolve_cfengine_freelib">EFL</a>
@@ -102,7 +102,7 @@ in your production environment.</p>
             <link>http://watson-wilson.ca/blog/2015/07/29/new-packages-promises-in-efl/</link>
             <guid>http://watson-wilson.ca/blog/2015/07/29/new-packages-promises-in-efl/</guid>
             <description><![CDATA[
-                <p><img alt="A package" src="http://watson-wilson.ca/wp-content/uploads/2015/07/cubimal-package.png"></p>
+                <p><img alt="A package" src="http://watson-wilson.ca/static/images/cubimal-package.png"></p>
 
 <p>Good news everyone. CFEngine 3.7 has revamped packages promises making
 them simpler and more reliable. These new promises are now used in EFL

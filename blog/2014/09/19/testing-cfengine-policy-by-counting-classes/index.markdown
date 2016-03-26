@@ -33,7 +33,7 @@ tags:
   - software testing
 title: Testing CFEngine policy by counting classes
 ---
-![counting](http://watson-wilson.ca/static/images/counting.jpg)
+![counting](/static/images/counting.jpg)
 
 I've added a [new bundle](https://github.com/evolvethinking/evolve_cfengine_freelib/commit/00093210649c4b236e9d4940a23f5a6fe2e60742)
 to the 3.5 branch of EFL. This bundle *efl_test_count* allows you to

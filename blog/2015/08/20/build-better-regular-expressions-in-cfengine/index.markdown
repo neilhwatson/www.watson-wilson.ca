@@ -29,7 +29,7 @@ tags:
   - regex
 title: Build better regular expressions in CFEngine
 ---
-![picture of a regex](http://watson-wilson.ca/static/images/regex.png)
+![picture of a regex](/static/images/regex.png)
 
 Regular expressions can vary from simple to WTF. Usually they tend
 toward the latter. What most don't realized, or are too lazy to use, is

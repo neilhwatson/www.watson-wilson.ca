@@ -38,7 +38,7 @@ TAP output.</p>
         <author><name>nwatson</name></author>
         <link href="http://watson-wilson.ca/blog/2014/10/30/changes-in-virt-install-and-kickstart-in-rhel7/" rel="alternate" />
         <content type="html"><![CDATA[
-            <p><img alt="mre case" src="http://watson-wilson.ca/wp-content/uploads/2014/10/mre-case.jpg"></p>
+            <p><img alt="mre case" src="http://watson-wilson.ca/static/images/mre-case.jpg"></p>
 
 <p>If you are planning to move to RHEL7 you may have to change your
 kickstart and <a href="http://linux.die.net/man/1/virt-install">virt-install</a>
@@ -239,7 +239,7 @@ template.</p>
         <author><name>nwatson</name></author>
         <link href="http://watson-wilson.ca/blog/2014/09/17/testing-cfengine-policy/" rel="alternate" />
         <content type="html"><![CDATA[
-            <p><img alt="f4-crashtest" src="http://watson-wilson.ca/wp-content/uploads/2014/07/f4-crashtest.jpg"></p>
+            <p><img alt="f4-crashtest" src="http://watson-wilson.ca/static/images/f4-crashtest.jpg"></p>
 
 <p>After 2 productive days at <a href="http://www.devopsdays.org/events/2014-toronto/">Devopsdays Toronto</a>
 I&#39;ve been thinking more about how to test CFEngine policy. Not just

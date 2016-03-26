@@ -21,7 +21,7 @@ tags:
   - opennms
 title: "OpenNMS: the open source enterprise monitoring solution you've never heard of."
 ---
-[![opennms logo](http://watson-wilson.ca/static/images/opennms.png)](http://www.opennms.org)
+[![opennms logo](/static/images/opennms.png)](http://www.opennms.org)
 
 Begun in 1999, [OpenNMS](http://www.opennms.org) an enterprise scale
 monitoring solution written in Java, with a Postgresql database and

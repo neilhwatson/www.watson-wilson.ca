@@ -25,7 +25,7 @@ tags:
   - perl
 title: Cfbot answers your questions on IRC
 ---
-[caption id="attachment_1103" align="alignright" width="206"]![Courtesy clipartlord.com](http://watson-wilson.ca/static/images/robot41.png)
+[caption id="attachment_1103" align="alignright" width="206"]![Courtesy clipartlord.com](/static/images/robot41.png)
 Courtesy clipartlord.com[/caption]
 
 I've built [cfbot](https://github.com/neilhwatson/cfbot) an open source

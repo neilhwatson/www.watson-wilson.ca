@@ -60,7 +60,7 @@ Second, edit poller-configuration.xml adding these sections.
 Restart Opennms, then you can manually rescan hosts immediately, or
 wait for Opennms to do so in it's own time, usually overnight.
 
-[caption id="attachment_521" width="640"][![screen shot of Opennms reporting CFEngine availability](http://watson-wilson.ca/wp-content/uploads/2013/07/opennms-cfengine-polling.png)](http://watson-wilson.ca/wp-content/uploads/2013/07/opennms-cfengine-polling.png)
+[caption id="attachment_521" width="640"][![screen shot of Opennms reporting CFEngine availability](/static/images/opennms-cfengine-polling.png)](/static/images/opennms-cfengine-polling.png)
 Opennms reporting CFEngine availability. Notice anything shiny and
 new?[/caption]
 

@@ -21,7 +21,7 @@ tags:
   - EFL
 title: My evolution of CFEngine policy
 ---
-![Evolution of fire](http://watson-wilson.ca/wp-content/uploads/2014/02/fire-240.jpg)
+![Evolution of fire](/static/images/fire-240.jpg)
 
 My style and approach to CFEngine policy writing has evolved over the
 years. Recently I discussion this with someone new to CFEngine. He was

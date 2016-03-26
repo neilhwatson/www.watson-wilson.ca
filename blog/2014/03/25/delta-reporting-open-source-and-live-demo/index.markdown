@@ -25,7 +25,7 @@ tags:
   - EFL
 title: 'Delta Reporting, Open Source, and Live Demo'
 ---
-[![dr-logo-100](http://watson-wilson.ca/wp-content/uploads/2014/02/dr-logo-100.png)](http://watson-wilson.ca/wp-content/uploads/2014/02/dr-logo-100.png)We
+[![dr-logo-100](/static/images/dr-logo-100.png)](/static/images/dr-logo-100.png)We
 are excited to announce the release of Delta Reporting under GPL3.
 
 ---

@@ -29,7 +29,7 @@ tags:
   - EFL
 title: 'CFEngine best practices: part 2'
 ---
-![stormtrooper-apple](http://watson-wilson.ca/wp-content/uploads/2014/07/stormtrooper-apple.jpg)
+![stormtrooper-apple](/static/images/stormtrooper-apple.jpg)
 
 Continuing on from [testing best practices](http://watson-wilson.ca/cfengine-best-practices-testing/),
 let's look at other best practices to make you a CFEngine ninja.

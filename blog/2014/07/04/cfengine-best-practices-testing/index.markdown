@@ -29,7 +29,7 @@ tags:
   - software testing
 title: 'CFEngine best practices: testing'
 ---
-[![f4-crashtest](http://watson-wilson.ca/wp-content/uploads/2014/07/f4-crashtest.jpg)](http://watson-wilson.ca/wp-content/uploads/2014/07/f4-crashtest.jpg)
+[![f4-crashtest](/static/images/f4-crashtest.jpg)](/static/images/f4-crashtest.jpg)
 
 CFEngine's autonomous automation means that your policy, mistakes and
 all, will be duplicated quickly to all of your hosts. --- Potentially
@@ -323,7 +323,7 @@ you'll be able to get reports showing your prototype in action on all
 of your test hosts.
 
 Figure 7: Delta Reporting showing an ntp process promise on multiple
-hosts [![Reporting on ntp process promises](http://watson-wilson.ca/wp-content/uploads/2014/07/dr-process-report.png)](http://watson-wilson.ca/wp-content/uploads/2014/07/dr-process-report.png)
+hosts [![Reporting on ntp process promises](/static/images/dr-process-report.png)](/static/images/dr-process-report.png)
 
 ####  ####
 
