@@ -5,7 +5,7 @@
         <link>http://watson-wilson.ca/blog/tag/perl/</link>
         <atom:link href="http://watson-wilson.ca/blog/tag/perl.rss" rel="self" type="application/rss+xml" />
         <description>Blog feed of Neil H. Watson</description>
-        <generator>Statocles 0.065</generator>
+        <generator>Statocles 0.073</generator>
         <item>
             <title>Perl cheatsheet</title>
             <link>http://watson-wilson.ca/blog/2015/11/25/perl-cheatsheet/</link>
@@ -46,6 +46,68 @@ Lots of interesting stuff in that repo.</p>
             ]]></description>
             <pubDate>
                 Tue, 17 Nov 2015 00:00:00 +0000
+            </pubDate>
+        </item>
+        <item>
+            <title>Purging old systems from Red Hat Satellite</title>
+            <link>http://watson-wilson.ca/blog/2015/06/10/purging-old-systems-from-red-hat-satellite/</link>
+            <guid>http://watson-wilson.ca/blog/2015/06/10/purging-old-systems-from-red-hat-satellite/</guid>
+            <description><![CDATA[
+                <p>I&#39;ve been involved in a Red Hat Satellite (version 5) project recently.
+--- The nature of the client&#39;s work meant that most the systems
+registered with Satellite were reinstalled regularly. This can lead to
+duplicate systems residing in Satellite&#39;s database and its collection
+of Cobbler files. With the aid of Red Had I wrote some scripts that use
+the Satellite and Cobbler API to delete old systems from Satellite and
+Cobbler. I can&#39;t share the scripts, but I can show you some useful
+snippets from what I learned. The scripts are in Perl so I include the
+snippets in my personal Perl <a href="https://github.com/neilhwatson/nustuff/blob/master/perl/cheatsheet.pod">cheatsheet</a>.</p>
+
+                    <p><a href="http://watson-wilson.ca/blog/2015/06/10/purging-old-systems-from-red-hat-satellite/#section-2">Continue reading...</a></p>
+                <p>Tags:
+                    <a href="http://watson-wilson.ca/blog/tag/perl/">perl</a>
+                    <a href="http://watson-wilson.ca/blog/tag/redhat/">redhat</a>
+                    <a href="http://watson-wilson.ca/blog/tag/satellite/">satellite</a>
+                </p>
+            ]]></description>
+            <pubDate>
+                Wed, 10 Jun 2015 09:04:40 +0000
+            </pubDate>
+        </item>
+        <item>
+            <title>Cfbot answers your questions on IRC</title>
+            <link>http://watson-wilson.ca/blog/2015/06/10/cfbot-answers-your-questions-on-irc/</link>
+            <guid>http://watson-wilson.ca/blog/2015/06/10/cfbot-answers-your-questions-on-irc/</guid>
+            <description><![CDATA[
+                <p>[caption id=&quot;attachment_1103&quot; align=&quot;alignright&quot; width=&quot;206&quot;]<img alt="Courtesy clipartlord.com" src="http://watson-wilson.ca/static/images/robot41.png">
+Courtesy clipartlord.com[/caption]</p>
+
+<p>I&#39;ve built <a href="https://github.com/neilhwatson/cfbot">cfbot</a> an open source
+IRC helper bot for the #cfengine channel at <a href="http://freenode.net">Freenode</a>.
+The bot returns definitions of submitted keywords. ---</p>
+
+<p>I invite you to contribute to this knowledge sharing project. Here are
+some cfbot examples:</p>
+
+<p><code>09:09 !cfbot help 09:09 -cfbot:#cfengine- help=Usage: !cfbot will
+return information about the keyword. I am case insensitive. Try !cfbot
+topics to see a list of available topics.
+09:09 !cfbot about 09:09 -cfbot:#cfengine- about=I am a Perl script
+running under Irssi. I am open source:
+https://github.com/neilhwatson/cfbot See Help for more info.
+09:10 !cfbot topics 09:10 -cfbot:#cfengine- Available topics: About,
+Best Practices, Bugs, DH, DR, EFL, Frameworks, Help, NCF, Rudder,
+Support</code></p>
+
+                    <p><a href="http://watson-wilson.ca/blog/2015/06/10/cfbot-answers-your-questions-on-irc/#section-2">Continue reading...</a></p>
+                <p>Tags:
+                    <a href="http://watson-wilson.ca/blog/tag/Cfengine/">Cfengine</a>
+                    <a href="http://watson-wilson.ca/blog/tag/irc/">irc</a>
+                    <a href="http://watson-wilson.ca/blog/tag/perl/">perl</a>
+                </p>
+            ]]></description>
+            <pubDate>
+                Wed, 10 Jun 2015 09:32:18 +0000
             </pubDate>
         </item>
     </channel>

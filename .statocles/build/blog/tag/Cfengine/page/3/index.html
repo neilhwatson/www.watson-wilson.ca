@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <link href="/theme/css/readability-bootstrap.min.css" rel="stylesheet">
+        <!--<link rel="stylesheet" href="/theme/css/statocles-bootstrap.css" />-->
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+        <title>Neil H. Watson</title>
+        <meta content="Statocles 0.073" name="generator">
+        <link href="/blog/tag/Cfengine.atom" rel="alternate" type="application/atom+xml">
+        <link href="/blog/tag/Cfengine.rss" rel="alternate" type="application/rss+xml">
+        
+
+        <!-- For source highlighting -->
+        <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/default.min.css" rel="stylesheet">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+
+    </head>
+    <body>
+        <header>
+            <nav class="navbar navbar-default navbar-static-top" role="navigation">
+                <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button class="navbar-toggle" data-target="#top-navbar-collapse-1" data-toggle="collapse" type="button">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="/">Neil H. Watson</a>
+                    </div>
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="top-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <li><a href="/page/about">About me</a></li>
+                            <li><a href="/static/resume_neil_h_watson.pdf">Resume</a></li>
+                            <li><a href="/page/projects">Projects</a></li>
+                        </ul>
+                        
+                    </div>
+                </div>
+            </nav>
+            
+        </header>
+        <div class="main container">
+            
+<div class="row">
+
+    <div class="col-md-9">
+        <main>
+
+
+            <article>
+                <header>
+                    <h1><a href="/blog/2015/03/26/mustache-template-in-cfengine/">Mustache template in CFEngine</a></h1>
+
+                    <p class="tags">Tags:
+                        <a href="/blog/tag/Cfengine/" rel="tag">Cfengine</a>
+                        <a href="/blog/tag/mustache/" rel="tag">mustache</a>
+                    </p>
+
+                    <aside>
+                        <p><time datetime="2015-03-26">
+                            Posted on 2015-03-26
+                        </time>
+                            by nwatson
+                        </p>
+                    </aside>
+
+                </header>
+
+                <p>Here&#39;s a quick example of how to use mustache templates in CFEngine.</p>
+
+
+                    <p><a href="/blog/2015/03/26/mustache-template-in-cfengine/index.html#section-2">Continue reading Mustache template in CFEngine...</a></p>
+
+            </article>
+            <article>
+                <header>
+                    <h1><a href="/blog/2014/10/02/efl-tech-preview-for-json-parameters/">EFL tech preview for JSON parameters</a></h1>
+
+                    <p class="tags">Tags:
+                        <a href="/blog/tag/Cfengine/" rel="tag">Cfengine</a>
+                        <a href="/blog/tag/EFL/" rel="tag">EFL</a>
+                    </p>
+
+                    <aside>
+                        <p><time datetime="2014-10-02">
+                            Posted on 2014-10-02
+                        </time>
+                            by nwatson
+                        </p>
+                    </aside>
+
+                </header>
+
+                <p>It&#39;s very likely that <a href="https://github.com/evolvethinking/evolve_cfengine_freelib">EFL</a>
+for CFEngine 3.6 will be able to read both CSV and JSON parameter
+files. Some EFL users are looking forward to this because some CSV
+files have very long lines and are hard to read. On the other hand some
+CSV files are short and less cluttered than an equivalent JSON file
+would be. At first I tried to transition completely to JSON files, but
+upon further consideration EFL will be able to use both. Here&#39;s how.</p>
+
+
+                    <p><a href="/blog/2014/10/02/efl-tech-preview-for-json-parameters/index.html#section-2">Continue reading EFL tech preview for JSON parameters...</a></p>
+
+            </article>
+            <article>
+                <header>
+                    <h1><a href="/blog/2014/09/26/shellshock-free-with-cfengine-and-delta-reporting/">Shellshock free with CFEngine and Delta Reporting</a></h1>
+
+                    <p class="tags">Tags:
+                        <a href="/blog/tag/Cfengine/" rel="tag">Cfengine</a>
+                        <a href="/blog/tag/delta-reporting/" rel="tag">delta reporting</a>
+                        <a href="/blog/tag/EFL/" rel="tag">EFL</a>
+                        <a href="/blog/tag/security/" rel="tag">security</a>
+                    </p>
+
+                    <aside>
+                        <p><time datetime="2014-09-26">
+                            Posted on 2014-09-26
+                        </time>
+                            by nwatson
+                        </p>
+                    </aside>
+
+                </header>
+
+                <p>[caption id=&quot;attachment_1052&quot; align=&quot;alignnone&quot; width=&quot;716&quot;]<a href="http://watson-wilson.ca/static/images/shell_shock.png"><img alt="Hosts reported free of shell shock" src="http://watson-wilson.ca/static/images/shell_shock.png"></a>
+Hosts reported free of shell shock[/caption]</p>
+
+<p>Above is a screenshot from Evolve&#39;s production <a href="https://github.com/evolvethinking/delta_reporting">Delta Reporting</a>
+service. These hosts are safe from Shell shock. Thanks to Delta
+Reporting, <a href="https://github.com/evolvethinking/evolve_cfengine_freelib">EFL</a>,
+and <a href="http://cfengine.com">CFEngine</a> our journey to a safe harbour was
+not long. First we had to design a test for the vulnerability.</p>
+
+
+                    <p><a href="/blog/2014/09/26/shellshock-free-with-cfengine-and-delta-reporting/index.html#section-2">Continue reading Shellshock free with CFEngine and Delta Reporting...</a></p>
+
+            </article>
+            <article>
+                <header>
+                    <h1><a href="/blog/2014/09/19/testing-cfengine-policy-by-counting-classes/">Testing CFEngine policy by counting classes</a></h1>
+
+                    <p class="tags">Tags:
+                        <a href="/blog/tag/Cfengine/" rel="tag">Cfengine</a>
+                        <a href="/blog/tag/delta-reporting/" rel="tag">delta reporting</a>
+                        <a href="/blog/tag/devops/" rel="tag">devops</a>
+                        <a href="/blog/tag/EFL/" rel="tag">EFL</a>
+                        <a href="/blog/tag/software-testing/" rel="tag">software testing</a>
+                    </p>
+
+                    <aside>
+                        <p><time datetime="2014-09-19">
+                            Posted on 2014-09-19
+                        </time>
+                            by nwatson
+                        </p>
+                    </aside>
+
+                </header>
+
+                <p><img alt="counting" src="http://watson-wilson.ca/static/images/counting.jpg"></p>
+
+<p>I&#39;ve added a <a href="https://github.com/evolvethinking/evolve_cfengine_freelib/commit/00093210649c4b236e9d4940a23f5a6fe2e60742">new bundle</a>
+to the 3.5 branch of EFL. This bundle <em>efl_test_count</em> allows you to
+count the classes matching a regular expression and test if that count
+matches your expected count. Consider the <em>efl_service</em> bundle, it
+promises that services are configured and running. My SSH parameters
+for this bundle include a template file for configuration. I promise
+that /etc/ssh/sshd_config is built from the sshd_config.tmp, a
+template.</p>
+
+
+                    <p><a href="/blog/2014/09/19/testing-cfengine-policy-by-counting-classes/index.html#section-2">Continue reading Testing CFEngine policy by counting classes...</a></p>
+
+            </article>
+            <article>
+                <header>
+                    <h1><a href="/blog/2014/09/17/testing-cfengine-policy/">Testing CFEngine policy</a></h1>
+
+                    <p class="tags">Tags:
+                        <a href="/blog/tag/Cfengine/" rel="tag">Cfengine</a>
+                        <a href="/blog/tag/devops/" rel="tag">devops</a>
+                        <a href="/blog/tag/EFL/" rel="tag">EFL</a>
+                        <a href="/blog/tag/software-testing/" rel="tag">software testing</a>
+                    </p>
+
+                    <aside>
+                        <p><time datetime="2014-09-17">
+                            Posted on 2014-09-17
+                        </time>
+                            by nwatson
+                        </p>
+                    </aside>
+
+                </header>
+
+                <p><img alt="f4-crashtest" src="http://watson-wilson.ca/wp-content/uploads/2014/07/f4-crashtest.jpg"></p>
+
+<p>After 2 productive days at <a href="http://www.devopsdays.org/events/2014-toronto/">Devopsdays Toronto</a>
+I&#39;ve been thinking more about how to test CFEngine policy. Not just
+prototype, but production tests too. The ideal situation is that a
+machine tests your would-be production policy and then deploys it fully
+if the test suite passes. This is completely automatic. How do we get
+there?</p>
+
+
+                    <p><a href="/blog/2014/09/17/testing-cfengine-policy/index.html#section-2">Continue reading Testing CFEngine policy...</a></p>
+
+            </article>
+        </main>
+
+        <ul class="pager">
+            <li class="previous ">
+                <a href="/blog/tag/Cfengine/page/4" rel="next"><span aria-hidden="true" class="glyphicon glyphicon-chevron-left"></span>Older</a>
+            </li>
+            <li class="next ">
+                <a href="/blog/tag/Cfengine/page/2" rel="prev">Newer<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span></a>
+            </li>
+        </ul>
+
+    </div>
+
+    <div class="sidebar col-md-3">
+        <iframe frameborder="0" src="https://duckduckgo.com/search.html?site=watson-wilson.ca&amp;prefill=Search DuckDuckGo" style="overflow:hidden;margin:0;padding:0;width:350px;height:40px;"></iframe>
+
+        <h1>Tags</h1>
+        <ul class="list-inline">
+            <li><a href="/blog/tag/Cfengine/">Cfengine</a></li>
+            <li><a href="/blog/tag/EFL/">EFL</a></li>
+            <li><a href="/blog/tag/anti-virus/">anti-virus</a></li>
+            <li><a href="/blog/tag/apt/">apt</a></li>
+            <li><a href="/blog/tag/backup/">backup</a></li>
+            <li><a href="/blog/tag/best-practices/">best practices</a></li>
+            <li><a href="/blog/tag/cfengine/">cfengine</a></li>
+            <li><a href="/blog/tag/cfengine-cookbook/">cfengine cookbook</a></li>
+            <li><a href="/blog/tag/cheatsheet/">cheatsheet</a></li>
+            <li><a href="/blog/tag/cli/">cli</a></li>
+            <li><a href="/blog/tag/cloud/">cloud</a></li>
+            <li><a href="/blog/tag/cluster/">cluster</a></li>
+            <li><a href="/blog/tag/conferences/">conferences</a></li>
+            <li><a href="/blog/tag/configuration-management/">configuration management</a></li>
+            <li><a href="/blog/tag/cron/">cron</a></li>
+            <li><a href="/blog/tag/debian/">debian</a></li>
+            <li><a href="/blog/tag/delta-reporting/">delta reporting</a></li>
+            <li><a href="/blog/tag/devops/">devops</a></li>
+            <li><a href="/blog/tag/dns/">dns</a></li>
+            <li><a href="/blog/tag/dr/">dr</a></li>
+            <li><a href="/blog/tag/heartbeat/">heartbeat</a></li>
+            <li><a href="/blog/tag/high-availability/">high availability</a></li>
+            <li><a href="/blog/tag/infosec/">infosec</a></li>
+            <li><a href="/blog/tag/ipv6/">ipv6</a></li>
+            <li><a href="/blog/tag/irc/">irc</a></li>
+            <li><a href="/blog/tag/iscsi/">iscsi</a></li>
+            <li><a href="/blog/tag/jekyll/">jekyll</a></li>
+            <li><a href="/blog/tag/kickstart/">kickstart</a></li>
+            <li><a href="/blog/tag/kvm/">kvm</a></li>
+            <li><a href="/blog/tag/linux/">linux</a></li>
+            <li><a href="/blog/tag/monitoring/">monitoring</a></li>
+            <li><a href="/blog/tag/multipathd/">multipathd</a></li>
+            <li><a href="/blog/tag/mustache/">mustache</a></li>
+            <li><a href="/blog/tag/networking/">networking</a></li>
+            <li><a href="/blog/tag/opennms/">opennms</a></li>
+            <li><a href="/blog/tag/opensource/">opensource</a></li>
+            <li><a href="/blog/tag/oracle/">oracle</a></li>
+            <li><a href="/blog/tag/patching/">patching</a></li>
+            <li><a href="/blog/tag/pcre/">pcre</a></li>
+            <li><a href="/blog/tag/perl/">perl</a></li>
+            <li><a href="/blog/tag/posix/">posix</a></li>
+            <li><a href="/blog/tag/programming/">programming</a></li>
+            <li><a href="/blog/tag/provisioning/">provisioning</a></li>
+            <li><a href="/blog/tag/red-hat/">red hat</a></li>
+            <li><a href="/blog/tag/redhat/">redhat</a></li>
+            <li><a href="/blog/tag/regex/">regex</a></li>
+            <li><a href="/blog/tag/rhev/">rhev</a></li>
+            <li><a href="/blog/tag/san/">san</a></li>
+            <li><a href="/blog/tag/satellite/">satellite</a></li>
+            <li><a href="/blog/tag/scripting/">scripting</a></li>
+            <li><a href="/blog/tag/security/">security</a></li>
+            <li><a href="/blog/tag/serverspec/">serverspec</a></li>
+            <li><a href="/blog/tag/shell/">shell</a></li>
+            <li><a href="/blog/tag/software-testing/">software testing</a></li>
+            <li><a href="/blog/tag/solaris/">solaris</a></li>
+            <li><a href="/blog/tag/spacewalk/">spacewalk</a></li>
+            <li><a href="/blog/tag/ssh/">ssh</a></li>
+            <li><a href="/blog/tag/statocles/">statocles</a></li>
+            <li><a href="/blog/tag/subversion/">subversion</a></li>
+            <li><a href="/blog/tag/sun/">sun</a></li>
+            <li><a href="/blog/tag/support/">support</a></li>
+            <li><a href="/blog/tag/svn/">svn</a></li>
+            <li><a href="/blog/tag/sysadmin/">sysadmin</a></li>
+            <li><a href="/blog/tag/sysctl/">sysctl</a></li>
+            <li><a href="/blog/tag/terraform/">terraform</a></li>
+            <li><a href="/blog/tag/virus/">virus</a></li>
+            <li><a href="/blog/tag/vitualization/">vitualization</a></li>
+            <li><a href="/blog/tag/website/">website</a></li>
+        </ul>
+        <h1>Feeds</h1>
+        <ul class="list-inline">
+            <li>
+                <a href="/blog/tag/Cfengine.atom" rel="alternate" type="application/atom+xml">
+                    Atom
+                </a>
+            </li>
+            <li>
+                <a href="/blog/tag/Cfengine.rss" rel="alternate" type="application/rss+xml">
+                    RSS
+                </a>
+            </li>
+        </ul>
+    </div>
+
+</div>
+
+
+        </div>
+        <footer>
+            
+            <h1></h1>
+            <div class="col-md-5"> </div>
+            <div class="col-md-3 container tagline">
+                <a href="http://preaction.me/statocles">Made with Statocles</a><br>
+                <a href="http://www.perl.org">Powered by Perl</a>
+            </div>
+        </footer>
+    </body>
+</html>

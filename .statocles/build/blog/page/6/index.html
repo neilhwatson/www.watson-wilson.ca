@@ -8,7 +8,7 @@
         <!--<link rel="stylesheet" href="/theme/css/statocles-bootstrap.css" />-->
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
         <title>Neil H. Watson</title>
-        <meta content="Statocles 0.065" name="generator">
+        <meta content="Statocles 0.073" name="generator">
         <link href="/blog/index.atom" rel="alternate" type="application/atom+xml">
         <link href="/blog/index.rss" rel="alternate" type="application/rss+xml">
         
@@ -56,296 +56,658 @@
 
             <article>
                 <header>
-                    <h1><a href="/blog/2011/05/24/cfengine-links/">Creating links using Cfengine</a></h1>
+                    <h1><a href="/blog/2014/08/20/toronto-devops-cfengine-slide-deck/">Toronto devops CFEngine slide deck</a></h1>
 
                     <p class="tags">Tags:
-                        <a href="/blog/tag/cfengine/" rel="tag">cfengine</a>
-                        <a href="/blog/tag/cfengine-cookbook/" rel="tag">cfengine cookbook</a>
-                        <a href="/blog/tag/configuration-management/" rel="tag">configuration management</a>
+                        <a href="/blog/tag/Cfengine/" rel="tag">Cfengine</a>
+                        <a href="/blog/tag/delta-reporting/" rel="tag">delta reporting</a>
+                        <a href="/blog/tag/EFL/" rel="tag">EFL</a>
                     </p>
 
                     <aside>
-                        <p><time datetime="2011-05-24">
-                            Posted on 2011-05-24
+                        <p><time datetime="2014-08-20">
+                            Posted on 2014-08-20
                         </time>
+                            by nwatson
                         </p>
                     </aside>
 
                 </header>
 
-                <h3>Problem</h3>
-
-<p>You Cfengine binaries are in /var/cfengine/bin but you want them in the PATH.</p>
-
-
-                    <p><a href="/blog/2011/05/24/cfengine-links/index.html#section-2">Continue reading Creating links using Cfengine...</a></p>
-
-            </article>
-            <article>
-                <header>
-                    <h1><a href="/blog/2011/05/09/rhev-overview/">A brief overview of Red Hat Enterprise Virtualization</a></h1>
-
-                    <p class="tags">Tags:
-                        <a href="/blog/tag/rhev/" rel="tag">rhev</a>
-                        <a href="/blog/tag/vitualization/" rel="tag">vitualization</a>
-                        <a href="/blog/tag/kvm/" rel="tag">kvm</a>
-                        <a href="/blog/tag/red-hat/" rel="tag">red hat</a>
-                    </p>
-
-                    <aside>
-                        <p><time datetime="2011-05-09">
-                            Posted on 2011-05-09
-                        </time>
-                        </p>
-                    </aside>
-
-                </header>
-
-                <p>Red Hat Enterprise Virtualization is a fairly new product offering from Red
-Hat. Red Hat acquired RHEV when they purchased Qumranet in September 2008.
-Qumranet created KVM when they created a Windows desktop virtualization product
-. RHEV is the evolution of that product and in the hands of Red Hat it offers a
-virtualization solution for both desktops and servers, Linux and Windows.</p>
-
-
-                    <p><a href="/blog/2011/05/09/rhev-overview/index.html#section-2">Continue reading A brief overview of Red Hat Enterprise Virtualization...</a></p>
-
-            </article>
-            <article>
-                <header>
-                    <h1><a href="/blog/2011/03/08/svn-cheatsheet/">Subversion Cheatsheet</a></h1>
-
-                    <p class="tags">Tags:
-                        <a href="/blog/tag/subversion/" rel="tag">subversion</a>
-                        <a href="/blog/tag/svn/" rel="tag">svn</a>
-                        <a href="/blog/tag/cheatsheet/" rel="tag">cheatsheet</a>
-                    </p>
-
-                    <aside>
-                        <p><time datetime="2011-03-08">
-                            Posted on 2011-03-08
-                        </time>
-                        </p>
-                    </aside>
-
-                </header>
-
-                <table>
-<tr>
-    <td>Add to working copy</td>
-    <td><code>svn add <file></file></code></td>
-</tr>
-<tr>
-    <td>Backup to hot copy</td>
-    <td><code>hot-backup.py /opt/svn /opt/svn-backup</code></td>
-</tr>
-<tr>
-    <td>Change log view</td>
-    <td><code>svn log file:///opt/svn/scripts/firewall/firewall-new</code></td>
-</tr>
-<tr>
-    <td>Checkout</td>
-    <td><code>svn checkout file:///opt/svn/profile</code></td>
-</tr>
-<tr>
-    <td>Commit changes</td>
-    <td><code>svn commit --message &quot;Your log message&quot;</code></td>
-</tr>
-<tr>
-    <td>Copy to working copy</td>
-    <td><code>svn copy <file> <file></file></file></code></td>
-</tr>
-<tr>
-    <td>Create respository</td>
-    <td><code>svnadmin create --fs-type fsfs /opt/svn</code></td>
-</tr>
-<tr>
-    <td>Delete from working copy</td>
-    <td><code>svn delete <file></file></code></td>
-</tr>
-<tr>
-    <td>Diff changes</td>
-    <td><code>svn diff</code></td>
-</tr>
-<tr>
-    <td>Initial Import</td>
-    <td><code>svn import . file:///opt/svn --message &quot;Initial import&quot;</code></td>
-</tr>
-<tr>
-    <td>Merging to current directory</td>
-    <td><code>svn merge <merge to@rev> <merge from@rev></merge></merge></code></td>
-</tr>
-<tr>
-    <td>Move file in working copy</td>
-    <td><code>svn move <file1> <file2></file2></file1></code></td>
-</tr>
-<tr>
-    <td>Remote Checkout</td>
-    <td><code>svn checkout svn+ssh://<user>@<hostname>/opt/svn/<project></project></hostname></user></code></td>
-</tr>
-<tr>
-    <td>Revert all changes</td>
-    <td><code>svn revert <file></file></code></td>
-</tr>
-<tr>
-    <td>Review changes</td>
-    <td><code>svn status</code></td>
-</tr>
-<tr>
-    <td>Review commit log</td>
-    <td><code>svn log</code></td>
-</tr>
-<tr>
-    <td>Update working copy</td>
-    <td><code>svn update <file> (may overwrite changes)</file></code></td>
-</tr>
-<tr>
-    <td>View file</td>
-    <td><code>svn cat file:///opt/svn/profile/.profile</code></td>
-</tr>
-<tr>
-    <td>View repository tree</td>
-    <td><code>svnlook tree /opt/svn</code></td>
-</tr>
-</table>
+                <p>It was nice meeting everyone last night. Here is the <a href="http://watson-wilson.ca/wp-content/uploads/2014/08/devops-talks.pdf">slide deck</a>.</p>
 
 
 
             </article>
             <article>
                 <header>
-                    <h1><a href="/blog/2011/03/08/solaris-cheatsheet/">Solaris and Sun/Oracle cheatsheet</a></h1>
+                    <h1><a href="/blog/2014/08/15/cfengines-state-to-ram-disk/">CFEngine&#39;s state to ram disk</a></h1>
 
                     <p class="tags">Tags:
-                        <a href="/blog/tag/solaris/" rel="tag">solaris</a>
-                        <a href="/blog/tag/sun/" rel="tag">sun</a>
-                        <a href="/blog/tag/oracle/" rel="tag">oracle</a>
-                        <a href="/blog/tag/cheatsheet/" rel="tag">cheatsheet</a>
                     </p>
 
                     <aside>
-                        <p><time datetime="2011-03-08">
-                            Posted on 2011-03-08
+                        <p><time datetime="2014-08-15">
+                            Posted on 2014-08-15
                         </time>
+                            by nwatson
                         </p>
                     </aside>
 
                 </header>
 
-                <h3>Init levels</h3>
+                <p>[caption id=&quot;attachment_963&quot; align=&quot;alignright&quot; width=&quot;656&quot;]<a href="http://watson-wilson.ca/static/images/cfengine_state_on_ram.png"><img alt="Load stats after moving state to ram disk." src="http://watson-wilson.ca/static/images/cfengine_state_on_ram.png"></a>
+Load stats after moving state to ram disk.[/caption]</p>
 
-<table>
-<tr>
-    <td>0</td>
-    <td>Go into boot prompt (OK).</td>
-</tr>
-<tr>
-    <td>1</td>
-    <td>Put the system in system administrator mode. All file systems are
-    mounted. Only a small set of essential kernel processes are left running.
-    This mode is for administrative tasks such as installing optional utility
-    packages. All files are accessible and no users are logged in on the
-    system.</td>
-</tr>
-<tr>
-    <td>2</td>
-    <td>Put the system in multi-user mode. All multi-user environment terminal
-    processes and daemons are spawned. This state is commonly referred to as
-    the multi-user state.</td>
-</tr>
-<tr>
-    <td>3</td>
-    <td>Start the remote file sharing processes and dae mons. Mount and
-    advertise remote resources. Run level 3 extends multi-user mode and is
-    known as the remote-file-sharing state.</td>
-</tr>
-<tr>
-    <td>4</td>
-    <td>Is available to be defined as an alternative multi-user environment
-    configuration. It is not necessary for system operation and is usually not
-    used.</td>
-</tr>
-<tr>
-    <td>5</td>
-    <td>Shut the machine down so that it is safe to remove the power. Have the
-    machine remove power, if possible.</td>
-</tr>
-<tr>
-    <td>6</td>
-    <td>Stop the operating system and reboot to the state defined by the
-    initdefault entry in /etc/inittab.</td>
-</tr>
-<tr>
-    <td><code><pre>reboot -- -x</pre></code></td>
-    <td>Reboot and issue boot -x (boot to non-cluster mode) at boot
-    prompt.</td>
-</tr>
-<tr>
-    <td><code><pre>`reboot -- -xs`</pre></code></td>
-    <td>Reboot and issue `boot -xs` (single user, non-cluster mode) at boot
-    prompt.</td>
-</tr>
-<tr>
-    <td><code><pre>`reboot -- -r`</pre></code></td>
-    <td>Reboot and issue boot -r (reconfigure) at boot prompt.</td>
-</tr>
-</table>
+<p>Earlier this year I mounted /var/cfengine/state to a ram disk . The
+load change was dramatic, but there are draw backs. A reboot will lose
+promise locks, so any long ifelapsed jobs will run on cf-agent&#39;s next
+run. The folks at <a href="http://normation.com">Normation</a> tried this <a href="http://blog.normation.com/en/2013/09/09/speed-up-your-cfengine-by-using-a-ram-disk/">too.</a></p>
 
 
-                    <p><a href="/blog/2011/03/08/solaris-cheatsheet/index.html#section-2">Continue reading Solaris and Sun/Oracle cheatsheet...</a></p>
 
             </article>
             <article>
                 <header>
-                    <h1><a href="/blog/2011/03/08/shell-cheatsheet/">Shell cheatsheet</a></h1>
+                    <h1><a href="/blog/2014/08/07/cfengine-best-practices-deployment-upgrades-and-scaling/">CFEngine best practices: deployment, upgrades, and scaling</a></h1>
 
                     <p class="tags">Tags:
-                        <a href="/blog/tag/shell/" rel="tag">shell</a>
-                        <a href="/blog/tag/cli/" rel="tag">cli</a>
-                        <a href="/blog/tag/cheatsheet/" rel="tag">cheatsheet</a>
+                        <a href="/blog/tag/best-practices/" rel="tag">best practices</a>
+                        <a href="/blog/tag/Cfengine/" rel="tag">Cfengine</a>
+                        <a href="/blog/tag/delta-reporting/" rel="tag">delta reporting</a>
+                        <a href="/blog/tag/EFL/" rel="tag">EFL</a>
                     </p>
 
                     <aside>
-                        <p><time datetime="2011-03-08">
-                            Posted on 2011-03-08
+                        <p><time datetime="2014-08-07">
+                            Posted on 2014-08-07
                         </time>
+                            by nwatson
                         </p>
                     </aside>
 
                 </header>
 
-                <p>The following may not apply to all shells.</p>
+                <p><img alt="sts-atlantis" src="http://watson-wilson.ca/wp-content/uploads/2014/08/sts-atlantis.jpg">Part
+3 of CFEngine best practices. ---</p>
 
-<h2>Job control</h2>
+<h4>Version control</h4>
 
-<ul>
-<li>Resume job after suspend: <code>ctrl-q</code></li>
-<li>Resume job in background: <code>bg &lt;job number&gt;</code></li>
-<li>Resume job in foreground: <code>fg &lt;job number&gt;</code></li>
-<li>Suspend delay (suspend at stdin): <code>ctrl-y</code></li>
-<li>Suspend:  <code>ctrl-z</code></li>
-</ul>
+<p>Put your CFEngine policy and supporting programs, data files, and
+documentation into version control. Like any other code you&#39;ll benefit
+from knowing its history. You can use branches to promote new policy
+from testing to production. I recommend using three branches: dev, qa,
+and production. Have servers and agents dedicated to each branch. The
+greater the variety of hosts in each branch, the greater the chance of
+catching bugs early. Always edit code in development only and promote
+those changes to qa and then production.</p>
 
-<h2>Command line laziness</h2>
+<p>I frequently use cf-agent to pull new policy into masterfiles directly
+from version control. This provides automatic deployment upon commit. <a href="https://github.com/evolvethinking/evolve_cfengine_freelib">EFL</a>
+has a ready to use bundle, <em>efl_rcs_pull</em> to handle RCS pulls, and it
+works with most RCS products.</p>
 
-<ul>
-<li>Recall history line 66: <code>!66</code></li>
-<li>Recall last command: <code>!!</code></li>
-<li>Recall last arguement from last command: <code>!$</code></li>
-<li>Recall all arguements from last command: <code>!*</code></li>
-<li>Clear shell history: <code>history -c</code></li>
-<li>Delete shell history entry: <code>history -d &lt;number&gt;</code></li>
-<li><p>Rename rpmnew files:</p>
+<h4>Upgrading from CFEngine 2</h4>
 
-<pre><code>find -type f -name &quot;*.rpmnew&quot; | sed &#39;s/\(^.*\)\(\.rpmnew\)$/mv -f \1\2 \1/&#39; |sh
-</code></pre></li>
-<li><p>Search and replace files in place:</p>
+<p>Because CFEngine 3 is not backwards compatible with CFEngine 2 the
+upgrade path is steep and rocky. Many are just now starting this climb.
+The best upgrade path is to set up separate CFEngine 3 servers, and
+install CFEngine 3 on your clients while continuing to use CFEngine 2.
+CFEngine 2&#39;s <em>cfagent</em> can run in parallel with the CFEngine 3 <em>cf-agent</em>.
+The two versions do not share any common files so there is no overlap.
+They do share common directories; the most important is inputs.</p>
 
-<pre><code>find /path -name &quot;*.*&quot; -exec | perl -pi -e &#39;s///g&#39; {} \;
-</code></pre></li>
-<li><p>vi cli editing: <code>set -o vi</code> Now esc to enter command mode where vi keys
-work. Pressing enter returns to normal mode.</p></li>
-</ul>
+<p>When you bootstrap CFEngine 3, using its built in bootstrap feature,
+cf-agent will delete all files in inputs including any related to
+CFEngine 2. If you want to run 2 and 3 in parallel you&#39;ll need a
+wrapper script around CFEngine 3&#39;s bootstrap process to backup and
+restore CFEngine 2&#39;s inputs. <a href="https://dev.cfengine.com/issues/3605">here</a>
+is an interesting discussion on this topic. With both agents running in
+parallel you can reduce your CF2 policy and increase your CF3 in
+gradually.</p>
+
+<h4>Upgrading from CFEngine 3.n to 3.n+1</h4>
+
+<p>Figure 1: Steps to upgrading CFEngine, hyperbole</p>
+
+<ol>
+<li><p>Test</p></li>
+<li><p>Test</p></li>
+<li><p>Repeat previous steps</p></li>
+</ol>
+
+<h4>#</h4>
+
+<p>As I said in <a href="http://watson-wilson.ca/cfengine-best-practices-testing/">part 1</a>
+of this series, mistakes in CFEngine will be horrifyingly duplicated to
+all of your hosts. This can be a career limiting event. A new version
+of CFEngine can expose pre-existing bugs in your policy, or introduce
+its own new bugs. An example of the former: in version 3.5.0 the syntax
+checker became more strict, reporting errors that previous versions
+missed. Examples of the latter include many fixed and outstanding
+regression bugs. Trust is earned. Make CFEngine, and any other
+software, earn your trust. Here&#39;s a more practical approach to
+upgrading.</p>
+
+<p>Figure 2: Steps to upgrading CFEngine, practical</p>
+
+<ol>
+<li><p>Keep watch on CFEngine bug and mailing list traffic.</p></li>
+<li><p>Keep policy compatible with both old and new versions until entire
+upgrade is complete.</p></li>
+<li><p>Upgrade the development server.</p></li>
+<li><p>Upgrade clients in batches.</p></li>
+<li><p>Repeat server and client upgrade steps for qa and production.</p></li>
+</ol>
+
+<h4>#</h4>
+
+<p>As release candidates come out, you&#39;ll get a chance to experience and
+see what others experience with the proposed new version. Watch the
+bugs that get resolved and those that remain open. There may be new
+syntax or features that are not compatible with your current version of
+CFEngine. Do not consider these until after the upgrade. Be sure your
+policy runs properly on both versions. When you are ready to take the
+plunge, upgrade the server first. When it passes all tests proceed with
+clients, in small batches, enlarging the batches as you gain
+confidence.</p>
+
+<p>Reporting tools like <a href="https://github.com/evolvethinking/delta_reporting">Delta Reporting</a>
+log the promise and class status of all your agent hosts. This
+information can help you spot problems in your upgrade and in normal
+production.</p>
+
+<p>Figure 3: Delta Reporting showing an ntp process promise on multiple
+hosts
+<a href="http://watson-wilson.ca/wp-content/uploads/2014/07/dr-process-report.png"><img alt="Reporting on ntp process promises" src="http://watson-wilson.ca/wp-content/uploads/2014/07/dr-process-report.png"></a></p>
+
+<h4>Upgrading policy</h4>
+
+<p>New versions of CFEngine ship with new base policy. The base policy is
+in its own <a href="https://github.com/cfengine/masterfiles">repository</a> so you
+can upgrade it between CFEngine releases. Merging this new policy with
+your existing one is always tedious, but your regimented use of version
+control will make this easier. To reduce the merging work limit the
+amount of changes you make to the shipped policy. I usually only
+changes inputs, bundlesequence (to call my master methods bundle), and
+variables and options set in <em>def.cf</em>.</p>
+
+<p>Tip If you plan to use CFEngine on an IPV6 interface, beware that the
+default policy will not work. You must change the server control body,
+setting <em>bindtointerface</em> to a double colon (::). See <a href="https://github.com/cfengine/masterfiles/pull/152">here</a>
+and <a href="https://docs.cfengine.com/latest/reference-components-cf-serverd.html#bindtointerface">here</a>
+for more information.</p>
+
+<h4>Handling many clients with a single server</h4>
+
+<p>A single server can handle thousands of CFEngine clients, but there are
+tricks to extend that number further. This simplest is splaytime. The
+schedule daemon cf-exed checks its current hard classes versus the time
+classes specified in its control body schedule attribute. If there is a
+match, the <em>exec_command</em> is run. If you have a thousand hosts all of
+them will start at the same time causing the server needless load and
+dropped connections. Splaytime is set in cf-execd&#39;s control body. Each
+agent generates a deterministic time between zero and splaytime minutes
+and waits that amount of time before running the exec_command. Thus
+your agent starts are splayed. Always set splaytime to the interval or
+your run schedule less one minute.</p>
+
+<p>Cf-serverd is a file server. Some agent promises can request a lot of
+files from the server. To reduce this load, reduce the frequency of
+these promises. Use the <em>ifelapsed</em> action body attribute. An ifelapsed
+of 60 means the agent will not evaluate the promise more than once
+every 60 minutes. This feature can also reduce agent load by running
+high load promises, like packages, less frequently.</p>
+
+<h4>Redundant CFEngine servers</h4>
+
+<p>It would be nice if we could bootstrap an agent to multiple servers.
+Sadly, this feature does not exist at this time, but you can <a href="https://dev.cfengine.com/issues/3570">vote for
+it</a>. In the mean time we must
+perform some tricks to make the agent contact redundant policy servers.</p>
+
+<p>A <em>copy_from</em> body has a servers attribute that takes a list argument.
+In spite of having no multi-server bootstrap, the agent can already
+talk to multiple servers by populating the servers list. The agent
+tries each server in the list, in order. Set your policy to randomize
+this list using the <em>shuffle</em> function and you add load balancing.</p>
+
+<p>The trouble with having no multi-server bootstrap is that we are left
+to handle key exchanges between agents and multiple servers. There are
+multiple ways to do this. I won&#39;t go into detail here, but give you a
+high overview instead.</p>
+
+<p>Recall that for agent and server to trust each other there must be
+access promises, each must have the other&#39;s public key stored in the
+ppkeys directory, and the server&#39;s allowconnects and allowallconnects
+must include the agent. You can have all redundant servers share the
+same private keys or give them separate keys. Either way you&#39;ll need to
+sync some or all of the ppkeys directory between the servers so that
+each has a copy of all agent public keys. Also, ensure that each client
+has a copy of each server&#39;s public key.</p>
+
+<h4>Make policy that makes the agent self reliant</h4>
+
+<p>In spite of all your efforts, at some point your agents will not be
+able to reach the server. What then? The agents will not be able to
+fetch new policy, but they should be able to run existing policy if the
+policy is robust enough. One best practice is to cache files that are
+copied from the server. Rather than promising the final promiser file
+direct from the policy server, promise the file from the policy server
+to a cache location (/var/cache/cfengine/), then promise from the cache
+location to the final location. If the server is unreachable the agent
+cannot promise any new files, but it can continue to promise existing
+ones.</p>
+
+<p>Figure 4: Caching source files <code></code></p>
+
+<pre><code>files:
+   &quot;${efl_c.cache}/${${config_file[${s}]}}&quot; -&gt; { &quot;${${promisee[${s}]}}&quot; }
+      comment =&gt; &quot;Cache the source file&quot;,
+      handle =&gt; &quot;efl_service_files_cache&quot;,
+      create =&gt; &quot;true&quot;,
+      copy_from =&gt; efl_cpf( &quot;${${source_file[${s}]}}&quot;, &quot;@{${${server[${s}]}}}&quot; );
+
+   &quot;${${config_file[${s}]}}&quot; -&gt; { &quot;${${promisee[${s}]}}&quot; }
+      comment =&gt; &quot;Promise contents of configuration file from the cache&quot;,
+      handle =&gt; &quot;efl_service_files_config&quot;,
+      create =&gt; &quot;true&quot;,
+      copy_from =&gt; efl_cpf( &quot;${efl_c.cache}/${${config_file[${s}]}}&quot;, &quot;localhost&quot; );
+</code></pre>
+
+<h4>Limiting agent input files</h4>
+
+<p>When using CFEngine&#39;s bootstrap feature all the contents of the
+server&#39;s masterfiles directory is copied to the agent&#39;s inputs
+directory. You may want to limit which input files are copied. A good
+approach is to keep only the most basic files in masterfiles, including
+policy for the agent to download other files from directories <em>outside</em>
+of masterfiles.</p>
+
+<p>You should only try to limit files that contain private information,
+the same information what you would encrypt. Try not to be too paranoid
+about limiting inputs because it adds complexity.</p>
+
+<p>How will you restrict agent access to private data? You cannot use
+classes because any agent can have any class using the -D command
+switch. You must limit access using server access promises.</p>
+
+<h4>Summary</h4>
+
+<ol>
+<li><p>Use version control, everywhere.</p></li>
+<li><p>CFEngine 2 and 3 can run in parallel for gradual migration.</p></li>
+<li><p>Upgrade policy and CFEngine 3 with extensive planning and testing.</p></li>
+<li><p>Use splaytime and ifelasped to reduce agent and server load.</p></li>
+<li><p>Make CFEngine policy servers in redundant pairs.</p></li>
+<li><p>Make policy reliable even when the server is unavailable.</p></li>
+<li><p>You can limit selected inputs to agents, but do so with caution.</p></li>
+</ol>
+
+
+
+            </article>
+            <article>
+                <header>
+                    <h1><a href="/blog/2014/07/18/cfengine-best-practices-part-2/">CFEngine best practices: part 2</a></h1>
+
+                    <p class="tags">Tags:
+                        <a href="/blog/tag/best-practices/" rel="tag">best practices</a>
+                        <a href="/blog/tag/Cfengine/" rel="tag">Cfengine</a>
+                        <a href="/blog/tag/delta-reporting/" rel="tag">delta reporting</a>
+                        <a href="/blog/tag/EFL/" rel="tag">EFL</a>
+                    </p>
+
+                    <aside>
+                        <p><time datetime="2014-07-18">
+                            Posted on 2014-07-18
+                        </time>
+                            by nwatson
+                        </p>
+                    </aside>
+
+                </header>
+
+                <p><img alt="stormtrooper-apple" src="http://watson-wilson.ca/wp-content/uploads/2014/07/stormtrooper-apple.jpg"></p>
+
+<p>Continuing on from <a href="http://watson-wilson.ca/cfengine-best-practices-testing/">testing best practices</a>,
+let&#39;s look at other best practices to make you a CFEngine ninja.</p>
+
+
+                    <p><a href="/blog/2014/07/18/cfengine-best-practices-part-2/index.html#section-2">Continue reading CFEngine best practices: part 2...</a></p>
+
+            </article>
+            <article>
+                <header>
+                    <h1><a href="/blog/2014/07/04/cfengine-best-practices-testing/">CFEngine best practices: testing</a></h1>
+
+                    <p class="tags">Tags:
+                        <a href="/blog/tag/best-practices/" rel="tag">best practices</a>
+                        <a href="/blog/tag/Cfengine/" rel="tag">Cfengine</a>
+                        <a href="/blog/tag/delta-reporting/" rel="tag">delta reporting</a>
+                        <a href="/blog/tag/software-testing/" rel="tag">software testing</a>
+                    </p>
+
+                    <aside>
+                        <p><time datetime="2014-07-04">
+                            Posted on 2014-07-04
+                        </time>
+                            by nwatson
+                        </p>
+                    </aside>
+
+                </header>
+
+                <p><a href="http://watson-wilson.ca/wp-content/uploads/2014/07/f4-crashtest.jpg"><img alt="f4-crashtest" src="http://watson-wilson.ca/wp-content/uploads/2014/07/f4-crashtest.jpg"></a></p>
+
+<p>CFEngine&#39;s autonomous automation means that your policy, mistakes and
+all, will be duplicated quickly to all of your hosts. --- Potentially
+tens of thousands of them. When I taught martial arts it was humbling
+to watch a class of thirty duplicate my incorrect movement. I didn&#39;t
+know, because I didn&#39;t test myself. In martial arts I was simply
+embarrassed, but in configuration management, mistakes could cost me a
+raise or even my job. Testing is the paramount best practice for
+CFEngine. Let me tell you what I have learned.</p>
+
+<h4>Prototyping</h4>
+
+<p>Your first kernel of a policy idea should be demonstrated with a small,
+self contained, prototype. Try to keep your prototype to a single file.
+If you need bundles or bodies from policy libraries, copy just what you
+need from them into your prototype file. There are good examples on the
+Internet get you started.</p>
+
+<ol>
+<li><p>The <a href="https://github.com/neilhwatson/vim_cf3">Vim CFEngine plugin</a>
+has a built in skeleton policy file. In command mode ,k will insert
+the skeleton into the current buffer. This plugin&#39;s syntax
+highlighting will alert you about missing quotations and other
+syntax issues. If you are in the church of Emacs, there is an Emacs
+CFEngine plugin elsewhere on the web (its home is nebulous so I
+provide no link).</p></li>
+<li><p>CFEngine ships with many self contained examples that you can
+study. They are located in share/doc/examples in CFEngine&#39;s work
+directory (typically /var/cfengine).</p>
+
+<h4>#</h4>
+
+<p>Figure 1: Standalone unit test that ships with CFEngine. `</p>
+
+<p>ettin:/var/cfengine/share/doc/examples# cat unit_depends_on.cf
+  body common control
+  {
+  bundlesequence =&gt; { &quot;one&quot;  };
+  }</p>
+
+<p>bundle agent one
+  {
+  reports:</p>
+
+<p>cfengine_3::</p>
+
+<pre><code> &quot;two&quot;
+   depends_on =&gt; { &quot;handle_one&quot; };
+
+
+ &quot;one&quot;
+   handle =&gt; &quot;handle_one&quot;;
+</code></pre>
+
+<p>}</p>
+
+<p>`</p></li>
+<li><p>Many <a href="https://dev.cfengine.com/projects/core/issues">CFEngine bug reports</a>
+(especially mine) contain good self contained examples. Indeed, if
+you report CFEngine bugs, be sure to include a small prototype to
+demonstrate the undesired behaviour.</p></li>
+</ol>
+
+<h4>#</h4>
+
+<h4>Formal testing</h4>
+
+<p>Use real test plans. Don&#39;t just test that your policy works, prove it.
+You can even use CFEngine for unit testing. Let&#39;s look at an example.
+In practice I recommend you use Evolve Thinking&#39;s <a href="https://github.com/evolvethinking/delta_reporting">Free Promise
+Library(EFL)</a>, or
+some other policy framework, because they have ready to use policies
+that will save you a lot of time, but for this example we&#39;ll keep it
+small and hand made. I want you to see the concept rather than the
+actual implementation.</p>
+
+<p>We want a policy that will start a service if it is not running. Start
+by breaking this down into basic components that translate into
+CFEngine promises. Another best practice with CFEngine is to think in
+terms of processes, commands, and files. Virtually everything in UNIX
+is one of those three things. We can restate out example as promising
+to run a command if a process is not found. In this example our process
+is <em>sleep 99</em> and the command is <em>/tmp/proto.sh</em>.</p>
+
+<p>Here&#39;s my prototype. Note the <em>init</em> bundle, I use that to promise our
+service start script. By including it here my prototype is self
+contained. The bundle <em>proto</em> promises to define the class <em>start_service_proto_sh</em>
+if the process <em>sleep 99</em> is not found. The commands process runs our
+init script from the init bundle if the class <em>start_service_proto_sh</em>
+is true. Also, note that the body parts at the bottom are copies of
+bodies from the standard CFEngine library, except the <em>by_command</em> body
+which is from <a href="https://github.com/evolvethinking/delta_reporting">EFL</a>.</p>
+
+<p>Figure 2: My first prototype. <code></code></p>
+
+<pre><code>body common control
+{
+        bundlesequence =&gt; { &quot;main&quot;, };
+}
+
+bundle agent main
+{
+        methods:
+
+                &quot;Initialize prototype&quot; usebundle =&gt; init;
+                &quot;My prototype&quot; usebundle =&gt; proto; 
+}
+
+bundle agent init
+{
+   meta:
+      &#39;Purpose&#39; string =&gt; &#39;Initialize prototype service script&#39;;
+
+   vars:
+      &#39;service_script[location]&#39; string =&gt; &quot;/tmp/proto.sh&quot;;
+      &#39;service_script[contents]&#39; string =&gt;
+&quot;#!/bin/sh
+exec 1&gt;&amp;- # close stdout
+exec 2&gt;&amp;- # close stderr
+sleep 99 &gt; /dev/null &amp;
+
+exit 0
+&quot;;
+
+   files:
+      &quot;${service_script[location]}&quot;
+         comment       =&gt; &quot;Promise working script for testing&quot;,
+         create        =&gt; &#39;true&#39;,
+         perms         =&gt; m(&#39;755&#39;),
+         edit_defaults =&gt; empty,
+         edit_line     =&gt; insert_lines( ${service_script[contents]} );
+}
+
+bundle agent proto
+{
+   meta:
+      &#39;Purpose&#39; string =&gt; &quot;Promise to start service if not running.&quot;;
+
+   processes:
+      &quot;sleep 99&quot;
+         comment        =&gt; &quot;Test for desired process&quot;,
+         process_select =&gt; by_command( &quot;\Asleep 99\Z&quot; ),
+         restart_class  =&gt; &quot;start_service_proto_sh&quot;;
+
+   commands:
+      start_service_proto_sh::
+         &quot;${init.service_script[location]}&quot;
+         contain =&gt; in_shell;
+}
+
+body contain in_shell
+{
+   useshell =&gt; &quot;true&quot;;
+}
+
+body edit_defaults empty
+{
+   empty_file_before_editing =&gt; &quot;true&quot;;
+   edit_backup =&gt; &quot;false&quot;;
+}
+
+bundle edit_line insert_lines(lines)
+{
+   insert_lines:
+
+      &quot;$(lines)&quot;
+      comment =&gt; &quot;Append lines if they don&#39;t exist&quot;;
+}
+
+body perms m(mode)
+{
+   mode   =&gt; &quot;$(mode)&quot;;
+}
+
+body process_select by_command( command )
+{
+        command        =&gt; &quot;${command}&quot;;
+        process_result =&gt; &quot;command&quot;;
+}
+</code></pre>
+
+<p>Note that in the processes promise I use the <em>process_select</em>
+attribute. This may seem a duplicate of the promiser itself, but the
+difference is subtle. The promiser is matched against the entire line
+from a ps command. The process_select body uses the <em>command</em> attribute
+to match against the ps command&#39;s command column only. I also anchor
+the regular expression with \A and \Z. These extra details reduce the
+chances of false positive matching.</p>
+
+<p>During the process of writing this policy I frequently used the
+CFEngine program <em>cf-promises</em> to test my syntax.</p>
+
+<p>Figure 3: Testing syntax <code></code></p>
+
+<pre><code>      neil@ettin ~/.cfagent/inputs $ cf-promises -cf ./service.cf 
+      neil@ettin ~/.cfagent/inputs $ echo $?
+      0
+</code></pre>
+
+<p>If there was an error cf-promises would have shown it to me, and it
+would have returned a none zero status.</p>
+
+<p>Cf-promises will give line numbers to indicate the location of your
+error, but the error is often located at the line <em>before</em> the given
+line. Also, one error can result in a cascade of errors, so start with
+the first error listed.</p>
+
+<p>Let&#39;s run our test. It&#39;s important to know our expected results. If <em>sleep
+99</em> is not running I expect proto.sh to be run. If sleep 99 is running
+I expect nothing to happen. Let&#39;s try it.</p>
+
+<p>Figure 4: Our first prototype run <code></code></p>
+
+<pre><code>neil@ettin ~/.cfagent/inputs $ cf-agent -KIf ./service.cf ; ps -ef |grep sleep ;cf-agent -KIf ./service.cf
+2014-07-03T19:48:21-0400     info: /default/main/methods/&#39;My prototype&#39;/default/proto/processes/&#39;sleep 99&#39;[0]: Making a one-time restart promise for &#39;sleep 99&#39;
+2014-07-03T19:48:21-0400     info: /default/main/methods/&#39;My prototype&#39;/default/proto/commands/&#39;/tmp/proto.sh&#39;[0]: Executing &#39;no timeout&#39; ... &#39;/tmp/proto.sh&#39;
+2014-07-03T19:48:21-0400     info: /default/main/methods/&#39;My prototype&#39;/default/proto/commands/&#39;/tmp/proto.sh&#39;[0]: Completed execution of &#39;/tmp/proto.sh&#39;
+neil     102836      1  0 19:48 pts/6    00:00:00 sleep 99
+neil     102838  35478  0 19:48 pts/6    00:00:00 grep --color=auto sleep
+</code></pre>
+
+<p>Success! This is a good first prototype, but I want more and continuous
+testing. Now, I&#39;ll add a unit test that makes the agent break its own
+configuration. I add this bundle to our prototype file and change the
+methods in the main bundle.</p>
+
+<p>Figure 5: Adding a unit test <code></code></p>
+
+<pre><code>## Change main bundle:
+bundle agent main
+{
+   methods:
+
+      &quot;Initialize prototype&quot; usebundle =&gt; init;
+
+      unit_01::
+         &quot;unit_01&quot; usebundle =&gt; unit_01;
+
+      any::
+         &quot;My prototype&quot; usebundle =&gt; proto; 
+}
+
+# Added unit test bundle
+bundle agent unit_01
+{
+   meta:
+      &#39;Purpose&#39; string =&gt; &quot;Kill process unit test&quot;;
+
+   processes:
+      &quot;sleep 99&quot;
+         comment        =&gt; &quot;Test for desired process&quot;,
+         process_select =&gt; by_command( &quot;\Asleep 99\Z&quot; ),
+         signals        =&gt; { &quot;term&quot;, &quot;kill&quot; };
+}
+</code></pre>
+
+<p>Now we have a bundle <em>unit_01</em> that is called when the same named class
+is true. This will kill the sleep 99 process forcing the proto bundle
+to restart it.</p>
+
+<p>Figure 6: Unit test in action. <code></code></p>
+
+<pre><code>neil@ettin ~/.cfagent/inputs $ cf-agent -KIf ./service.cf -D unit_01 ; ps -ef|grep sleep
+2014-07-03T19:15:06-0400     info: /default/main/methods/&#39;unit_01&#39;/default/unit_01/processes/&#39;sleep 99&#39;[0]: Signalled &#39;term&#39; (15) to process 107369 (neil     107369      1 107360  0.0  0.0   4216   0   356    1 19:14 00:00:00 sleep 99)
+2014-07-03T19:15:06-0400     info: /default/main/methods/&#39;unit_01&#39;/default/unit_01/processes/&#39;sleep 99&#39;[0]: Signalled &#39;kill&#39; (9) to process 107369 (neil     107369      1 107360  0.0  0.0   4216   0   356    1 19:14 00:00:00 sleep 99)
+2014-07-03T19:15:06-0400     info: /default/main/methods/&#39;My prototype&#39;/default/proto/processes/&#39;sleep 99&#39;[0]: Making a one-time restart promise for &#39;sleep 99&#39;
+2014-07-03T19:15:06-0400     info: /default/main/methods/&#39;My prototype&#39;/default/proto/commands/&#39;/tmp/proto.sh&#39;[0]: Executing &#39;no timeout&#39; ... &#39;/tmp/proto.sh&#39;
+2014-07-03T19:15:06-0400     info: /default/main/methods/&#39;My prototype&#39;/default/proto/commands/&#39;/tmp/proto.sh&#39;[0]: Completed execution of &#39;/tmp/proto.sh&#39;
+neil     107437      1  0 19:15 pts/6    00:00:00 sleep 99
+neil     107439  35478  0 19:15 pts/6    00:00:00 grep --color=auto sleep
+</code></pre>
+
+<p>For a more complex policy you can have multiple scenarios that must be
+repaired, each one being a separate unit test.</p>
+
+<h4>Large scale testing</h4>
+
+<p>In a prefect world we are all running a single flavour of UNIX. When
+you find this utopia <a href="https://twitter.com/neil_h_watson">tweet me</a>!.
+Until then we must test our policy on all our different host types. In
+a really small shop you may manually copy your prototype, conveniently
+a single file, to your different hosts types and run it on each.</p>
+
+<p>The rest of us are not so fortunate and will have to test our policy on
+more than a few hosts. A less manual approach is to integrate this
+prototype into your main policy, but only run it on select hosts. Then
+you can check each host to see if it is working. If you are using
+central reporting tools like <a href="http://www.rudder-project.org">Rudder</a>, <a href="http://cfengine.com/">CFEngine
+Enterprise</a> or <a href="http://watson-wilson.ca">Evolve&#39;s</a>
+own <a href="https://github.com/evolvethinking/delta_reporting">Delta Reporting</a>
+you&#39;ll be able to get reports showing your prototype in action on all
+of your test hosts.</p>
+
+<p>Figure 7: Delta Reporting showing an ntp process promise on multiple
+hosts <a href="http://watson-wilson.ca/wp-content/uploads/2014/07/dr-process-report.png"><img alt="Reporting on ntp process promises" src="http://watson-wilson.ca/wp-content/uploads/2014/07/dr-process-report.png"></a></p>
+
+<h4>#</h4>
+
+<h4>Summary</h4>
+
+<p>This ends my entry on testing best practices. Let&#39;s review.</p>
+
+<ol>
+<li><p>Start with simple prototypes.</p></li>
+<li><p>Use editor plugins.</p></li>
+<li><p>Check syntax with cf-promises.</p></li>
+<li><p>Test formally, including unit tests.</p></li>
+<li><p>Test on multiple architectures. Use reporting for scale.</p></li>
+</ol>
 
 
 
@@ -368,44 +730,60 @@ work. Pressing enter returns to normal mode.</p></li>
 
         <h1>Tags</h1>
         <ul class="list-inline">
+            <li><a href="/blog/tag/Cfengine/">Cfengine</a></li>
+            <li><a href="/blog/tag/EFL/">EFL</a></li>
+            <li><a href="/blog/tag/anti-virus/">anti-virus</a></li>
             <li><a href="/blog/tag/apt/">apt</a></li>
             <li><a href="/blog/tag/backup/">backup</a></li>
+            <li><a href="/blog/tag/best-practices/">best practices</a></li>
             <li><a href="/blog/tag/cfengine/">cfengine</a></li>
             <li><a href="/blog/tag/cfengine-cookbook/">cfengine cookbook</a></li>
             <li><a href="/blog/tag/cheatsheet/">cheatsheet</a></li>
             <li><a href="/blog/tag/cli/">cli</a></li>
             <li><a href="/blog/tag/cloud/">cloud</a></li>
             <li><a href="/blog/tag/cluster/">cluster</a></li>
+            <li><a href="/blog/tag/conferences/">conferences</a></li>
             <li><a href="/blog/tag/configuration-management/">configuration management</a></li>
             <li><a href="/blog/tag/cron/">cron</a></li>
             <li><a href="/blog/tag/debian/">debian</a></li>
+            <li><a href="/blog/tag/delta-reporting/">delta reporting</a></li>
+            <li><a href="/blog/tag/devops/">devops</a></li>
             <li><a href="/blog/tag/dns/">dns</a></li>
             <li><a href="/blog/tag/dr/">dr</a></li>
             <li><a href="/blog/tag/heartbeat/">heartbeat</a></li>
             <li><a href="/blog/tag/high-availability/">high availability</a></li>
             <li><a href="/blog/tag/infosec/">infosec</a></li>
             <li><a href="/blog/tag/ipv6/">ipv6</a></li>
+            <li><a href="/blog/tag/irc/">irc</a></li>
             <li><a href="/blog/tag/iscsi/">iscsi</a></li>
             <li><a href="/blog/tag/jekyll/">jekyll</a></li>
+            <li><a href="/blog/tag/kickstart/">kickstart</a></li>
             <li><a href="/blog/tag/kvm/">kvm</a></li>
             <li><a href="/blog/tag/linux/">linux</a></li>
             <li><a href="/blog/tag/monitoring/">monitoring</a></li>
             <li><a href="/blog/tag/multipathd/">multipathd</a></li>
+            <li><a href="/blog/tag/mustache/">mustache</a></li>
             <li><a href="/blog/tag/networking/">networking</a></li>
+            <li><a href="/blog/tag/opennms/">opennms</a></li>
             <li><a href="/blog/tag/opensource/">opensource</a></li>
             <li><a href="/blog/tag/oracle/">oracle</a></li>
             <li><a href="/blog/tag/patching/">patching</a></li>
+            <li><a href="/blog/tag/pcre/">pcre</a></li>
             <li><a href="/blog/tag/perl/">perl</a></li>
             <li><a href="/blog/tag/posix/">posix</a></li>
             <li><a href="/blog/tag/programming/">programming</a></li>
             <li><a href="/blog/tag/provisioning/">provisioning</a></li>
             <li><a href="/blog/tag/red-hat/">red hat</a></li>
+            <li><a href="/blog/tag/redhat/">redhat</a></li>
             <li><a href="/blog/tag/regex/">regex</a></li>
             <li><a href="/blog/tag/rhev/">rhev</a></li>
             <li><a href="/blog/tag/san/">san</a></li>
             <li><a href="/blog/tag/satellite/">satellite</a></li>
             <li><a href="/blog/tag/scripting/">scripting</a></li>
+            <li><a href="/blog/tag/security/">security</a></li>
+            <li><a href="/blog/tag/serverspec/">serverspec</a></li>
             <li><a href="/blog/tag/shell/">shell</a></li>
+            <li><a href="/blog/tag/software-testing/">software testing</a></li>
             <li><a href="/blog/tag/solaris/">solaris</a></li>
             <li><a href="/blog/tag/spacewalk/">spacewalk</a></li>
             <li><a href="/blog/tag/ssh/">ssh</a></li>
@@ -415,7 +793,9 @@ work. Pressing enter returns to normal mode.</p></li>
             <li><a href="/blog/tag/support/">support</a></li>
             <li><a href="/blog/tag/svn/">svn</a></li>
             <li><a href="/blog/tag/sysadmin/">sysadmin</a></li>
+            <li><a href="/blog/tag/sysctl/">sysctl</a></li>
             <li><a href="/blog/tag/terraform/">terraform</a></li>
+            <li><a href="/blog/tag/virus/">virus</a></li>
             <li><a href="/blog/tag/vitualization/">vitualization</a></li>
             <li><a href="/blog/tag/website/">website</a></li>
         </ul>

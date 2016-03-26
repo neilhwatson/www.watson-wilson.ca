@@ -5,7 +5,52 @@
         <link>http://watson-wilson.ca/blog/tag/regex/</link>
         <atom:link href="http://watson-wilson.ca/blog/tag/regex.rss" rel="self" type="application/rss+xml" />
         <description>Blog feed of Neil H. Watson</description>
-        <generator>Statocles 0.065</generator>
+        <generator>Statocles 0.073</generator>
+        <item>
+            <title>Build better regular expressions in CFEngine</title>
+            <link>http://watson-wilson.ca/blog/2015/08/20/build-better-regular-expressions-in-cfengine/</link>
+            <guid>http://watson-wilson.ca/blog/2015/08/20/build-better-regular-expressions-in-cfengine/</guid>
+            <description><![CDATA[
+                <p><img alt="picture of a regex" src="http://watson-wilson.ca/static/images/regex.png"></p>
+
+<p>Regular expressions can vary from simple to WTF. Usually they tend
+toward the latter. What most don&#39;t realized, or are too lazy to use, is
+that regular expressions can be made to include friendly whitespace and
+comments. CFEngine is no exception.</p>
+
+                    <p><a href="http://watson-wilson.ca/blog/2015/08/20/build-better-regular-expressions-in-cfengine/#section-2">Continue reading...</a></p>
+                <p>Tags:
+                    <a href="http://watson-wilson.ca/blog/tag/best-practices/">best practices</a>
+                    <a href="http://watson-wilson.ca/blog/tag/Cfengine/">Cfengine</a>
+                    <a href="http://watson-wilson.ca/blog/tag/pcre/">pcre</a>
+                    <a href="http://watson-wilson.ca/blog/tag/regex/">regex</a>
+                </p>
+            ]]></description>
+            <pubDate>
+                Thu, 20 Aug 2015 21:51:58 +0000
+            </pubDate>
+        </item>
+        <item>
+            <title>PCRE cheatsheet</title>
+            <link>http://watson-wilson.ca/blog/2013/05/09/pcre-cheatsheet/</link>
+            <guid>http://watson-wilson.ca/blog/2013/05/09/pcre-cheatsheet/</guid>
+            <description><![CDATA[
+                <p>Although similar to Perl, PCRE has some syntax that can be
+difficult to remember. When I&#39;m working with CFEngine I often have to
+look it up. Here is a cheat-sheet to save time.</p>
+
+                    <p><a href="http://watson-wilson.ca/blog/2013/05/09/pcre-cheatsheet/#section-2">Continue reading...</a></p>
+                <p>Tags:
+                    <a href="http://watson-wilson.ca/blog/tag/Cfengine/">Cfengine</a>
+                    <a href="http://watson-wilson.ca/blog/tag/cheatsheet/">cheatsheet</a>
+                    <a href="http://watson-wilson.ca/blog/tag/pcre/">pcre</a>
+                    <a href="http://watson-wilson.ca/blog/tag/regex/">regex</a>
+                </p>
+            ]]></description>
+            <pubDate>
+                Thu, 09 May 2013 10:47:41 +0000
+            </pubDate>
+        </item>
         <item>
             <title>POSIX regular expression cheatsheet</title>
             <link>http://watson-wilson.ca/blog/2011/03/08/posix-regex-cheatsheet/</link>

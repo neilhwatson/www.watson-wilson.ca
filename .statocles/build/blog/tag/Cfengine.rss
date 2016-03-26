@@ -1,0 +1,122 @@
+<?xml version="1.0"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Neil H. Watson</title>
+        <link>http://watson-wilson.ca/blog/tag/Cfengine/</link>
+        <atom:link href="http://watson-wilson.ca/blog/tag/Cfengine.rss" rel="self" type="application/rss+xml" />
+        <description>Blog feed of Neil H. Watson</description>
+        <generator>Statocles 0.073</generator>
+        <item>
+            <title>Simple CFEngine setup with EFL</title>
+            <link>http://watson-wilson.ca/blog/2015/10/13/simple-cfengine-setup-with-efl/</link>
+            <guid>http://watson-wilson.ca/blog/2015/10/13/simple-cfengine-setup-with-efl/</guid>
+            <description><![CDATA[
+                <p><img alt="image of stopwatch" src="http://watson-wilson.ca/static/images/stopwatch_13154_sm.gif"></p>
+
+<p>CFEngine can be confusing and frustrating for new users. I&#39;ll try to
+offer you a condensed and easy to follow procedure, including the <a href="https://github.com/evolvethinking/evolve_cfengine_freelib">EFL</a>
+addon.</p>
+
+                    <p><a href="http://watson-wilson.ca/blog/2015/10/13/simple-cfengine-setup-with-efl/#section-2">Continue reading...</a></p>
+                <p>Tags:
+                    <a href="http://watson-wilson.ca/blog/tag/Cfengine/">Cfengine</a>
+                    <a href="http://watson-wilson.ca/blog/tag/EFL/">EFL</a>
+                </p>
+            ]]></description>
+            <pubDate>
+                Tue, 13 Oct 2015 09:54:06 +0000
+            </pubDate>
+        </item>
+        <item>
+            <title>Essential audit reports with Delta Reporting</title>
+            <link>http://watson-wilson.ca/blog/2015/09/30/essential-audit-reports-with-delta-reporting/</link>
+            <guid>http://watson-wilson.ca/blog/2015/09/30/essential-audit-reports-with-delta-reporting/</guid>
+            <description><![CDATA[
+                <p>[caption id=&quot;attachment_960&quot; align=&quot;alignright&quot; width=&quot;620&quot;]<a href="http://watson-wilson.ca/wp-content/uploads/2014/08/dr-dashboard.png"><img alt="Delta Reporting dashboard" src="http://watson-wilson.ca/wp-content/uploads/2014/08/dr-dashboard.png"></a>
+Delta Reporting dashboard[/caption] Delta Reporting has simple yet
+powerful reports. See a gallery of essential ones <a href="http://watson-wilson.ca/products/delta-reporting/essential-audit-reports-with-delta-reporting/">here</a>.</p>
+
+                    <p><a href="http://watson-wilson.ca/blog/2015/09/30/essential-audit-reports-with-delta-reporting/#section-2">Continue reading...</a></p>
+                <p>Tags:
+                    <a href="http://watson-wilson.ca/blog/tag/Cfengine/">Cfengine</a>
+                    <a href="http://watson-wilson.ca/blog/tag/delta-reporting/">delta reporting</a>
+                    <a href="http://watson-wilson.ca/blog/tag/security/">security</a>
+                </p>
+            ]]></description>
+            <pubDate>
+                Wed, 30 Sep 2015 11:34:03 +0000
+            </pubDate>
+        </item>
+        <item>
+            <title>Auditing hosts using CFEngine, EFL, and Delta Reporting</title>
+            <link>http://watson-wilson.ca/blog/2015/09/18/auditing-hosts-using-cfengine-efl-and-delta-reporting/</link>
+            <guid>http://watson-wilson.ca/blog/2015/09/18/auditing-hosts-using-cfengine-efl-and-delta-reporting/</guid>
+            <description><![CDATA[
+                <p><img alt="" src="http://watson-wilson.ca/wp-content/uploads/2015/09/Liste-300px.png"></p>
+
+<p>Sometimes you want to audit a host without changing it. This can be
+hard with CFEngine, but with <a href="https://github.com/evolvethinking/evolve_cfengine_freelib">EFL</a>
+and <a href="https://github.com/evolvethinking/delta_reporting">Delta Reporting</a>
+it&#39;s possible.</p>
+
+                    <p><a href="http://watson-wilson.ca/blog/2015/09/18/auditing-hosts-using-cfengine-efl-and-delta-reporting/#section-2">Continue reading...</a></p>
+                <p>Tags:
+                    <a href="http://watson-wilson.ca/blog/tag/Cfengine/">Cfengine</a>
+                    <a href="http://watson-wilson.ca/blog/tag/delta-reporting/">delta reporting</a>
+                    <a href="http://watson-wilson.ca/blog/tag/EFL/">EFL</a>
+                    <a href="http://watson-wilson.ca/blog/tag/security/">security</a>
+                    <a href="http://watson-wilson.ca/blog/tag/software-testing/">software testing</a>
+                </p>
+            ]]></description>
+            <pubDate>
+                Fri, 18 Sep 2015 13:52:10 +0000
+            </pubDate>
+        </item>
+        <item>
+            <title>Testing CFEngine policy using EFL, TAP, and Perl</title>
+            <link>http://watson-wilson.ca/blog/2015/08/20/testing-cfengine-using-efl-tap-and-perl/</link>
+            <guid>http://watson-wilson.ca/blog/2015/08/20/testing-cfengine-using-efl-tap-and-perl/</guid>
+            <description><![CDATA[
+                <p><img alt="Prove and TAP output" src="http://watson-wilson.ca/static/images/efl_tests.png"></p>
+
+<p>It&#39;s a dirty secret that few test their CFEngine policies, and fewer
+still test them well. Now EFL has two bundles for testing that produce
+TAP output.</p>
+
+                    <p><a href="http://watson-wilson.ca/blog/2015/08/20/testing-cfengine-using-efl-tap-and-perl/#section-2">Continue reading...</a></p>
+                <p>Tags:
+                    <a href="http://watson-wilson.ca/blog/tag/Cfengine/">Cfengine</a>
+                    <a href="http://watson-wilson.ca/blog/tag/devops/">devops</a>
+                    <a href="http://watson-wilson.ca/blog/tag/EFL/">EFL</a>
+                    <a href="http://watson-wilson.ca/blog/tag/software-testing/">software testing</a>
+                </p>
+            ]]></description>
+            <pubDate>
+                Thu, 20 Aug 2015 15:33:18 +0000
+            </pubDate>
+        </item>
+        <item>
+            <title>EFL is tested for your confidence</title>
+            <link>http://watson-wilson.ca/blog/2015/08/20/efl-is-tested-for-your-confidence/</link>
+            <guid>http://watson-wilson.ca/blog/2015/08/20/efl-is-tested-for-your-confidence/</guid>
+            <description><![CDATA[
+                <p><img alt="EFL has more than 170 tests" src="http://watson-wilson.ca/static/images/efl_tests.png"></p>
+
+<p>Take confidence that <a href="https://github.com/evolvethinking/evolve_cfengine_freelib">EFL</a>
+is tested with each change and against each new CFEngine release. We
+have more than 170 tests. Have confidence in using <a href="https://github.com/evolvethinking/evolve_cfengine_freelib">EFL</a>
+in your production environment.</p>
+
+                    <p><a href="http://watson-wilson.ca/blog/2015/08/20/efl-is-tested-for-your-confidence/#section-2">Continue reading...</a></p>
+                <p>Tags:
+                    <a href="http://watson-wilson.ca/blog/tag/Cfengine/">Cfengine</a>
+                    <a href="http://watson-wilson.ca/blog/tag/EFL/">EFL</a>
+                </p>
+            ]]></description>
+            <pubDate>
+                Thu, 20 Aug 2015 11:48:23 +0000
+            </pubDate>
+        </item>
+    </channel>
+</rss>
+

@@ -8,7 +8,7 @@
         <!--<link rel="stylesheet" href="/theme/css/statocles-bootstrap.css" />-->
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
         <title>Neil H. Watson</title>
-        <meta content="Statocles 0.065" name="generator">
+        <meta content="Statocles 0.073" name="generator">
         <link href="/blog/tag/satellite.atom" rel="alternate" type="application/atom+xml">
         <link href="/blog/tag/satellite.rss" rel="alternate" type="application/rss+xml">
         
@@ -81,6 +81,39 @@
                     <p><a href="/blog/2015/12/08/spacewalk/index.html#section-2">Continue reading Installing Spacewalk...</a></p>
 
             </article>
+            <article>
+                <header>
+                    <h1><a href="/blog/2015/06/10/purging-old-systems-from-red-hat-satellite/">Purging old systems from Red Hat Satellite</a></h1>
+
+                    <p class="tags">Tags:
+                        <a href="/blog/tag/perl/" rel="tag">perl</a>
+                        <a href="/blog/tag/redhat/" rel="tag">redhat</a>
+                        <a href="/blog/tag/satellite/" rel="tag">satellite</a>
+                    </p>
+
+                    <aside>
+                        <p><time datetime="2015-06-10">
+                            Posted on 2015-06-10
+                        </time>
+                            by nwatson
+                        </p>
+                    </aside>
+
+                </header>
+
+                <p>I&#39;ve been involved in a Red Hat Satellite (version 5) project recently.
+--- The nature of the client&#39;s work meant that most the systems
+registered with Satellite were reinstalled regularly. This can lead to
+duplicate systems residing in Satellite&#39;s database and its collection
+of Cobbler files. With the aid of Red Had I wrote some scripts that use
+the Satellite and Cobbler API to delete old systems from Satellite and
+Cobbler. I can&#39;t share the scripts, but I can show you some useful
+snippets from what I learned. The scripts are in Perl so I include the
+snippets in my personal Perl <a href="https://github.com/neilhwatson/nustuff/blob/master/perl/cheatsheet.pod">cheatsheet</a>.</p>
+
+
+
+            </article>
         </main>
 
         <ul class="pager">
@@ -99,44 +132,60 @@
 
         <h1>Tags</h1>
         <ul class="list-inline">
+            <li><a href="/blog/tag/Cfengine/">Cfengine</a></li>
+            <li><a href="/blog/tag/EFL/">EFL</a></li>
+            <li><a href="/blog/tag/anti-virus/">anti-virus</a></li>
             <li><a href="/blog/tag/apt/">apt</a></li>
             <li><a href="/blog/tag/backup/">backup</a></li>
+            <li><a href="/blog/tag/best-practices/">best practices</a></li>
             <li><a href="/blog/tag/cfengine/">cfengine</a></li>
             <li><a href="/blog/tag/cfengine-cookbook/">cfengine cookbook</a></li>
             <li><a href="/blog/tag/cheatsheet/">cheatsheet</a></li>
             <li><a href="/blog/tag/cli/">cli</a></li>
             <li><a href="/blog/tag/cloud/">cloud</a></li>
             <li><a href="/blog/tag/cluster/">cluster</a></li>
+            <li><a href="/blog/tag/conferences/">conferences</a></li>
             <li><a href="/blog/tag/configuration-management/">configuration management</a></li>
             <li><a href="/blog/tag/cron/">cron</a></li>
             <li><a href="/blog/tag/debian/">debian</a></li>
+            <li><a href="/blog/tag/delta-reporting/">delta reporting</a></li>
+            <li><a href="/blog/tag/devops/">devops</a></li>
             <li><a href="/blog/tag/dns/">dns</a></li>
             <li><a href="/blog/tag/dr/">dr</a></li>
             <li><a href="/blog/tag/heartbeat/">heartbeat</a></li>
             <li><a href="/blog/tag/high-availability/">high availability</a></li>
             <li><a href="/blog/tag/infosec/">infosec</a></li>
             <li><a href="/blog/tag/ipv6/">ipv6</a></li>
+            <li><a href="/blog/tag/irc/">irc</a></li>
             <li><a href="/blog/tag/iscsi/">iscsi</a></li>
             <li><a href="/blog/tag/jekyll/">jekyll</a></li>
+            <li><a href="/blog/tag/kickstart/">kickstart</a></li>
             <li><a href="/blog/tag/kvm/">kvm</a></li>
             <li><a href="/blog/tag/linux/">linux</a></li>
             <li><a href="/blog/tag/monitoring/">monitoring</a></li>
             <li><a href="/blog/tag/multipathd/">multipathd</a></li>
+            <li><a href="/blog/tag/mustache/">mustache</a></li>
             <li><a href="/blog/tag/networking/">networking</a></li>
+            <li><a href="/blog/tag/opennms/">opennms</a></li>
             <li><a href="/blog/tag/opensource/">opensource</a></li>
             <li><a href="/blog/tag/oracle/">oracle</a></li>
             <li><a href="/blog/tag/patching/">patching</a></li>
+            <li><a href="/blog/tag/pcre/">pcre</a></li>
             <li><a href="/blog/tag/perl/">perl</a></li>
             <li><a href="/blog/tag/posix/">posix</a></li>
             <li><a href="/blog/tag/programming/">programming</a></li>
             <li><a href="/blog/tag/provisioning/">provisioning</a></li>
             <li><a href="/blog/tag/red-hat/">red hat</a></li>
+            <li><a href="/blog/tag/redhat/">redhat</a></li>
             <li><a href="/blog/tag/regex/">regex</a></li>
             <li><a href="/blog/tag/rhev/">rhev</a></li>
             <li><a href="/blog/tag/san/">san</a></li>
             <li><a href="/blog/tag/satellite/">satellite</a></li>
             <li><a href="/blog/tag/scripting/">scripting</a></li>
+            <li><a href="/blog/tag/security/">security</a></li>
+            <li><a href="/blog/tag/serverspec/">serverspec</a></li>
             <li><a href="/blog/tag/shell/">shell</a></li>
+            <li><a href="/blog/tag/software-testing/">software testing</a></li>
             <li><a href="/blog/tag/solaris/">solaris</a></li>
             <li><a href="/blog/tag/spacewalk/">spacewalk</a></li>
             <li><a href="/blog/tag/ssh/">ssh</a></li>
@@ -146,7 +195,9 @@
             <li><a href="/blog/tag/support/">support</a></li>
             <li><a href="/blog/tag/svn/">svn</a></li>
             <li><a href="/blog/tag/sysadmin/">sysadmin</a></li>
+            <li><a href="/blog/tag/sysctl/">sysctl</a></li>
             <li><a href="/blog/tag/terraform/">terraform</a></li>
+            <li><a href="/blog/tag/virus/">virus</a></li>
             <li><a href="/blog/tag/vitualization/">vitualization</a></li>
             <li><a href="/blog/tag/website/">website</a></li>
         </ul>

@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <link href="/theme/css/readability-bootstrap.min.css" rel="stylesheet">
+        <!--<link rel="stylesheet" href="/theme/css/statocles-bootstrap.css" />-->
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+        <title>Testing CFEngine policy using EFL, TAP, and Perl - Neil H. Watson</title>
+        <meta content="Statocles 0.073" name="generator">
+        
+
+        <!-- For source highlighting -->
+        <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/default.min.css" rel="stylesheet">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+
+    </head>
+    <body>
+        <header>
+            <nav class="navbar navbar-default navbar-static-top" role="navigation">
+                <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button class="navbar-toggle" data-target="#top-navbar-collapse-1" data-toggle="collapse" type="button">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="/">Neil H. Watson</a>
+                    </div>
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="top-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <li><a href="/page/about">About me</a></li>
+                            <li><a href="/static/resume_neil_h_watson.pdf">Resume</a></li>
+                            <li><a href="/page/projects">Projects</a></li>
+                        </ul>
+                        
+                    </div>
+                </div>
+            </nav>
+            
+        </header>
+        <div class="main container">
+            <div class="row">
+
+    <div class="col-md-9">
+        <main>
+            <header>
+                <h1>Testing CFEngine policy using EFL, TAP, and Perl</h1>
+                <p class="tags">Tags:
+                    <a href="/blog/tag/Cfengine/" rel="tag">Cfengine</a>
+                    <a href="/blog/tag/devops/" rel="tag">devops</a>
+                    <a href="/blog/tag/EFL/" rel="tag">EFL</a>
+                    <a href="/blog/tag/software-testing/" rel="tag">software testing</a>
+                </p>
+
+                <aside>
+                    <p><time datetime="2015-08-20">
+                        Posted on 2015-08-20
+                    </time>
+                        by nwatson
+                    </p>
+                </aside>
+
+
+            </header>
+            <section id="section-1">
+                <p><img alt="Prove and TAP output" src="http://watson-wilson.ca/static/images/efl_tests.png"></p>
+
+<p>It&#39;s a dirty secret that few test their CFEngine policies, and fewer
+still test them well. Now EFL has two bundles for testing that produce
+TAP output.</p>
+
+            </section>
+            <section id="section-2">
+                <h3>What is TAP?</h3>
+
+<p>The <a href="https://en.wikipedia.org/wiki/Test_Anything_Protocol"><em>Test Anything Protocol</em></a>
+was invented for unit testing Perl. It&#39;s simple yet powerful with a
+format like this:</p>
+
+<p>``</p>
+
+<pre><code>(start test number)..(end test number)
+(ok|not ok) (test number) - Test name in free form
+</code></pre>
+
+<p>Here&#39;s and example output:</p>
+
+<p>``</p>
+
+<pre><code>R: efl_data_efl_test_vars_efl_global_strings_json_26ca18b4fe77f2fc4a494be
+1..3
+R: efl_data_efl_test_vars_efl_global_strings_json_26ca18b4fe77f2fc4a494be
+ok 1 - main_efl_dev [Neil H. Watson (neil@watson-wilson.ca)]
+R: efl_data_efl_test_vars_efl_global_strings_json_26ca18b4fe77f2fc4a494be
+ok 2 - gateway [2001:DB8::1]
+R: efl_data_efl_test_vars_efl_global_strings_json_26ca18b4fe77f2fc4a494be
+ok 3 - cfe version [3]
+</code></pre>
+
+<p>Visually the reader can quickly understand results. The Perl utility <em>prove</em>
+will summarize them for you.</p>
+
+<p>EFL comes with two testing bundles that generate TAP output via reports
+promises. <em>Efl_test_classes</em> tests if a class is defined or not, and <em>efl_test_vars</em>
+tests the value of a variable. Let&#39;s look at some examples. Note that I
+assume you have working CFEngine master framework policy and <a href="https://github.com/evolvethinking/evolve_cfengine_freelib/blob/master/INSTALL.md">EFL
+installed</a></p>
+
+<h3>elf_test_classes</h3>
+
+<p>Suppose I want to test for the presence of the class <em>am_middleware_host</em>.
+Efl_test_classes takes a parameter file like this:</p>
+
+<p>``</p>
+
+<pre><code>[
+   {
+      &quot;class&quot;         : &quot;test_for_am_middleware_host&quot;,
+      &quot;class_to_test&quot; : &quot;am_middleware_host&quot;,
+      &quot;test_type&quot;     : &quot;is&quot;,
+      &quot;name&quot;          : &quot;Testing if &#39;am_middleware_host is set&quot;
+   }
+]
+</code></pre>
+
+<p>The test type works like Perl&#39;s <a href="https://metacpan.org/pod/Test::More">Test::More module</a>.
+Available test types are is, isnt, like, and unlike. The above test
+will pass if <em>class_to_test</em> is defined. Let&#39;s run it.</p>
+
+<p>``</p>
+
+<pre><code>cf-agent -D run_test_suite,test_for_am_middleware_host
+R: efl_test_classes_json_bbb9ad33c9792ef54f738a641bb72abfc75640a4
+1..1
+R: efl_test_classes_json_bbb9ad33c9792ef54f738a641bb72abfc75640a4
+ok 1 - Testing if &#39;am_middleware_host is set
+</code></pre>
+
+<p>At this point you might say &quot;Neil, why don&#39;t you just grep verbose
+output to see if the class is true?&quot;. Sure, that type of adhoc testing
+is fine, but the testing offered here is for automatic testing, so you
+can script this test using Perl&#39;s prove. Below we encapsulate the
+cf-agent command into <em>cf-test.t</em> because prove works by running files
+ending in .t and parsing TAP output.</p>
+
+<p>``</p>
+
+<pre><code>#!/bin/sh
+
+cf-agent -D run_test_suite,test_for_am_middleware_host
+</code></pre>
+
+<p>Now run it with prove:</p>
+
+<p>``</p>
+
+<pre><code>prove ./cf-test.t
+./efl_test_classes.t .. ok   
+All tests successful.
+Files=1, Tests=1,  2 wallclock secs ( 0.02 usr  0.00 sys +  0.65 
+Result: PASS
+</code></pre>
+
+<p>Promises can be shown to kept, repaired, or not kept by using a <a href="https://docs.cfengine.com/docs/master/reference-promise-types.html#classes">classes
+attribute</a>.
+So, if your promises define kept, repaired, or failed classes, then you
+can test for them in your test suite. Further, if you use ELF these
+classes are automatically defined:</p>
+
+<p>``</p>
+
+<pre><code>body classes efl_rkn( promiser, handle )
+{
+      promise_kept      =&gt; { &quot;${promiser}_handle_${handle}_kept&quot; };
+      promise_repaired  =&gt; { &quot;${promiser}_handle_${handle}_repaired&quot; };
+      repair_failed     =&gt; { &quot;${promiser}_handle_${handle}_notkept&quot; };
+      repair_denied     =&gt; { &quot;${promiser}_handle_${handle}_notkept&quot; };
+      repair_timeout    =&gt; { &quot;${promiser}_handle_${handle}_notkept&quot; };
+}
+</code></pre>
+
+<p>Now that you know the expected class outcome you can test for it. You
+can have test cases for any new policy.</p>
+
+<h3>elf_test_vars</h3>
+
+<p>Efl_test_vars is similar to efl_test_classes. You compare the value of
+a given variable against a give string or regex. Again it uses is,
+isnt, like, and unlike. Here&#39;s an example from EFL&#39;s own test suite:</p>
+
+<p>``</p>
+
+<pre><code>[
+   {
+      &quot;test_case&quot; : &quot;Neil H. Watson (neil@watson-wilson.ca)&quot;,
+      &quot;test_type&quot; : &quot;is&quot;,
+      &quot;class&quot; : &quot;any&quot;,
+      &quot;name&quot; : &quot;main_efl_dev [${efl_global_strings.main_efl_dev}]&quot;,
+      &quot;var_to_test&quot; : &quot;${efl_global_strings.main_efl_dev}&quot;
+   },
+   {
+      &quot;test_type&quot; : &quot;is&quot;,
+      &quot;class&quot; : &quot;any&quot;,
+      &quot;name&quot; : &quot;gateway [${efl_global_strings.gateway}]&quot;,
+      &quot;var_to_test&quot; : &quot;${efl_global_strings.gateway}&quot;,
+      &quot;test_case&quot; : &quot;2001:DB8::1&quot;
+   },
+   {
+      &quot;test_case&quot; : &quot;3&quot;,
+      &quot;test_type&quot; : &quot;is&quot;,
+      &quot;class&quot; : &quot;any&quot;,
+      &quot;var_to_test&quot; : &quot;${efl_global_strings.cf_major}&quot;,
+      &quot;name&quot; : &quot;cfe version [${efl_global_strings.cf_major}]&quot;
+   }
+]
+</code></pre>
+
+<p>This data is used by EFL&#39;s test suite to test that the bundle
+efl_global_strings correctly defines variables. Here&#39;s the raw output:</p>
+
+<p>``</p>
+
+<pre><code>t/31_efl_global_strings_json.t
+R: efl_data_efl_test_vars_efl_global_strings_json_26ca18b4fe77f2fc4a494be0
+1..3
+R: efl_data_efl_test_vars_efl_global_strings_json_26ca18b4fe77f2fc4a494be0
+ok 1 - main_efl_dev [Neil H. Watson (neil@watson-wilson.ca)]
+R: efl_data_efl_test_vars_efl_global_strings_json_26ca18b4fe77f2fc4a494be0
+ok 2 - gateway [2001:DB8::1]
+R: efl_data_efl_test_vars_efl_global_strings_json_26ca18b4fe77f2fc4a494be0
+ok 3 - cfe version [3]
+</code></pre>
+
+<p>And here&#39;s the output from prove: ``</p>
+
+<pre><code>prove t/31_efl_global_strings_json.t 
+t/31_efl_global_strings_json.t .. ok   
+All tests successful.
+Files=1, Tests=3,  1 wallclock secs ( 0.03 usr  0.00 sys +  0.88 cusr  
+Result: PASS
+</code></pre>
+
+<p>I hope this has given you some ideas on how you can improve your policy
+testing. Feel free to contact me if you have questions or if you&#39;d like
+a consulting engagement. Happy testing!</p>
+
+            </section>
+        </main>
+
+
+    </div>
+
+    <div class="col-md-3">
+        <iframe frameborder="0" src="https://duckduckgo.com/search.html?site=watson-wilson.ca&amp;prefill=Search DuckDuckGo" style="overflow:hidden;margin:0;padding:0;width:350px;height:40px;"></iframe>
+
+        <nav id="tags">
+            <h1>Tags</h1>
+            <ul class="list-inline">
+                <li><a href="/blog/tag/Cfengine/">Cfengine</a></li>
+                <li><a href="/blog/tag/EFL/">EFL</a></li>
+                <li><a href="/blog/tag/anti-virus/">anti-virus</a></li>
+                <li><a href="/blog/tag/apt/">apt</a></li>
+                <li><a href="/blog/tag/backup/">backup</a></li>
+                <li><a href="/blog/tag/best-practices/">best practices</a></li>
+                <li><a href="/blog/tag/cfengine/">cfengine</a></li>
+                <li><a href="/blog/tag/cfengine-cookbook/">cfengine cookbook</a></li>
+                <li><a href="/blog/tag/cheatsheet/">cheatsheet</a></li>
+                <li><a href="/blog/tag/cli/">cli</a></li>
+                <li><a href="/blog/tag/cloud/">cloud</a></li>
+                <li><a href="/blog/tag/cluster/">cluster</a></li>
+                <li><a href="/blog/tag/conferences/">conferences</a></li>
+                <li><a href="/blog/tag/configuration-management/">configuration management</a></li>
+                <li><a href="/blog/tag/cron/">cron</a></li>
+                <li><a href="/blog/tag/debian/">debian</a></li>
+                <li><a href="/blog/tag/delta-reporting/">delta reporting</a></li>
+                <li><a href="/blog/tag/devops/">devops</a></li>
+                <li><a href="/blog/tag/dns/">dns</a></li>
+                <li><a href="/blog/tag/dr/">dr</a></li>
+                <li><a href="/blog/tag/heartbeat/">heartbeat</a></li>
+                <li><a href="/blog/tag/high-availability/">high availability</a></li>
+                <li><a href="/blog/tag/infosec/">infosec</a></li>
+                <li><a href="/blog/tag/ipv6/">ipv6</a></li>
+                <li><a href="/blog/tag/irc/">irc</a></li>
+                <li><a href="/blog/tag/iscsi/">iscsi</a></li>
+                <li><a href="/blog/tag/jekyll/">jekyll</a></li>
+                <li><a href="/blog/tag/kickstart/">kickstart</a></li>
+                <li><a href="/blog/tag/kvm/">kvm</a></li>
+                <li><a href="/blog/tag/linux/">linux</a></li>
+                <li><a href="/blog/tag/monitoring/">monitoring</a></li>
+                <li><a href="/blog/tag/multipathd/">multipathd</a></li>
+                <li><a href="/blog/tag/mustache/">mustache</a></li>
+                <li><a href="/blog/tag/networking/">networking</a></li>
+                <li><a href="/blog/tag/opennms/">opennms</a></li>
+                <li><a href="/blog/tag/opensource/">opensource</a></li>
+                <li><a href="/blog/tag/oracle/">oracle</a></li>
+                <li><a href="/blog/tag/patching/">patching</a></li>
+                <li><a href="/blog/tag/pcre/">pcre</a></li>
+                <li><a href="/blog/tag/perl/">perl</a></li>
+                <li><a href="/blog/tag/posix/">posix</a></li>
+                <li><a href="/blog/tag/programming/">programming</a></li>
+                <li><a href="/blog/tag/provisioning/">provisioning</a></li>
+                <li><a href="/blog/tag/red-hat/">red hat</a></li>
+                <li><a href="/blog/tag/redhat/">redhat</a></li>
+                <li><a href="/blog/tag/regex/">regex</a></li>
+                <li><a href="/blog/tag/rhev/">rhev</a></li>
+                <li><a href="/blog/tag/san/">san</a></li>
+                <li><a href="/blog/tag/satellite/">satellite</a></li>
+                <li><a href="/blog/tag/scripting/">scripting</a></li>
+                <li><a href="/blog/tag/security/">security</a></li>
+                <li><a href="/blog/tag/serverspec/">serverspec</a></li>
+                <li><a href="/blog/tag/shell/">shell</a></li>
+                <li><a href="/blog/tag/software-testing/">software testing</a></li>
+                <li><a href="/blog/tag/solaris/">solaris</a></li>
+                <li><a href="/blog/tag/spacewalk/">spacewalk</a></li>
+                <li><a href="/blog/tag/ssh/">ssh</a></li>
+                <li><a href="/blog/tag/statocles/">statocles</a></li>
+                <li><a href="/blog/tag/subversion/">subversion</a></li>
+                <li><a href="/blog/tag/sun/">sun</a></li>
+                <li><a href="/blog/tag/support/">support</a></li>
+                <li><a href="/blog/tag/svn/">svn</a></li>
+                <li><a href="/blog/tag/sysadmin/">sysadmin</a></li>
+                <li><a href="/blog/tag/sysctl/">sysctl</a></li>
+                <li><a href="/blog/tag/terraform/">terraform</a></li>
+                <li><a href="/blog/tag/virus/">virus</a></li>
+                <li><a href="/blog/tag/vitualization/">vitualization</a></li>
+                <li><a href="/blog/tag/website/">website</a></li>
+            </ul>
+        </nav>
+    </div>
+
+</div>
+
+<div class="row">
+   <div class="col-md-1">
+       <img atl="Neil Watson" src="https://gravatar.com/avatar/1f0969599955a953e592034929ed7a23">
+   </div>
+
+       <div class="col-md-1">
+            <!-- reddit this -->
+            <a href="//www.reddit.com/submit" onclick="window.location = &#39;//www.reddit.com/submit?url=&#39; + encodeURIComponent(window.location); return false"><img alt="submit to reddit" border="0" src="//www.redditstatic.com/spreddit7.gif"></a>
+       </div>
+
+       <div class="col-md-1">
+          <!-- Tweet this -->
+          <a class="twitter-share-button" data-count="none" data-via="neil_h_watson" href="https://twitter.com/share">Tweet</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+       </div>
+
+       <div class="col-md-1">
+          <!-- follow me on twitter -->
+          <a class="twitter-follow-button" data-show-count="false" data-show-screen-name="false" href="https://twitter.com/neil_h_watson">Follow @neil_h_watson</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+        </div>
+
+       <div class="col-md-1">
+           <!-- follw me on github -->
+            <a aria-label="Follow @neilhwatson on GitHub" class="github-button" data-style="mega" href="https://github.com/neilhwatson">Follow</a>
+            <script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
+       </div>
+
+</div>
+
+        </div>
+        <footer>
+            
+            <h1></h1>
+            <div class="col-md-5"> </div>
+            <div class="col-md-3 container tagline">
+                <a href="http://preaction.me/statocles">Made with Statocles</a><br>
+                <a href="http://www.perl.org">Powered by Perl</a>
+            </div>
+        </footer>
+    </body>
+</html>

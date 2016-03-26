@@ -8,7 +8,7 @@
         <!--<link rel="stylesheet" href="/theme/css/statocles-bootstrap.css" />-->
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
         <title>Neil H. Watson</title>
-        <meta content="Statocles 0.065" name="generator">
+        <meta content="Statocles 0.073" name="generator">
         <link href="/blog/index.atom" rel="alternate" type="application/atom+xml">
         <link href="/blog/index.rss" rel="alternate" type="application/rss+xml">
         
@@ -56,264 +56,397 @@
 
             <article>
                 <header>
-                    <h1><a href="/blog/2011/03/08/enterprise-sysadmin/">Enterprise system administration using configuration management</a></h1>
+                    <h1><a href="/blog/2014/02/26/my-evolution-of-cfengine-policy/">My evolution of CFEngine policy</a></h1>
 
                     <p class="tags">Tags:
-                        <a href="/blog/tag/configuration-management/" rel="tag">configuration management</a>
-                        <a href="/blog/tag/sysadmin/" rel="tag">sysadmin</a>
-                        <a href="/blog/tag/cfengine/" rel="tag">cfengine</a>
+                        <a href="/blog/tag/Cfengine/" rel="tag">Cfengine</a>
+                        <a href="/blog/tag/EFL/" rel="tag">EFL</a>
                     </p>
 
                     <aside>
-                        <p><time datetime="2011-03-08">
-                            Posted on 2011-03-08
+                        <p><time datetime="2014-02-26">
+                            Posted on 2014-02-26
                         </time>
+                            by nwatson
                         </p>
                     </aside>
 
                 </header>
 
-                <p>To maintain the large quantity of servers typically found in enterprise
-organizations, systems administration must move beyond manual and custom
-scripts toward a centralized configuration management service. This move can
-save an organization considerable time and money.</p>
+                <p><img alt="Evolution of fire" src="http://watson-wilson.ca/wp-content/uploads/2014/02/fire-240.jpg"></p>
+
+<p>My style and approach to CFEngine policy writing has evolved over the
+years. Recently I discussion this with someone new to CFEngine. He was
+on the same path I had taken, but a few steps behind. I hope he&#39;ll
+evolve to the next stage or to a stage that is new to both of us. I&#39;m
+going to share with you the stages of my CFEngine evolution. Perhaps
+you&#39;ll recognize yourself.</p>
 
 
-                    <p><a href="/blog/2011/03/08/enterprise-sysadmin/index.html#section-2">Continue reading Enterprise system administration using configuration management...</a></p>
+                    <p><a href="/blog/2014/02/26/my-evolution-of-cfengine-policy/index.html#section-2">Continue reading My evolution of CFEngine policy...</a></p>
 
             </article>
             <article>
                 <header>
-                    <h1><a href="/blog/2011/03/08/cfengine-tutorial/">CFEngine tutorial</a></h1>
+                    <h1><a href="/blog/2014/02/21/why-use-efl-with-cfengine/">Why use EFL with CFEngine?</a></h1>
 
                     <p class="tags">Tags:
-                        <a href="/blog/tag/cfengine/" rel="tag">cfengine</a>
-                        <a href="/blog/tag/configuration-management/" rel="tag">configuration management</a>
+                        <a href="/blog/tag/Cfengine/" rel="tag">Cfengine</a>
+                        <a href="/blog/tag/EFL/" rel="tag">EFL</a>
                     </p>
 
                     <aside>
-                        <p><time datetime="2011-03-08">
-                            Posted on 2011-03-08
+                        <p><time datetime="2014-02-21">
+                            Posted on 2014-02-21
                         </time>
+                            by nwatson
                         </p>
                     </aside>
 
                 </header>
 
-                <ol>
-<li><p><a href="/blog/2011/03/08/cfengine-tutorial/#overview">Overview</a></p></li>
-<li><p><a href="/blog/2011/03/08/cfengine-tutorial/#basic">Basic example</a></p></li>
-<li><p><a href="/blog/2011/03/08/cfengine-tutorial/#others">Other examples</a></p></li>
-</ol>
+                <p><img alt="Evolve Free Library screen shoot" src="http://watson-wilson.ca/static/images/efl_copy_files.png"></p>
 
-<h2><a name="overview"></a>Overview</h2>
-
-<p>CFEngine is a configuration management tool that allows a system administrator
-to configure multiple hosts continuously. CFEngine runs as a client/server
-application. The server provides new configurations, or policy, while the
-client works to ensure that a client host conforms to them.</p>
+<p>EFL saves time and money by making CFEngine simpler to deploy and
+maintain.</p>
 
 
-                    <p><a href="/blog/2011/03/08/cfengine-tutorial/index.html#section-2">Continue reading CFEngine tutorial...</a></p>
+                    <p><a href="/blog/2014/02/21/why-use-efl-with-cfengine/index.html#section-2">Continue reading Why use EFL with CFEngine?...</a></p>
 
             </article>
             <article>
                 <header>
-                    <h1><a href="/blog/2011/03/08/apt-cheatsheet/">Debian Apt Cheatsheet</a></h1>
+                    <h1><a href="/blog/2014/01/23/new-mustache-templates-in-cfengine-3-6/">New mustache templates in CFEngine 3.6</a></h1>
 
                     <p class="tags">Tags:
-                        <a href="/blog/tag/debian/" rel="tag">debian</a>
-                        <a href="/blog/tag/apt/" rel="tag">apt</a>
-                        <a href="/blog/tag/cheatsheet/" rel="tag">cheatsheet</a>
+                        <a href="/blog/tag/Cfengine/" rel="tag">Cfengine</a>
                     </p>
 
                     <aside>
-                        <p><time datetime="2011-03-08">
-                            Posted on 2011-03-08
+                        <p><time datetime="2014-01-23">
+                            Posted on 2014-01-23
                         </time>
+                            by nwatson
                         </p>
                     </aside>
 
                 </header>
 
-                <table>
-<tr>
-    <td>Download and build source package</td>
-    <td><code>apt-get -b source <package name></package></code></td>
-</tr>
-<tr>
-    <td>Download and install dependencies for source package</td>
-    <td><code>apt-get build-dep <package name></package></code></td>
-</tr>
-<tr>
-    <td>Download source package</td>
-    <td><code>apt-get source <package name></package></code></td>
-</tr>
-<tr>
-    <td>Install package &quot;on demand&quot;</td>
-    <td><code>auto-apt run <program></program></code></td>
-</tr>
-<tr>
-    <td>List contents of a package</td>
-    <td><code>apt-file list <package name></package></code></td>
-</tr>
-<tr>
-    <td>List installed packages</td>
-    <td><code>dpkg -l</code></td>
-</tr>
-<tr>
-    <td>Remove package and configuration files</td>
-    <td><code>apt-get --purge remove <package name></package></code></td>
-</tr>
-<tr>
-    <td>Search for Debian Packages</td>
-    <td><code>http://www.debian.org/distrib/packages</code></td>
-</tr>
-<tr>
-    <td>Search for packages</td>
-    <td><code>apt-cache search <string></string></code></td>
-</tr>
-<tr>
-    <td>Show package dependencies</td>
-    <td><code>apt-cache depends <string></string></code></td>
-</tr>
-<tr>
-    <td>Show package information</td>
-    <td><code>apt-cache show <string></string></code></td>
-</tr>
-<tr>
-    <td>Show package that supplies a given file</td>
-    <td><code>apt-file search <file name></file></code></td>
-</tr>
-<tr>
-    <td>Show package that supplies a given file</td>
-    <td><code>COLUMNS=132 dpkg -S <file name></file></code></td>
-</tr>
-<tr>
-    <td>Show source package information</td>
-    <td><code>apt-cache showsrc <package name></package></code></td>
-</tr>
-<tr>
-    <td>Update `apt-file and auto-apt database</td>
-    <td><code>apt-file update</code></td>
-</tr>
-</table>
+                <p>Mustache templates are a new alternative template method in 3.6. Let&#39;s
+see how they work. --- <a href="http://watson-wilson.ca/template-configuration-files-using-cfengine/">Recall</a>
+my previous talk about templates and how to use them in CFEngine 3.5.</p>
 
+<p>``</p>
 
+<pre><code>body common control
+{
+        bundlesequence =&gt; { &quot;main&quot;, };
+}
 
-            </article>
-            <article>
-                <header>
-                    <h1><a href="/blog/2011/03/07/heartbeat2-cheatsheet/">Heartbeat 2 cheatsheet</a></h1>
+bundle agent main
+{
+        methods:
 
-                    <p class="tags">Tags:
-                        <a href="/blog/tag/cluster/" rel="tag">cluster</a>
-                        <a href="/blog/tag/heartbeat/" rel="tag">heartbeat</a>
-                        <a href="/blog/tag/cheatsheet/" rel="tag">cheatsheet</a>
-                    </p>
+                &quot;any&quot; usebundle =&gt; resolv_conf;
+}
 
-                    <aside>
-                        <p><time datetime="2011-03-07">
-                            Posted on 2011-03-07
-                        </time>
-                        </p>
-                    </aside>
+bundle agent resolv_conf 
+{
+   meta:
+      &quot;purpose&quot; string =&gt; &quot;Example of edit_template use&quot;;
 
-                </header>
+   files:
+      &quot;/tmp/resolv.conf&quot;
+         create          =&gt; &#39;true&#39;,
+         template_method =&gt; &quot;mustache&quot;,
+         edit_template   =&gt; &quot;${sys.workdir}/inputs/resolv.tmp&quot;;
 
-                <h3>Commands</h3>
+}
+</code></pre>
 
-<table>
-<tr>
-    <td>List cluster resources.</td>
-    <td><code>crm_resource -L</code></td>
-</tr>
-<tr>
-    <td>Dump cluster configuration as xml to stdout.</td>
-    <td><code>cibadmin -Q</code></td>
-</tr>
-<tr>
-    <td>Place node in standby (maintenance mode). Technically this is adding the standby property.</td>
-    <td><code>crm_standby -U <hostname> -v true</hostname></code></td>
-</tr>
-<tr>
-    <td>Place local node in standby.</td>
-    <td><code>crm_standby -v true</code></td>
-</tr>
-<tr>
-    <td>Place node online or remove the standby property.</td>
-    <td><code>crm_standby -D -U <hostname></hostname></code></td>
-</tr>
-<tr>
-    <td>Place local node online or remove standby property.</td>
-    <td><code>crm_standby -D</code></td>
-</tr>
-<tr>
-    <td>View cluster status. One time to stdout.</td>
-    <td><code>crm_mon -1</code></td>
-</tr>
-<tr>
-    <td>View cluster status. Refresh every 3s.</td>
-    <td><code>crm_mon -i3</code></td>
-</tr>
-<tr>
-    <td>One line simple output.</td>
-    <td><code>crm_mon -s</code></td>
-</tr>
-<tr>
-    <td>Show inactive resources.</td>
-    <td><code>crm_mon -r</code></td>
-</tr>
-<tr>
-    <td>Stop resource.</td>
-    <td><code>crm_resource -r <resource> -p target_role -v stopped</resource></code></td>
-</tr>
-<tr>
-    <td>Start resource.</td>
-    <td><code>crm_resource -r <resource> -p target_role -v started</resource></code></td>
-</tr>
-<tr>
-    <td>Clear failed resource.</td>
-    <td><code>crm_resource -C -H <host> -r <resource></resource></host></code></td>
-</tr>
-<tr>
-    <td>Query running cluster for current state (STDOUT).</td>
-    <td><code>cibadmin -Q --obj_type resources</code></td>
-</tr>
-</table>
+<p>There is a new attribute called template_method. Here we define the
+mustache method. The actual template is below.</p>
+
+<p>``</p>
+
+<pre><code>{{#classes.sweden}}
+nameserver 172.16.100.2
+nameserver 172.16.100.1
+{{/classes.sweden}}
+
+{{#classes.toronto}}
+nameserver 192.168.100.254
+nameserver 192.168.100.253
+{{/classes.toronto}}
+
+domain watson-wilson.ca
+search watson-wilson.ca
+timeout:2
+</code></pre>
+
+<p>Can you spot the new class syntax? Rather than [%CFEngine
+<class_name>:: %] there are now opening and closing class tags,
+{{#classes.<class_name>}} and {{/classes.<class_name>}} that surround
+the lines that the class applies to. This is different than CFEngine&#39;s
+normal implied class application where the preceding class is assumed
+still valid until the next class is stated. Lines outside of class tags
+are part of the any class.</class_name></class_name></class_name></p>
+
+<p>At a lower level the agent is using the <a href="https://cfengine.com/docs/master/reference-functions-datastate.html">datastate</a>,
+which is an internal representation of the vars and classes available
+to the agent. It&#39;s layout is roughly this:</p>
+
+<p>``</p>
+
+<pre><code>{
+ &quot;classes&quot;: {
+ &quot;ipv4_172&quot;: true,
+ &quot;fe80__fc54_ff_fe34_5399&quot;: true,
+ &quot;agent&quot;: true,
+ &quot;Lcycle_1&quot;: true,
+
+....
+&quot;vars&quot;: {
+ &quot;sys&quot;: {
+   &quot;systime&quot;: &quot;1390500650&quot;,
+   &quot;flavour&quot;: &quot;debian_jessie&quot;,
+   &quot;hardware_addresses&quot;: [
+     &quot;00:1e:67:8b:f7:13&quot;
+   ],
+   &quot;fqhost&quot;: &quot;ettin.watson-wilson.ca&quot;,
+   &quot;ipv4_1[br0]&quot;: &quot;172&quot;,
+   &quot;uptime&quot;: &quot;7348&quot;,
+   &quot;bindir&quot;: &quot;/home/neil/.cfagent/bin&quot;,
+   &quot;arch&quot;: &quot;x86_64&quot;,
+   &quot;ipv4&quot;: &quot;172.16.100.1&quot;,
+....
+</code></pre>
+
+<p>I show only a small piece of it because the full collection is very
+large. It gives you an idea of what the agent knows. For this example
+it&#39;s not important. Just be aware that it exists. Now, let&#39;s run the
+example policy.</p>
+
+<p>``</p>
+
+<pre><code>$ cf-agent -IKf ./edit_template.cf -D toronto; cat /tmp/resolv.conf 
+
+nameserver 192.168.100.254
+nameserver 192.168.100.253
+
+domain watson-wilson.ca
+search watson-wilson.ca
+timeout:2
+</code></pre>
+
+<p>Some folks will be pleased to see that the two blank lines in the
+template exist in the promiser file. That suggests that duplicate lines
+will <em>not be skipped</em> in mustache templates.</p>
+
+<p>[Further reading<a href="https://cfengine.com/docs/master/reference-promise-types-files.html#edit_template">.</a></p>
 
 
 
             </article>
             <article>
                 <header>
-                    <h1><a href="/blog/2011/03/03/host-naming/">Choosing a host naming convention</a></h1>
+                    <h1><a href="/blog/2013/11/27/nix-ifvarclass-and-other-changes-i-wish-for-cfengine/">Nix ifvarclass and other changes I wish for CFEngine</a></h1>
 
                     <p class="tags">Tags:
-                        <a href="/blog/tag/dns/" rel="tag">dns</a>
+                        <a href="/blog/tag/Cfengine/" rel="tag">Cfengine</a>
                     </p>
 
                     <aside>
-                        <p><time datetime="2011-03-03">
-                            Posted on 2011-03-03
+                        <p><time datetime="2013-11-27">
+                            Posted on 2013-11-27
                         </time>
+                            by nwatson
                         </p>
                     </aside>
 
                 </header>
 
-                <p><object data="/static/images/hello_my_name_is_dns.svg" style="float:right" type="image/svg+xhtml" width="300px">
-    Hello, my name is Dns
-</object></p>
+                <p>I am frequently asked what I would change in CFEngine if I had the
+power. --- My high level answer is documentation. It is still too hard
+for new comers to get started with CFEngine and experienced users do
+not have access to detailed low level documentation. How does the
+client server handshake work? How does cf_promises_validated work? How
+do I read debugging output? I wish I could answer these questions using
+official citations. There is an <a href="https://groups.google.com/forum/?fromgroups#!searchin/help-cfengine/documentation/help-cfengine/Tyvg3-7k-Lw/JTmMcaI_riQJ">effort underway</a>
+to improve documentation.</p>
 
-<p>Whether realizing it or not every organization goes through the process of
-selecting a naming convention. Often this is done without much forward planing
-resulting in unwieldy host and service names. In the worst cases host names are
-dropped completely and either by habit or lack of a proper DNS service only ip
-addresses are used.</p>
+<p>At a lower level the are other things I would change. Here are a few.</p>
+
+<h3>Better redundancy</h3>
+
+<p>While file copies can fail over to multiple servers it is not possible
+to bootstrap a host to multiple servers. This makes creating fail over
+servers cumbersome because keys have to be exchanged using manual or
+home grown automatic methods. There is an outstanding <a href="https://cfengine.com/dev/issues/3570"> feature request</a>
+for this.</p>
+
+<h3>Whitespace in variables and classes</h3>
+
+<p>Variable expressions like &quot;${meth[${i}][3]}&quot; are an eyesore. I wish I
+could use whitespace and rewrite them as &quot;${meth[ ${i} ][ 3 ]}&quot;.
+Similarly class expressions like dmz_hosts.!(hosta|hostb|hostc):: would
+be easier to read as dmz_hosts .! ( hosta|hostb|hostc )::. There is an
+<a href="https://cfengine.com/dev/issues/1771"> open feature request</a> for this.</p>
+
+<h3>Nix ifvarclass</h3>
+
+<p>While we are on the subject of classes, let&#39;s talk about ifvarclass. I
+hate it. New users often wrongly think ifvarclass can define a class.
+Truly ifvarclass exists only because this is illegal syntax:</p>
+
+<p>``</p>
+
+<pre><code>files:
+   ${myclass}::
+      &quot;/path/to/promiser&quot;
+         yada =&gt; yada;
+</code></pre>
+
+<p>The above is so much clearer to the reader than the abomination that is
+ifvarclass.</p>
+
+<p>``</p>
+
+<pre><code>files:
+   &quot;/path/to/promiser&quot;
+      ifvarclass =&gt; &quot;${myclass}&quot;,
+      yada       =&gt; yada;
+</code></pre>
+
+<p>Removing ifvarclass has been <a href="https://cfengine.com/bugtracker/view.php?id=894"> discussed</a>
+in the <a href="https://groups.google.com/forum/?fromgroups#!searchin/help-cfengine/classes$20iteration$20ifvarclass$20watson/help-cfengine/jztMvL_V1g8/1hRDUSV2XSwJ">past</a>,
+but no changes are pending.</p>
 
 
-                    <p><a href="/blog/2011/03/03/host-naming/index.html#section-2">Continue reading Choosing a host naming convention...</a></p>
+
+            </article>
+            <article>
+                <header>
+                    <h1><a href="/blog/2013/11/27/json-containers-improve-cfengine-and-efl/">JSON containers improve CFEngine and EFL</a></h1>
+
+                    <p class="tags">Tags:
+                        <a href="/blog/tag/Cfengine/" rel="tag">Cfengine</a>
+                        <a href="/blog/tag/EFL/" rel="tag">EFL</a>
+                    </p>
+
+                    <aside>
+                        <p><time datetime="2013-11-27">
+                            Posted on 2013-11-27
+                        </time>
+                            by nwatson
+                        </p>
+                    </aside>
+
+                </header>
+
+                <p>CFEngine 3.6 will be able to parse JSON files making EFL data files
+more readable. --- The current data format of the <a href="https://github.com/evolvethinking/evolve_cfengine_freelib">Evolve Free Promise
+Library</a> is
+CSV. CSV files are workable but, become error prone when record lines
+become long. In the following example, run using a build from the
+CFEngine 3.6 <a href="https://github.com/cfengine/core">source code</a>, the init
+bundle creates a data file that we normally maintain by other means. It
+exists here for convenience.</p>
+
+<p>The bundle sysctl loads the JSON, indexes it, then iterates through it.
+This is similar to how EFL uses the function CFEngine
+readstringarrayidx. Imagine a record with many fields, that line wrap
+around your screen in CSV form. In JSON format the same data is more
+readable.</p>
+
+<p>``</p>
+
+<pre><code>body common control
+{
+        bundlesequence =&gt; { &quot;main&quot;, };
+}
+
+bundle agent main
+{
+        methods:
+                &quot;any&quot; usebundle =&gt; init;
+                &quot;any&quot; usebundle =&gt; sysctl( &quot;/tmp/sysctl.json&quot; );
+}
+
+bundle agent init 
+{
+        vars:
+                &quot;sysctl&quot; string =&gt; &#39;
+[
+    {
+        &quot;context&quot;: &quot;any&quot;,
+        &quot;name&quot;: &quot;net.ipv6.conf.all.accept_ra&quot;,
+        &quot;value&quot;: 0,
+        &quot;promisee&quot;: &quot;IPV6 Team&quot;
+    },
+    {
+        &quot;context&quot;: &quot;any&quot;,
+        &quot;name&quot;: &quot;net.ipv6.conf.default.autoconf&quot;,
+        &quot;value&quot;: 0,
+        &quot;promisee&quot;: &quot;IPV6 Team&quot;
+    }
+]
+&#39;;
+   files:
+      &quot;/tmp/sysctl.json&quot;
+         edit_defaults =&gt; empty,
+         create        =&gt; &#39;true&#39;,
+         edit_line     =&gt; el_init( &quot;${sysctl}&quot; );
+}
+
+body edit_defaults empty
+{
+   empty_file_before_editing =&gt; &quot;true&quot;;
+   edit_backup               =&gt; &quot;false&quot;;
+}
+
+bundle edit_line el_init( str )
+{
+   insert_lines:
+      &quot;${str}&quot;;
+}
+
+bundle agent sysctl( ref )
+{
+   vars:
+      &quot;sysctl&quot;
+         comment =&gt; &quot;Read json file into container&quot;,
+# New vars type &#39;data&#39;.
+         data    =&gt; readjson( &quot;${ref}&quot;, 1024 );
+
+      &quot;i&quot;
+         comment =&gt; &quot;Get index of json for iteration&quot;,
+         slist   =&gt; getindices( &quot;sysctl&quot; );
+
+   reports:
+      &quot;
+context  =&gt; ${sysctl[${i}][context]}
+name     =&gt; ${sysctl[${i}][name]}
+value    =&gt; ${sysctl[${i}][value]}
+promisee =&gt; ${sysctl[${i}][promisee]}
+&quot;;
+}
+
+$ cf-agent -f ./json.cf
+2013-11-27T13:48:04-0500   notice: /main/methods/&#39;any&#39;/sysctl: R: 
+context  =&gt; any
+name     =&gt; net.ipv6.conf.all.accept_ra
+value    =&gt; 0
+promisee =&gt; IPV6 Team
+
+2013-11-27T13:48:04-0500   notice: /main/methods/&#39;any&#39;/sysctl: R: 
+context  =&gt; any
+name     =&gt; net.ipv6.conf.default.autoconf
+value    =&gt; 0
+promisee =&gt; IPV6 Team
+</code></pre>
+
+
 
             </article>
         </main>
@@ -334,44 +467,60 @@ addresses are used.</p>
 
         <h1>Tags</h1>
         <ul class="list-inline">
+            <li><a href="/blog/tag/Cfengine/">Cfengine</a></li>
+            <li><a href="/blog/tag/EFL/">EFL</a></li>
+            <li><a href="/blog/tag/anti-virus/">anti-virus</a></li>
             <li><a href="/blog/tag/apt/">apt</a></li>
             <li><a href="/blog/tag/backup/">backup</a></li>
+            <li><a href="/blog/tag/best-practices/">best practices</a></li>
             <li><a href="/blog/tag/cfengine/">cfengine</a></li>
             <li><a href="/blog/tag/cfengine-cookbook/">cfengine cookbook</a></li>
             <li><a href="/blog/tag/cheatsheet/">cheatsheet</a></li>
             <li><a href="/blog/tag/cli/">cli</a></li>
             <li><a href="/blog/tag/cloud/">cloud</a></li>
             <li><a href="/blog/tag/cluster/">cluster</a></li>
+            <li><a href="/blog/tag/conferences/">conferences</a></li>
             <li><a href="/blog/tag/configuration-management/">configuration management</a></li>
             <li><a href="/blog/tag/cron/">cron</a></li>
             <li><a href="/blog/tag/debian/">debian</a></li>
+            <li><a href="/blog/tag/delta-reporting/">delta reporting</a></li>
+            <li><a href="/blog/tag/devops/">devops</a></li>
             <li><a href="/blog/tag/dns/">dns</a></li>
             <li><a href="/blog/tag/dr/">dr</a></li>
             <li><a href="/blog/tag/heartbeat/">heartbeat</a></li>
             <li><a href="/blog/tag/high-availability/">high availability</a></li>
             <li><a href="/blog/tag/infosec/">infosec</a></li>
             <li><a href="/blog/tag/ipv6/">ipv6</a></li>
+            <li><a href="/blog/tag/irc/">irc</a></li>
             <li><a href="/blog/tag/iscsi/">iscsi</a></li>
             <li><a href="/blog/tag/jekyll/">jekyll</a></li>
+            <li><a href="/blog/tag/kickstart/">kickstart</a></li>
             <li><a href="/blog/tag/kvm/">kvm</a></li>
             <li><a href="/blog/tag/linux/">linux</a></li>
             <li><a href="/blog/tag/monitoring/">monitoring</a></li>
             <li><a href="/blog/tag/multipathd/">multipathd</a></li>
+            <li><a href="/blog/tag/mustache/">mustache</a></li>
             <li><a href="/blog/tag/networking/">networking</a></li>
+            <li><a href="/blog/tag/opennms/">opennms</a></li>
             <li><a href="/blog/tag/opensource/">opensource</a></li>
             <li><a href="/blog/tag/oracle/">oracle</a></li>
             <li><a href="/blog/tag/patching/">patching</a></li>
+            <li><a href="/blog/tag/pcre/">pcre</a></li>
             <li><a href="/blog/tag/perl/">perl</a></li>
             <li><a href="/blog/tag/posix/">posix</a></li>
             <li><a href="/blog/tag/programming/">programming</a></li>
             <li><a href="/blog/tag/provisioning/">provisioning</a></li>
             <li><a href="/blog/tag/red-hat/">red hat</a></li>
+            <li><a href="/blog/tag/redhat/">redhat</a></li>
             <li><a href="/blog/tag/regex/">regex</a></li>
             <li><a href="/blog/tag/rhev/">rhev</a></li>
             <li><a href="/blog/tag/san/">san</a></li>
             <li><a href="/blog/tag/satellite/">satellite</a></li>
             <li><a href="/blog/tag/scripting/">scripting</a></li>
+            <li><a href="/blog/tag/security/">security</a></li>
+            <li><a href="/blog/tag/serverspec/">serverspec</a></li>
             <li><a href="/blog/tag/shell/">shell</a></li>
+            <li><a href="/blog/tag/software-testing/">software testing</a></li>
             <li><a href="/blog/tag/solaris/">solaris</a></li>
             <li><a href="/blog/tag/spacewalk/">spacewalk</a></li>
             <li><a href="/blog/tag/ssh/">ssh</a></li>
@@ -381,7 +530,9 @@ addresses are used.</p>
             <li><a href="/blog/tag/support/">support</a></li>
             <li><a href="/blog/tag/svn/">svn</a></li>
             <li><a href="/blog/tag/sysadmin/">sysadmin</a></li>
+            <li><a href="/blog/tag/sysctl/">sysctl</a></li>
             <li><a href="/blog/tag/terraform/">terraform</a></li>
+            <li><a href="/blog/tag/virus/">virus</a></li>
             <li><a href="/blog/tag/vitualization/">vitualization</a></li>
             <li><a href="/blog/tag/website/">website</a></li>
         </ul>

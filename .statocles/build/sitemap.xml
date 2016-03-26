@@ -229,6 +229,300 @@
         <lastmod>2013-02-22</lastmod>
     </url>
     <url>
+        <loc>http://watson-wilson.ca/blog/2013/05/09/evolve-thinkings-free-cfengine-library/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2013-05-09</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/2013/05/09/its-time-to-rethink-anti-virus/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2013-05-09</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/2013/05/09/pcre-cheatsheet/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2013-05-09</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/2013/07/19/polling-cfengine-with-opennms/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2013-07-19</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/2013/07/26/profiling-policy-performance-in-cfengine/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2013-07-26</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/2013/08/07/secure-sysctl-settings-with-cfengine/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2013-08-07</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/2013/09/11/experimental-and-coming-soon-features-in-cfengine/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2013-09-11</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/2013/10/11/make-cfengine-simple-using-the-evolve-free-library/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2013-10-11</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/2013/10/15/my-favourite-cfengine-bugs/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2013-10-15</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/2013/10/17/template-configuration-files-using-cfengine/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2013-10-17</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/2013/10/19/simple-cfengine-server-access-promises-using-efl/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2013-10-19</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/2013/10/30/cfengine-2-to-3-migration-beware-of-data-loss/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2013-10-30</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/2013/10/31/opennms-the-open-source-enterprise-monitoring-solution-youve-never-heard-of/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2013-10-31</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/2013/11/21/bulding-cfengine-classes-using-efl/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2013-11-21</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/2013/11/27/json-containers-improve-cfengine-and-efl/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2013-11-27</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/2013/11/27/nix-ifvarclass-and-other-changes-i-wish-for-cfengine/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2013-11-27</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/2014/01/23/new-mustache-templates-in-cfengine-3-6/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2014-01-23</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/2014/02/21/why-use-efl-with-cfengine/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2014-02-21</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/2014/02/26/my-evolution-of-cfengine-policy/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2014-02-26</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/2014/02/27/promising-and-reporting-cron-jobs-with-cfengine/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2014-02-27</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/2014/03/25/delta-reporting-open-source-and-live-demo/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2014-03-25</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/2014/03/27/delta-reporting-answers-question-about-your-cfengine-infrastructure/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2014-03-27</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/2014/04/01/class-definition-with-cfengine-3-6-and-json/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2014-04-01</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/2014/05/13/predict-the-future-with-delta-reporting-and-cfengine/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2014-05-13</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/2014/07/04/cfengine-best-practices-testing/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2014-07-04</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/2014/07/18/cfengine-best-practices-part-2/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2014-07-18</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/2014/08/07/cfengine-best-practices-deployment-upgrades-and-scaling/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2014-08-07</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/2014/08/15/cfengines-state-to-ram-disk/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2014-08-15</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/2014/08/20/toronto-devops-cfengine-slide-deck/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2014-08-20</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/2014/08/26/delta-reporting-6-months-in-production/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2014-08-26</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/2014/09/04/delta-reporting-and-cfengine-are-not-centralized-applications/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2014-09-04</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/2014/09/04/devops-days-toronto-12-13-sept-2014/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2014-09-04</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/2014/09/17/testing-cfengine-policy/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2014-09-17</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/2014/09/19/testing-cfengine-policy-by-counting-classes/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2014-09-19</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/2014/09/26/shellshock-free-with-cfengine-and-delta-reporting/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2014-09-26</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/2014/10/02/efl-tech-preview-for-json-parameters/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2014-10-02</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/2014/10/30/changes-in-virt-install-and-kickstart-in-rhel7/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2014-10-30</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/2015/03/26/mustache-template-in-cfengine/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2015-03-26</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/2015/04/08/setting-default-variables-in-cfengine/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2015-04-08</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/2015/06/10/cfbot-answers-your-questions-on-irc/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2015-06-10</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/2015/06/10/purging-old-systems-from-red-hat-satellite/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2015-06-10</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/2015/06/18/serverspec-the-good-the-bad-and-the-ugly/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2015-06-18</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/2015/07/29/new-packages-promises-in-efl/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2015-07-29</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/2015/08/20/build-better-regular-expressions-in-cfengine/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2015-08-20</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/2015/08/20/efl-is-tested-for-your-confidence/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2015-08-20</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/2015/08/20/testing-cfengine-using-efl-tap-and-perl/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2015-08-20</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/2015/09/18/auditing-hosts-using-cfengine-efl-and-delta-reporting/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2015-09-18</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/2015/09/30/essential-audit-reports-with-delta-reporting/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2015-09-30</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/2015/10/13/simple-cfengine-setup-with-efl/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2015-10-13</lastmod>
+    </url>
+    <url>
         <loc>http://watson-wilson.ca/blog/2015/11/17/new_site/</loc>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
@@ -256,6 +550,66 @@
         <loc>http://watson-wilson.ca/blog/2016/01/08/terraform-intro/</loc>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
+        <lastmod>2016-01-08</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/page/10/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2016-01-08</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/page/11/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2016-01-08</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/page/12/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2016-01-08</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/page/13/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2016-01-08</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/page/14/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2016-01-08</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/page/15/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2016-01-08</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/page/16/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2016-01-08</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/page/17/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2016-01-08</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/page/18/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2016-01-08</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/page/19/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
         <lastmod>2016-01-08</lastmod>
     </url>
     <url>
@@ -307,6 +661,96 @@
         <lastmod>2016-01-08</lastmod>
     </url>
     <url>
+        <loc>http://watson-wilson.ca/blog/tag/Cfengine/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2015-10-13</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/tag/Cfengine/page/2/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2015-10-13</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/tag/Cfengine/page/3/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2015-10-13</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/tag/Cfengine/page/4/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2015-10-13</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/tag/Cfengine/page/5/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2015-10-13</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/tag/Cfengine/page/6/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2015-10-13</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/tag/Cfengine/page/7/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2015-10-13</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/tag/Cfengine/page/8/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2015-10-13</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/tag/Cfengine/page/9/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2015-10-13</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/tag/EFL/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2015-10-13</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/tag/EFL/page/2/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2015-10-13</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/tag/EFL/page/3/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2015-10-13</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/tag/EFL/page/4/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2015-10-13</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/tag/EFL/page/5/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2015-10-13</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/tag/anti-virus/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2013-05-09</lastmod>
+    </url>
+    <url>
         <loc>http://watson-wilson.ca/blog/tag/apt/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
@@ -317,6 +761,12 @@
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
         <lastmod>2011-10-02</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/tag/best-practices/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2015-08-20</lastmod>
     </url>
     <url>
         <loc>http://watson-wilson.ca/blog/tag/cfengine-cookbook/</loc>
@@ -379,6 +829,12 @@
         <lastmod>2011-03-07</lastmod>
     </url>
     <url>
+        <loc>http://watson-wilson.ca/blog/tag/conferences/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2014-09-04</lastmod>
+    </url>
+    <url>
         <loc>http://watson-wilson.ca/blog/tag/configuration-management/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
@@ -406,7 +862,31 @@
         <loc>http://watson-wilson.ca/blog/tag/debian/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2011-03-08</lastmod>
+        <lastmod>2014-10-30</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/tag/delta-reporting/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2015-09-30</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/tag/delta-reporting/page/2/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2015-09-30</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/tag/delta-reporting/page/3/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2015-09-30</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/tag/devops/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2015-08-20</lastmod>
     </url>
     <url>
         <loc>http://watson-wilson.ca/blog/tag/dns/</loc>
@@ -451,6 +931,12 @@
         <lastmod>2012-08-01</lastmod>
     </url>
     <url>
+        <loc>http://watson-wilson.ca/blog/tag/irc/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2015-06-10</lastmod>
+    </url>
+    <url>
         <loc>http://watson-wilson.ca/blog/tag/iscsi/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
@@ -463,28 +949,40 @@
         <lastmod>2015-11-17</lastmod>
     </url>
     <url>
+        <loc>http://watson-wilson.ca/blog/tag/kickstart/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2014-10-30</lastmod>
+    </url>
+    <url>
         <loc>http://watson-wilson.ca/blog/tag/kvm/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2011-05-09</lastmod>
+        <lastmod>2014-10-30</lastmod>
     </url>
     <url>
         <loc>http://watson-wilson.ca/blog/tag/linux/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2011-03-08</lastmod>
+        <lastmod>2014-10-30</lastmod>
     </url>
     <url>
         <loc>http://watson-wilson.ca/blog/tag/monitoring/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2011-05-26</lastmod>
+        <lastmod>2013-10-31</lastmod>
     </url>
     <url>
         <loc>http://watson-wilson.ca/blog/tag/multipathd/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
         <lastmod>2011-03-08</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/tag/mustache/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2015-03-26</lastmod>
     </url>
     <url>
         <loc>http://watson-wilson.ca/blog/tag/networking/</loc>
@@ -497,6 +995,12 @@
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
         <lastmod>2012-08-01</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/tag/opennms/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2013-10-31</lastmod>
     </url>
     <url>
         <loc>http://watson-wilson.ca/blog/tag/opensource/</loc>
@@ -515,6 +1019,12 @@
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
         <lastmod>2015-12-08</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/tag/pcre/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2015-08-20</lastmod>
     </url>
     <url>
         <loc>http://watson-wilson.ca/blog/tag/perl/</loc>
@@ -547,10 +1057,16 @@
         <lastmod>2015-12-08</lastmod>
     </url>
     <url>
+        <loc>http://watson-wilson.ca/blog/tag/redhat/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2015-06-10</lastmod>
+    </url>
+    <url>
         <loc>http://watson-wilson.ca/blog/tag/regex/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2011-03-08</lastmod>
+        <lastmod>2015-08-20</lastmod>
     </url>
     <url>
         <loc>http://watson-wilson.ca/blog/tag/rhev/</loc>
@@ -577,10 +1093,34 @@
         <lastmod>2015-11-25</lastmod>
     </url>
     <url>
+        <loc>http://watson-wilson.ca/blog/tag/security/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2015-09-30</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/tag/serverspec/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2015-06-18</lastmod>
+    </url>
+    <url>
         <loc>http://watson-wilson.ca/blog/tag/shell/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
         <lastmod>2011-03-08</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/tag/software-testing/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2015-09-18</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/tag/software-testing/page/2/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2015-09-18</lastmod>
     </url>
     <url>
         <loc>http://watson-wilson.ca/blog/tag/solaris/</loc>
@@ -637,10 +1177,22 @@
         <lastmod>2011-03-08</lastmod>
     </url>
     <url>
+        <loc>http://watson-wilson.ca/blog/tag/sysctl/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2013-08-07</lastmod>
+    </url>
+    <url>
         <loc>http://watson-wilson.ca/blog/tag/terraform/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
         <lastmod>2016-01-08</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/tag/virus/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2013-05-09</lastmod>
     </url>
     <url>
         <loc>http://watson-wilson.ca/blog/tag/vitualization/</loc>
@@ -658,25 +1210,25 @@
         <loc>http://watson-wilson.ca/page/</loc>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
-        <lastmod>2016-01-08</lastmod>
+        <lastmod>2016-03-26</lastmod>
     </url>
     <url>
         <loc>http://watson-wilson.ca/page/404/</loc>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
-        <lastmod>2016-01-08</lastmod>
+        <lastmod>2016-03-26</lastmod>
     </url>
     <url>
         <loc>http://watson-wilson.ca/page/about/</loc>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
-        <lastmod>2016-01-08</lastmod>
+        <lastmod>2016-03-26</lastmod>
     </url>
     <url>
         <loc>http://watson-wilson.ca/page/projects/</loc>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
-        <lastmod>2016-01-08</lastmod>
+        <lastmod>2016-03-26</lastmod>
     </url>
 </urlset>
 

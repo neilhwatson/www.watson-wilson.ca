@@ -5,7 +5,7 @@
         <link>http://watson-wilson.ca/blog/tag/opensource/</link>
         <atom:link href="http://watson-wilson.ca/blog/tag/opensource.rss" rel="self" type="application/rss+xml" />
         <description>Blog feed of Neil H. Watson</description>
-        <generator>Statocles 0.065</generator>
+        <generator>Statocles 0.073</generator>
         <item>
             <title>No support for open source projects</title>
             <link>http://watson-wilson.ca/blog/2011/03/08/opensource-support/</link>

@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <link href="/theme/css/readability-bootstrap.min.css" rel="stylesheet">
+        <!--<link rel="stylesheet" href="/theme/css/statocles-bootstrap.css" />-->
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+        <title>CFEngine best practices: deployment, upgrades, and scaling - Neil H. Watson</title>
+        <meta content="Statocles 0.073" name="generator">
+        
+
+        <!-- For source highlighting -->
+        <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/default.min.css" rel="stylesheet">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+
+    </head>
+    <body>
+        <header>
+            <nav class="navbar navbar-default navbar-static-top" role="navigation">
+                <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button class="navbar-toggle" data-target="#top-navbar-collapse-1" data-toggle="collapse" type="button">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="/">Neil H. Watson</a>
+                    </div>
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="top-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <li><a href="/page/about">About me</a></li>
+                            <li><a href="/static/resume_neil_h_watson.pdf">Resume</a></li>
+                            <li><a href="/page/projects">Projects</a></li>
+                        </ul>
+                        
+                    </div>
+                </div>
+            </nav>
+            
+        </header>
+        <div class="main container">
+            <div class="row">
+
+    <div class="col-md-9">
+        <main>
+            <header>
+                <h1>CFEngine best practices: deployment, upgrades, and scaling</h1>
+                <p class="tags">Tags:
+                    <a href="/blog/tag/best-practices/" rel="tag">best practices</a>
+                    <a href="/blog/tag/Cfengine/" rel="tag">Cfengine</a>
+                    <a href="/blog/tag/delta-reporting/" rel="tag">delta reporting</a>
+                    <a href="/blog/tag/EFL/" rel="tag">EFL</a>
+                </p>
+
+                <aside>
+                    <p><time datetime="2014-08-07">
+                        Posted on 2014-08-07
+                    </time>
+                        by nwatson
+                    </p>
+                </aside>
+
+
+            </header>
+            <section id="section-1">
+                <p><img alt="sts-atlantis" src="http://watson-wilson.ca/wp-content/uploads/2014/08/sts-atlantis.jpg">Part
+3 of CFEngine best practices. ---</p>
+
+<h4>Version control</h4>
+
+<p>Put your CFEngine policy and supporting programs, data files, and
+documentation into version control. Like any other code you&#39;ll benefit
+from knowing its history. You can use branches to promote new policy
+from testing to production. I recommend using three branches: dev, qa,
+and production. Have servers and agents dedicated to each branch. The
+greater the variety of hosts in each branch, the greater the chance of
+catching bugs early. Always edit code in development only and promote
+those changes to qa and then production.</p>
+
+<p>I frequently use cf-agent to pull new policy into masterfiles directly
+from version control. This provides automatic deployment upon commit. <a href="https://github.com/evolvethinking/evolve_cfengine_freelib">EFL</a>
+has a ready to use bundle, <em>efl_rcs_pull</em> to handle RCS pulls, and it
+works with most RCS products.</p>
+
+<h4>Upgrading from CFEngine 2</h4>
+
+<p>Because CFEngine 3 is not backwards compatible with CFEngine 2 the
+upgrade path is steep and rocky. Many are just now starting this climb.
+The best upgrade path is to set up separate CFEngine 3 servers, and
+install CFEngine 3 on your clients while continuing to use CFEngine 2.
+CFEngine 2&#39;s <em>cfagent</em> can run in parallel with the CFEngine 3 <em>cf-agent</em>.
+The two versions do not share any common files so there is no overlap.
+They do share common directories; the most important is inputs.</p>
+
+<p>When you bootstrap CFEngine 3, using its built in bootstrap feature,
+cf-agent will delete all files in inputs including any related to
+CFEngine 2. If you want to run 2 and 3 in parallel you&#39;ll need a
+wrapper script around CFEngine 3&#39;s bootstrap process to backup and
+restore CFEngine 2&#39;s inputs. <a href="https://dev.cfengine.com/issues/3605">here</a>
+is an interesting discussion on this topic. With both agents running in
+parallel you can reduce your CF2 policy and increase your CF3 in
+gradually.</p>
+
+<h4>Upgrading from CFEngine 3.n to 3.n+1</h4>
+
+<p>Figure 1: Steps to upgrading CFEngine, hyperbole</p>
+
+<ol>
+<li><p>Test</p></li>
+<li><p>Test</p></li>
+<li><p>Repeat previous steps</p></li>
+</ol>
+
+<h4>#</h4>
+
+<p>As I said in <a href="http://watson-wilson.ca/cfengine-best-practices-testing/">part 1</a>
+of this series, mistakes in CFEngine will be horrifyingly duplicated to
+all of your hosts. This can be a career limiting event. A new version
+of CFEngine can expose pre-existing bugs in your policy, or introduce
+its own new bugs. An example of the former: in version 3.5.0 the syntax
+checker became more strict, reporting errors that previous versions
+missed. Examples of the latter include many fixed and outstanding
+regression bugs. Trust is earned. Make CFEngine, and any other
+software, earn your trust. Here&#39;s a more practical approach to
+upgrading.</p>
+
+<p>Figure 2: Steps to upgrading CFEngine, practical</p>
+
+<ol>
+<li><p>Keep watch on CFEngine bug and mailing list traffic.</p></li>
+<li><p>Keep policy compatible with both old and new versions until entire
+upgrade is complete.</p></li>
+<li><p>Upgrade the development server.</p></li>
+<li><p>Upgrade clients in batches.</p></li>
+<li><p>Repeat server and client upgrade steps for qa and production.</p></li>
+</ol>
+
+<h4>#</h4>
+
+<p>As release candidates come out, you&#39;ll get a chance to experience and
+see what others experience with the proposed new version. Watch the
+bugs that get resolved and those that remain open. There may be new
+syntax or features that are not compatible with your current version of
+CFEngine. Do not consider these until after the upgrade. Be sure your
+policy runs properly on both versions. When you are ready to take the
+plunge, upgrade the server first. When it passes all tests proceed with
+clients, in small batches, enlarging the batches as you gain
+confidence.</p>
+
+<p>Reporting tools like <a href="https://github.com/evolvethinking/delta_reporting">Delta Reporting</a>
+log the promise and class status of all your agent hosts. This
+information can help you spot problems in your upgrade and in normal
+production.</p>
+
+<p>Figure 3: Delta Reporting showing an ntp process promise on multiple
+hosts
+<a href="http://watson-wilson.ca/wp-content/uploads/2014/07/dr-process-report.png"><img alt="Reporting on ntp process promises" src="http://watson-wilson.ca/wp-content/uploads/2014/07/dr-process-report.png"></a></p>
+
+<h4>Upgrading policy</h4>
+
+<p>New versions of CFEngine ship with new base policy. The base policy is
+in its own <a href="https://github.com/cfengine/masterfiles">repository</a> so you
+can upgrade it between CFEngine releases. Merging this new policy with
+your existing one is always tedious, but your regimented use of version
+control will make this easier. To reduce the merging work limit the
+amount of changes you make to the shipped policy. I usually only
+changes inputs, bundlesequence (to call my master methods bundle), and
+variables and options set in <em>def.cf</em>.</p>
+
+<p>Tip If you plan to use CFEngine on an IPV6 interface, beware that the
+default policy will not work. You must change the server control body,
+setting <em>bindtointerface</em> to a double colon (::). See <a href="https://github.com/cfengine/masterfiles/pull/152">here</a>
+and <a href="https://docs.cfengine.com/latest/reference-components-cf-serverd.html#bindtointerface">here</a>
+for more information.</p>
+
+<h4>Handling many clients with a single server</h4>
+
+<p>A single server can handle thousands of CFEngine clients, but there are
+tricks to extend that number further. This simplest is splaytime. The
+schedule daemon cf-exed checks its current hard classes versus the time
+classes specified in its control body schedule attribute. If there is a
+match, the <em>exec_command</em> is run. If you have a thousand hosts all of
+them will start at the same time causing the server needless load and
+dropped connections. Splaytime is set in cf-execd&#39;s control body. Each
+agent generates a deterministic time between zero and splaytime minutes
+and waits that amount of time before running the exec_command. Thus
+your agent starts are splayed. Always set splaytime to the interval or
+your run schedule less one minute.</p>
+
+<p>Cf-serverd is a file server. Some agent promises can request a lot of
+files from the server. To reduce this load, reduce the frequency of
+these promises. Use the <em>ifelapsed</em> action body attribute. An ifelapsed
+of 60 means the agent will not evaluate the promise more than once
+every 60 minutes. This feature can also reduce agent load by running
+high load promises, like packages, less frequently.</p>
+
+<h4>Redundant CFEngine servers</h4>
+
+<p>It would be nice if we could bootstrap an agent to multiple servers.
+Sadly, this feature does not exist at this time, but you can <a href="https://dev.cfengine.com/issues/3570">vote for
+it</a>. In the mean time we must
+perform some tricks to make the agent contact redundant policy servers.</p>
+
+<p>A <em>copy_from</em> body has a servers attribute that takes a list argument.
+In spite of having no multi-server bootstrap, the agent can already
+talk to multiple servers by populating the servers list. The agent
+tries each server in the list, in order. Set your policy to randomize
+this list using the <em>shuffle</em> function and you add load balancing.</p>
+
+<p>The trouble with having no multi-server bootstrap is that we are left
+to handle key exchanges between agents and multiple servers. There are
+multiple ways to do this. I won&#39;t go into detail here, but give you a
+high overview instead.</p>
+
+<p>Recall that for agent and server to trust each other there must be
+access promises, each must have the other&#39;s public key stored in the
+ppkeys directory, and the server&#39;s allowconnects and allowallconnects
+must include the agent. You can have all redundant servers share the
+same private keys or give them separate keys. Either way you&#39;ll need to
+sync some or all of the ppkeys directory between the servers so that
+each has a copy of all agent public keys. Also, ensure that each client
+has a copy of each server&#39;s public key.</p>
+
+<h4>Make policy that makes the agent self reliant</h4>
+
+<p>In spite of all your efforts, at some point your agents will not be
+able to reach the server. What then? The agents will not be able to
+fetch new policy, but they should be able to run existing policy if the
+policy is robust enough. One best practice is to cache files that are
+copied from the server. Rather than promising the final promiser file
+direct from the policy server, promise the file from the policy server
+to a cache location (/var/cache/cfengine/), then promise from the cache
+location to the final location. If the server is unreachable the agent
+cannot promise any new files, but it can continue to promise existing
+ones.</p>
+
+<p>Figure 4: Caching source files <code></code></p>
+
+<pre><code>files:
+   &quot;${efl_c.cache}/${${config_file[${s}]}}&quot; -&gt; { &quot;${${promisee[${s}]}}&quot; }
+      comment =&gt; &quot;Cache the source file&quot;,
+      handle =&gt; &quot;efl_service_files_cache&quot;,
+      create =&gt; &quot;true&quot;,
+      copy_from =&gt; efl_cpf( &quot;${${source_file[${s}]}}&quot;, &quot;@{${${server[${s}]}}}&quot; );
+
+   &quot;${${config_file[${s}]}}&quot; -&gt; { &quot;${${promisee[${s}]}}&quot; }
+      comment =&gt; &quot;Promise contents of configuration file from the cache&quot;,
+      handle =&gt; &quot;efl_service_files_config&quot;,
+      create =&gt; &quot;true&quot;,
+      copy_from =&gt; efl_cpf( &quot;${efl_c.cache}/${${config_file[${s}]}}&quot;, &quot;localhost&quot; );
+</code></pre>
+
+<h4>Limiting agent input files</h4>
+
+<p>When using CFEngine&#39;s bootstrap feature all the contents of the
+server&#39;s masterfiles directory is copied to the agent&#39;s inputs
+directory. You may want to limit which input files are copied. A good
+approach is to keep only the most basic files in masterfiles, including
+policy for the agent to download other files from directories <em>outside</em>
+of masterfiles.</p>
+
+<p>You should only try to limit files that contain private information,
+the same information what you would encrypt. Try not to be too paranoid
+about limiting inputs because it adds complexity.</p>
+
+<p>How will you restrict agent access to private data? You cannot use
+classes because any agent can have any class using the -D command
+switch. You must limit access using server access promises.</p>
+
+<h4>Summary</h4>
+
+<ol>
+<li><p>Use version control, everywhere.</p></li>
+<li><p>CFEngine 2 and 3 can run in parallel for gradual migration.</p></li>
+<li><p>Upgrade policy and CFEngine 3 with extensive planning and testing.</p></li>
+<li><p>Use splaytime and ifelasped to reduce agent and server load.</p></li>
+<li><p>Make CFEngine policy servers in redundant pairs.</p></li>
+<li><p>Make policy reliable even when the server is unavailable.</p></li>
+<li><p>You can limit selected inputs to agents, but do so with caution.</p></li>
+</ol>
+
+            </section>
+        </main>
+
+
+    </div>
+
+    <div class="col-md-3">
+        <iframe frameborder="0" src="https://duckduckgo.com/search.html?site=watson-wilson.ca&amp;prefill=Search DuckDuckGo" style="overflow:hidden;margin:0;padding:0;width:350px;height:40px;"></iframe>
+
+        <nav id="tags">
+            <h1>Tags</h1>
+            <ul class="list-inline">
+                <li><a href="/blog/tag/Cfengine/">Cfengine</a></li>
+                <li><a href="/blog/tag/EFL/">EFL</a></li>
+                <li><a href="/blog/tag/anti-virus/">anti-virus</a></li>
+                <li><a href="/blog/tag/apt/">apt</a></li>
+                <li><a href="/blog/tag/backup/">backup</a></li>
+                <li><a href="/blog/tag/best-practices/">best practices</a></li>
+                <li><a href="/blog/tag/cfengine/">cfengine</a></li>
+                <li><a href="/blog/tag/cfengine-cookbook/">cfengine cookbook</a></li>
+                <li><a href="/blog/tag/cheatsheet/">cheatsheet</a></li>
+                <li><a href="/blog/tag/cli/">cli</a></li>
+                <li><a href="/blog/tag/cloud/">cloud</a></li>
+                <li><a href="/blog/tag/cluster/">cluster</a></li>
+                <li><a href="/blog/tag/conferences/">conferences</a></li>
+                <li><a href="/blog/tag/configuration-management/">configuration management</a></li>
+                <li><a href="/blog/tag/cron/">cron</a></li>
+                <li><a href="/blog/tag/debian/">debian</a></li>
+                <li><a href="/blog/tag/delta-reporting/">delta reporting</a></li>
+                <li><a href="/blog/tag/devops/">devops</a></li>
+                <li><a href="/blog/tag/dns/">dns</a></li>
+                <li><a href="/blog/tag/dr/">dr</a></li>
+                <li><a href="/blog/tag/heartbeat/">heartbeat</a></li>
+                <li><a href="/blog/tag/high-availability/">high availability</a></li>
+                <li><a href="/blog/tag/infosec/">infosec</a></li>
+                <li><a href="/blog/tag/ipv6/">ipv6</a></li>
+                <li><a href="/blog/tag/irc/">irc</a></li>
+                <li><a href="/blog/tag/iscsi/">iscsi</a></li>
+                <li><a href="/blog/tag/jekyll/">jekyll</a></li>
+                <li><a href="/blog/tag/kickstart/">kickstart</a></li>
+                <li><a href="/blog/tag/kvm/">kvm</a></li>
+                <li><a href="/blog/tag/linux/">linux</a></li>
+                <li><a href="/blog/tag/monitoring/">monitoring</a></li>
+                <li><a href="/blog/tag/multipathd/">multipathd</a></li>
+                <li><a href="/blog/tag/mustache/">mustache</a></li>
+                <li><a href="/blog/tag/networking/">networking</a></li>
+                <li><a href="/blog/tag/opennms/">opennms</a></li>
+                <li><a href="/blog/tag/opensource/">opensource</a></li>
+                <li><a href="/blog/tag/oracle/">oracle</a></li>
+                <li><a href="/blog/tag/patching/">patching</a></li>
+                <li><a href="/blog/tag/pcre/">pcre</a></li>
+                <li><a href="/blog/tag/perl/">perl</a></li>
+                <li><a href="/blog/tag/posix/">posix</a></li>
+                <li><a href="/blog/tag/programming/">programming</a></li>
+                <li><a href="/blog/tag/provisioning/">provisioning</a></li>
+                <li><a href="/blog/tag/red-hat/">red hat</a></li>
+                <li><a href="/blog/tag/redhat/">redhat</a></li>
+                <li><a href="/blog/tag/regex/">regex</a></li>
+                <li><a href="/blog/tag/rhev/">rhev</a></li>
+                <li><a href="/blog/tag/san/">san</a></li>
+                <li><a href="/blog/tag/satellite/">satellite</a></li>
+                <li><a href="/blog/tag/scripting/">scripting</a></li>
+                <li><a href="/blog/tag/security/">security</a></li>
+                <li><a href="/blog/tag/serverspec/">serverspec</a></li>
+                <li><a href="/blog/tag/shell/">shell</a></li>
+                <li><a href="/blog/tag/software-testing/">software testing</a></li>
+                <li><a href="/blog/tag/solaris/">solaris</a></li>
+                <li><a href="/blog/tag/spacewalk/">spacewalk</a></li>
+                <li><a href="/blog/tag/ssh/">ssh</a></li>
+                <li><a href="/blog/tag/statocles/">statocles</a></li>
+                <li><a href="/blog/tag/subversion/">subversion</a></li>
+                <li><a href="/blog/tag/sun/">sun</a></li>
+                <li><a href="/blog/tag/support/">support</a></li>
+                <li><a href="/blog/tag/svn/">svn</a></li>
+                <li><a href="/blog/tag/sysadmin/">sysadmin</a></li>
+                <li><a href="/blog/tag/sysctl/">sysctl</a></li>
+                <li><a href="/blog/tag/terraform/">terraform</a></li>
+                <li><a href="/blog/tag/virus/">virus</a></li>
+                <li><a href="/blog/tag/vitualization/">vitualization</a></li>
+                <li><a href="/blog/tag/website/">website</a></li>
+            </ul>
+        </nav>
+    </div>
+
+</div>
+
+<div class="row">
+   <div class="col-md-1">
+       <img atl="Neil Watson" src="https://gravatar.com/avatar/1f0969599955a953e592034929ed7a23">
+   </div>
+
+       <div class="col-md-1">
+            <!-- reddit this -->
+            <a href="//www.reddit.com/submit" onclick="window.location = &#39;//www.reddit.com/submit?url=&#39; + encodeURIComponent(window.location); return false"><img alt="submit to reddit" border="0" src="//www.redditstatic.com/spreddit7.gif"></a>
+       </div>
+
+       <div class="col-md-1">
+          <!-- Tweet this -->
+          <a class="twitter-share-button" data-count="none" data-via="neil_h_watson" href="https://twitter.com/share">Tweet</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+       </div>
+
+       <div class="col-md-1">
+          <!-- follow me on twitter -->
+          <a class="twitter-follow-button" data-show-count="false" data-show-screen-name="false" href="https://twitter.com/neil_h_watson">Follow @neil_h_watson</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+        </div>
+
+       <div class="col-md-1">
+           <!-- follw me on github -->
+            <a aria-label="Follow @neilhwatson on GitHub" class="github-button" data-style="mega" href="https://github.com/neilhwatson">Follow</a>
+            <script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
+       </div>
+
+</div>
+
+        </div>
+        <footer>
+            
+            <h1></h1>
+            <div class="col-md-5"> </div>
+            <div class="col-md-3 container tagline">
+                <a href="http://preaction.me/statocles">Made with Statocles</a><br>
+                <a href="http://www.perl.org">Powered by Perl</a>
+            </div>
+        </footer>
+    </body>
+</html>

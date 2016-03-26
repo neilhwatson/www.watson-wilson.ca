@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <link href="/theme/css/readability-bootstrap.min.css" rel="stylesheet">
+        <!--<link rel="stylesheet" href="/theme/css/statocles-bootstrap.css" />-->
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+        <title>My evolution of CFEngine policy - Neil H. Watson</title>
+        <meta content="Statocles 0.073" name="generator">
+        
+
+        <!-- For source highlighting -->
+        <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/default.min.css" rel="stylesheet">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+
+    </head>
+    <body>
+        <header>
+            <nav class="navbar navbar-default navbar-static-top" role="navigation">
+                <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button class="navbar-toggle" data-target="#top-navbar-collapse-1" data-toggle="collapse" type="button">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="/">Neil H. Watson</a>
+                    </div>
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="top-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <li><a href="/page/about">About me</a></li>
+                            <li><a href="/static/resume_neil_h_watson.pdf">Resume</a></li>
+                            <li><a href="/page/projects">Projects</a></li>
+                        </ul>
+                        
+                    </div>
+                </div>
+            </nav>
+            
+        </header>
+        <div class="main container">
+            <div class="row">
+
+    <div class="col-md-9">
+        <main>
+            <header>
+                <h1>My evolution of CFEngine policy</h1>
+                <p class="tags">Tags:
+                    <a href="/blog/tag/Cfengine/" rel="tag">Cfengine</a>
+                    <a href="/blog/tag/EFL/" rel="tag">EFL</a>
+                </p>
+
+                <aside>
+                    <p><time datetime="2014-02-26">
+                        Posted on 2014-02-26
+                    </time>
+                        by nwatson
+                    </p>
+                </aside>
+
+
+            </header>
+            <section id="section-1">
+                <p><img alt="Evolution of fire" src="http://watson-wilson.ca/wp-content/uploads/2014/02/fire-240.jpg"></p>
+
+<p>My style and approach to CFEngine policy writing has evolved over the
+years. Recently I discussion this with someone new to CFEngine. He was
+on the same path I had taken, but a few steps behind. I hope he&#39;ll
+evolve to the next stage or to a stage that is new to both of us. I&#39;m
+going to share with you the stages of my CFEngine evolution. Perhaps
+you&#39;ll recognize yourself.</p>
+
+            </section>
+            <section id="section-2">
+                <h3>Stage one, self contained bundles</h3>
+
+<p>My first approach to policy writing were logical bundles, each having a
+single high level purpose. This simple approach helped me to learn
+CFEngine&#39;s declarative and convergent nature.</p>
+
+<p>``</p>
+
+<pre><code>bundle agent ntp
+{
+   packages:
+      &quot;ntpd&quot;
+         package_policy =&gt; &quot;add&quot;,
+         package_method =&gt; generic;
+
+   files:
+      &quot;/etc/ntp.conf&quot;
+         copy_from =&gt; remote_dcp(
+            &quot;${sys.workdir}/sitefiles/ntp.conf&quot;, &quot;${sys.policy_hub}&quot; ),
+         classes   =&gt; if_repaired( &quot;restart_ntp&quot; );
+
+      &quot;/etc/ntp.conf&quot;
+         perms =&gt; mog( &quot;644&quot;, &quot;root&quot;, &quot;root&quot; );
+
+   processes:
+      &quot;ntpd&quot;
+         process_select =&gt; by_name( &quot;^(/usr/sbin/)*ntpd&quot; ),
+         restart_classs =&gt; &quot;restart_ntp&quot;;
+
+   commands:
+      restart_ntp::
+         &quot;/sbin/service ntpd restart&quot;
+            comtain =&gt; silent;
+}
+
+bundle agent ssh
+{
+   packages:
+      &quot;sshd&quot;
+         package_policy =&gt; &quot;add&quot;,
+         package_method =&gt; generic;
+
+   files:
+      &quot;/etc/sshd_conf&quot;
+         copy_from =&gt; remote_dcp(
+            &quot;${sys.workdir}/sitefiles/sshd_conf&quot;, &quot;${sys.policy_hub}&quot; ),
+         classes   =&gt; if_repaired( &quot;restart_ssh&quot; );
+
+      &quot;/etc/sshd_conf&quot;
+         perms =&gt; mog( &quot;644&quot;, &quot;root&quot;, &quot;root&quot; );
+
+   processes:
+      &quot;sshd&quot;
+         process_select =&gt; by_name( &quot;^(/usr/sbin/)*sshd&quot; ),
+         restart_classs =&gt; &quot;restart_ssh&quot;;
+
+   commands:
+      restart_ssh::
+         &quot;/sbin/service sshd restart&quot;
+            comtain =&gt; silent;
+}
+
+bundle agent security
+{
+   files:
+      &quot;/etc/passwd&quot;
+         perms =&gt; mog( &quot;644&quot;, &quot;root&quot;, &quot;root&quot; );
+
+      &quot;/etc/shadow&quot;
+         perms =&gt; mog( &quot;600&quot;, &quot;root&quot;, &quot;root&quot; );
+
+      &quot;/tmp/.&quot;
+         perms =&gt; mog( &quot;777&quot;, &quot;root&quot;, &quot;root&quot; );
+
+}
+</code></pre>
+
+<p>As I wrote more of these bundles I noticed how alike they were and how
+much duplication I was suffering. There were package promises in each
+service bundle plus another package bundle for packages not related to
+services. If I changed something in one bundle, I often had to make the
+same change in many bundles. I knew I had to move on to something more
+efficient.</p>
+
+<h3>Stage two, reusable method calls.</h3>
+
+<p>CFEngine&#39;s early documentation hinted at methods and reusable policy.
+In those days the documentation was sparse and good examples were rare,
+but after stage one I had many examples and I saw how methods could be
+employed.</p>
+
+<p>``</p>
+
+<pre><code>bundle agent security
+( path, mode, owner, group )
+{
+   files:
+      &quot;${path}&quot;
+         perms =&gt; mog( &quot;${mode}&quot;, &quot;${owner}&quot;, &quot;${group}&quot; );
+}
+
+bundle agent service
+( package, config_file, process, command, mode, owner, group )
+{
+   packages:
+      &quot;${package}&quot;
+         package_policy =&gt; &quot;add&quot;,
+         package_method =&gt; generic;
+
+   files:
+      &quot;${config_file}&quot;
+         copy_from =&gt; remote_dcp( &quot;${sys.workdir}/sitefiles/${config_file}&quot;, &quot;${sys.policy_hub}&quot; ),
+         classes   =&gt; if_repaired( &quot;restart_${process}&quot; );
+
+      &quot;${config_file}&quot;
+         perms =&gt; mog( &quot;${mode}&quot;, &quot;${owner}&quot; &quot;${group}&quot; );
+
+   processes:
+      &quot;${process}&quot;
+         process_select =&gt; by_name( &quot;${process}&quot; ),
+         restart_classs =&gt; &quot;restart_${process}&quot;;
+
+   commands:
+      &quot;${command}&quot;
+         ifvarclass =&gt; canonify( &quot;restart_${process}&quot; ),
+         comtain    =&gt; silent;
+}
+
+bundle agent main
+{
+   vars:
+      &quot;service[ntp][package]&quot;     string =&gt; &quot;ntpd&quot;;
+      &quot;service[ntp][config_file]&quot; string =&gt; &quot;/etc/ntp.conf&quot;;
+      &quot;service[ntp][process]&quot;     string =&gt; &quot;^/usr/sbin/ntpd&quot;;
+      &quot;service[ntp][command]&quot;     string =&gt; &quot;/sbin/service ntp restart&quot;;
+      &quot;service[ntp][mode]&quot;        string =&gt; &quot;644&quot;;
+      &quot;service[ntp][owner]&quot;       string =&gt; &quot;root&quot;;
+      &quot;service[ntp][group]&quot;       string =&gt; &quot;root&quot;;
+
+      &quot;service[ssh][package]&quot;     string =&gt; &quot;openssh-server&quot;;
+      &quot;service[ssh][config_file]&quot; string =&gt; &quot;/etc/ssh/sshd_conf&quot;;
+      &quot;service[ssh][process]&quot;     string =&gt; &quot;^/usr/sbin/sshd&quot;;
+      &quot;service[ssh][command]&quot;     string =&gt; &quot;/sbin/service sshd restart&quot;;
+      &quot;service[ssh][mode]&quot;        string =&gt; &quot;644&quot;;
+      &quot;service[ssh][owner]&quot;       string =&gt; &quot;root&quot;;
+      &quot;service[ssh][group]&quot;       string =&gt; &quot;root&quot;;
+
+      &quot;svc&quot; slist =&gt; getindices( &quot;service&quot; );
+
+      &quot;security[passwd][path]&quot;  string =&gt; &quot;/etc/passwd&quot;;
+      &quot;security[passwd][mode]&quot;  string =&gt; &quot;644&quot;;
+      &quot;secuirty[passwd][owner]&quot; string =&gt; &quot;root&quot;;
+      &quot;security[passwd][group]&quot; string =&gt; &quot;root&quot;;
+
+      &quot;security[shadow][path]&quot;  string =&gt; &quot;/etc/shadow&quot;;
+      &quot;security[shadow][mode]&quot;  string =&gt; &quot;600&quot;;
+      &quot;secuirty[shadow][owner]&quot; string =&gt; &quot;root&quot;;
+      &quot;security[shadow][group]&quot; string =&gt; &quot;root&quot;;
+
+      &quot;security[tmp][path]&quot;  string =&gt; &quot;/tmp/.&quot;;
+      &quot;security[tmp][mode]&quot;  string =&gt; &quot;777&quot;;
+      &quot;secuirty[tmp][owner]&quot; string =&gt; &quot;root&quot;;
+      &quot;security[tmp][group]&quot; string =&gt; &quot;root&quot;;
+
+      &quot;sec&quot; slist =&gt; getindices( &quot;security&quot; );
+
+   methods:
+      &quot;${service[${svc}][package]}&quot;
+         usebundle =&gt; service(
+            &quot;${service[${svc}][package]}&quot;,
+            &quot;${service[${svc}][confi_file]}&quot;,
+            &quot;${service[${svc}][process]}&quot;,
+            &quot;${service[${svc}][command]}&quot;
+            &quot;${service[${svc}][mode]}&quot;
+            &quot;${service[${svc}][owner]}&quot;
+            &quot;${service[${svc}][group]}&quot;
+            );
+
+      &quot;${security[${sec}][path]}&quot;
+         usebundle =&gt; security(
+            &quot;${security[${sec}][path]}&quot;,
+            &quot;${security[${sec}][mode]}&quot;
+            &quot;${security[${sec}][owner]}&quot;
+            &quot;${security[${sec}][group]}&quot;
+            );
+}
+</code></pre>
+
+<p>There were further steps I could take to reduce the above code, but the
+tedious variable syntax remained. I was so lazy, and still am, that
+even the long list of methods promises drove me to find a better way.</p>
+
+<h3>Stage three, reusable data driven policy.</h3>
+
+<p>CFEngine promise types are low level: files, processes, command,
+packages, etc. My need for order drove me to group promises as I&#39;ve
+shown, but must I be so literal? Why can&#39;t I write policy at a similar
+low level, but with conceptual rather than literal logical groupings?
+This is when EFL was born. Low level reusable bundles driven by simple
+data files. EFL has bundles similar to stage two, but more low level
+and more flexible. There are bundles for package promises, services,
+file permissions, and much more.</p>
+
+<p>Here is the more condensed data for file permissions with less syntax.</p>
+
+<p>``</p>
+
+<pre><code># efl_files_perms.txt
+any ;; /etc/passwd ;; no ;; .* ;; 644 ;; root ;; root ;; security
+any ;; /etc/shadow ;; no ;; .* ;; 600 ;; root ;; root ;; security
+any ;; /tmp        ;; no ;; .* ;; 777 ;; root ;; root ;; security
+</code></pre>
+
+<p>Here is the more condensed data for services with less syntax.</p>
+
+<p>``</p>
+
+<pre><code># efl_services.txt
+any ;; ^/usr/sbin/ntpd ;; /etc/ntp.conf ;; ${sys.workdir}/sitefiles/etc/ntp.conf ;;        efl_c.policy_servers ;; no ;; no ;; 644 ;; root ;; root ;;        /sbin/service ntp restart ;; ntp time sync
+any ;; ^/usr/sbin/sshd ;; /etc/ssh/sshd_conf ;; ${sys.workdir}/sitefiles/etc/ssh/sshd_conf ;;        efl_c.policy_servers ;; no ;; no ;; 644 ;; root ;; root ;;        /sbin/service sshd restart ;; sshd remote access, security
+</code></pre>
+
+<p>Here is the more condensed data for method promises to call the EFL
+bundles.</p>
+
+<p>``</p>
+
+<pre><code># efl_main.txt
+any ;; File permissions ;; efl_file_perms ;; 1 ;;        ${sys.workdir}/inputs/params/efl_file_perms.txt ;; file permissions
+any ;; services ;; efl_services ;; 1 ;;        ${sys.workdir}/inputs/params/efl_services.txt ;; services
+</code></pre>
+
+<p>Now I don&#39;t have to add new policy to make new promises. I simply edit
+the data files. But are these promisers still logically grouped? Yes
+they are. Each data files has a promisee in the last column. The same
+promisee, or key words in the promisee, in multiple records or files
+represents the logical relationship between the promisers. Finding a
+logical group is only a grep away. Does this sound familiar?</p>
+
+<h3>Further reading</h3>
+
+<ul>
+<li><p><a href="/simple-cfengine-server-access-promises-using-efl/">How to use EFL.</a></p></li>
+<li><p><a href="/secure-sysctl-settings-with-cfengine/">Promising sysctlt with EFL.</a></p></li>
+<li><p><a href="/simple-cfengine-server-access-promises-using-efl/">Promising cf-serverd access promises with EFL.</a></p></li>
+<li><p><a href="/bulding-cfengine-classes-using-efl/">Building soft classes with EFL.</a></p></li>
+</ul>
+
+            </section>
+        </main>
+
+
+    </div>
+
+    <div class="col-md-3">
+        <iframe frameborder="0" src="https://duckduckgo.com/search.html?site=watson-wilson.ca&amp;prefill=Search DuckDuckGo" style="overflow:hidden;margin:0;padding:0;width:350px;height:40px;"></iframe>
+
+        <nav id="tags">
+            <h1>Tags</h1>
+            <ul class="list-inline">
+                <li><a href="/blog/tag/Cfengine/">Cfengine</a></li>
+                <li><a href="/blog/tag/EFL/">EFL</a></li>
+                <li><a href="/blog/tag/anti-virus/">anti-virus</a></li>
+                <li><a href="/blog/tag/apt/">apt</a></li>
+                <li><a href="/blog/tag/backup/">backup</a></li>
+                <li><a href="/blog/tag/best-practices/">best practices</a></li>
+                <li><a href="/blog/tag/cfengine/">cfengine</a></li>
+                <li><a href="/blog/tag/cfengine-cookbook/">cfengine cookbook</a></li>
+                <li><a href="/blog/tag/cheatsheet/">cheatsheet</a></li>
+                <li><a href="/blog/tag/cli/">cli</a></li>
+                <li><a href="/blog/tag/cloud/">cloud</a></li>
+                <li><a href="/blog/tag/cluster/">cluster</a></li>
+                <li><a href="/blog/tag/conferences/">conferences</a></li>
+                <li><a href="/blog/tag/configuration-management/">configuration management</a></li>
+                <li><a href="/blog/tag/cron/">cron</a></li>
+                <li><a href="/blog/tag/debian/">debian</a></li>
+                <li><a href="/blog/tag/delta-reporting/">delta reporting</a></li>
+                <li><a href="/blog/tag/devops/">devops</a></li>
+                <li><a href="/blog/tag/dns/">dns</a></li>
+                <li><a href="/blog/tag/dr/">dr</a></li>
+                <li><a href="/blog/tag/heartbeat/">heartbeat</a></li>
+                <li><a href="/blog/tag/high-availability/">high availability</a></li>
+                <li><a href="/blog/tag/infosec/">infosec</a></li>
+                <li><a href="/blog/tag/ipv6/">ipv6</a></li>
+                <li><a href="/blog/tag/irc/">irc</a></li>
+                <li><a href="/blog/tag/iscsi/">iscsi</a></li>
+                <li><a href="/blog/tag/jekyll/">jekyll</a></li>
+                <li><a href="/blog/tag/kickstart/">kickstart</a></li>
+                <li><a href="/blog/tag/kvm/">kvm</a></li>
+                <li><a href="/blog/tag/linux/">linux</a></li>
+                <li><a href="/blog/tag/monitoring/">monitoring</a></li>
+                <li><a href="/blog/tag/multipathd/">multipathd</a></li>
+                <li><a href="/blog/tag/mustache/">mustache</a></li>
+                <li><a href="/blog/tag/networking/">networking</a></li>
+                <li><a href="/blog/tag/opennms/">opennms</a></li>
+                <li><a href="/blog/tag/opensource/">opensource</a></li>
+                <li><a href="/blog/tag/oracle/">oracle</a></li>
+                <li><a href="/blog/tag/patching/">patching</a></li>
+                <li><a href="/blog/tag/pcre/">pcre</a></li>
+                <li><a href="/blog/tag/perl/">perl</a></li>
+                <li><a href="/blog/tag/posix/">posix</a></li>
+                <li><a href="/blog/tag/programming/">programming</a></li>
+                <li><a href="/blog/tag/provisioning/">provisioning</a></li>
+                <li><a href="/blog/tag/red-hat/">red hat</a></li>
+                <li><a href="/blog/tag/redhat/">redhat</a></li>
+                <li><a href="/blog/tag/regex/">regex</a></li>
+                <li><a href="/blog/tag/rhev/">rhev</a></li>
+                <li><a href="/blog/tag/san/">san</a></li>
+                <li><a href="/blog/tag/satellite/">satellite</a></li>
+                <li><a href="/blog/tag/scripting/">scripting</a></li>
+                <li><a href="/blog/tag/security/">security</a></li>
+                <li><a href="/blog/tag/serverspec/">serverspec</a></li>
+                <li><a href="/blog/tag/shell/">shell</a></li>
+                <li><a href="/blog/tag/software-testing/">software testing</a></li>
+                <li><a href="/blog/tag/solaris/">solaris</a></li>
+                <li><a href="/blog/tag/spacewalk/">spacewalk</a></li>
+                <li><a href="/blog/tag/ssh/">ssh</a></li>
+                <li><a href="/blog/tag/statocles/">statocles</a></li>
+                <li><a href="/blog/tag/subversion/">subversion</a></li>
+                <li><a href="/blog/tag/sun/">sun</a></li>
+                <li><a href="/blog/tag/support/">support</a></li>
+                <li><a href="/blog/tag/svn/">svn</a></li>
+                <li><a href="/blog/tag/sysadmin/">sysadmin</a></li>
+                <li><a href="/blog/tag/sysctl/">sysctl</a></li>
+                <li><a href="/blog/tag/terraform/">terraform</a></li>
+                <li><a href="/blog/tag/virus/">virus</a></li>
+                <li><a href="/blog/tag/vitualization/">vitualization</a></li>
+                <li><a href="/blog/tag/website/">website</a></li>
+            </ul>
+        </nav>
+    </div>
+
+</div>
+
+<div class="row">
+   <div class="col-md-1">
+       <img atl="Neil Watson" src="https://gravatar.com/avatar/1f0969599955a953e592034929ed7a23">
+   </div>
+
+       <div class="col-md-1">
+            <!-- reddit this -->
+            <a href="//www.reddit.com/submit" onclick="window.location = &#39;//www.reddit.com/submit?url=&#39; + encodeURIComponent(window.location); return false"><img alt="submit to reddit" border="0" src="//www.redditstatic.com/spreddit7.gif"></a>
+       </div>
+
+       <div class="col-md-1">
+          <!-- Tweet this -->
+          <a class="twitter-share-button" data-count="none" data-via="neil_h_watson" href="https://twitter.com/share">Tweet</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+       </div>
+
+       <div class="col-md-1">
+          <!-- follow me on twitter -->
+          <a class="twitter-follow-button" data-show-count="false" data-show-screen-name="false" href="https://twitter.com/neil_h_watson">Follow @neil_h_watson</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+        </div>
+
+       <div class="col-md-1">
+           <!-- follw me on github -->
+            <a aria-label="Follow @neilhwatson on GitHub" class="github-button" data-style="mega" href="https://github.com/neilhwatson">Follow</a>
+            <script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
+       </div>
+
+</div>
+
+        </div>
+        <footer>
+            
+            <h1></h1>
+            <div class="col-md-5"> </div>
+            <div class="col-md-3 container tagline">
+                <a href="http://preaction.me/statocles">Made with Statocles</a><br>
+                <a href="http://www.perl.org">Powered by Perl</a>
+            </div>
+        </footer>
+    </body>
+</html>

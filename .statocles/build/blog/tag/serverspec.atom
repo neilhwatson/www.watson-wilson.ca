@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>http://watson-wilson.ca/blog/tag/serverspec/</id>
+    <title>Neil H. Watson</title>
+    <updated>2015-06-18T14:37:16Z</updated>
+    <link href="http://watson-wilson.ca/blog/tag/serverspec.atom" rel="self" />
+    <link href="http://watson-wilson.ca/blog/tag/serverspec/" rel="alternate" />
+    <generator version="0.073">Statocles</generator>
+    <entry>
+        <id>http://watson-wilson.ca/blog/2015/06/18/serverspec-the-good-the-bad-and-the-ugly/</id>
+        <title>Serverspec, the good, the bad, and the ugly</title>
+        <author><name>nwatson</name></author>
+        <link href="http://watson-wilson.ca/blog/2015/06/18/serverspec-the-good-the-bad-and-the-ugly/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p>I&#39;ve been using a talking about <a href="http://serverspec.org">Serverspec</a>
+lately. Let me tell you about the surprises I found.</p>
+
+                <p><a href="http://watson-wilson.ca/blog/2015/06/18/serverspec-the-good-the-bad-and-the-ugly/#section-2">Continue reading...</a></p>
+            <p>Tags:
+                <a href="http://watson-wilson.ca/blog/tag/Cfengine/">Cfengine</a>
+                <a href="http://watson-wilson.ca/blog/tag/serverspec/">serverspec</a>
+                <a href="http://watson-wilson.ca/blog/tag/software-testing/">software testing</a>
+            </p>
+        ]]></content>
+        <updated>2015-06-18T14:37:16Z</updated>
+        <category term="Cfengine" />
+        <category term="serverspec" />
+        <category term="software testing" />
+    </entry>
+</feed>
+
