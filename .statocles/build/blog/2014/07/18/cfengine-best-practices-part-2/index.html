@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <link href="/theme/css/readability-bootstrap.min.css" rel="stylesheet">
+        <!--<link rel="stylesheet" href="/theme/css/statocles-bootstrap.css" />-->
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+        <title>CFEngine best practices: part 2 - Neil H. Watson</title>
+        <meta content="Statocles 0.073" name="generator">
+        
+
+        <!-- For source highlighting -->
+        <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/default.min.css" rel="stylesheet">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+
+    </head>
+    <body>
+        <header>
+            <nav class="navbar navbar-default navbar-static-top" role="navigation">
+                <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button class="navbar-toggle" data-target="#top-navbar-collapse-1" data-toggle="collapse" type="button">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="/">Neil H. Watson</a>
+                    </div>
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="top-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <li><a href="/page/about">About me</a></li>
+                            <li><a href="/static/resume_neil_h_watson.pdf">Resume</a></li>
+                            <li><a href="/page/projects">Projects</a></li>
+                        </ul>
+                        
+                    </div>
+                </div>
+            </nav>
+            
+        </header>
+        <div class="main container">
+            <div class="row">
+
+    <div class="col-md-9">
+        <main>
+            <header>
+                <h1>CFEngine best practices: part 2</h1>
+                <p class="tags">Tags:
+                    <a href="/blog/tag/best-practices/" rel="tag">best practices</a>
+                    <a href="/blog/tag/Cfengine/" rel="tag">Cfengine</a>
+                    <a href="/blog/tag/delta-reporting/" rel="tag">delta reporting</a>
+                    <a href="/blog/tag/EFL/" rel="tag">EFL</a>
+                </p>
+
+                <aside>
+                    <p><time datetime="2014-07-18">
+                        Posted on 2014-07-18
+                    </time>
+                        by nwatson
+                    </p>
+                </aside>
+
+
+            </header>
+            <section id="section-1">
+                <p><img alt="stormtrooper-apple" src="/static/images/stormtrooper-apple.jpg"></p>
+
+<p>Continuing on from <a href="http://watson-wilson.ca/cfengine-best-practices-testing/">testing best practices</a>,
+let&#39;s look at other best practices to make you a CFEngine ninja.</p>
+
+            </section>
+            <section id="section-2">
+                <h4>Thinking CFEngine</h4>
+
+<p>CFEngine is different. It took me a while to understand it. It was a
+lot like calculus. In the beginning my brain exploded, but later it
+began to understand. I was enlightened. Let me tell you what I&#39;ve
+learned about CFEngine.</p>
+
+<h5>Don&#39;t think procedurally</h5>
+
+<p>CFEngine&#39;s declarative language requires a different approach to
+development than scripting. Let&#39;s break the shackles of procedure and
+declare our promises! Don&#39;t think &#39;what steps do I take to make this
+configuration?&#39; CFEngine is designed to use its own built in procedures
+to reach your goal. A promise declares what you want, not how to get
+there.</p>
+
+<p>In this example script we have to mentally parse it to understand the
+end result.</p>
+
+<p>Figure 1: A script is, a script. <code></code></p>
+
+<pre><code>#!/bin/sh
+
+cp /var/templates/resolve.conf /etc/resolv.conf
+chown root:root /etc/resolv.conf
+chmod 644 /etc/resolv.conf
+</code></pre>
+
+<p>In a CFEngine promise, we state our end result, and CFEngine uses its
+own built in code to make it happen.</p>
+
+<p>Figure 2: A clear promise no politician would make. <code></code></p>
+
+<pre><code>files:
+   &quot;/etc/resolv.conf&quot;
+       perms     =&gt; mog( &quot;644&quot;, &quot;root&quot;, &quot;root&quot; ),
+       copy_from =&gt; remote_cp( &quot;/var/cfengine/temps&quot;, &quot;${sys.policy_server}&quot; );
+</code></pre>
+
+<h5>Focus on the end goal</h5>
+
+<p>When you begin to write a promise or a bundle of promises focus on the
+end goal. What is the ideal state you&#39;re trying to reach? Describe it
+in your language, and then in the CFEngine language. Before you know it
+you&#39;ll have a prototype and you did not need a procedure.</p>
+
+<h5>Think of CFEngine promises</h5>
+
+<p>Everything going on in a modern operating system can be described in
+terms of files, commands, and processes; and CFEngine promises are the
+same. Whatever your end goal is, break into these low level concepts
+and the promises you need will be obvious.</p>
+
+<h5>Less is more</h5>
+
+<p>Beginners often don&#39;t realize how much CFEngine can figure out
+automatically. Don&#39;t try to box in your policies with too many
+restrictions. Start very simply and the results will surprise you.</p>
+
+<h4>Build reusable bundles</h4>
+
+<p>Use generic bundles that accept parameters much like functions in other
+languages. Your bundles should generic enough to be reusable.</p>
+
+<h4>Data separation</h4>
+
+<p>Try to separate policy from data whenever possible. Data separation
+makes policy maintenance faster and simpler. Read in parameter files.
+Use template files. <a href="https://github.com/evolvethinking/evolve_cfengine_freelib">EFL</a>
+has many such examples for your reference.</p>
+
+<h4>Promise whole files</h4>
+
+<p>Speaking of template files, I always favour them over policies that
+only promise selected lines inside an existing file. The trouble with
+promising only a portion of the file is, what if the rest of the file
+is corrupt? Don&#39;t go half way. Deliver a complete promise and your boss
+will thank you.</p>
+
+<h4>Readability</h4>
+
+<p>Readability over efficiency. I said it. Code junkies everywhere just
+sucked in a great breath. CFEngine is not a procedural language, but
+there are some procedural aspects to it, like class dependencies and
+the depends_on attribute. The more you reduce the code in the name of
+efficiency it often becomes very hard to understand. Use comment,
+handle, and tag attributes to document your promises and use meta
+promises to document your bundles. One of the great things about
+CFEngine is that once it is working you seldom have to revisit your
+promises, but when you do you&#39;d better be able to understand them.</p>
+
+<h4>Naming conventions</h4>
+
+<p>I encourage you to seek out the many readily available CFEngine
+frameworks that offer a vast collection of ready to use promises and
+bundles. Don&#39;t reinvent the wheel. If you do write your own policies
+name them well.</p>
+
+<h5>Bundle names</h5>
+
+<p>You may have multiple bundles that are similar in function, so naming
+the first one <em>ssh</em> may not be a good idea. Use more descriptive names.
+One large organization I worked with had bundles written by many
+departments. They used a numbering system like ssh_1122. I prefer using
+bundles names that imply the bundle&#39;s intent; <em>Ssh_for_dmz</em> is much
+clearer than <em>ssh_by_neil</em>.</p>
+
+<h5>Handle names</h5>
+
+<p>Handles must be unique. A popular naming convention in the CFEngine
+community is <em>bundlename_promisetype_class_promiser</em>.</p>
+
+<p>Figure 3: Handle names <code></code></p>
+
+<pre><code>bundle agent efl_main( ref )
+
+methods:
+   &quot;methods loop wrapper&quot;
+      comment    =&gt; &quot;Call wrapper bundle to workaround naked variable bug.&quot;,
+      handle     =&gt; &quot;efl_main_methods_loop_wrapper&quot;;
+
+bundle agent efl_command ( ref )
+
+   commands:
+      &quot;${${command[${c}]}}&quot; -&gt; { &quot;${${promisee[${c}]}}&quot; }
+         comment    =&gt; &quot;Run desired command&quot;,
+         handle     =&gt; &quot;efl_command_commands&quot;,
+</code></pre>
+
+<h5>Class names</h5>
+
+<p>Classes should be named on discovery for inventory purposes or intent
+if a class will trigger an action. A Class that identifies hosts in a
+dmz might be <em>dmz_172_16_4_hosts</em>. Production web servers might be in
+the class <em>prod_myapp_webservers</em>.</p>
+
+<p>Some classes are about intent or action. A class defined to restart an
+application should be named restart_web_server or restart_snmpd. Since
+classes can be global be specific in your names to avoid name
+collisions. Sometimes I like to prefix the class with the bundle name
+so I know where it came from. There is something called <em>namespace</em> in
+CFEngine, but I find that too complex. For me simple prefixes suffice.</p>
+
+<h4>Use separate promises for file permissions and content.</h4>
+
+<p>It&#39;s common to promise file permissions and content in a single
+promise, but what if the promiser file is sshd_config? If you have a
+follow up promise to restart sshd if sshd_config changes that restart
+will be triggered even by a permission only repair. Separate these into
+two promise to avoid this disruptive behaviour.</p>
+
+<h4>Embrace normal ordering</h4>
+
+<p>Promise types are considered by the agent in a set order. This is
+called normal ordering and you cannot change it. Vars are evaluated
+before classes, and both of these before files. You can delay promise
+evaluation by using depends_on or classes, but if you find that you are
+working very hard and wish that you could change normal ordering then
+your approach is wrong. Go back to the beginning and try again.</p>
+
+<h4>Use shell commands sparingly</h4>
+
+<p>Shell commands in variables, classes, or commands promise force the
+agent to start a partial or even full shell. This is expensive and a
+common cause of slow running policies. Use the shell sparingly.</p>
+
+<h5>Beware the shell environment</h5>
+
+<p>Like crond, CFEngine&#39;s environment when it starts a shell process is
+different than your shell environment. Test carefully.</p>
+
+<h5>Don&#39;t use command promises to cheat</h5>
+
+<p>Some folks, unable to get the promise they want, resort to using a
+commands promise to call a script. Shell commands slow the agent down
+and you must rely on the quality of the script, and not CFEngine, to
+determine promise success.</p>
+
+<h4>Avoid promises that are too broad</h4>
+
+<p>The more precise your promise is the more certain you can be of its
+success. Promises that are too broad, like bulk, recursive file
+permissions, can affect files you did not think about.</p>
+
+<h4>Don&#39;t mess with update.cf or failsafe.cf</h4>
+
+<p>In CFEngine&#39;s default policy update.cf, previously called failsafe.cf,
+allows the agent to pull new policy from the policy server. If
+promises.cf or related files have errors the agent may not run, but
+update.cf is separate and will allow the agent to download corrected
+files when they are available. If update.cf has an error, however,
+there is no mechanism to get repairs, and you&#39;ll have to fix <em>every
+host by hand</em>. If you choose to modify update.cf and related files,
+test <em>very carefully</em>.</p>
+
+<p>An error in promises.cf or related files might cause cf-exed to fail,
+preventing update.cf from being run. I use a backup cron job to call
+update.cf directly.</p>
+
+<p>Figure 4: cron contingency <code></code></p>
+
+<pre><code>cf-agent -f update.cf &amp;&amp; cf-agent
+</code></pre>
+
+<p>You may recognize this, it is similar to the run command in cf-execd&#39;s
+control body. I also go a step further and configure a bootstrap
+process if the update fails.</p>
+
+<p>Figure 5: A better contingency <code></code></p>
+
+<pre><code>(cf-agent -f update.cf || cf-agent -B ) &amp;&amp; cf-agent
+</code></pre>
+
+<h4>Summary</h4>
+
+<p>This ends the second part of my best practices with CFEngine. Let&#39;s
+review.</p>
+
+<ul>
+<li><p>Do not think procedurally, instead declare your intentions as
+CFEngine promises.</p></li>
+<li><p>Less is more, leave decisions on how to do something to CFEngine.</p></li>
+<li><p>Focus on the end goal, not the procedure.</p></li>
+<li><p>Build reusable bundles.</p></li>
+<li><p>Separation data form policy.</p></li>
+<li><p>Promise whole files and not just a portion of a file.</p></li>
+<li><p>Make your policy readable.</p></li>
+<li><p>Use naming conventions for bundles, handles, and classes.</p></li>
+<li><p>Use separate promises for file permissions and content.</p></li>
+<li><p>Embrace normal ordering.</p></li>
+<li><p>Use shell commands sparingly.</p></li>
+<li><p>Beware the shell environment.</p></li>
+<li><p>Don&#39;t use command promises to cheat.</p></li>
+<li><p>Avoid promises that are to broad.</p></li>
+<li><p>Don&#39;t mess with update.cf or failsafe.cf</p></li>
+</ul>
+
+<h4>Frameworks</h4>
+
+<p>The CFEngine ecosystem has never been stronger. There are so many
+choices in ready to use policies. Take advantage of these.</p>
+
+<ul>
+<li><p>CFEngine ships with a good <a href="https://docs.cfengine.com/docs/3.6/guide-writing-and-serving-policy-policy-framework.html">base framework</a>
+and also offers the <a href="https://docs.cfengine.com/latest/reference-design-center.html">Design Center</a>.</p></li>
+<li><p><a href="http://www.ncf.io/">NCF</a> by <a href="http://normation.com">Normation</a>.</p></li>
+<li><p><a href="http://wiki.webhuis.nl/index.php/Dynamic_Cfengine3">Dynamic Cfengine3</a>
+by <a href="http://webhuis.nl/">WebHuis</a>.</p></li>
+<li><p>Brian Bennett&#39;s <a href="https://digitalelf.net/blog/categories/cfengine/">framework</a>.</p></li>
+<li><p><a href="https://github.com/evolvethinking/evolve_cfengine_freelib">Evolve Thinking&#39;s free library (EFL)</a>
+contains a large collection of ready to use, scalable promises. It
+is portable, able to work with CFEngine&#39;s base framework or any
+other policy you use. EFL also powers <a href="http://watson-wilson.ca/products/delta-reporting/">Delta Reporting</a>
+an open source reporting tool for CFEngine.</p></li>
+</ul>
+
+            </section>
+        </main>
+
+
+    </div>
+
+    <div class="col-md-3">
+        <iframe frameborder="0" src="https://duckduckgo.com/search.html?site=watson-wilson.ca&amp;prefill=Search DuckDuckGo" style="overflow:hidden;margin:0;padding:0;width:350px;height:40px;"></iframe>
+
+        <nav id="tags">
+            <h1>Tags</h1>
+            <ul class="list-inline">
+                <li><a href="/blog/tag/Cfengine/">Cfengine</a></li>
+                <li><a href="/blog/tag/EFL/">EFL</a></li>
+                <li><a href="/blog/tag/anti-virus/">anti-virus</a></li>
+                <li><a href="/blog/tag/apt/">apt</a></li>
+                <li><a href="/blog/tag/backup/">backup</a></li>
+                <li><a href="/blog/tag/best-practices/">best practices</a></li>
+                <li><a href="/blog/tag/cfengine/">cfengine</a></li>
+                <li><a href="/blog/tag/cfengine-cookbook/">cfengine cookbook</a></li>
+                <li><a href="/blog/tag/cheatsheet/">cheatsheet</a></li>
+                <li><a href="/blog/tag/cli/">cli</a></li>
+                <li><a href="/blog/tag/cloud/">cloud</a></li>
+                <li><a href="/blog/tag/cluster/">cluster</a></li>
+                <li><a href="/blog/tag/conferences/">conferences</a></li>
+                <li><a href="/blog/tag/configuration-management/">configuration management</a></li>
+                <li><a href="/blog/tag/cron/">cron</a></li>
+                <li><a href="/blog/tag/debian/">debian</a></li>
+                <li><a href="/blog/tag/delta-reporting/">delta reporting</a></li>
+                <li><a href="/blog/tag/devops/">devops</a></li>
+                <li><a href="/blog/tag/dns/">dns</a></li>
+                <li><a href="/blog/tag/dr/">dr</a></li>
+                <li><a href="/blog/tag/heartbeat/">heartbeat</a></li>
+                <li><a href="/blog/tag/high-availability/">high availability</a></li>
+                <li><a href="/blog/tag/infosec/">infosec</a></li>
+                <li><a href="/blog/tag/ipv6/">ipv6</a></li>
+                <li><a href="/blog/tag/irc/">irc</a></li>
+                <li><a href="/blog/tag/iscsi/">iscsi</a></li>
+                <li><a href="/blog/tag/jekyll/">jekyll</a></li>
+                <li><a href="/blog/tag/kickstart/">kickstart</a></li>
+                <li><a href="/blog/tag/kvm/">kvm</a></li>
+                <li><a href="/blog/tag/linux/">linux</a></li>
+                <li><a href="/blog/tag/monitoring/">monitoring</a></li>
+                <li><a href="/blog/tag/multipathd/">multipathd</a></li>
+                <li><a href="/blog/tag/mustache/">mustache</a></li>
+                <li><a href="/blog/tag/networking/">networking</a></li>
+                <li><a href="/blog/tag/opennms/">opennms</a></li>
+                <li><a href="/blog/tag/opensource/">opensource</a></li>
+                <li><a href="/blog/tag/oracle/">oracle</a></li>
+                <li><a href="/blog/tag/patching/">patching</a></li>
+                <li><a href="/blog/tag/pcre/">pcre</a></li>
+                <li><a href="/blog/tag/perl/">perl</a></li>
+                <li><a href="/blog/tag/posix/">posix</a></li>
+                <li><a href="/blog/tag/programming/">programming</a></li>
+                <li><a href="/blog/tag/provisioning/">provisioning</a></li>
+                <li><a href="/blog/tag/red-hat/">red hat</a></li>
+                <li><a href="/blog/tag/redhat/">redhat</a></li>
+                <li><a href="/blog/tag/regex/">regex</a></li>
+                <li><a href="/blog/tag/rhev/">rhev</a></li>
+                <li><a href="/blog/tag/san/">san</a></li>
+                <li><a href="/blog/tag/satellite/">satellite</a></li>
+                <li><a href="/blog/tag/scripting/">scripting</a></li>
+                <li><a href="/blog/tag/security/">security</a></li>
+                <li><a href="/blog/tag/serverspec/">serverspec</a></li>
+                <li><a href="/blog/tag/shell/">shell</a></li>
+                <li><a href="/blog/tag/software-testing/">software testing</a></li>
+                <li><a href="/blog/tag/solaris/">solaris</a></li>
+                <li><a href="/blog/tag/spacewalk/">spacewalk</a></li>
+                <li><a href="/blog/tag/ssh/">ssh</a></li>
+                <li><a href="/blog/tag/statocles/">statocles</a></li>
+                <li><a href="/blog/tag/subversion/">subversion</a></li>
+                <li><a href="/blog/tag/sun/">sun</a></li>
+                <li><a href="/blog/tag/support/">support</a></li>
+                <li><a href="/blog/tag/svn/">svn</a></li>
+                <li><a href="/blog/tag/sysadmin/">sysadmin</a></li>
+                <li><a href="/blog/tag/sysctl/">sysctl</a></li>
+                <li><a href="/blog/tag/terraform/">terraform</a></li>
+                <li><a href="/blog/tag/virus/">virus</a></li>
+                <li><a href="/blog/tag/vitualization/">vitualization</a></li>
+                <li><a href="/blog/tag/website/">website</a></li>
+            </ul>
+        </nav>
+    </div>
+
+</div>
+
+<div class="row">
+   <div class="col-md-1">
+       <img atl="Neil Watson" src="https://gravatar.com/avatar/1f0969599955a953e592034929ed7a23">
+   </div>
+
+       <div class="col-md-1">
+            <!-- reddit this -->
+            <a href="//www.reddit.com/submit" onclick="window.location = &#39;//www.reddit.com/submit?url=&#39; + encodeURIComponent(window.location); return false"><img alt="submit to reddit" border="0" src="//www.redditstatic.com/spreddit7.gif"></a>
+       </div>
+
+       <div class="col-md-1">
+          <!-- Tweet this -->
+          <a class="twitter-share-button" data-count="none" data-via="neil_h_watson" href="https://twitter.com/share">Tweet</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+       </div>
+
+       <div class="col-md-1">
+          <!-- follow me on twitter -->
+          <a class="twitter-follow-button" data-show-count="false" data-show-screen-name="false" href="https://twitter.com/neil_h_watson">Follow @neil_h_watson</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+        </div>
+
+       <div class="col-md-1">
+           <!-- follw me on github -->
+            <a aria-label="Follow @neilhwatson on GitHub" class="github-button" data-style="mega" href="https://github.com/neilhwatson">Follow</a>
+            <script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
+       </div>
+
+</div>
+
+        </div>
+        <footer>
+            
+            <h1></h1>
+            <div class="col-md-5"> </div>
+            <div class="col-md-3 container tagline">
+                <a href="http://preaction.me/statocles">Made with Statocles</a><br>
+                <a href="http://www.perl.org">Powered by Perl</a>
+            </div>
+        </footer>
+    </body>
+</html>

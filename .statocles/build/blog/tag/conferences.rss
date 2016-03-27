@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Neil H. Watson</title>
+        <link>http://watson-wilson.ca/blog/tag/conferences/</link>
+        <atom:link href="http://watson-wilson.ca/blog/tag/conferences.rss" rel="self" type="application/rss+xml" />
+        <description>Blog feed of Neil H. Watson</description>
+        <generator>Statocles 0.073</generator>
+        <item>
+            <title>Devops Days Toronto 12-13  Sept 2014</title>
+            <link>http://watson-wilson.ca/blog/2014/09/04/devops-days-toronto-12-13-sept-2014/</link>
+            <guid>http://watson-wilson.ca/blog/2014/09/04/devops-days-toronto-12-13-sept-2014/</guid>
+            <description><![CDATA[
+                <p><img alt="Devops days toronto 2014 logo" src="http://watson-wilson.ca/static/images/devopsdaystoronto.png"></p>
+
+<p>Evolve Thinking is proud to sponsor <a href="http://www.devopsdays.org/events/2014-toronto/">Devops Days Toronto 2014</a>,
+September 12 and 13. Find me there and ask me anything.</p>
+
+                    <p><a href="http://watson-wilson.ca/blog/2014/09/04/devops-days-toronto-12-13-sept-2014/#section-2">Continue reading...</a></p>
+                <p>Tags:
+                    <a href="http://watson-wilson.ca/blog/tag/conferences/">conferences</a>
+                    <a href="http://watson-wilson.ca/blog/tag/devops/">devops</a>
+                </p>
+            ]]></description>
+            <pubDate>
+                Thu, 04 Sep 2014 09:13:27 +0000
+            </pubDate>
+        </item>
+    </channel>
+</rss>
+

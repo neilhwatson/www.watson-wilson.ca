@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <link href="/theme/css/readability-bootstrap.min.css" rel="stylesheet">
+        <!--<link rel="stylesheet" href="/theme/css/statocles-bootstrap.css" />-->
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+        <title>CFEngine best practices: testing - Neil H. Watson</title>
+        <meta content="Statocles 0.073" name="generator">
+        
+
+        <!-- For source highlighting -->
+        <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/default.min.css" rel="stylesheet">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+
+    </head>
+    <body>
+        <header>
+            <nav class="navbar navbar-default navbar-static-top" role="navigation">
+                <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button class="navbar-toggle" data-target="#top-navbar-collapse-1" data-toggle="collapse" type="button">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="/">Neil H. Watson</a>
+                    </div>
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="top-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <li><a href="/page/about">About me</a></li>
+                            <li><a href="/static/resume_neil_h_watson.pdf">Resume</a></li>
+                            <li><a href="/page/projects">Projects</a></li>
+                        </ul>
+                        
+                    </div>
+                </div>
+            </nav>
+            
+        </header>
+        <div class="main container">
+            <div class="row">
+
+    <div class="col-md-9">
+        <main>
+            <header>
+                <h1>CFEngine best practices: testing</h1>
+                <p class="tags">Tags:
+                    <a href="/blog/tag/best-practices/" rel="tag">best practices</a>
+                    <a href="/blog/tag/Cfengine/" rel="tag">Cfengine</a>
+                    <a href="/blog/tag/delta-reporting/" rel="tag">delta reporting</a>
+                    <a href="/blog/tag/software-testing/" rel="tag">software testing</a>
+                </p>
+
+                <aside>
+                    <p><time datetime="2014-07-04">
+                        Posted on 2014-07-04
+                    </time>
+                        by nwatson
+                    </p>
+                </aside>
+
+
+            </header>
+            <section id="section-1">
+                <p><a href="/static/images/f4-crashtest.jpg"><img alt="f4-crashtest" src="/static/images/f4-crashtest.jpg"></a></p>
+
+<p>CFEngine&#39;s autonomous automation means that your policy, mistakes and
+all, will be duplicated quickly to all of your hosts. --- Potentially
+tens of thousands of them. When I taught martial arts it was humbling
+to watch a class of thirty duplicate my incorrect movement. I didn&#39;t
+know, because I didn&#39;t test myself. In martial arts I was simply
+embarrassed, but in configuration management, mistakes could cost me a
+raise or even my job. Testing is the paramount best practice for
+CFEngine. Let me tell you what I have learned.</p>
+
+<h4>Prototyping</h4>
+
+<p>Your first kernel of a policy idea should be demonstrated with a small,
+self contained, prototype. Try to keep your prototype to a single file.
+If you need bundles or bodies from policy libraries, copy just what you
+need from them into your prototype file. There are good examples on the
+Internet get you started.</p>
+
+<ol>
+<li><p>The <a href="https://github.com/neilhwatson/vim_cf3">Vim CFEngine plugin</a>
+has a built in skeleton policy file. In command mode ,k will insert
+the skeleton into the current buffer. This plugin&#39;s syntax
+highlighting will alert you about missing quotations and other
+syntax issues. If you are in the church of Emacs, there is an Emacs
+CFEngine plugin elsewhere on the web (its home is nebulous so I
+provide no link).</p></li>
+<li><p>CFEngine ships with many self contained examples that you can
+study. They are located in share/doc/examples in CFEngine&#39;s work
+directory (typically /var/cfengine).</p>
+
+<h4>#</h4>
+
+<p>Figure 1: Standalone unit test that ships with CFEngine. `</p>
+
+<p>ettin:/var/cfengine/share/doc/examples# cat unit_depends_on.cf
+  body common control
+  {
+  bundlesequence =&gt; { &quot;one&quot;  };
+  }</p>
+
+<p>bundle agent one
+  {
+  reports:</p>
+
+<p>cfengine_3::</p>
+
+<pre><code> &quot;two&quot;
+   depends_on =&gt; { &quot;handle_one&quot; };
+
+
+ &quot;one&quot;
+   handle =&gt; &quot;handle_one&quot;;
+</code></pre>
+
+<p>}</p>
+
+<p>`</p></li>
+<li><p>Many <a href="https://dev.cfengine.com/projects/core/issues">CFEngine bug reports</a>
+(especially mine) contain good self contained examples. Indeed, if
+you report CFEngine bugs, be sure to include a small prototype to
+demonstrate the undesired behaviour.</p></li>
+</ol>
+
+<h4>#</h4>
+
+<h4>Formal testing</h4>
+
+<p>Use real test plans. Don&#39;t just test that your policy works, prove it.
+You can even use CFEngine for unit testing. Let&#39;s look at an example.
+In practice I recommend you use Evolve Thinking&#39;s <a href="https://github.com/evolvethinking/delta_reporting">Free Promise
+Library(EFL)</a>, or
+some other policy framework, because they have ready to use policies
+that will save you a lot of time, but for this example we&#39;ll keep it
+small and hand made. I want you to see the concept rather than the
+actual implementation.</p>
+
+<p>We want a policy that will start a service if it is not running. Start
+by breaking this down into basic components that translate into
+CFEngine promises. Another best practice with CFEngine is to think in
+terms of processes, commands, and files. Virtually everything in UNIX
+is one of those three things. We can restate out example as promising
+to run a command if a process is not found. In this example our process
+is <em>sleep 99</em> and the command is <em>/tmp/proto.sh</em>.</p>
+
+<p>Here&#39;s my prototype. Note the <em>init</em> bundle, I use that to promise our
+service start script. By including it here my prototype is self
+contained. The bundle <em>proto</em> promises to define the class <em>start_service_proto_sh</em>
+if the process <em>sleep 99</em> is not found. The commands process runs our
+init script from the init bundle if the class <em>start_service_proto_sh</em>
+is true. Also, note that the body parts at the bottom are copies of
+bodies from the standard CFEngine library, except the <em>by_command</em> body
+which is from <a href="https://github.com/evolvethinking/delta_reporting">EFL</a>.</p>
+
+<p>Figure 2: My first prototype. <code></code></p>
+
+<pre><code>body common control
+{
+        bundlesequence =&gt; { &quot;main&quot;, };
+}
+
+bundle agent main
+{
+        methods:
+
+                &quot;Initialize prototype&quot; usebundle =&gt; init;
+                &quot;My prototype&quot; usebundle =&gt; proto; 
+}
+
+bundle agent init
+{
+   meta:
+      &#39;Purpose&#39; string =&gt; &#39;Initialize prototype service script&#39;;
+
+   vars:
+      &#39;service_script[location]&#39; string =&gt; &quot;/tmp/proto.sh&quot;;
+      &#39;service_script[contents]&#39; string =&gt;
+&quot;#!/bin/sh
+exec 1&gt;&amp;- # close stdout
+exec 2&gt;&amp;- # close stderr
+sleep 99 &gt; /dev/null &amp;
+
+exit 0
+&quot;;
+
+   files:
+      &quot;${service_script[location]}&quot;
+         comment       =&gt; &quot;Promise working script for testing&quot;,
+         create        =&gt; &#39;true&#39;,
+         perms         =&gt; m(&#39;755&#39;),
+         edit_defaults =&gt; empty,
+         edit_line     =&gt; insert_lines( ${service_script[contents]} );
+}
+
+bundle agent proto
+{
+   meta:
+      &#39;Purpose&#39; string =&gt; &quot;Promise to start service if not running.&quot;;
+
+   processes:
+      &quot;sleep 99&quot;
+         comment        =&gt; &quot;Test for desired process&quot;,
+         process_select =&gt; by_command( &quot;\Asleep 99\Z&quot; ),
+         restart_class  =&gt; &quot;start_service_proto_sh&quot;;
+
+   commands:
+      start_service_proto_sh::
+         &quot;${init.service_script[location]}&quot;
+         contain =&gt; in_shell;
+}
+
+body contain in_shell
+{
+   useshell =&gt; &quot;true&quot;;
+}
+
+body edit_defaults empty
+{
+   empty_file_before_editing =&gt; &quot;true&quot;;
+   edit_backup =&gt; &quot;false&quot;;
+}
+
+bundle edit_line insert_lines(lines)
+{
+   insert_lines:
+
+      &quot;$(lines)&quot;
+      comment =&gt; &quot;Append lines if they don&#39;t exist&quot;;
+}
+
+body perms m(mode)
+{
+   mode   =&gt; &quot;$(mode)&quot;;
+}
+
+body process_select by_command( command )
+{
+        command        =&gt; &quot;${command}&quot;;
+        process_result =&gt; &quot;command&quot;;
+}
+</code></pre>
+
+<p>Note that in the processes promise I use the <em>process_select</em>
+attribute. This may seem a duplicate of the promiser itself, but the
+difference is subtle. The promiser is matched against the entire line
+from a ps command. The process_select body uses the <em>command</em> attribute
+to match against the ps command&#39;s command column only. I also anchor
+the regular expression with \A and \Z. These extra details reduce the
+chances of false positive matching.</p>
+
+<p>During the process of writing this policy I frequently used the
+CFEngine program <em>cf-promises</em> to test my syntax.</p>
+
+<p>Figure 3: Testing syntax <code></code></p>
+
+<pre><code>      neil@ettin ~/.cfagent/inputs $ cf-promises -cf ./service.cf 
+      neil@ettin ~/.cfagent/inputs $ echo $?
+      0
+</code></pre>
+
+<p>If there was an error cf-promises would have shown it to me, and it
+would have returned a none zero status.</p>
+
+<p>Cf-promises will give line numbers to indicate the location of your
+error, but the error is often located at the line <em>before</em> the given
+line. Also, one error can result in a cascade of errors, so start with
+the first error listed.</p>
+
+<p>Let&#39;s run our test. It&#39;s important to know our expected results. If <em>sleep
+99</em> is not running I expect proto.sh to be run. If sleep 99 is running
+I expect nothing to happen. Let&#39;s try it.</p>
+
+<p>Figure 4: Our first prototype run <code></code></p>
+
+<pre><code>neil@ettin ~/.cfagent/inputs $ cf-agent -KIf ./service.cf ; ps -ef |grep sleep ;cf-agent -KIf ./service.cf
+2014-07-03T19:48:21-0400     info: /default/main/methods/&#39;My prototype&#39;/default/proto/processes/&#39;sleep 99&#39;[0]: Making a one-time restart promise for &#39;sleep 99&#39;
+2014-07-03T19:48:21-0400     info: /default/main/methods/&#39;My prototype&#39;/default/proto/commands/&#39;/tmp/proto.sh&#39;[0]: Executing &#39;no timeout&#39; ... &#39;/tmp/proto.sh&#39;
+2014-07-03T19:48:21-0400     info: /default/main/methods/&#39;My prototype&#39;/default/proto/commands/&#39;/tmp/proto.sh&#39;[0]: Completed execution of &#39;/tmp/proto.sh&#39;
+neil     102836      1  0 19:48 pts/6    00:00:00 sleep 99
+neil     102838  35478  0 19:48 pts/6    00:00:00 grep --color=auto sleep
+</code></pre>
+
+<p>Success! This is a good first prototype, but I want more and continuous
+testing. Now, I&#39;ll add a unit test that makes the agent break its own
+configuration. I add this bundle to our prototype file and change the
+methods in the main bundle.</p>
+
+<p>Figure 5: Adding a unit test <code></code></p>
+
+<pre><code>## Change main bundle:
+bundle agent main
+{
+   methods:
+
+      &quot;Initialize prototype&quot; usebundle =&gt; init;
+
+      unit_01::
+         &quot;unit_01&quot; usebundle =&gt; unit_01;
+
+      any::
+         &quot;My prototype&quot; usebundle =&gt; proto; 
+}
+
+# Added unit test bundle
+bundle agent unit_01
+{
+   meta:
+      &#39;Purpose&#39; string =&gt; &quot;Kill process unit test&quot;;
+
+   processes:
+      &quot;sleep 99&quot;
+         comment        =&gt; &quot;Test for desired process&quot;,
+         process_select =&gt; by_command( &quot;\Asleep 99\Z&quot; ),
+         signals        =&gt; { &quot;term&quot;, &quot;kill&quot; };
+}
+</code></pre>
+
+<p>Now we have a bundle <em>unit_01</em> that is called when the same named class
+is true. This will kill the sleep 99 process forcing the proto bundle
+to restart it.</p>
+
+<p>Figure 6: Unit test in action. <code></code></p>
+
+<pre><code>neil@ettin ~/.cfagent/inputs $ cf-agent -KIf ./service.cf -D unit_01 ; ps -ef|grep sleep
+2014-07-03T19:15:06-0400     info: /default/main/methods/&#39;unit_01&#39;/default/unit_01/processes/&#39;sleep 99&#39;[0]: Signalled &#39;term&#39; (15) to process 107369 (neil     107369      1 107360  0.0  0.0   4216   0   356    1 19:14 00:00:00 sleep 99)
+2014-07-03T19:15:06-0400     info: /default/main/methods/&#39;unit_01&#39;/default/unit_01/processes/&#39;sleep 99&#39;[0]: Signalled &#39;kill&#39; (9) to process 107369 (neil     107369      1 107360  0.0  0.0   4216   0   356    1 19:14 00:00:00 sleep 99)
+2014-07-03T19:15:06-0400     info: /default/main/methods/&#39;My prototype&#39;/default/proto/processes/&#39;sleep 99&#39;[0]: Making a one-time restart promise for &#39;sleep 99&#39;
+2014-07-03T19:15:06-0400     info: /default/main/methods/&#39;My prototype&#39;/default/proto/commands/&#39;/tmp/proto.sh&#39;[0]: Executing &#39;no timeout&#39; ... &#39;/tmp/proto.sh&#39;
+2014-07-03T19:15:06-0400     info: /default/main/methods/&#39;My prototype&#39;/default/proto/commands/&#39;/tmp/proto.sh&#39;[0]: Completed execution of &#39;/tmp/proto.sh&#39;
+neil     107437      1  0 19:15 pts/6    00:00:00 sleep 99
+neil     107439  35478  0 19:15 pts/6    00:00:00 grep --color=auto sleep
+</code></pre>
+
+<p>For a more complex policy you can have multiple scenarios that must be
+repaired, each one being a separate unit test.</p>
+
+<h4>Large scale testing</h4>
+
+<p>In a prefect world we are all running a single flavour of UNIX. When
+you find this utopia <a href="https://twitter.com/neil_h_watson">tweet me</a>!.
+Until then we must test our policy on all our different host types. In
+a really small shop you may manually copy your prototype, conveniently
+a single file, to your different hosts types and run it on each.</p>
+
+<p>The rest of us are not so fortunate and will have to test our policy on
+more than a few hosts. A less manual approach is to integrate this
+prototype into your main policy, but only run it on select hosts. Then
+you can check each host to see if it is working. If you are using
+central reporting tools like <a href="http://www.rudder-project.org">Rudder</a>, <a href="http://cfengine.com/">CFEngine
+Enterprise</a> or <a href="http://watson-wilson.ca">Evolve&#39;s</a>
+own <a href="https://github.com/evolvethinking/delta_reporting">Delta Reporting</a>
+you&#39;ll be able to get reports showing your prototype in action on all
+of your test hosts.</p>
+
+<p>Figure 7: Delta Reporting showing an ntp process promise on multiple
+hosts <a href="/static/images/dr-process-report.png"><img alt="Reporting on ntp process promises" src="/static/images/dr-process-report.png"></a></p>
+
+<h4>#</h4>
+
+<h4>Summary</h4>
+
+<p>This ends my entry on testing best practices. Let&#39;s review.</p>
+
+<ol>
+<li><p>Start with simple prototypes.</p></li>
+<li><p>Use editor plugins.</p></li>
+<li><p>Check syntax with cf-promises.</p></li>
+<li><p>Test formally, including unit tests.</p></li>
+<li><p>Test on multiple architectures. Use reporting for scale.</p></li>
+</ol>
+
+            </section>
+        </main>
+
+
+    </div>
+
+    <div class="col-md-3">
+        <iframe frameborder="0" src="https://duckduckgo.com/search.html?site=watson-wilson.ca&amp;prefill=Search DuckDuckGo" style="overflow:hidden;margin:0;padding:0;width:350px;height:40px;"></iframe>
+
+        <nav id="tags">
+            <h1>Tags</h1>
+            <ul class="list-inline">
+                <li><a href="/blog/tag/Cfengine/">Cfengine</a></li>
+                <li><a href="/blog/tag/EFL/">EFL</a></li>
+                <li><a href="/blog/tag/anti-virus/">anti-virus</a></li>
+                <li><a href="/blog/tag/apt/">apt</a></li>
+                <li><a href="/blog/tag/backup/">backup</a></li>
+                <li><a href="/blog/tag/best-practices/">best practices</a></li>
+                <li><a href="/blog/tag/cfengine/">cfengine</a></li>
+                <li><a href="/blog/tag/cfengine-cookbook/">cfengine cookbook</a></li>
+                <li><a href="/blog/tag/cheatsheet/">cheatsheet</a></li>
+                <li><a href="/blog/tag/cli/">cli</a></li>
+                <li><a href="/blog/tag/cloud/">cloud</a></li>
+                <li><a href="/blog/tag/cluster/">cluster</a></li>
+                <li><a href="/blog/tag/conferences/">conferences</a></li>
+                <li><a href="/blog/tag/configuration-management/">configuration management</a></li>
+                <li><a href="/blog/tag/cron/">cron</a></li>
+                <li><a href="/blog/tag/debian/">debian</a></li>
+                <li><a href="/blog/tag/delta-reporting/">delta reporting</a></li>
+                <li><a href="/blog/tag/devops/">devops</a></li>
+                <li><a href="/blog/tag/dns/">dns</a></li>
+                <li><a href="/blog/tag/dr/">dr</a></li>
+                <li><a href="/blog/tag/heartbeat/">heartbeat</a></li>
+                <li><a href="/blog/tag/high-availability/">high availability</a></li>
+                <li><a href="/blog/tag/infosec/">infosec</a></li>
+                <li><a href="/blog/tag/ipv6/">ipv6</a></li>
+                <li><a href="/blog/tag/irc/">irc</a></li>
+                <li><a href="/blog/tag/iscsi/">iscsi</a></li>
+                <li><a href="/blog/tag/jekyll/">jekyll</a></li>
+                <li><a href="/blog/tag/kickstart/">kickstart</a></li>
+                <li><a href="/blog/tag/kvm/">kvm</a></li>
+                <li><a href="/blog/tag/linux/">linux</a></li>
+                <li><a href="/blog/tag/monitoring/">monitoring</a></li>
+                <li><a href="/blog/tag/multipathd/">multipathd</a></li>
+                <li><a href="/blog/tag/mustache/">mustache</a></li>
+                <li><a href="/blog/tag/networking/">networking</a></li>
+                <li><a href="/blog/tag/opennms/">opennms</a></li>
+                <li><a href="/blog/tag/opensource/">opensource</a></li>
+                <li><a href="/blog/tag/oracle/">oracle</a></li>
+                <li><a href="/blog/tag/patching/">patching</a></li>
+                <li><a href="/blog/tag/pcre/">pcre</a></li>
+                <li><a href="/blog/tag/perl/">perl</a></li>
+                <li><a href="/blog/tag/posix/">posix</a></li>
+                <li><a href="/blog/tag/programming/">programming</a></li>
+                <li><a href="/blog/tag/provisioning/">provisioning</a></li>
+                <li><a href="/blog/tag/red-hat/">red hat</a></li>
+                <li><a href="/blog/tag/redhat/">redhat</a></li>
+                <li><a href="/blog/tag/regex/">regex</a></li>
+                <li><a href="/blog/tag/rhev/">rhev</a></li>
+                <li><a href="/blog/tag/san/">san</a></li>
+                <li><a href="/blog/tag/satellite/">satellite</a></li>
+                <li><a href="/blog/tag/scripting/">scripting</a></li>
+                <li><a href="/blog/tag/security/">security</a></li>
+                <li><a href="/blog/tag/serverspec/">serverspec</a></li>
+                <li><a href="/blog/tag/shell/">shell</a></li>
+                <li><a href="/blog/tag/software-testing/">software testing</a></li>
+                <li><a href="/blog/tag/solaris/">solaris</a></li>
+                <li><a href="/blog/tag/spacewalk/">spacewalk</a></li>
+                <li><a href="/blog/tag/ssh/">ssh</a></li>
+                <li><a href="/blog/tag/statocles/">statocles</a></li>
+                <li><a href="/blog/tag/subversion/">subversion</a></li>
+                <li><a href="/blog/tag/sun/">sun</a></li>
+                <li><a href="/blog/tag/support/">support</a></li>
+                <li><a href="/blog/tag/svn/">svn</a></li>
+                <li><a href="/blog/tag/sysadmin/">sysadmin</a></li>
+                <li><a href="/blog/tag/sysctl/">sysctl</a></li>
+                <li><a href="/blog/tag/terraform/">terraform</a></li>
+                <li><a href="/blog/tag/virus/">virus</a></li>
+                <li><a href="/blog/tag/vitualization/">vitualization</a></li>
+                <li><a href="/blog/tag/website/">website</a></li>
+            </ul>
+        </nav>
+    </div>
+
+</div>
+
+<div class="row">
+   <div class="col-md-1">
+       <img atl="Neil Watson" src="https://gravatar.com/avatar/1f0969599955a953e592034929ed7a23">
+   </div>
+
+       <div class="col-md-1">
+            <!-- reddit this -->
+            <a href="//www.reddit.com/submit" onclick="window.location = &#39;//www.reddit.com/submit?url=&#39; + encodeURIComponent(window.location); return false"><img alt="submit to reddit" border="0" src="//www.redditstatic.com/spreddit7.gif"></a>
+       </div>
+
+       <div class="col-md-1">
+          <!-- Tweet this -->
+          <a class="twitter-share-button" data-count="none" data-via="neil_h_watson" href="https://twitter.com/share">Tweet</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+       </div>
+
+       <div class="col-md-1">
+          <!-- follow me on twitter -->
+          <a class="twitter-follow-button" data-show-count="false" data-show-screen-name="false" href="https://twitter.com/neil_h_watson">Follow @neil_h_watson</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+        </div>
+
+       <div class="col-md-1">
+           <!-- follw me on github -->
+            <a aria-label="Follow @neilhwatson on GitHub" class="github-button" data-style="mega" href="https://github.com/neilhwatson">Follow</a>
+            <script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
+       </div>
+
+</div>
+
+        </div>
+        <footer>
+            
+            <h1></h1>
+            <div class="col-md-5"> </div>
+            <div class="col-md-3 container tagline">
+                <a href="http://preaction.me/statocles">Made with Statocles</a><br>
+                <a href="http://www.perl.org">Powered by Perl</a>
+            </div>
+        </footer>
+    </body>
+</html>

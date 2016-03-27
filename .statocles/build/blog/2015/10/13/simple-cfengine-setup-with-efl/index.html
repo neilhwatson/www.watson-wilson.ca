@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <link href="/theme/css/readability-bootstrap.min.css" rel="stylesheet">
+        <!--<link rel="stylesheet" href="/theme/css/statocles-bootstrap.css" />-->
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+        <title>Simple CFEngine setup with EFL - Neil H. Watson</title>
+        <meta content="Statocles 0.073" name="generator">
+        
+
+        <!-- For source highlighting -->
+        <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/default.min.css" rel="stylesheet">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+
+    </head>
+    <body>
+        <header>
+            <nav class="navbar navbar-default navbar-static-top" role="navigation">
+                <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button class="navbar-toggle" data-target="#top-navbar-collapse-1" data-toggle="collapse" type="button">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="/">Neil H. Watson</a>
+                    </div>
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="top-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <li><a href="/page/about">About me</a></li>
+                            <li><a href="/static/resume_neil_h_watson.pdf">Resume</a></li>
+                            <li><a href="/page/projects">Projects</a></li>
+                        </ul>
+                        
+                    </div>
+                </div>
+            </nav>
+            
+        </header>
+        <div class="main container">
+            <div class="row">
+
+    <div class="col-md-9">
+        <main>
+            <header>
+                <h1>Simple CFEngine setup with EFL</h1>
+                <p class="tags">Tags:
+                    <a href="/blog/tag/Cfengine/" rel="tag">Cfengine</a>
+                    <a href="/blog/tag/EFL/" rel="tag">EFL</a>
+                </p>
+
+                <aside>
+                    <p><time datetime="2015-10-13">
+                        Posted on 2015-10-13
+                    </time>
+                        by nwatson
+                    </p>
+                </aside>
+
+
+            </header>
+            <section id="section-1">
+                <p><img alt="image of stopwatch" src="/static/images/stopwatch_13154_sm.gif"></p>
+
+<p>CFEngine can be confusing and frustrating for new users. I&#39;ll try to
+offer you a condensed and easy to follow procedure, including the <a href="https://github.com/evolvethinking/evolve_cfengine_freelib">EFL</a>
+addon.</p>
+
+            </section>
+            <section id="section-2">
+                <h2>Concepts</h2>
+
+<p>CFEngine is client server application. The server, sometimes called the
+hub, runs the program cf-serverd that acts as a file server for agents.
+Cf-agent, the agent program, runs on all hosts including server. It
+downloads policy and files from the server and enforces that policy on
+the host by manipulating files and processes, just as a normal sysadmin
+would.</p>
+
+<p>Classes are the <em>if ( test ) then</em> of the CFEngine language. Tests are
+built in, called <em>hard classes</em>, or user defined, <em>soft classes</em>. Hosts
+that pass the test are members of the class.</p>
+
+<ul>
+<li><p>Example hard classes: linux, ipv4_10_0_0_0, debian, cfengine_3_7.</p></li>
+<li><p>Example soft classes: dmz_host, firewall, dhcp_server,
+restart_httpd.</p></li>
+</ul>
+
+<h1>#</h1>
+
+<h2>Procedure</h2>
+
+<ol>
+<li><p>Downlaod and install CFEngine</p></li>
+<li><p>Prep masterfiles</p></li>
+<li><p>Install EFL</p></li>
+<li><p>Using IPv6</p></li>
+<li><p>Server ACL rules</p></li>
+<li><p>Stage inputs</p></li>
+<li><p>Test</p></li>
+<li><p>Start cf-serverd</p></li>
+<li><p>Bootstrap agent hosts</p></li>
+<li><p>Version control</p></li>
+<li><p>Getting stuff done</p></li>
+</ol>
+
+<h1>#</h1>
+
+<p>Note: assume these steps are on your CFEngine server unless stated
+otherwise.</p>
+
+<h3>Download and install CFEngine</h3>
+
+<p>Official CFEngine packages are found <a href="https://cfengine.com/product/community/">here</a>.
+Packages for most Linux distributions can be found there. For none
+Linux binaries try <a href="http://www.cfengineers.net/downloads/cfengine-community-packages/">CFEngineers.net</a>
+or you&#39;ll have build your own binaries from the <a href="https://github.com/cfengine/core">source code</a>.
+By default CFEngine installs to the prefix /var/cfengine.</p>
+
+<h3>Prep masterfiles</h3>
+
+<p>The CFEngine masterfiles policy framework is installed with the
+binaries to /var/cfengine/share/corebase. Copy the contents to
+/var/cfengine/masterfiles. Masterfiles is the default directory that
+the agent will draw files from at bootstrap and afterwards. Sometimes
+the masterfiles are not packaged with CFEngine. In such cases you have
+to get masterfiles from the <a href="https://github.com/cfengine/masterfiles">source</a>.
+You can copy files from other locations too, but bootstrapping is
+always from masterfiles. This is an advanced topic for another
+discussion.</p>
+
+<h3>Prep EFL&#39;s masterfiles</h3>
+
+<p>Download <a href="https://github.com/evolvethinking/evolve_cfengine_freelib">EFL&#39;s</a>
+masterfiles directory into /var/cfengine/masterfiles.</p>
+
+<h4>Edit def.json</h4>
+
+<p>Def.json is read by the masterfiles policy and parsed for select
+information. To enable EFL to run add this to
+/var/cfengine/masterfiles/def.json, or create the file if it does not
+exists.</p>
+
+<p>``</p>
+
+<pre><code>{
+   &quot;classes&quot; :
+      {
+         &quot;services_autorun&quot; : &quot;any&quot;
+      }
+}
+</code></pre>
+
+<p>This snippet turns on the soft class <em>services_autorun</em> which will
+cause CFEngine to read the EFL file <em>services/efl.cf</em>.</p>
+
+<h3>Using IPv6</h3>
+
+<p>Sadly CFEngine does not support IPv6 out of the box. You must make
+changes to masterfiles. Edit the file controls/cf_serverd.cf. In the <em>body
+server control</em> add this line:</p>
+
+<p>`</p>
+
+<pre><code>body server control {
+
+# Add this line to make cf-server listen on all interfaces, 
+# including IPv6 interfaces
+   bindtointerface =&gt; &quot;::&quot;;
+</code></pre>
+
+<p>`</p>
+
+<h3>Server ACL rules</h3>
+
+<p>Recall that cf-serverd is a file server. Like most file servers it uses
+ACL rules to determine what clients are able to access. Masterfiles
+allows some ACLs in def.json, but EFL&#39;s own mechanism is more flexible.
+In this example, assume your server is 2001:DB8::2, with a hostname of
+&#39;mars&#39; and your other clients are in the range of 2001:DB8::/32. Change
+these to IPv6 or 4 addresses as you require. Edit the file
+efl_data/bundle_params/efl_server.json to match what is shown below.
+Cf-serverd will read this file, and if the hosts is a member of the
+mars hard class (derived from the hostname), it will allow agents
+access to /var/cfengine/modules and /var/cfengine/masterfiles if they
+are part of the network 2001:0DB8::/32.</p>
+
+<p>`</p>
+
+<pre><code>[
+   {
+      &quot;promisee&quot; : &quot;cfengine server&quot;,
+      &quot;class&quot; : &quot;mars&quot;,
+      &quot;path&quot; : &quot;${sys.workdir}/masterfiles/&quot;,
+      &quot;admit&quot; : [
+         &quot;2001:0DB8::/32&quot;
+      ]
+   },
+   {
+      &quot;path&quot; : &quot;${sys.workdir}/modules/&quot;,
+      &quot;class&quot; : &quot;mars&quot;,
+      &quot;promisee&quot; : &quot;cfengine server&quot;,
+      &quot;admit&quot; : [
+         &quot;2001:0DB8::/32&quot;
+      ]
+   }
+]
+</code></pre>
+
+<p>`</p>
+
+<p>Note that <em>admit</em> is an array. Add more networks to the arrays to grant
+access to agent hosts from other networks.</p>
+
+<h3>Stage inputs</h3>
+
+<p>Now that mastefiles is ready copy them to /var/cfengine/inputs in order
+to start the server.</p>
+
+<h3>Test</h3>
+
+<p>Test your new inputs with /var/cfengine/bin/cf-promises -c. If no
+errors are printed and the exit status is zero, you&#39;re good to go.</p>
+
+<h3>Start cfengine</h3>
+
+<p>``</p>
+
+<pre><code>/var/cfengine/bin/cf-serverd
+</code></pre>
+
+<h3>Boostrap the agent</h3>
+
+<p>Now bootstrap the server to itself. The server is always it&#39;s first
+client host.</p>
+
+<p><code>/var/cfengine/bin/cf-agent -B 2001:DB8::2</code>. Repeat this bootstrap
+command on other agent hosts.</p>
+
+<h3>Version control</h3>
+
+<p>Now that masterfiles is working check it into version control. Git,
+Mercurial, Subversion, whatever you use, but don&#39;t edit masterfiles
+directly. Use version control, stage changes, then deploy to the
+masterfiles directory. See my <a href="http://watson-wilson.ca/cfengine-best-practices-testing/">best practices
+</a>articles for
+more information on testing and staging.</p>
+
+<h3>Getting stuff done</h3>
+
+<p>Now that masterfiles is working you&#39;ll want to write your own policy.
+You shouldn&#39;t do that, but let me explain before you get angry. EFL can
+accomplish most of your tasks without you having to write custom
+CFEngine policy. Now that you have EFL installed, mastefiles working,
+and agent hosts boostrapped, you just need to start using EFL. See <a href="https://github.com/evolvethinking/evolve_cfengine_freelib/blob/master/INSTALL.md#building-data-files">building
+data files</a>
+in the EFL install document.</p>
+
+<h3>About EFL</h3>
+
+<p><a href="https://github.com/evolvethinking/evolve_cfengine_freelib">EFL</a> is an
+open source policy framework for CFEngine. EFL&#39;s goal to tackle the
+most common CFEngine tasks without having to write your own policy. It
+is mature (since May 2013), <a href="http://watson-wilson.ca/efl-is-tested-for-your-confidence/">well tested</a>,
+and you can buy support from its creator <a href="http://watson-wilson.ca/">Evolve Thinking</a>.</p>
+
+            </section>
+        </main>
+
+
+    </div>
+
+    <div class="col-md-3">
+        <iframe frameborder="0" src="https://duckduckgo.com/search.html?site=watson-wilson.ca&amp;prefill=Search DuckDuckGo" style="overflow:hidden;margin:0;padding:0;width:350px;height:40px;"></iframe>
+
+        <nav id="tags">
+            <h1>Tags</h1>
+            <ul class="list-inline">
+                <li><a href="/blog/tag/Cfengine/">Cfengine</a></li>
+                <li><a href="/blog/tag/EFL/">EFL</a></li>
+                <li><a href="/blog/tag/anti-virus/">anti-virus</a></li>
+                <li><a href="/blog/tag/apt/">apt</a></li>
+                <li><a href="/blog/tag/backup/">backup</a></li>
+                <li><a href="/blog/tag/best-practices/">best practices</a></li>
+                <li><a href="/blog/tag/cfengine/">cfengine</a></li>
+                <li><a href="/blog/tag/cfengine-cookbook/">cfengine cookbook</a></li>
+                <li><a href="/blog/tag/cheatsheet/">cheatsheet</a></li>
+                <li><a href="/blog/tag/cli/">cli</a></li>
+                <li><a href="/blog/tag/cloud/">cloud</a></li>
+                <li><a href="/blog/tag/cluster/">cluster</a></li>
+                <li><a href="/blog/tag/conferences/">conferences</a></li>
+                <li><a href="/blog/tag/configuration-management/">configuration management</a></li>
+                <li><a href="/blog/tag/cron/">cron</a></li>
+                <li><a href="/blog/tag/debian/">debian</a></li>
+                <li><a href="/blog/tag/delta-reporting/">delta reporting</a></li>
+                <li><a href="/blog/tag/devops/">devops</a></li>
+                <li><a href="/blog/tag/dns/">dns</a></li>
+                <li><a href="/blog/tag/dr/">dr</a></li>
+                <li><a href="/blog/tag/heartbeat/">heartbeat</a></li>
+                <li><a href="/blog/tag/high-availability/">high availability</a></li>
+                <li><a href="/blog/tag/infosec/">infosec</a></li>
+                <li><a href="/blog/tag/ipv6/">ipv6</a></li>
+                <li><a href="/blog/tag/irc/">irc</a></li>
+                <li><a href="/blog/tag/iscsi/">iscsi</a></li>
+                <li><a href="/blog/tag/jekyll/">jekyll</a></li>
+                <li><a href="/blog/tag/kickstart/">kickstart</a></li>
+                <li><a href="/blog/tag/kvm/">kvm</a></li>
+                <li><a href="/blog/tag/linux/">linux</a></li>
+                <li><a href="/blog/tag/monitoring/">monitoring</a></li>
+                <li><a href="/blog/tag/multipathd/">multipathd</a></li>
+                <li><a href="/blog/tag/mustache/">mustache</a></li>
+                <li><a href="/blog/tag/networking/">networking</a></li>
+                <li><a href="/blog/tag/opennms/">opennms</a></li>
+                <li><a href="/blog/tag/opensource/">opensource</a></li>
+                <li><a href="/blog/tag/oracle/">oracle</a></li>
+                <li><a href="/blog/tag/patching/">patching</a></li>
+                <li><a href="/blog/tag/pcre/">pcre</a></li>
+                <li><a href="/blog/tag/perl/">perl</a></li>
+                <li><a href="/blog/tag/posix/">posix</a></li>
+                <li><a href="/blog/tag/programming/">programming</a></li>
+                <li><a href="/blog/tag/provisioning/">provisioning</a></li>
+                <li><a href="/blog/tag/red-hat/">red hat</a></li>
+                <li><a href="/blog/tag/redhat/">redhat</a></li>
+                <li><a href="/blog/tag/regex/">regex</a></li>
+                <li><a href="/blog/tag/rhev/">rhev</a></li>
+                <li><a href="/blog/tag/san/">san</a></li>
+                <li><a href="/blog/tag/satellite/">satellite</a></li>
+                <li><a href="/blog/tag/scripting/">scripting</a></li>
+                <li><a href="/blog/tag/security/">security</a></li>
+                <li><a href="/blog/tag/serverspec/">serverspec</a></li>
+                <li><a href="/blog/tag/shell/">shell</a></li>
+                <li><a href="/blog/tag/software-testing/">software testing</a></li>
+                <li><a href="/blog/tag/solaris/">solaris</a></li>
+                <li><a href="/blog/tag/spacewalk/">spacewalk</a></li>
+                <li><a href="/blog/tag/ssh/">ssh</a></li>
+                <li><a href="/blog/tag/statocles/">statocles</a></li>
+                <li><a href="/blog/tag/subversion/">subversion</a></li>
+                <li><a href="/blog/tag/sun/">sun</a></li>
+                <li><a href="/blog/tag/support/">support</a></li>
+                <li><a href="/blog/tag/svn/">svn</a></li>
+                <li><a href="/blog/tag/sysadmin/">sysadmin</a></li>
+                <li><a href="/blog/tag/sysctl/">sysctl</a></li>
+                <li><a href="/blog/tag/terraform/">terraform</a></li>
+                <li><a href="/blog/tag/virus/">virus</a></li>
+                <li><a href="/blog/tag/vitualization/">vitualization</a></li>
+                <li><a href="/blog/tag/website/">website</a></li>
+            </ul>
+        </nav>
+    </div>
+
+</div>
+
+<div class="row">
+   <div class="col-md-1">
+       <img atl="Neil Watson" src="https://gravatar.com/avatar/1f0969599955a953e592034929ed7a23">
+   </div>
+
+       <div class="col-md-1">
+            <!-- reddit this -->
+            <a href="//www.reddit.com/submit" onclick="window.location = &#39;//www.reddit.com/submit?url=&#39; + encodeURIComponent(window.location); return false"><img alt="submit to reddit" border="0" src="//www.redditstatic.com/spreddit7.gif"></a>
+       </div>
+
+       <div class="col-md-1">
+          <!-- Tweet this -->
+          <a class="twitter-share-button" data-count="none" data-via="neil_h_watson" href="https://twitter.com/share">Tweet</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+       </div>
+
+       <div class="col-md-1">
+          <!-- follow me on twitter -->
+          <a class="twitter-follow-button" data-show-count="false" data-show-screen-name="false" href="https://twitter.com/neil_h_watson">Follow @neil_h_watson</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+        </div>
+
+       <div class="col-md-1">
+           <!-- follw me on github -->
+            <a aria-label="Follow @neilhwatson on GitHub" class="github-button" data-style="mega" href="https://github.com/neilhwatson">Follow</a>
+            <script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
+       </div>
+
+</div>
+
+        </div>
+        <footer>
+            
+            <h1></h1>
+            <div class="col-md-5"> </div>
+            <div class="col-md-3 container tagline">
+                <a href="http://preaction.me/statocles">Made with Statocles</a><br>
+                <a href="http://www.perl.org">Powered by Perl</a>
+            </div>
+        </footer>
+    </body>
+</html>

@@ -1,0 +1,133 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>http://watson-wilson.ca/blog/</id>
+    <title>Neil H. Watson</title>
+    <updated>2016-03-27T00:00:00Z</updated>
+    <link href="http://watson-wilson.ca/blog/index.atom" rel="self" />
+    <link href="http://watson-wilson.ca/blog/" rel="alternate" />
+    <generator version="0.073">Statocles</generator>
+    <entry>
+        <id>http://watson-wilson.ca/blog/2016/03/27/vote_for_cfengine_bugs/</id>
+        <title>Vote for your favourite CFEngine bugs</title>
+        <link href="http://watson-wilson.ca/blog/2016/03/27/vote_for_cfengine_bugs/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p><a href="https://openclipart.org/detail/223801/bad-bug">
+    <img alt="bug photo" src="https://openclipart.org/download/223801/bad-bug.svg" style="float:right"></a></p>
+
+<p>CFEngine has switched to a
+<a href="https://tracker.mender.io/projects/CFE/summary">JIRA bug system</a> and this
+system allows us to vote for bugs. I encourage you to vote for your favourite
+bugs; here are mine:</p>
+
+                <p><a href="http://watson-wilson.ca/blog/2016/03/27/vote_for_cfengine_bugs/#section-2">Continue reading...</a></p>
+            <p>Tags:
+                <a href="http://watson-wilson.ca/blog/tag/cfengine/">cfengine</a>
+                <a href="http://watson-wilson.ca/blog/tag/configuration-management/">configuration management</a>
+            </p>
+        ]]></content>
+        <updated>2016-03-27T00:00:00Z</updated>
+        <category term="cfengine" />
+        <category term="configuration management" />
+    </entry>
+    <entry>
+        <id>http://watson-wilson.ca/blog/2016/01/08/terraform-intro/</id>
+        <title>Introduction to Terraform</title>
+        <link href="http://watson-wilson.ca/blog/2016/01/08/terraform-intro/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p><a href="https://terraform.io/"><img alt="terraform logo" src="https://raw.githubusercontent.com/hashicorp/terraform/master/website/source/assets/images/logo-static.png" style="float:right" width="120px"></a></p>
+
+<p><a href="https://terraform.io/">Terraform</a> allows you to manage your AWS, and other
+cloud infrastructure, the same way you would manage servers using configuration
+management products like CFEngine or Puppet. Terraform is idempotent and
+convergent so only required changes are applied.</p>
+
+                <p><a href="http://watson-wilson.ca/blog/2016/01/08/terraform-intro/#section-2">Continue reading...</a></p>
+            <p>Tags:
+                <a href="http://watson-wilson.ca/blog/tag/terraform/">terraform</a>
+                <a href="http://watson-wilson.ca/blog/tag/cloud/">cloud</a>
+                <a href="http://watson-wilson.ca/blog/tag/configuration-management/">configuration management</a>
+            </p>
+        ]]></content>
+        <updated>2016-01-08T00:00:00Z</updated>
+        <category term="terraform" />
+        <category term="cloud" />
+        <category term="configuration management" />
+    </entry>
+    <entry>
+        <id>http://watson-wilson.ca/blog/2015/12/08/spacewalk/</id>
+        <title>Installing Spacewalk</title>
+        <link href="http://watson-wilson.ca/blog/2015/12/08/spacewalk/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p>Here&#39;s a quick procedure for installing <a href="http://spacewalk.redhat.com/">Spacewalk</a>.</p>
+
+                <p><a href="http://watson-wilson.ca/blog/2015/12/08/spacewalk/#section-2">Continue reading...</a></p>
+            <p>Tags:
+                <a href="http://watson-wilson.ca/blog/tag/satellite/">satellite</a>
+                <a href="http://watson-wilson.ca/blog/tag/spacewalk/">spacewalk</a>
+                <a href="http://watson-wilson.ca/blog/tag/provisioning/">provisioning</a>
+                <a href="http://watson-wilson.ca/blog/tag/patching/">patching</a>
+                <a href="http://watson-wilson.ca/blog/tag/red-hat/">red hat</a>
+            </p>
+        ]]></content>
+        <updated>2015-12-08T00:00:00Z</updated>
+        <category term="satellite" />
+        <category term="spacewalk" />
+        <category term="provisioning" />
+        <category term="patching" />
+        <category term="red hat" />
+    </entry>
+    <entry>
+        <id>http://watson-wilson.ca/blog/2015/11/25/terraform/</id>
+        <title>Terraform: config management for the cloud</title>
+        <link href="http://watson-wilson.ca/blog/2015/11/25/terraform/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p><a href="https://terraform.io/"><img alt="terraform logo" src="https://raw.githubusercontent.com/hashicorp/terraform/master/website/source/assets/images/logo-static.png" style="float:right" width="120px"></a></p>
+
+<p>I saw a great <a href="https://terraform.io/">Terraform</a> presentation last week at a
+Devops <a href="http://www.meetup.com/DevOpsTO/">meetup</a>. Terraform is a configuration
+management tool for virtual infrastructure. You can define your AWS or similar
+environment using a descriptive language.</p>
+
+<ul>
+<li><a href="http://slides.com/adammeghji/universe-terraform#/">Slides</a></li>
+<li><a href="https://github.com/adammeghji/terraform-demo">Sample code</a></li>
+<li><a href="https://plus.google.com/events/cfjrv6r27e3k6t65n28fdmp6j9c">Recording</a></li>
+</ul>
+
+                <p><a href="http://watson-wilson.ca/blog/2015/11/25/terraform/#section-2">Continue reading...</a></p>
+            <p>Tags:
+                <a href="http://watson-wilson.ca/blog/tag/configuration-management/">configuration management</a>
+                <a href="http://watson-wilson.ca/blog/tag/cloud/">cloud</a>
+                <a href="http://watson-wilson.ca/blog/tag/terraform/">terraform</a>
+            </p>
+        ]]></content>
+        <updated>2015-11-25T00:00:00Z</updated>
+        <category term="configuration management" />
+        <category term="cloud" />
+        <category term="terraform" />
+    </entry>
+    <entry>
+        <id>http://watson-wilson.ca/blog/2015/11/25/perl-cheatsheet/</id>
+        <title>Perl cheatsheet</title>
+        <link href="http://watson-wilson.ca/blog/2015/11/25/perl-cheatsheet/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p>If you are looking for my Perl cheatsheet, it&#39;s over
+<a href="https://github.com/neilhwatson/nustuff/blob/master/perl/cheatsheet.pod">here</a>.
+Lots of interesting stuff in that repo.</p>
+
+                <p><a href="http://watson-wilson.ca/blog/2015/11/25/perl-cheatsheet/#section-2">Continue reading...</a></p>
+            <p>Tags:
+                <a href="http://watson-wilson.ca/blog/tag/perl/">perl</a>
+                <a href="http://watson-wilson.ca/blog/tag/cheatsheet/">cheatsheet</a>
+                <a href="http://watson-wilson.ca/blog/tag/programming/">programming</a>
+                <a href="http://watson-wilson.ca/blog/tag/scripting/">scripting</a>
+            </p>
+        ]]></content>
+        <updated>2015-11-25T00:00:00Z</updated>
+        <category term="perl" />
+        <category term="cheatsheet" />
+        <category term="programming" />
+        <category term="scripting" />
+    </entry>
+</feed>
+

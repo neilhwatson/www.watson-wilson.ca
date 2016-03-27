@@ -1,0 +1,120 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>http://watson-wilson.ca/blog/tag/shell/</id>
+    <title>Neil H. Watson</title>
+    <updated>2011-03-08T00:00:00Z</updated>
+    <link href="http://watson-wilson.ca/blog/tag/shell.atom" rel="self" />
+    <link href="http://watson-wilson.ca/blog/tag/shell/" rel="alternate" />
+    <generator version="0.073">Statocles</generator>
+    <entry>
+        <id>http://watson-wilson.ca/blog/2011/03/08/shell-cheatsheet/</id>
+        <title>Shell cheatsheet</title>
+        <link href="http://watson-wilson.ca/blog/2011/03/08/shell-cheatsheet/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p>The following may not apply to all shells.</p>
+
+<h2>Job control</h2>
+
+<ul>
+<li>Resume job after suspend: <code>ctrl-q</code></li>
+<li>Resume job in background: <code>bg &lt;job number&gt;</code></li>
+<li>Resume job in foreground: <code>fg &lt;job number&gt;</code></li>
+<li>Suspend delay (suspend at stdin): <code>ctrl-y</code></li>
+<li>Suspend:  <code>ctrl-z</code></li>
+</ul>
+
+<h2>Command line laziness</h2>
+
+<ul>
+<li>Recall history line 66: <code>!66</code></li>
+<li>Recall last command: <code>!!</code></li>
+<li>Recall last arguement from last command: <code>!$</code></li>
+<li>Recall all arguements from last command: <code>!*</code></li>
+<li>Clear shell history: <code>history -c</code></li>
+<li>Delete shell history entry: <code>history -d &lt;number&gt;</code></li>
+<li><p>Rename rpmnew files:</p>
+
+<pre><code>find -type f -name &quot;*.rpmnew&quot; | sed &#39;s/\(^.*\)\(\.rpmnew\)$/mv -f \1\2 \1/&#39; |sh
+</code></pre></li>
+<li><p>Search and replace files in place:</p>
+
+<pre><code>find /path -name &quot;*.*&quot; -exec | perl -pi -e &#39;s///g&#39; {} \;
+</code></pre></li>
+<li><p>vi cli editing: <code>set -o vi</code> Now esc to enter command mode where vi keys
+work. Pressing enter returns to normal mode.</p></li>
+</ul>
+
+                <p><a href="http://watson-wilson.ca/blog/2011/03/08/shell-cheatsheet/#section-2">Continue reading...</a></p>
+            <p>Tags:
+                <a href="http://watson-wilson.ca/blog/tag/shell/">shell</a>
+                <a href="http://watson-wilson.ca/blog/tag/cli/">cli</a>
+                <a href="http://watson-wilson.ca/blog/tag/cheatsheet/">cheatsheet</a>
+            </p>
+        ]]></content>
+        <updated>2011-03-08T00:00:00Z</updated>
+        <category term="shell" />
+        <category term="cli" />
+        <category term="cheatsheet" />
+    </entry>
+    <entry>
+        <id>http://watson-wilson.ca/blog/2011/03/08/gnu-screen-cheatsheet/</id>
+        <title>GNU Screen cheatsheet</title>
+        <link href="http://watson-wilson.ca/blog/2011/03/08/gnu-screen-cheatsheet/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <table>
+<tr>
+    <td>Change to other region</td>
+    <td><code>ctrl-a tab</code></td>
+</tr>
+<tr>
+    <td>Change to other screen</td>
+    <td><code>ctrl-a 0-9</code></td>
+</tr>
+<tr>
+    <td>Detach</td>
+    <td><code>ctrl-a d</code></td>
+</tr>
+<tr>
+    <td>Help</td>
+    <td><code>ctrl-a ?</code></td>
+</tr>
+<tr>
+    <td>Kill screen</td>
+    <td><code>ctrl-a \</code></td>
+</tr>
+<tr>
+    <td>Kill region</td>
+    <td><code>ctrl-a x</code></td>
+</tr>
+<tr>
+    <td>New screen</td>
+    <td><code>ctrl-a c</code></td>
+</tr>
+<tr>
+    <td>Reattach</td>
+    <td><code>screen -r</code></td>
+</tr>
+<tr>
+    <td>Serial connection</td>
+    <td><code>screen /dev/ttyUSB0 9600</code></td>
+</tr>
+<tr>
+    <td>Split</td>
+    <td><code>ctrl-a s</code></td>
+</tr>
+</table>
+
+                <p><a href="http://watson-wilson.ca/blog/2011/03/08/gnu-screen-cheatsheet/#section-2">Continue reading...</a></p>
+            <p>Tags:
+                <a href="http://watson-wilson.ca/blog/tag/shell/">shell</a>
+                <a href="http://watson-wilson.ca/blog/tag/cli/">cli</a>
+                <a href="http://watson-wilson.ca/blog/tag/cheatsheet/">cheatsheet</a>
+            </p>
+        ]]></content>
+        <updated>2011-03-08T00:00:00Z</updated>
+        <category term="shell" />
+        <category term="cli" />
+        <category term="cheatsheet" />
+    </entry>
+</feed>
+

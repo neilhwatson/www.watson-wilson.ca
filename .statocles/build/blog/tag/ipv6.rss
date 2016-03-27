@@ -1,0 +1,106 @@
+<?xml version="1.0"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Neil H. Watson</title>
+        <link>http://watson-wilson.ca/blog/tag/ipv6/</link>
+        <atom:link href="http://watson-wilson.ca/blog/tag/ipv6.rss" rel="self" type="application/rss+xml" />
+        <description>Blog feed of Neil H. Watson</description>
+        <generator>Statocles 0.073</generator>
+        <item>
+            <title>IPv6 Migration part 8</title>
+            <link>http://watson-wilson.ca/blog/2012/08/01/ipv6-migration-part8/</link>
+            <guid>http://watson-wilson.ca/blog/2012/08/01/ipv6-migration-part8/</guid>
+            <description><![CDATA[
+                <p>DNS for IPV6 is just like IPV4, but longer. In part 2 I discussed DNS quad A
+records. Now I&#39;ll explain IPV6 PTR records.</p>
+
+                    <p><a href="http://watson-wilson.ca/blog/2012/08/01/ipv6-migration-part8/#section-2">Continue reading...</a></p>
+                <p>Tags:
+                    <a href="http://watson-wilson.ca/blog/tag/ipv6/">ipv6</a>
+                    <a href="http://watson-wilson.ca/blog/tag/networking/">networking</a>
+                </p>
+            ]]></description>
+            <pubDate>
+                Wed, 01 Aug 2012 00:00:00 +0000
+            </pubDate>
+        </item>
+        <item>
+            <title>IPv6 Migration part 7</title>
+            <link>http://watson-wilson.ca/blog/2012/07/25/ipv6-migration-part7/</link>
+            <guid>http://watson-wilson.ca/blog/2012/07/25/ipv6-migration-part7/</guid>
+            <description><![CDATA[
+                <p><img alt="Success with IPv6" src="http://watson-wilson.ca/static/images/ipv6-success-kid.jpg" style="float:right" width="300"></p>
+
+<p>I&#39;ve broken up with <a href="https://www.sixxs.net/">SixXS</a>.
+<a href="http://he.net">Hurricane Electric</a> is my new girl.</p>
+
+                    <p><a href="http://watson-wilson.ca/blog/2012/07/25/ipv6-migration-part7/#section-2">Continue reading...</a></p>
+                <p>Tags:
+                    <a href="http://watson-wilson.ca/blog/tag/ipv6/">ipv6</a>
+                    <a href="http://watson-wilson.ca/blog/tag/networking/">networking</a>
+                </p>
+            ]]></description>
+            <pubDate>
+                Wed, 25 Jul 2012 00:00:00 +0000
+            </pubDate>
+        </item>
+        <item>
+            <title>IPv6 Migration part 6</title>
+            <link>http://watson-wilson.ca/blog/2012/07/05/ipv6-migration-part6/</link>
+            <guid>http://watson-wilson.ca/blog/2012/07/05/ipv6-migration-part6/</guid>
+            <description><![CDATA[
+                <p>Liberation! Using IPV6, I have 18,446,744,073,709,551,616 public IP addresses.
+This is considered a small offering (/64). Normally, an organization would get
+a /48 network that contains 65536 /64 subnets.</p>
+
+                    <p><a href="http://watson-wilson.ca/blog/2012/07/05/ipv6-migration-part6/#section-2">Continue reading...</a></p>
+                <p>Tags:
+                    <a href="http://watson-wilson.ca/blog/tag/ipv6/">ipv6</a>
+                    <a href="http://watson-wilson.ca/blog/tag/networking/">networking</a>
+                </p>
+            ]]></description>
+            <pubDate>
+                Thu, 05 Jul 2012 00:00:00 +0000
+            </pubDate>
+        </item>
+        <item>
+            <title>IPv6 Migration part 5</title>
+            <link>http://watson-wilson.ca/blog/2012/03/10/ipv6-migration-part5/</link>
+            <guid>http://watson-wilson.ca/blog/2012/03/10/ipv6-migration-part5/</guid>
+            <description><![CDATA[
+                <p><img alt="Success with IPv6" src="http://watson-wilson.ca/static/images/ipv6-success-kid.jpg" style="float:right" width="300"></p>
+
+<p>My email server now functions on both IPV4 and IPV6 networks. Postfix is IPV6
+ready but, the configuration needed some adjustments.</p>
+
+                    <p><a href="http://watson-wilson.ca/blog/2012/03/10/ipv6-migration-part5/#section-2">Continue reading...</a></p>
+                <p>Tags:
+                    <a href="http://watson-wilson.ca/blog/tag/ipv6/">ipv6</a>
+                    <a href="http://watson-wilson.ca/blog/tag/networking/">networking</a>
+                </p>
+            ]]></description>
+            <pubDate>
+                Sat, 10 Mar 2012 00:00:00 +0000
+            </pubDate>
+        </item>
+        <item>
+            <title>IPv6 Migration part 4</title>
+            <link>http://watson-wilson.ca/blog/2012/03/05/ipv6-migration-part4/</link>
+            <guid>http://watson-wilson.ca/blog/2012/03/05/ipv6-migration-part4/</guid>
+            <description><![CDATA[
+                <p>This website is now dual stacked to both IPV4 and IPV6. In part four of my IPV6
+series I&#39;ll tell you what I learned during this migration.</p>
+
+                    <p><a href="http://watson-wilson.ca/blog/2012/03/05/ipv6-migration-part4/#section-2">Continue reading...</a></p>
+                <p>Tags:
+                    <a href="http://watson-wilson.ca/blog/tag/ipv6/">ipv6</a>
+                    <a href="http://watson-wilson.ca/blog/tag/networking/">networking</a>
+                </p>
+            ]]></description>
+            <pubDate>
+                Mon, 05 Mar 2012 00:00:00 +0000
+            </pubDate>
+        </item>
+    </channel>
+</rss>
+

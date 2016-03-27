@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>http://watson-wilson.ca/blog/tag/dr/</id>
+    <title>Neil H. Watson</title>
+    <updated>2011-10-02T00:00:00Z</updated>
+    <link href="http://watson-wilson.ca/blog/tag/dr.atom" rel="self" />
+    <link href="http://watson-wilson.ca/blog/tag/dr/" rel="alternate" />
+    <generator version="0.073">Statocles</generator>
+    <entry>
+        <id>http://watson-wilson.ca/blog/2011/10/02/cfengine-backups/</id>
+        <title>Backups using Cfengine</title>
+        <link href="http://watson-wilson.ca/blog/2011/10/02/cfengine-backups/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <h3>Problem</h3>
+
+<p>You want to use Cfengine for scheduling backups instead of crond.</p>
+
+                <p><a href="http://watson-wilson.ca/blog/2011/10/02/cfengine-backups/#section-2">Continue reading...</a></p>
+            <p>Tags:
+                <a href="http://watson-wilson.ca/blog/tag/cfengine/">cfengine</a>
+                <a href="http://watson-wilson.ca/blog/tag/cfengine-cookbook/">cfengine cookbook</a>
+                <a href="http://watson-wilson.ca/blog/tag/backup/">backup</a>
+                <a href="http://watson-wilson.ca/blog/tag/dr/">dr</a>
+            </p>
+        ]]></content>
+        <updated>2011-10-02T00:00:00Z</updated>
+        <category term="cfengine" />
+        <category term="cfengine cookbook" />
+        <category term="backup" />
+        <category term="dr" />
+    </entry>
+    <entry>
+        <id>http://watson-wilson.ca/blog/2011/07/14/dr-for-soho/</id>
+        <title>Disaster recovery for small business</title>
+        <link href="http://watson-wilson.ca/blog/2011/07/14/dr-for-soho/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p>Not everyone can afford redundant servers and sites. If you are a small
+business here are some off site disaster recovery options to think about.</p>
+
+                <p><a href="http://watson-wilson.ca/blog/2011/07/14/dr-for-soho/#section-2">Continue reading...</a></p>
+            <p>Tags:
+                <a href="http://watson-wilson.ca/blog/tag/dr/">dr</a>
+                <a href="http://watson-wilson.ca/blog/tag/backup/">backup</a>
+            </p>
+        ]]></content>
+        <updated>2011-07-14T00:00:00Z</updated>
+        <category term="dr" />
+        <category term="backup" />
+    </entry>
+</feed>
+

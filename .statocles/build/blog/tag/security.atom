@@ -1,0 +1,218 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>http://watson-wilson.ca/blog/tag/security/</id>
+    <title>Neil H. Watson</title>
+    <updated>2015-09-30T11:34:03Z</updated>
+    <link href="http://watson-wilson.ca/blog/tag/security.atom" rel="self" />
+    <link href="http://watson-wilson.ca/blog/tag/security/" rel="alternate" />
+    <generator version="0.073">Statocles</generator>
+    <entry>
+        <id>http://watson-wilson.ca/blog/2015/09/30/essential-audit-reports-with-delta-reporting/</id>
+        <title>Essential audit reports with Delta Reporting</title>
+        <author><name>nwatson</name></author>
+        <link href="http://watson-wilson.ca/blog/2015/09/30/essential-audit-reports-with-delta-reporting/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p>[caption id=&quot;attachment_960&quot; align=&quot;alignright&quot; width=&quot;620&quot;]<a href="http://watson-wilson.ca/static/images/dr-dashboard.png"><img alt="Delta Reporting dashboard" src="http://watson-wilson.ca/static/images/dr-dashboard.png"></a>
+Delta Reporting dashboard[/caption] Delta Reporting has simple yet
+powerful reports. See a gallery of essential ones <a href="http://watson-wilson.ca/products/delta-reporting/essential-audit-reports-with-delta-reporting/">here</a>.</p>
+
+                <p><a href="http://watson-wilson.ca/blog/2015/09/30/essential-audit-reports-with-delta-reporting/#section-2">Continue reading...</a></p>
+            <p>Tags:
+                <a href="http://watson-wilson.ca/blog/tag/Cfengine/">Cfengine</a>
+                <a href="http://watson-wilson.ca/blog/tag/delta-reporting/">delta reporting</a>
+                <a href="http://watson-wilson.ca/blog/tag/security/">security</a>
+            </p>
+        ]]></content>
+        <updated>2015-09-30T11:34:03Z</updated>
+        <category term="Cfengine" />
+        <category term="delta reporting" />
+        <category term="security" />
+    </entry>
+    <entry>
+        <id>http://watson-wilson.ca/blog/2015/09/18/auditing-hosts-using-cfengine-efl-and-delta-reporting/</id>
+        <title>Auditing hosts using CFEngine, EFL, and Delta Reporting</title>
+        <author><name>nwatson</name></author>
+        <link href="http://watson-wilson.ca/blog/2015/09/18/auditing-hosts-using-cfengine-efl-and-delta-reporting/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p><img alt="" src="http://watson-wilson.ca/static/images/Liste-300px.png"></p>
+
+<p>Sometimes you want to audit a host without changing it. This can be
+hard with CFEngine, but with <a href="https://github.com/evolvethinking/evolve_cfengine_freelib">EFL</a>
+and <a href="https://github.com/evolvethinking/delta_reporting">Delta Reporting</a>
+it&#39;s possible.</p>
+
+                <p><a href="http://watson-wilson.ca/blog/2015/09/18/auditing-hosts-using-cfengine-efl-and-delta-reporting/#section-2">Continue reading...</a></p>
+            <p>Tags:
+                <a href="http://watson-wilson.ca/blog/tag/Cfengine/">Cfengine</a>
+                <a href="http://watson-wilson.ca/blog/tag/delta-reporting/">delta reporting</a>
+                <a href="http://watson-wilson.ca/blog/tag/EFL/">EFL</a>
+                <a href="http://watson-wilson.ca/blog/tag/security/">security</a>
+                <a href="http://watson-wilson.ca/blog/tag/software-testing/">software testing</a>
+            </p>
+        ]]></content>
+        <updated>2015-09-18T13:52:10Z</updated>
+        <category term="Cfengine" />
+        <category term="delta reporting" />
+        <category term="EFL" />
+        <category term="security" />
+        <category term="software testing" />
+    </entry>
+    <entry>
+        <id>http://watson-wilson.ca/blog/2014/09/26/shellshock-free-with-cfengine-and-delta-reporting/</id>
+        <title>Shellshock free with CFEngine and Delta Reporting</title>
+        <author><name>nwatson</name></author>
+        <link href="http://watson-wilson.ca/blog/2014/09/26/shellshock-free-with-cfengine-and-delta-reporting/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p>[caption id=&quot;attachment_1052&quot; align=&quot;alignnone&quot; width=&quot;716&quot;]<a href="http://watson-wilson.ca/static/images/shell_shock.png"><img alt="Hosts reported free of shell shock" src="http://watson-wilson.ca/static/images/shell_shock.png"></a>
+Hosts reported free of shell shock[/caption]</p>
+
+<p>Above is a screenshot from Evolve&#39;s production <a href="https://github.com/evolvethinking/delta_reporting">Delta Reporting</a>
+service. These hosts are safe from Shell shock. Thanks to Delta
+Reporting, <a href="https://github.com/evolvethinking/evolve_cfengine_freelib">EFL</a>,
+and <a href="http://cfengine.com">CFEngine</a> our journey to a safe harbour was
+not long. First we had to design a test for the vulnerability.</p>
+
+                <p><a href="http://watson-wilson.ca/blog/2014/09/26/shellshock-free-with-cfengine-and-delta-reporting/#section-2">Continue reading...</a></p>
+            <p>Tags:
+                <a href="http://watson-wilson.ca/blog/tag/Cfengine/">Cfengine</a>
+                <a href="http://watson-wilson.ca/blog/tag/delta-reporting/">delta reporting</a>
+                <a href="http://watson-wilson.ca/blog/tag/EFL/">EFL</a>
+                <a href="http://watson-wilson.ca/blog/tag/security/">security</a>
+            </p>
+        ]]></content>
+        <updated>2014-09-26T10:47:04Z</updated>
+        <category term="Cfengine" />
+        <category term="delta reporting" />
+        <category term="EFL" />
+        <category term="security" />
+    </entry>
+    <entry>
+        <id>http://watson-wilson.ca/blog/2013/08/07/secure-sysctl-settings-with-cfengine/</id>
+        <title>Secure sysctl settings with CFEngine</title>
+        <author><name>nwatson</name></author>
+        <link href="http://watson-wilson.ca/blog/2013/08/07/secure-sysctl-settings-with-cfengine/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p>Here&#39;s how to maintain Linux sysctl settings across all hosts in
+an organization using the Evolve <a href="http://watson-wilson.ca/evolve-thinkings-free-cfengine-library/">free promise library</a>
+and CFEngine. ---</p>
+
+<p>Sysctl data is separated from CFEngine policy in its own data file.</p>
+
+<p>``</p>
+
+<pre><code># sysctl.txt
+# Promise sysctl.conf and live kernel settings
+
+# context(0) ;; sysctl variable name(1)         ;; value(2) ;; promisee(3)
+any          ;; net.ipv6.conf.all.accept_ra     ;; 0        ;; ipv6 auto assign
+any          ;; net.ipv6.conf.all.autoconf      ;; 0        ;; ipv6 auto assign
+any          ;; net.ipv6.conf.default.autoconf  ;; 0        ;; ipv6 auto assign
+any          ;; net.ipv6.conf.eth0.accept_ra    ;; 0        ;; ipv6 auto assign
+sol          ;; net.ipv6.conf.bond0.accept_ra   ;; 0        ;; ipv6 auto assign
+
+alix         ;; net.ipv6.conf.all.forwarding    ;; 1        ;; Routing
+alix         ;; net.ipv4.ip_forward             ;; 1        ;; Routing
+neptune      ;; proc.sys.kernel.sysrq           ;; 0        ;; Laptop security
+</code></pre>
+
+<p>Columns labeled 1 and 2 are the sysctl setting name and the value.
+Column 3 is the promisee, used for documentation. Column 0 is the class
+or context that must be true for the sysctl setting to be applied.</p>
+
+<p>The Evolve free promise library has two sysctl bundles. One promises
+live sysctl settings and the other promises the sysctl.conf file. Use
+methods promises to call each bundle, passing the same parameter file.</p>
+
+<p>``</p>
+
+<pre><code>methods:
+
+&quot;live sysctl settings&quot;
+   usebundle =&gt; efl_sysctl_live( &quot;${sys.workdir}/inputs/bundle_params/sysctl.txt&quot; ),
+   action    =&gt; if_elapsed( &quot;240&quot; );
+
+&quot;sysctl conf settings&quot;
+   usebundle =&gt; efl_sysctl_conf_file( &quot;${sys.workdir}/inputs/bundle_params/sysctl.txt&quot; ),
+   action    =&gt; if_elapsed( &quot;240&quot; );
+</code></pre>
+
+<p>The live bundle calls the sysctl command often. If_elapsed is used to
+reduce the load from excessive promise evaluation.</p>
+
+                <p><a href="http://watson-wilson.ca/blog/2013/08/07/secure-sysctl-settings-with-cfengine/#section-2">Continue reading...</a></p>
+            <p>Tags:
+                <a href="http://watson-wilson.ca/blog/tag/Cfengine/">Cfengine</a>
+                <a href="http://watson-wilson.ca/blog/tag/EFL/">EFL</a>
+                <a href="http://watson-wilson.ca/blog/tag/linux/">linux</a>
+                <a href="http://watson-wilson.ca/blog/tag/security/">security</a>
+                <a href="http://watson-wilson.ca/blog/tag/sysctl/">sysctl</a>
+            </p>
+        ]]></content>
+        <updated>2013-08-07T16:13:42Z</updated>
+        <category term="Cfengine" />
+        <category term="EFL" />
+        <category term="linux" />
+        <category term="security" />
+        <category term="sysctl" />
+    </entry>
+    <entry>
+        <id>http://watson-wilson.ca/blog/2013/05/09/its-time-to-rethink-anti-virus/</id>
+        <title>It&#39;s time to rethink Anti-virus</title>
+        <author><name>nwatson</name></author>
+        <link href="http://watson-wilson.ca/blog/2013/05/09/its-time-to-rethink-anti-virus/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p>Anti-virus is always a step behind. It&#39;s a good revenue stream for
+anti-virus software makers. For end users it&#39;s a race to the horizon.
+--- Virus pattern recognition only works on patterns that have been
+discovered, researched, and added to the pattern database. Recent
+anti-virus pattern databases now detect more than 22 million patterns.
+Is it a wonder that anti-virus software kills computer performance? <a href="http://www.symantec.com/security_response/definitions/certified/">1</a></p>
+
+<p>The impossible pattern race is bad. The system crippling false alarms
+are worse. In the recent past most major anti-virus tools have crippled
+corporate and person computers by mistakenly quarantining a Windows
+system or application file.<a href="http://www.theregister.co.uk/2013/02/06/kaspersky_win_xp_update_snafu/">1</a>,
+<a href="http://www.theregister.co.uk/2012/09/20/sophos_auto_immune_update_chaos/">2</a>,
+<a href="http://www.pcmag.com/article2/0,2817,2362926,00.asp">3</a></p>
+
+<p>I&#39;m not a computer virus expert. But there has to be a better way to
+protect us. I can think of some.</p>
+
+<p>White listing defines what files are allowed to execute on a system.
+Any file not on the white list is denied execution. For most corporate
+workstations this is ideal. A few hundred executable files are white
+listed and the workstation becomes secure. More generic workstations,
+like home computers, require longer lists. This is not insurmountable.
+I&#39;d rather subscribe to a ten thousand item white list than a 22
+million item black list. The look ups will be shorter and new threats
+do not get an automatic free pass.</p>
+
+<p>Mandatory access control. SELinux is the well known form of MAC. MAC is
+similar to white listing but goes further. Programs are not just denied
+execution rights. Their rights to access the rest of the system are
+explicitly defined. For example, a web browser may be allowed to touch
+printing, browser cache, and other relevant files. Anything else is
+denied, by default. Viruses cannot run wild on the system because
+they&#39;ve not been defined to be allowed to do so. Set up and maintenance
+of such a systems is no small task. Neither is maintaining a growing
+list of 22 million virus definitions.</p>
+
+<p>I&#39;m not a computer virus expert. But the arms race between new viruses
+and new definitions can never be won. It&#39;s time for a new approach.
+Consider that the next time your computer is churning another
+anti-virus disk scan.</p>
+
+                <p><a href="http://watson-wilson.ca/blog/2013/05/09/its-time-to-rethink-anti-virus/#section-2">Continue reading...</a></p>
+            <p>Tags:
+                <a href="http://watson-wilson.ca/blog/tag/anti-virus/">anti-virus</a>
+                <a href="http://watson-wilson.ca/blog/tag/security/">security</a>
+                <a href="http://watson-wilson.ca/blog/tag/virus/">virus</a>
+            </p>
+        ]]></content>
+        <updated>2013-05-09T10:47:41Z</updated>
+        <category term="anti-virus" />
+        <category term="security" />
+        <category term="virus" />
+    </entry>
+</feed>
+

@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <link href="/theme/css/readability-bootstrap.min.css" rel="stylesheet">
+        <!--<link rel="stylesheet" href="/theme/css/statocles-bootstrap.css" />-->
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+        <title>Neil H. Watson</title>
+        <meta content="Statocles 0.073" name="generator">
+        <link href="/blog/tag/EFL.atom" rel="alternate" type="application/atom+xml">
+        <link href="/blog/tag/EFL.rss" rel="alternate" type="application/rss+xml">
+        
+
+        <!-- For source highlighting -->
+        <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/default.min.css" rel="stylesheet">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+
+    </head>
+    <body>
+        <header>
+            <nav class="navbar navbar-default navbar-static-top" role="navigation">
+                <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button class="navbar-toggle" data-target="#top-navbar-collapse-1" data-toggle="collapse" type="button">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="/">Neil H. Watson</a>
+                    </div>
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="top-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <li><a href="/page/about">About me</a></li>
+                            <li><a href="/static/resume_neil_h_watson.pdf">Resume</a></li>
+                            <li><a href="/page/projects">Projects</a></li>
+                        </ul>
+                        
+                    </div>
+                </div>
+            </nav>
+            
+        </header>
+        <div class="main container">
+            
+<div class="row">
+
+    <div class="col-md-9">
+        <main>
+
+
+            <article>
+                <header>
+                    <h1><a href="/blog/2014/02/26/my-evolution-of-cfengine-policy/">My evolution of CFEngine policy</a></h1>
+
+                    <p class="tags">Tags:
+                        <a href="/blog/tag/Cfengine/" rel="tag">Cfengine</a>
+                        <a href="/blog/tag/EFL/" rel="tag">EFL</a>
+                    </p>
+
+                    <aside>
+                        <p><time datetime="2014-02-26">
+                            Posted on 2014-02-26
+                        </time>
+                            by nwatson
+                        </p>
+                    </aside>
+
+                </header>
+
+                <p><img alt="Evolution of fire" src="/static/images/fire-240.jpg"></p>
+
+<p>My style and approach to CFEngine policy writing has evolved over the
+years. Recently I discussion this with someone new to CFEngine. He was
+on the same path I had taken, but a few steps behind. I hope he&#39;ll
+evolve to the next stage or to a stage that is new to both of us. I&#39;m
+going to share with you the stages of my CFEngine evolution. Perhaps
+you&#39;ll recognize yourself.</p>
+
+
+                    <p><a href="/blog/2014/02/26/my-evolution-of-cfengine-policy/index.html#section-2">Continue reading My evolution of CFEngine policy...</a></p>
+
+            </article>
+            <article>
+                <header>
+                    <h1><a href="/blog/2014/02/21/why-use-efl-with-cfengine/">Why use EFL with CFEngine?</a></h1>
+
+                    <p class="tags">Tags:
+                        <a href="/blog/tag/Cfengine/" rel="tag">Cfengine</a>
+                        <a href="/blog/tag/EFL/" rel="tag">EFL</a>
+                    </p>
+
+                    <aside>
+                        <p><time datetime="2014-02-21">
+                            Posted on 2014-02-21
+                        </time>
+                            by nwatson
+                        </p>
+                    </aside>
+
+                </header>
+
+                <p><img alt="Evolve Free Library screen shoot" src="/static/images/efl_copy_files.png"></p>
+
+<p>EFL saves time and money by making CFEngine simpler to deploy and
+maintain.</p>
+
+
+                    <p><a href="/blog/2014/02/21/why-use-efl-with-cfengine/index.html#section-2">Continue reading Why use EFL with CFEngine?...</a></p>
+
+            </article>
+            <article>
+                <header>
+                    <h1><a href="/blog/2013/11/27/json-containers-improve-cfengine-and-efl/">JSON containers improve CFEngine and EFL</a></h1>
+
+                    <p class="tags">Tags:
+                        <a href="/blog/tag/Cfengine/" rel="tag">Cfengine</a>
+                        <a href="/blog/tag/EFL/" rel="tag">EFL</a>
+                    </p>
+
+                    <aside>
+                        <p><time datetime="2013-11-27">
+                            Posted on 2013-11-27
+                        </time>
+                            by nwatson
+                        </p>
+                    </aside>
+
+                </header>
+
+                <p>CFEngine 3.6 will be able to parse JSON files making EFL data files
+more readable. --- The current data format of the <a href="https://github.com/evolvethinking/evolve_cfengine_freelib">Evolve Free Promise
+Library</a> is
+CSV. CSV files are workable but, become error prone when record lines
+become long. In the following example, run using a build from the
+CFEngine 3.6 <a href="https://github.com/cfengine/core">source code</a>, the init
+bundle creates a data file that we normally maintain by other means. It
+exists here for convenience.</p>
+
+<p>The bundle sysctl loads the JSON, indexes it, then iterates through it.
+This is similar to how EFL uses the function CFEngine
+readstringarrayidx. Imagine a record with many fields, that line wrap
+around your screen in CSV form. In JSON format the same data is more
+readable.</p>
+
+<p>``</p>
+
+<pre><code>body common control
+{
+        bundlesequence =&gt; { &quot;main&quot;, };
+}
+
+bundle agent main
+{
+        methods:
+                &quot;any&quot; usebundle =&gt; init;
+                &quot;any&quot; usebundle =&gt; sysctl( &quot;/tmp/sysctl.json&quot; );
+}
+
+bundle agent init 
+{
+        vars:
+                &quot;sysctl&quot; string =&gt; &#39;
+[
+    {
+        &quot;context&quot;: &quot;any&quot;,
+        &quot;name&quot;: &quot;net.ipv6.conf.all.accept_ra&quot;,
+        &quot;value&quot;: 0,
+        &quot;promisee&quot;: &quot;IPV6 Team&quot;
+    },
+    {
+        &quot;context&quot;: &quot;any&quot;,
+        &quot;name&quot;: &quot;net.ipv6.conf.default.autoconf&quot;,
+        &quot;value&quot;: 0,
+        &quot;promisee&quot;: &quot;IPV6 Team&quot;
+    }
+]
+&#39;;
+   files:
+      &quot;/tmp/sysctl.json&quot;
+         edit_defaults =&gt; empty,
+         create        =&gt; &#39;true&#39;,
+         edit_line     =&gt; el_init( &quot;${sysctl}&quot; );
+}
+
+body edit_defaults empty
+{
+   empty_file_before_editing =&gt; &quot;true&quot;;
+   edit_backup               =&gt; &quot;false&quot;;
+}
+
+bundle edit_line el_init( str )
+{
+   insert_lines:
+      &quot;${str}&quot;;
+}
+
+bundle agent sysctl( ref )
+{
+   vars:
+      &quot;sysctl&quot;
+         comment =&gt; &quot;Read json file into container&quot;,
+# New vars type &#39;data&#39;.
+         data    =&gt; readjson( &quot;${ref}&quot;, 1024 );
+
+      &quot;i&quot;
+         comment =&gt; &quot;Get index of json for iteration&quot;,
+         slist   =&gt; getindices( &quot;sysctl&quot; );
+
+   reports:
+      &quot;
+context  =&gt; ${sysctl[${i}][context]}
+name     =&gt; ${sysctl[${i}][name]}
+value    =&gt; ${sysctl[${i}][value]}
+promisee =&gt; ${sysctl[${i}][promisee]}
+&quot;;
+}
+
+$ cf-agent -f ./json.cf
+2013-11-27T13:48:04-0500   notice: /main/methods/&#39;any&#39;/sysctl: R: 
+context  =&gt; any
+name     =&gt; net.ipv6.conf.all.accept_ra
+value    =&gt; 0
+promisee =&gt; IPV6 Team
+
+2013-11-27T13:48:04-0500   notice: /main/methods/&#39;any&#39;/sysctl: R: 
+context  =&gt; any
+name     =&gt; net.ipv6.conf.default.autoconf
+value    =&gt; 0
+promisee =&gt; IPV6 Team
+</code></pre>
+
+
+
+            </article>
+            <article>
+                <header>
+                    <h1><a href="/blog/2013/11/21/bulding-cfengine-classes-using-efl/">Bulding CFEngine classes using EFL</a></h1>
+
+                    <p class="tags">Tags:
+                        <a href="/blog/tag/Cfengine/" rel="tag">Cfengine</a>
+                        <a href="/blog/tag/EFL/" rel="tag">EFL</a>
+                    </p>
+
+                    <aside>
+                        <p><time datetime="2013-11-21">
+                            Posted on 2013-11-21
+                        </time>
+                            by nwatson
+                        </p>
+                    </aside>
+
+                </header>
+
+                <p>Recently my CFEngine colleague <a href="http://syslog.me/">Marco Marongiu</a>
+wrote about <a href="http://syslog.me/2013/11/18/external-node-classification-the-cfengine-way/">classifying CFEngine hosts via external means</a>.
+His post inspired me to write about classifying hosts using <a href="http://watson-wilson.ca/tag/efl/">EFL</a>.</p>
+
+
+                    <p><a href="/blog/2013/11/21/bulding-cfengine-classes-using-efl/index.html#section-2">Continue reading Bulding CFEngine classes using EFL...</a></p>
+
+            </article>
+            <article>
+                <header>
+                    <h1><a href="/blog/2013/10/19/simple-cfengine-server-access-promises-using-efl/">Simple CFEngine server access promises using EFL</a></h1>
+
+                    <p class="tags">Tags:
+                        <a href="/blog/tag/Cfengine/" rel="tag">Cfengine</a>
+                        <a href="/blog/tag/EFL/" rel="tag">EFL</a>
+                    </p>
+
+                    <aside>
+                        <p><time datetime="2013-10-19">
+                            Posted on 2013-10-19
+                        </time>
+                            by nwatson
+                        </p>
+                    </aside>
+
+                </header>
+
+                <p>Here&#39;s an EFL bundle that simplifies access promises for cf-serverd.
+CFEngine users with a complex environment will especially benefit. ---
+The <a href="http://watson-wilson.ca/make-cfengine-simple-using-the-evolve-free-library/">Evolve Thinking Free Library or EFL</a>
+provides commonly used promise bundles that you can configure using
+simple CSV parameter files. You don&#39;t need a PHD in CFEngie to get
+things done.</p>
+
+<p>Unlike EFL agent bundles the server bundle efl_server cannot be passed
+parameter files. The is a CFEngine limit. Instead variable
+&#39;efl_server_txt&#39; in the bundle &#39;efl_c&#39; defines the location of the
+parameter file to
+${sys.workdir}/inputs/user_data/bundle_params/efl_server.txt. The file
+format has four columns from zero to three.</p>
+
+<ul>
+<li><p>Zero is the constraining class expression. The record is only
+promised if this class expression is true.</p></li>
+<li><p>One is the promiser directory that we are granting access to.</p></li>
+<li><p>Two is comma separated list of IP&#39;s or hostnames who we grant
+access to (see <a href="https://cfengine.com/docs/3.5/reference-promise-types-access.html#admit">admit</a>).</p></li>
+<li><p>Three is a free form promisee for documentation and searching.</p></li>
+</ul>
+
+<p>`</p>
+
+<pre><code># Context(0) ;; promiser directory(1) ;; Command separated admit list(2) ;; Promisee(3)
+
+am_policy_hub ;; ${sys.workdir}/masterfiles ;;  2001:470:1d:a2f::/64 ;; Bootstrapping and updates
+ettin    ;; ${sys.workdir}/private/alix/ ;; 2001:470:1d:a2f::1 ;; 6in4 tunnel
+mercury  ;; /var/www/blog1/              ;; ${sys.policy_hub}  ;; Backups
+titan    ;; /var/www/evolve/             ;; ${sys.policy_hub}  ;; Backups
+any      ;; ${sys.workdir}/drop/         ;; ${sys.policy_hub}  ;; File transfers as needed
+</code></pre>
+
+<p>`</p>
+
+<p>If you run cf-serverd -Fvl you&#39;ll see the access rules being applied.</p>
+
+<p>``</p>
+
+<pre><code>cf3&gt; *****************************************************************
+cf3&gt; BUNDLE efl_server
+cf3&gt; *****************************************************************
+cf3&gt;    =========================================================
+cf3&gt;    access in bundle efl_server (0)
+cf3&gt;    =========================================================
+cf3&gt; . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+cf3&gt; Skipping whole next promise (/var/www/evolve-wp/), as var-context titan is not relevant
+cf3&gt; . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+cf3&gt; . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+cf3&gt; Skipping whole next promise (/var/www/blog1/), as var-context mercury is not relevant
+cf3&gt; . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+cf3&gt; Summarize control promises
+cf3&gt; Granted access to paths :
+cf3&gt; Path &#39;/var/cfengine/private/alix&#39; (encrypt=0)
+cf3&gt; Admit: &#39;2001:470:1d:a2f::1&#39; root=
+cf3&gt; Path &#39;/var/cfengine/drop&#39; (encrypt=0)
+cf3&gt; Admit: &#39;2001:470:1d:a2f::2&#39; root=
+</code></pre>
+
+<p>When you upgrade CFEngine the upgrade offers new inputs like the sever
+bundle &#39;access_rules&#39; in the file cf_server.cf. If you have access
+rules in that bundle you&#39;ll need to merge the old file with the
+upgrade&#39;s improved file. Using the efl_server bundle the data is
+separated from policy eliminating the need to merge policy files.</p>
+
+
+
+            </article>
+        </main>
+
+        <ul class="pager">
+            <li class="previous ">
+                <a href="/blog/tag/EFL/page/5" rel="next"><span aria-hidden="true" class="glyphicon glyphicon-chevron-left"></span>Older</a>
+            </li>
+            <li class="next ">
+                <a href="/blog/tag/EFL/page/3" rel="prev">Newer<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span></a>
+            </li>
+        </ul>
+
+    </div>
+
+    <div class="sidebar col-md-3">
+        <iframe frameborder="0" src="https://duckduckgo.com/search.html?site=watson-wilson.ca&amp;prefill=Search DuckDuckGo" style="overflow:hidden;margin:0;padding:0;width:350px;height:40px;"></iframe>
+
+        <h1>Tags</h1>
+        <ul class="list-inline">
+            <li><a href="/blog/tag/Cfengine/">Cfengine</a></li>
+            <li><a href="/blog/tag/EFL/">EFL</a></li>
+            <li><a href="/blog/tag/anti-virus/">anti-virus</a></li>
+            <li><a href="/blog/tag/apt/">apt</a></li>
+            <li><a href="/blog/tag/backup/">backup</a></li>
+            <li><a href="/blog/tag/best-practices/">best practices</a></li>
+            <li><a href="/blog/tag/cfengine/">cfengine</a></li>
+            <li><a href="/blog/tag/cfengine-cookbook/">cfengine cookbook</a></li>
+            <li><a href="/blog/tag/cheatsheet/">cheatsheet</a></li>
+            <li><a href="/blog/tag/cli/">cli</a></li>
+            <li><a href="/blog/tag/cloud/">cloud</a></li>
+            <li><a href="/blog/tag/cluster/">cluster</a></li>
+            <li><a href="/blog/tag/conferences/">conferences</a></li>
+            <li><a href="/blog/tag/configuration-management/">configuration management</a></li>
+            <li><a href="/blog/tag/cron/">cron</a></li>
+            <li><a href="/blog/tag/debian/">debian</a></li>
+            <li><a href="/blog/tag/delta-reporting/">delta reporting</a></li>
+            <li><a href="/blog/tag/devops/">devops</a></li>
+            <li><a href="/blog/tag/dns/">dns</a></li>
+            <li><a href="/blog/tag/dr/">dr</a></li>
+            <li><a href="/blog/tag/heartbeat/">heartbeat</a></li>
+            <li><a href="/blog/tag/high-availability/">high availability</a></li>
+            <li><a href="/blog/tag/infosec/">infosec</a></li>
+            <li><a href="/blog/tag/ipv6/">ipv6</a></li>
+            <li><a href="/blog/tag/irc/">irc</a></li>
+            <li><a href="/blog/tag/iscsi/">iscsi</a></li>
+            <li><a href="/blog/tag/jekyll/">jekyll</a></li>
+            <li><a href="/blog/tag/kickstart/">kickstart</a></li>
+            <li><a href="/blog/tag/kvm/">kvm</a></li>
+            <li><a href="/blog/tag/linux/">linux</a></li>
+            <li><a href="/blog/tag/monitoring/">monitoring</a></li>
+            <li><a href="/blog/tag/multipathd/">multipathd</a></li>
+            <li><a href="/blog/tag/mustache/">mustache</a></li>
+            <li><a href="/blog/tag/networking/">networking</a></li>
+            <li><a href="/blog/tag/opennms/">opennms</a></li>
+            <li><a href="/blog/tag/opensource/">opensource</a></li>
+            <li><a href="/blog/tag/oracle/">oracle</a></li>
+            <li><a href="/blog/tag/patching/">patching</a></li>
+            <li><a href="/blog/tag/pcre/">pcre</a></li>
+            <li><a href="/blog/tag/perl/">perl</a></li>
+            <li><a href="/blog/tag/posix/">posix</a></li>
+            <li><a href="/blog/tag/programming/">programming</a></li>
+            <li><a href="/blog/tag/provisioning/">provisioning</a></li>
+            <li><a href="/blog/tag/red-hat/">red hat</a></li>
+            <li><a href="/blog/tag/redhat/">redhat</a></li>
+            <li><a href="/blog/tag/regex/">regex</a></li>
+            <li><a href="/blog/tag/rhev/">rhev</a></li>
+            <li><a href="/blog/tag/san/">san</a></li>
+            <li><a href="/blog/tag/satellite/">satellite</a></li>
+            <li><a href="/blog/tag/scripting/">scripting</a></li>
+            <li><a href="/blog/tag/security/">security</a></li>
+            <li><a href="/blog/tag/serverspec/">serverspec</a></li>
+            <li><a href="/blog/tag/shell/">shell</a></li>
+            <li><a href="/blog/tag/software-testing/">software testing</a></li>
+            <li><a href="/blog/tag/solaris/">solaris</a></li>
+            <li><a href="/blog/tag/spacewalk/">spacewalk</a></li>
+            <li><a href="/blog/tag/ssh/">ssh</a></li>
+            <li><a href="/blog/tag/statocles/">statocles</a></li>
+            <li><a href="/blog/tag/subversion/">subversion</a></li>
+            <li><a href="/blog/tag/sun/">sun</a></li>
+            <li><a href="/blog/tag/support/">support</a></li>
+            <li><a href="/blog/tag/svn/">svn</a></li>
+            <li><a href="/blog/tag/sysadmin/">sysadmin</a></li>
+            <li><a href="/blog/tag/sysctl/">sysctl</a></li>
+            <li><a href="/blog/tag/terraform/">terraform</a></li>
+            <li><a href="/blog/tag/virus/">virus</a></li>
+            <li><a href="/blog/tag/vitualization/">vitualization</a></li>
+            <li><a href="/blog/tag/website/">website</a></li>
+        </ul>
+        <h1>Feeds</h1>
+        <ul class="list-inline">
+            <li>
+                <a href="/blog/tag/EFL.atom" rel="alternate" type="application/atom+xml">
+                    Atom
+                </a>
+            </li>
+            <li>
+                <a href="/blog/tag/EFL.rss" rel="alternate" type="application/rss+xml">
+                    RSS
+                </a>
+            </li>
+        </ul>
+    </div>
+
+</div>
+
+
+        </div>
+        <footer>
+            
+            <h1></h1>
+            <div class="col-md-5"> </div>
+            <div class="col-md-3 container tagline">
+                <a href="http://preaction.me/statocles">Made with Statocles</a><br>
+                <a href="http://www.perl.org">Powered by Perl</a>
+            </div>
+        </footer>
+    </body>
+</html>

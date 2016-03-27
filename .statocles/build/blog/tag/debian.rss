@@ -1,0 +1,252 @@
+<?xml version="1.0"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Neil H. Watson</title>
+        <link>http://watson-wilson.ca/blog/tag/debian/</link>
+        <atom:link href="http://watson-wilson.ca/blog/tag/debian.rss" rel="self" type="application/rss+xml" />
+        <description>Blog feed of Neil H. Watson</description>
+        <generator>Statocles 0.073</generator>
+        <item>
+            <title>Changes in virt-install and Kickstart in RHEL7</title>
+            <link>http://watson-wilson.ca/blog/2014/10/30/changes-in-virt-install-and-kickstart-in-rhel7/</link>
+            <guid>http://watson-wilson.ca/blog/2014/10/30/changes-in-virt-install-and-kickstart-in-rhel7/</guid>
+            <description><![CDATA[
+                <p><img alt="mre case" src="http://watson-wilson.ca/static/images/mre-case.jpg"></p>
+
+<p>If you are planning to move to RHEL7 you may have to change your
+kickstart and <a href="http://linux.die.net/man/1/virt-install">virt-install</a>
+scripts. The virt-install changes will also apply to Debian based
+hosts. ---</p>
+
+<p>Below is a working example of a virt-install script. I had to make
+changed to the console related bits. Console allows for headless
+operation using <em>virsh console</em>, without having to fiddle with VNC or
+other clumsy graphic interfaces.</p>
+
+<p>A virt-install script <code></code></p>
+
+<pre><code>#!/bin/sh
+
+virt-install -n altair -r 1024 --vcpus 1             --description=&#39;rhel7 DR development&#39;             -l http://mirror.csclub.uwaterloo.ca/centos/7/os/x86_64/             --os-type=linux --os-variant=rhel7             --disk pool=vg,bus=virtio,size=40             --network bridge=br0,model=virtio             --autostart        --graphics none        --console pty,target_type=serial        --extra-args &quot;console=ttyS0,115200n8 serial     inst.sshd ks=http://172.16.100.1/ks/altair.cfg&quot;
+</code></pre>
+
+<p>The Anaconda syntax for kickstart is a little different or more strict
+that it was previously. I had to account for the following changes.</p>
+
+<ol>
+<li><p>Added <em>url</em> line.</p></li>
+<li><p>Added <em>repo</em> line.</p></li>
+<li><p>Added <em>%end</em> tags.</p></li>
+</ol>
+
+<h4>#</h4>
+
+<h4>IPV6 warning</h4>
+
+<p>Sadly, Anaconda still does not support IPV6 fully. The thorn in my
+tests was the <em>gateway</em> setting. Anaconda allows only one gateway
+network setting which prevents you from configuring a dual stack host.
+What is needed is a <a href="https://bugzilla.redhat.com/show_bug.cgi?id=715574">gateway and a gateway6</a>
+option. A work around is to configure one stack in the post section.</p>
+
+<p>Kickstart for RHEL/CentOS 7 <code></code></p>
+
+<pre><code># Kickstat file manually created by Neil Watson.
+
+install
+text
+
+#
+# KS server TODO
+#
+url --url=http://mirror.csclub.uwaterloo.ca/centos/7/os/x86_64/
+repo --name &quot;CentOS 7&quot; --baseurl=http://mirror.csclub.uwaterloo.ca/centos/7/os/x86_64/ --cost=100
+
+# 
+# Language support TODO
+#
+lang en_US.UTF-8
+keyboard us
+
+#
+# Network settings TODO
+#
+network --device=eth0 --bootproto=dhcp --hostname=altair.watson-wilson.ca
+# Not shown, but configure ipv6 in the %post section.
+
+#
+# Security TODO
+#
+rootpw XXXXXXX
+sshpw --username=root XXXXXX
+
+firewall --disabled
+selinux --disabled
+authconfig --enableshadow --enablemd5
+timezone America/Toronto
+
+bootloader --location=mbr --append=&quot;rhgb quiet&quot;
+# Extra console bits probably not neeeded any more.
+#bootloader --location=mbr --append=&quot;rhgb quiet console=tty0 console=ttyS0,115200n8&quot;
+
+#
+# Users TODO
+#
+user --name=neil --password=XXXXXXX
+
+#
+# Partitioning and filesystems TODO
+#
+# The following is the partition information you requested
+# Note that any partitions you deleted are not expressed
+# here so unless you clear all partitions first, this is
+# not guaranteed to work
+
+# HP proliants with RIAD use desk device cciss/c0d0
+# Standard scisi disk is sda
+# KVM guests use vda
+
+zerombr
+clearpart --initlabel --all
+
+part /boot --fstype ext4 --size=200 --ondisk=vda --asprimary
+part pv.3 --size=100 --grow --ondisk=vda
+volgroup vg01 pv.3
+logvol / --fstype ext4 --name=lv01 --vgname=vg01 --size=3072 --grow
+logvol swap --fstype swap --name=swaplv01 --vgname=vg01 --size=1024
+
+#
+# Packages TODO
+#
+%packages --ignoremissing
+vim*
+screen
+tmux
+openssl-devel
+pcre-devel
+make
+gcc
+fakeroot
+%end
+
+%post
+
+chvt 3
+
+#
+# SSH TODO
+#
+mkdir /home/neil/.ssh
+chown neil:neil /home/neil/.ssh
+chmod 700 /home/neil/.ssh
+cat &lt;&gt; /home/neil/.ssh/authorized_keys
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQ...
+EOF
+
+%end
+</code></pre>
+
+<h4>Ifconfig not longer in RHEL7</h4>
+
+<p>The venerable <em>ifconfig</em> has finally been removed from the default
+install. This should not be a surprise to anyone. The replacement, <a href="http://linux.die.net/man/8/ip">ip</a>,
+has been available for many years, yet <a href="https://dev.cfengine.com/issues/6126">some folks</a>
+have still been caught off guard.</p>
+
+                    <p><a href="http://watson-wilson.ca/blog/2014/10/30/changes-in-virt-install-and-kickstart-in-rhel7/#section-2">Continue reading...</a></p>
+                <p>Tags:
+                    <a href="http://watson-wilson.ca/blog/tag/debian/">debian</a>
+                    <a href="http://watson-wilson.ca/blog/tag/devops/">devops</a>
+                    <a href="http://watson-wilson.ca/blog/tag/kickstart/">kickstart</a>
+                    <a href="http://watson-wilson.ca/blog/tag/kvm/">kvm</a>
+                    <a href="http://watson-wilson.ca/blog/tag/linux/">linux</a>
+                    <a href="http://watson-wilson.ca/blog/tag/provisioning/">provisioning</a>
+                    <a href="http://watson-wilson.ca/blog/tag/redhat/">redhat</a>
+                </p>
+            ]]></description>
+            <pubDate>
+                Thu, 30 Oct 2014 10:10:50 +0000
+            </pubDate>
+        </item>
+        <item>
+            <title>Debian Apt Cheatsheet</title>
+            <link>http://watson-wilson.ca/blog/2011/03/08/apt-cheatsheet/</link>
+            <guid>http://watson-wilson.ca/blog/2011/03/08/apt-cheatsheet/</guid>
+            <description><![CDATA[
+                <table>
+<tr>
+    <td>Download and build source package</td>
+    <td><code>apt-get -b source <package name></package></code></td>
+</tr>
+<tr>
+    <td>Download and install dependencies for source package</td>
+    <td><code>apt-get build-dep <package name></package></code></td>
+</tr>
+<tr>
+    <td>Download source package</td>
+    <td><code>apt-get source <package name></package></code></td>
+</tr>
+<tr>
+    <td>Install package &quot;on demand&quot;</td>
+    <td><code>auto-apt run <program></program></code></td>
+</tr>
+<tr>
+    <td>List contents of a package</td>
+    <td><code>apt-file list <package name></package></code></td>
+</tr>
+<tr>
+    <td>List installed packages</td>
+    <td><code>dpkg -l</code></td>
+</tr>
+<tr>
+    <td>Remove package and configuration files</td>
+    <td><code>apt-get --purge remove <package name></package></code></td>
+</tr>
+<tr>
+    <td>Search for Debian Packages</td>
+    <td><code>http://www.debian.org/distrib/packages</code></td>
+</tr>
+<tr>
+    <td>Search for packages</td>
+    <td><code>apt-cache search <string></string></code></td>
+</tr>
+<tr>
+    <td>Show package dependencies</td>
+    <td><code>apt-cache depends <string></string></code></td>
+</tr>
+<tr>
+    <td>Show package information</td>
+    <td><code>apt-cache show <string></string></code></td>
+</tr>
+<tr>
+    <td>Show package that supplies a given file</td>
+    <td><code>apt-file search <file name></file></code></td>
+</tr>
+<tr>
+    <td>Show package that supplies a given file</td>
+    <td><code>COLUMNS=132 dpkg -S <file name></file></code></td>
+</tr>
+<tr>
+    <td>Show source package information</td>
+    <td><code>apt-cache showsrc <package name></package></code></td>
+</tr>
+<tr>
+    <td>Update `apt-file and auto-apt database</td>
+    <td><code>apt-file update</code></td>
+</tr>
+</table>
+
+                    <p><a href="http://watson-wilson.ca/blog/2011/03/08/apt-cheatsheet/#section-2">Continue reading...</a></p>
+                <p>Tags:
+                    <a href="http://watson-wilson.ca/blog/tag/debian/">debian</a>
+                    <a href="http://watson-wilson.ca/blog/tag/apt/">apt</a>
+                    <a href="http://watson-wilson.ca/blog/tag/cheatsheet/">cheatsheet</a>
+                </p>
+            ]]></description>
+            <pubDate>
+                Tue, 08 Mar 2011 00:00:00 +0000
+            </pubDate>
+        </item>
+    </channel>
+</rss>
+

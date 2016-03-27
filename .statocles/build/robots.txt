@@ -1,0 +1,5 @@
+Sitemap: http://watson-wilson.ca/sitemap.xml
+User-Agent: *
+Disallow:
+
+

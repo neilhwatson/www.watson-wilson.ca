@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <link href="/theme/css/readability-bootstrap.min.css" rel="stylesheet">
+        <!--<link rel="stylesheet" href="/theme/css/statocles-bootstrap.css" />-->
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+        <title>Build better regular expressions in CFEngine - Neil H. Watson</title>
+        <meta content="Statocles 0.073" name="generator">
+        
+
+        <!-- For source highlighting -->
+        <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/default.min.css" rel="stylesheet">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+
+    </head>
+    <body>
+        <header>
+            <nav class="navbar navbar-default navbar-static-top" role="navigation">
+                <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button class="navbar-toggle" data-target="#top-navbar-collapse-1" data-toggle="collapse" type="button">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="/">Neil H. Watson</a>
+                    </div>
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="top-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <li><a href="/page/about">About me</a></li>
+                            <li><a href="/static/resume_neil_h_watson.pdf">Resume</a></li>
+                            <li><a href="/page/projects">Projects</a></li>
+                        </ul>
+                        
+                    </div>
+                </div>
+            </nav>
+            
+        </header>
+        <div class="main container">
+            <div class="row">
+
+    <div class="col-md-9">
+        <main>
+            <header>
+                <h1>Build better regular expressions in CFEngine</h1>
+                <p class="tags">Tags:
+                    <a href="/blog/tag/best-practices/" rel="tag">best practices</a>
+                    <a href="/blog/tag/Cfengine/" rel="tag">Cfengine</a>
+                    <a href="/blog/tag/pcre/" rel="tag">pcre</a>
+                    <a href="/blog/tag/regex/" rel="tag">regex</a>
+                </p>
+
+                <aside>
+                    <p><time datetime="2015-08-20">
+                        Posted on 2015-08-20
+                    </time>
+                        by nwatson
+                    </p>
+                </aside>
+
+
+            </header>
+            <section id="section-1">
+                <p><img alt="picture of a regex" src="/static/images/regex.png"></p>
+
+<p>Regular expressions can vary from simple to WTF. Usually they tend
+toward the latter. What most don&#39;t realized, or are too lazy to use, is
+that regular expressions can be made to include friendly whitespace and
+comments. CFEngine is no exception.</p>
+
+            </section>
+            <section id="section-2">
+                <p>Let&#39;s look at an example regular expression and policy to match IP
+addresses. This is a non-trivial expression. (Thanks to the Perl module
+<a href="https://metacpan.org/pod/Regexp::Common::net">Regexp::Common::net</a> for
+my regex source). In this example I match a list of three IP addresses
+against the regex and set a class for each match. Reports promises
+produce a TAP output (ok) if there was a match. First let&#39;s see the
+horrific regular expression.</p>
+
+<p>``</p>
+
+<pre><code>body common control
+{
+        bundlesequence =&gt; { &quot;main&quot;, };
+}
+
+bundle agent main
+{
+   vars:
+      &quot;ips&quot; slist =&gt; { &quot;10.0.0.1&quot;, &quot;192.168.0.1&quot;, &quot;172.16.233.255&quot; };
+
+   classes:
+      &quot;match_${ips}&quot;
+         comment    =&gt; &quot;Oh, the horror!&quot;,
+         expression =&gt; regcmp( 
+&quot;(25[0-5]|2[0-4][0-9]|[0-1]?[0-9]{1,2})[.](25[0-5]|2[0-4][0-9]|[0-1]?[0-9]{1,2})[.](25[0-5]|2[0-4][0-9]|[0-1]?[0-9]{1,2})[.](25[0-5]|2[0-4][0-9]|[0-1]?[0-9]{1,2})&quot;,
+            ${ips}
+            );
+
+      reports:
+         &quot;1..3&quot;;
+         &quot;ok 1 - Match 10.0.0.1&quot;
+            if =&gt; canonify( &quot;match_10.0.0.1&quot; );
+         &quot;not ok 1 - Match 10.0.0.1&quot;
+            if =&gt; not( canonify( &quot;match_10.0.0.1&quot; ));
+         &quot;ok 1 - Match 192.168.0.1&quot;
+            if =&gt; canonify( &quot;match_192.168.0.1&quot; );
+         &quot;not ok 1 - Match 192.168.0.1&quot;
+            if =&gt; not( canonify( &quot;match_192.168.0.1&quot; ));
+         &quot;ok 1 - Match 172.16.233.255&quot;
+            if =&gt; canonify( &quot;match_172.16.233.255&quot; );
+         &quot;not ok 1 - Match 172.16.233.255&quot;
+            if =&gt; not( canonify( &quot;match_172.16.233.255&quot; ));
+}
+</code></pre>
+
+<p>You&#39;d rather insult Chuck Norris&#39; wife than read that regex. But, it
+actually works:</p>
+
+<p>``</p>
+
+<pre><code>R: 1..3
+R: ok 1 - Match 10.0.0.1
+R: ok 1 - Match 192.168.0.1
+R: ok 1 - Match 172.16.233.255
+</code></pre>
+
+<p>Now, let&#39;s lessen the stress, pain, and wrath of the future maintainers
+of our code. Here we use the setting (?mxs) (Note that the mxs can be
+in any order so long as the question mark is first) which allows us to
+spread the regex over multiple lines and add comments because # and
+white space are ignored by the regex parser. This is not CFEngine
+magic, but part of PCRE.</p>
+
+<p>``</p>
+
+<pre><code>body common control
+{
+        bundlesequence =&gt; { &quot;main&quot;, };
+}
+
+bundle agent main
+{
+   vars:
+      &quot;ips&quot; slist =&gt; { &quot;10.0.0.1&quot;, &quot;192.168.0.1&quot;, &quot;172.16.233.255&quot; };
+
+   classes:
+      &quot;match_${ips}&quot;
+         comment    =&gt; &quot;I deserve a raise for this.&quot;,
+         expression =&gt; regcmp( 
+         &quot;(?xms)
+            # First octet 
+            (?:
+               25[0-5]            # Remember ips go as high as 255.
+               |                  # or
+               2[0-4][0-9]        # Between 200 and 249.
+               |                  # or
+               [0-1]?[0-9]{1,2}   # Less than 200.
+            ) 
+            [.]                   # Decimal point
+
+            # Second octet 
+            (?:
+               25[0-5]            # Remember ips go as high as 255.
+               |                  # or
+               2[0-4][0-9]        # Between 200 and 249.
+               |                  # or
+               [0-1]?[0-9]{1,2}   # Less than 200.
+            ) 
+            [.]                   # Decimal point
+            # Third octet 
+            (?:
+               25[0-5]            # Remember ips go as high as 255.
+               |                  # or
+               2[0-4][0-9]        # Between 200 and 249.
+               |                  # or
+               [0-1]?[0-9]{1,2}   # Less than 200.
+            ) 
+            [.]                   # Decimal point
+            # Forth octet 
+            (?:
+               25[0-5]            # Remember ips go as high as 255.
+               |                  # or
+               2[0-4][0-9]        # Between 200 and 249.
+               |                  # or
+               [0-1]?[0-9]{1,2}   # Less than 200.
+            ) 
+         &quot;,
+            ${ips}
+            );
+
+      reports:
+         &quot;1..3&quot;;
+         &quot;ok 1 - Match 10.0.0.1&quot;
+            if =&gt; canonify( &quot;match_10.0.0.1&quot; );
+         &quot;not ok 1 - Match 10.0.0.1&quot;
+            if =&gt; not( canonify( &quot;match_10.0.0.1&quot; ));
+         &quot;ok 1 - Match 192.168.0.1&quot;
+            if =&gt; canonify( &quot;match_192.168.0.1&quot; );
+         &quot;not ok 1 - Match 192.168.0.1&quot;
+            if =&gt; not( canonify( &quot;match_192.168.0.1&quot; ));
+         &quot;ok 1 - Match 172.16.233.255&quot;
+            if =&gt; canonify( &quot;match_172.16.233.255&quot; );
+         &quot;not ok 1 - Match 172.16.233.255&quot;
+            if =&gt; not( canonify( &quot;match_172.16.233.255&quot; ));
+}
+</code></pre>
+
+<p>That&#39;s much nicer and it produces the same results. Also notice the use
+non-capture groups (?:). This is good practice in regular expression to
+avoid unwanted captures.</p>
+
+<p>Note that because (?msx) ignores whitespace you&#39;ll have to use <em>\s</em> and
+perhaps modifiers to express any whitespace, including new lines.</p>
+
+<p>I encourage you to use (?mxs) in all your regular expressions. Be
+considerate of your fellows and your future shelf. Make you regexes
+readable and documented just as you would your other code (your other
+code is pretty isn&#39;t!?).</p>
+
+<h3>Further reading</h3>
+
+<ul>
+<li><p><a href="http://www.pcre.org/current/doc/html/pcre2pattern.html">PCRE Pattern man page</a></p></li>
+<li><p><a href="http://shop.oreilly.com/product/9780596528126.do">Mastering Regular Expressions</a></p></li>
+<li><p><a href="/pcre-cheatsheet/">PCRE cheatsheet</a></p></li>
+</ul>
+
+            </section>
+        </main>
+
+
+    </div>
+
+    <div class="col-md-3">
+        <iframe frameborder="0" src="https://duckduckgo.com/search.html?site=watson-wilson.ca&amp;prefill=Search DuckDuckGo" style="overflow:hidden;margin:0;padding:0;width:350px;height:40px;"></iframe>
+
+        <nav id="tags">
+            <h1>Tags</h1>
+            <ul class="list-inline">
+                <li><a href="/blog/tag/Cfengine/">Cfengine</a></li>
+                <li><a href="/blog/tag/EFL/">EFL</a></li>
+                <li><a href="/blog/tag/anti-virus/">anti-virus</a></li>
+                <li><a href="/blog/tag/apt/">apt</a></li>
+                <li><a href="/blog/tag/backup/">backup</a></li>
+                <li><a href="/blog/tag/best-practices/">best practices</a></li>
+                <li><a href="/blog/tag/cfengine/">cfengine</a></li>
+                <li><a href="/blog/tag/cfengine-cookbook/">cfengine cookbook</a></li>
+                <li><a href="/blog/tag/cheatsheet/">cheatsheet</a></li>
+                <li><a href="/blog/tag/cli/">cli</a></li>
+                <li><a href="/blog/tag/cloud/">cloud</a></li>
+                <li><a href="/blog/tag/cluster/">cluster</a></li>
+                <li><a href="/blog/tag/conferences/">conferences</a></li>
+                <li><a href="/blog/tag/configuration-management/">configuration management</a></li>
+                <li><a href="/blog/tag/cron/">cron</a></li>
+                <li><a href="/blog/tag/debian/">debian</a></li>
+                <li><a href="/blog/tag/delta-reporting/">delta reporting</a></li>
+                <li><a href="/blog/tag/devops/">devops</a></li>
+                <li><a href="/blog/tag/dns/">dns</a></li>
+                <li><a href="/blog/tag/dr/">dr</a></li>
+                <li><a href="/blog/tag/heartbeat/">heartbeat</a></li>
+                <li><a href="/blog/tag/high-availability/">high availability</a></li>
+                <li><a href="/blog/tag/infosec/">infosec</a></li>
+                <li><a href="/blog/tag/ipv6/">ipv6</a></li>
+                <li><a href="/blog/tag/irc/">irc</a></li>
+                <li><a href="/blog/tag/iscsi/">iscsi</a></li>
+                <li><a href="/blog/tag/jekyll/">jekyll</a></li>
+                <li><a href="/blog/tag/kickstart/">kickstart</a></li>
+                <li><a href="/blog/tag/kvm/">kvm</a></li>
+                <li><a href="/blog/tag/linux/">linux</a></li>
+                <li><a href="/blog/tag/monitoring/">monitoring</a></li>
+                <li><a href="/blog/tag/multipathd/">multipathd</a></li>
+                <li><a href="/blog/tag/mustache/">mustache</a></li>
+                <li><a href="/blog/tag/networking/">networking</a></li>
+                <li><a href="/blog/tag/opennms/">opennms</a></li>
+                <li><a href="/blog/tag/opensource/">opensource</a></li>
+                <li><a href="/blog/tag/oracle/">oracle</a></li>
+                <li><a href="/blog/tag/patching/">patching</a></li>
+                <li><a href="/blog/tag/pcre/">pcre</a></li>
+                <li><a href="/blog/tag/perl/">perl</a></li>
+                <li><a href="/blog/tag/posix/">posix</a></li>
+                <li><a href="/blog/tag/programming/">programming</a></li>
+                <li><a href="/blog/tag/provisioning/">provisioning</a></li>
+                <li><a href="/blog/tag/red-hat/">red hat</a></li>
+                <li><a href="/blog/tag/redhat/">redhat</a></li>
+                <li><a href="/blog/tag/regex/">regex</a></li>
+                <li><a href="/blog/tag/rhev/">rhev</a></li>
+                <li><a href="/blog/tag/san/">san</a></li>
+                <li><a href="/blog/tag/satellite/">satellite</a></li>
+                <li><a href="/blog/tag/scripting/">scripting</a></li>
+                <li><a href="/blog/tag/security/">security</a></li>
+                <li><a href="/blog/tag/serverspec/">serverspec</a></li>
+                <li><a href="/blog/tag/shell/">shell</a></li>
+                <li><a href="/blog/tag/software-testing/">software testing</a></li>
+                <li><a href="/blog/tag/solaris/">solaris</a></li>
+                <li><a href="/blog/tag/spacewalk/">spacewalk</a></li>
+                <li><a href="/blog/tag/ssh/">ssh</a></li>
+                <li><a href="/blog/tag/statocles/">statocles</a></li>
+                <li><a href="/blog/tag/subversion/">subversion</a></li>
+                <li><a href="/blog/tag/sun/">sun</a></li>
+                <li><a href="/blog/tag/support/">support</a></li>
+                <li><a href="/blog/tag/svn/">svn</a></li>
+                <li><a href="/blog/tag/sysadmin/">sysadmin</a></li>
+                <li><a href="/blog/tag/sysctl/">sysctl</a></li>
+                <li><a href="/blog/tag/terraform/">terraform</a></li>
+                <li><a href="/blog/tag/virus/">virus</a></li>
+                <li><a href="/blog/tag/vitualization/">vitualization</a></li>
+                <li><a href="/blog/tag/website/">website</a></li>
+            </ul>
+        </nav>
+    </div>
+
+</div>
+
+<div class="row">
+   <div class="col-md-1">
+       <img atl="Neil Watson" src="https://gravatar.com/avatar/1f0969599955a953e592034929ed7a23">
+   </div>
+
+       <div class="col-md-1">
+            <!-- reddit this -->
+            <a href="//www.reddit.com/submit" onclick="window.location = &#39;//www.reddit.com/submit?url=&#39; + encodeURIComponent(window.location); return false"><img alt="submit to reddit" border="0" src="//www.redditstatic.com/spreddit7.gif"></a>
+       </div>
+
+       <div class="col-md-1">
+          <!-- Tweet this -->
+          <a class="twitter-share-button" data-count="none" data-via="neil_h_watson" href="https://twitter.com/share">Tweet</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+       </div>
+
+       <div class="col-md-1">
+          <!-- follow me on twitter -->
+          <a class="twitter-follow-button" data-show-count="false" data-show-screen-name="false" href="https://twitter.com/neil_h_watson">Follow @neil_h_watson</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+        </div>
+
+       <div class="col-md-1">
+           <!-- follw me on github -->
+            <a aria-label="Follow @neilhwatson on GitHub" class="github-button" data-style="mega" href="https://github.com/neilhwatson">Follow</a>
+            <script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
+       </div>
+
+</div>
+
+        </div>
+        <footer>
+            
+            <h1></h1>
+            <div class="col-md-5"> </div>
+            <div class="col-md-3 container tagline">
+                <a href="http://preaction.me/statocles">Made with Statocles</a><br>
+                <a href="http://www.perl.org">Powered by Perl</a>
+            </div>
+        </footer>
+    </body>
+</html>

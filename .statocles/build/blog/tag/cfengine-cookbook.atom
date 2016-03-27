@@ -1,0 +1,121 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>http://watson-wilson.ca/blog/tag/cfengine-cookbook/</id>
+    <title>Neil H. Watson</title>
+    <updated>2011-10-02T00:00:00Z</updated>
+    <link href="http://watson-wilson.ca/blog/tag/cfengine-cookbook.atom" rel="self" />
+    <link href="http://watson-wilson.ca/blog/tag/cfengine-cookbook/" rel="alternate" />
+    <generator version="0.073">Statocles</generator>
+    <entry>
+        <id>http://watson-wilson.ca/blog/2011/10/02/cfengine-backups/</id>
+        <title>Backups using Cfengine</title>
+        <link href="http://watson-wilson.ca/blog/2011/10/02/cfengine-backups/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <h3>Problem</h3>
+
+<p>You want to use Cfengine for scheduling backups instead of crond.</p>
+
+                <p><a href="http://watson-wilson.ca/blog/2011/10/02/cfengine-backups/#section-2">Continue reading...</a></p>
+            <p>Tags:
+                <a href="http://watson-wilson.ca/blog/tag/cfengine/">cfengine</a>
+                <a href="http://watson-wilson.ca/blog/tag/cfengine-cookbook/">cfengine cookbook</a>
+                <a href="http://watson-wilson.ca/blog/tag/backup/">backup</a>
+                <a href="http://watson-wilson.ca/blog/tag/dr/">dr</a>
+            </p>
+        ]]></content>
+        <updated>2011-10-02T00:00:00Z</updated>
+        <category term="cfengine" />
+        <category term="cfengine cookbook" />
+        <category term="backup" />
+        <category term="dr" />
+    </entry>
+    <entry>
+        <id>http://watson-wilson.ca/blog/2011/09/16/cfengine-dynamic-bundlesequence/</id>
+        <title>Dynamic bundlesequence in CFEngine</title>
+        <link href="http://watson-wilson.ca/blog/2011/09/16/cfengine-dynamic-bundlesequence/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <h3>Problem</h3>
+
+<p>You want to have your bundlesequence change based on class.</p>
+
+                <p><a href="http://watson-wilson.ca/blog/2011/09/16/cfengine-dynamic-bundlesequence/#section-2">Continue reading...</a></p>
+            <p>Tags:
+                <a href="http://watson-wilson.ca/blog/tag/cfengine/">cfengine</a>
+                <a href="http://watson-wilson.ca/blog/tag/cfengine-cookbook/">cfengine cookbook</a>
+                <a href="http://watson-wilson.ca/blog/tag/configuration-management/">configuration management</a>
+            </p>
+        ]]></content>
+        <updated>2011-09-16T00:00:00Z</updated>
+        <category term="cfengine" />
+        <category term="cfengine cookbook" />
+        <category term="configuration management" />
+    </entry>
+    <entry>
+        <id>http://watson-wilson.ca/blog/2011/05/26/cfengine-templates/</id>
+        <title>Template files using CFEngine</title>
+        <link href="http://watson-wilson.ca/blog/2011/05/26/cfengine-templates/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <h3>Problem</h3>
+
+<p>Sometimes a file’s contents depends upon the class of host that the file
+resides on. This makes file copy promises impractical. Who wants to copy a
+different file for so many hosts? Sysadmins are a lazy lot.</p>
+
+                <p><a href="http://watson-wilson.ca/blog/2011/05/26/cfengine-templates/#section-2">Continue reading...</a></p>
+            <p>Tags:
+                <a href="http://watson-wilson.ca/blog/tag/cfengine/">cfengine</a>
+                <a href="http://watson-wilson.ca/blog/tag/cfengine-cookbook/">cfengine cookbook</a>
+                <a href="http://watson-wilson.ca/blog/tag/configuration-management/">configuration management</a>
+            </p>
+        ]]></content>
+        <updated>2011-05-26T00:00:00Z</updated>
+        <category term="cfengine" />
+        <category term="cfengine cookbook" />
+        <category term="configuration management" />
+    </entry>
+    <entry>
+        <id>http://watson-wilson.ca/blog/2011/05/26/cfengine-storage/</id>
+        <title>Disk space monitoring using CFEngine</title>
+        <link href="http://watson-wilson.ca/blog/2011/05/26/cfengine-storage/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <h3>Problem</h3>
+
+<p>You want to monitor free disk space.</p>
+
+                <p><a href="http://watson-wilson.ca/blog/2011/05/26/cfengine-storage/#section-2">Continue reading...</a></p>
+            <p>Tags:
+                <a href="http://watson-wilson.ca/blog/tag/cfengine/">cfengine</a>
+                <a href="http://watson-wilson.ca/blog/tag/cfengine-cookbook/">cfengine cookbook</a>
+                <a href="http://watson-wilson.ca/blog/tag/configuration-management/">configuration management</a>
+                <a href="http://watson-wilson.ca/blog/tag/monitoring/">monitoring</a>
+            </p>
+        ]]></content>
+        <updated>2011-05-26T00:00:00Z</updated>
+        <category term="cfengine" />
+        <category term="cfengine cookbook" />
+        <category term="configuration management" />
+        <category term="monitoring" />
+    </entry>
+    <entry>
+        <id>http://watson-wilson.ca/blog/2011/05/26/cfengine-start-process/</id>
+        <title>Starting processes using Cfengine</title>
+        <link href="http://watson-wilson.ca/blog/2011/05/26/cfengine-start-process/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <h3>Problem</h3>
+
+<p>You want to ensure that a process is running.</p>
+
+                <p><a href="http://watson-wilson.ca/blog/2011/05/26/cfengine-start-process/#section-2">Continue reading...</a></p>
+            <p>Tags:
+                <a href="http://watson-wilson.ca/blog/tag/cfengine/">cfengine</a>
+                <a href="http://watson-wilson.ca/blog/tag/cfengine-cookbook/">cfengine cookbook</a>
+                <a href="http://watson-wilson.ca/blog/tag/configuration-management/">configuration management</a>
+            </p>
+        ]]></content>
+        <updated>2011-05-26T00:00:00Z</updated>
+        <category term="cfengine" />
+        <category term="cfengine cookbook" />
+        <category term="configuration management" />
+    </entry>
+</feed>
+

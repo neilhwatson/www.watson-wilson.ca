@@ -1,0 +1,106 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>http://watson-wilson.ca/blog/tag/svn/</id>
+    <title>Neil H. Watson</title>
+    <updated>2011-03-08T00:00:00Z</updated>
+    <link href="http://watson-wilson.ca/blog/tag/svn.atom" rel="self" />
+    <link href="http://watson-wilson.ca/blog/tag/svn/" rel="alternate" />
+    <generator version="0.073">Statocles</generator>
+    <entry>
+        <id>http://watson-wilson.ca/blog/2011/03/08/svn-cheatsheet/</id>
+        <title>Subversion Cheatsheet</title>
+        <link href="http://watson-wilson.ca/blog/2011/03/08/svn-cheatsheet/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <table>
+<tr>
+    <td>Add to working copy</td>
+    <td><code>svn add <file></file></code></td>
+</tr>
+<tr>
+    <td>Backup to hot copy</td>
+    <td><code>hot-backup.py /opt/svn /opt/svn-backup</code></td>
+</tr>
+<tr>
+    <td>Change log view</td>
+    <td><code>svn log file:///opt/svn/scripts/firewall/firewall-new</code></td>
+</tr>
+<tr>
+    <td>Checkout</td>
+    <td><code>svn checkout file:///opt/svn/profile</code></td>
+</tr>
+<tr>
+    <td>Commit changes</td>
+    <td><code>svn commit --message &quot;Your log message&quot;</code></td>
+</tr>
+<tr>
+    <td>Copy to working copy</td>
+    <td><code>svn copy <file> <file></file></file></code></td>
+</tr>
+<tr>
+    <td>Create respository</td>
+    <td><code>svnadmin create --fs-type fsfs /opt/svn</code></td>
+</tr>
+<tr>
+    <td>Delete from working copy</td>
+    <td><code>svn delete <file></file></code></td>
+</tr>
+<tr>
+    <td>Diff changes</td>
+    <td><code>svn diff</code></td>
+</tr>
+<tr>
+    <td>Initial Import</td>
+    <td><code>svn import . file:///opt/svn --message &quot;Initial import&quot;</code></td>
+</tr>
+<tr>
+    <td>Merging to current directory</td>
+    <td><code>svn merge <merge to@rev> <merge from@rev></merge></merge></code></td>
+</tr>
+<tr>
+    <td>Move file in working copy</td>
+    <td><code>svn move <file1> <file2></file2></file1></code></td>
+</tr>
+<tr>
+    <td>Remote Checkout</td>
+    <td><code>svn checkout svn+ssh://<user>@<hostname>/opt/svn/<project></project></hostname></user></code></td>
+</tr>
+<tr>
+    <td>Revert all changes</td>
+    <td><code>svn revert <file></file></code></td>
+</tr>
+<tr>
+    <td>Review changes</td>
+    <td><code>svn status</code></td>
+</tr>
+<tr>
+    <td>Review commit log</td>
+    <td><code>svn log</code></td>
+</tr>
+<tr>
+    <td>Update working copy</td>
+    <td><code>svn update <file> (may overwrite changes)</file></code></td>
+</tr>
+<tr>
+    <td>View file</td>
+    <td><code>svn cat file:///opt/svn/profile/.profile</code></td>
+</tr>
+<tr>
+    <td>View repository tree</td>
+    <td><code>svnlook tree /opt/svn</code></td>
+</tr>
+</table>
+
+                <p><a href="http://watson-wilson.ca/blog/2011/03/08/svn-cheatsheet/#section-2">Continue reading...</a></p>
+            <p>Tags:
+                <a href="http://watson-wilson.ca/blog/tag/subversion/">subversion</a>
+                <a href="http://watson-wilson.ca/blog/tag/svn/">svn</a>
+                <a href="http://watson-wilson.ca/blog/tag/cheatsheet/">cheatsheet</a>
+            </p>
+        ]]></content>
+        <updated>2011-03-08T00:00:00Z</updated>
+        <category term="subversion" />
+        <category term="svn" />
+        <category term="cheatsheet" />
+    </entry>
+</feed>
+

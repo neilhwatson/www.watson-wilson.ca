@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Neil H. Watson</title>
+        <link>http://watson-wilson.ca/blog/tag/anti-virus/</link>
+        <atom:link href="http://watson-wilson.ca/blog/tag/anti-virus.rss" rel="self" type="application/rss+xml" />
+        <description>Blog feed of Neil H. Watson</description>
+        <generator>Statocles 0.073</generator>
+        <item>
+            <title>It&#39;s time to rethink Anti-virus</title>
+            <link>http://watson-wilson.ca/blog/2013/05/09/its-time-to-rethink-anti-virus/</link>
+            <guid>http://watson-wilson.ca/blog/2013/05/09/its-time-to-rethink-anti-virus/</guid>
+            <description><![CDATA[
+                <p>Anti-virus is always a step behind. It&#39;s a good revenue stream for
+anti-virus software makers. For end users it&#39;s a race to the horizon.
+--- Virus pattern recognition only works on patterns that have been
+discovered, researched, and added to the pattern database. Recent
+anti-virus pattern databases now detect more than 22 million patterns.
+Is it a wonder that anti-virus software kills computer performance? <a href="http://www.symantec.com/security_response/definitions/certified/">1</a></p>
+
+<p>The impossible pattern race is bad. The system crippling false alarms
+are worse. In the recent past most major anti-virus tools have crippled
+corporate and person computers by mistakenly quarantining a Windows
+system or application file.<a href="http://www.theregister.co.uk/2013/02/06/kaspersky_win_xp_update_snafu/">1</a>,
+<a href="http://www.theregister.co.uk/2012/09/20/sophos_auto_immune_update_chaos/">2</a>,
+<a href="http://www.pcmag.com/article2/0,2817,2362926,00.asp">3</a></p>
+
+<p>I&#39;m not a computer virus expert. But there has to be a better way to
+protect us. I can think of some.</p>
+
+<p>White listing defines what files are allowed to execute on a system.
+Any file not on the white list is denied execution. For most corporate
+workstations this is ideal. A few hundred executable files are white
+listed and the workstation becomes secure. More generic workstations,
+like home computers, require longer lists. This is not insurmountable.
+I&#39;d rather subscribe to a ten thousand item white list than a 22
+million item black list. The look ups will be shorter and new threats
+do not get an automatic free pass.</p>
+
+<p>Mandatory access control. SELinux is the well known form of MAC. MAC is
+similar to white listing but goes further. Programs are not just denied
+execution rights. Their rights to access the rest of the system are
+explicitly defined. For example, a web browser may be allowed to touch
+printing, browser cache, and other relevant files. Anything else is
+denied, by default. Viruses cannot run wild on the system because
+they&#39;ve not been defined to be allowed to do so. Set up and maintenance
+of such a systems is no small task. Neither is maintaining a growing
+list of 22 million virus definitions.</p>
+
+<p>I&#39;m not a computer virus expert. But the arms race between new viruses
+and new definitions can never be won. It&#39;s time for a new approach.
+Consider that the next time your computer is churning another
+anti-virus disk scan.</p>
+
+                    <p><a href="http://watson-wilson.ca/blog/2013/05/09/its-time-to-rethink-anti-virus/#section-2">Continue reading...</a></p>
+                <p>Tags:
+                    <a href="http://watson-wilson.ca/blog/tag/anti-virus/">anti-virus</a>
+                    <a href="http://watson-wilson.ca/blog/tag/security/">security</a>
+                    <a href="http://watson-wilson.ca/blog/tag/virus/">virus</a>
+                </p>
+            ]]></description>
+            <pubDate>
+                Thu, 09 May 2013 10:47:41 +0000
+            </pubDate>
+        </item>
+    </channel>
+</rss>
+

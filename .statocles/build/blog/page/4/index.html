@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <link href="/theme/css/readability-bootstrap.min.css" rel="stylesheet">
+        <!--<link rel="stylesheet" href="/theme/css/statocles-bootstrap.css" />-->
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+        <title>Neil H. Watson</title>
+        <meta content="Statocles 0.073" name="generator">
+        <link href="/blog/index.atom" rel="alternate" type="application/atom+xml">
+        <link href="/blog/index.rss" rel="alternate" type="application/rss+xml">
+        
+
+        <!-- For source highlighting -->
+        <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/default.min.css" rel="stylesheet">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+
+    </head>
+    <body>
+        <header>
+            <nav class="navbar navbar-default navbar-static-top" role="navigation">
+                <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button class="navbar-toggle" data-target="#top-navbar-collapse-1" data-toggle="collapse" type="button">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="/">Neil H. Watson</a>
+                    </div>
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="top-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <li><a href="/page/about">About me</a></li>
+                            <li><a href="/static/resume_neil_h_watson.pdf">Resume</a></li>
+                            <li><a href="/page/projects">Projects</a></li>
+                        </ul>
+                        
+                    </div>
+                </div>
+            </nav>
+            
+        </header>
+        <div class="main container">
+            
+<div class="row">
+
+    <div class="col-md-9">
+        <main>
+
+
+            <article>
+                <header>
+                    <h1><a href="/blog/2015/06/10/cfbot-answers-your-questions-on-irc/">Cfbot answers your questions on IRC</a></h1>
+
+                    <p class="tags">Tags:
+                        <a href="/blog/tag/Cfengine/" rel="tag">Cfengine</a>
+                        <a href="/blog/tag/irc/" rel="tag">irc</a>
+                        <a href="/blog/tag/perl/" rel="tag">perl</a>
+                    </p>
+
+                    <aside>
+                        <p><time datetime="2015-06-10">
+                            Posted on 2015-06-10
+                        </time>
+                            by nwatson
+                        </p>
+                    </aside>
+
+                </header>
+
+                <p>[caption id=&quot;attachment_1103&quot; align=&quot;alignright&quot; width=&quot;206&quot;]<img alt="Courtesy clipartlord.com" src="/static/images/robot41.png">
+Courtesy clipartlord.com[/caption]</p>
+
+<p>I&#39;ve built <a href="https://github.com/neilhwatson/cfbot">cfbot</a> an open source
+IRC helper bot for the #cfengine channel at <a href="http://freenode.net">Freenode</a>.
+The bot returns definitions of submitted keywords. ---</p>
+
+<p>I invite you to contribute to this knowledge sharing project. Here are
+some cfbot examples:</p>
+
+<p><code>09:09 !cfbot help 09:09 -cfbot:#cfengine- help=Usage: !cfbot will
+return information about the keyword. I am case insensitive. Try !cfbot
+topics to see a list of available topics.
+09:09 !cfbot about 09:09 -cfbot:#cfengine- about=I am a Perl script
+running under Irssi. I am open source:
+https://github.com/neilhwatson/cfbot See Help for more info.
+09:10 !cfbot topics 09:10 -cfbot:#cfengine- Available topics: About,
+Best Practices, Bugs, DH, DR, EFL, Frameworks, Help, NCF, Rudder,
+Support</code></p>
+
+
+
+            </article>
+            <article>
+                <header>
+                    <h1><a href="/blog/2015/04/08/setting-default-variables-in-cfengine/">Setting default variables in CFEngine</a></h1>
+
+                    <p class="tags">Tags:
+                        <a href="/blog/tag/Cfengine/" rel="tag">Cfengine</a>
+                    </p>
+
+                    <aside>
+                        <p><time datetime="2015-04-08">
+                            Posted on 2015-04-08
+                        </time>
+                            by nwatson
+                        </p>
+                    </aside>
+
+                </header>
+
+                <p>Do you want to set a default value for variables in CFEngine? Here are
+two methods. The first uses <em>defaults</em> promises. Defaults promises can
+be bit confusing and I&#39;ve seen bugs in them in the past, so test
+carefully when using them. See the CFEngine reference for more details
+on defaults.</p>
+
+
+                    <p><a href="/blog/2015/04/08/setting-default-variables-in-cfengine/index.html#section-2">Continue reading Setting default variables in CFEngine...</a></p>
+
+            </article>
+            <article>
+                <header>
+                    <h1><a href="/blog/2015/03/26/mustache-template-in-cfengine/">Mustache template in CFEngine</a></h1>
+
+                    <p class="tags">Tags:
+                        <a href="/blog/tag/Cfengine/" rel="tag">Cfengine</a>
+                        <a href="/blog/tag/mustache/" rel="tag">mustache</a>
+                    </p>
+
+                    <aside>
+                        <p><time datetime="2015-03-26">
+                            Posted on 2015-03-26
+                        </time>
+                            by nwatson
+                        </p>
+                    </aside>
+
+                </header>
+
+                <p>Here&#39;s a quick example of how to use mustache templates in CFEngine.</p>
+
+
+                    <p><a href="/blog/2015/03/26/mustache-template-in-cfengine/index.html#section-2">Continue reading Mustache template in CFEngine...</a></p>
+
+            </article>
+            <article>
+                <header>
+                    <h1><a href="/blog/2014/10/30/changes-in-virt-install-and-kickstart-in-rhel7/">Changes in virt-install and Kickstart in RHEL7</a></h1>
+
+                    <p class="tags">Tags:
+                        <a href="/blog/tag/debian/" rel="tag">debian</a>
+                        <a href="/blog/tag/devops/" rel="tag">devops</a>
+                        <a href="/blog/tag/kickstart/" rel="tag">kickstart</a>
+                        <a href="/blog/tag/kvm/" rel="tag">kvm</a>
+                        <a href="/blog/tag/linux/" rel="tag">linux</a>
+                        <a href="/blog/tag/provisioning/" rel="tag">provisioning</a>
+                        <a href="/blog/tag/redhat/" rel="tag">redhat</a>
+                    </p>
+
+                    <aside>
+                        <p><time datetime="2014-10-30">
+                            Posted on 2014-10-30
+                        </time>
+                            by nwatson
+                        </p>
+                    </aside>
+
+                </header>
+
+                <p><img alt="mre case" src="/static/images/mre-case.jpg"></p>
+
+<p>If you are planning to move to RHEL7 you may have to change your
+kickstart and <a href="http://linux.die.net/man/1/virt-install">virt-install</a>
+scripts. The virt-install changes will also apply to Debian based
+hosts. ---</p>
+
+<p>Below is a working example of a virt-install script. I had to make
+changed to the console related bits. Console allows for headless
+operation using <em>virsh console</em>, without having to fiddle with VNC or
+other clumsy graphic interfaces.</p>
+
+<p>A virt-install script <code></code></p>
+
+<pre><code>#!/bin/sh
+
+virt-install -n altair -r 1024 --vcpus 1             --description=&#39;rhel7 DR development&#39;             -l http://mirror.csclub.uwaterloo.ca/centos/7/os/x86_64/             --os-type=linux --os-variant=rhel7             --disk pool=vg,bus=virtio,size=40             --network bridge=br0,model=virtio             --autostart        --graphics none        --console pty,target_type=serial        --extra-args &quot;console=ttyS0,115200n8 serial     inst.sshd ks=http://172.16.100.1/ks/altair.cfg&quot;
+</code></pre>
+
+<p>The Anaconda syntax for kickstart is a little different or more strict
+that it was previously. I had to account for the following changes.</p>
+
+<ol>
+<li><p>Added <em>url</em> line.</p></li>
+<li><p>Added <em>repo</em> line.</p></li>
+<li><p>Added <em>%end</em> tags.</p></li>
+</ol>
+
+<h4>#</h4>
+
+<h4>IPV6 warning</h4>
+
+<p>Sadly, Anaconda still does not support IPV6 fully. The thorn in my
+tests was the <em>gateway</em> setting. Anaconda allows only one gateway
+network setting which prevents you from configuring a dual stack host.
+What is needed is a <a href="https://bugzilla.redhat.com/show_bug.cgi?id=715574">gateway and a gateway6</a>
+option. A work around is to configure one stack in the post section.</p>
+
+<p>Kickstart for RHEL/CentOS 7 <code></code></p>
+
+<pre><code># Kickstat file manually created by Neil Watson.
+
+install
+text
+
+#
+# KS server TODO
+#
+url --url=http://mirror.csclub.uwaterloo.ca/centos/7/os/x86_64/
+repo --name &quot;CentOS 7&quot; --baseurl=http://mirror.csclub.uwaterloo.ca/centos/7/os/x86_64/ --cost=100
+
+# 
+# Language support TODO
+#
+lang en_US.UTF-8
+keyboard us
+
+#
+# Network settings TODO
+#
+network --device=eth0 --bootproto=dhcp --hostname=altair.watson-wilson.ca
+# Not shown, but configure ipv6 in the %post section.
+
+#
+# Security TODO
+#
+rootpw XXXXXXX
+sshpw --username=root XXXXXX
+
+firewall --disabled
+selinux --disabled
+authconfig --enableshadow --enablemd5
+timezone America/Toronto
+
+bootloader --location=mbr --append=&quot;rhgb quiet&quot;
+# Extra console bits probably not neeeded any more.
+#bootloader --location=mbr --append=&quot;rhgb quiet console=tty0 console=ttyS0,115200n8&quot;
+
+#
+# Users TODO
+#
+user --name=neil --password=XXXXXXX
+
+#
+# Partitioning and filesystems TODO
+#
+# The following is the partition information you requested
+# Note that any partitions you deleted are not expressed
+# here so unless you clear all partitions first, this is
+# not guaranteed to work
+
+# HP proliants with RIAD use desk device cciss/c0d0
+# Standard scisi disk is sda
+# KVM guests use vda
+
+zerombr
+clearpart --initlabel --all
+
+part /boot --fstype ext4 --size=200 --ondisk=vda --asprimary
+part pv.3 --size=100 --grow --ondisk=vda
+volgroup vg01 pv.3
+logvol / --fstype ext4 --name=lv01 --vgname=vg01 --size=3072 --grow
+logvol swap --fstype swap --name=swaplv01 --vgname=vg01 --size=1024
+
+#
+# Packages TODO
+#
+%packages --ignoremissing
+vim*
+screen
+tmux
+openssl-devel
+pcre-devel
+make
+gcc
+fakeroot
+%end
+
+%post
+
+chvt 3
+
+#
+# SSH TODO
+#
+mkdir /home/neil/.ssh
+chown neil:neil /home/neil/.ssh
+chmod 700 /home/neil/.ssh
+cat &lt;&gt; /home/neil/.ssh/authorized_keys
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQ...
+EOF
+
+%end
+</code></pre>
+
+<h4>Ifconfig not longer in RHEL7</h4>
+
+<p>The venerable <em>ifconfig</em> has finally been removed from the default
+install. This should not be a surprise to anyone. The replacement, <a href="http://linux.die.net/man/8/ip">ip</a>,
+has been available for many years, yet <a href="https://dev.cfengine.com/issues/6126">some folks</a>
+have still been caught off guard.</p>
+
+
+
+            </article>
+            <article>
+                <header>
+                    <h1><a href="/blog/2014/10/02/efl-tech-preview-for-json-parameters/">EFL tech preview for JSON parameters</a></h1>
+
+                    <p class="tags">Tags:
+                        <a href="/blog/tag/Cfengine/" rel="tag">Cfengine</a>
+                        <a href="/blog/tag/EFL/" rel="tag">EFL</a>
+                    </p>
+
+                    <aside>
+                        <p><time datetime="2014-10-02">
+                            Posted on 2014-10-02
+                        </time>
+                            by nwatson
+                        </p>
+                    </aside>
+
+                </header>
+
+                <p>It&#39;s very likely that <a href="https://github.com/evolvethinking/evolve_cfengine_freelib">EFL</a>
+for CFEngine 3.6 will be able to read both CSV and JSON parameter
+files. Some EFL users are looking forward to this because some CSV
+files have very long lines and are hard to read. On the other hand some
+CSV files are short and less cluttered than an equivalent JSON file
+would be. At first I tried to transition completely to JSON files, but
+upon further consideration EFL will be able to use both. Here&#39;s how.</p>
+
+
+                    <p><a href="/blog/2014/10/02/efl-tech-preview-for-json-parameters/index.html#section-2">Continue reading EFL tech preview for JSON parameters...</a></p>
+
+            </article>
+        </main>
+
+        <ul class="pager">
+            <li class="previous ">
+                <a href="/blog/page/5" rel="next"><span aria-hidden="true" class="glyphicon glyphicon-chevron-left"></span>Older</a>
+            </li>
+            <li class="next ">
+                <a href="/blog/page/3" rel="prev">Newer<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span></a>
+            </li>
+        </ul>
+
+    </div>
+
+    <div class="sidebar col-md-3">
+        <iframe frameborder="0" src="https://duckduckgo.com/search.html?site=watson-wilson.ca&amp;prefill=Search DuckDuckGo" style="overflow:hidden;margin:0;padding:0;width:350px;height:40px;"></iframe>
+
+        <h1>Tags</h1>
+        <ul class="list-inline">
+            <li><a href="/blog/tag/Cfengine/">Cfengine</a></li>
+            <li><a href="/blog/tag/EFL/">EFL</a></li>
+            <li><a href="/blog/tag/anti-virus/">anti-virus</a></li>
+            <li><a href="/blog/tag/apt/">apt</a></li>
+            <li><a href="/blog/tag/backup/">backup</a></li>
+            <li><a href="/blog/tag/best-practices/">best practices</a></li>
+            <li><a href="/blog/tag/cfengine/">cfengine</a></li>
+            <li><a href="/blog/tag/cfengine-cookbook/">cfengine cookbook</a></li>
+            <li><a href="/blog/tag/cheatsheet/">cheatsheet</a></li>
+            <li><a href="/blog/tag/cli/">cli</a></li>
+            <li><a href="/blog/tag/cloud/">cloud</a></li>
+            <li><a href="/blog/tag/cluster/">cluster</a></li>
+            <li><a href="/blog/tag/conferences/">conferences</a></li>
+            <li><a href="/blog/tag/configuration-management/">configuration management</a></li>
+            <li><a href="/blog/tag/cron/">cron</a></li>
+            <li><a href="/blog/tag/debian/">debian</a></li>
+            <li><a href="/blog/tag/delta-reporting/">delta reporting</a></li>
+            <li><a href="/blog/tag/devops/">devops</a></li>
+            <li><a href="/blog/tag/dns/">dns</a></li>
+            <li><a href="/blog/tag/dr/">dr</a></li>
+            <li><a href="/blog/tag/heartbeat/">heartbeat</a></li>
+            <li><a href="/blog/tag/high-availability/">high availability</a></li>
+            <li><a href="/blog/tag/infosec/">infosec</a></li>
+            <li><a href="/blog/tag/ipv6/">ipv6</a></li>
+            <li><a href="/blog/tag/irc/">irc</a></li>
+            <li><a href="/blog/tag/iscsi/">iscsi</a></li>
+            <li><a href="/blog/tag/jekyll/">jekyll</a></li>
+            <li><a href="/blog/tag/kickstart/">kickstart</a></li>
+            <li><a href="/blog/tag/kvm/">kvm</a></li>
+            <li><a href="/blog/tag/linux/">linux</a></li>
+            <li><a href="/blog/tag/monitoring/">monitoring</a></li>
+            <li><a href="/blog/tag/multipathd/">multipathd</a></li>
+            <li><a href="/blog/tag/mustache/">mustache</a></li>
+            <li><a href="/blog/tag/networking/">networking</a></li>
+            <li><a href="/blog/tag/opennms/">opennms</a></li>
+            <li><a href="/blog/tag/opensource/">opensource</a></li>
+            <li><a href="/blog/tag/oracle/">oracle</a></li>
+            <li><a href="/blog/tag/patching/">patching</a></li>
+            <li><a href="/blog/tag/pcre/">pcre</a></li>
+            <li><a href="/blog/tag/perl/">perl</a></li>
+            <li><a href="/blog/tag/posix/">posix</a></li>
+            <li><a href="/blog/tag/programming/">programming</a></li>
+            <li><a href="/blog/tag/provisioning/">provisioning</a></li>
+            <li><a href="/blog/tag/red-hat/">red hat</a></li>
+            <li><a href="/blog/tag/redhat/">redhat</a></li>
+            <li><a href="/blog/tag/regex/">regex</a></li>
+            <li><a href="/blog/tag/rhev/">rhev</a></li>
+            <li><a href="/blog/tag/san/">san</a></li>
+            <li><a href="/blog/tag/satellite/">satellite</a></li>
+            <li><a href="/blog/tag/scripting/">scripting</a></li>
+            <li><a href="/blog/tag/security/">security</a></li>
+            <li><a href="/blog/tag/serverspec/">serverspec</a></li>
+            <li><a href="/blog/tag/shell/">shell</a></li>
+            <li><a href="/blog/tag/software-testing/">software testing</a></li>
+            <li><a href="/blog/tag/solaris/">solaris</a></li>
+            <li><a href="/blog/tag/spacewalk/">spacewalk</a></li>
+            <li><a href="/blog/tag/ssh/">ssh</a></li>
+            <li><a href="/blog/tag/statocles/">statocles</a></li>
+            <li><a href="/blog/tag/subversion/">subversion</a></li>
+            <li><a href="/blog/tag/sun/">sun</a></li>
+            <li><a href="/blog/tag/support/">support</a></li>
+            <li><a href="/blog/tag/svn/">svn</a></li>
+            <li><a href="/blog/tag/sysadmin/">sysadmin</a></li>
+            <li><a href="/blog/tag/sysctl/">sysctl</a></li>
+            <li><a href="/blog/tag/terraform/">terraform</a></li>
+            <li><a href="/blog/tag/virus/">virus</a></li>
+            <li><a href="/blog/tag/vitualization/">vitualization</a></li>
+            <li><a href="/blog/tag/website/">website</a></li>
+        </ul>
+        <h1>Feeds</h1>
+        <ul class="list-inline">
+            <li>
+                <a href="/blog/index.atom" rel="alternate" type="application/atom+xml">
+                    Atom
+                </a>
+            </li>
+            <li>
+                <a href="/blog/index.rss" rel="alternate" type="application/rss+xml">
+                    RSS
+                </a>
+            </li>
+        </ul>
+    </div>
+
+</div>
+
+
+        </div>
+        <footer>
+            
+            <h1></h1>
+            <div class="col-md-5"> </div>
+            <div class="col-md-3 container tagline">
+                <a href="http://preaction.me/statocles">Made with Statocles</a><br>
+                <a href="http://www.perl.org">Powered by Perl</a>
+            </div>
+        </footer>
+    </body>
+</html>

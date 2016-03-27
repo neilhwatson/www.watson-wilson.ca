@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Neil H. Watson</title>
+        <link>http://watson-wilson.ca/blog/tag/satellite/</link>
+        <atom:link href="http://watson-wilson.ca/blog/tag/satellite.rss" rel="self" type="application/rss+xml" />
+        <description>Blog feed of Neil H. Watson</description>
+        <generator>Statocles 0.073</generator>
+        <item>
+            <title>Installing Spacewalk</title>
+            <link>http://watson-wilson.ca/blog/2015/12/08/spacewalk/</link>
+            <guid>http://watson-wilson.ca/blog/2015/12/08/spacewalk/</guid>
+            <description><![CDATA[
+                <p>Here&#39;s a quick procedure for installing <a href="http://spacewalk.redhat.com/">Spacewalk</a>.</p>
+
+                    <p><a href="http://watson-wilson.ca/blog/2015/12/08/spacewalk/#section-2">Continue reading...</a></p>
+                <p>Tags:
+                    <a href="http://watson-wilson.ca/blog/tag/satellite/">satellite</a>
+                    <a href="http://watson-wilson.ca/blog/tag/spacewalk/">spacewalk</a>
+                    <a href="http://watson-wilson.ca/blog/tag/provisioning/">provisioning</a>
+                    <a href="http://watson-wilson.ca/blog/tag/patching/">patching</a>
+                    <a href="http://watson-wilson.ca/blog/tag/red-hat/">red hat</a>
+                </p>
+            ]]></description>
+            <pubDate>
+                Tue, 08 Dec 2015 00:00:00 +0000
+            </pubDate>
+        </item>
+        <item>
+            <title>Purging old systems from Red Hat Satellite</title>
+            <link>http://watson-wilson.ca/blog/2015/06/10/purging-old-systems-from-red-hat-satellite/</link>
+            <guid>http://watson-wilson.ca/blog/2015/06/10/purging-old-systems-from-red-hat-satellite/</guid>
+            <description><![CDATA[
+                <p>I&#39;ve been involved in a Red Hat Satellite (version 5) project recently.
+--- The nature of the client&#39;s work meant that most the systems
+registered with Satellite were reinstalled regularly. This can lead to
+duplicate systems residing in Satellite&#39;s database and its collection
+of Cobbler files. With the aid of Red Had I wrote some scripts that use
+the Satellite and Cobbler API to delete old systems from Satellite and
+Cobbler. I can&#39;t share the scripts, but I can show you some useful
+snippets from what I learned. The scripts are in Perl so I include the
+snippets in my personal Perl <a href="https://github.com/neilhwatson/nustuff/blob/master/perl/cheatsheet.pod">cheatsheet</a>.</p>
+
+                    <p><a href="http://watson-wilson.ca/blog/2015/06/10/purging-old-systems-from-red-hat-satellite/#section-2">Continue reading...</a></p>
+                <p>Tags:
+                    <a href="http://watson-wilson.ca/blog/tag/perl/">perl</a>
+                    <a href="http://watson-wilson.ca/blog/tag/redhat/">redhat</a>
+                    <a href="http://watson-wilson.ca/blog/tag/satellite/">satellite</a>
+                </p>
+            ]]></description>
+            <pubDate>
+                Wed, 10 Jun 2015 09:04:40 +0000
+            </pubDate>
+        </item>
+    </channel>
+</rss>
+
