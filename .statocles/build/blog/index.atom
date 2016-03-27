@@ -2,10 +2,33 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>http://watson-wilson.ca/blog/</id>
     <title>Neil H. Watson</title>
-    <updated>2016-01-08T11:36:20Z</updated>
+    <updated>2016-03-27T00:00:00Z</updated>
     <link href="http://watson-wilson.ca/blog/index.atom" rel="self" />
     <link href="http://watson-wilson.ca/blog/" rel="alternate" />
-    <generator version="0.065">Statocles</generator>
+    <generator version="0.073">Statocles</generator>
+    <entry>
+        <id>http://watson-wilson.ca/blog/2016/03/27/vote_for_cfengine_bugs/</id>
+        <title>Vote for your favourite CFEngine bugs</title>
+        <link href="http://watson-wilson.ca/blog/2016/03/27/vote_for_cfengine_bugs/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p><a href="https://openclipart.org/detail/223801/bad-bug">
+    <img alt="bug photo" src="https://openclipart.org/download/223801/bad-bug.svg" style="float:right"></a></p>
+
+<p>CFEngine has switched to a
+<a href="https://tracker.mender.io/projects/CFE/summary">JIRA bug system</a> and this
+system allows us to vote for bugs. I encourage you to vote for your favourite
+bugs; here are mine:</p>
+
+                <p><a href="http://watson-wilson.ca/blog/2016/03/27/vote_for_cfengine_bugs/#section-2">Continue reading...</a></p>
+            <p>Tags:
+                <a href="http://watson-wilson.ca/blog/tag/cfengine/">cfengine</a>
+                <a href="http://watson-wilson.ca/blog/tag/configuration-management/">configuration management</a>
+            </p>
+        ]]></content>
+        <updated>2016-03-27T00:00:00Z</updated>
+        <category term="cfengine" />
+        <category term="configuration management" />
+    </entry>
     <entry>
         <id>http://watson-wilson.ca/blog/2016/01/08/terraform-intro/</id>
         <title>Introduction to Terraform</title>
@@ -105,29 +128,6 @@ Lots of interesting stuff in that repo.</p>
         <category term="cheatsheet" />
         <category term="programming" />
         <category term="scripting" />
-    </entry>
-    <entry>
-        <id>http://watson-wilson.ca/blog/2015/11/17/new_site/</id>
-        <title>New site</title>
-        <link href="http://watson-wilson.ca/blog/2015/11/17/new_site/" rel="alternate" />
-        <content type="html"><![CDATA[
-            <p><img alt="Perl logo" src="http://watson-wilson.ca/static/images/perl_camel.gif" style="float:right"></p>
-
-<p>I used to power my site with <a href="https://movabletype.org/">Movable Type</a>, but that was removed from Debian. I have another site that is powered by <a href="http://wordpress.com">Wordpress</a>, but maintaining it is costly. I have to constantly be on top of security issues, and the built in editor is tedious for a console cowboy like me. I do not use hosting services, because doing it myself helps keep my skills sharp.</p>
-
-                <p><a href="http://watson-wilson.ca/blog/2015/11/17/new_site/#section-2">Continue reading...</a></p>
-            <p>Tags:
-                <a href="http://watson-wilson.ca/blog/tag/website/">website</a>
-                <a href="http://watson-wilson.ca/blog/tag/perl/">perl</a>
-                <a href="http://watson-wilson.ca/blog/tag/jekyll/">jekyll</a>
-                <a href="http://watson-wilson.ca/blog/tag/statocles/">statocles</a>
-            </p>
-        ]]></content>
-        <updated>2015-11-17T00:00:00Z</updated>
-        <category term="website" />
-        <category term="perl" />
-        <category term="jekyll" />
-        <category term="statocles" />
     </entry>
 </feed>
 

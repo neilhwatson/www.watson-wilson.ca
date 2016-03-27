@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>http://watson-wilson.ca/blog/tag/dns/</id>
     <title>Neil H. Watson</title>
-    <updated>2016-01-08T11:36:20Z</updated>
+    <updated>2013-02-22T00:00:00Z</updated>
     <link href="http://watson-wilson.ca/blog/tag/dns.atom" rel="self" />
     <link href="http://watson-wilson.ca/blog/tag/dns/" rel="alternate" />
-    <generator version="0.065">Statocles</generator>
+    <generator version="0.073">Statocles</generator>
     <entry>
         <id>http://watson-wilson.ca/blog/2013/02/22/dns-renaming/</id>
         <title>Avoid the cost of renaming hundreds of hosts</title>

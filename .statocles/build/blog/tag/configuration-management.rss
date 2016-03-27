@@ -5,7 +5,30 @@
         <link>http://watson-wilson.ca/blog/tag/configuration-management/</link>
         <atom:link href="http://watson-wilson.ca/blog/tag/configuration-management.rss" rel="self" type="application/rss+xml" />
         <description>Blog feed of Neil H. Watson</description>
-        <generator>Statocles 0.065</generator>
+        <generator>Statocles 0.073</generator>
+        <item>
+            <title>Vote for your favourite CFEngine bugs</title>
+            <link>http://watson-wilson.ca/blog/2016/03/27/vote_for_cfengine_bugs/</link>
+            <guid>http://watson-wilson.ca/blog/2016/03/27/vote_for_cfengine_bugs/</guid>
+            <description><![CDATA[
+                <p><a href="https://openclipart.org/detail/223801/bad-bug">
+    <img alt="bug photo" src="https://openclipart.org/download/223801/bad-bug.svg" style="float:right"></a></p>
+
+<p>CFEngine has switched to a
+<a href="https://tracker.mender.io/projects/CFE/summary">JIRA bug system</a> and this
+system allows us to vote for bugs. I encourage you to vote for your favourite
+bugs; here are mine:</p>
+
+                    <p><a href="http://watson-wilson.ca/blog/2016/03/27/vote_for_cfengine_bugs/#section-2">Continue reading...</a></p>
+                <p>Tags:
+                    <a href="http://watson-wilson.ca/blog/tag/cfengine/">cfengine</a>
+                    <a href="http://watson-wilson.ca/blog/tag/configuration-management/">configuration management</a>
+                </p>
+            ]]></description>
+            <pubDate>
+                Sun, 27 Mar 2016 00:00:00 +0000
+            </pubDate>
+        </item>
         <item>
             <title>Introduction to Terraform</title>
             <link>http://watson-wilson.ca/blog/2016/01/08/terraform-intro/</link>
@@ -95,28 +118,6 @@ alternative to venerable crond.</p>
             ]]></description>
             <pubDate>
                 Fri, 16 Sep 2011 00:00:00 +0000
-            </pubDate>
-        </item>
-        <item>
-            <title>Template files using CFEngine</title>
-            <link>http://watson-wilson.ca/blog/2011/05/26/cfengine-templates/</link>
-            <guid>http://watson-wilson.ca/blog/2011/05/26/cfengine-templates/</guid>
-            <description><![CDATA[
-                <h3>Problem</h3>
-
-<p>Sometimes a file’s contents depends upon the class of host that the file
-resides on. This makes file copy promises impractical. Who wants to copy a
-different file for so many hosts? Sysadmins are a lazy lot.</p>
-
-                    <p><a href="http://watson-wilson.ca/blog/2011/05/26/cfengine-templates/#section-2">Continue reading...</a></p>
-                <p>Tags:
-                    <a href="http://watson-wilson.ca/blog/tag/cfengine/">cfengine</a>
-                    <a href="http://watson-wilson.ca/blog/tag/cfengine-cookbook/">cfengine cookbook</a>
-                    <a href="http://watson-wilson.ca/blog/tag/configuration-management/">configuration management</a>
-                </p>
-            ]]></description>
-            <pubDate>
-                Thu, 26 May 2011 00:00:00 +0000
             </pubDate>
         </item>
     </channel>
