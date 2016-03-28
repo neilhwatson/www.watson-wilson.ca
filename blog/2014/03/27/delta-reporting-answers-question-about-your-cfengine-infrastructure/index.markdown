@@ -43,7 +43,7 @@ Sign into the live demo with username 'evolve' and password 'thinking'.
 
   * How many 32 bit linux hosts do I have? Hint, i586.
 
-### [Try it](http://demo.watson-wilson.ca/report/inventory) ###
+### [Try it](http://drdemo.watson-wilson.ca/report/inventory) ###
 
 ## Using the promises report ##
 
@@ -57,7 +57,7 @@ Sign into the live demo with username 'evolve' and password 'thinking'.
   * What was the status of promises with the promiser '/etc/passwd/'
     between 0800 and 0830 hours?
 
-### [Try it](http://demo.watson-wilson.ca/form/promises) ###
+### [Try it](http://drdemo.watson-wilson.ca/form/promises) ###
 
 Notice that the results returned include timestamps. You know when
 cf-agent evaluated the promise.
@@ -70,7 +70,7 @@ cf-agent evaluated the promise.
   * What hosts were members of the class 'toronto' on Monday between
     0800 and 0815 hours?
 
-### [Try it](http://demo.watson-wilson.ca/form/classes) ###
+### [Try it](http://drdemo.watson-wilson.ca/form/classes) ###
 
 Notice that the results returned include timestamps. You know when
 cf-agent evaluated the class.
@@ -80,7 +80,7 @@ cf-agent evaluated the class.
   * What hosts have not been seen in the past 24 hours that were seen
     24 hours before that?
 
-### [Try it](http://demo.watson-wilson.ca/report/missing) ###
+### [Try it](http://drdemo.watson-wilson.ca/report/missing) ###
 
 ## More info ##
 

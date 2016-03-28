@@ -30,7 +30,7 @@ are excited to announce the release of Delta Reporting under GPL3.
 
 ---
 
-You can see a live demo at [demo.watson-wilson.ca](http://demo.watson-wilson.ca).
+You can see a live demo at [drdemo.watson-wilson.ca](http://drdemo.watson-wilson.ca).
 The login is 'evolve' with password 'thinking'. Then you can head on
 over to Github and [grab the the source](https://github.com/evolvethinking/delta_reporting).
 
