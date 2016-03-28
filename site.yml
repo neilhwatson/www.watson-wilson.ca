@@ -96,6 +96,8 @@ site:
                   href: '/static/resume_neil_h_watson.pdf'
                 - text: 'Projects'
                   href: '/page/projects'
+                - text: 'UPDATE: EvolveThinking'
+                  href: '/page/evolvethinking'
 
         # deploy: This is the deploy object, used to deploy this site.
         deploy:
