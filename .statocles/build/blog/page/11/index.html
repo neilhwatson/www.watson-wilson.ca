@@ -126,47 +126,10 @@ policies will welcome this tool. Keep up the good work Loïc!</p>
 
                 <p>In the coming months I&#39;m going to work with and write about <a href="http://www.opennms.org">Opennms</a>.
 Started in 1999, Opennms is a mature, open source, enterprise scale
-monitoring system. --- In this first installment I offer you a way to
-monitor CFEngine&#39;s cf-serverd on any host. Since cf-agent typically
-promises that cf-serverd running, knowing that cf-serverd is running
-tells you that the agent is working.</p>
-
-<p>In my install, Opennms keeps most of its configuration files in
-/etc/opennms. First edit capsd-configuration.xml, adding the following
-section.</p>
-
-<pre><code>&lt;protocol-plugin protocol=&quot;Cfengine&quot; class-name=&quot;org.opennms.netmgt.capsd.plugins.TcpPlugin&quot; scan=&quot;on&quot;&gt;
-   &lt;property key=&quot;port&quot; value=&quot;5308&quot; /&gt;
-   &lt;property key=&quot;timeout&quot; value=&quot;2000&quot; /&gt;
-   &lt;property key=&quot;retry&quot; value=&quot;1&quot; /&gt;
-&lt;/protocol-plugin&gt;
-</code></pre>
-
-<p>Second, edit poller-configuration.xml adding these sections.</p>
-
-<pre><code>&lt;service name=&quot;Cfengine&quot; interval=&quot;300000&quot; user-defined=&quot;false&quot; status=&quot;on&quot;&gt;
-   &lt;parameter key=&quot;retry&quot; value=&quot;2&quot; /&gt;
-   &lt;parameter key=&quot;timeout&quot; value=&quot;3000&quot; /&gt;
-   &lt;parameter key=&quot;port&quot; value=&quot;5308&quot;/&gt;
-   &lt;parameter key=&quot;rrd-repository&quot; value=&quot;/opt/opennms/share/rrd/response&quot; /&gt;
-   &lt;parameter key=&quot;rrd-base-name&quot; value=&quot;cfengine&quot; /&gt;
-   &lt;parameter key=&quot;ds-name&quot; value=&quot;cfengine&quot; /&gt;
-&lt;/service&gt;
-
-&lt;monitor service=&quot;Cfengine&quot; class-name=&quot;org.opennms.netmgt.poller.monitors.TcpMonitor&quot; /&gt;
-</code></pre>
-
-<p>Restart Opennms, then you can manually rescan hosts immediately, or
-wait for Opennms to do so in it&#39;s own time, usually overnight.</p>
-
-<p>[caption id=&quot;attachment_521&quot; width=&quot;640&quot;]<a href="/static/images/opennms-cfengine-polling.png"><img alt="screen shot of Opennms reporting CFEngine availability" src="/static/images/opennms-cfengine-polling.png"></a>
-Opennms reporting CFEngine availability. Notice anything shiny and
-new?[/caption]</p>
-
-<p>Sharp viewers will notice that my node is an IPV6 node. Opennms
-supports IPV6, an important considering in the coming years.</p>
+monitoring system.</p>
 
 
+                    <p><a href="/blog/2013/07/19/polling-cfengine-with-opennms/index.html#section-2">Continue reading Polling CFEngine with Opennms...</a></p>
 
             </article>
             <article>

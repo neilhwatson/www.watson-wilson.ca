@@ -46,8 +46,6 @@ against the regex and set a class for each match. Reports promises
 produce a TAP output (ok) if there was a match. First let's see the
 horrific regular expression.
 
-``
-
     body common control
     {
             bundlesequence => { "main", };
@@ -85,8 +83,6 @@ horrific regular expression.
 You'd rather insult Chuck Norris' wife than read that regex. But, it
 actually works:
 
-``
-
     R: 1..3
     R: ok 1 - Match 10.0.0.1
     R: ok 1 - Match 192.168.0.1
@@ -98,8 +94,6 @@ in any order so long as the question mark is first) which allows us to
 spread the regex over multiple lines and add comments because # and
 white space are ignored by the regex parser. This is not CFEngine
 magic, but part of PCRE.
-
-``
 
     body common control
     {

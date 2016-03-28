@@ -40,6 +40,8 @@ embarrassed, but in configuration management, mistakes could cost me a
 raise or even my job. Testing is the paramount best practice for
 CFEngine. Let me tell you what I have learned.
 
+---
+
 #### Prototyping ####
 
 Your first kernel of a policy idea should be demonstrated with a small,
@@ -91,8 +93,6 @@ Internet get you started.
     (especially mine) contain good self contained examples. Indeed, if
     you report CFEngine bugs, be sure to include a small prototype to
     demonstrate the undesired behaviour.
-
-####  ####
 
 #### Formal testing ####
 
@@ -324,8 +324,6 @@ of your test hosts.
 
 Figure 7: Delta Reporting showing an ntp process promise on multiple
 hosts [![Reporting on ntp process promises](/static/images/dr-process-report.png)](/static/images/dr-process-report.png)
-
-####  ####
 
 #### Summary ####
 

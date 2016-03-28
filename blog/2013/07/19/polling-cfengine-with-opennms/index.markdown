@@ -29,7 +29,11 @@ title: Polling CFEngine with Opennms
 
 In the coming months I'm going to work with and write about [Opennms](http://www.opennms.org).
 Started in 1999, Opennms is a mature, open source, enterprise scale
-monitoring system. --- In this first installment I offer you a way to
+monitoring system.
+
+---
+
+In this first installment I offer you a way to
 monitor CFEngine's cf-serverd on any host. Since cf-agent typically
 promises that cf-serverd running, knowing that cf-serverd is running
 tells you that the agent is working.
@@ -60,9 +64,7 @@ Second, edit poller-configuration.xml adding these sections.
 Restart Opennms, then you can manually rescan hosts immediately, or
 wait for Opennms to do so in it's own time, usually overnight.
 
-[caption id="attachment_521" width="640"][![screen shot of Opennms reporting CFEngine availability](/static/images/opennms-cfengine-polling.png)](/static/images/opennms-cfengine-polling.png)
-Opennms reporting CFEngine availability. Notice anything shiny and
-new?[/caption]
+![screen shot of Opennms reporting CFEngine availability](/static/images/opennms-cfengine-polling.png)
 
-Sharp viewers will notice that my node is an IPV6 node. Opennms
-supports IPV6, an important considering in the coming years.
+Sharp viewers will notice that my node is an IPv6 node. Opennms
+supports IPv6, an important considering in the coming years.

@@ -21,69 +21,6 @@ most servers, network gear, and other appliances without needing a
 custom agent. Its <a href="http://www.opennms.org/wiki/Features_List">feature list</a>
 is impressive.</p>
 
-<h3>When monitoring, less is more.</h3>
-
-<p>I&#39;ve seen a lot of monitoring products in production over the years,
-both proprietary and open source. Most suffer from information overload
-because folks set out trying to monitoring everything. They believe
-they can catch all problems early, but this never works. Staff are
-inundated with so many alerts, most of them false, that searching for
-legitimate ones becomes a full time job, or worse, alerts are
-intentionally ignored. If you are monitoring or plan to start, start
-small, very small, and grow slowly.</p>
-
-<h3>What I like about OpenNMS</h3>
-
-<ul>
-<li><p>No message storms. OpenNMS has message correlation, multiple
-messages meaning the same thing result in only one alert. A feature
-called critical path ensures that multiple and different messages
-result in only one alert. For example, if a router is identified as
-a critical path, OpenNMS will not generate a storm of alerts for
-all hosts behind the router if it goes down.</p></li>
-<li><p>Commercial support. OpenNMS creators offer paid support and
-consulting services. For do-it-yourselfers, there is a <a href="http://www.opennms.org/wiki/Mailing_lists">mailing
-lists</a>, a <a href="http://www.opennms.org/wiki/Tutorial">wiki</a>,
-and the #opennms IRC channel at <a href="http://freenode.net">Freenode</a>.</p></li>
-<li><p>Scale and stability. OpenNMS was designed from day one to scale to
-thousands of nodes at low cost.</p></li>
-<li><p>Simple to install. I was able to install and run OpenNMS on a small
-virtual host without difficulty.</p></li>
-<li><p>SNMP. OpenNMS is not limited to servers supported by a custom
-agent. By using SNMP, OpenNMS can support servers, network gear,
-storage gear, UPS gear, and so much more. For those of you who
-think that SNMP is long in the tooth, look at SNMP version 3, with
-more functionality and <a href="https://en.wikipedia.org/wiki/Simple_Network_Management_Protocol#Version_3">full encryption</a>.</p></li>
-</ul>
-
-<h1>#</h1>
-
-<h3>What I don&#39;t like about OpenNMS</h3>
-
-<ul>
-<li><p>I&#39;m not a fan Java. I&#39;ve been disappointed by many Java
-applications over the years, but I had no such disappointment with
-OpenNMS. The installation process is easy. One problem I did
-encounter, with no solution yet, is that OpenNMS does not start a
-boot, no matter what I tried. I resorted to having CFEngine promise
-to keep it running.</p></li>
-<li><p>Editing XML files sucks. XML was not made for people to ready
-continuously.</p></li>
-<li><p>Merging XML files for upgrades sucks more. When I upgraded OpenNMS
-I was faced with the frustrating exercise of merging the upgrades
-with my preexisting changes.</p></li>
-<li><p>Confusing documentation. The wiki is often outdated or incomplete.
-There is a <a href="https://github.com/OpenNMS/opennmsbook">book</a>, but it
-was not easy to find.</p></li>
-</ul>
-
-<h1>#</h1>
-
-<p>Every monitoring product I&#39;ve worked with has things I don&#39;t like, so
-don&#39;t think I&#39;m singling OpenNMS out. We are now using OpenNMS to
-monitor our gear at Evolve and OpenNMS is at the top of my list for any
-future monitoring projects.</p>
-
                 <p><a href="http://watson-wilson.ca/blog/2013/10/31/opennms-the-open-source-enterprise-monitoring-solution-youve-never-heard-of/#section-2">Continue reading...</a></p>
             <p>Tags:
                 <a href="http://watson-wilson.ca/blog/tag/monitoring/">monitoring</a>
@@ -102,45 +39,7 @@ future monitoring projects.</p>
         <content type="html"><![CDATA[
             <p>In the coming months I&#39;m going to work with and write about <a href="http://www.opennms.org">Opennms</a>.
 Started in 1999, Opennms is a mature, open source, enterprise scale
-monitoring system. --- In this first installment I offer you a way to
-monitor CFEngine&#39;s cf-serverd on any host. Since cf-agent typically
-promises that cf-serverd running, knowing that cf-serverd is running
-tells you that the agent is working.</p>
-
-<p>In my install, Opennms keeps most of its configuration files in
-/etc/opennms. First edit capsd-configuration.xml, adding the following
-section.</p>
-
-<pre><code>&lt;protocol-plugin protocol=&quot;Cfengine&quot; class-name=&quot;org.opennms.netmgt.capsd.plugins.TcpPlugin&quot; scan=&quot;on&quot;&gt;
-   &lt;property key=&quot;port&quot; value=&quot;5308&quot; /&gt;
-   &lt;property key=&quot;timeout&quot; value=&quot;2000&quot; /&gt;
-   &lt;property key=&quot;retry&quot; value=&quot;1&quot; /&gt;
-&lt;/protocol-plugin&gt;
-</code></pre>
-
-<p>Second, edit poller-configuration.xml adding these sections.</p>
-
-<pre><code>&lt;service name=&quot;Cfengine&quot; interval=&quot;300000&quot; user-defined=&quot;false&quot; status=&quot;on&quot;&gt;
-   &lt;parameter key=&quot;retry&quot; value=&quot;2&quot; /&gt;
-   &lt;parameter key=&quot;timeout&quot; value=&quot;3000&quot; /&gt;
-   &lt;parameter key=&quot;port&quot; value=&quot;5308&quot;/&gt;
-   &lt;parameter key=&quot;rrd-repository&quot; value=&quot;/opt/opennms/share/rrd/response&quot; /&gt;
-   &lt;parameter key=&quot;rrd-base-name&quot; value=&quot;cfengine&quot; /&gt;
-   &lt;parameter key=&quot;ds-name&quot; value=&quot;cfengine&quot; /&gt;
-&lt;/service&gt;
-
-&lt;monitor service=&quot;Cfengine&quot; class-name=&quot;org.opennms.netmgt.poller.monitors.TcpMonitor&quot; /&gt;
-</code></pre>
-
-<p>Restart Opennms, then you can manually rescan hosts immediately, or
-wait for Opennms to do so in it&#39;s own time, usually overnight.</p>
-
-<p>[caption id=&quot;attachment_521&quot; width=&quot;640&quot;]<a href="http://watson-wilson.ca/static/images/opennms-cfengine-polling.png"><img alt="screen shot of Opennms reporting CFEngine availability" src="http://watson-wilson.ca/static/images/opennms-cfengine-polling.png"></a>
-Opennms reporting CFEngine availability. Notice anything shiny and
-new?[/caption]</p>
-
-<p>Sharp viewers will notice that my node is an IPV6 node. Opennms
-supports IPV6, an important considering in the coming years.</p>
+monitoring system.</p>
 
                 <p><a href="http://watson-wilson.ca/blog/2013/07/19/polling-cfengine-with-opennms/#section-2">Continue reading...</a></p>
             <p>Tags:

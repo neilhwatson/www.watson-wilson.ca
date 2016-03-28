@@ -30,6 +30,8 @@ most servers, network gear, and other appliances without needing a
 custom agent. Its [feature list](http://www.opennms.org/wiki/Features_List)
 is impressive.
 
+---
+
 ### When monitoring, less is more. ###
 
 I've seen a lot of monitoring products in production over the years,
@@ -67,8 +69,6 @@ small, very small, and grow slowly.
     think that SNMP is long in the tooth, look at SNMP version 3, with
     more functionality and [full encryption](https://en.wikipedia.org/wiki/Simple_Network_Management_Protocol#Version_3).
 
-#  #
-
 ### What I don't like about OpenNMS ###
 
   * I'm not a fan Java. I've been disappointed by many Java
@@ -88,8 +88,6 @@ small, very small, and grow slowly.
   * Confusing documentation. The wiki is often outdated or incomplete.
     There is a [book](https://github.com/OpenNMS/opennmsbook), but it
     was not easy to find.
-
-#  #
 
 Every monitoring product I've worked with has things I don't like, so
 don't think I'm singling OpenNMS out. We are now using OpenNMS to
