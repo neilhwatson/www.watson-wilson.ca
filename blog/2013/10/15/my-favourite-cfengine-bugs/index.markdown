@@ -14,7 +14,7 @@ data:
 date: 2013-10-15 17:47:44
 status: published
 tags:
-  - Cfengine
+  - cfengine
 title: My 'favourite' CFEngine bugs
 ---
 

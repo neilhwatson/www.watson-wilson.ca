@@ -24,7 +24,7 @@ date: 2014-07-04 21:10:32
 status: published
 tags:
   - best practices
-  - Cfengine
+  - cfengine
   - delta reporting
   - software testing
 title: 'CFEngine best practices: testing'

@@ -20,7 +20,7 @@ data:
 date: 2014-03-25 07:03:42
 status: published
 tags:
-  - Cfengine
+  - cfengine
   - delta reporting
   - EFL
 title: 'Delta Reporting, Open Source, and Live Demo'

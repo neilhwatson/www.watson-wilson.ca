@@ -20,7 +20,7 @@ data:
 date: 2014-02-27 08:12:19
 status: published
 tags:
-  - Cfengine
+  - cfengine
   - delta reporting
   - EFL
 title: Promising and reporting cron jobs with CFEngine

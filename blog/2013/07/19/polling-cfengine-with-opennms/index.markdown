@@ -20,7 +20,7 @@ data:
 date: 2013-07-19 11:00:28
 status: published
 tags:
-  - Cfengine
+  - cfengine
   - monitoring
   - opennms
 title: Polling CFEngine with Opennms

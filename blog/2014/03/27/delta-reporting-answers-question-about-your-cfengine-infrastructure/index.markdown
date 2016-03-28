@@ -17,7 +17,7 @@ data:
 date: 2014-03-27 10:45:10
 status: published
 tags:
-  - Cfengine
+  - cfengine
   - delta reporting
 title: Delta Reporting answers questions about your CFEngine infrastructure
 ---

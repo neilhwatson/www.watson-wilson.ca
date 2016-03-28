@@ -24,7 +24,7 @@ date: 2014-08-07 09:02:57
 status: published
 tags:
   - best practices
-  - Cfengine
+  - cfengine
   - delta reporting
   - EFL
 title: 'CFEngine best practices: deployment, upgrades, and scaling'

@@ -18,13 +18,13 @@ powerful reports. See a gallery of essential ones <a href="http://watson-wilson.
 
                 <p><a href="http://watson-wilson.ca/blog/2015/09/30/essential-audit-reports-with-delta-reporting/#section-2">Continue reading...</a></p>
             <p>Tags:
-                <a href="http://watson-wilson.ca/blog/tag/Cfengine/">Cfengine</a>
+                <a href="http://watson-wilson.ca/blog/tag/cfengine/">cfengine</a>
                 <a href="http://watson-wilson.ca/blog/tag/delta-reporting/">delta reporting</a>
                 <a href="http://watson-wilson.ca/blog/tag/security/">security</a>
             </p>
         ]]></content>
         <updated>2015-09-30T11:34:03Z</updated>
-        <category term="Cfengine" />
+        <category term="cfengine" />
         <category term="delta reporting" />
         <category term="security" />
     </entry>
@@ -43,7 +43,7 @@ it&#39;s possible.</p>
 
                 <p><a href="http://watson-wilson.ca/blog/2015/09/18/auditing-hosts-using-cfengine-efl-and-delta-reporting/#section-2">Continue reading...</a></p>
             <p>Tags:
-                <a href="http://watson-wilson.ca/blog/tag/Cfengine/">Cfengine</a>
+                <a href="http://watson-wilson.ca/blog/tag/cfengine/">cfengine</a>
                 <a href="http://watson-wilson.ca/blog/tag/delta-reporting/">delta reporting</a>
                 <a href="http://watson-wilson.ca/blog/tag/EFL/">EFL</a>
                 <a href="http://watson-wilson.ca/blog/tag/security/">security</a>
@@ -51,7 +51,7 @@ it&#39;s possible.</p>
             </p>
         ]]></content>
         <updated>2015-09-18T13:52:10Z</updated>
-        <category term="Cfengine" />
+        <category term="cfengine" />
         <category term="delta reporting" />
         <category term="EFL" />
         <category term="security" />
@@ -74,14 +74,14 @@ not long. First we had to design a test for the vulnerability.</p>
 
                 <p><a href="http://watson-wilson.ca/blog/2014/09/26/shellshock-free-with-cfengine-and-delta-reporting/#section-2">Continue reading...</a></p>
             <p>Tags:
-                <a href="http://watson-wilson.ca/blog/tag/Cfengine/">Cfengine</a>
+                <a href="http://watson-wilson.ca/blog/tag/cfengine/">cfengine</a>
                 <a href="http://watson-wilson.ca/blog/tag/delta-reporting/">delta reporting</a>
                 <a href="http://watson-wilson.ca/blog/tag/EFL/">EFL</a>
                 <a href="http://watson-wilson.ca/blog/tag/security/">security</a>
             </p>
         ]]></content>
         <updated>2014-09-26T10:47:04Z</updated>
-        <category term="Cfengine" />
+        <category term="cfengine" />
         <category term="delta reporting" />
         <category term="EFL" />
         <category term="security" />
@@ -141,7 +141,7 @@ reduce the load from excessive promise evaluation.</p>
 
                 <p><a href="http://watson-wilson.ca/blog/2013/08/07/secure-sysctl-settings-with-cfengine/#section-2">Continue reading...</a></p>
             <p>Tags:
-                <a href="http://watson-wilson.ca/blog/tag/Cfengine/">Cfengine</a>
+                <a href="http://watson-wilson.ca/blog/tag/cfengine/">cfengine</a>
                 <a href="http://watson-wilson.ca/blog/tag/EFL/">EFL</a>
                 <a href="http://watson-wilson.ca/blog/tag/linux/">linux</a>
                 <a href="http://watson-wilson.ca/blog/tag/security/">security</a>
@@ -149,7 +149,7 @@ reduce the load from excessive promise evaluation.</p>
             </p>
         ]]></content>
         <updated>2013-08-07T16:13:42Z</updated>
-        <category term="Cfengine" />
+        <category term="cfengine" />
         <category term="EFL" />
         <category term="linux" />
         <category term="security" />

@@ -20,7 +20,7 @@ data:
 date: 2015-06-10 09:32:18
 status: published
 tags:
-  - Cfengine
+  - cfengine
   - irc
   - perl
 title: Cfbot answers your questions on IRC

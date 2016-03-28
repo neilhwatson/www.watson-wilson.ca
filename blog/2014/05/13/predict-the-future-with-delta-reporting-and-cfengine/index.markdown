@@ -17,7 +17,7 @@ data:
 date: 2014-05-13 17:38:46
 status: published
 tags:
-  - Cfengine
+  - cfengine
   - delta reporting
 title: Predict the future with Delta Reporting and CFEngine
 ---

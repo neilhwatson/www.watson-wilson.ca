@@ -18,13 +18,13 @@ powerful reports. See a gallery of essential ones <a href="http://watson-wilson.
 
                 <p><a href="http://watson-wilson.ca/blog/2015/09/30/essential-audit-reports-with-delta-reporting/#section-2">Continue reading...</a></p>
             <p>Tags:
-                <a href="http://watson-wilson.ca/blog/tag/Cfengine/">Cfengine</a>
+                <a href="http://watson-wilson.ca/blog/tag/cfengine/">cfengine</a>
                 <a href="http://watson-wilson.ca/blog/tag/delta-reporting/">delta reporting</a>
                 <a href="http://watson-wilson.ca/blog/tag/security/">security</a>
             </p>
         ]]></content>
         <updated>2015-09-30T11:34:03Z</updated>
-        <category term="Cfengine" />
+        <category term="cfengine" />
         <category term="delta reporting" />
         <category term="security" />
     </entry>
@@ -43,7 +43,7 @@ it&#39;s possible.</p>
 
                 <p><a href="http://watson-wilson.ca/blog/2015/09/18/auditing-hosts-using-cfengine-efl-and-delta-reporting/#section-2">Continue reading...</a></p>
             <p>Tags:
-                <a href="http://watson-wilson.ca/blog/tag/Cfengine/">Cfengine</a>
+                <a href="http://watson-wilson.ca/blog/tag/cfengine/">cfengine</a>
                 <a href="http://watson-wilson.ca/blog/tag/delta-reporting/">delta reporting</a>
                 <a href="http://watson-wilson.ca/blog/tag/EFL/">EFL</a>
                 <a href="http://watson-wilson.ca/blog/tag/security/">security</a>
@@ -51,7 +51,7 @@ it&#39;s possible.</p>
             </p>
         ]]></content>
         <updated>2015-09-18T13:52:10Z</updated>
-        <category term="Cfengine" />
+        <category term="cfengine" />
         <category term="delta reporting" />
         <category term="EFL" />
         <category term="security" />
@@ -74,14 +74,14 @@ not long. First we had to design a test for the vulnerability.</p>
 
                 <p><a href="http://watson-wilson.ca/blog/2014/09/26/shellshock-free-with-cfengine-and-delta-reporting/#section-2">Continue reading...</a></p>
             <p>Tags:
-                <a href="http://watson-wilson.ca/blog/tag/Cfengine/">Cfengine</a>
+                <a href="http://watson-wilson.ca/blog/tag/cfengine/">cfengine</a>
                 <a href="http://watson-wilson.ca/blog/tag/delta-reporting/">delta reporting</a>
                 <a href="http://watson-wilson.ca/blog/tag/EFL/">EFL</a>
                 <a href="http://watson-wilson.ca/blog/tag/security/">security</a>
             </p>
         ]]></content>
         <updated>2014-09-26T10:47:04Z</updated>
-        <category term="Cfengine" />
+        <category term="cfengine" />
         <category term="delta reporting" />
         <category term="EFL" />
         <category term="security" />
@@ -105,7 +105,7 @@ template.</p>
 
                 <p><a href="http://watson-wilson.ca/blog/2014/09/19/testing-cfengine-policy-by-counting-classes/#section-2">Continue reading...</a></p>
             <p>Tags:
-                <a href="http://watson-wilson.ca/blog/tag/Cfengine/">Cfengine</a>
+                <a href="http://watson-wilson.ca/blog/tag/cfengine/">cfengine</a>
                 <a href="http://watson-wilson.ca/blog/tag/delta-reporting/">delta reporting</a>
                 <a href="http://watson-wilson.ca/blog/tag/devops/">devops</a>
                 <a href="http://watson-wilson.ca/blog/tag/EFL/">EFL</a>
@@ -113,7 +113,7 @@ template.</p>
             </p>
         ]]></content>
         <updated>2014-09-19T11:45:48Z</updated>
-        <category term="Cfengine" />
+        <category term="cfengine" />
         <category term="delta reporting" />
         <category term="devops" />
         <category term="EFL" />
@@ -133,12 +133,12 @@ flexible.</p>
 
                 <p><a href="http://watson-wilson.ca/blog/2014/09/04/delta-reporting-and-cfengine-are-not-centralized-applications/#section-2">Continue reading...</a></p>
             <p>Tags:
-                <a href="http://watson-wilson.ca/blog/tag/Cfengine/">Cfengine</a>
+                <a href="http://watson-wilson.ca/blog/tag/cfengine/">cfengine</a>
                 <a href="http://watson-wilson.ca/blog/tag/delta-reporting/">delta reporting</a>
             </p>
         ]]></content>
         <updated>2014-09-04T11:30:18Z</updated>
-        <category term="Cfengine" />
+        <category term="cfengine" />
         <category term="delta reporting" />
     </entry>
 </feed>

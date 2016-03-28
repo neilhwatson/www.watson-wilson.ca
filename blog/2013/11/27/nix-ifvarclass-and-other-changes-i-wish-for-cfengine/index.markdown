@@ -14,7 +14,7 @@ data:
 date: 2013-11-27 12:00:15
 status: published
 tags:
-  - Cfengine
+  - cfengine
 title: Nix ifvarclass and other changes I wish for CFEngine
 ---
 

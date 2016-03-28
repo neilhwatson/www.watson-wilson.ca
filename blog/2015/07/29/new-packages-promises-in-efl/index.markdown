@@ -20,7 +20,7 @@ data:
 date: 2015-07-29 08:26:33
 status: published
 tags:
-  - Cfengine
+  - cfengine
   - EFL
   - provisioning
 title: New packages promises in EFL

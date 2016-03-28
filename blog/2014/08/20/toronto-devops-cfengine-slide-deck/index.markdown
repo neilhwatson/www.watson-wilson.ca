@@ -20,7 +20,7 @@ data:
 date: 2014-08-20 08:13:46
 status: published
 tags:
-  - Cfengine
+  - cfengine
   - delta reporting
   - EFL
 title: Toronto devops CFEngine slide deck

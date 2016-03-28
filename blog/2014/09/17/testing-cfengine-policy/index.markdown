@@ -23,7 +23,7 @@ data:
 date: 2014-09-17 10:14:41
 status: published
 tags:
-  - Cfengine
+  - cfengine
   - devops
   - EFL
   - software testing

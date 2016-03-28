@@ -17,7 +17,7 @@ data:
 date: 2014-10-02 10:30:03
 status: published
 tags:
-  - Cfengine
+  - cfengine
   - EFL
 title: EFL tech preview for JSON parameters
 ---

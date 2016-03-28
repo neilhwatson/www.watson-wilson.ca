@@ -667,60 +667,6 @@
         <lastmod>2016-03-27</lastmod>
     </url>
     <url>
-        <loc>http://watson-wilson.ca/blog/tag/Cfengine/</loc>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-        <lastmod>2015-10-13</lastmod>
-    </url>
-    <url>
-        <loc>http://watson-wilson.ca/blog/tag/Cfengine/page/2/</loc>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-        <lastmod>2015-10-13</lastmod>
-    </url>
-    <url>
-        <loc>http://watson-wilson.ca/blog/tag/Cfengine/page/3/</loc>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-        <lastmod>2015-10-13</lastmod>
-    </url>
-    <url>
-        <loc>http://watson-wilson.ca/blog/tag/Cfengine/page/4/</loc>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-        <lastmod>2015-10-13</lastmod>
-    </url>
-    <url>
-        <loc>http://watson-wilson.ca/blog/tag/Cfengine/page/5/</loc>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-        <lastmod>2015-10-13</lastmod>
-    </url>
-    <url>
-        <loc>http://watson-wilson.ca/blog/tag/Cfengine/page/6/</loc>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-        <lastmod>2015-10-13</lastmod>
-    </url>
-    <url>
-        <loc>http://watson-wilson.ca/blog/tag/Cfengine/page/7/</loc>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-        <lastmod>2015-10-13</lastmod>
-    </url>
-    <url>
-        <loc>http://watson-wilson.ca/blog/tag/Cfengine/page/8/</loc>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-        <lastmod>2015-10-13</lastmod>
-    </url>
-    <url>
-        <loc>http://watson-wilson.ca/blog/tag/Cfengine/page/9/</loc>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-        <lastmod>2015-10-13</lastmod>
-    </url>
-    <url>
         <loc>http://watson-wilson.ca/blog/tag/EFL/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
@@ -793,6 +739,24 @@
         <lastmod>2016-03-27</lastmod>
     </url>
     <url>
+        <loc>http://watson-wilson.ca/blog/tag/cfengine/page/10/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2016-03-27</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/tag/cfengine/page/11/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2016-03-27</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/tag/cfengine/page/12/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2016-03-27</lastmod>
+    </url>
+    <url>
         <loc>http://watson-wilson.ca/blog/tag/cfengine/page/2/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
@@ -800,6 +764,42 @@
     </url>
     <url>
         <loc>http://watson-wilson.ca/blog/tag/cfengine/page/3/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2016-03-27</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/tag/cfengine/page/4/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2016-03-27</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/tag/cfengine/page/5/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2016-03-27</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/tag/cfengine/page/6/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2016-03-27</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/tag/cfengine/page/7/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2016-03-27</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/tag/cfengine/page/8/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2016-03-27</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/tag/cfengine/page/9/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
         <lastmod>2016-03-27</lastmod>
@@ -1216,25 +1216,25 @@
         <loc>http://watson-wilson.ca/page/</loc>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
-        <lastmod>2016-03-27</lastmod>
+        <lastmod>2016-03-28</lastmod>
     </url>
     <url>
         <loc>http://watson-wilson.ca/page/404/</loc>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
-        <lastmod>2016-03-27</lastmod>
+        <lastmod>2016-03-28</lastmod>
     </url>
     <url>
         <loc>http://watson-wilson.ca/page/about/</loc>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
-        <lastmod>2016-03-27</lastmod>
+        <lastmod>2016-03-28</lastmod>
     </url>
     <url>
         <loc>http://watson-wilson.ca/page/projects/</loc>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
-        <lastmod>2016-03-27</lastmod>
+        <lastmod>2016-03-28</lastmod>
     </url>
 </urlset>
 

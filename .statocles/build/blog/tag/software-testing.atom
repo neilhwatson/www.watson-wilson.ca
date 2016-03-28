@@ -21,7 +21,7 @@ it&#39;s possible.</p>
 
                 <p><a href="http://watson-wilson.ca/blog/2015/09/18/auditing-hosts-using-cfengine-efl-and-delta-reporting/#section-2">Continue reading...</a></p>
             <p>Tags:
-                <a href="http://watson-wilson.ca/blog/tag/Cfengine/">Cfengine</a>
+                <a href="http://watson-wilson.ca/blog/tag/cfengine/">cfengine</a>
                 <a href="http://watson-wilson.ca/blog/tag/delta-reporting/">delta reporting</a>
                 <a href="http://watson-wilson.ca/blog/tag/EFL/">EFL</a>
                 <a href="http://watson-wilson.ca/blog/tag/security/">security</a>
@@ -29,7 +29,7 @@ it&#39;s possible.</p>
             </p>
         ]]></content>
         <updated>2015-09-18T13:52:10Z</updated>
-        <category term="Cfengine" />
+        <category term="cfengine" />
         <category term="delta reporting" />
         <category term="EFL" />
         <category term="security" />
@@ -49,14 +49,14 @@ TAP output.</p>
 
                 <p><a href="http://watson-wilson.ca/blog/2015/08/20/testing-cfengine-using-efl-tap-and-perl/#section-2">Continue reading...</a></p>
             <p>Tags:
-                <a href="http://watson-wilson.ca/blog/tag/Cfengine/">Cfengine</a>
+                <a href="http://watson-wilson.ca/blog/tag/cfengine/">cfengine</a>
                 <a href="http://watson-wilson.ca/blog/tag/devops/">devops</a>
                 <a href="http://watson-wilson.ca/blog/tag/EFL/">EFL</a>
                 <a href="http://watson-wilson.ca/blog/tag/software-testing/">software testing</a>
             </p>
         ]]></content>
         <updated>2015-08-20T15:33:18Z</updated>
-        <category term="Cfengine" />
+        <category term="cfengine" />
         <category term="devops" />
         <category term="EFL" />
         <category term="software testing" />
@@ -72,13 +72,13 @@ lately. Let me tell you about the surprises I found.</p>
 
                 <p><a href="http://watson-wilson.ca/blog/2015/06/18/serverspec-the-good-the-bad-and-the-ugly/#section-2">Continue reading...</a></p>
             <p>Tags:
-                <a href="http://watson-wilson.ca/blog/tag/Cfengine/">Cfengine</a>
+                <a href="http://watson-wilson.ca/blog/tag/cfengine/">cfengine</a>
                 <a href="http://watson-wilson.ca/blog/tag/serverspec/">serverspec</a>
                 <a href="http://watson-wilson.ca/blog/tag/software-testing/">software testing</a>
             </p>
         ]]></content>
         <updated>2015-06-18T14:37:16Z</updated>
-        <category term="Cfengine" />
+        <category term="cfengine" />
         <category term="serverspec" />
         <category term="software testing" />
     </entry>
@@ -101,7 +101,7 @@ template.</p>
 
                 <p><a href="http://watson-wilson.ca/blog/2014/09/19/testing-cfengine-policy-by-counting-classes/#section-2">Continue reading...</a></p>
             <p>Tags:
-                <a href="http://watson-wilson.ca/blog/tag/Cfengine/">Cfengine</a>
+                <a href="http://watson-wilson.ca/blog/tag/cfengine/">cfengine</a>
                 <a href="http://watson-wilson.ca/blog/tag/delta-reporting/">delta reporting</a>
                 <a href="http://watson-wilson.ca/blog/tag/devops/">devops</a>
                 <a href="http://watson-wilson.ca/blog/tag/EFL/">EFL</a>
@@ -109,7 +109,7 @@ template.</p>
             </p>
         ]]></content>
         <updated>2014-09-19T11:45:48Z</updated>
-        <category term="Cfengine" />
+        <category term="cfengine" />
         <category term="delta reporting" />
         <category term="devops" />
         <category term="EFL" />
@@ -132,14 +132,14 @@ there?</p>
 
                 <p><a href="http://watson-wilson.ca/blog/2014/09/17/testing-cfengine-policy/#section-2">Continue reading...</a></p>
             <p>Tags:
-                <a href="http://watson-wilson.ca/blog/tag/Cfengine/">Cfengine</a>
+                <a href="http://watson-wilson.ca/blog/tag/cfengine/">cfengine</a>
                 <a href="http://watson-wilson.ca/blog/tag/devops/">devops</a>
                 <a href="http://watson-wilson.ca/blog/tag/EFL/">EFL</a>
                 <a href="http://watson-wilson.ca/blog/tag/software-testing/">software testing</a>
             </p>
         ]]></content>
         <updated>2014-09-17T10:14:41Z</updated>
-        <category term="Cfengine" />
+        <category term="cfengine" />
         <category term="devops" />
         <category term="EFL" />
         <category term="software testing" />

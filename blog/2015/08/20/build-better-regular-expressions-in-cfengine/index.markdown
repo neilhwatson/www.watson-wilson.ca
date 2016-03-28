@@ -24,7 +24,7 @@ date: 2015-08-20 21:51:58
 status: published
 tags:
   - best practices
-  - Cfengine
+  - cfengine
   - pcre
   - regex
 title: Build better regular expressions in CFEngine

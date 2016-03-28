@@ -23,7 +23,7 @@ data:
 date: 2013-08-07 16:13:42
 status: published
 tags:
-  - Cfengine
+  - cfengine
   - EFL
   - linux
   - security

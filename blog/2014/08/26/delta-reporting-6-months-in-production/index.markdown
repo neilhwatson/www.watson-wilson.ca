@@ -17,7 +17,7 @@ data:
 date: 2014-08-26 08:52:17
 status: published
 tags:
-  - Cfengine
+  - cfengine
   - delta reporting
 title: Delta Reporting 6 months in production
 ---

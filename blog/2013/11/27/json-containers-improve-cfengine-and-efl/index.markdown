@@ -17,7 +17,7 @@ data:
 date: 2013-11-27 14:02:37
 status: published
 tags:
-  - Cfengine
+  - cfengine
   - EFL
 title: JSON containers improve CFEngine and EFL
 ---

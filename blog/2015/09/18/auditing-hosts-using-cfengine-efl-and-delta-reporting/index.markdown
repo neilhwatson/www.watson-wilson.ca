@@ -26,7 +26,7 @@ data:
 date: 2015-09-18 13:52:10
 status: published
 tags:
-  - Cfengine
+  - cfengine
   - delta reporting
   - EFL
   - security

@@ -17,7 +17,7 @@ data:
 date: 2015-10-13 09:54:06
 status: published
 tags:
-  - Cfengine
+  - cfengine
   - EFL
 title: Simple CFEngine setup with EFL
 ---

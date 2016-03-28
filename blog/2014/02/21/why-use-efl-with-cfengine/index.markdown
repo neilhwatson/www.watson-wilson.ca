@@ -17,7 +17,7 @@ data:
 date: 2014-02-21 12:13:12
 status: published
 tags:
-  - Cfengine
+  - cfengine
   - EFL
 title: Why use EFL with CFEngine?
 ---

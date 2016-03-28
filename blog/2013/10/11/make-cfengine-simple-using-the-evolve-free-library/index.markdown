@@ -17,7 +17,7 @@ data:
 date: 2013-10-11 11:06:52
 status: published
 tags:
-  - Cfengine
+  - cfengine
   - EFL
 title: Make CFEngine simple using the Evolve Free Library
 ---

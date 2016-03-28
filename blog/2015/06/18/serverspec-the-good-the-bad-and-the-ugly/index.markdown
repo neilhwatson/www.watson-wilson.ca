@@ -23,7 +23,7 @@ data:
 date: 2015-06-18 14:37:16
 status: published
 tags:
-  - Cfengine
+  - cfengine
   - serverspec
   - software testing
 title: 'Serverspec, the good, the bad, and the ugly'

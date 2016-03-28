@@ -17,7 +17,7 @@ data:
 date: 2014-02-26 10:32:53
 status: published
 tags:
-  - Cfengine
+  - cfengine
   - EFL
 title: My evolution of CFEngine policy
 ---

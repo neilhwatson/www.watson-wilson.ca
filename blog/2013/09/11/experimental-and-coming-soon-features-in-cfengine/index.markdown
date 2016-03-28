@@ -14,7 +14,7 @@ data:
 date: 2013-09-11 10:00:29
 status: published
 tags:
-  - Cfengine
+  - cfengine
 title: Experimental and coming soon features in CFEngine
 ---
 

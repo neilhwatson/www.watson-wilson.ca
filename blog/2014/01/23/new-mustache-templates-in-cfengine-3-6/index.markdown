@@ -14,7 +14,7 @@ data:
 date: 2014-01-23 18:22:46
 status: published
 tags:
-  - Cfengine
+  - cfengine
 title: New mustache templates in CFEngine 3.6
 ---
 

@@ -14,7 +14,7 @@ data:
 date: 2013-07-26 08:27:36
 status: published
 tags:
-  - Cfengine
+  - cfengine
 title: Profiling policy performance in CFEngine
 ---
 

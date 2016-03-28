@@ -14,7 +14,7 @@ data:
 date: 2015-04-08 08:54:30
 status: published
 tags:
-  - Cfengine
+  - cfengine
 title: Setting default variables in CFEngine
 ---
 

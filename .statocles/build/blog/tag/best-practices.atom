@@ -22,14 +22,14 @@ comments. CFEngine is no exception.</p>
                 <p><a href="http://watson-wilson.ca/blog/2015/08/20/build-better-regular-expressions-in-cfengine/#section-2">Continue reading...</a></p>
             <p>Tags:
                 <a href="http://watson-wilson.ca/blog/tag/best-practices/">best practices</a>
-                <a href="http://watson-wilson.ca/blog/tag/Cfengine/">Cfengine</a>
+                <a href="http://watson-wilson.ca/blog/tag/cfengine/">cfengine</a>
                 <a href="http://watson-wilson.ca/blog/tag/pcre/">pcre</a>
                 <a href="http://watson-wilson.ca/blog/tag/regex/">regex</a>
             </p>
         ]]></content>
         <updated>2015-08-20T21:51:58Z</updated>
         <category term="best practices" />
-        <category term="Cfengine" />
+        <category term="cfengine" />
         <category term="pcre" />
         <category term="regex" />
     </entry>
@@ -46,14 +46,14 @@ comments. CFEngine is no exception.</p>
                 <p><a href="http://watson-wilson.ca/blog/2014/08/07/cfengine-best-practices-deployment-upgrades-and-scaling/#section-2">Continue reading...</a></p>
             <p>Tags:
                 <a href="http://watson-wilson.ca/blog/tag/best-practices/">best practices</a>
-                <a href="http://watson-wilson.ca/blog/tag/Cfengine/">Cfengine</a>
+                <a href="http://watson-wilson.ca/blog/tag/cfengine/">cfengine</a>
                 <a href="http://watson-wilson.ca/blog/tag/delta-reporting/">delta reporting</a>
                 <a href="http://watson-wilson.ca/blog/tag/EFL/">EFL</a>
             </p>
         ]]></content>
         <updated>2014-08-07T09:02:57Z</updated>
         <category term="best practices" />
-        <category term="Cfengine" />
+        <category term="cfengine" />
         <category term="delta reporting" />
         <category term="EFL" />
     </entry>
@@ -71,14 +71,14 @@ let&#39;s look at other best practices to make you a CFEngine ninja.</p>
                 <p><a href="http://watson-wilson.ca/blog/2014/07/18/cfengine-best-practices-part-2/#section-2">Continue reading...</a></p>
             <p>Tags:
                 <a href="http://watson-wilson.ca/blog/tag/best-practices/">best practices</a>
-                <a href="http://watson-wilson.ca/blog/tag/Cfengine/">Cfengine</a>
+                <a href="http://watson-wilson.ca/blog/tag/cfengine/">cfengine</a>
                 <a href="http://watson-wilson.ca/blog/tag/delta-reporting/">delta reporting</a>
                 <a href="http://watson-wilson.ca/blog/tag/EFL/">EFL</a>
             </p>
         ]]></content>
         <updated>2014-07-18T09:57:02Z</updated>
         <category term="best practices" />
-        <category term="Cfengine" />
+        <category term="cfengine" />
         <category term="delta reporting" />
         <category term="EFL" />
     </entry>
@@ -402,14 +402,14 @@ hosts <a href="http://watson-wilson.ca/static/images/dr-process-report.png"><img
                 <p><a href="http://watson-wilson.ca/blog/2014/07/04/cfengine-best-practices-testing/#section-2">Continue reading...</a></p>
             <p>Tags:
                 <a href="http://watson-wilson.ca/blog/tag/best-practices/">best practices</a>
-                <a href="http://watson-wilson.ca/blog/tag/Cfengine/">Cfengine</a>
+                <a href="http://watson-wilson.ca/blog/tag/cfengine/">cfengine</a>
                 <a href="http://watson-wilson.ca/blog/tag/delta-reporting/">delta reporting</a>
                 <a href="http://watson-wilson.ca/blog/tag/software-testing/">software testing</a>
             </p>
         ]]></content>
         <updated>2014-07-04T21:10:32Z</updated>
         <category term="best practices" />
-        <category term="Cfengine" />
+        <category term="cfengine" />
         <category term="delta reporting" />
         <category term="software testing" />
     </entry>

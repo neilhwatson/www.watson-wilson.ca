@@ -17,7 +17,7 @@ data:
 date: 2013-11-21 12:00:25
 status: published
 tags:
-  - Cfengine
+  - cfengine
   - EFL
 title: Bulding CFEngine classes using EFL
 ---

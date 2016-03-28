@@ -17,7 +17,7 @@ data:
 date: 2013-05-09 10:47:41
 status: published
 tags:
-  - Cfengine
+  - cfengine
   - EFL
 title: Evolve Thinking's free CFEngine library
 ---

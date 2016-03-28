@@ -56,157 +56,164 @@
 
             <article>
                 <header>
-                    <h1><a href="/blog/2011/05/26/cfengine-banning-process/">Banning processes using CFEngine</a></h1>
+                    <h1><a href="/blog/2015/04/08/setting-default-variables-in-cfengine/">Setting default variables in CFEngine</a></h1>
 
                     <p class="tags">Tags:
                         <a href="/blog/tag/cfengine/" rel="tag">cfengine</a>
-                        <a href="/blog/tag/cfengine-cookbook/" rel="tag">cfengine cookbook</a>
-                        <a href="/blog/tag/configuration-management/" rel="tag">configuration management</a>
-                        <a href="/blog/tag/infosec/" rel="tag">infosec</a>
                     </p>
 
                     <aside>
-                        <p><time datetime="2011-05-26">
-                            Posted on 2011-05-26
+                        <p><time datetime="2015-04-08">
+                            Posted on 2015-04-08
                         </time>
+                            by nwatson
                         </p>
                     </aside>
 
                 </header>
 
-                <h3>Problem</h3>
+                <p>Do you want to set a default value for variables in CFEngine? Here are
+two methods. The first uses <em>defaults</em> promises. Defaults promises can
+be bit confusing and I&#39;ve seen bugs in them in the past, so test
+carefully when using them. See the CFEngine reference for more details
+on defaults.</p>
 
-<p>You want to prevent certain processes from running.</p>
 
-
-                    <p><a href="/blog/2011/05/26/cfengine-banning-process/index.html#section-2">Continue reading Banning processes using CFEngine...</a></p>
+                    <p><a href="/blog/2015/04/08/setting-default-variables-in-cfengine/index.html#section-2">Continue reading Setting default variables in CFEngine...</a></p>
 
             </article>
             <article>
                 <header>
-                    <h1><a href="/blog/2011/05/24/cfengine-links/">Creating links using Cfengine</a></h1>
+                    <h1><a href="/blog/2015/03/26/mustache-template-in-cfengine/">Mustache template in CFEngine</a></h1>
 
                     <p class="tags">Tags:
                         <a href="/blog/tag/cfengine/" rel="tag">cfengine</a>
-                        <a href="/blog/tag/cfengine-cookbook/" rel="tag">cfengine cookbook</a>
-                        <a href="/blog/tag/configuration-management/" rel="tag">configuration management</a>
+                        <a href="/blog/tag/mustache/" rel="tag">mustache</a>
                     </p>
 
                     <aside>
-                        <p><time datetime="2011-05-24">
-                            Posted on 2011-05-24
+                        <p><time datetime="2015-03-26">
+                            Posted on 2015-03-26
                         </time>
+                            by nwatson
                         </p>
                     </aside>
 
                 </header>
 
-                <h3>Problem</h3>
-
-<p>You Cfengine binaries are in /var/cfengine/bin but you want them in the PATH.</p>
+                <p>Here&#39;s a quick example of how to use mustache templates in CFEngine.</p>
 
 
-                    <p><a href="/blog/2011/05/24/cfengine-links/index.html#section-2">Continue reading Creating links using Cfengine...</a></p>
+                    <p><a href="/blog/2015/03/26/mustache-template-in-cfengine/index.html#section-2">Continue reading Mustache template in CFEngine...</a></p>
 
             </article>
             <article>
                 <header>
-                    <h1><a href="/blog/2011/03/08/enterprise-sysadmin/">Enterprise system administration using configuration management</a></h1>
+                    <h1><a href="/blog/2014/10/02/efl-tech-preview-for-json-parameters/">EFL tech preview for JSON parameters</a></h1>
 
                     <p class="tags">Tags:
-                        <a href="/blog/tag/configuration-management/" rel="tag">configuration management</a>
-                        <a href="/blog/tag/sysadmin/" rel="tag">sysadmin</a>
                         <a href="/blog/tag/cfengine/" rel="tag">cfengine</a>
+                        <a href="/blog/tag/EFL/" rel="tag">EFL</a>
                     </p>
 
                     <aside>
-                        <p><time datetime="2011-03-08">
-                            Posted on 2011-03-08
+                        <p><time datetime="2014-10-02">
+                            Posted on 2014-10-02
                         </time>
+                            by nwatson
                         </p>
                     </aside>
 
                 </header>
 
-                <p>To maintain the large quantity of servers typically found in enterprise
-organizations, systems administration must move beyond manual and custom
-scripts toward a centralized configuration management service. This move can
-save an organization considerable time and money.</p>
+                <p>It&#39;s very likely that <a href="https://github.com/evolvethinking/evolve_cfengine_freelib">EFL</a>
+for CFEngine 3.6 will be able to read both CSV and JSON parameter
+files. Some EFL users are looking forward to this because some CSV
+files have very long lines and are hard to read. On the other hand some
+CSV files are short and less cluttered than an equivalent JSON file
+would be. At first I tried to transition completely to JSON files, but
+upon further consideration EFL will be able to use both. Here&#39;s how.</p>
 
 
-                    <p><a href="/blog/2011/03/08/enterprise-sysadmin/index.html#section-2">Continue reading Enterprise system administration using configuration management...</a></p>
+                    <p><a href="/blog/2014/10/02/efl-tech-preview-for-json-parameters/index.html#section-2">Continue reading EFL tech preview for JSON parameters...</a></p>
 
             </article>
             <article>
                 <header>
-                    <h1><a href="/blog/2011/03/08/cfengine-tutorial/">CFEngine tutorial</a></h1>
+                    <h1><a href="/blog/2014/09/26/shellshock-free-with-cfengine-and-delta-reporting/">Shellshock free with CFEngine and Delta Reporting</a></h1>
 
                     <p class="tags">Tags:
                         <a href="/blog/tag/cfengine/" rel="tag">cfengine</a>
-                        <a href="/blog/tag/configuration-management/" rel="tag">configuration management</a>
+                        <a href="/blog/tag/delta-reporting/" rel="tag">delta reporting</a>
+                        <a href="/blog/tag/EFL/" rel="tag">EFL</a>
+                        <a href="/blog/tag/security/" rel="tag">security</a>
                     </p>
 
                     <aside>
-                        <p><time datetime="2011-03-08">
-                            Posted on 2011-03-08
+                        <p><time datetime="2014-09-26">
+                            Posted on 2014-09-26
                         </time>
+                            by nwatson
                         </p>
                     </aside>
 
                 </header>
 
-                <ol>
-<li><p><a href="/blog/2011/03/08/cfengine-tutorial/#overview">Overview</a></p></li>
-<li><p><a href="/blog/2011/03/08/cfengine-tutorial/#basic">Basic example</a></p></li>
-<li><p><a href="/blog/2011/03/08/cfengine-tutorial/#others">Other examples</a></p></li>
-</ol>
+                <p>[caption id=&quot;attachment_1052&quot; align=&quot;alignnone&quot; width=&quot;716&quot;]<a href="/static/images/shell_shock.png"><img alt="Hosts reported free of shell shock" src="/static/images/shell_shock.png"></a>
+Hosts reported free of shell shock[/caption]</p>
 
-<h2><a name="overview"></a>Overview</h2>
-
-<p>CFEngine is a configuration management tool that allows a system administrator
-to configure multiple hosts continuously. CFEngine runs as a client/server
-application. The server provides new configurations, or policy, while the
-client works to ensure that a client host conforms to them.</p>
+<p>Above is a screenshot from Evolve&#39;s production <a href="https://github.com/evolvethinking/delta_reporting">Delta Reporting</a>
+service. These hosts are safe from Shell shock. Thanks to Delta
+Reporting, <a href="https://github.com/evolvethinking/evolve_cfengine_freelib">EFL</a>,
+and <a href="http://cfengine.com">CFEngine</a> our journey to a safe harbour was
+not long. First we had to design a test for the vulnerability.</p>
 
 
-                    <p><a href="/blog/2011/03/08/cfengine-tutorial/index.html#section-2">Continue reading CFEngine tutorial...</a></p>
+                    <p><a href="/blog/2014/09/26/shellshock-free-with-cfengine-and-delta-reporting/index.html#section-2">Continue reading Shellshock free with CFEngine and Delta Reporting...</a></p>
 
             </article>
             <article>
                 <header>
-                    <h1><a href="/blog/2011/01/25/sec-autid-victory/">Victory over security audits</a></h1>
+                    <h1><a href="/blog/2014/09/19/testing-cfengine-policy-by-counting-classes/">Testing CFEngine policy by counting classes</a></h1>
 
                     <p class="tags">Tags:
                         <a href="/blog/tag/cfengine/" rel="tag">cfengine</a>
-                        <a href="/blog/tag/configuration-management/" rel="tag">configuration management</a>
-                        <a href="/blog/tag/infosec/" rel="tag">infosec</a>
+                        <a href="/blog/tag/delta-reporting/" rel="tag">delta reporting</a>
+                        <a href="/blog/tag/devops/" rel="tag">devops</a>
+                        <a href="/blog/tag/EFL/" rel="tag">EFL</a>
+                        <a href="/blog/tag/software-testing/" rel="tag">software testing</a>
                     </p>
 
                     <aside>
-                        <p><time datetime="2011-01-25">
-                            Posted on 2011-01-25
+                        <p><time datetime="2014-09-19">
+                            Posted on 2014-09-19
                         </time>
+                            by nwatson
                         </p>
                     </aside>
 
                 </header>
 
-                <p><img alt="Winston Churchill give victory sign" src="/blog/2011/01/25/sec-autid-victory/ch-vic.gif" style="float:right"></p>
+                <p><img alt="counting" src="/static/images/counting.jpg"></p>
 
-<p>It’s vicious cycle. Resources are spent auditing hosts. Many more are
-spent fixing all of the audit’s deficiencies. Then it’s back to
-business as usual.  Time passes and hosts slowly degrade until the next
-audit. Repeat.</p>
+<p>I&#39;ve added a <a href="https://github.com/evolvethinking/evolve_cfengine_freelib/commit/00093210649c4b236e9d4940a23f5a6fe2e60742">new bundle</a>
+to the 3.5 branch of EFL. This bundle <em>efl_test_count</em> allows you to
+count the classes matching a regular expression and test if that count
+matches your expected count. Consider the <em>efl_service</em> bundle, it
+promises that services are configured and running. My SSH parameters
+for this bundle include a template file for configuration. I promise
+that /etc/ssh/sshd_config is built from the sshd_config.tmp, a
+template.</p>
 
 
-                    <p><a href="/blog/2011/01/25/sec-autid-victory/index.html#section-2">Continue reading Victory over security audits...</a></p>
+                    <p><a href="/blog/2014/09/19/testing-cfengine-policy-by-counting-classes/index.html#section-2">Continue reading Testing CFEngine policy by counting classes...</a></p>
 
             </article>
         </main>
 
         <ul class="pager">
-            <li class="previous disabled">
-                <span><span aria-hidden="true" class="glyphicon glyphicon-chevron-left"></span>Older</span>
+            <li class="previous ">
+                <a href="/blog/tag/cfengine/page/4" rel="next"><span aria-hidden="true" class="glyphicon glyphicon-chevron-left"></span>Older</a>
             </li>
             <li class="next ">
                 <a href="/blog/tag/cfengine/page/2" rel="prev">Newer<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span></a>
@@ -220,7 +227,6 @@ audit. Repeat.</p>
 
         <h1>Tags</h1>
         <ul class="list-inline">
-            <li><a href="/blog/tag/Cfengine/">Cfengine</a></li>
             <li><a href="/blog/tag/EFL/">EFL</a></li>
             <li><a href="/blog/tag/anti-virus/">anti-virus</a></li>
             <li><a href="/blog/tag/apt/">apt</a></li>

@@ -17,7 +17,7 @@ data:
 date: 2015-03-26 10:59:43
 status: published
 tags:
-  - Cfengine
+  - cfengine
   - mustache
 title: Mustache template in CFEngine
 ---

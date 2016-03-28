@@ -20,7 +20,7 @@ data:
 date: 2015-09-30 11:34:03
 status: published
 tags:
-  - Cfengine
+  - cfengine
   - delta reporting
   - security
 title: Essential audit reports with Delta Reporting

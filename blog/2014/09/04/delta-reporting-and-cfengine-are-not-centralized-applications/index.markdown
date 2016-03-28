@@ -17,7 +17,7 @@ data:
 date: 2014-09-04 11:30:18
 status: published
 tags:
-  - Cfengine
+  - cfengine
   - delta reporting
 title: Delta Reporting and CFEngine are NOT centralized applications
 ---

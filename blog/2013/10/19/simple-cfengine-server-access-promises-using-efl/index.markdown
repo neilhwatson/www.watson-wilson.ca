@@ -17,7 +17,7 @@ data:
 date: 2013-10-19 09:09:29
 status: published
 tags:
-  - Cfengine
+  - cfengine
   - EFL
 title: Simple CFEngine server access promises using EFL
 ---

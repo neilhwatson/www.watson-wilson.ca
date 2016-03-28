@@ -24,7 +24,7 @@ date: 2014-07-18 09:57:02
 status: published
 tags:
   - best practices
-  - Cfengine
+  - cfengine
   - delta reporting
   - EFL
 title: 'CFEngine best practices: part 2'

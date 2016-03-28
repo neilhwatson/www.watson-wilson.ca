@@ -17,7 +17,7 @@ data:
 date: 2014-04-01 19:28:33
 status: published
 tags:
-  - Cfengine
+  - cfengine
   - EFL
 title: Class definition with CFEngine 3.6 and JSON
 ---

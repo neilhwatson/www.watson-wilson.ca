@@ -17,7 +17,7 @@ data:
 date: 2015-08-20 11:48:23
 status: published
 tags:
-  - Cfengine
+  - cfengine
   - EFL
 title: EFL is tested for your confidence
 ---

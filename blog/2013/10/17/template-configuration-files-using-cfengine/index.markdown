@@ -17,7 +17,7 @@ data:
 date: 2013-10-17 17:16:56
 status: published
 tags:
-  - Cfengine
+  - cfengine
   - EFL
 title: Template configuration files using CFEngine
 ---

@@ -14,7 +14,7 @@ data:
 date: 2013-10-30 12:00:03
 status: published
 tags:
-  - Cfengine
+  - cfengine
 title: 'CFEngine 2 to 3 migration? Beware of data loss'
 ---
 
