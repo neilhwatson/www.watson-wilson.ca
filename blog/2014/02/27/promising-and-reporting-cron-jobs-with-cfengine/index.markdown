@@ -60,7 +60,7 @@ in cron.
     ettin       ;; /usr/bin/fetchmail  ;; noshell ;; no     ;; 5         ;; email
     backups     ;; /usr/bin/backup.sh  ;; noshell ;; no     ;; 60        ;; Backups
 
-Using [Delta Reporting](https://github.com/neilhwatson/delta-reporting/) we can audit the
+Using [Delta Reporting](https\:\/\/github\.com\/neilhwatson\/delta_reporting) we can audit the
 history of our jobs, reporting last status and status of the past.
 
 ![delta reporting screen shot of fetchmail promiser](/static/images/dr_efl_command_ss.png)

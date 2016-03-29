@@ -21,4 +21,4 @@ The [Evolve Free Library](https://github.com/neilhwatson/evolve_cfengine_freelib
 
 ### Delta Reporting
 
-[Delta Reporting](https://github.com/neilhwatson/delta-reporting) is and auditing and compliance engine for CFEngine.
+[Delta Reporting](https://github.com/neilhwatson/delta_reporting) is and auditing and compliance engine for CFEngine.
