@@ -76,81 +76,77 @@ look it up. Here is a cheat-sheet to save time.</p>
 
             </section>
             <section id="section-2">
-                <p><em>*Description *</em></p>
-
-<p><em>* Syntax *</em></p>
-
-<p><em>* Note</em>*</p>
-
-<p>Case insensitive</p>
-
-<p>(?i)</p>
-
-<p>Place at the beginning of the expression.</p>
-
-<p>Class</p>
-
-<p>[ ]</p>
-
-<p>\d and [0-9-] are equivalent.</p>
-
-<p>Digit</p>
-
-<p>\d</p>
-
-<p>\D for anything that is not a digit.</p>
-
-<p>Lookahead, negative</p>
-
-<p>(?!<em>pattern</em></p>
-
-<p>Lookahead, positive</p>
-
-<p>(?=<em>pattern</em></p>
-
-<p>Lookbehind, negative</p>
-
-<p>(?&lt;!<em>pattern</em></p>
-
-<p>Lookbehind, positive</p>
-
-<p>(?&lt;=<em>pattern</em></p>
-
-<p>None capture grouping</p>
-
-<p>(?:)</p>
-
-<p>Group for logic and selection, but not capture.</p>
-
-<p>Multi-line match</p>
-
-<p>(?m)</p>
-
-<p>Place at the beginning of the expression. Similar to Perl&#39;s m//g.</p>
-
-<p>Extened regex</p>
-
-<p>(mxs)</p>
-
-<p>Use this to make your regexes readable. A regex best practice.</p>
-
-<p>No magic</p>
-
-<p>\Q \E</p>
-
-<p>No special meaning to any characters between these.</p>
-
-<p>Range</p>
-
-<p>{n,m}</p>
-
-<p>Minimum of <em>n</em>, maximum of <em>m</em>.</p>
-
-<p>Whitespace</p>
-
-<p>\s</p>
-
-<p>\S for anything that is not whitespace.</p>
+                <table class="table">
+   <thead>
+      <tr>
+         <th>Description</th>
+         <th>Syntax</th>
+         <th>Note</th>
+      </tr>
+   </thead>
+   <tbody>
+      <tr>
+         <td>Case insensitive</td>
+         <td>(?i)</td>
+         <td>Place at the beginning of the expression.</td>
+      </tr>
+      <tr>
+         <td>Class</td>
+         <td>[ ]</td>
+         <td>\d and [0-9-] are equivalent.</td>
+      </tr>
+      <tr>
+         <td>Digit</td>
+         <td>\d</td>
+         <td>\D for anything that is not a digit.</td>
+      </tr>
+      <tr>
+         <td>Lookahead, negative</td>
+         <td>(?!*pattern*</td>
+      </tr>
+      <tr>
+         <td>Lookahead, positive</td>
+         <td>(?=*pattern*</td>
+      </tr>
+      <tr>
+         <td>Lookbehind, negative</td>
+         <td>(?&lt;!*pattern*</td>
+      </tr>
+      <tr>
+         <td>Lookbehind, positive</td>
+         <td>(?&lt;=*pattern*</td>
+      </tr>
+      <tr>
+         <td>None capture grouping</td>
+         <td>(?:)Group for logic and selection, but not capture.</td>
+      </tr>
+      <tr>
+         <td>Multi-line match</td>
+         <td>(?m)</td>
+         <td>Place at the beginning of the expression. Similar to Perl&#39;s m//g.</td>
+      </tr>
+      <tr>
+         <td>Extened regex</td>
+         <td>(mxs)</td>
+         <td>Use this to make your regexes readable. A regex best practice.</td>
+      </tr>
+      <tr>
+         <td>No magic</td>
+         <td>\Q \E</td>
+         <td>No special meaning to any characters between these.</td>
+      </tr>
+      <tr>
+         <td>Range</td>
+         <td>{n,m}</td>
+         <td>Minimum of *n*, maximum of *m*.</td>
+      </tr>
+      <tr>
+         <td>Whitespace</td>
+         <td>\s</td>
+         <td>\S for anything that is not whitespace.</td>
+      </tr>
+   </tbody>
+</table>
 
 <h3>Notes</h3>
 
@@ -158,20 +154,18 @@ look it up. Here is a cheat-sheet to save time.</p>
 <li><p>Beginning settings are combined. For example (?mi) considers
 multiple lines and is case insensitive.</p></li>
 <li><p>Make your regexes readable by using the extened regex options.
-Consider this: `</p>
+Consider this:</p>
 
-<pre><code>      (?i)(?:linux|solaris|aix|hpux)
-</code></pre>
+<p>(?i)(?:linux|solaris|aix|hpux)</p>
 
-<p><code>Versus this:</code></p>
+<p>Versus this:</p>
 
-<pre><code>      (?imsx)(?: linux | solaris | aix | hpux )
-</code></pre>
-
-<p>`</p>
-
-<p>Now imagine using it on a very complex regex.</p></li>
+<p>(?imsx)(?: linux | solaris | aix | hpux )</p></li>
 </ol>
+
+<p>Now imagine using it on a very complex regex.
+<a href="/blog/2015/08/20/build-better-regular-expressions-in-cfengine/">See here</a> for
+a more complex example.</p>
 
             </section>
         </main>

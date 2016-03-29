@@ -35,99 +35,93 @@ look it up. Here is a cheat-sheet to save time.
 
 ---
 
-**Description **
-
-** Syntax **
-
-** Note**
-
-Case insensitive
-
-(?i)
-
-Place at the beginning of the expression.
-
-Class
-
-[ ]
-
-\d and [0-9-] are equivalent.
-
-Digit
-
-\d
-
-\D for anything that is not a digit.
-
-Lookahead, negative
-
-(?!*pattern*
-
-Lookahead, positive
-
-(?=*pattern*
-
-Lookbehind, negative
-
-(?<!*pattern*
-
-Lookbehind, positive
-
-(?<=*pattern*
-
-None capture grouping
-
-(?:)
-
-Group for logic and selection, but not capture.
-
-Multi-line match
-
-(?m)
-
-Place at the beginning of the expression. Similar to Perl's m//g.
-
-Extened regex
-
-(mxs)
-
-Use this to make your regexes readable. A regex best practice.
-
-No magic
-
-\Q \E
-
-No special meaning to any characters between these.
-
-Range
-
-{n,m}
-
-Minimum of *n*, maximum of *m*.
-
-Whitespace
-
-\s
-
-\S for anything that is not whitespace.
-
+<table class='table'>
+   <thead>
+      <tr>
+         <th>Description</th>
+         <th>Syntax</th>
+         <th>Note</th>
+      </tr>
+   </thead>
+   <tbody>
+      <tr>
+         <td>Case insensitive</td>
+         <td>(?i)</td>
+         <td>Place at the beginning of the expression.</td>
+      </tr>
+      <tr>
+         <td>Class</td>
+         <td>[ ]</td>
+         <td>\d and [0-9-] are equivalent.</td>
+      </tr>
+      <tr>
+         <td>Digit</td>
+         <td>\d</td>
+         <td>\D for anything that is not a digit.</td>
+      </tr>
+      <tr>
+         <td>Lookahead, negative</td>
+         <td>(?!*pattern*</td>
+      </tr>
+      <tr>
+         <td>Lookahead, positive</td>
+         <td>(?=*pattern*</td>
+      </tr>
+      <tr>
+         <td>Lookbehind, negative</td>
+         <td>(?<!*pattern*</td>
+      </tr>
+      <tr>
+         <td>Lookbehind, positive</td>
+         <td>(?<=*pattern*</td>
+      </tr>
+      <tr>
+         <td>None capture grouping</td>
+         <td>(?:)Group for logic and selection, but not capture.</td>
+      </tr>
+      <tr>
+         <td>Multi-line match</td>
+         <td>(?m)</td>
+         <td>Place at the beginning of the expression. Similar to Perl's m//g.</td>
+      </tr>
+      <tr>
+         <td>Extened regex</td>
+         <td>(mxs)</td>
+         <td>Use this to make your regexes readable. A regex best practice.</td>
+      </tr>
+      <tr>
+         <td>No magic</td>
+         <td>\Q \E</td>
+         <td>No special meaning to any characters between these.</td>
+      </tr>
+      <tr>
+         <td>Range</td>
+         <td>{n,m}</td>
+         <td>Minimum of *n*, maximum of *m*.</td>
+      </tr>
+      <tr>
+         <td>Whitespace</td>
+         <td>\s</td>
+         <td>\S for anything that is not whitespace.</td>
+      </tr>
+   </tbody>
+</table>
 
 ### Notes ###
 
-  1. Beginning settings are combined. For example (?mi) considers
-    multiple lines and is case insensitive.
+1. Beginning settings are combined. For example (?mi) considers
+ multiple lines and is case insensitive.
 
-  2. Make your regexes readable by using the extened regex options.
-    Consider this: `
+1. Make your regexes readable by using the extened regex options.
+ Consider this:
 
-              (?i)(?:linux|solaris|aix|hpux)
-           
+   (?i)(?:linux|solaris|aix|hpux)
 
-    ` Versus this: `
+   Versus this:
 
-              (?imsx)(?: linux | solaris | aix | hpux )
-           
+   (?imsx)(?: linux | solaris | aix | hpux )
 
-    `
+Now imagine using it on a very complex regex.
+[See here](/blog/2015/08/20/build-better-regular-expressions-in-cfengine/) for
+a more complex example.
 
-    Now imagine using it on a very complex regex.
