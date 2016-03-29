@@ -35,7 +35,7 @@ title: Testing CFEngine policy by counting classes
 ---
 ![counting](/static/images/counting.jpg)
 
-I've added a [new bundle](https://github.com/evolvethinking/evolve_cfengine_freelib/commit/00093210649c4b236e9d4940a23f5a6fe2e60742)
+I've added a [new bundle](https://github.com/neilhwatson/evolve_cfengine_freelib/commit/00093210649c4b236e9d4940a23f5a6fe2e60742)
 to the 3.5 branch of EFL. This bundle *efl_test_count* allows you to
 count the classes matching a regular expression and test if that count
 matches your expected count. Consider the *efl_service* bundle, it
@@ -46,7 +46,7 @@ template.
 
 ---
 
-Paramters for efl_service ` `
+Paramters for efl_service
 
     any ;; \
        /usr/sbin/sshd ;; \
@@ -64,7 +64,7 @@ Paramters for efl_service ` `
 Looking at EFL I know that these promises will promise
 /etc/ssh/sshd_config.
 
-From efl_service ` `
+From efl_service
 
     "${${config_file[${s}]}}" -> { "${${promisee[${s}]}}" }
        comment       => "Promise contents of configurationn file from template",
@@ -85,7 +85,7 @@ From efl_service ` `
        perms      => mog( "${${mode[${s}]}}", "${${user[${s}]}}", "${${group[${s}]}}" );
 
 EFL creates classes if a promise is kept, repaired, or not kept. This
-is primarily used for [Delta Reporting](https://github.com/evolvethinking/delta_reporting),
+is primarily used for [Delta Reporting](https://github.com/neilhwatson/delta_reporting),
 but you can use it for testing too. The classes attribute calls the
 body efl_rkn. Let's look at it.
 
@@ -93,7 +93,7 @@ The body accepts the promiser and the handle. These are combined and
 postfixed with the promise result. This makes promise outcome classes
 predictable.
 
-How EFL makes class results ` `
+How EFL makes class results
 
     body classes efl_rkn( promiser, handle )
     {
@@ -108,7 +108,7 @@ Thus I can predict what classes should be created when *efl_service*
 processes my SSH parameters. *efl_test_count* expects a parameter file
 described below.
 
-From efl_test_count ` `
+From efl_test_count
 
     bundle agent efl_test_count( ref )
     {
@@ -125,7 +125,7 @@ into the efl_test_count parameter file. Note, that I've added escaped
 new lines for readability, but in practice this must be on one line due
 to how CFEngine reads parameter files.
 
-Parameters for efl_test_count ` `
+Parameters for efl_test_count
 
     # class ;; test_class regex ;; count ;; test name
     policy_testing ;; \
@@ -134,10 +134,10 @@ Parameters for efl_test_count ` `
        Promising /etc/ssh/sshd_config
 
 The regular expression should match my two outcome promises. Plug all
-this in to EFL, see [here](https://github.com/evolvethinking/evolve_cfengine_freelib)
+this in to EFL, see [here](https://github.com/neilhwatson/evolve_cfengine_freelib)
 for details EFL integration instructions. Now I run it.
 
-Success! ` `
+Success!
 
     root@oort:~# cf-agent -KD policy_testing|grep 'R:'
     2014-09-19T10:45:53-0400   notice: R: PASS, [_etc_ssh_sshd_config_handle_efl_service_files_config.*?_kept], [Promising /etc/ssh/sshd_config]

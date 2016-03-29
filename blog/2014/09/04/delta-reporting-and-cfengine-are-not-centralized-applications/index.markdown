@@ -23,7 +23,7 @@ title: Delta Reporting and CFEngine are NOT centralized applications
 ---
 
 
-[Delta Reporting](https://github.com/evolvethinking/delta_reporting)
+[Delta Reporting](https://github.com/neilhwatson/delta_reporting)
 and CFEngine are not centralized applications. Yes, I do describe DR as
 centralized reporting for CFEngine, but that is a simplistic view for
 easy consumption. Both CFEngine and Delta Reporting are far more
@@ -45,7 +45,7 @@ local agent hosts.
 [caption id="attachment_997" align="alignnone" width="430"][![CFEngine decentralized architecture](/static/images/client-server-decentralized.png)](/static/images/client-server-decentralized.png)
 CFEngine decentralized architecture[/caption]
 
-[Delta Reporting's](https://github.com/evolvethinking/delta_reporting)
+[Delta Reporting's](https://github.com/neilhwatson/delta_reporting)
 promise outcome and class log can be similarly distributed. Each
 CFEngine server loads DR's data to a database that can be local or
 remote. Multiple CFEngine servers can share the same DR database, and
@@ -55,5 +55,5 @@ you can have isolated DR instances in high security networks.
 Delta Reporting decentralized architecture[/caption]
 
 It is no exaggeration that CFEngine is decentralized and scales
-enormously, and [Delta Reporting](https://github.com/evolvethinking/delta_reporting)
+enormously, and [Delta Reporting](https://github.com/neilhwatson/delta_reporting)
 was designed the same way.

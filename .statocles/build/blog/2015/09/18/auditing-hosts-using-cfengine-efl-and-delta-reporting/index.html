@@ -74,8 +74,8 @@
                 <p><img alt="" src="/static/images/Liste-300px.png"></p>
 
 <p>Sometimes you want to audit a host without changing it. This can be
-hard with CFEngine, but with <a href="https://github.com/evolvethinking/evolve_cfengine_freelib">EFL</a>
-and <a href="https://github.com/evolvethinking/delta_reporting">Delta Reporting</a>
+hard with CFEngine, but with <a href="https://github.com/neilhwatson/evolve_cfengine_freelib">EFL</a>
+and <a href="https://github.com/neilhwatson/delta_reporting">Delta Reporting</a>
 it&#39;s possible.</p>
 
             </section>
@@ -90,8 +90,6 @@ it&#39;s possible.</p>
 <li><p>Is ftpd not configured to start at boot time?</p></li>
 </ol>
 
-<h1>#</h1>
-
 <p>Testing is all about classes in CFEngine. Whether or not a class is set
 determines the results of your test. EFL has many bundles for creating
 classes. Two of them, efl_class_cmd_regcmp and efl_class_returnszero,
@@ -101,8 +99,6 @@ knowledge of CFEngine and EFL.</p>
 <p>The first three tests can be accomplished by testing the output of a
 command with a regular expression. I&#39;ll use the bundle
 efl_class_cmd_regcmp for that. Here is the parameter file:</p>
-
-<p>`</p>
 
 <pre><code>[
    {
@@ -135,13 +131,9 @@ efl_class_cmd_regcmp for that. Here is the parameter file:</p>
 ]
 </code></pre>
 
-<p>`</p>
-
 <p>The last two tests can be performed by testing the return value of
 chkconfig. I&#39;ll use the bundle efl_class_returnszero for that. Here is
 the parameter file:</p>
-
-<p>``</p>
 
 <pre><code>[
    {
@@ -167,8 +159,6 @@ the parameter file:</p>
 show here. I also want some pretty and testable output. I can use EFL&#39;s
 efl_test_classes bundle for that. (see <a href="http://watson-wilson.ca/testing-cfengine-using-efl-tap-and-perl/">TAP and EFL</a>).
 Here is the parameter file:</p>
-
-<p>``</p>
 
 <pre><code>[
    {
@@ -208,8 +198,6 @@ Here is the parameter file:</p>
 about JSON and escape characters. I think they are harmless. You can
 see the bug report <a href="https://dev.cfengine.com/issues/7579">here</a>.):</p>
 
-<p>``</p>
-
 <pre><code>R: _home_neil__cfagent_inputs_test_efl_test_classes_json_4b703cc338ec6c24abbc72019bea6929482d0a38
 1..5
 R: _home_neil__cfagent_inputs_test_efl_test_classes_json_4b703cc338ec6c24abbc72019bea6929482d0a38
@@ -224,7 +212,7 @@ R: _home_neil__cfagent_inputs_test_efl_test_classes_json_4b703cc338ec6c24abbc720
 ok 5 - Testing if ftpd boot start is disabled
 </code></pre>
 
-<p>Success! For this host anyway, but suppose I have many hosts. Enter <a href="https://github.com/evolvethinking/delta_reporting">Delta
+<p>Success! For this host anyway, but suppose I have many hosts. Enter <a href="https://github.com/neilhwatson/delta_reporting">Delta
 Reporting</a>. By
 integrating the first two bundles into my production policy I can use
 DR to search for class membership.</p>

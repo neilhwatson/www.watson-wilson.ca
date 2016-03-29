@@ -106,8 +106,6 @@ comparison at this time.</p>
 <p><strong>Note: You must enable the packages_module in promises.cf&#39;s <a href="https://github.com/cfengine/masterfiles/blob/master/promises.cf#L68">common
 body control</a></strong>:</p>
 
-<p>``</p>
-
 <pre><code>package_inventory =&gt; { $(package_module_knowledge.platform_default) };
 </code></pre>
 
@@ -116,15 +114,13 @@ Currently only yum and apt-get are supported. See <a href="https://github.com/cf
 for the gory details.</p>
 
 <p>Don&#39;t like the pseudo CSV files? Then you can use JSON format. EFL even
-comes with a conversion tool, <a href="https://github.com/evolvethinking/evolve_cfengine_freelib/blob/master/bin/eflconvert">eflconvert</a>.
+comes with a conversion tool, <a href="https://github.com/neilhwatson/evolve_cfengine_freelib/blob/master/bin/eflconvert">eflconvert</a>.
 I converted the above csv file like this:</p>
-
-<p>``</p>
 
 <pre><code>eflconvert -b efl_packages -i csv -o json &lt; 01_packages.csv
 </code></pre>
 
-<p>In JSON format. ``</p>
+<p>In JSON format. </p>
 
 <pre><code>[
    {
@@ -148,12 +144,10 @@ I converted the above csv file like this:</p>
 
 <h4>Coming soon YAML format!</h4>
 
-<p>``</p>
-
 <pre><code>eflconvert -b efl_packages -i json -o yaml &lt; 01_packages.json
 </code></pre>
 
-<p>In YAML format ``</p>
+<p>In YAML format</p>
 
 <pre><code>---
 - architecture: amd64

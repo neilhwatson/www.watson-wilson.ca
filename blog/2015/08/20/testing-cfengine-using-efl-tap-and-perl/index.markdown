@@ -74,14 +74,12 @@ EFL comes with two testing bundles that generate TAP output via reports
 promises. *Efl_test_classes* tests if a class is defined or not, and *efl_test_vars*
 tests the value of a variable. Let's look at some examples. Note that I
 assume you have working CFEngine master framework policy and [EFL
-installed](https://github.com/evolvethinking/evolve_cfengine_freelib/blob/master/INSTALL.md)
+installed](https://github.com/neilhwatson/evolve_cfengine_freelib/blob/master/INSTALL.md)
 
 ### elf_test_classes ###
 
 Suppose I want to test for the presence of the class *am_middleware_host*.
 Efl_test_classes takes a parameter file like this:
-
-``
 
     [
        {
@@ -133,8 +131,6 @@ So, if your promises define kept, repaired, or failed classes, then you
 can test for them in your test suite. Further, if you use ELF these
 classes are automatically defined:
 
-``
-
     body classes efl_rkn( promiser, handle )
     {
           promise_kept      => { "${promiser}_handle_${handle}_kept" };
@@ -152,8 +148,6 @@ can have test cases for any new policy.
 Efl_test_vars is similar to efl_test_classes. You compare the value of
 a given variable against a give string or regex. Again it uses is,
 isnt, like, and unlike. Here's an example from EFL's own test suite:
-
-``
 
     [
        {
@@ -182,8 +176,6 @@ isnt, like, and unlike. Here's an example from EFL's own test suite:
 This data is used by EFL's test suite to test that the bundle
 efl_global_strings correctly defines variables. Here's the raw output:
 
-``
-
     t/31_efl_global_strings_json.t
     R: efl_data_efl_test_vars_efl_global_strings_json_26ca18b4fe77f2fc4a494be0
     1..3
@@ -194,7 +186,7 @@ efl_global_strings correctly defines variables. Here's the raw output:
     R: efl_data_efl_test_vars_efl_global_strings_json_26ca18b4fe77f2fc4a494be0
     ok 3 - cfe version [3]
 
-And here's the output from prove: ``
+And here's the output from prove:
 
     prove t/31_efl_global_strings_json.t 
     t/31_efl_global_strings_json.t .. ok   

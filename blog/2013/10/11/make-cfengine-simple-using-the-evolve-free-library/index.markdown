@@ -23,11 +23,11 @@ title: Make CFEngine simple using the Evolve Free Library
 ---
 
 
-[EFL](https://github.com/evolvethinking/evolve_cfengine_freelib) makes
-using CFEngine both simple and easy. [EFL](https://github.com/evolvethinking/evolve_cfengine_freelib)
+[EFL](https://github.com/neilhwatson/evolve_cfengine_freelib) makes
+using CFEngine both simple and easy. [EFL](https://github.com/neilhwatson/evolve_cfengine_freelib)
 is a collection of data driven bundles that promise many common
 configuration states. Here are a few examples covering just a few
-bundles found in [EFL](https://github.com/evolvethinking/evolve_cfengine_freelib).
+bundles found in [EFL](https://github.com/neilhwatson/evolve_cfengine_freelib).
 
 ---
 
@@ -40,8 +40,6 @@ efl_class_hostname-web_servers.txt and fill it with a list of
 unqualified hostnames, one per line, of all the hosts that belong to
 the class web_servers.
 
-``
-
     $ cat efl_class_hostname-webservers.txt
     atlweb01
     atlweb01
@@ -51,8 +49,6 @@ the class web_servers.
     atltestweb02
 
 Call the bundle via method.
-
-``
 
     "Set web_server class"
        usebundle => efl_class_hostname( "${sys.workdir}/inputs/efl_class_hostname-web_servers.txt" );
@@ -73,8 +69,6 @@ promisee, used for documentation and for searching parameter files for
 related data. Column zero is a class expression to constrain the
 variable. More in a moment.
 
-``
-
     $ cat efl_global_strings.txt 
     # Set global strings
     
@@ -90,8 +84,6 @@ variable. More in a moment.
     any          ;; gzip             ;; /bin/gzip         ;; gzip
 
 Call the bundle using a method.
-
-``
 
     "Set namespace strings"
        usebundle => efl_global_strings( "${sys.workdir}/inputs/efl_global_strings.txt" );
@@ -132,8 +124,6 @@ to six.
 
   * Six is a free form promisee for documentation and searching.
 
-``
-
     # cat efl_delete_files.txt 
     # Delete files that match the given requirements.
     
@@ -150,8 +140,6 @@ to six.
        ;; no               ;; 8           ;; Neil Watson
 
 Call the bundle using a method.
-
-``
 
     "Delete files"
        usebundle => efl_delete_files( "${sys.workdir}/efl_delete_files.txt" );
@@ -180,7 +168,7 @@ nine.
 
   * Four defines the policy server. It must be in the form of a fully
     qualified string list, but without '$' or '@' qualifiers. You may
-    use 'efl_c.policy_servers' which is defined automatically by [EFL](https://github.com/evolvethinking/evolve_cfengine_freelib)
+    use 'efl_c.policy_servers' which is defined automatically by [EFL](https://github.com/neilhwatson/evolve_cfengine_freelib)
     and defaults to ${sys.policy_server}.
 
   * Five sets if the file transfer should be encrypted ('no' or 'yes').
@@ -192,8 +180,6 @@ nine.
   * Eight defines the group of the promiser file.
 
   * Nine is the promisee for documentation and searching.
-
-``
 
     $ cat efl_copy_files.txt 
     # context(0) ;; file promiser(1) ;; leaf regex(2) ;; file source(3) ;; \
@@ -209,8 +195,6 @@ nine.
        ;; efl_c.policy_servers ;; no ;; 644 ;; root ;; root ;; Neil Watson
 
 Call the bundle using a method.
-
-``
 
     "Copy files"
        usebundle => efl_copy_files( "${sys.workdir}/inputs/efl_copy_files.txt" );
@@ -240,8 +224,6 @@ five.
 
   * Five is the promisee for documentation and searching.
 
-``
-
     $ cat efl_packages.txt 
     # Generic package promiser 
     # Add packages
@@ -256,8 +238,6 @@ five.
     debian       ;; delete    ;; rpcbind       ;; 0          ;; default       ;; Neil Watson
 
 Call the bundle using a method.
-
-``
 
     "Promise packages"
        usebundle => efl_packages( "${sys.workdir}/inputs/efl_packages.txt" );
@@ -288,8 +268,6 @@ five.
 
   * Five is the promisee for documentation and searching.
 
-``
-
     $ cat efl_command.txt 
     # execute arbitrary commands.  Great for cron replacement.
     
@@ -306,8 +284,6 @@ five.
        ;; noshell ;; no ;; 480 ;; Cfengine tcdb corruption
 
 Call the bundle using a method.
-
-``
 
     "Run commands or modules"
        usebundle => efl_command( "${sys.workdir}/inputs/efl_command.txt" );
@@ -334,8 +310,6 @@ three.
 
   * Three is the promisee for documentation and searching.
 
-``
-
     $ cat efl_start_service.txt 
     # Start service if process is not runing and context is true.
     
@@ -349,8 +323,6 @@ three.
        ;; /usr/sbin/service opennms restart ;; monitoring
 
 Call the bundle using a method.
-
-``
 
     "Start services"
        usebundle => efl_start_service( "${sys.workdir}/inputs/efl_start_service.txt" );
@@ -395,8 +367,6 @@ to ten.
 
   * Ten is the promisee for documentation and searching.
 
-``
-
     $ cat efl_service.txt 
     # promise services.
     
@@ -437,14 +407,12 @@ process and restart command are not duplicated when the agent runs.
 
 Call the bundle using a method.
 
-``
-
     "Promise running services"
        usebundle => efl_service( "${sys.workdir}/inputs/efl_service.txt" );
 
 ### Promise ordered methods ###
 
-Until now I've shown you how to call [EFL](https://github.com/evolvethinking/evolve_cfengine_freelib)
+Until now I've shown you how to call [EFL](https://github.com/neilhwatson/evolve_cfengine_freelib)
 bundles using standard methods. The bundle efl_main allows you to
 parameterize these method calls into a csv file. For the sake of
 readability I'm going to break long lines in this example using '\'.
@@ -466,8 +434,6 @@ five.
   * Four is the csv file bundle parameter.
 
   * Five is the promisee for documentation and searching.
-
-``
 
     $ cat methods.txt 
     # Method calls
@@ -514,8 +480,6 @@ five.
 
 Call the bundle using a method.
 
-``
-
     "Promise running services"
        usebundle => efl_main( "${sys.workdir}/inputs/efl_main.txt" );
 
@@ -540,9 +504,6 @@ more.
 
   * A bundle to [promise sysctl.conf and live kernel settings](http://watson-wilson.ca/secure-sysctl-settings-with-cfengine/).
 
-#  #
-
-[EFL](https://github.com/evolvethinking/evolve_cfengine_freelib) is
-open source and free to use. It is the engine that runs our [Delta
-Hardening](http://watson-wilson.ca/products/)© product and our yet to
-be released Delta Reporting© product.
+[EFL](https://github.com/neilhwatson/evolve_cfengine_freelib) is
+open source and free to use. It is the engine that runs [Delta
+Reporting]( https://github.com/neilhwatson/delta-reporting).

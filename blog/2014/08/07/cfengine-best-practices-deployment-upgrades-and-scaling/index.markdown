@@ -47,7 +47,7 @@ catching bugs early. Always edit code in development only and promote
 those changes to qa and then production.
 
 I frequently use cf-agent to pull new policy into masterfiles directly
-from version control. This provides automatic deployment upon commit. [EFL](https://github.com/evolvethinking/evolve_cfengine_freelib)
+from version control. This provides automatic deployment upon commit. [EFL](https://github.com/neilhwatson/evolve_cfengine_freelib)
 has a ready to use bundle, *efl_rcs_pull* to handle RCS pulls, and it
 works with most RCS products.
 
@@ -114,7 +114,7 @@ plunge, upgrade the server first. When it passes all tests proceed with
 clients, in small batches, enlarging the batches as you gain
 confidence.
 
-Reporting tools like [Delta Reporting](https://github.com/evolvethinking/delta_reporting)
+Reporting tools like [Delta Reporting](https://github.com/neilhwatson/delta_reporting)
 log the promise and class status of all your agent hosts. This
 information can help you spot problems in your upgrade and in normal
 production.

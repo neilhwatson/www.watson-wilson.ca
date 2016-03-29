@@ -23,7 +23,7 @@ title: EFL tech preview for JSON parameters
 ---
 
 
-It's very likely that [EFL](https://github.com/evolvethinking/evolve_cfengine_freelib)
+It's very likely that [EFL](https://github.com/neilhwatson/evolve_cfengine_freelib)
 for CFEngine 3.6 will be able to read both CSV and JSON parameter
 files. Some EFL users are looking forward to this because some CSV
 files have very long lines and are hard to read. On the other hand some
@@ -355,6 +355,6 @@ Policy in action ` `
              "60"); 
           
 
-Once CFEngine 3.6 stabilizes look for updates in [EFL](https://github.com/evolvethinking/evolve_cfengine_freelib).
+Once CFEngine 3.6 stabilizes look for updates in [EFL](https://github.com/neilhwatson/evolve_cfengine_freelib).
 In the mean time I recommend you stick with EFL's 3.5 branch and
 CFEngine 3.5.

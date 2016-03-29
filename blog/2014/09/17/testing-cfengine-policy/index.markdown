@@ -42,7 +42,7 @@ there?
 
 In my blog about [CFEngine best practices: testing](http://watson-wilson.ca/cfengine-best-practices-testing/)
 I discussed unit testing, and test reporting. Let's expand on that.
-I've recently created a new bundle in [EFL](https://github.com/evolvethinking/evolve_cfengine_freelib/commit/874dcc22f28fda3ba4b967c24bfb983156e75fe7)
+I've recently created a new bundle in [EFL](https://github.com/neilhwatson/evolve_cfengine_freelib/commit/874dcc22f28fda3ba4b967c24bfb983156e75fe7)
 for testing. If you are familiar with Perl's [Test::More](https://metacpan.org/pod/Test::More)
 you will recognize the form. Efl_test_simple tests whether or not a
 class is defined, you decide if the class being defined is a pass or
@@ -55,16 +55,12 @@ promises define classes if kept, repaired, or
 
 not kept automatically. These classes are in a predictable format:
 
-` `
-
     <canonized promiser>_handle_<promise handle>_<kept, notkept, or repaired>
 
 If you know the expected class you can test for its existence.
 Elf_test_simple lets you define a test for a class and will return a
 pass or fail. As with all EFL bundles we use an external parameter
 file. It's data may look like this:
-
-` `
 
     # class ;; test class ;; is or isnt true ;; name of test
     run_my_tests ;; _var_cfengine_modules_mymodule_pl_efl_command_commands_repaired ;; is ;; My module pass if 'repaired'
@@ -73,15 +69,10 @@ file. It's data may look like this:
 
 If the agent is run with *run_my_tests* as true reports are generated.
 
-`
-
     cf-agent -KD run_my_tests|grep 'R:'
     2014-09-15T12:13:16-0400   notice: R: PASS, _var_cfengine_modules_mymodule_pl_handle_efl_command_commands_repaired, My module pass if 'repaired'
     2014-09-15T12:13:16-0400   notice: R: FAIL, negative_test_never, Negative test, should always fail
     2014-09-15T12:13:16-0400   notice: R: PASS,  danger_class, Fail if class is defined
-       
-
-`
 
 The test class can be a regular expression, so you could test for *.*_failed*
 to flag any failed promises from EFL. Did you know that you can use
@@ -98,8 +89,6 @@ Serverspec is a Ruby based tool that can examine a local or remote host
 using SSH and Sudo. Visit Serverspec for installation instructions and
 note that a major new release is due in October. Here's an example spec
 file that tests SSHD.
-
-` `
 
     ~/src/serverspec$ cat spec/localhost/ssh_spec.rb 
     require 'spec_helper'
@@ -130,11 +119,7 @@ There are four tests.
 
   4. The file */etc/ssh/sshd_config* must exist and a be regular file.
 
-####  ####
-
 When I run it I'm prompted for my password to use with Sudo.
-
-` `
 
     $ rake spec
     /tool/pandora64/.package/ruby-1.9.3-p0/bin/ruby -S rspec spec/localhost/ssh_spec.rb

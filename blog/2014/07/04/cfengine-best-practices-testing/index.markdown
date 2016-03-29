@@ -98,8 +98,8 @@ Internet get you started.
 
 Use real test plans. Don't just test that your policy works, prove it.
 You can even use CFEngine for unit testing. Let's look at an example.
-In practice I recommend you use Evolve Thinking's [Free Promise
-Library(EFL)](https://github.com/evolvethinking/delta_reporting), or
+In practice I recommend you use the
+[Free Promise Library(EFL)](https://github.com/neilhwatson/delta_reporting), or
 some other policy framework, because they have ready to use policies
 that will save you a lot of time, but for this example we'll keep it
 small and hand made. I want you to see the concept rather than the
@@ -120,7 +120,7 @@ if the process *sleep 99* is not found. The commands process runs our
 init script from the init bundle if the class *start_service_proto_sh*
 is true. Also, note that the body parts at the bottom are copies of
 bodies from the standard CFEngine library, except the *by_command* body
-which is from [EFL](https://github.com/evolvethinking/delta_reporting).
+which is from [EFL](https://github.com/neilhwatson/delta_reporting).
 
 Figure 2: My first prototype. ` `
 
@@ -318,7 +318,7 @@ prototype into your main policy, but only run it on select hosts. Then
 you can check each host to see if it is working. If you are using
 central reporting tools like [Rudder](http://www.rudder-project.org), [CFEngine
 Enterprise](http://cfengine.com/) or [Evolve's](http://watson-wilson.ca)
-own [Delta Reporting](https://github.com/evolvethinking/delta_reporting)
+own [Delta Reporting](https://github.com/neilhwatson/delta_reporting)
 you'll be able to get reports showing your prototype in action on all
 of your test hosts.
 

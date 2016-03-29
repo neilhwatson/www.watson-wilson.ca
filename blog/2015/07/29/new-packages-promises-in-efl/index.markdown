@@ -60,8 +60,6 @@ comparison at this time.
 **Note: You must enable the packages_module in promises.cf's [common
 body control](https://github.com/cfengine/masterfiles/blob/master/promises.cf#L68)**:
 
-``
-
     package_inventory => { $(package_module_knowledge.platform_default) };
 
 Modules are the new interface between CFEngine and package managers.
@@ -69,14 +67,12 @@ Currently only yum and apt-get are supported. See [here](https://github.com/cfen
 for the gory details.
 
 Don't like the pseudo CSV files? Then you can use JSON format. EFL even
-comes with a conversion tool, [eflconvert](https://github.com/evolvethinking/evolve_cfengine_freelib/blob/master/bin/eflconvert).
+comes with a conversion tool, [eflconvert](https://github.com/neilhwatson/evolve_cfengine_freelib/blob/master/bin/eflconvert).
 I converted the above csv file like this:
-
-``
 
     eflconvert -b efl_packages -i csv -o json < 01_packages.csv
 
-In JSON format. ``
+In JSON format. 
 
     [
        {
@@ -99,11 +95,9 @@ In JSON format. ``
 
 #### Coming soon YAML format! ####
 
-``
-
     eflconvert -b efl_packages -i json -o yaml < 01_packages.json
 
-In YAML format ``
+In YAML format
 
     ---
     - architecture: amd64

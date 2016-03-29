@@ -24,7 +24,7 @@ title: Simple CFEngine setup with EFL
 ![image of stopwatch](/static/images/stopwatch_13154_sm.gif)
 
 CFEngine can be confusing and frustrating for new users. I'll try to
-offer you a condensed and easy to follow procedure, including the [EFL](https://github.com/evolvethinking/evolve_cfengine_freelib)
+offer you a condensed and easy to follow procedure, including the [EFL](https://github.com/neilhwatson/evolve_cfengine_freelib)
 addon.
 
 ---
@@ -100,7 +100,7 @@ discussion.
 
 ### Prep EFL's masterfiles ###
 
-Download [EFL's](https://github.com/evolvethinking/evolve_cfengine_freelib)
+Download [EFL's](https://github.com/neilhwatson/evolve_cfengine_freelib)
 masterfiles directory into /var/cfengine/masterfiles.
 
 #### Edit def.json ####
@@ -109,8 +109,6 @@ Def.json is read by the masterfiles policy and parsed for select
 information. To enable EFL to run add this to
 /var/cfengine/masterfiles/def.json, or create the file if it does not
 exists.
-
-``
 
     {
        "classes" :
@@ -218,13 +216,13 @@ You shouldn't do that, but let me explain before you get angry. EFL can
 accomplish most of your tasks without you having to write custom
 CFEngine policy. Now that you have EFL installed, mastefiles working,
 and agent hosts boostrapped, you just need to start using EFL. See [building
-data files](https://github.com/evolvethinking/evolve_cfengine_freelib/blob/master/INSTALL.md#building-data-files)
+data files](https://github.com/neilhwatson/evolve_cfengine_freelib/blob/master/INSTALL.md#building-data-files)
 in the EFL install document.
 
 ### About EFL ###
 
-[EFL](https://github.com/evolvethinking/evolve_cfengine_freelib) is an
+[EFL](https://github.com/neilhwatson/evolve_cfengine_freelib) is an
 open source policy framework for CFEngine. EFL's goal to tackle the
 most common CFEngine tasks without having to write your own policy. It
 is mature (since May 2013), [well tested](http://watson-wilson.ca/efl-is-tested-for-your-confidence/),
-and you can buy support from its creator [Evolve Thinking](http://watson-wilson.ca/).
+and you can buy support from its creator [Neil Watson](http://watson-wilson.ca/).

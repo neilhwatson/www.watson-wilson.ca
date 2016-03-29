@@ -94,8 +94,6 @@ efl_class_hostname-web_servers.txt and fill it with a list of
 unqualified hostnames, one per line, of all the hosts that belong to
 the class web_servers.</p>
 
-<p>``</p>
-
 <pre><code>$ cat efl_class_hostname-webservers.txt
 atlweb01
 atlweb01
@@ -112,8 +110,6 @@ ${sys.uqhost} the class web_servers is set in the scope of namespace,
 which is less accurately called a global class.</p>
 
 <p>Call the bundle via method.</p>
-
-<p>``</p>
 
 <pre><code>&quot;Set web_server class&quot;
    usebundle =&gt; efl_class_hostname( &quot;${sys.workdir}/inputs/efl_class_hostname-web_servers.txt&quot; );
@@ -136,24 +132,20 @@ the expression is not matched.</p></li>
 <li><p>Four defines whether or not the command is run in a full shell.</p></li>
 <li><p>Five is the regular expression that must match the entire output of
 the command in four.</p></li>
-<li><p>Six is a free form promisee for documentation and searching.</p></li>
+<li><p>Six is a free form promisee for documentation and searching.</p>
+
+<h1>Define global class if anchored regex matches command output.</h1>
+
+<h1>context(0) ;; class promiser(1) ;; &#39;not&#39; match?(2) ;; command(3)               ;; useshell/noshell(4) ;; anchored regex(5) ;; promisee(6)</h1>
+
+<p>debian       ;;  install_cfengine_apt_key ;; yes ;; /usr/bin/apt-key list               ;; useshell ;; (?ims).<em>?CFEngine Community package repository.</em> ;; Neil Watson</p></li>
 </ul>
-
-<p>``</p>
-
-<pre><code># Define global class if anchored regex matches command output.
-# context(0) ;; class promiser(1) ;; &#39;not&#39; match?(2) ;; command(3)               ;; useshell/noshell(4) ;; anchored regex(5) ;; promisee(6)
-
-debian       ;;  install_cfengine_apt_key ;; yes ;; /usr/bin/apt-key list               ;; useshell ;; (?ims).*?CFEngine Community package repository.* ;; Neil Watson
-</code></pre>
 
 <p>The above record runs the command &#39;apt-key list&#39; on hosts of the debian
 class. If the given regular expression is not matched (see column two),
 then the class &#39;install_cfengine_apt_key&#39; is set.</p>
 
 <p>Call the bundle using a method.</p>
-
-<p>``</p>
 
 <pre><code>&quot;Class by shell and regcmp&quot;
    usebundle =&gt; efl_class_cmd_regcmp &quot;${sys.workdir}/efl_class_cmd_regcmp.txt&quot; );
@@ -169,21 +161,17 @@ from zero to two.</p>
 <li><p>Zero is the class promiser.</p></li>
 <li><p>One is a class expression. If the expression is evaluated as true,
 then the class in column zero is defined.</p></li>
-<li><p>Three is a free form promisee for documentation and searching.</p></li>
+<li><p>Three is a free form promisee for documentation and searching.</p>
+
+<h1>promiser class(0) ;; class expression(1)         ;; promisee(3)</h1>
+
+<p>dmz_a               ;; ipv4_10_10_10|ipv4_10_10_11 ;; dmz_a networks</p></li>
 </ul>
-
-<p>``</p>
-
-<pre><code># promiser class(0) ;; class expression(1)         ;; promisee(3)
-dmz_a               ;; ipv4_10_10_10|ipv4_10_10_11 ;; dmz_a networks
-</code></pre>
 
 <p>The class &#39;dmz_a&#39; is defined if either of the given classes, which in
 this case are hard classes, are defined.</p>
 
 <p>Call the bundle using a method.</p>
-
-<p>``</p>
 
 <pre><code>&quot;classify by expressions&quot;
    usebundle =&gt; efl_class_expression( &quot;${sys.workdir}/efl_class_expression.txt&quot; );
@@ -201,18 +189,14 @@ parameter file. It has three columns from zero to two.</p>
 defined class, then the class in column zero is defined. Note that
 the expression must match the entire class name and not a partial
 match.</p></li>
-<li><p>Three is a free form promisee for documentation and searching.</p></li>
+<li><p>Three is a free form promisee for documentation and searching.</p>
+
+<h1>promiser class(0) ;; class regular expression(1) ;; promisee(3)</h1>
+
+<p>ipv4_host           ;; ipv4_.*                     ;; Any ipv4 host</p></li>
 </ul>
 
-<p>``</p>
-
-<pre><code># promiser class(0) ;; class regular expression(1) ;; promisee(3)
-ipv4_host           ;; ipv4_.*                     ;; Any ipv4 host
-</code></pre>
-
 <p>Call the bundle using a method.</p>
-
-<p>``</p>
 
 <pre><code>&quot;Class by classmatch function&quot;
    usebundle =&gt; efl_class_classmatch( &quot;${sys.workdir}/efl_class_classmatch.txt&quot; );
@@ -228,21 +212,17 @@ file. It has three columns from zero to two.</p>
 <li><p>Zero is the class promiser.</p></li>
 <li><p>Two is the IP range to test against. If there is a match the class
 in zero is defined.</p></li>
-<li><p>Three is a free form promisee for documentation and searching.</p></li>
-</ul>
+<li><p>Three is a free form promisee for documentation and searching.</p>
 
-<p>``</p>
+<h1>promiser class(0) ;; ip range(1)     ;; promisee(3)</h1>
 
-<pre><code># promiser class(0) ;; ip range(1)     ;; promisee(3)
-dmz_a               ;; 10.10.10.0/24   ;; dmz_a networks
+<p>dmz_a               ;; 10.10.10.0/24   ;; dmz_a networks
 dmz_a               ;; 10.10.11.0/24   ;; dmz_a networks
 dmz_b               ;; 172.16.100.0/24 ;; dmz_b networks
-sandbox_hosts       ;; 192.168.0.10-15 ;; CFEngine sandbox hosts
-</code></pre>
+sandbox_hosts       ;; 192.168.0.10-15 ;; CFEngine sandbox hosts</p></li>
+</ul>
 
 <p>Call the bundle using a method.</p>
-
-<p>``</p>
 
 <pre><code>&quot;Class by iprange function&quot;
    usebundle =&gt; efl_class_iprange( &quot;${sys.workdir}/efl_class_iprange.txt&quot; );
@@ -265,20 +245,16 @@ promised if this class expression is true.</p></li>
 <li><p>Three defines if the command should be treated as a module (‘yes’
 or ‘no’).</p></li>
 <li><p>Four sets the ifelapsed number for the commands promise.</p></li>
-<li><p>Five is the promisee for documentation and searching.</p></li>
+<li><p>Five is the promisee for documentation and searching.</p>
+
+<h1>execute arbitrary commands.  Great for cron replacement.</h1>
+
+<h1>context(0)                    ;; command(1)        ;; usehell(2) ;; module(3) ;; ifelapsed(4) ;; promisee(5)</h1>
+
+<p>redhat        ;; ${sys.workdir}/modules/graphics        ;; yes ;; 1 ;; Set graphics hardware classes</p></li>
 </ul>
 
-<p>``</p>
-
-<pre><code># execute arbitrary commands.  Great for cron replacement.
-# context(0)                    ;; command(1)        ;; usehell(2) ;; module(3) ;; ifelapsed(4) ;; promisee(5)
-
-redhat        ;; ${sys.workdir}/modules/graphics        ;; yes ;; 1 ;; Set graphics hardware classes
-</code></pre>
-
 <p>Call the bundle using a method.</p>
-
-<p>``</p>
 
 <pre><code>&quot;Run commands or modules&quot;
    usebundle =&gt; efl_command( &quot;${sys.workdir}/inputs/efl_command.txt&quot; );
@@ -291,7 +267,7 @@ bundles by copying existing ones. There is even a template called
 &#39;efl_skeleton&#39; for this very purpose. A common change might be to
 duplicate a class bundle but change it to a common bundle. Such bundles
 would define classes that cf-serverd can use. If you do develop new
-bundles I hope you&#39;ll contribute them back to <a href="https://github.com/evolvethinking/evolve_cfengine_freelib">EFL</a>.</p>
+bundles I hope you&#39;ll contribute them back to <a href="https://github.com/neilhwatson/evolve_cfengine_freelib">EFL</a>.</p>
 
             </section>
         </main>

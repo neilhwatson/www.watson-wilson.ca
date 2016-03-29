@@ -24,8 +24,12 @@ title: JSON containers improve CFEngine and EFL
 
 
 CFEngine 3.6 will be able to parse JSON files making EFL data files
-more readable. --- The current data format of the [Evolve Free Promise
-Library](https://github.com/evolvethinking/evolve_cfengine_freelib) is
+more readable.
+
+---
+
+The current data format of the [Evolve Free Promise
+Library](https://github.com/neilhwatson/evolve_cfengine_freelib) is
 CSV. CSV files are workable but, become error prone when record lines
 become long. In the following example, run using a build from the
 CFEngine 3.6 [source code](https://github.com/cfengine/core), the init
@@ -37,8 +41,6 @@ This is similar to how EFL uses the function CFEngine
 readstringarrayidx. Imagine a record with many fields, that line wrap
 around your screen in CSV form. In JSON format the same data is more
 readable.
-
-``
 
     body common control
     {

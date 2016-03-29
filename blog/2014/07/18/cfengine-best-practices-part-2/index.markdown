@@ -104,7 +104,7 @@ languages. Your bundles should generic enough to be reusable.
 
 Try to separate policy from data whenever possible. Data separation
 makes policy maintenance faster and simpler. Read in parameter files.
-Use template files. [EFL](https://github.com/evolvethinking/evolve_cfengine_freelib)
+Use template files. [EFL](https://github.com/neilhwatson/evolve_cfengine_freelib)
 has many such examples for your reference.
 
 #### Promise whole files ####
@@ -300,7 +300,7 @@ choices in ready to use policies. Take advantage of these.
 
   * Brian Bennett's [framework](https://digitalelf.net/blog/categories/cfengine/).
 
-  * [Evolve Thinking's free library (EFL)](https://github.com/evolvethinking/evolve_cfengine_freelib)
+  * [Evolve Thinking's free library (EFL)](https://github.com/neilhwatson/evolve_cfengine_freelib)
     contains a large collection of ready to use, scalable promises. It
     is portable, able to work with CFEngine's base framework or any
     other policy you use. EFL also powers [Delta Reporting](http://watson-wilson.ca/products/delta-reporting/)

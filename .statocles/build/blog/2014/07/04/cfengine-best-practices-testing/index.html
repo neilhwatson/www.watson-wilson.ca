@@ -140,8 +140,8 @@ demonstrate the undesired behaviour.</p></li>
 
 <p>Use real test plans. Don&#39;t just test that your policy works, prove it.
 You can even use CFEngine for unit testing. Let&#39;s look at an example.
-In practice I recommend you use Evolve Thinking&#39;s <a href="https://github.com/evolvethinking/delta_reporting">Free Promise
-Library(EFL)</a>, or
+In practice I recommend you use the
+<a href="https://github.com/neilhwatson/delta_reporting">Free Promise Library(EFL)</a>, or
 some other policy framework, because they have ready to use policies
 that will save you a lot of time, but for this example we&#39;ll keep it
 small and hand made. I want you to see the concept rather than the
@@ -162,7 +162,7 @@ if the process <em>sleep 99</em> is not found. The commands process runs our
 init script from the init bundle if the class <em>start_service_proto_sh</em>
 is true. Also, note that the body parts at the bottom are copies of
 bodies from the standard CFEngine library, except the <em>by_command</em> body
-which is from <a href="https://github.com/evolvethinking/delta_reporting">EFL</a>.</p>
+which is from <a href="https://github.com/neilhwatson/delta_reporting">EFL</a>.</p>
 
 <p>Figure 2: My first prototype. <code></code></p>
 
@@ -360,7 +360,7 @@ prototype into your main policy, but only run it on select hosts. Then
 you can check each host to see if it is working. If you are using
 central reporting tools like <a href="http://www.rudder-project.org">Rudder</a>, <a href="http://cfengine.com/">CFEngine
 Enterprise</a> or <a href="http://watson-wilson.ca">Evolve&#39;s</a>
-own <a href="https://github.com/evolvethinking/delta_reporting">Delta Reporting</a>
+own <a href="https://github.com/neilhwatson/delta_reporting">Delta Reporting</a>
 you&#39;ll be able to get reports showing your prototype in action on all
 of your test hosts.</p>
 

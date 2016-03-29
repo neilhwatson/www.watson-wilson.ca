@@ -103,5 +103,5 @@ At this release the free library offer these bundles and more:
 In the future we'll be offering special purpose bundles that use these
 simple bundles, ready to use parameter files, and more.
 
-The Evolve free library is open source and available at our [Git Hub
-site.](https://github.com/evolvethinking/)
+The Evolve free library is open source and available at my [Git Hub
+site.](https://github.com/neilhwatson/)

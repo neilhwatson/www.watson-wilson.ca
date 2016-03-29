@@ -73,7 +73,7 @@
             <section id="section-1">
                 <p><img alt="counting" src="/static/images/counting.jpg"></p>
 
-<p>I&#39;ve added a <a href="https://github.com/evolvethinking/evolve_cfengine_freelib/commit/00093210649c4b236e9d4940a23f5a6fe2e60742">new bundle</a>
+<p>I&#39;ve added a <a href="https://github.com/neilhwatson/evolve_cfengine_freelib/commit/00093210649c4b236e9d4940a23f5a6fe2e60742">new bundle</a>
 to the 3.5 branch of EFL. This bundle <em>efl_test_count</em> allows you to
 count the classes matching a regular expression and test if that count
 matches your expected count. Consider the <em>efl_service</em> bundle, it
@@ -84,7 +84,7 @@ template.</p>
 
             </section>
             <section id="section-2">
-                <p>Paramters for efl_service <code></code></p>
+                <p>Paramters for efl_service</p>
 
 <pre><code>any ;;        /usr/sbin/sshd ;;        /etc/ssh/sshd_config ;;        /var/cfengine/sitefiles/ssh/sshd_config.tmp ;;        efl_global_slists.policy_servers ;;        yes ;;        no ;;        600 ;;        root ;;        root ;;        ${paths.path[service]} ssh restart ;;        Neil Watson
 </code></pre>
@@ -92,7 +92,7 @@ template.</p>
 <p>Looking at EFL I know that these promises will promise
 /etc/ssh/sshd_config.</p>
 
-<p>From efl_service <code></code></p>
+<p>From efl_service</p>
 
 <pre><code>&quot;${${config_file[${s}]}}&quot; -&gt; { &quot;${${promisee[${s}]}}&quot; }
    comment       =&gt; &quot;Promise contents of configurationn file from template&quot;,
@@ -114,7 +114,7 @@ template.</p>
 </code></pre>
 
 <p>EFL creates classes if a promise is kept, repaired, or not kept. This
-is primarily used for <a href="https://github.com/evolvethinking/delta_reporting">Delta Reporting</a>,
+is primarily used for <a href="https://github.com/neilhwatson/delta_reporting">Delta Reporting</a>,
 but you can use it for testing too. The classes attribute calls the
 body efl_rkn. Let&#39;s look at it.</p>
 
@@ -122,7 +122,7 @@ body efl_rkn. Let&#39;s look at it.</p>
 postfixed with the promise result. This makes promise outcome classes
 predictable.</p>
 
-<p>How EFL makes class results <code></code></p>
+<p>How EFL makes class results</p>
 
 <pre><code>body classes efl_rkn( promiser, handle )
 {
@@ -138,7 +138,7 @@ predictable.</p>
 processes my SSH parameters. <em>efl_test_count</em> expects a parameter file
 described below.</p>
 
-<p>From efl_test_count <code></code></p>
+<p>From efl_test_count</p>
 
 <pre><code>bundle agent efl_test_count( ref )
 {
@@ -156,17 +156,17 @@ into the efl_test_count parameter file. Note, that I&#39;ve added escaped
 new lines for readability, but in practice this must be on one line due
 to how CFEngine reads parameter files.</p>
 
-<p>Parameters for efl_test_count <code></code></p>
+<p>Parameters for efl_test_count</p>
 
 <pre><code># class ;; test_class regex ;; count ;; test name
 policy_testing ;;        _etc_ssh_sshd_config_handle_efl_service_files_config.*?_kept ;;        2 ;;        Promising /etc/ssh/sshd_config
 </code></pre>
 
 <p>The regular expression should match my two outcome promises. Plug all
-this in to EFL, see <a href="https://github.com/evolvethinking/evolve_cfengine_freelib">here</a>
+this in to EFL, see <a href="https://github.com/neilhwatson/evolve_cfengine_freelib">here</a>
 for details EFL integration instructions. Now I run it.</p>
 
-<p>Success! <code></code></p>
+<p>Success!</p>
 
 <pre><code>root@oort:~# cf-agent -KD policy_testing|grep &#39;R:&#39;
 2014-09-19T10:45:53-0400   notice: R: PASS, [_etc_ssh_sshd_config_handle_efl_service_files_config.*?_kept], [Promising /etc/ssh/sshd_config]

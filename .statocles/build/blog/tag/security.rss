@@ -34,8 +34,8 @@ powerful reports. See a gallery of essential ones <a href="http://watson-wilson.
                 <p><img alt="" src="http://watson-wilson.ca/static/images/Liste-300px.png"></p>
 
 <p>Sometimes you want to audit a host without changing it. This can be
-hard with CFEngine, but with <a href="https://github.com/evolvethinking/evolve_cfengine_freelib">EFL</a>
-and <a href="https://github.com/evolvethinking/delta_reporting">Delta Reporting</a>
+hard with CFEngine, but with <a href="https://github.com/neilhwatson/evolve_cfengine_freelib">EFL</a>
+and <a href="https://github.com/neilhwatson/delta_reporting">Delta Reporting</a>
 it&#39;s possible.</p>
 
                     <p><a href="http://watson-wilson.ca/blog/2015/09/18/auditing-hosts-using-cfengine-efl-and-delta-reporting/#section-2">Continue reading...</a></p>
@@ -59,9 +59,9 @@ it&#39;s possible.</p>
                 <p>[caption id=&quot;attachment_1052&quot; align=&quot;alignnone&quot; width=&quot;716&quot;]<a href="http://watson-wilson.ca/static/images/shell_shock.png"><img alt="Hosts reported free of shell shock" src="http://watson-wilson.ca/static/images/shell_shock.png"></a>
 Hosts reported free of shell shock[/caption]</p>
 
-<p>Above is a screenshot from Evolve&#39;s production <a href="https://github.com/evolvethinking/delta_reporting">Delta Reporting</a>
+<p>Above is a screenshot from Evolve&#39;s production <a href="https://github.com/neilhwatson/delta_reporting">Delta Reporting</a>
 service. These hosts are safe from Shell shock. Thanks to Delta
-Reporting, <a href="https://github.com/evolvethinking/evolve_cfengine_freelib">EFL</a>,
+Reporting, <a href="https://github.com/neilhwatson/evolve_cfengine_freelib">EFL</a>,
 and <a href="http://cfengine.com">CFEngine</a> our journey to a safe harbour was
 not long. First we had to design a test for the vulnerability.</p>
 

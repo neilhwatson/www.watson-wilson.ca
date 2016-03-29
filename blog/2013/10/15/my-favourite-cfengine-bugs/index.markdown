@@ -36,8 +36,6 @@ have no work around for this bug.
 
   * [https://cfengine.com/dev/issues/1492](https://cfengine.com/dev/issues/1492)
 
-#  #
-
 ### Variables inside arrays are not expanded. ###
 
 Versions affected: 3.4.1 to 3.5.2
@@ -51,19 +49,15 @@ library uses this workaround.
 
   * [https://cfengine.com/dev/issues/2333](https://cfengine.com/dev/issues/2333)
 
-#  #
-
 ### Cannot use arrays for method calls ###
 
 Versions affected: 3.4.0 to 3.5.2
 
 In theory usebundle can point to an array. A bug prevents this. The
-Evolve free library bundle ["efl_bug2638"](https://github.com/evolvethinking/evolve_cfengine_freelib/blob/master/masterfiles/lib/evolve_freelib.cf)
+Evolve free library bundle ["efl_bug2638"](https://github.com/neilhwatson/evolve_cfengine_freelib/blob/master/masterfiles/lib/evolve_freelib.cf)
 shows how to work around this.
 
   * [https://cfengine.com/dev/issues/2638](https://cfengine.com/dev/issues/2638)
-
-#  #
 
 ### Promise outcome logging does not work. ###
 
@@ -79,8 +73,6 @@ the action log. It is very messy involving external scripts.
   * [https://cfengine.com/dev/issues/1221](https://cfengine.com/dev/issues/1221)
 
   * [https://cfengine.com/dev/issues/1222](https://cfengine.com/dev/issues/1222)
-
-#  #
 
 ### Agent verbose logging: promiser expansion, process matching, and
 promisee misplacement. ###
@@ -116,8 +108,6 @@ output is missing this information. There is no work around.
 
   * [https://cfengine.com/dev/issues/3128](https://cfengine.com/dev/issues/3128)
 
-#  #
-
 ### Repositories and old versions of CFEngine. ###
 
 Versions affected: all but the latest.
@@ -129,8 +119,6 @@ want to pin and install a specific CFEngine version you'll need to
 create your own repository.
 
   * [https://cfengine.com/dev/issues/1879](https://cfengine.com/dev/issues/1879)
-
-#  #
 
 ### IPV6 only bootstrap ###
 
@@ -146,8 +134,6 @@ removing 'skipidentify' in the agent control body. Alternatively,
 bootstrap by hand, copying keys and inputs manually.
 
   * [https://cfengine.com/dev/issues/3037](https://cfengine.com/dev/issues/3037)
-
-#  #
 
 ### IPV6 only CFEngine Enterprise server ###
 
@@ -168,5 +154,3 @@ service, use [Normation's mirror](http://www.normation.com/en/cfengine-package-r
 or make your own mirror.
 
   * [https://cfengine.com/dev/issues/2379](https://cfengine.com/dev/issues/2379)
-
-#  #

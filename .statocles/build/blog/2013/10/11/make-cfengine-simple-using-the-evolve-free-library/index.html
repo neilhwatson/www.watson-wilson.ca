@@ -68,11 +68,11 @@
 
             </header>
             <section id="section-1">
-                <p><a href="https://github.com/evolvethinking/evolve_cfengine_freelib">EFL</a> makes
-using CFEngine both simple and easy. <a href="https://github.com/evolvethinking/evolve_cfengine_freelib">EFL</a>
+                <p><a href="https://github.com/neilhwatson/evolve_cfengine_freelib">EFL</a> makes
+using CFEngine both simple and easy. <a href="https://github.com/neilhwatson/evolve_cfengine_freelib">EFL</a>
 is a collection of data driven bundles that promise many common
 configuration states. Here are a few examples covering just a few
-bundles found in <a href="https://github.com/evolvethinking/evolve_cfengine_freelib">EFL</a>.</p>
+bundles found in <a href="https://github.com/neilhwatson/evolve_cfengine_freelib">EFL</a>.</p>
 
             </section>
             <section id="section-2">
@@ -85,8 +85,6 @@ efl_class_hostname-web_servers.txt and fill it with a list of
 unqualified hostnames, one per line, of all the hosts that belong to
 the class web_servers.</p>
 
-<p>``</p>
-
 <pre><code>$ cat efl_class_hostname-webservers.txt
 atlweb01
 atlweb01
@@ -97,8 +95,6 @@ atltestweb02
 </code></pre>
 
 <p>Call the bundle via method.</p>
-
-<p>``</p>
 
 <pre><code>&quot;Set web_server class&quot;
    usebundle =&gt; efl_class_hostname( &quot;${sys.workdir}/inputs/efl_class_hostname-web_servers.txt&quot; );
@@ -120,8 +116,6 @@ promisee, used for documentation and for searching parameter files for
 related data. Column zero is a class expression to constrain the
 variable. More in a moment.</p>
 
-<p>``</p>
-
 <pre><code>$ cat efl_global_strings.txt 
 # Set global strings
 
@@ -138,8 +132,6 @@ any          ;; gzip             ;; /bin/gzip         ;; gzip
 </code></pre>
 
 <p>Call the bundle using a method.</p>
-
-<p>``</p>
 
 <pre><code>&quot;Set namespace strings&quot;
    usebundle =&gt; efl_global_strings( &quot;${sys.workdir}/inputs/efl_global_strings.txt&quot; );
@@ -174,26 +166,22 @@ to be deleted. For example &#39;.*&#39; will match any file.</p></li>
 any file that does not match the regular expression. Takes the
 parameter &#39;yes&#39; or &#39;no&#39;.</p></li>
 <li><p>Five defines the minimum age, in days, of the files to delete.</p></li>
-<li><p>Six is a free form promisee for documentation and searching.</p></li>
+<li><p>Six is a free form promisee for documentation and searching.</p>
+
+<h1>cat efl_delete_files.txt</h1>
+
+<h1>Delete files that match the given requirements.</h1>
+
+<h1>context(0) ;; file promiser(1) ;; recurse(2) ;; leaf(3)        ;; negative match(4) ;; file age(5) ;; promisee(6)</h1>
+
+<p>any          ;; /tmp             ;; inf        ;; .*        ;; no               ;; 8           ;; Neil Watson</p>
+
+<p>!alix        ;; /var/tmp         ;; inf        ;; .*        ;; no               ;; 8           ;; Neil Watson</p>
+
+<p>any          ;; /var/cfengine/outputs ;; inf   ;; .*        ;; no               ;; 8           ;; Neil Watson</p></li>
 </ul>
 
-<p>``</p>
-
-<pre><code># cat efl_delete_files.txt 
-# Delete files that match the given requirements.
-
-# context(0) ;; file promiser(1) ;; recurse(2) ;; leaf(3)        ;; negative match(4) ;; file age(5) ;; promisee(6)
-
-any          ;; /tmp             ;; inf        ;; .*        ;; no               ;; 8           ;; Neil Watson
-
-!alix        ;; /var/tmp         ;; inf        ;; .*        ;; no               ;; 8           ;; Neil Watson
-
-any          ;; /var/cfengine/outputs ;; inf   ;; .*        ;; no               ;; 8           ;; Neil Watson
-</code></pre>
-
 <p>Call the bundle using a method.</p>
-
-<p>``</p>
 
 <pre><code>&quot;Delete files&quot;
    usebundle =&gt; efl_delete_files( &quot;${sys.workdir}/efl_delete_files.txt&quot; );
@@ -220,30 +208,26 @@ recursive copying.</p></li>
 <li><p>Three defines the source file.</p></li>
 <li><p>Four defines the policy server. It must be in the form of a fully
 qualified string list, but without &#39;$&#39; or &#39;@&#39; qualifiers. You may
-use &#39;efl_c.policy_servers&#39; which is defined automatically by <a href="https://github.com/evolvethinking/evolve_cfengine_freelib">EFL</a>
+use &#39;efl_c.policy_servers&#39; which is defined automatically by <a href="https://github.com/neilhwatson/evolve_cfengine_freelib">EFL</a>
 and defaults to ${sys.policy_server}.</p></li>
 <li><p>Five sets if the file transfer should be encrypted (&#39;no&#39; or &#39;yes&#39;).</p></li>
 <li><p>Six defines the permissions mode of the promiser file.</p></li>
 <li><p>Seven defines the owner of the promiser file.</p></li>
 <li><p>Eight defines the group of the promiser file.</p></li>
-<li><p>Nine is the promisee for documentation and searching.</p></li>
+<li><p>Nine is the promisee for documentation and searching.</p>
+
+<p>$ cat efl_copy_files.txt </p>
+
+<h1>context(0) ;; file promiser(1) ;; leaf regex(2) ;; file source(3) ;;        server(4) ;; encrypt(5) ;; mode(6) ;; onwer(7) ;; group(8) ;; promisee(9)</h1>
+
+<p>any          ;; /usr/share/games/fortunes/taow ;; .* ;; ${efl_global_vars.sitefiles}/misc/taow        ;; efl_c.policy_servers ;; no ;; 644 ;; root ;; root ;; Neil Watson</p>
+
+<p>any          ;; /usr/share/games/fortunes/taow.dat ;; .* ;; ${efl_global_vars.sitefiles}/misc/taow.dat        ;; efl_c.policy_servers ;; no ;; 644 ;; root ;; root ;; Neil Watson</p>
+
+<p>ettin        ;; /etc/hosts       ;; .*            ;; ${efl_global_vars.sitefiles}/misc/etc/hosts        ;; efl_c.policy_servers ;; no ;; 644 ;; root ;; root ;; Neil Watson</p></li>
 </ul>
 
-<p>``</p>
-
-<pre><code>$ cat efl_copy_files.txt 
-# context(0) ;; file promiser(1) ;; leaf regex(2) ;; file source(3) ;;        server(4) ;; encrypt(5) ;; mode(6) ;; onwer(7) ;; group(8) ;; promisee(9)
-
-any          ;; /usr/share/games/fortunes/taow ;; .* ;; ${efl_global_vars.sitefiles}/misc/taow        ;; efl_c.policy_servers ;; no ;; 644 ;; root ;; root ;; Neil Watson
-
-any          ;; /usr/share/games/fortunes/taow.dat ;; .* ;; ${efl_global_vars.sitefiles}/misc/taow.dat        ;; efl_c.policy_servers ;; no ;; 644 ;; root ;; root ;; Neil Watson
-
-ettin        ;; /etc/hosts       ;; .*            ;; ${efl_global_vars.sitefiles}/misc/etc/hosts        ;; efl_c.policy_servers ;; no ;; 644 ;; root ;; root ;; Neil Watson
-</code></pre>
-
 <p>Call the bundle using a method.</p>
-
-<p>``</p>
 
 <pre><code>&quot;Copy files&quot;
    usebundle =&gt; efl_copy_files( &quot;${sys.workdir}/inputs/efl_copy_files.txt&quot; );
@@ -268,28 +252,29 @@ promised if this class expression is true.</p></li>
 <li><p>Three is the string to match the package version. Use &#39;0&#39; if
 version does not matter.</p></li>
 <li><p>Four is the package architecture. Use &#39;*&#39; if this does not matter.</p></li>
-<li><p>Five is the promisee for documentation and searching.</p></li>
+<li><p>Five is the promisee for documentation and searching.</p>
+
+<p>$ cat efl_packages.txt </p>
+
+<h1>Generic package promiser</h1>
+
+<h1>Add packages</h1>
+
+<h1>context(0) ;; policy(1) ;; name regex(2) ;; version(3) ;; arch regex(4) ;; promisee(5)</h1>
+
+<p>debian       ;; add       ;; lsof          ;; 0          ;; default       ;; CFEngine
+opennms_nodes ;; add      ;; snmpd         ;; 0          ;; default       ;; snmpd and opennms
+sol|ettin|alix ;; add     ;; bind9         ;; 0          ;; default       ;; Neil Watson</p>
+
+<h1>Delete packages</h1>
+
+<h1>context(0) ;; policy(1) ;; name regex(2) ;; version(3) ;; arch regex(4) ;; promisee(5)</h1>
+
+<p>debian       ;; delete    ;; portmap       ;; 0          ;; default       ;; Neil Watson
+debian       ;; delete    ;; rpcbind       ;; 0          ;; default       ;; Neil Watson</p></li>
 </ul>
 
-<p>``</p>
-
-<pre><code>$ cat efl_packages.txt 
-# Generic package promiser 
-# Add packages
-# context(0) ;; policy(1) ;; name regex(2) ;; version(3) ;; arch regex(4) ;; promisee(5)
-debian       ;; add       ;; lsof          ;; 0          ;; default       ;; CFEngine
-opennms_nodes ;; add      ;; snmpd         ;; 0          ;; default       ;; snmpd and opennms
-sol|ettin|alix ;; add     ;; bind9         ;; 0          ;; default       ;; Neil Watson
-
-# Delete packages
-# context(0) ;; policy(1) ;; name regex(2) ;; version(3) ;; arch regex(4) ;; promisee(5)
-debian       ;; delete    ;; portmap       ;; 0          ;; default       ;; Neil Watson
-debian       ;; delete    ;; rpcbind       ;; 0          ;; default       ;; Neil Watson
-</code></pre>
-
 <p>Call the bundle using a method.</p>
-
-<p>``</p>
 
 <pre><code>&quot;Promise packages&quot;
    usebundle =&gt; efl_packages( &quot;${sys.workdir}/inputs/efl_packages.txt&quot; );
@@ -315,24 +300,20 @@ promised if this class expression is true.</p></li>
 <li><p>Three defines if the command should be treated as a module (&#39;yes&#39;
 or &#39;no&#39;).</p></li>
 <li><p>Four sets the ifelapsed number for the commands promise.</p></li>
-<li><p>Five is the promisee for documentation and searching.</p></li>
+<li><p>Five is the promisee for documentation and searching.</p>
+
+<p>$ cat efl_command.txt </p>
+
+<h1>execute arbitrary commands.  Great for cron replacement.</h1>
+
+<h1>context(0)                    ;; command(1)        ;; usehell(2) ;; module(3) ;; ifelapsed(4) ;; promisee(5)</h1>
+
+<p>sql_server.Hr03        ;; /usr/bin/mysqldump -A -u root -pMyPW | gzip &gt; /root/sqlbackup-$(date +%a).gz        ;; yes ;; no ;; 60 ;; EvovleThinking</p>
+
+<p>cfengine_3_5        ;; /var/cfengine/bin/tchmgr optimize /var/cfengine/state/cf_lock.tcdb        ;; noshell ;; no ;; 480 ;; Cfengine tcdb corruption</p></li>
 </ul>
 
-<p>``</p>
-
-<pre><code>$ cat efl_command.txt 
-# execute arbitrary commands.  Great for cron replacement.
-
-# context(0)                    ;; command(1)        ;; usehell(2) ;; module(3) ;; ifelapsed(4) ;; promisee(5)
-
-sql_server.Hr03        ;; /usr/bin/mysqldump -A -u root -pMyPW | gzip &gt; /root/sqlbackup-$(date +%a).gz        ;; yes ;; no ;; 60 ;; EvovleThinking
-
-cfengine_3_5        ;; /var/cfengine/bin/tchmgr optimize /var/cfengine/state/cf_lock.tcdb        ;; noshell ;; no ;; 480 ;; Cfengine tcdb corruption
-</code></pre>
-
 <p>Call the bundle using a method.</p>
-
-<p>``</p>
 
 <pre><code>&quot;Run commands or modules&quot;
    usebundle =&gt; efl_command( &quot;${sys.workdir}/inputs/efl_command.txt&quot; );
@@ -356,24 +337,20 @@ promised if this class expression is true.</p></li>
 a ps command.</p></li>
 <li><p>Two is the start command to run if the process from column one is
 not found.</p></li>
-<li><p>Three is the promisee for documentation and searching.</p></li>
+<li><p>Three is the promisee for documentation and searching.</p>
+
+<p>$ cat efl_start_service.txt </p>
+
+<h1>Start service if process is not runing and context is true.</h1>
+
+<h1>Context(0) ;; Process regex(1)        ;; Restart command(2) ;; promisee(3)</h1>
+
+<p>earth        ;; ^.+/usr/lib/postgresql/9.1/bin/postgres        ;; /usr/sbin/service postgresql restart ;; www.watson-wilson.ca website</p>
+
+<p>scope        ;; .+/usr/share/opennms/lib/opennms_bootstrap.jar start        ;; /usr/sbin/service opennms restart ;; monitoring</p></li>
 </ul>
 
-<p>``</p>
-
-<pre><code>$ cat efl_start_service.txt 
-# Start service if process is not runing and context is true.
-
-# Context(0) ;; Process regex(1)        ;; Restart command(2) ;; promisee(3)
-
-earth        ;; ^.+/usr/lib/postgresql/9.1/bin/postgres        ;; /usr/sbin/service postgresql restart ;; www.watson-wilson.ca website
-
-scope        ;; .+/usr/share/opennms/lib/opennms_bootstrap.jar start        ;; /usr/sbin/service opennms restart ;; monitoring
-</code></pre>
-
 <p>Call the bundle using a method.</p>
-
-<p>``</p>
 
 <pre><code>&quot;Start services&quot;
    usebundle =&gt; efl_start_service( &quot;${sys.workdir}/inputs/efl_start_service.txt&quot; );
@@ -408,28 +385,30 @@ an edit_template action. Is it a template? &#39;yes&#39; or &#39;no&#39;.</p></l
 <li><p>Eight defines the group of the promiser file.</p></li>
 <li><p>Nine is the start command to run if the process form column one is
 not found.</p></li>
-<li><p>Ten is the promisee for documentation and searching.</p></li>
+<li><p>Ten is the promisee for documentation and searching.</p>
+
+<p>$ cat efl_service.txt </p>
+
+<h1>promise services.</h1>
+
+<h1>context(0)        ;; process regex(1)        ;; config file promiser(2) ;; config file source(3)        ;; template yes/no(4) ;; encrypt yes/no(5) ;; mode(6) ;; owner(7) ;; group(8)        ;; restart command(9) ;; promisee(10)</h1>
+
+<p>#</p>
+
+<h1>snmp</h1>
+
+<p>#
+opennms_nodes        ;; /usr/sbin/snmpd -Lsd -Lf /dev/null -u snmp -g snmp -I -smux -p /var/run/snmpd.pid        ;; /etc/default/snmpd  ;; /var/cfengine/sitefiles/snmp/debian-defaults-snmpd        ;; yes ;; no ;; 644 ;; root ;; root        ;; /usr/sbin/service snmpd restart ;; snmp and opennms</p>
+
+<p>opennms_nodes        ;; /usr/sbin/snmpd -Lsd -Lf /dev/null -u snmp -g snmp -I -smux -p /var/run/snmpd.pid        ;; /etc/snmp/snmpd.conf  ;; /var/cfengine/sitefiles/snmp/snmpd.conf        ;; yes ;; yes ;; 644 ;; root ;; root        ;; /usr/sbin/service snmpd restart ;; snmp and opennms</p>
+
+<p>#</p>
+
+<h1>other</h1>
+
+<p>#
+debian        ;; /usr/sbin/rsyslogd -c5        ;; /etc/rsyslog.conf ;; /var/cfengine/sitefiles/misc/etc/rsyslog.conf        ;; no ;; no ;; 644 ;; root ;; root        ;; /usr/sbin/service rsyslog restart ;; Logging</p></li>
 </ul>
-
-<p>``</p>
-
-<pre><code>$ cat efl_service.txt 
-# promise services.
-
-# context(0)        ;; process regex(1)        ;; config file promiser(2) ;; config file source(3)        ;; template yes/no(4) ;; encrypt yes/no(5) ;; mode(6) ;; owner(7) ;; group(8)        ;; restart command(9) ;; promisee(10)
-
-#
-# snmp
-#
-opennms_nodes        ;; /usr/sbin/snmpd -Lsd -Lf /dev/null -u snmp -g snmp -I -smux -p /var/run/snmpd.pid        ;; /etc/default/snmpd  ;; /var/cfengine/sitefiles/snmp/debian-defaults-snmpd        ;; yes ;; no ;; 644 ;; root ;; root        ;; /usr/sbin/service snmpd restart ;; snmp and opennms
-
-opennms_nodes        ;; /usr/sbin/snmpd -Lsd -Lf /dev/null -u snmp -g snmp -I -smux -p /var/run/snmpd.pid        ;; /etc/snmp/snmpd.conf  ;; /var/cfengine/sitefiles/snmp/snmpd.conf        ;; yes ;; yes ;; 644 ;; root ;; root        ;; /usr/sbin/service snmpd restart ;; snmp and opennms
-
-#
-# other
-#
-debian        ;; /usr/sbin/rsyslogd -c5        ;; /etc/rsyslog.conf ;; /var/cfengine/sitefiles/misc/etc/rsyslog.conf        ;; no ;; no ;; 644 ;; root ;; root        ;; /usr/sbin/service rsyslog restart ;; Logging
-</code></pre>
 
 <p>Sharp viewers may notice that there are two SNMP records where only the
 configuration file differs. This is perfectly legal and, because of how
@@ -438,15 +417,13 @@ process and restart command are not duplicated when the agent runs.</p>
 
 <p>Call the bundle using a method.</p>
 
-<p>``</p>
-
 <pre><code>&quot;Promise running services&quot;
    usebundle =&gt; efl_service( &quot;${sys.workdir}/inputs/efl_service.txt&quot; );
 </code></pre>
 
 <h3>Promise ordered methods</h3>
 
-<p>Until now I&#39;ve shown you how to call <a href="https://github.com/evolvethinking/evolve_cfengine_freelib">EFL</a>
+<p>Until now I&#39;ve shown you how to call <a href="https://github.com/neilhwatson/evolve_cfengine_freelib">EFL</a>
 bundles using standard methods. The bundle efl_main allows you to
 parameterize these method calls into a csv file. For the sake of
 readability I&#39;m going to break long lines in this example using &#39;\&#39;.
@@ -463,42 +440,45 @@ promised if this class expression is true.</p></li>
 <li><p>Two is the bundle name.</p></li>
 <li><p>Three is the ifelapsed parameter for the method promise.</p></li>
 <li><p>Four is the csv file bundle parameter.</p></li>
-<li><p>Five is the promisee for documentation and searching.</p></li>
+<li><p>Five is the promisee for documentation and searching.</p>
+
+<p>$ cat methods.txt </p>
+
+<h1>Method calls</h1>
+
+<h1>context(0)      ;; promiser(1)                  ;; bundle(2) ;; ifelapsed(3)        ;; parameter(4)        ;; promisee(5)</h1>
+
+<p>#</p>
+
+<h1>Classes</h1>
+
+<p>#
+any               ;; web servers hostname class match ;; efl_class_hostname ;; 1        ;; ${sys.workdir}/inputs/user_data/classes/efl_class_hostname-web_server.txt        ;; web servers</p>
+
+<p>#</p>
+
+<h1>variables</h1>
+
+<p>#
+any               ;; global vars       ;; efl_global_strings   ;; 1        ;; ${sys.workdir}/inputs/user_data/bundle_params/efl_global_strings.txt        ;; Neil Watson</p>
+
+<p>#</p>
+
+<h1>other</h1>
+
+<p>#
+any               ;; clean up          ;; efl_delete_files  ;; 1        ;; ${sys.workdir}/inputs/user_data/bundle_params/efl_delete_files.txt        ;; Neil Watson</p>
+
+<p>any               ;; packages          ;; efl_packages      ;; 1        ;; ${sys.workdir}/inputs/user_data/bundle_params/efl_packages.txt        ;; Neil Watson</p>
+
+<p>any               ;; copy files        ;; efl_copy_files    ;; 1        ;; ${sys.workdir}/inputs/user_data/bundle_params/efl_copy_files.txt        ;; Neil watson</p>
+
+<p>any               ;; services          ;; efl_start_service ;; 1        ;; ${sys.workdir}/inputs/user_data/bundle_params/efl_start_service.txt         ;; Neil Watson</p>
+
+<p>any               ;; services          ;; efl_service       ;; 1        ;; ${sys.workdir}/inputs/user_data/bundle_params/efl_service.txt         ;; Neil Watson</p></li>
 </ul>
 
-<p>``</p>
-
-<pre><code>$ cat methods.txt 
-# Method calls
-# context(0)      ;; promiser(1)                  ;; bundle(2) ;; ifelapsed(3)        ;; parameter(4)        ;; promisee(5)
-
-#
-# Classes
-#
-any               ;; web servers hostname class match ;; efl_class_hostname ;; 1        ;; ${sys.workdir}/inputs/user_data/classes/efl_class_hostname-web_server.txt        ;; web servers
-
-#
-# variables
-#
-any               ;; global vars       ;; efl_global_strings   ;; 1        ;; ${sys.workdir}/inputs/user_data/bundle_params/efl_global_strings.txt        ;; Neil Watson
-
-#
-# other
-#
-any               ;; clean up          ;; efl_delete_files  ;; 1        ;; ${sys.workdir}/inputs/user_data/bundle_params/efl_delete_files.txt        ;; Neil Watson
-
-any               ;; packages          ;; efl_packages      ;; 1        ;; ${sys.workdir}/inputs/user_data/bundle_params/efl_packages.txt        ;; Neil Watson
-
-any               ;; copy files        ;; efl_copy_files    ;; 1        ;; ${sys.workdir}/inputs/user_data/bundle_params/efl_copy_files.txt        ;; Neil watson
-
-any               ;; services          ;; efl_start_service ;; 1        ;; ${sys.workdir}/inputs/user_data/bundle_params/efl_start_service.txt         ;; Neil Watson
-
-any               ;; services          ;; efl_service       ;; 1        ;; ${sys.workdir}/inputs/user_data/bundle_params/efl_service.txt         ;; Neil Watson
-</code></pre>
-
 <p>Call the bundle using a method.</p>
-
-<p>``</p>
 
 <pre><code>&quot;Promise running services&quot;
    usebundle =&gt; efl_main( &quot;${sys.workdir}/inputs/efl_main.txt&quot; );
@@ -520,12 +500,9 @@ more.</p>
 <li><p>A bundle to <a href="http://watson-wilson.ca/secure-sysctl-settings-with-cfengine/">promise sysctl.conf and live kernel settings</a>.</p></li>
 </ul>
 
-<h1>#</h1>
-
-<p><a href="https://github.com/evolvethinking/evolve_cfengine_freelib">EFL</a> is
-open source and free to use. It is the engine that runs our <a href="http://watson-wilson.ca/products/">Delta
-Hardening</a>© product and our yet to
-be released Delta Reporting© product.</p>
+<p><a href="https://github.com/neilhwatson/evolve_cfengine_freelib">EFL</a> is
+open source and free to use. It is the engine that runs <a href="https://github.com/neilhwatson/delta-reporting">Delta
+Reporting</a>.</p>
 
             </section>
         </main>

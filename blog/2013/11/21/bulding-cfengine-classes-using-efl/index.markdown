@@ -49,8 +49,6 @@ efl_class_hostname-web_servers.txt and fill it with a list of
 unqualified hostnames, one per line, of all the hosts that belong to
 the class web_servers.
 
-``
-
     $ cat efl_class_hostname-webservers.txt
     atlweb01
     atlweb01
@@ -66,8 +64,6 @@ ${sys.uqhost} the class web_servers is set in the scope of namespace,
 which is less accurately called a global class.
 
 Call the bundle via method.
-
-``
 
     "Set web_server class"
        usebundle => efl_class_hostname( "${sys.workdir}/inputs/efl_class_hostname-web_servers.txt" );
@@ -96,8 +92,6 @@ to six.
 
   * Six is a free form promisee for documentation and searching.
 
-``
-
     # Define global class if anchored regex matches command output.
     # context(0) ;; class promiser(1) ;; 'not' match?(2) ;; command(3) \
               ;; useshell/noshell(4) ;; anchored regex(5) ;; promisee(6)
@@ -110,8 +104,6 @@ class. If the given regular expression is not matched (see column two),
 then the class 'install_cfengine_apt_key' is set.
 
 Call the bundle using a method.
-
-``
 
     "Class by shell and regcmp"
        usebundle => efl_class_cmd_regcmp "${sys.workdir}/efl_class_cmd_regcmp.txt" );
@@ -129,8 +121,6 @@ from zero to two.
 
   * Three is a free form promisee for documentation and searching.
 
-``
-
     # promiser class(0) ;; class expression(1)         ;; promisee(3)
     dmz_a               ;; ipv4_10_10_10|ipv4_10_10_11 ;; dmz_a networks
 
@@ -138,8 +128,6 @@ The class 'dmz_a' is defined if either of the given classes, which in
 this case are hard classes, are defined.
 
 Call the bundle using a method.
-
-``
 
     "classify by expressions"
        usebundle => efl_class_expression( "${sys.workdir}/efl_class_expression.txt" );
@@ -159,14 +147,10 @@ parameter file. It has three columns from zero to two.
 
   * Three is a free form promisee for documentation and searching.
 
-``
-
     # promiser class(0) ;; class regular expression(1) ;; promisee(3)
     ipv4_host           ;; ipv4_.*                     ;; Any ipv4 host
 
 Call the bundle using a method.
-
-``
 
     "Class by classmatch function"
        usebundle => efl_class_classmatch( "${sys.workdir}/efl_class_classmatch.txt" );
@@ -184,8 +168,6 @@ file. It has three columns from zero to two.
 
   * Three is a free form promisee for documentation and searching.
 
-``
-
     # promiser class(0) ;; ip range(1)     ;; promisee(3)
     dmz_a               ;; 10.10.10.0/24   ;; dmz_a networks
     dmz_a               ;; 10.10.11.0/24   ;; dmz_a networks
@@ -194,8 +176,6 @@ file. It has three columns from zero to two.
 
 
 Call the bundle using a method.
-
-``
 
     "Class by iprange function"
        usebundle => efl_class_iprange( "${sys.workdir}/efl_class_iprange.txt" );
@@ -223,8 +203,6 @@ six columns from zero to five.
 
   *  Five is the promisee for documentation and searching.
 
-``
-
     # execute arbitrary commands.  Great for cron replacement.
     # context(0)             \
        ;; command(1) \
@@ -236,8 +214,6 @@ six columns from zero to five.
 
 Call the bundle using a method.
 
-``
-
     "Run commands or modules"
        usebundle => efl_command( "${sys.workdir}/inputs/efl_command.txt" );
 
@@ -248,4 +224,4 @@ bundles by copying existing ones. There is even a template called
 'efl_skeleton' for this very purpose. A common change might be to
 duplicate a class bundle but change it to a common bundle. Such bundles
 would define classes that cf-serverd can use. If you do develop new
-bundles I hope you'll contribute them back to [EFL](https://github.com/evolvethinking/evolve_cfengine_freelib).
+bundles I hope you'll contribute them back to [EFL](https://github.com/neilhwatson/evolve_cfengine_freelib).

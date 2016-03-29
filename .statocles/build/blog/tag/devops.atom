@@ -208,7 +208,7 @@ have still been caught off guard.</p>
         <content type="html"><![CDATA[
             <p><img alt="counting" src="http://watson-wilson.ca/static/images/counting.jpg"></p>
 
-<p>I&#39;ve added a <a href="https://github.com/evolvethinking/evolve_cfengine_freelib/commit/00093210649c4b236e9d4940a23f5a6fe2e60742">new bundle</a>
+<p>I&#39;ve added a <a href="https://github.com/neilhwatson/evolve_cfengine_freelib/commit/00093210649c4b236e9d4940a23f5a6fe2e60742">new bundle</a>
 to the 3.5 branch of EFL. This bundle <em>efl_test_count</em> allows you to
 count the classes matching a regular expression and test if that count
 matches your expected count. Consider the <em>efl_service</em> bundle, it

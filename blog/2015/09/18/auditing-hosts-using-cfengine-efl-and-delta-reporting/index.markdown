@@ -36,8 +36,8 @@ title: 'Auditing hosts using CFEngine, EFL, and Delta Reporting'
 ![](/static/images/Liste-300px.png)
 
 Sometimes you want to audit a host without changing it. This can be
-hard with CFEngine, but with [EFL](https://github.com/evolvethinking/evolve_cfengine_freelib)
-and [Delta Reporting](https://github.com/evolvethinking/delta_reporting)
+hard with CFEngine, but with [EFL](https://github.com/neilhwatson/evolve_cfengine_freelib)
+and [Delta Reporting](https://github.com/neilhwatson/delta_reporting)
 it's possible.
 
 ---
@@ -54,8 +54,6 @@ Consider these arbitrary tests:
 
   5. Is ftpd not configured to start at boot time?
 
-#  #
-
 Testing is all about classes in CFEngine. Whether or not a class is set
 determines the results of your test. EFL has many bundles for creating
 classes. Two of them, efl_class_cmd_regcmp and efl_class_returnszero,
@@ -65,8 +63,6 @@ knowledge of CFEngine and EFL.
 The first three tests can be accomplished by testing the output of a
 command with a regular expression. I'll use the bundle
 efl_class_cmd_regcmp for that. Here is the parameter file:
-
-`
 
     [
        {
@@ -98,13 +94,9 @@ efl_class_cmd_regcmp for that. Here is the parameter file:
        }
     ]
 
-`
-
 The last two tests can be performed by testing the return value of
 chkconfig. I'll use the bundle efl_class_returnszero for that. Here is
 the parameter file:
-
-``
 
     [
        {
@@ -129,8 +121,6 @@ Both bundles will be run using EFL's efl_main bundle, which I won't
 show here. I also want some pretty and testable output. I can use EFL's
 efl_test_classes bundle for that. (see [TAP and EFL](http://watson-wilson.ca/testing-cfengine-using-efl-tap-and-perl/)).
 Here is the parameter file:
-
-``
 
     [
        {
@@ -169,8 +159,6 @@ Now the output (note that cf-agent 3.7.0 spewed a bunch of warnings
 about JSON and escape characters. I think they are harmless. You can
 see the bug report [here](https://dev.cfengine.com/issues/7579).):
 
-``
-
     R: _home_neil__cfagent_inputs_test_efl_test_classes_json_4b703cc338ec6c24abbc72019bea6929482d0a38
     1..5
     R: _home_neil__cfagent_inputs_test_efl_test_classes_json_4b703cc338ec6c24abbc72019bea6929482d0a38
@@ -185,7 +173,7 @@ see the bug report [here](https://dev.cfengine.com/issues/7579).):
     ok 5 - Testing if ftpd boot start is disabled
 
 Success! For this host anyway, but suppose I have many hosts. Enter [Delta
-Reporting](https://github.com/evolvethinking/delta_reporting). By
+Reporting](https://github.com/neilhwatson/delta_reporting). By
 integrating the first two bundles into my production policy I can use
 DR to search for class membership.
 
