@@ -18,9 +18,12 @@ tags:
 title: Nix ifvarclass and other changes I wish for CFEngine
 ---
 
-
 I am frequently asked what I would change in CFEngine if I had the
-power. --- My high level answer is documentation. It is still too hard
+power.
+
+---
+
+My high level answer is documentation. It is still too hard
 for new comers to get started with CFEngine and experienced users do
 not have access to detailed low level documentation. How does the
 client server handshake work? How does cf_promises_validated work? How
@@ -40,19 +43,30 @@ for this.
 
 ### Whitespace in variables and classes ###
 
-Variable expressions like "${meth[${i}][3]}" are an eyesore. I wish I
-could use whitespace and rewrite them as "${meth[ ${i} ][ 3 ]}".
-Similarly class expressions like dmz_hosts.!(hosta|hostb|hostc):: would
-be easier to read as dmz_hosts .! ( hosta|hostb|hostc )::. There is an
-[ open feature request](https://cfengine.com/dev/issues/1771) for this.
+Variable expressions like
+
+   ${meth[${i}][3]}
+   
+are an eyesore. I wish I
+could use whitespace and rewrite them as
+
+   ${meth[ ${i} ][ 3 ]}
+
+Similarly class expressions like
+
+   dmz_hosts.!(hosta|hostb|hostc)::
+
+would be easier to read as
+
+   dmz_hosts .! ( hosta|hostb|hostc )::
+
+There is an [ open feature request](https://cfengine.com/dev/issues/1771) for this.
 
 ### Nix ifvarclass ###
 
 While we are on the subject of classes, let's talk about ifvarclass. I
 hate it. New users often wrongly think ifvarclass can define a class.
 Truly ifvarclass exists only because this is illegal syntax:
-
-``
 
     files:
        ${myclass}::
@@ -61,8 +75,6 @@ Truly ifvarclass exists only because this is illegal syntax:
 
 The above is so much clearer to the reader than the abomination that is
 ifvarclass.
-
-``
 
     files:
        "/path/to/promiser"

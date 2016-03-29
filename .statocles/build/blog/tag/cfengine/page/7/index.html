@@ -74,62 +74,10 @@
                 </header>
 
                 <p>I am frequently asked what I would change in CFEngine if I had the
-power. --- My high level answer is documentation. It is still too hard
-for new comers to get started with CFEngine and experienced users do
-not have access to detailed low level documentation. How does the
-client server handshake work? How does cf_promises_validated work? How
-do I read debugging output? I wish I could answer these questions using
-official citations. There is an <a href="https://groups.google.com/forum/?fromgroups#!searchin/help-cfengine/documentation/help-cfengine/Tyvg3-7k-Lw/JTmMcaI_riQJ">effort underway</a>
-to improve documentation.</p>
-
-<p>At a lower level the are other things I would change. Here are a few.</p>
-
-<h3>Better redundancy</h3>
-
-<p>While file copies can fail over to multiple servers it is not possible
-to bootstrap a host to multiple servers. This makes creating fail over
-servers cumbersome because keys have to be exchanged using manual or
-home grown automatic methods. There is an outstanding <a href="https://cfengine.com/dev/issues/3570"> feature request</a>
-for this.</p>
-
-<h3>Whitespace in variables and classes</h3>
-
-<p>Variable expressions like &quot;${meth[${i}][3]}&quot; are an eyesore. I wish I
-could use whitespace and rewrite them as &quot;${meth[ ${i} ][ 3 ]}&quot;.
-Similarly class expressions like dmz_hosts.!(hosta|hostb|hostc):: would
-be easier to read as dmz_hosts .! ( hosta|hostb|hostc )::. There is an
-<a href="https://cfengine.com/dev/issues/1771"> open feature request</a> for this.</p>
-
-<h3>Nix ifvarclass</h3>
-
-<p>While we are on the subject of classes, let&#39;s talk about ifvarclass. I
-hate it. New users often wrongly think ifvarclass can define a class.
-Truly ifvarclass exists only because this is illegal syntax:</p>
-
-<p>``</p>
-
-<pre><code>files:
-   ${myclass}::
-      &quot;/path/to/promiser&quot;
-         yada =&gt; yada;
-</code></pre>
-
-<p>The above is so much clearer to the reader than the abomination that is
-ifvarclass.</p>
-
-<p>``</p>
-
-<pre><code>files:
-   &quot;/path/to/promiser&quot;
-      ifvarclass =&gt; &quot;${myclass}&quot;,
-      yada       =&gt; yada;
-</code></pre>
-
-<p>Removing ifvarclass has been <a href="https://cfengine.com/bugtracker/view.php?id=894"> discussed</a>
-in the <a href="https://groups.google.com/forum/?fromgroups#!searchin/help-cfengine/classes$20iteration$20ifvarclass$20watson/help-cfengine/jztMvL_V1g8/1hRDUSV2XSwJ">past</a>,
-but no changes are pending.</p>
+power.</p>
 
 
+                    <p><a href="/blog/2013/11/27/nix-ifvarclass-and-other-changes-i-wish-for-cfengine/index.html#section-2">Continue reading Nix ifvarclass and other changes I wish for CFEngine...</a></p>
 
             </article>
             <article>
