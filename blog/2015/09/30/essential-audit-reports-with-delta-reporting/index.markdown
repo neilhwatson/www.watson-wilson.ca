@@ -25,6 +25,7 @@ tags:
   - security
 title: Essential audit reports with Delta Reporting
 ---
-[caption id="attachment_960" align="alignright" width="620"][![Delta Reporting dashboard](/static/images/dr-dashboard.png)](/static/images/dr-dashboard.png)
-Delta Reporting dashboard[/caption] Delta Reporting has simple yet
-powerful reports. See a gallery of essential ones [here](http://watson-wilson.ca/products/delta-reporting/essential-audit-reports-with-delta-reporting/).
+![Delta Reporting dashboard](/static/images/dr-dashboard.png)
+Delta Reporting has simple yet powerful reports. See a gallery of essential
+ones
+[here](https://github.com/neilhwatson/delta_reporting/blob/master/Screenshots.md)

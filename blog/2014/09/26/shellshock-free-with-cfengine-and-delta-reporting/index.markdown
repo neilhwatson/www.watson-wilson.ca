@@ -29,8 +29,7 @@ tags:
   - security
 title: Shellshock free with CFEngine and Delta Reporting
 ---
-[caption id="attachment_1052" align="alignnone" width="716"][![Hosts reported free of shell shock](/static/images/shell_shock.png)](/static/images/shell_shock.png)
-Hosts reported free of shell shock[/caption]
+![Hosts reported free of shell shock](/static/images/shell_shock.png)
 
 Above is a screenshot from Evolve's production [Delta Reporting](https://github.com/neilhwatson/delta_reporting)
 service. These hosts are safe from Shell shock. Thanks to Delta
@@ -51,7 +50,7 @@ command with a given regular expression. The user defines if the match
 should be positive or negative. That is if a match, set a given class,
 or without a match set a given class. We used both:
 
-efl_classes_cmd_regcmp parameters ` `
+efl_classes_cmd_regcmp parameters
 
     linux ;; is_shell_shock_vulnerable   ;; no ;; \
        /usr/bin/env x='() { :;}; echo vulnerable' bash -c "echo this is a test" ;;\
@@ -82,7 +81,7 @@ the hammer approach of a commands promise to be certain. Fortunately
 EFL has a commands bundle, so we can simply write a parameter and not a
 promise.
 
-efl_command parameter ` `
+efl_command parameter
 
     debian ;; /usr/bin/apt-get -y install bash ;; yes ;; no ;; 240 ;; security
 

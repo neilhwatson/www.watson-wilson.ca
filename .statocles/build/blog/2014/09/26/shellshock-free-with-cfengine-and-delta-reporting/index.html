@@ -70,8 +70,7 @@
 
             </header>
             <section id="section-1">
-                <p>[caption id=&quot;attachment_1052&quot; align=&quot;alignnone&quot; width=&quot;716&quot;]<a href="/static/images/shell_shock.png"><img alt="Hosts reported free of shell shock" src="/static/images/shell_shock.png"></a>
-Hosts reported free of shell shock[/caption]</p>
+                <p><img alt="Hosts reported free of shell shock" src="/static/images/shell_shock.png"></p>
 
 <p>Above is a screenshot from Evolve&#39;s production <a href="https://github.com/neilhwatson/delta_reporting">Delta Reporting</a>
 service. These hosts are safe from Shell shock. Thanks to Delta
@@ -92,7 +91,7 @@ command with a given regular expression. The user defines if the match
 should be positive or negative. That is if a match, set a given class,
 or without a match set a given class. We used both:</p>
 
-<p>efl_classes_cmd_regcmp parameters <code></code></p>
+<p>efl_classes_cmd_regcmp parameters</p>
 
 <pre><code>linux ;; is_shell_shock_vulnerable   ;; no ;;        /usr/bin/env x=&#39;() { :;}; echo vulnerable&#39; bash -c &quot;echo this is a test&quot; ;;       useshell ;; (?ims).*?vulnerable.* ;; security
 
@@ -120,7 +119,7 @@ the hammer approach of a commands promise to be certain. Fortunately
 EFL has a commands bundle, so we can simply write a parameter and not a
 promise.</p>
 
-<p>efl_command parameter <code></code></p>
+<p>efl_command parameter</p>
 
 <pre><code>debian ;; /usr/bin/apt-get -y install bash ;; yes ;; no ;; 240 ;; security
 </code></pre>

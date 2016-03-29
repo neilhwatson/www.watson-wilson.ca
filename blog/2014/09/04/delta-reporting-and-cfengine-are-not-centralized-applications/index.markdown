@@ -31,8 +31,7 @@ flexible.
 
 ---
 
-[caption id="attachment_996" align="alignnone" width="163"][![CFEngine typical centralized architecture](/static/images/client-server-centralized.png)](/static/images/client-server-centralized.png)
-CFEngine typical centralized architecture[/caption]
+![CFEngine typical centralized architecture](/static/images/client-server-centralized.png)
 
 A typical installation of CFEngine has all agent hosts connecting to a
 single CFEngine server, but did you know that you can do more? In a DMZ
@@ -42,8 +41,7 @@ server for DMZ agents and is itself an agent of the internal server. In
 isolated networks you can deploy additional CFEngine servers to support
 local agent hosts.
 
-[caption id="attachment_997" align="alignnone" width="430"][![CFEngine decentralized architecture](/static/images/client-server-decentralized.png)](/static/images/client-server-decentralized.png)
-CFEngine decentralized architecture[/caption]
+![CFEngine decentralized architecture](/static/images/client-server-decentralized.png)
 
 [Delta Reporting's](https://github.com/neilhwatson/delta_reporting)
 promise outcome and class log can be similarly distributed. Each
@@ -51,8 +49,7 @@ CFEngine server loads DR's data to a database that can be local or
 remote. Multiple CFEngine servers can share the same DR database, and
 you can have isolated DR instances in high security networks.
 
-[caption id="attachment_998" align="alignnone" width="430"][![Delta Reporting decentralized architecture](/static/images/delta-reporting-decentralized.png)](/static/images/delta-reporting-decentralized.png)
-Delta Reporting decentralized architecture[/caption]
+![Delta Reporting decentralized architecture](/static/images/delta-reporting-decentralized.png)
 
 It is no exaggeration that CFEngine is decentralized and scales
 enormously, and [Delta Reporting](https://github.com/neilhwatson/delta_reporting)

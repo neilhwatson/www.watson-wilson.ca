@@ -15,8 +15,7 @@ date: 2014-08-15 16:53:50
 status: published
 title: CFEngine's state to ram disk
 ---
-[caption id="attachment_963" align="alignright" width="656"][![Load stats after moving state to ram disk.](/static/images/cfengine_state_on_ram.png)](/static/images/cfengine_state_on_ram.png)
-Load stats after moving state to ram disk.[/caption]
+![Load stats after moving state to ram disk.](/static/images/cfengine_state_on_ram.png)
 
 Earlier this year I mounted /var/cfengine/state to a ram disk . The
 load change was dramatic, but there are draw backs. A reboot will lose
