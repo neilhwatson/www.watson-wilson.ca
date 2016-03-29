@@ -27,7 +27,7 @@ Here's a quick example of how to use mustache templates in CFEngine.
 
 ---
 
-The policy ``
+The policy
 
     body common control
     {
@@ -70,7 +70,7 @@ The policy ``
        empty_file_before_editing => 'true';
     }
 
-The template ``
+The template 
 
     This file is edited by CFEngine and is always in place.
     
@@ -126,7 +126,7 @@ notable details are:
   * Note that unlike old style CFEngine templates, mustache templates *will
     print all duplicate lines*.
 
-The resulting file ``
+The resulting file
 
     This file is edited by CFEngine and is always in place.
     

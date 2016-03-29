@@ -48,8 +48,6 @@ you'll need to work around this behavior. One method is to add unique
 comments to lines. Another is to use the tags [%CFEngine BEGIN %] and
 [%CFEngine END %] which treat the text between them as a single block.
 
-``
-
     body common control
     {
             bundlesequence => { "main", };
@@ -83,8 +81,6 @@ comments to lines. Another is to use the tags [%CFEngine BEGIN %] and
 
 The template file.
 
-``
-
     [%CFEngine ipv4_172_16_100:: %]
     nameserver 172.16.100.254
     nameserver 46.21.99.2
@@ -101,8 +97,6 @@ The template file.
 
 Run the agent.
 
-``
-
     $ cf-agent -IKf ./edit_template.cf 
     2013-10-17T11:24:45-0400
        info: /main/methods/'any'/resolv_conf/files/'/tmp/resolv.conf':
@@ -112,8 +106,6 @@ Run the agent.
        Edit file '/tmp/resolv.conf'
 
 The created promiser file.
-
-``
 
     $ cat /tmp/resolv.conf
     nameserver 172.16.100.254
@@ -127,8 +119,6 @@ The created promiser file.
 
 Edit_template will also expand variables. Our previous example could
 have been done this way.
-
-``
 
     body common control
     {
@@ -176,8 +166,6 @@ have been done this way.
 
 The template file.
 
-``
-
     nameserver ${main.nameserver}
     
     domain watson-wilson.ca
@@ -185,8 +173,6 @@ The template file.
     timeout:2
 
 Run the agent.
-
-``
 
     $ cf-agent -IKf ./edit_template.cf 
     2013-10-17T13:03:52-0400
@@ -197,8 +183,6 @@ Run the agent.
        Edit file '/tmp/resolv.conf'
 
 The created promiser file.
-
-``
 
     $ cat /tmp/resolv.conf
     nameserver 172.16.100.254
@@ -247,8 +231,6 @@ to six.
 
   * Six is the promisee for documentation and searching.
 
-``
-
     # context(0) ;; promiser file(1)    ;; source file(2) \
        ;; mode(3) ;; owner(4) ;; group(5) ;; promisee(6)
     
@@ -256,8 +238,6 @@ to six.
        ;; 644 ;; root ;; root ;; Neil Watson
 
 Call the bundle using a method.
-
-``
 
     "Copy files"
        usebundle => efl_edit_template( "${sys.workdir}/inputs/efl_edit_templates.txt" );

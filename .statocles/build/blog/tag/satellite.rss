@@ -31,15 +31,7 @@
             <link>http://watson-wilson.ca/blog/2015/06/10/purging-old-systems-from-red-hat-satellite/</link>
             <guid>http://watson-wilson.ca/blog/2015/06/10/purging-old-systems-from-red-hat-satellite/</guid>
             <description><![CDATA[
-                <p>I&#39;ve been involved in a Red Hat Satellite (version 5) project recently.
---- The nature of the client&#39;s work meant that most the systems
-registered with Satellite were reinstalled regularly. This can lead to
-duplicate systems residing in Satellite&#39;s database and its collection
-of Cobbler files. With the aid of Red Had I wrote some scripts that use
-the Satellite and Cobbler API to delete old systems from Satellite and
-Cobbler. I can&#39;t share the scripts, but I can show you some useful
-snippets from what I learned. The scripts are in Perl so I include the
-snippets in my personal Perl <a href="https://github.com/neilhwatson/nustuff/blob/master/perl/cheatsheet.pod">cheatsheet</a>.</p>
+                <p>I&#39;ve been involved in a Red Hat Satellite (version 5) project recently.</p>
 
                     <p><a href="http://watson-wilson.ca/blog/2015/06/10/purging-old-systems-from-red-hat-satellite/#section-2">Continue reading...</a></p>
                 <p>Tags:

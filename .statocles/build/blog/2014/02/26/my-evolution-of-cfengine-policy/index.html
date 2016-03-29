@@ -85,8 +85,6 @@ you&#39;ll recognize yourself.</p>
 single high level purpose. This simple approach helped me to learn
 CFEngine&#39;s declarative and convergent nature.</p>
 
-<p>``</p>
-
 <pre><code>bundle agent ntp
 {
    packages:
@@ -169,8 +167,6 @@ efficient.</p>
 In those days the documentation was sparse and good examples were rare,
 but after stage one I had many examples and I saw how methods could be
 employed.</p>
-
-<p>``</p>
 
 <pre><code>bundle agent security
 ( path, mode, owner, group )
@@ -284,8 +280,6 @@ file permissions, and much more.</p>
 
 <p>Here is the more condensed data for file permissions with less syntax.</p>
 
-<p>``</p>
-
 <pre><code># efl_files_perms.txt
 any ;; /etc/passwd ;; no ;; .* ;; 644 ;; root ;; root ;; security
 any ;; /etc/shadow ;; no ;; .* ;; 600 ;; root ;; root ;; security
@@ -294,8 +288,6 @@ any ;; /tmp        ;; no ;; .* ;; 777 ;; root ;; root ;; security
 
 <p>Here is the more condensed data for services with less syntax.</p>
 
-<p>``</p>
-
 <pre><code># efl_services.txt
 any ;; ^/usr/sbin/ntpd ;; /etc/ntp.conf ;; ${sys.workdir}/sitefiles/etc/ntp.conf ;;        efl_c.policy_servers ;; no ;; no ;; 644 ;; root ;; root ;;        /sbin/service ntp restart ;; ntp time sync
 any ;; ^/usr/sbin/sshd ;; /etc/ssh/sshd_conf ;; ${sys.workdir}/sitefiles/etc/ssh/sshd_conf ;;        efl_c.policy_servers ;; no ;; no ;; 644 ;; root ;; root ;;        /sbin/service sshd restart ;; sshd remote access, security
@@ -303,8 +295,6 @@ any ;; ^/usr/sbin/sshd ;; /etc/ssh/sshd_conf ;; ${sys.workdir}/sitefiles/etc/ssh
 
 <p>Here is the more condensed data for method promises to call the EFL
 bundles.</p>
-
-<p>``</p>
 
 <pre><code># efl_main.txt
 any ;; File permissions ;; efl_file_perms ;; 1 ;;        ${sys.workdir}/inputs/params/efl_file_perms.txt ;; file permissions

@@ -30,8 +30,6 @@ on defaults.
 The second method is a normal variables promise, but uses the *ifelse*
 function. Ifelse takes the form of
 
-``
-
     "myvar" string => ifelse(
        "class1", "value1",
        "classn+1", "valuen+1",
@@ -43,8 +41,6 @@ will be assigned even if more than one class is true, but variable
 policy bugs may deem otherwise (see
 https://dev.cfengine.com/issues/1492), so test carefully. If no class
 condition is meet, the final value, that has no class, is assigned.
-
-``
 
     body common control
     {

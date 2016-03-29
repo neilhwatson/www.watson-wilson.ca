@@ -29,7 +29,7 @@ tags:
   - software testing
 title: 'CFEngine best practices: testing'
 ---
-[![f4-crashtest](/static/images/f4-crashtest.jpg)](/static/images/f4-crashtest.jpg)
+![f4-crashtest](/static/images/f4-crashtest.jpg)
 
 CFEngine's autonomous automation means that your policy, mistakes and
 all, will be duplicated quickly to all of your hosts. --- Potentially
@@ -62,9 +62,7 @@ Internet get you started.
     study. They are located in share/doc/examples in CFEngine's work
     directory (typically /var/cfengine).
 
-  ####  ####
-
-  Figure 1: Standalone unit test that ships with CFEngine. `
+Figure 1: Standalone unit test that ships with CFEngine.
 
       ettin:/var/cfengine/share/doc/examples# cat unit_depends_on.cf
       body common control
@@ -85,9 +83,6 @@ Internet get you started.
            handle => "handle_one";
       
       }
-         
-
-  `
 
   3. Many [CFEngine bug reports](https://dev.cfengine.com/projects/core/issues)
     (especially mine) contain good self contained examples. Indeed, if
@@ -122,7 +117,7 @@ is true. Also, note that the body parts at the bottom are copies of
 bodies from the standard CFEngine library, except the *by_command* body
 which is from [EFL](https://github.com/neilhwatson/delta_reporting).
 
-Figure 2: My first prototype. ` `
+Figure 2: My first prototype. 
 
     body common control
     {
@@ -221,11 +216,11 @@ chances of false positive matching.
 During the process of writing this policy I frequently used the
 CFEngine program *cf-promises* to test my syntax.
 
-Figure 3: Testing syntax ` `
+Figure 3: Testing syntax
 
-          neil@ettin ~/.cfagent/inputs $ cf-promises -cf ./service.cf 
-          neil@ettin ~/.cfagent/inputs $ echo $?
-          0
+   neil@ettin ~/.cfagent/inputs $ cf-promises -cf ./service.cf 
+   neil@ettin ~/.cfagent/inputs $ echo $?
+   0
        
 
 If there was an error cf-promises would have shown it to me, and it
@@ -240,7 +235,7 @@ Let's run our test. It's important to know our expected results. If *sleep
 99* is not running I expect proto.sh to be run. If sleep 99 is running
 I expect nothing to happen. Let's try it.
 
-Figure 4: Our first prototype run ` `
+Figure 4: Our first prototype run 
 
     neil@ettin ~/.cfagent/inputs $ cf-agent -KIf ./service.cf ; ps -ef |grep sleep ;cf-agent -KIf ./service.cf
     2014-07-03T19:48:21-0400     info: /default/main/methods/'My prototype'/default/proto/processes/'sleep 99'[0]: Making a one-time restart promise for 'sleep 99'
@@ -255,7 +250,7 @@ testing. Now, I'll add a unit test that makes the agent break its own
 configuration. I add this bundle to our prototype file and change the
 methods in the main bundle.
 
-Figure 5: Adding a unit test ` `
+Figure 5: Adding a unit test 
 
     ## Change main bundle:
     bundle agent main
@@ -289,7 +284,7 @@ Now we have a bundle *unit_01* that is called when the same named class
 is true. This will kill the sleep 99 process forcing the proto bundle
 to restart it.
 
-Figure 6: Unit test in action. ` `
+Figure 6: Unit test in action.
 
     neil@ettin ~/.cfagent/inputs $ cf-agent -KIf ./service.cf -D unit_01 ; ps -ef|grep sleep
     2014-07-03T19:15:06-0400     info: /default/main/methods/'unit_01'/default/unit_01/processes/'sleep 99'[0]: Signalled 'term' (15) to process 107369 (neil     107369      1 107360  0.0  0.0   4216   0   356    1 19:14 00:00:00 sleep 99)

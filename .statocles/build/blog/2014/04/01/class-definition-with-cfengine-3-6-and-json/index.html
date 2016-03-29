@@ -76,14 +76,12 @@ for this in EFL after CFEngine&#39;s 3.6 release.</p>
 
             </section>
             <section id="section-2">
-                <p>``</p>
+                <p>body common control
+    {
+            bundlesequence =&gt; { &quot;main&quot;, };
+    }</p>
 
-<pre><code>body common control
-{
-        bundlesequence =&gt; { &quot;main&quot;, };
-}
-
-bundle agent main
+<pre><code>bundle agent main
 {
         methods:
                 &quot;any&quot; usebundle =&gt; init( &quot;${sys.workdir}/inputs/class_by_hostname.dat&quot; );

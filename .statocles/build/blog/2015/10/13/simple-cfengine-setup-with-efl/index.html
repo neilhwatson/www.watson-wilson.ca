@@ -95,8 +95,6 @@ that pass the test are members of the class.</p>
 restart_httpd.</p></li>
 </ul>
 
-<h1>#</h1>
-
 <h2>Procedure</h2>
 
 <ol>
@@ -112,8 +110,6 @@ restart_httpd.</p></li>
 <li><p>Version control</p></li>
 <li><p>Getting stuff done</p></li>
 </ol>
-
-<h1>#</h1>
 
 <p>Note: assume these steps are on your CFEngine server unless stated
 otherwise.</p>
@@ -167,16 +163,12 @@ cause CFEngine to read the EFL file <em>services/efl.cf</em>.</p>
 changes to masterfiles. Edit the file controls/cf_serverd.cf. In the <em>body
 server control</em> add this line:</p>
 
-<p>`</p>
-
 <pre><code>body server control {
 
 # Add this line to make cf-server listen on all interfaces, 
 # including IPv6 interfaces
    bindtointerface =&gt; &quot;::&quot;;
 </code></pre>
-
-<p>`</p>
 
 <h3>Server ACL rules</h3>
 
@@ -191,8 +183,6 @@ Cf-serverd will read this file, and if the hosts is a member of the
 mars hard class (derived from the hostname), it will allow agents
 access to /var/cfengine/modules and /var/cfengine/masterfiles if they
 are part of the network 2001:0DB8::/32.</p>
-
-<p>`</p>
 
 <pre><code>[
    {
@@ -214,8 +204,6 @@ are part of the network 2001:0DB8::/32.</p>
 ]
 </code></pre>
 
-<p>`</p>
-
 <p>Note that <em>admit</em> is an array. Add more networks to the arrays to grant
 access to agent hosts from other networks.</p>
 
@@ -231,8 +219,6 @@ errors are printed and the exit status is zero, you&#39;re good to go.</p>
 
 <h3>Start cfengine</h3>
 
-<p>``</p>
-
 <pre><code>/var/cfengine/bin/cf-serverd
 </code></pre>
 
@@ -241,17 +227,17 @@ errors are printed and the exit status is zero, you&#39;re good to go.</p>
 <p>Now bootstrap the server to itself. The server is always it&#39;s first
 client host.</p>
 
-<p><code>/var/cfengine/bin/cf-agent -B 2001:DB8::2</code>. Repeat this bootstrap
-command on other agent hosts.</p>
+<p>/var/cfengine/bin/cf-agent -B 2001:DB8::2</p>
+
+<p>Repeat this bootstrap command on other agent hosts.</p>
 
 <h3>Version control</h3>
 
 <p>Now that masterfiles is working check it into version control. Git,
 Mercurial, Subversion, whatever you use, but don&#39;t edit masterfiles
 directly. Use version control, stage changes, then deploy to the
-masterfiles directory. See my <a href="http://watson-wilson.ca/cfengine-best-practices-testing/">best practices
-</a>articles for
-more information on testing and staging.</p>
+masterfiles directory. See my <a href="http://watson-wilson.ca/cfengine-best-practices-testing/">best practices</a>
+articles for more information on testing and staging.</p>
 
 <h3>Getting stuff done</h3>
 
@@ -259,8 +245,8 @@ more information on testing and staging.</p>
 You shouldn&#39;t do that, but let me explain before you get angry. EFL can
 accomplish most of your tasks without you having to write custom
 CFEngine policy. Now that you have EFL installed, mastefiles working,
-and agent hosts boostrapped, you just need to start using EFL. See <a href="https://github.com/neilhwatson/evolve_cfengine_freelib/blob/master/INSTALL.md#building-data-files">building
-data files</a>
+and agent hosts boostrapped, you just need to start using EFL. See
+<a href="https://github.com/neilhwatson/evolve_cfengine_freelib/blob/master/INSTALL.md#building-data-files">building data files</a>
 in the EFL install document.</p>
 
 <h3>About EFL</h3>

@@ -74,11 +74,11 @@ small, very small, and grow slowly.
   * I'm not a fan Java. I've been disappointed by many Java
     applications over the years, but I had no such disappointment with
     OpenNMS. The installation process is easy. One problem I did
-    encounter, with no solution yet, is that OpenNMS does not start a
+    encounter, with no solution yet, is that OpenNMS does not start at
     boot, no matter what I tried. I resorted to having CFEngine promise
     to keep it running.
 
-  * Editing XML files sucks. XML was not made for people to ready
+  * Editing XML files sucks. XML was not made for people to read
     continuously.
 
   * Merging XML files for upgrades sucks more. When I upgraded OpenNMS

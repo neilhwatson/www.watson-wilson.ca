@@ -53,6 +53,7 @@
             <header>
                 <h1>Changes in virt-install and Kickstart in RHEL7</h1>
                 <p class="tags">Tags:
+                    <a href="/blog/tag/ipv6/" rel="tag">ipv6</a>
                     <a href="/blog/tag/debian/" rel="tag">debian</a>
                     <a href="/blog/tag/devops/" rel="tag">devops</a>
                     <a href="/blog/tag/kickstart/" rel="tag">kickstart</a>
@@ -73,19 +74,21 @@
 
             </header>
             <section id="section-1">
-                <p><img alt="mre case" src="/static/images/mre-case.jpg"></p>
+                <p><img alt="army provisions" src="/static/images/mre-case.jpg"></p>
 
 <p>If you are planning to move to RHEL7 you may have to change your
 kickstart and <a href="http://linux.die.net/man/1/virt-install">virt-install</a>
 scripts. The virt-install changes will also apply to Debian based
-hosts. ---</p>
+hosts.</p>
 
-<p>Below is a working example of a virt-install script. I had to make
+            </section>
+            <section id="section-2">
+                <p>Below is a working example of a virt-install script. I had to make
 changed to the console related bits. Console allows for headless
 operation using <em>virsh console</em>, without having to fiddle with VNC or
 other clumsy graphic interfaces.</p>
 
-<p>A virt-install script <code></code></p>
+<p>A virt-install script</p>
 
 <pre><code>#!/bin/sh
 
@@ -101,17 +104,15 @@ that it was previously. I had to account for the following changes.</p>
 <li><p>Added <em>%end</em> tags.</p></li>
 </ol>
 
-<h4>#</h4>
+<h4>IPv6 warning</h4>
 
-<h4>IPV6 warning</h4>
-
-<p>Sadly, Anaconda still does not support IPV6 fully. The thorn in my
+<p>Sadly, Anaconda still does not support IPv6 fully. The thorn in my
 tests was the <em>gateway</em> setting. Anaconda allows only one gateway
 network setting which prevents you from configuring a dual stack host.
 What is needed is a <a href="https://bugzilla.redhat.com/show_bug.cgi?id=715574">gateway and a gateway6</a>
 option. A work around is to configure one stack in the post section.</p>
 
-<p>Kickstart for RHEL/CentOS 7 <code></code></p>
+<p>Kickstart for RHEL/CentOS 7 </p>
 
 <pre><code># Kickstat file manually created by Neil Watson.
 

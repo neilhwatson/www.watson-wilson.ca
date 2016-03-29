@@ -38,14 +38,14 @@ same parameters in each, then parses them similar to the current *efl_command
 bundle*. The bundle efl_command takes the same input as you are using
 now, or a JSON file.
 
-Current CSV parameters ` `
+Current CSV parameters
 
     any   ;; /usr/bin/true  ;; no  ;; no  ;; 1  ;; promisee for true
     # comments more flexible in csv.
     linux ;; /usr/bin/false ;; yes ;; yes ;; 60 ;; promisee for false
           
 
-Upcoming JSON parameters ` `
+Upcoming JSON parameters
 
     [
        {
@@ -73,7 +73,7 @@ parameter file, but to the you efl_command will work exactly the same
 way. You won't have to change your parameter files to transition from
 3.5 to 3.6.
 
-Preview policy ` `
+Preview policy
 
     body common control
     {

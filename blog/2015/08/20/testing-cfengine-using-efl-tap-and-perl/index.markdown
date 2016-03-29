@@ -49,14 +49,10 @@ The [*Test Anything Protocol*](https://en.wikipedia.org/wiki/Test_Anything_Proto
 was invented for unit testing Perl. It's simple yet powerful with a
 format like this:
 
-``
-
     (start test number)..(end test number)
     (ok|not ok) (test number) - Test name in free form
 
 Here's and example output:
-
-``
 
     R: efl_data_efl_test_vars_efl_global_strings_json_26ca18b4fe77f2fc4a494be
     1..3
@@ -94,8 +90,6 @@ The test type works like Perl's [Test::More module](https://metacpan.org/pod/Tes
 Available test types are is, isnt, like, and unlike. The above test
 will pass if *class_to_test* is defined. Let's run it.
 
-``
-
     cf-agent -D run_test_suite,test_for_am_middleware_host
     R: efl_test_classes_json_bbb9ad33c9792ef54f738a641bb72abfc75640a4
     1..1
@@ -109,15 +103,11 @@ can script this test using Perl's prove. Below we encapsulate the
 cf-agent command into *cf-test.t* because prove works by running files
 ending in .t and parsing TAP output.
 
-``
-
     #!/bin/sh
     
     cf-agent -D run_test_suite,test_for_am_middleware_host
 
 Now run it with prove:
-
-``
 
     prove ./cf-test.t
     ./efl_test_classes.t .. ok   

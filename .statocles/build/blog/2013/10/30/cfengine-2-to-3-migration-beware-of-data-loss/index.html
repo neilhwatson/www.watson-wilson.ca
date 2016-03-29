@@ -73,8 +73,6 @@ parallel. --- Both versions share the same default inputs directory of
 /var/cfengine/inputs. A CF3 bootstrap deletes all files in the inputs
 directory:</p>
 
-<p>``</p>
-
 <pre><code>[root@atlrhel5is cfengine]# cf-agent -IB hub.example.com 
 2013-10-29T12:37:43-0400     info: Removing all files in &#39;/var/cfengine/inputs/&#39;
 </code></pre>
@@ -83,8 +81,6 @@ directory:</p>
 about this, but I do not know when or if it will be addressed. As a
 work around I suggest a wrapper script to your bootstrap procedure.
 Something like this snippet:</p>
-
-<p>``</p>
 
 <pre><code>TS=$(date +%s)
 

@@ -23,8 +23,6 @@ Mustache templates are a new alternative template method in 3.6. Let's
 see how they work. --- [Recall](http://watson-wilson.ca/template-configuration-files-using-cfengine/)
 my previous talk about templates and how to use them in CFEngine 3.5.
 
-``
-
     body common control
     {
             bundlesequence => { "main", };
@@ -53,8 +51,6 @@ my previous talk about templates and how to use them in CFEngine 3.5.
 There is a new attribute called template_method. Here we define the
 mustache method. The actual template is below.
 
-``
-
     {{#classes.sweden}}
     nameserver 172.16.100.2
     nameserver 172.16.100.1
@@ -80,8 +76,6 @@ are part of the any class.
 At a lower level the agent is using the [datastate](https://cfengine.com/docs/master/reference-functions-datastate.html),
 which is an internal representation of the vars and classes available
 to the agent. It's layout is roughly this:
-
-``
 
     {
      "classes": {
@@ -111,8 +105,6 @@ large. It gives you an idea of what the agent knows. For this example
 it's not important. Just be aware that it exists. Now, let's run the
 example policy.
 
-``
-
     $ cf-agent -IKf ./edit_template.cf -D toronto; cat /tmp/resolv.conf 
     
     nameserver 192.168.100.254
@@ -126,4 +118,4 @@ Some folks will be pleased to see that the two blank lines in the
 template exist in the promiser file. That suggests that duplicate lines
 will *not be skipped* in mustache templates.
 
-[Further reading[.](https://cfengine.com/docs/master/reference-promise-types-files.html#edit_template)
+[Further reading](https://cfengine.com/docs/master/reference-promise-types-files.html#edit_template)

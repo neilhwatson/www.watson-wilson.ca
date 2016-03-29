@@ -25,8 +25,6 @@ parallel. --- Both versions share the same default inputs directory of
 /var/cfengine/inputs. A CF3 bootstrap deletes all files in the inputs
 directory:
 
-``
-
     [root@atlrhel5is cfengine]# cf-agent -IB hub.example.com 
     2013-10-29T12:37:43-0400     info: Removing all files in '/var/cfengine/inputs/'
 
@@ -34,8 +32,6 @@ directory:
 about this, but I do not know when or if it will be addressed. As a
 work around I suggest a wrapper script to your bootstrap procedure.
 Something like this snippet:
-
-``
 
     TS=$(date +%s)
     

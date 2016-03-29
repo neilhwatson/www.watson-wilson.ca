@@ -21,9 +21,11 @@ title: Profiling policy performance in CFEngine
 
 [Loïc Pefferkorn](http://www.loicp.eu/) has created the [cfe-profiler](https://github.com/lpefferkorn/cfe-profiler).
 It is a library that times the execution of CFEngine bundles in your
-policy. Let's take a look. ---
+policy. Let's take a look.
 
-Here is the output from one of my production hosts: ``
+---
+
+Here is the output from one of my production hosts:
 
     # LD_PRELOAD=/home/neil/src/cfe-profiler/cfe_profiler35.so cf-agent
     
@@ -41,7 +43,6 @@ Here is the output from one of my production hosts: ``
        0.31   default           agent       efl_copy_files
        0.27   default           agent         postfix_main
     ....
-
 
 Cfe-profiler list the execution time of each bundle in descending
 order. A bundle like cfl_main calls many other bundles. Its time is an

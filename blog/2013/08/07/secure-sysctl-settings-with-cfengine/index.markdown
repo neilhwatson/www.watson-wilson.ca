@@ -36,8 +36,6 @@ and CFEngine. ---
 
 Sysctl data is separated from CFEngine policy in its own data file.
 
-``
-
     # sysctl.txt
     # Promise sysctl.conf and live kernel settings
     
@@ -59,8 +57,6 @@ or context that must be true for the sysctl setting to be applied.
 The Evolve free promise library has two sysctl bundles. One promises
 live sysctl settings and the other promises the sysctl.conf file. Use
 methods promises to call each bundle, passing the same parameter file.
-
-``
 
     methods:
     

@@ -96,7 +96,7 @@ there.</p>
 <p>In this example script we have to mentally parse it to understand the
 end result.</p>
 
-<p>Figure 1: A script is, a script. <code></code></p>
+<p>Figure 1: A script is, a script. </p>
 
 <pre><code>#!/bin/sh
 
@@ -108,7 +108,7 @@ chmod 644 /etc/resolv.conf
 <p>In a CFEngine promise, we state our end result, and CFEngine uses its
 own built in code to make it happen.</p>
 
-<p>Figure 2: A clear promise no politician would make. <code></code></p>
+<p>Figure 2: A clear promise no politician would make. </p>
 
 <pre><code>files:
    &quot;/etc/resolv.conf&quot;
@@ -189,7 +189,7 @@ clearer than <em>ssh_by_neil</em>.</p>
 <p>Handles must be unique. A popular naming convention in the CFEngine
 community is <em>bundlename_promisetype_class_promiser</em>.</p>
 
-<p>Figure 3: Handle names <code></code></p>
+<p>Figure 3: Handle names </p>
 
 <pre><code>bundle agent efl_main( ref )
 
@@ -276,7 +276,7 @@ test <em>very carefully</em>.</p>
 preventing update.cf from being run. I use a backup cron job to call
 update.cf directly.</p>
 
-<p>Figure 4: cron contingency <code></code></p>
+<p>Figure 4: cron contingency </p>
 
 <pre><code>cf-agent -f update.cf &amp;&amp; cf-agent
 </code></pre>
@@ -285,7 +285,7 @@ update.cf directly.</p>
 control body. I also go a step further and configure a bootstrap
 process if the update fails.</p>
 
-<p>Figure 5: A better contingency <code></code></p>
+<p>Figure 5: A better contingency</p>
 
 <pre><code>(cf-agent -f update.cf || cf-agent -B ) &amp;&amp; cf-agent
 </code></pre>

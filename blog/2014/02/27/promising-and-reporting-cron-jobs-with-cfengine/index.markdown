@@ -36,19 +36,17 @@ Recall that you can use time classes to represent cron time syntax.
 
 Sundays at 0700 hours.
 
-In Cron ``
+In Cron
 
     0 7 * * 0
 
-In Cfengine ``
+In Cfengine
 
     Sunday.Hr07.Min00::
 
 EFL has several class bundles that can make class definitions [easy.](/bulding-cfengine-classes-using-efl/)
 Try defining your holidays in cron without using a script. With the
 bundle efl_class_expression it is easy.
-
-``
 
     # class    ;; expression                                      ;; promisee
     is_holiday ;; (January.Day1)|(December.Day25)|Sunday|Saturday ;; Holidays with no work.
@@ -57,14 +55,12 @@ bundle efl_class_expression it is easy.
 Using the efl_commands bundle we can promise commands just as we would
 in cron.
 
-``
-
     # class     ;; command             ;; shell   ;; module ;; ifelapsed ;; promisee
     !is_holiday ;; /usr/bin/db_dump.sh ;; noshell ;; no     ;; 1440      ;; Daily backup
     ettin       ;; /usr/bin/fetchmail  ;; noshell ;; no     ;; 5         ;; email
     backups     ;; /usr/bin/backup.sh  ;; noshell ;; no     ;; 60        ;; Backups
 
-Using [Delta Reporting](/products/delta-reporting/) we can audit the
+Using [Delta Reporting](https://github.com/neilhwatson/delta-reporting/) we can audit the
 history of our jobs, reporting last status and status of the past.
 
-[![delta reporting screen shot of fetchmail promiser](/static/images/dr_efl_command_ss.png)](/static/images/dr_efl_command_ss.png)
+![delta reporting screen shot of fetchmail promiser](/static/images/dr_efl_command_ss.png)

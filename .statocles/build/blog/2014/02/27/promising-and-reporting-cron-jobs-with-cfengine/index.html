@@ -80,12 +80,12 @@ I&#39;d like to revisit that using EFL and Delta Reporting.</p>
 
 <p>Sundays at 0700 hours.</p>
 
-<p>In Cron ``</p>
+<p>In Cron</p>
 
 <pre><code>0 7 * * 0
 </code></pre>
 
-<p>In Cfengine ``</p>
+<p>In Cfengine</p>
 
 <pre><code>Sunday.Hr07.Min00::
 </code></pre>
@@ -93,8 +93,6 @@ I&#39;d like to revisit that using EFL and Delta Reporting.</p>
 <p>EFL has several class bundles that can make class definitions <a href="/bulding-cfengine-classes-using-efl/">easy.</a>
 Try defining your holidays in cron without using a script. With the
 bundle efl_class_expression it is easy.</p>
-
-<p>``</p>
 
 <pre><code># class    ;; expression                                      ;; promisee
 is_holiday ;; (January.Day1)|(December.Day25)|Sunday|Saturday ;; Holidays with no work.
@@ -104,18 +102,16 @@ backups    ;; Hr01.(Monday|Wednesday|Friday)                  ;; Backup schedule
 <p>Using the efl_commands bundle we can promise commands just as we would
 in cron.</p>
 
-<p>``</p>
-
 <pre><code># class     ;; command             ;; shell   ;; module ;; ifelapsed ;; promisee
 !is_holiday ;; /usr/bin/db_dump.sh ;; noshell ;; no     ;; 1440      ;; Daily backup
 ettin       ;; /usr/bin/fetchmail  ;; noshell ;; no     ;; 5         ;; email
 backups     ;; /usr/bin/backup.sh  ;; noshell ;; no     ;; 60        ;; Backups
 </code></pre>
 
-<p>Using <a href="/products/delta-reporting/">Delta Reporting</a> we can audit the
+<p>Using <a href="https://github.com/neilhwatson/delta-reporting/">Delta Reporting</a> we can audit the
 history of our jobs, reporting last status and status of the past.</p>
 
-<p><a href="/static/images/dr_efl_command_ss.png"><img alt="delta reporting screen shot of fetchmail promiser" src="/static/images/dr_efl_command_ss.png"></a></p>
+<p><img alt="delta reporting screen shot of fetchmail promiser" src="/static/images/dr_efl_command_ss.png"></p>
 
             </section>
         </main>

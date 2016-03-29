@@ -78,7 +78,7 @@ let&#39;s look at other best practices to make you a CFEngine ninja.</p>
             <link>http://watson-wilson.ca/blog/2014/07/04/cfengine-best-practices-testing/</link>
             <guid>http://watson-wilson.ca/blog/2014/07/04/cfengine-best-practices-testing/</guid>
             <description><![CDATA[
-                <p><a href="http://watson-wilson.ca/static/images/f4-crashtest.jpg"><img alt="f4-crashtest" src="http://watson-wilson.ca/static/images/f4-crashtest.jpg"></a></p>
+                <p><img alt="f4-crashtest" src="http://watson-wilson.ca/static/images/f4-crashtest.jpg"></p>
 
 <p>CFEngine&#39;s autonomous automation means that your policy, mistakes and
 all, will be duplicated quickly to all of your hosts. --- Potentially

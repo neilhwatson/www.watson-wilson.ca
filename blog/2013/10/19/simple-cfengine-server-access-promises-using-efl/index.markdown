@@ -47,8 +47,6 @@ format has four columns from zero to three.
 
   * Three is a free form promisee for documentation and searching.
 
-`
-
     # Context(0) ;; promiser directory(1) ;; Command separated admit list(2) ;; Promisee(3)
     
     am_policy_hub ;; ${sys.workdir}/masterfiles ;;  2001:470:1d:a2f::/64 ;; Bootstrapping and updates
@@ -57,11 +55,7 @@ format has four columns from zero to three.
     titan    ;; /var/www/evolve/             ;; ${sys.policy_hub}  ;; Backups
     any      ;; ${sys.workdir}/drop/         ;; ${sys.policy_hub}  ;; File transfers as needed
 
-`
-
 If you run cf-serverd -Fvl you'll see the access rules being applied.
-
-``
 
     cf3> *****************************************************************
     cf3> BUNDLE efl_server

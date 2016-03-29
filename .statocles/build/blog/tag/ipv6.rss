@@ -7,6 +7,34 @@
         <description>Blog feed of Neil H. Watson</description>
         <generator>Statocles 0.073</generator>
         <item>
+            <title>Changes in virt-install and Kickstart in RHEL7</title>
+            <link>http://watson-wilson.ca/blog/2014/10/30/changes-in-virt-install-and-kickstart-in-rhel7/</link>
+            <guid>http://watson-wilson.ca/blog/2014/10/30/changes-in-virt-install-and-kickstart-in-rhel7/</guid>
+            <description><![CDATA[
+                <p><img alt="army provisions" src="http://watson-wilson.ca/static/images/mre-case.jpg"></p>
+
+<p>If you are planning to move to RHEL7 you may have to change your
+kickstart and <a href="http://linux.die.net/man/1/virt-install">virt-install</a>
+scripts. The virt-install changes will also apply to Debian based
+hosts.</p>
+
+                    <p><a href="http://watson-wilson.ca/blog/2014/10/30/changes-in-virt-install-and-kickstart-in-rhel7/#section-2">Continue reading...</a></p>
+                <p>Tags:
+                    <a href="http://watson-wilson.ca/blog/tag/ipv6/">ipv6</a>
+                    <a href="http://watson-wilson.ca/blog/tag/debian/">debian</a>
+                    <a href="http://watson-wilson.ca/blog/tag/devops/">devops</a>
+                    <a href="http://watson-wilson.ca/blog/tag/kickstart/">kickstart</a>
+                    <a href="http://watson-wilson.ca/blog/tag/kvm/">kvm</a>
+                    <a href="http://watson-wilson.ca/blog/tag/linux/">linux</a>
+                    <a href="http://watson-wilson.ca/blog/tag/provisioning/">provisioning</a>
+                    <a href="http://watson-wilson.ca/blog/tag/redhat/">redhat</a>
+                </p>
+            ]]></description>
+            <pubDate>
+                Thu, 30 Oct 2014 10:10:50 +0000
+            </pubDate>
+        </item>
+        <item>
             <title>IPv6 Migration part 8</title>
             <link>http://watson-wilson.ca/blog/2012/08/01/ipv6-migration-part8/</link>
             <guid>http://watson-wilson.ca/blog/2012/08/01/ipv6-migration-part8/</guid>
@@ -81,24 +109,6 @@ ready but, the configuration needed some adjustments.</p>
             ]]></description>
             <pubDate>
                 Sat, 10 Mar 2012 00:00:00 +0000
-            </pubDate>
-        </item>
-        <item>
-            <title>IPv6 Migration part 4</title>
-            <link>http://watson-wilson.ca/blog/2012/03/05/ipv6-migration-part4/</link>
-            <guid>http://watson-wilson.ca/blog/2012/03/05/ipv6-migration-part4/</guid>
-            <description><![CDATA[
-                <p>This website is now dual stacked to both IPV4 and IPV6. In part four of my IPV6
-series I&#39;ll tell you what I learned during this migration.</p>
-
-                    <p><a href="http://watson-wilson.ca/blog/2012/03/05/ipv6-migration-part4/#section-2">Continue reading...</a></p>
-                <p>Tags:
-                    <a href="http://watson-wilson.ca/blog/tag/ipv6/">ipv6</a>
-                    <a href="http://watson-wilson.ca/blog/tag/networking/">networking</a>
-                </p>
-            ]]></description>
-            <pubDate>
-                Mon, 05 Mar 2012 00:00:00 +0000
             </pubDate>
         </item>
     </channel>

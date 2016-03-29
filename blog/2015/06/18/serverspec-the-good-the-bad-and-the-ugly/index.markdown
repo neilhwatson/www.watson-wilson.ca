@@ -49,8 +49,6 @@ I have a group of CFEngine servers that I want to test against a
 desired standard. I could use CFEngine, but I prefer a third party tool
 for better confirmation. The Serverspec file looks like this:
 
-``
-
     require 'spec_helper'
     require 'socket'
     

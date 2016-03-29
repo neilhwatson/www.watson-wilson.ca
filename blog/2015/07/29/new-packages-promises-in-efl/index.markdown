@@ -36,13 +36,11 @@ like this:
 
 Call the bundle (but using efl_main is recommended).
 
-``
-
     "my packages"
        usebunnde => efl_packages_new(
           '${sys.inputdir}/efl_data/bundle_params/packages.csv' );
 
-In csv format. ``
+In csv format.
 
     # class ;; policy  ;; package ;; version ;; arch  ;; promisee
     any     ;; absent  ;; nano    ;; 0       ;; amd64 ;; efl development

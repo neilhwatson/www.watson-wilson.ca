@@ -38,8 +38,6 @@ My first approach to policy writing were logical bundles, each having a
 single high level purpose. This simple approach helped me to learn
 CFEngine's declarative and convergent nature.
 
-``
-
     bundle agent ntp
     {
        packages:
@@ -121,8 +119,6 @@ CFEngine's early documentation hinted at methods and reusable policy.
 In those days the documentation was sparse and good examples were rare,
 but after stage one I had many examples and I saw how methods could be
 employed.
-
-``
 
     bundle agent security
     ( path, mode, owner, group )
@@ -235,16 +231,12 @@ file permissions, and much more.
 
 Here is the more condensed data for file permissions with less syntax.
 
-``
-
     # efl_files_perms.txt
     any ;; /etc/passwd ;; no ;; .* ;; 644 ;; root ;; root ;; security
     any ;; /etc/shadow ;; no ;; .* ;; 600 ;; root ;; root ;; security
     any ;; /tmp        ;; no ;; .* ;; 777 ;; root ;; root ;; security
 
 Here is the more condensed data for services with less syntax.
-
-``
 
     # efl_services.txt
     any ;; ^/usr/sbin/ntpd ;; /etc/ntp.conf ;; ${sys.workdir}/sitefiles/etc/ntp.conf ;; \
@@ -256,8 +248,6 @@ Here is the more condensed data for services with less syntax.
 
 Here is the more condensed data for method promises to call the EFL
 bundles.
-
-``
 
     # efl_main.txt
     any ;; File permissions ;; efl_file_perms ;; 1 ;; \

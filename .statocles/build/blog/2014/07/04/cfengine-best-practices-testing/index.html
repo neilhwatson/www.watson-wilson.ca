@@ -70,7 +70,7 @@
 
             </header>
             <section id="section-1">
-                <p><a href="/static/images/f4-crashtest.jpg"><img alt="f4-crashtest" src="/static/images/f4-crashtest.jpg"></a></p>
+                <p><img alt="f4-crashtest" src="/static/images/f4-crashtest.jpg"></p>
 
 <p>CFEngine&#39;s autonomous automation means that your policy, mistakes and
 all, will be duplicated quickly to all of your hosts. --- Potentially
@@ -101,39 +101,37 @@ CFEngine plugin elsewhere on the web (its home is nebulous so I
 provide no link).</p></li>
 <li><p>CFEngine ships with many self contained examples that you can
 study. They are located in share/doc/examples in CFEngine&#39;s work
-directory (typically /var/cfengine).</p>
+directory (typically /var/cfengine).</p></li>
+</ol>
 
-<h4>#</h4>
+<p>Figure 1: Standalone unit test that ships with CFEngine.</p>
 
-<p>Figure 1: Standalone unit test that ships with CFEngine. `</p>
-
-<p>ettin:/var/cfengine/share/doc/examples# cat unit_depends_on.cf
+<pre><code>  ettin:/var/cfengine/share/doc/examples# cat unit_depends_on.cf
   body common control
   {
   bundlesequence =&gt; { &quot;one&quot;  };
-  }</p>
+  }
 
-<p>bundle agent one
+  bundle agent one
   {
-  reports:</p>
+  reports:
 
-<p>cfengine_3::</p>
+   cfengine_3::
 
-<pre><code> &quot;two&quot;
-   depends_on =&gt; { &quot;handle_one&quot; };
+     &quot;two&quot;
+       depends_on =&gt; { &quot;handle_one&quot; };
 
+     &quot;one&quot;
+       handle =&gt; &quot;handle_one&quot;;
 
- &quot;one&quot;
-   handle =&gt; &quot;handle_one&quot;;
+  }
 </code></pre>
 
-<p>}</p>
-
-<p>`</p></li>
-<li><p>Many <a href="https://dev.cfengine.com/projects/core/issues">CFEngine bug reports</a>
+<ol>
+<li>Many <a href="https://dev.cfengine.com/projects/core/issues">CFEngine bug reports</a>
 (especially mine) contain good self contained examples. Indeed, if
 you report CFEngine bugs, be sure to include a small prototype to
-demonstrate the undesired behaviour.</p></li>
+demonstrate the undesired behaviour.</li>
 </ol>
 
 <h4>Formal testing</h4>
@@ -164,7 +162,7 @@ is true. Also, note that the body parts at the bottom are copies of
 bodies from the standard CFEngine library, except the <em>by_command</em> body
 which is from <a href="https://github.com/neilhwatson/delta_reporting">EFL</a>.</p>
 
-<p>Figure 2: My first prototype. <code></code></p>
+<p>Figure 2: My first prototype. </p>
 
 <pre><code>body common control
 {
@@ -263,12 +261,11 @@ chances of false positive matching.</p>
 <p>During the process of writing this policy I frequently used the
 CFEngine program <em>cf-promises</em> to test my syntax.</p>
 
-<p>Figure 3: Testing syntax <code></code></p>
+<p>Figure 3: Testing syntax</p>
 
-<pre><code>      neil@ettin ~/.cfagent/inputs $ cf-promises -cf ./service.cf 
-      neil@ettin ~/.cfagent/inputs $ echo $?
-      0
-</code></pre>
+<p>neil@ettin ~/.cfagent/inputs $ cf-promises -cf ./service.cf 
+   neil@ettin ~/.cfagent/inputs $ echo $?
+   0</p>
 
 <p>If there was an error cf-promises would have shown it to me, and it
 would have returned a none zero status.</p>
@@ -282,7 +279,7 @@ the first error listed.</p>
 99</em> is not running I expect proto.sh to be run. If sleep 99 is running
 I expect nothing to happen. Let&#39;s try it.</p>
 
-<p>Figure 4: Our first prototype run <code></code></p>
+<p>Figure 4: Our first prototype run </p>
 
 <pre><code>neil@ettin ~/.cfagent/inputs $ cf-agent -KIf ./service.cf ; ps -ef |grep sleep ;cf-agent -KIf ./service.cf
 2014-07-03T19:48:21-0400     info: /default/main/methods/&#39;My prototype&#39;/default/proto/processes/&#39;sleep 99&#39;[0]: Making a one-time restart promise for &#39;sleep 99&#39;
@@ -297,7 +294,7 @@ testing. Now, I&#39;ll add a unit test that makes the agent break its own
 configuration. I add this bundle to our prototype file and change the
 methods in the main bundle.</p>
 
-<p>Figure 5: Adding a unit test <code></code></p>
+<p>Figure 5: Adding a unit test </p>
 
 <pre><code>## Change main bundle:
 bundle agent main
@@ -331,7 +328,7 @@ bundle agent unit_01
 is true. This will kill the sleep 99 process forcing the proto bundle
 to restart it.</p>
 
-<p>Figure 6: Unit test in action. <code></code></p>
+<p>Figure 6: Unit test in action.</p>
 
 <pre><code>neil@ettin ~/.cfagent/inputs $ cf-agent -KIf ./service.cf -D unit_01 ; ps -ef|grep sleep
 2014-07-03T19:15:06-0400     info: /default/main/methods/&#39;unit_01&#39;/default/unit_01/processes/&#39;sleep 99&#39;[0]: Signalled &#39;term&#39; (15) to process 107369 (neil     107369      1 107360  0.0  0.0   4216   0   356    1 19:14 00:00:00 sleep 99)

@@ -31,8 +31,6 @@ for this in EFL after CFEngine's 3.6 release.
 
 ---
 
-``
-
     body common control
     {
             bundlesequence => { "main", };

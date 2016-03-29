@@ -93,8 +93,6 @@ you&#39;ll need to work around this behavior. One method is to add unique
 comments to lines. Another is to use the tags [%CFEngine BEGIN %] and
 [%CFEngine END %] which treat the text between them as a single block.</p>
 
-<p>``</p>
-
 <pre><code>body common control
 {
         bundlesequence =&gt; { &quot;main&quot;, };
@@ -128,8 +126,6 @@ body edit_defaults empty
 
 <p>The template file.</p>
 
-<p>``</p>
-
 <pre><code>[%CFEngine ipv4_172_16_100:: %]
 nameserver 172.16.100.254
 nameserver 46.21.99.2
@@ -147,8 +143,6 @@ timeout:2
 
 <p>Run the agent.</p>
 
-<p>``</p>
-
 <pre><code>$ cf-agent -IKf ./edit_template.cf 
 2013-10-17T11:24:45-0400
    info: /main/methods/&#39;any&#39;/resolv_conf/files/&#39;/tmp/resolv.conf&#39;:
@@ -159,8 +153,6 @@ timeout:2
 </code></pre>
 
 <p>The created promiser file.</p>
-
-<p>``</p>
 
 <pre><code>$ cat /tmp/resolv.conf
 nameserver 172.16.100.254
@@ -175,8 +167,6 @@ timeout:2
 
 <p>Edit_template will also expand variables. Our previous example could
 have been done this way.</p>
-
-<p>``</p>
 
 <pre><code>body common control
 {
@@ -225,8 +215,6 @@ body edit_defaults empty
 
 <p>The template file.</p>
 
-<p>``</p>
-
 <pre><code>nameserver ${main.nameserver}
 
 domain watson-wilson.ca
@@ -235,8 +223,6 @@ timeout:2
 </code></pre>
 
 <p>Run the agent.</p>
-
-<p>``</p>
 
 <pre><code>$ cf-agent -IKf ./edit_template.cf 
 2013-10-17T13:03:52-0400
@@ -248,8 +234,6 @@ timeout:2
 </code></pre>
 
 <p>The created promiser file.</p>
-
-<p>``</p>
 
 <pre><code>$ cat /tmp/resolv.conf
 nameserver 172.16.100.254
@@ -292,19 +276,14 @@ promised if this class expression is true.</p></li>
 <li><p>Three defines the permissions mode of the promiser file.</p></li>
 <li><p>Four defines the owner of the promiser file.</p></li>
 <li><p>Five defines the group of the promiser file.</p></li>
-<li><p>Six is the promisee for documentation and searching.</p></li>
+<li><p>Six is the promisee for documentation and searching.</p>
+
+<h1>context(0) ;; promiser file(1)    ;; source file(2)        ;; mode(3) ;; owner(4) ;; group(5) ;; promisee(6)</h1>
+
+<p>any          ;; /etc/resolv.conf    ;; /var/cfengine/sitefiles/misc/etc/resolv.conf.tmp        ;; 644 ;; root ;; root ;; Neil Watson</p></li>
 </ul>
 
-<p>``</p>
-
-<pre><code># context(0) ;; promiser file(1)    ;; source file(2)        ;; mode(3) ;; owner(4) ;; group(5) ;; promisee(6)
-
-any          ;; /etc/resolv.conf    ;; /var/cfengine/sitefiles/misc/etc/resolv.conf.tmp        ;; 644 ;; root ;; root ;; Neil Watson
-</code></pre>
-
 <p>Call the bundle using a method.</p>
-
-<p>``</p>
 
 <pre><code>&quot;Copy files&quot;
    usebundle =&gt; efl_edit_template( &quot;${sys.workdir}/inputs/efl_edit_templates.txt&quot; );

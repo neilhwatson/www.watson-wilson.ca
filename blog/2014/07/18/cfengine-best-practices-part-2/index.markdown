@@ -55,7 +55,7 @@ there.
 In this example script we have to mentally parse it to understand the
 end result.
 
-Figure 1: A script is, a script. ` `
+Figure 1: A script is, a script. 
 
     #!/bin/sh
     
@@ -67,7 +67,7 @@ Figure 1: A script is, a script. ` `
 In a CFEngine promise, we state our end result, and CFEngine uses its
 own built in code to make it happen.
 
-Figure 2: A clear promise no politician would make. ` `
+Figure 2: A clear promise no politician would make. 
 
     files:
        "/etc/resolv.conf"
@@ -148,7 +148,7 @@ clearer than *ssh_by_neil*.
 Handles must be unique. A popular naming convention in the CFEngine
 community is *bundlename_promisetype_class_promiser*.
 
-Figure 3: Handle names ` `
+Figure 3: Handle names 
 
     bundle agent efl_main( ref )
     
@@ -235,7 +235,7 @@ An error in promises.cf or related files might cause cf-exed to fail,
 preventing update.cf from being run. I use a backup cron job to call
 update.cf directly.
 
-Figure 4: cron contingency ` `
+Figure 4: cron contingency 
 
     cf-agent -f update.cf && cf-agent
           
@@ -244,7 +244,7 @@ You may recognize this, it is similar to the run command in cf-execd's
 control body. I also go a step further and configure a bootstrap
 process if the update fails.
 
-Figure 5: A better contingency ` `
+Figure 5: A better contingency
 
     (cf-agent -f update.cf || cf-agent -B ) && cf-agent
           

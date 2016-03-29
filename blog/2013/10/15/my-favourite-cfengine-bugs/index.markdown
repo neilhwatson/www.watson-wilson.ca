@@ -95,8 +95,6 @@ little, but some bugs affect both logging forms.
 
   * [https://cfengine.com/dev/issues/2637](https://cfengine.com/dev/issues/2637)
 
-#  #
-
 ### Server verbose logging, file requests are not logged. ###
 
 Versions affected: 3.5.0 to 3.5.2

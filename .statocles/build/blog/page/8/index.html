@@ -166,8 +166,6 @@ maintain.</p>
 see how they work. --- <a href="http://watson-wilson.ca/template-configuration-files-using-cfengine/">Recall</a>
 my previous talk about templates and how to use them in CFEngine 3.5.</p>
 
-<p>``</p>
-
 <pre><code>body common control
 {
         bundlesequence =&gt; { &quot;main&quot;, };
@@ -197,8 +195,6 @@ bundle agent resolv_conf
 <p>There is a new attribute called template_method. Here we define the
 mustache method. The actual template is below.</p>
 
-<p>``</p>
-
 <pre><code>{{#classes.sweden}}
 nameserver 172.16.100.2
 nameserver 172.16.100.1
@@ -225,8 +221,6 @@ are part of the any class.</class_name></class_name></class_name></p>
 <p>At a lower level the agent is using the <a href="https://cfengine.com/docs/master/reference-functions-datastate.html">datastate</a>,
 which is an internal representation of the vars and classes available
 to the agent. It&#39;s layout is roughly this:</p>
-
-<p>``</p>
 
 <pre><code>{
  &quot;classes&quot;: {
@@ -257,8 +251,6 @@ large. It gives you an idea of what the agent knows. For this example
 it&#39;s not important. Just be aware that it exists. Now, let&#39;s run the
 example policy.</p>
 
-<p>``</p>
-
 <pre><code>$ cf-agent -IKf ./edit_template.cf -D toronto; cat /tmp/resolv.conf 
 
 nameserver 192.168.100.254
@@ -273,7 +265,7 @@ timeout:2
 template exist in the promiser file. That suggests that duplicate lines
 will <em>not be skipped</em> in mustache templates.</p>
 
-<p>[Further reading<a href="https://cfengine.com/docs/master/reference-promise-types-files.html#edit_template">.</a></p>
+<p><a href="https://cfengine.com/docs/master/reference-promise-types-files.html#edit_template">Further reading</a></p>
 
 
 
