@@ -96,7 +96,7 @@ resource "aws_instance" "tfdemo" {
 }
 </code></pre>
 
-I shown only a small portion of what terraform can do. Most
+I've shown only a small portion of what terraform can do. Most
 [things](https://terraform.io/docs/providers/aws/index.html) you might want to
 do in AWS can be defined in Terraform and not just AWS. Terraform also supports
 Cloudflare, DigitalOcean, Docker, Google Cloud, vSphere, Azure, and
