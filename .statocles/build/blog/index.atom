@@ -2,10 +2,26 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>http://watson-wilson.ca/blog/</id>
     <title>Neil H. Watson</title>
-    <updated>2016-03-27T00:00:00Z</updated>
+    <updated>2016-07-22T00:00:00Z</updated>
     <link href="http://watson-wilson.ca/blog/index.atom" rel="self" />
     <link href="http://watson-wilson.ca/blog/" rel="alternate" />
     <generator version="0.073">Statocles</generator>
+    <entry>
+        <id>http://watson-wilson.ca/blog/2016/07/22/grip/</id>
+        <title>Previewing Markdown using grip</title>
+        <link href="http://watson-wilson.ca/blog/2016/07/22/grip/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p><a href="https://github.com/joeyespo/grip">Grip</a> allows you to review your markdown
+docs locally. Power by Python, Grip starts a local web service.</p>
+
+                <p><a href="http://watson-wilson.ca/blog/2016/07/22/grip/#section-2">Continue reading...</a></p>
+            <p>Tags:
+                <a href="http://watson-wilson.ca/blog/tag/markdown-github-bitbucket-python/">markdown github bitbucket python</a>
+            </p>
+        ]]></content>
+        <updated>2016-07-22T00:00:00Z</updated>
+        <category term="markdown github bitbucket python" />
+    </entry>
     <entry>
         <id>http://watson-wilson.ca/blog/2016/03/27/vote_for_cfengine_bugs/</id>
         <title>Vote for your favourite CFEngine bugs</title>
@@ -105,29 +121,6 @@ environment using a descriptive language.</p>
         <category term="configuration management" />
         <category term="cloud" />
         <category term="terraform" />
-    </entry>
-    <entry>
-        <id>http://watson-wilson.ca/blog/2015/11/25/perl-cheatsheet/</id>
-        <title>Perl cheatsheet</title>
-        <link href="http://watson-wilson.ca/blog/2015/11/25/perl-cheatsheet/" rel="alternate" />
-        <content type="html"><![CDATA[
-            <p>If you are looking for my Perl cheatsheet, it&#39;s over
-<a href="https://github.com/neilhwatson/nustuff/blob/master/perl/cheatsheet.pod">here</a>.
-Lots of interesting stuff in that repo.</p>
-
-                <p><a href="http://watson-wilson.ca/blog/2015/11/25/perl-cheatsheet/#section-2">Continue reading...</a></p>
-            <p>Tags:
-                <a href="http://watson-wilson.ca/blog/tag/perl/">perl</a>
-                <a href="http://watson-wilson.ca/blog/tag/cheatsheet/">cheatsheet</a>
-                <a href="http://watson-wilson.ca/blog/tag/programming/">programming</a>
-                <a href="http://watson-wilson.ca/blog/tag/scripting/">scripting</a>
-            </p>
-        ]]></content>
-        <updated>2015-11-25T00:00:00Z</updated>
-        <category term="perl" />
-        <category term="cheatsheet" />
-        <category term="programming" />
-        <category term="scripting" />
     </entry>
 </feed>
 
