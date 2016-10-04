@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>http://watson-wilson.ca/blog/tag/markdown/</id>
+    <title>Neil H. Watson</title>
+    <updated>2016-07-22T00:00:00Z</updated>
+    <link href="http://watson-wilson.ca/blog/tag/markdown.atom" rel="self" />
+    <link href="http://watson-wilson.ca/blog/tag/markdown/" rel="alternate" />
+    <generator version="0.077">Statocles</generator>
+    <entry>
+        <id>http://watson-wilson.ca/blog/2016/07/22/grip/</id>
+        <title>Previewing Markdown using grip</title>
+        <link href="http://watson-wilson.ca/blog/2016/07/22/grip/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p>Review your markdown locally with <a href="https://github.com/joeyespo/grip">Grip</a>,
+powered by Python.</p>
+
+                <p><a href="http://watson-wilson.ca/blog/2016/07/22/grip/#section-2">Continue reading...</a></p>
+            <p>Tags:
+                <a href="http://watson-wilson.ca/blog/tag/markdown/">markdown</a>
+                <a href="http://watson-wilson.ca/blog/tag/github/">github</a>
+                <a href="http://watson-wilson.ca/blog/tag/bitbucket/">bitbucket</a>
+                <a href="http://watson-wilson.ca/blog/tag/python/">python</a>
+            </p>
+        ]]></content>
+        <updated>2016-07-22T00:00:00Z</updated>
+        <category term="markdown" />
+        <category term="github" />
+        <category term="bitbucket" />
+        <category term="python" />
+    </entry>
+</feed>
+

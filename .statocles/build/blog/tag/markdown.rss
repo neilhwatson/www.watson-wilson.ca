@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Neil H. Watson</title>
+        <link>http://watson-wilson.ca/blog/tag/markdown/</link>
+        <atom:link href="http://watson-wilson.ca/blog/tag/markdown.rss" rel="self" type="application/rss+xml" />
+        <description>Blog feed of Neil H. Watson</description>
+        <generator>Statocles 0.077</generator>
+        <item>
+            <title>Previewing Markdown using grip</title>
+            <link>http://watson-wilson.ca/blog/2016/07/22/grip/</link>
+            <guid>http://watson-wilson.ca/blog/2016/07/22/grip/</guid>
+            <description><![CDATA[
+                <p>Review your markdown locally with <a href="https://github.com/joeyespo/grip">Grip</a>,
+powered by Python.</p>
+
+                    <p><a href="http://watson-wilson.ca/blog/2016/07/22/grip/#section-2">Continue reading...</a></p>
+                <p>Tags:
+                    <a href="http://watson-wilson.ca/blog/tag/markdown/">markdown</a>
+                    <a href="http://watson-wilson.ca/blog/tag/github/">github</a>
+                    <a href="http://watson-wilson.ca/blog/tag/bitbucket/">bitbucket</a>
+                    <a href="http://watson-wilson.ca/blog/tag/python/">python</a>
+                </p>
+            ]]></description>
+            <pubDate>
+                Fri, 22 Jul 2016 00:00:00 +0000
+            </pubDate>
+        </item>
+    </channel>
+</rss>
+
