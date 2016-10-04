@@ -44,6 +44,7 @@ Lots of interesting stuff in that repo.</p>
                 <a href="http://watson-wilson.ca/blog/tag/perl/">perl</a>
                 <a href="http://watson-wilson.ca/blog/tag/jekyll/">jekyll</a>
                 <a href="http://watson-wilson.ca/blog/tag/statocles/">statocles</a>
+                <a href="http://watson-wilson.ca/blog/tag/markdown/">markdown</a>
             </p>
         ]]></content>
         <updated>2015-11-17T00:00:00Z</updated>
@@ -51,6 +52,7 @@ Lots of interesting stuff in that repo.</p>
         <category term="perl" />
         <category term="jekyll" />
         <category term="statocles" />
+        <category term="markdown" />
     </entry>
     <entry>
         <id>http://watson-wilson.ca/blog/2015/06/10/purging-old-systems-from-red-hat-satellite/</id>

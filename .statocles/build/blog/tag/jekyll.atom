@@ -21,6 +21,7 @@
                 <a href="http://watson-wilson.ca/blog/tag/perl/">perl</a>
                 <a href="http://watson-wilson.ca/blog/tag/jekyll/">jekyll</a>
                 <a href="http://watson-wilson.ca/blog/tag/statocles/">statocles</a>
+                <a href="http://watson-wilson.ca/blog/tag/markdown/">markdown</a>
             </p>
         ]]></content>
         <updated>2015-11-17T00:00:00Z</updated>
@@ -28,6 +29,7 @@
         <category term="perl" />
         <category term="jekyll" />
         <category term="statocles" />
+        <category term="markdown" />
     </entry>
 </feed>
 
