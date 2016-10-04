@@ -673,36 +673,6 @@
         <lastmod>2016-07-22</lastmod>
     </url>
     <url>
-        <loc>http://watson-wilson.ca/blog/tag/EFL/</loc>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-        <lastmod>2015-10-13</lastmod>
-    </url>
-    <url>
-        <loc>http://watson-wilson.ca/blog/tag/EFL/page/2/</loc>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-        <lastmod>2015-10-13</lastmod>
-    </url>
-    <url>
-        <loc>http://watson-wilson.ca/blog/tag/EFL/page/3/</loc>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-        <lastmod>2015-10-13</lastmod>
-    </url>
-    <url>
-        <loc>http://watson-wilson.ca/blog/tag/EFL/page/4/</loc>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-        <lastmod>2015-10-13</lastmod>
-    </url>
-    <url>
-        <loc>http://watson-wilson.ca/blog/tag/EFL/page/5/</loc>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-        <lastmod>2015-10-13</lastmod>
-    </url>
-    <url>
         <loc>http://watson-wilson.ca/blog/tag/anti-virus/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
@@ -725,6 +695,12 @@
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
         <lastmod>2015-08-20</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/tag/bitbucket/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2016-07-22</lastmod>
     </url>
     <url>
         <loc>http://watson-wilson.ca/blog/tag/cfengine-cookbook/</loc>
@@ -913,6 +889,42 @@
         <lastmod>2011-10-02</lastmod>
     </url>
     <url>
+        <loc>http://watson-wilson.ca/blog/tag/efl/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2015-10-13</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/tag/efl/page/2/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2015-10-13</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/tag/efl/page/3/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2015-10-13</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/tag/efl/page/4/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2015-10-13</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/tag/efl/page/5/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2015-10-13</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/tag/github/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2016-07-22</lastmod>
+    </url>
+    <url>
         <loc>http://watson-wilson.ca/blog/tag/heartbeat/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
@@ -979,7 +991,7 @@
         <lastmod>2014-10-30</lastmod>
     </url>
     <url>
-        <loc>http://watson-wilson.ca/blog/tag/markdown-github-bitbucket-python/</loc>
+        <loc>http://watson-wilson.ca/blog/tag/markdown/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
         <lastmod>2016-07-22</lastmod>
@@ -1067,6 +1079,12 @@
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
         <lastmod>2015-12-08</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/tag/python/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2016-07-22</lastmod>
     </url>
     <url>
         <loc>http://watson-wilson.ca/blog/tag/red-hat/</loc>
@@ -1228,31 +1246,31 @@
         <loc>http://watson-wilson.ca/page/</loc>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
-        <lastmod>2016-07-22</lastmod>
+        <lastmod>2016-10-04</lastmod>
     </url>
     <url>
         <loc>http://watson-wilson.ca/page/404/</loc>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
-        <lastmod>2016-07-22</lastmod>
+        <lastmod>2016-10-04</lastmod>
     </url>
     <url>
         <loc>http://watson-wilson.ca/page/about/</loc>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
-        <lastmod>2016-07-22</lastmod>
+        <lastmod>2016-10-04</lastmod>
     </url>
     <url>
         <loc>http://watson-wilson.ca/page/evolvethinking/</loc>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
-        <lastmod>2016-07-22</lastmod>
+        <lastmod>2016-10-04</lastmod>
     </url>
     <url>
         <loc>http://watson-wilson.ca/page/projects/</loc>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
-        <lastmod>2016-07-22</lastmod>
+        <lastmod>2016-10-04</lastmod>
     </url>
 </urlset>
 

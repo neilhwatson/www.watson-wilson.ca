@@ -5,7 +5,7 @@
         <link>http://watson-wilson.ca/blog/tag/security/</link>
         <atom:link href="http://watson-wilson.ca/blog/tag/security.rss" rel="self" type="application/rss+xml" />
         <description>Blog feed of Neil H. Watson</description>
-        <generator>Statocles 0.073</generator>
+        <generator>Statocles 0.077</generator>
         <item>
             <title>Essential audit reports with Delta Reporting</title>
             <link>http://watson-wilson.ca/blog/2015/09/30/essential-audit-reports-with-delta-reporting/</link>
@@ -43,7 +43,7 @@ it&#39;s possible.</p>
                 <p>Tags:
                     <a href="http://watson-wilson.ca/blog/tag/cfengine/">cfengine</a>
                     <a href="http://watson-wilson.ca/blog/tag/delta-reporting/">delta reporting</a>
-                    <a href="http://watson-wilson.ca/blog/tag/EFL/">EFL</a>
+                    <a href="http://watson-wilson.ca/blog/tag/efl/">EFL</a>
                     <a href="http://watson-wilson.ca/blog/tag/security/">security</a>
                     <a href="http://watson-wilson.ca/blog/tag/software-testing/">software testing</a>
                 </p>
@@ -69,7 +69,7 @@ not long. First we had to design a test for the vulnerability.</p>
                 <p>Tags:
                     <a href="http://watson-wilson.ca/blog/tag/cfengine/">cfengine</a>
                     <a href="http://watson-wilson.ca/blog/tag/delta-reporting/">delta reporting</a>
-                    <a href="http://watson-wilson.ca/blog/tag/EFL/">EFL</a>
+                    <a href="http://watson-wilson.ca/blog/tag/efl/">EFL</a>
                     <a href="http://watson-wilson.ca/blog/tag/security/">security</a>
                 </p>
             ]]></description>
@@ -128,7 +128,7 @@ reduce the load from excessive promise evaluation.</p>
                     <p><a href="http://watson-wilson.ca/blog/2013/08/07/secure-sysctl-settings-with-cfengine/#section-2">Continue reading...</a></p>
                 <p>Tags:
                     <a href="http://watson-wilson.ca/blog/tag/cfengine/">cfengine</a>
-                    <a href="http://watson-wilson.ca/blog/tag/EFL/">EFL</a>
+                    <a href="http://watson-wilson.ca/blog/tag/efl/">EFL</a>
                     <a href="http://watson-wilson.ca/blog/tag/linux/">linux</a>
                     <a href="http://watson-wilson.ca/blog/tag/security/">security</a>
                     <a href="http://watson-wilson.ca/blog/tag/sysctl/">sysctl</a>

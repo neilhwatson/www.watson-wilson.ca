@@ -1,6 +1,6 @@
 ---
 title: New site
-tags: website, perl, jekyll, statocles
+tags: website, perl, jekyll, statocles, markdown
 ---
 
 <img style='float:right' alt='Perl logo' src='/static/images/perl_camel.gif' >

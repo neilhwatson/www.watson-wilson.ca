@@ -5,18 +5,21 @@
         <link>http://watson-wilson.ca/blog/</link>
         <atom:link href="http://watson-wilson.ca/blog/index.rss" rel="self" type="application/rss+xml" />
         <description>Blog feed of Neil H. Watson</description>
-        <generator>Statocles 0.073</generator>
+        <generator>Statocles 0.077</generator>
         <item>
             <title>Previewing Markdown using grip</title>
             <link>http://watson-wilson.ca/blog/2016/07/22/grip/</link>
             <guid>http://watson-wilson.ca/blog/2016/07/22/grip/</guid>
             <description><![CDATA[
-                <p><a href="https://github.com/joeyespo/grip">Grip</a> allows you to review your markdown
-docs locally. Power by Python, Grip starts a local web service.</p>
+                <p>Review your markdown locally with <a href="https://github.com/joeyespo/grip">Grip</a>,
+powered by Python.</p>
 
                     <p><a href="http://watson-wilson.ca/blog/2016/07/22/grip/#section-2">Continue reading...</a></p>
                 <p>Tags:
-                    <a href="http://watson-wilson.ca/blog/tag/markdown-github-bitbucket-python/">markdown github bitbucket python</a>
+                    <a href="http://watson-wilson.ca/blog/tag/markdown/">markdown</a>
+                    <a href="http://watson-wilson.ca/blog/tag/github/">github</a>
+                    <a href="http://watson-wilson.ca/blog/tag/bitbucket/">bitbucket</a>
+                    <a href="http://watson-wilson.ca/blog/tag/python/">python</a>
                 </p>
             ]]></description>
             <pubDate>

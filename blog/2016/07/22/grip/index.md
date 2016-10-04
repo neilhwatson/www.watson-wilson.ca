@@ -1,6 +1,6 @@
 ---
 title: Previewing Markdown using grip
-tags: markdown github bitbucket python
+tags: markdown, github, bitbucket, python
 ---
 
 Review your markdown locally with [Grip](https://github.com/joeyespo/grip),

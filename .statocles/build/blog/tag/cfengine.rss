@@ -5,7 +5,7 @@
         <link>http://watson-wilson.ca/blog/tag/cfengine/</link>
         <atom:link href="http://watson-wilson.ca/blog/tag/cfengine.rss" rel="self" type="application/rss+xml" />
         <description>Blog feed of Neil H. Watson</description>
-        <generator>Statocles 0.073</generator>
+        <generator>Statocles 0.077</generator>
         <item>
             <title>Vote for your favourite CFEngine bugs</title>
             <link>http://watson-wilson.ca/blog/2016/03/27/vote_for_cfengine_bugs/</link>
@@ -43,7 +43,7 @@ addon.</p>
                     <p><a href="http://watson-wilson.ca/blog/2015/10/13/simple-cfengine-setup-with-efl/#section-2">Continue reading...</a></p>
                 <p>Tags:
                     <a href="http://watson-wilson.ca/blog/tag/cfengine/">cfengine</a>
-                    <a href="http://watson-wilson.ca/blog/tag/EFL/">EFL</a>
+                    <a href="http://watson-wilson.ca/blog/tag/efl/">EFL</a>
                 </p>
             ]]></description>
             <pubDate>
@@ -87,7 +87,7 @@ it&#39;s possible.</p>
                 <p>Tags:
                     <a href="http://watson-wilson.ca/blog/tag/cfengine/">cfengine</a>
                     <a href="http://watson-wilson.ca/blog/tag/delta-reporting/">delta reporting</a>
-                    <a href="http://watson-wilson.ca/blog/tag/EFL/">EFL</a>
+                    <a href="http://watson-wilson.ca/blog/tag/efl/">EFL</a>
                     <a href="http://watson-wilson.ca/blog/tag/security/">security</a>
                     <a href="http://watson-wilson.ca/blog/tag/software-testing/">software testing</a>
                 </p>
@@ -111,7 +111,7 @@ TAP output.</p>
                 <p>Tags:
                     <a href="http://watson-wilson.ca/blog/tag/cfengine/">cfengine</a>
                     <a href="http://watson-wilson.ca/blog/tag/devops/">devops</a>
-                    <a href="http://watson-wilson.ca/blog/tag/EFL/">EFL</a>
+                    <a href="http://watson-wilson.ca/blog/tag/efl/">EFL</a>
                     <a href="http://watson-wilson.ca/blog/tag/software-testing/">software testing</a>
                 </p>
             ]]></description>

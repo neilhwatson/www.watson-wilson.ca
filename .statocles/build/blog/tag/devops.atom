@@ -5,7 +5,7 @@
     <updated>2015-08-20T15:33:18Z</updated>
     <link href="http://watson-wilson.ca/blog/tag/devops.atom" rel="self" />
     <link href="http://watson-wilson.ca/blog/tag/devops/" rel="alternate" />
-    <generator version="0.073">Statocles</generator>
+    <generator version="0.077">Statocles</generator>
     <entry>
         <id>http://watson-wilson.ca/blog/2015/08/20/testing-cfengine-using-efl-tap-and-perl/</id>
         <title>Testing CFEngine policy using EFL, TAP, and Perl</title>
@@ -22,7 +22,7 @@ TAP output.</p>
             <p>Tags:
                 <a href="http://watson-wilson.ca/blog/tag/cfengine/">cfengine</a>
                 <a href="http://watson-wilson.ca/blog/tag/devops/">devops</a>
-                <a href="http://watson-wilson.ca/blog/tag/EFL/">EFL</a>
+                <a href="http://watson-wilson.ca/blog/tag/efl/">EFL</a>
                 <a href="http://watson-wilson.ca/blog/tag/software-testing/">software testing</a>
             </p>
         ]]></content>
@@ -89,7 +89,7 @@ template.</p>
                 <a href="http://watson-wilson.ca/blog/tag/cfengine/">cfengine</a>
                 <a href="http://watson-wilson.ca/blog/tag/delta-reporting/">delta reporting</a>
                 <a href="http://watson-wilson.ca/blog/tag/devops/">devops</a>
-                <a href="http://watson-wilson.ca/blog/tag/EFL/">EFL</a>
+                <a href="http://watson-wilson.ca/blog/tag/efl/">EFL</a>
                 <a href="http://watson-wilson.ca/blog/tag/software-testing/">software testing</a>
             </p>
         ]]></content>
@@ -119,7 +119,7 @@ there?</p>
             <p>Tags:
                 <a href="http://watson-wilson.ca/blog/tag/cfengine/">cfengine</a>
                 <a href="http://watson-wilson.ca/blog/tag/devops/">devops</a>
-                <a href="http://watson-wilson.ca/blog/tag/EFL/">EFL</a>
+                <a href="http://watson-wilson.ca/blog/tag/efl/">EFL</a>
                 <a href="http://watson-wilson.ca/blog/tag/software-testing/">software testing</a>
             </p>
         ]]></content>

@@ -5,22 +5,28 @@
     <updated>2016-07-22T00:00:00Z</updated>
     <link href="http://watson-wilson.ca/blog/index.atom" rel="self" />
     <link href="http://watson-wilson.ca/blog/" rel="alternate" />
-    <generator version="0.073">Statocles</generator>
+    <generator version="0.077">Statocles</generator>
     <entry>
         <id>http://watson-wilson.ca/blog/2016/07/22/grip/</id>
         <title>Previewing Markdown using grip</title>
         <link href="http://watson-wilson.ca/blog/2016/07/22/grip/" rel="alternate" />
         <content type="html"><![CDATA[
-            <p><a href="https://github.com/joeyespo/grip">Grip</a> allows you to review your markdown
-docs locally. Power by Python, Grip starts a local web service.</p>
+            <p>Review your markdown locally with <a href="https://github.com/joeyespo/grip">Grip</a>,
+powered by Python.</p>
 
                 <p><a href="http://watson-wilson.ca/blog/2016/07/22/grip/#section-2">Continue reading...</a></p>
             <p>Tags:
-                <a href="http://watson-wilson.ca/blog/tag/markdown-github-bitbucket-python/">markdown github bitbucket python</a>
+                <a href="http://watson-wilson.ca/blog/tag/markdown/">markdown</a>
+                <a href="http://watson-wilson.ca/blog/tag/github/">github</a>
+                <a href="http://watson-wilson.ca/blog/tag/bitbucket/">bitbucket</a>
+                <a href="http://watson-wilson.ca/blog/tag/python/">python</a>
             </p>
         ]]></content>
         <updated>2016-07-22T00:00:00Z</updated>
-        <category term="markdown github bitbucket python" />
+        <category term="markdown" />
+        <category term="github" />
+        <category term="bitbucket" />
+        <category term="python" />
     </entry>
     <entry>
         <id>http://watson-wilson.ca/blog/2016/03/27/vote_for_cfengine_bugs/</id>

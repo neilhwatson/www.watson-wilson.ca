@@ -5,7 +5,7 @@
     <updated>2013-08-07T16:13:42Z</updated>
     <link href="http://watson-wilson.ca/blog/tag/sysctl.atom" rel="self" />
     <link href="http://watson-wilson.ca/blog/tag/sysctl/" rel="alternate" />
-    <generator version="0.073">Statocles</generator>
+    <generator version="0.077">Statocles</generator>
     <entry>
         <id>http://watson-wilson.ca/blog/2013/08/07/secure-sysctl-settings-with-cfengine/</id>
         <title>Secure sysctl settings with CFEngine</title>
@@ -58,7 +58,7 @@ reduce the load from excessive promise evaluation.</p>
                 <p><a href="http://watson-wilson.ca/blog/2013/08/07/secure-sysctl-settings-with-cfengine/#section-2">Continue reading...</a></p>
             <p>Tags:
                 <a href="http://watson-wilson.ca/blog/tag/cfengine/">cfengine</a>
-                <a href="http://watson-wilson.ca/blog/tag/EFL/">EFL</a>
+                <a href="http://watson-wilson.ca/blog/tag/efl/">EFL</a>
                 <a href="http://watson-wilson.ca/blog/tag/linux/">linux</a>
                 <a href="http://watson-wilson.ca/blog/tag/security/">security</a>
                 <a href="http://watson-wilson.ca/blog/tag/sysctl/">sysctl</a>
