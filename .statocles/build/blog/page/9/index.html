@@ -57,6 +57,132 @@
 
             <article>
                 <header>
+                    <h1><a href="/blog/2014/01/23/new-mustache-templates-in-cfengine-3-6/">New mustache templates in CFEngine 3.6</a></h1>
+
+                    <p class="tags">Tags:
+                        <a href="/blog/tag/cfengine/" rel="tag">cfengine</a>
+                    </p>
+
+                    <aside>
+                        <p><time datetime="2014-01-23">
+                            Posted on 2014-01-23
+                        </time>
+                            by nwatson
+                        </p>
+                    </aside>
+
+                </header>
+
+                <p>Mustache templates are a new alternative template method in 3.6. Let&#39;s
+see how they work. --- <a href="http://watson-wilson.ca/template-configuration-files-using-cfengine/">Recall</a>
+my previous talk about templates and how to use them in CFEngine 3.5.</p>
+
+<pre><code>body common control
+{
+        bundlesequence =&gt; { &quot;main&quot;, };
+}
+
+bundle agent main
+{
+        methods:
+
+                &quot;any&quot; usebundle =&gt; resolv_conf;
+}
+
+bundle agent resolv_conf 
+{
+   meta:
+      &quot;purpose&quot; string =&gt; &quot;Example of edit_template use&quot;;
+
+   files:
+      &quot;/tmp/resolv.conf&quot;
+         create          =&gt; &#39;true&#39;,
+         template_method =&gt; &quot;mustache&quot;,
+         edit_template   =&gt; &quot;${sys.workdir}/inputs/resolv.tmp&quot;;
+
+}
+</code></pre>
+
+<p>There is a new attribute called template_method. Here we define the
+mustache method. The actual template is below.</p>
+
+<pre><code>{{#classes.sweden}}
+nameserver 172.16.100.2
+nameserver 172.16.100.1
+{{/classes.sweden}}
+
+{{#classes.toronto}}
+nameserver 192.168.100.254
+nameserver 192.168.100.253
+{{/classes.toronto}}
+
+domain watson-wilson.ca
+search watson-wilson.ca
+timeout:2
+</code></pre>
+
+<p>Can you spot the new class syntax? Rather than [%CFEngine
+<class_name>:: %] there are now opening and closing class tags,
+{{#classes.<class_name>}} and {{/classes.<class_name>}} that surround
+the lines that the class applies to. This is different than CFEngine&#39;s
+normal implied class application where the preceding class is assumed
+still valid until the next class is stated. Lines outside of class tags
+are part of the any class.</class_name></class_name></class_name></p>
+
+<p>At a lower level the agent is using the <a href="https://cfengine.com/docs/master/reference-functions-datastate.html">datastate</a>,
+which is an internal representation of the vars and classes available
+to the agent. It&#39;s layout is roughly this:</p>
+
+<pre><code>{
+ &quot;classes&quot;: {
+ &quot;ipv4_172&quot;: true,
+ &quot;fe80__fc54_ff_fe34_5399&quot;: true,
+ &quot;agent&quot;: true,
+ &quot;Lcycle_1&quot;: true,
+
+....
+&quot;vars&quot;: {
+ &quot;sys&quot;: {
+   &quot;systime&quot;: &quot;1390500650&quot;,
+   &quot;flavour&quot;: &quot;debian_jessie&quot;,
+   &quot;hardware_addresses&quot;: [
+     &quot;00:1e:67:8b:f7:13&quot;
+   ],
+   &quot;fqhost&quot;: &quot;ettin.watson-wilson.ca&quot;,
+   &quot;ipv4_1[br0]&quot;: &quot;172&quot;,
+   &quot;uptime&quot;: &quot;7348&quot;,
+   &quot;bindir&quot;: &quot;/home/neil/.cfagent/bin&quot;,
+   &quot;arch&quot;: &quot;x86_64&quot;,
+   &quot;ipv4&quot;: &quot;172.16.100.1&quot;,
+....
+</code></pre>
+
+<p>I show only a small piece of it because the full collection is very
+large. It gives you an idea of what the agent knows. For this example
+it&#39;s not important. Just be aware that it exists. Now, let&#39;s run the
+example policy.</p>
+
+<pre><code>$ cf-agent -IKf ./edit_template.cf -D toronto; cat /tmp/resolv.conf 
+
+nameserver 192.168.100.254
+nameserver 192.168.100.253
+
+domain watson-wilson.ca
+search watson-wilson.ca
+timeout:2
+</code></pre>
+
+<p>Some folks will be pleased to see that the two blank lines in the
+template exist in the promiser file. That suggests that duplicate lines
+will <em>not be skipped</em> in mustache templates.</p>
+
+<p><a href="https://cfengine.com/docs/master/reference-promise-types-files.html#edit_template">Further reading</a></p>
+
+
+
+            </article>
+            <article>
+                <header>
                     <h1><a href="/blog/2013/11/27/nix-ifvarclass-and-other-changes-i-wish-for-cfengine/">Nix ifvarclass and other changes I wish for CFEngine</a></h1>
 
                     <p class="tags">Tags:
@@ -165,59 +291,6 @@ is impressive.</p>
                     <p><a href="/blog/2013/10/31/opennms-the-open-source-enterprise-monitoring-solution-youve-never-heard-of/index.html#section-2">Continue reading OpenNMS: the open source enterprise monitoring solution you&#39;ve never heard of....</a></p>
 
             </article>
-            <article>
-                <header>
-                    <h1><a href="/blog/2013/10/30/cfengine-2-to-3-migration-beware-of-data-loss/">CFEngine 2 to 3 migration? Beware of data loss</a></h1>
-
-                    <p class="tags">Tags:
-                        <a href="/blog/tag/cfengine/" rel="tag">cfengine</a>
-                    </p>
-
-                    <aside>
-                        <p><time datetime="2013-10-30">
-                            Posted on 2013-10-30
-                        </time>
-                            by nwatson
-                        </p>
-                    </aside>
-
-                </header>
-
-                <p>CFEengine 3 bootstrapping can result in the loss of CFEngine 2 inputs.
-A common strategy to migrate from CFEngine 2 to 3 is to run both in
-parallel. --- Both versions share the same default inputs directory of
-/var/cfengine/inputs. A CF3 bootstrap deletes all files in the inputs
-directory:</p>
-
-<pre><code>[root@atlrhel5is cfengine]# cf-agent -IB hub.example.com 
-2013-10-29T12:37:43-0400     info: Removing all files in &#39;/var/cfengine/inputs/&#39;
-</code></pre>
-
-<p><em>Now your working CF2 inputs are gone.</em> I&#39;ve reported a <a href="https://cfengine.com/dev/issues/3605">bug</a>
-about this, but I do not know when or if it will be addressed. As a
-work around I suggest a wrapper script to your bootstrap procedure.
-Something like this snippet:</p>
-
-<pre><code>TS=$(date +%s)
-
-mkdir /var/cfengine/inputs-${TS}
-cp -r /var/cfengine/inputs/* /var/cfengine/inputs-${TS}
-
-if [ $? -eq 0 ]
-   then
-      cf-agent -B hub.example.com
-      cp -nr /var/cfengine/inputs-${TS}/* /var/cfengine/inputs/
-fi
-</code></pre>
-
-<p>This will preserve and restore your pre-bootstrap inputs, while keeping
-any new files created by the bootstrap. Be sure to test any bootstrap
-or upgrade procedure thoroughly. <a href="http://watson-wilson.ca/contact-us/">Contact us</a>
-for more help and information.</p>
-
-
-
-            </article>
         </main>
 
         <ul class="pager">
@@ -241,14 +314,17 @@ for more help and information.</p>
             <li><a href="/blog/tag/backup/">backup</a></li>
             <li><a href="/blog/tag/best-practices/">best practices</a></li>
             <li><a href="/blog/tag/bitbucket/">bitbucket</a></li>
+            <li><a href="/blog/tag/bosh/">bosh</a></li>
             <li><a href="/blog/tag/cfengine/">cfengine</a></li>
             <li><a href="/blog/tag/cfengine-cookbook/">cfengine cookbook</a></li>
             <li><a href="/blog/tag/cheatsheet/">cheatsheet</a></li>
             <li><a href="/blog/tag/cli/">cli</a></li>
             <li><a href="/blog/tag/cloud/">cloud</a></li>
+            <li><a href="/blog/tag/cloud-foundry/">cloud foundry</a></li>
             <li><a href="/blog/tag/cluster/">cluster</a></li>
             <li><a href="/blog/tag/conferences/">conferences</a></li>
             <li><a href="/blog/tag/configuration-management/">configuration management</a></li>
+            <li><a href="/blog/tag/containers/">containers</a></li>
             <li><a href="/blog/tag/cron/">cron</a></li>
             <li><a href="/blog/tag/debian/">debian</a></li>
             <li><a href="/blog/tag/delta-reporting/">delta reporting</a></li>

@@ -57,6 +57,33 @@
 
             <article>
                 <header>
+                    <h1><a href="/blog/2013/09/11/experimental-and-coming-soon-features-in-cfengine/">Experimental and coming soon features in CFEngine</a></h1>
+
+                    <p class="tags">Tags:
+                        <a href="/blog/tag/cfengine/" rel="tag">cfengine</a>
+                    </p>
+
+                    <aside>
+                        <p><time datetime="2013-09-11">
+                            Posted on 2013-09-11
+                        </time>
+                            by nwatson
+                        </p>
+                    </aside>
+
+                </header>
+
+                <p>Pull requests for CFEngine Core, at <a href="https://github.com/cfengine/core/pulls">Github</a>,
+and CFEngine&#39;s <a href="https://cfengine.com/dev/projects/core">issue tracker</a>
+show some interesting proposals for future versions of CFEngine. Here&#39;s
+a quick summary for you.</p>
+
+
+                    <p><a href="/blog/2013/09/11/experimental-and-coming-soon-features-in-cfengine/index.html#section-2">Continue reading Experimental and coming soon features in CFEngine...</a></p>
+
+            </article>
+            <article>
+                <header>
                     <h1><a href="/blog/2013/08/07/secure-sysctl-settings-with-cfengine/">Secure sysctl settings with CFEngine</a></h1>
 
                     <p class="tags">Tags:
@@ -206,70 +233,6 @@ look it up. Here is a cheat-sheet to save time.</p>
                     <p><a href="/blog/2013/05/09/pcre-cheatsheet/index.html#section-2">Continue reading PCRE cheatsheet...</a></p>
 
             </article>
-            <article>
-                <header>
-                    <h1><a href="/blog/2013/05/09/its-time-to-rethink-anti-virus/">It&#39;s time to rethink Anti-virus</a></h1>
-
-                    <p class="tags">Tags:
-                        <a href="/blog/tag/anti-virus/" rel="tag">anti-virus</a>
-                        <a href="/blog/tag/security/" rel="tag">security</a>
-                        <a href="/blog/tag/virus/" rel="tag">virus</a>
-                    </p>
-
-                    <aside>
-                        <p><time datetime="2013-05-09">
-                            Posted on 2013-05-09
-                        </time>
-                            by nwatson
-                        </p>
-                    </aside>
-
-                </header>
-
-                <p>Anti-virus is always a step behind. It&#39;s a good revenue stream for
-anti-virus software makers. For end users it&#39;s a race to the horizon.
---- Virus pattern recognition only works on patterns that have been
-discovered, researched, and added to the pattern database. Recent
-anti-virus pattern databases now detect more than 22 million patterns.
-Is it a wonder that anti-virus software kills computer performance? <a href="http://www.symantec.com/security_response/definitions/certified/">1</a></p>
-
-<p>The impossible pattern race is bad. The system crippling false alarms
-are worse. In the recent past most major anti-virus tools have crippled
-corporate and person computers by mistakenly quarantining a Windows
-system or application file.<a href="http://www.theregister.co.uk/2013/02/06/kaspersky_win_xp_update_snafu/">1</a>,
-<a href="http://www.theregister.co.uk/2012/09/20/sophos_auto_immune_update_chaos/">2</a>,
-<a href="http://www.pcmag.com/article2/0,2817,2362926,00.asp">3</a></p>
-
-<p>I&#39;m not a computer virus expert. But there has to be a better way to
-protect us. I can think of some.</p>
-
-<p>White listing defines what files are allowed to execute on a system.
-Any file not on the white list is denied execution. For most corporate
-workstations this is ideal. A few hundred executable files are white
-listed and the workstation becomes secure. More generic workstations,
-like home computers, require longer lists. This is not insurmountable.
-I&#39;d rather subscribe to a ten thousand item white list than a 22
-million item black list. The look ups will be shorter and new threats
-do not get an automatic free pass.</p>
-
-<p>Mandatory access control. SELinux is the well known form of MAC. MAC is
-similar to white listing but goes further. Programs are not just denied
-execution rights. Their rights to access the rest of the system are
-explicitly defined. For example, a web browser may be allowed to touch
-printing, browser cache, and other relevant files. Anything else is
-denied, by default. Viruses cannot run wild on the system because
-they&#39;ve not been defined to be allowed to do so. Set up and maintenance
-of such a systems is no small task. Neither is maintaining a growing
-list of 22 million virus definitions.</p>
-
-<p>I&#39;m not a computer virus expert. But the arms race between new viruses
-and new definitions can never be won. It&#39;s time for a new approach.
-Consider that the next time your computer is churning another
-anti-virus disk scan.</p>
-
-
-
-            </article>
         </main>
 
         <ul class="pager">
@@ -293,14 +256,17 @@ anti-virus disk scan.</p>
             <li><a href="/blog/tag/backup/">backup</a></li>
             <li><a href="/blog/tag/best-practices/">best practices</a></li>
             <li><a href="/blog/tag/bitbucket/">bitbucket</a></li>
+            <li><a href="/blog/tag/bosh/">bosh</a></li>
             <li><a href="/blog/tag/cfengine/">cfengine</a></li>
             <li><a href="/blog/tag/cfengine-cookbook/">cfengine cookbook</a></li>
             <li><a href="/blog/tag/cheatsheet/">cheatsheet</a></li>
             <li><a href="/blog/tag/cli/">cli</a></li>
             <li><a href="/blog/tag/cloud/">cloud</a></li>
+            <li><a href="/blog/tag/cloud-foundry/">cloud foundry</a></li>
             <li><a href="/blog/tag/cluster/">cluster</a></li>
             <li><a href="/blog/tag/conferences/">conferences</a></li>
             <li><a href="/blog/tag/configuration-management/">configuration management</a></li>
+            <li><a href="/blog/tag/containers/">containers</a></li>
             <li><a href="/blog/tag/cron/">cron</a></li>
             <li><a href="/blog/tag/debian/">debian</a></li>
             <li><a href="/blog/tag/delta-reporting/">delta reporting</a></li>

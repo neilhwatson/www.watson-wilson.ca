@@ -2,10 +2,33 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>http://watson-wilson.ca/blog/</id>
     <title>Neil H. Watson</title>
-    <updated>2016-07-22T00:00:00Z</updated>
+    <updated>2016-10-10T00:00:00Z</updated>
     <link href="http://watson-wilson.ca/blog/index.atom" rel="self" />
     <link href="http://watson-wilson.ca/blog/" rel="alternate" />
     <generator version="0.077">Statocles</generator>
+    <entry>
+        <id>http://watson-wilson.ca/blog/2016/10/10/cloudfoundry/</id>
+        <title>Bosh and Cloud Foundry, an intro</title>
+        <link href="http://watson-wilson.ca/blog/2016/10/10/cloudfoundry/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p><a href="https://cloudfoundry.org/"><img alt="cloudfoundry website" src="http://watson-wilson.ca/static/images/Cloud-Foundry-Logo.png" style="float:right" width="120px"></a></p>
+
+<p><a href="https://www.cloudfoundry.org/">Cloud Foundry</a> is an open source platform as a service product owned by Pivotal Software. CF allows you to deploy applications to containers on AWS, Azue, VMware vSphere, and others.</p>
+
+                <p><a href="http://watson-wilson.ca/blog/2016/10/10/cloudfoundry/#section-2">Continue reading...</a></p>
+            <p>Tags:
+                <a href="http://watson-wilson.ca/blog/tag/cloud/">cloud</a>
+                <a href="http://watson-wilson.ca/blog/tag/cloud-foundry/">cloud foundry</a>
+                <a href="http://watson-wilson.ca/blog/tag/bosh/">bosh</a>
+                <a href="http://watson-wilson.ca/blog/tag/containers/">containers</a>
+            </p>
+        ]]></content>
+        <updated>2016-10-10T00:00:00Z</updated>
+        <category term="cloud" />
+        <category term="cloud foundry" />
+        <category term="bosh" />
+        <category term="containers" />
+    </entry>
     <entry>
         <id>http://watson-wilson.ca/blog/2016/07/22/grip/</id>
         <title>Previewing Markdown using grip</title>
@@ -97,36 +120,6 @@ convergent so only required changes are applied.</p>
         <category term="provisioning" />
         <category term="patching" />
         <category term="red hat" />
-    </entry>
-    <entry>
-        <id>http://watson-wilson.ca/blog/2015/11/25/terraform/</id>
-        <title>Terraform: config management for the cloud</title>
-        <link href="http://watson-wilson.ca/blog/2015/11/25/terraform/" rel="alternate" />
-        <content type="html"><![CDATA[
-            <p><a href="https://terraform.io/"><img alt="terraform logo" src="https://raw.githubusercontent.com/hashicorp/terraform/master/website/source/assets/images/logo-static.png" style="float:right" width="120px"></a></p>
-
-<p>I saw a great <a href="https://terraform.io/">Terraform</a> presentation last week at a
-Devops <a href="http://www.meetup.com/DevOpsTO/">meetup</a>. Terraform is a configuration
-management tool for virtual infrastructure. You can define your AWS or similar
-environment using a descriptive language.</p>
-
-<ul>
-<li><a href="http://slides.com/adammeghji/universe-terraform#/">Slides</a></li>
-<li><a href="https://github.com/adammeghji/terraform-demo">Sample code</a></li>
-<li><a href="https://plus.google.com/events/cfjrv6r27e3k6t65n28fdmp6j9c">Recording</a></li>
-</ul>
-
-                <p><a href="http://watson-wilson.ca/blog/2015/11/25/terraform/#section-2">Continue reading...</a></p>
-            <p>Tags:
-                <a href="http://watson-wilson.ca/blog/tag/configuration-management/">configuration management</a>
-                <a href="http://watson-wilson.ca/blog/tag/cloud/">cloud</a>
-                <a href="http://watson-wilson.ca/blog/tag/terraform/">terraform</a>
-            </p>
-        ]]></content>
-        <updated>2015-11-25T00:00:00Z</updated>
-        <category term="configuration management" />
-        <category term="cloud" />
-        <category term="terraform" />
     </entry>
 </feed>
 
