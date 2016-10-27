@@ -57,6 +57,56 @@
 
             <article>
                 <header>
+                    <h1><a href="/blog/2011/03/08/multipathd-testing/">Multipathd testing</a></h1>
+
+                    <p class="tags">Tags:
+                        <a href="/blog/tag/multipathd/" rel="tag">multipathd</a>
+                        <a href="/blog/tag/iscsi/" rel="tag">iscsi</a>
+                        <a href="/blog/tag/san/" rel="tag">san</a>
+                    </p>
+
+                    <aside>
+                        <p><time datetime="2011-03-08">
+                            Posted on 2011-03-08
+                        </time>
+                        </p>
+                    </aside>
+
+                </header>
+
+                <ol>
+<li>Format and mount the SAN LUN.</li>
+<li>Start a write to the mounted filesystem <code>cat /dev/zero &gt;&gt; /pathto/mnt/testfile &amp;</code></li>
+<li>Now connect to the multipath daemon in interactive mode <code>multipathd -k</code></li>
+<li><p>View current paths with show maps topology</p>
+
+<p>multipathd&gt; show maps topology
+reload: mpath5 (360060e801045249004f2a5f900000031) dm-7 HITACHI,DF600F
+[size=128G][features=0][hwhandler=0][rw]
+_ round-robin 0 [prio=1][active]
+ _ 1:0:0:4 sdb 8:16  [active][ready]
+_ round-robin 0 [prio=0][enabled]
+ _ 2:0:0:4 sdc 8:32  [active][ready]</p></li>
+<li><p>There are two paths shown as sdb and sdc. Delete one path.
+    del path sdb</p></li>
+<li>Suspend with ctrl-z and check that the write is still happening.
+    ls -l /pathto/mnt If testfile is still growing then the path sdc is working.</li>
+<li>Resume multipath with fg 2. Re-add the path.
+    add path sdb</li>
+<li>Now remove the other path.
+    del path sdc</li>
+<li>Again suspend iwth ctrl-z and check that the test file is growing. If so
+then resume multipath and re-add the path.
+    add path sdc</li>
+<li>Testing complete. Exit with ctrl-c. Kill the write job with kill %1. Remove
+the test file.</li>
+</ol>
+
+
+
+            </article>
+            <article>
+                <header>
                     <h1><a href="/blog/2011/03/08/linux-network-cheatsheet/">Linux networking cheatsheet</a></h1>
 
                     <p class="tags">Tags:
@@ -219,91 +269,6 @@ client works to ensure that a client host conforms to them.</p>
                     <p><a href="/blog/2011/03/08/cfengine-tutorial/index.html#section-2">Continue reading CFEngine tutorial...</a></p>
 
             </article>
-            <article>
-                <header>
-                    <h1><a href="/blog/2011/03/08/apt-cheatsheet/">Debian Apt Cheatsheet</a></h1>
-
-                    <p class="tags">Tags:
-                        <a href="/blog/tag/debian/" rel="tag">debian</a>
-                        <a href="/blog/tag/apt/" rel="tag">apt</a>
-                        <a href="/blog/tag/cheatsheet/" rel="tag">cheatsheet</a>
-                    </p>
-
-                    <aside>
-                        <p><time datetime="2011-03-08">
-                            Posted on 2011-03-08
-                        </time>
-                        </p>
-                    </aside>
-
-                </header>
-
-                <table>
-<tr>
-    <td>Download and build source package</td>
-    <td><code>apt-get -b source <package name></package></code></td>
-</tr>
-<tr>
-    <td>Download and install dependencies for source package</td>
-    <td><code>apt-get build-dep <package name></package></code></td>
-</tr>
-<tr>
-    <td>Download source package</td>
-    <td><code>apt-get source <package name></package></code></td>
-</tr>
-<tr>
-    <td>Install package &quot;on demand&quot;</td>
-    <td><code>auto-apt run <program></program></code></td>
-</tr>
-<tr>
-    <td>List contents of a package</td>
-    <td><code>apt-file list <package name></package></code></td>
-</tr>
-<tr>
-    <td>List installed packages</td>
-    <td><code>dpkg -l</code></td>
-</tr>
-<tr>
-    <td>Remove package and configuration files</td>
-    <td><code>apt-get --purge remove <package name></package></code></td>
-</tr>
-<tr>
-    <td>Search for Debian Packages</td>
-    <td><code>http://www.debian.org/distrib/packages</code></td>
-</tr>
-<tr>
-    <td>Search for packages</td>
-    <td><code>apt-cache search <string></string></code></td>
-</tr>
-<tr>
-    <td>Show package dependencies</td>
-    <td><code>apt-cache depends <string></string></code></td>
-</tr>
-<tr>
-    <td>Show package information</td>
-    <td><code>apt-cache show <string></string></code></td>
-</tr>
-<tr>
-    <td>Show package that supplies a given file</td>
-    <td><code>apt-file search <file name></file></code></td>
-</tr>
-<tr>
-    <td>Show package that supplies a given file</td>
-    <td><code>COLUMNS=132 dpkg -S <file name></file></code></td>
-</tr>
-<tr>
-    <td>Show source package information</td>
-    <td><code>apt-cache showsrc <package name></package></code></td>
-</tr>
-<tr>
-    <td>Update `apt-file and auto-apt database</td>
-    <td><code>apt-file update</code></td>
-</tr>
-</table>
-
-
-
-            </article>
         </main>
 
         <ul class="pager">
@@ -322,6 +287,7 @@ client works to ensure that a client host conforms to them.</p>
 
         <h1>Tags</h1>
         <ul class="list-inline">
+            <li><a href="/blog/tag/ansible/">ansible</a></li>
             <li><a href="/blog/tag/anti-virus/">anti-virus</a></li>
             <li><a href="/blog/tag/apt/">apt</a></li>
             <li><a href="/blog/tag/backup/">backup</a></li>
@@ -364,6 +330,7 @@ client works to ensure that a client host conforms to them.</p>
             <li><a href="/blog/tag/opennms/">opennms</a></li>
             <li><a href="/blog/tag/opensource/">opensource</a></li>
             <li><a href="/blog/tag/oracle/">oracle</a></li>
+            <li><a href="/blog/tag/orchestration/">orchestration</a></li>
             <li><a href="/blog/tag/patching/">patching</a></li>
             <li><a href="/blog/tag/pcre/">pcre</a></li>
             <li><a href="/blog/tag/perl/">perl</a></li>

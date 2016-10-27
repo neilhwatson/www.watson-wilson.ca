@@ -2,10 +2,65 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>http://watson-wilson.ca/blog/</id>
     <title>Neil H. Watson</title>
-    <updated>2016-10-10T00:00:00Z</updated>
+    <updated>2016-10-27T00:00:00Z</updated>
     <link href="http://watson-wilson.ca/blog/index.atom" rel="self" />
     <link href="http://watson-wilson.ca/blog/" rel="alternate" />
     <generator version="0.077">Statocles</generator>
+    <entry>
+        <id>http://watson-wilson.ca/blog/2016/10/27/ansible-reboot/</id>
+        <title>Reboot and reconnect between Ansible tasks</title>
+        <link href="http://watson-wilson.ca/blog/2016/10/27/ansible-reboot/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p><a href="http://ansible.com"><img alt="go to ansible.com" src="http://watson-wilson.ca/static/images/ansible_logo_round.png" style="float:right" width="150px"></a></p>
+
+<p>You can reboot and reconnect to your hosts between <a href="http://ansible.com">Ansible</a> tasks. </p>
+
+<pre><code>---
+# Other task above here.
+
+# Now reboot and reconnect
+- block:
+
+    # The at module allows ansible to issue the command and disconnect 
+    # cleanly before the reboot disconnects the network connection.
+   - name: Reboot in one minute
+     at: command=reboot count=1 units=minutes
+
+   # You may need to adjust this dependong on how fast your host halts.
+   - name: Wait for reboot to start and hopefully finish 
+     pause: minutes=2
+
+   - name: Try to re-connect to rebooted host before continuing  
+     command: /bin/true
+     register: online
+     retries: 20
+     delay: 30
+     until: online|success
+
+# Continue your tasks...
+</code></pre>
+
+<ol>
+<li><a href="http://docs.ansible.com/ansible/playbooks_blocks.html">blocks</a> group tasks for better control and debugging.</li>
+<li><a href="http://docs.ansible.com/ansible/at_module.html">at</a> uses the UNIX <a href="https://linux.die.net/man/1/at">at</a> tool.</li>
+<li><a href="http://docs.ansible.com/ansible/pause_module.html">pause</a> pauses like sleep.</li>
+<li>Retries and delay works like a <a href="http://docs.ansible.com/ansible/playbooks_loops.html#do-until-loops">do until</a> loops.</li>
+</ol>
+
+                <p><a href="http://watson-wilson.ca/blog/2016/10/27/ansible-reboot/#section-2">Continue reading...</a></p>
+            <p>Tags:
+                <a href="http://watson-wilson.ca/blog/tag/configuration-management/">configuration management</a>
+                <a href="http://watson-wilson.ca/blog/tag/ansible/">ansible</a>
+                <a href="http://watson-wilson.ca/blog/tag/orchestration/">orchestration</a>
+                <a href="http://watson-wilson.ca/blog/tag/scripting/">scripting</a>
+            </p>
+        ]]></content>
+        <updated>2016-10-27T00:00:00Z</updated>
+        <category term="configuration management" />
+        <category term="ansible" />
+        <category term="orchestration" />
+        <category term="scripting" />
+    </entry>
     <entry>
         <id>http://watson-wilson.ca/blog/2016/10/10/cloudfoundry/</id>
         <title>Bosh and Cloud Foundry, an intro</title>
@@ -97,29 +152,6 @@ convergent so only required changes are applied.</p>
         <category term="terraform" />
         <category term="cloud" />
         <category term="configuration management" />
-    </entry>
-    <entry>
-        <id>http://watson-wilson.ca/blog/2015/12/08/spacewalk/</id>
-        <title>Installing Spacewalk</title>
-        <link href="http://watson-wilson.ca/blog/2015/12/08/spacewalk/" rel="alternate" />
-        <content type="html"><![CDATA[
-            <p>Here&#39;s a quick procedure for installing <a href="http://spacewalk.redhat.com/">Spacewalk</a>.</p>
-
-                <p><a href="http://watson-wilson.ca/blog/2015/12/08/spacewalk/#section-2">Continue reading...</a></p>
-            <p>Tags:
-                <a href="http://watson-wilson.ca/blog/tag/satellite/">satellite</a>
-                <a href="http://watson-wilson.ca/blog/tag/spacewalk/">spacewalk</a>
-                <a href="http://watson-wilson.ca/blog/tag/provisioning/">provisioning</a>
-                <a href="http://watson-wilson.ca/blog/tag/patching/">patching</a>
-                <a href="http://watson-wilson.ca/blog/tag/red-hat/">red hat</a>
-            </p>
-        ]]></content>
-        <updated>2015-12-08T00:00:00Z</updated>
-        <category term="satellite" />
-        <category term="spacewalk" />
-        <category term="provisioning" />
-        <category term="patching" />
-        <category term="red hat" />
     </entry>
 </feed>
 

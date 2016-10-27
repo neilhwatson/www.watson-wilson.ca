@@ -7,6 +7,59 @@
         <description>Blog feed of Neil H. Watson</description>
         <generator>Statocles 0.077</generator>
         <item>
+            <title>Reboot and reconnect between Ansible tasks</title>
+            <link>http://watson-wilson.ca/blog/2016/10/27/ansible-reboot/</link>
+            <guid>http://watson-wilson.ca/blog/2016/10/27/ansible-reboot/</guid>
+            <description><![CDATA[
+                <p><a href="http://ansible.com"><img alt="go to ansible.com" src="http://watson-wilson.ca/static/images/ansible_logo_round.png" style="float:right" width="150px"></a></p>
+
+<p>You can reboot and reconnect to your hosts between <a href="http://ansible.com">Ansible</a> tasks. </p>
+
+<pre><code>---
+# Other task above here.
+
+# Now reboot and reconnect
+- block:
+
+    # The at module allows ansible to issue the command and disconnect 
+    # cleanly before the reboot disconnects the network connection.
+   - name: Reboot in one minute
+     at: command=reboot count=1 units=minutes
+
+   # You may need to adjust this dependong on how fast your host halts.
+   - name: Wait for reboot to start and hopefully finish 
+     pause: minutes=2
+
+   - name: Try to re-connect to rebooted host before continuing  
+     command: /bin/true
+     register: online
+     retries: 20
+     delay: 30
+     until: online|success
+
+# Continue your tasks...
+</code></pre>
+
+<ol>
+<li><a href="http://docs.ansible.com/ansible/playbooks_blocks.html">blocks</a> group tasks for better control and debugging.</li>
+<li><a href="http://docs.ansible.com/ansible/at_module.html">at</a> uses the UNIX <a href="https://linux.die.net/man/1/at">at</a> tool.</li>
+<li><a href="http://docs.ansible.com/ansible/pause_module.html">pause</a> pauses like sleep.</li>
+<li>Retries and delay works like a <a href="http://docs.ansible.com/ansible/playbooks_loops.html#do-until-loops">do until</a> loops.</li>
+</ol>
+
+                    <p><a href="http://watson-wilson.ca/blog/2016/10/27/ansible-reboot/#section-2">Continue reading...</a></p>
+                <p>Tags:
+                    <a href="http://watson-wilson.ca/blog/tag/configuration-management/">configuration management</a>
+                    <a href="http://watson-wilson.ca/blog/tag/ansible/">ansible</a>
+                    <a href="http://watson-wilson.ca/blog/tag/orchestration/">orchestration</a>
+                    <a href="http://watson-wilson.ca/blog/tag/scripting/">scripting</a>
+                </p>
+            ]]></description>
+            <pubDate>
+                Thu, 27 Oct 2016 00:00:00 +0000
+            </pubDate>
+        </item>
+        <item>
             <title>Bosh and Cloud Foundry, an intro</title>
             <link>http://watson-wilson.ca/blog/2016/10/10/cloudfoundry/</link>
             <guid>http://watson-wilson.ca/blog/2016/10/10/cloudfoundry/</guid>
@@ -91,26 +144,6 @@ convergent so only required changes are applied.</p>
             ]]></description>
             <pubDate>
                 Fri, 08 Jan 2016 00:00:00 +0000
-            </pubDate>
-        </item>
-        <item>
-            <title>Installing Spacewalk</title>
-            <link>http://watson-wilson.ca/blog/2015/12/08/spacewalk/</link>
-            <guid>http://watson-wilson.ca/blog/2015/12/08/spacewalk/</guid>
-            <description><![CDATA[
-                <p>Here&#39;s a quick procedure for installing <a href="http://spacewalk.redhat.com/">Spacewalk</a>.</p>
-
-                    <p><a href="http://watson-wilson.ca/blog/2015/12/08/spacewalk/#section-2">Continue reading...</a></p>
-                <p>Tags:
-                    <a href="http://watson-wilson.ca/blog/tag/satellite/">satellite</a>
-                    <a href="http://watson-wilson.ca/blog/tag/spacewalk/">spacewalk</a>
-                    <a href="http://watson-wilson.ca/blog/tag/provisioning/">provisioning</a>
-                    <a href="http://watson-wilson.ca/blog/tag/patching/">patching</a>
-                    <a href="http://watson-wilson.ca/blog/tag/red-hat/">red hat</a>
-                </p>
-            ]]></description>
-            <pubDate>
-                Tue, 08 Dec 2015 00:00:00 +0000
             </pubDate>
         </item>
     </channel>
