@@ -57,6 +57,34 @@
 
             <article>
                 <header>
+                    <h1><a href="/blog/2015/04/08/setting-default-variables-in-cfengine/">Setting default variables in CFEngine</a></h1>
+
+                    <p class="tags">Tags:
+                        <a href="/blog/tag/cfengine/" rel="tag">cfengine</a>
+                    </p>
+
+                    <aside>
+                        <p><time datetime="2015-04-08">
+                            Posted on 2015-04-08
+                        </time>
+                            by nwatson
+                        </p>
+                    </aside>
+
+                </header>
+
+                <p>Do you want to set a default value for variables in CFEngine? Here are
+two methods. The first uses <em>defaults</em> promises. Defaults promises can
+be bit confusing and I&#39;ve seen bugs in them in the past, so test
+carefully when using them. See the CFEngine reference for more details
+on defaults.</p>
+
+
+                    <p><a href="/blog/2015/04/08/setting-default-variables-in-cfengine/index.html#section-2">Continue reading Setting default variables in CFEngine...</a></p>
+
+            </article>
+            <article>
+                <header>
                     <h1><a href="/blog/2015/03/26/mustache-template-in-cfengine/">Mustache template in CFEngine</a></h1>
 
                     <p class="tags">Tags:
@@ -180,43 +208,6 @@ not long. First we had to design a test for the vulnerability.</p>
                     <p><a href="/blog/2014/09/26/shellshock-free-with-cfengine-and-delta-reporting/index.html#section-2">Continue reading Shellshock free with CFEngine and Delta Reporting...</a></p>
 
             </article>
-            <article>
-                <header>
-                    <h1><a href="/blog/2014/09/19/testing-cfengine-policy-by-counting-classes/">Testing CFEngine policy by counting classes</a></h1>
-
-                    <p class="tags">Tags:
-                        <a href="/blog/tag/cfengine/" rel="tag">cfengine</a>
-                        <a href="/blog/tag/delta-reporting/" rel="tag">delta reporting</a>
-                        <a href="/blog/tag/devops/" rel="tag">devops</a>
-                        <a href="/blog/tag/efl/" rel="tag">EFL</a>
-                        <a href="/blog/tag/software-testing/" rel="tag">software testing</a>
-                    </p>
-
-                    <aside>
-                        <p><time datetime="2014-09-19">
-                            Posted on 2014-09-19
-                        </time>
-                            by nwatson
-                        </p>
-                    </aside>
-
-                </header>
-
-                <p><img alt="counting" src="/static/images/counting.jpg"></p>
-
-<p>I&#39;ve added a <a href="https://github.com/neilhwatson/evolve_cfengine_freelib/commit/00093210649c4b236e9d4940a23f5a6fe2e60742">new bundle</a>
-to the 3.5 branch of EFL. This bundle <em>efl_test_count</em> allows you to
-count the classes matching a regular expression and test if that count
-matches your expected count. Consider the <em>efl_service</em> bundle, it
-promises that services are configured and running. My SSH parameters
-for this bundle include a template file for configuration. I promise
-that /etc/ssh/sshd_config is built from the sshd_config.tmp, a
-template.</p>
-
-
-                    <p><a href="/blog/2014/09/19/testing-cfengine-policy-by-counting-classes/index.html#section-2">Continue reading Testing CFEngine policy by counting classes...</a></p>
-
-            </article>
         </main>
 
         <ul class="pager">
@@ -257,6 +248,7 @@ template.</p>
             <li><a href="/blog/tag/delta-reporting/">delta reporting</a></li>
             <li><a href="/blog/tag/devops/">devops</a></li>
             <li><a href="/blog/tag/dns/">dns</a></li>
+            <li><a href="/blog/tag/docker/">docker</a></li>
             <li><a href="/blog/tag/dr/">dr</a></li>
             <li><a href="/blog/tag/efl/">EFL</a></li>
             <li><a href="/blog/tag/github/">github</a></li>
@@ -267,6 +259,8 @@ template.</p>
             <li><a href="/blog/tag/irc/">irc</a></li>
             <li><a href="/blog/tag/iscsi/">iscsi</a></li>
             <li><a href="/blog/tag/jekyll/">jekyll</a></li>
+            <li><a href="/blog/tag/jq/">jq</a></li>
+            <li><a href="/blog/tag/json/">json</a></li>
             <li><a href="/blog/tag/kickstart/">kickstart</a></li>
             <li><a href="/blog/tag/kvm/">kvm</a></li>
             <li><a href="/blog/tag/linux/">linux</a></li>

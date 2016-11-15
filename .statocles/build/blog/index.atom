@@ -2,10 +2,39 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>http://watson-wilson.ca/blog/</id>
     <title>Neil H. Watson</title>
-    <updated>2016-10-27T00:00:00Z</updated>
+    <updated>2016-11-15T00:00:00Z</updated>
     <link href="http://watson-wilson.ca/blog/index.atom" rel="self" />
     <link href="http://watson-wilson.ca/blog/" rel="alternate" />
     <generator version="0.077">Statocles</generator>
+    <entry>
+        <id>http://watson-wilson.ca/blog/2016/11/15/docker_api_from_cli/</id>
+        <title>Docker API from CLI</title>
+        <link href="http://watson-wilson.ca/blog/2016/11/15/docker_api_from_cli/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p><a href="https://docker.com/"><img alt="Docker website" src="http://watson-wilson.ca/static/images/docker-logo.png" style="float:right" width="120px"></a></p>
+
+<p>Docker has command line programs, but they are not well suited to automation.
+Return values and pars-able output are both lacking, but there is an
+<a href="https://docs.docker.com/engine/reference/api/docker_remote_api/">API</a> that you
+can use instead. The Dockerd api can listen on a local socket or even a
+remote accessible port, but in these examples I&#39;ll show local socket only.</p>
+
+                <p><a href="http://watson-wilson.ca/blog/2016/11/15/docker_api_from_cli/#section-2">Continue reading...</a></p>
+            <p>Tags:
+                <a href="http://watson-wilson.ca/blog/tag/docker/">docker</a>
+                <a href="http://watson-wilson.ca/blog/tag/containers/">containers</a>
+                <a href="http://watson-wilson.ca/blog/tag/jq/">jq</a>
+                <a href="http://watson-wilson.ca/blog/tag/json/">json</a>
+                <a href="http://watson-wilson.ca/blog/tag/cli/">cli</a>
+            </p>
+        ]]></content>
+        <updated>2016-11-15T00:00:00Z</updated>
+        <category term="docker" />
+        <category term="containers" />
+        <category term="jq" />
+        <category term="json" />
+        <category term="cli" />
+    </entry>
     <entry>
         <id>http://watson-wilson.ca/blog/2016/10/27/ansible-reboot/</id>
         <title>Reboot and reconnect between Ansible tasks</title>
@@ -127,30 +156,6 @@ bugs; here are mine:</p>
         ]]></content>
         <updated>2016-03-27T00:00:00Z</updated>
         <category term="cfengine" />
-        <category term="configuration management" />
-    </entry>
-    <entry>
-        <id>http://watson-wilson.ca/blog/2016/01/08/terraform-intro/</id>
-        <title>Introduction to Terraform</title>
-        <link href="http://watson-wilson.ca/blog/2016/01/08/terraform-intro/" rel="alternate" />
-        <content type="html"><![CDATA[
-            <p><a href="https://terraform.io/"><img alt="terraform logo" src="https://raw.githubusercontent.com/hashicorp/terraform/master/website/source/assets/images/logo-static.png" style="float:right" width="120px"></a></p>
-
-<p><a href="https://terraform.io/">Terraform</a> allows you to manage your AWS, and other
-cloud infrastructure, the same way you would manage servers using configuration
-management products like CFEngine or Puppet. Terraform is idempotent and
-convergent so only required changes are applied.</p>
-
-                <p><a href="http://watson-wilson.ca/blog/2016/01/08/terraform-intro/#section-2">Continue reading...</a></p>
-            <p>Tags:
-                <a href="http://watson-wilson.ca/blog/tag/terraform/">terraform</a>
-                <a href="http://watson-wilson.ca/blog/tag/cloud/">cloud</a>
-                <a href="http://watson-wilson.ca/blog/tag/configuration-management/">configuration management</a>
-            </p>
-        ]]></content>
-        <updated>2016-01-08T00:00:00Z</updated>
-        <category term="terraform" />
-        <category term="cloud" />
         <category term="configuration management" />
     </entry>
 </feed>

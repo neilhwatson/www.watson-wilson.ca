@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Neil H. Watson</title>
+        <link>http://watson-wilson.ca/blog/tag/jq/</link>
+        <atom:link href="http://watson-wilson.ca/blog/tag/jq.rss" rel="self" type="application/rss+xml" />
+        <description>Blog feed of Neil H. Watson</description>
+        <generator>Statocles 0.077</generator>
+        <item>
+            <title>Docker API from CLI</title>
+            <link>http://watson-wilson.ca/blog/2016/11/15/docker_api_from_cli/</link>
+            <guid>http://watson-wilson.ca/blog/2016/11/15/docker_api_from_cli/</guid>
+            <description><![CDATA[
+                <p><a href="https://docker.com/"><img alt="Docker website" src="http://watson-wilson.ca/static/images/docker-logo.png" style="float:right" width="120px"></a></p>
+
+<p>Docker has command line programs, but they are not well suited to automation.
+Return values and pars-able output are both lacking, but there is an
+<a href="https://docs.docker.com/engine/reference/api/docker_remote_api/">API</a> that you
+can use instead. The Dockerd api can listen on a local socket or even a
+remote accessible port, but in these examples I&#39;ll show local socket only.</p>
+
+                    <p><a href="http://watson-wilson.ca/blog/2016/11/15/docker_api_from_cli/#section-2">Continue reading...</a></p>
+                <p>Tags:
+                    <a href="http://watson-wilson.ca/blog/tag/docker/">docker</a>
+                    <a href="http://watson-wilson.ca/blog/tag/containers/">containers</a>
+                    <a href="http://watson-wilson.ca/blog/tag/jq/">jq</a>
+                    <a href="http://watson-wilson.ca/blog/tag/json/">json</a>
+                    <a href="http://watson-wilson.ca/blog/tag/cli/">cli</a>
+                </p>
+            ]]></description>
+            <pubDate>
+                Tue, 15 Nov 2016 00:00:00 +0000
+            </pubDate>
+        </item>
+    </channel>
+</rss>
+
