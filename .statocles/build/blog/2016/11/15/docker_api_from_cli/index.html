@@ -10,6 +10,7 @@
         <title>Docker API from CLI - Neil H. Watson</title>
         <meta content="Statocles 0.077" name="generator">
         
+        <link href="/theme/plugin/highlight/default.css" rel="stylesheet" type="text/css">
 
         <!-- For source highlighting -->
         <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/default.min.css" rel="stylesheet">
@@ -88,31 +89,31 @@ unreadable JSON about all installed Docker images.</p>
 
 <h3>List all docker images</h3>
 
-<pre><code>curl --unix-socket /run/docker.sock http://docker/images/json
+<pre><code class="hljs">curl --unix-socket /run/docker.sock http://docker/images/json
 </code></pre>
 
 <h2>Pretty and practical</h2>
 
 <p>Pretty the input using <a href="https://stedolan.github.io/jq/">jq</a>.</p>
 
-<pre><code>curl --unix-socket /run/docker.sock http://docker/images/json| jq .
+<pre><code class="hljs">curl --unix-socket /run/docker.sock http://docker/images/json<span class="hljs-keyword">|</span> jq .
 </code></pre>
 
 <p>Here&#39;s an excerpt, one image:</p>
 
-<pre><code>{
-    &quot;Id&quot;: &quot;sha256:25e41e468c9cb4351dbbeedf2a9d266bcdf2257d3b1188a73b421b2035513f01&quot;,
-    &quot;ParentId&quot;: &quot;&quot;,
-    &quot;RepoTags&quot;: [
-          &quot;perl:5.24&quot;
+<pre><code class="hljs">{
+    <span class="hljs-string">&quot;Id&quot;</span>: <span class="hljs-string">&quot;sha256:25e41e468c9cb4351dbbeedf2a9d266bcdf2257d3b1188a73b421b2035513f01&quot;</span>,
+    <span class="hljs-string">&quot;ParentId&quot;</span>: <span class="hljs-string">&quot;&quot;</span>,
+    <span class="hljs-string">&quot;RepoTags&quot;</span>: [
+          <span class="hljs-string">&quot;perl:5.24&quot;</span>
     ],
-    &quot;RepoDigests&quot;: [
-      &quot;perl@sha256:6c589d851fed973cf7e1285abc13f4f92d31665f6acf4e094819d5292160e5c7&quot;
+    <span class="hljs-string">&quot;RepoDigests&quot;</span>: [
+      <span class="hljs-string">&quot;perl@sha256:6c589d851fed973cf7e1285abc13f4f92d31665f6acf4e094819d5292160e5c7&quot;</span>
     ],
-    &quot;Created&quot;: 1477122199,
-    &quot;Size&quot;: 655927650,
-    &quot;VirtualSize&quot;: 655927650,
-    &quot;Labels&quot;: {}
+    <span class="hljs-string">&quot;Created&quot;</span>: <span class="hljs-number">1477122199</span>,
+    <span class="hljs-string">&quot;Size&quot;</span>: <span class="hljs-number">655927650</span>,
+    <span class="hljs-string">&quot;VirtualSize&quot;</span>: <span class="hljs-number">655927650</span>,
+    <span class="hljs-string">&quot;Labels&quot;</span>: {}
 },
 </code></pre>
 
@@ -120,35 +121,35 @@ unreadable JSON about all installed Docker images.</p>
 
 <h3>Return just the image ids</h3>
 
-<pre><code>curl -s --unix-socket /run/docker.sock http://docker/images/json \
-    | jq &#39;.[]|.Id&#39;
+<pre><code class="hljs">curl -s --unix-socket /run/docker.sock http://docker/images/json \
+    <span class="hljs-keyword">|</span> jq <span class="hljs-string">&#39;.[]|.Id&#39;</span>
 </code></pre>
 
 <h3>Return image ids and creation epoch time</h3>
 
-<pre><code>curl -s --unix-socket /run/docker.sock http://docker/images/json \
-    | jq &#39;.[]|.Id,.Created&#39;
+<pre><code class="hljs">curl -s --unix-socket /run/docker.sock http://docker/images/json \
+    <span class="hljs-keyword">|</span> jq <span class="hljs-string">&#39;.[]|.Id,.Created&#39;</span>
 </code></pre>
 
 <h3>Search for a given image and return created epoch time</h3>
 
-<pre><code>curl -s --unix-socket /run/docker.sock http://docker/images/json \
-    | jq &#39;.[]| select( .Id \
-    == \
-    &quot;sha256:52c080433dada462d6c7fbaa7f84f96a20448a23cdcec115cf17deaee8d3c4a8&quot; )\
-    |.Created&#39;
+<pre><code class="hljs">curl -s --unix-socket /run/docker.sock http://docker/images/json \
+    <span class="hljs-keyword">|</span> jq <span class="hljs-string">&#39;.[]| select( .Id \</span><span class="hljs-string">
+</span><span class="hljs-string">    == \</span><span class="hljs-string">
+</span><span class="hljs-string">    &quot;sha256:52c080433dada462d6c7fbaa7f84f96a20448a23cdcec115cf17deaee8d3c4a8&quot; )\</span><span class="hljs-string">
+</span><span class="hljs-string">    |.Created&#39;</span>
 </code></pre>
 
 <h3>Search for images created earlier than 10 minutes ago</h3>
 
-<pre><code>curl -s --unix-socket /run/docker.sock http://docker/images/json \
-    | jq &#39;.[]| select( .Created &lt; ( now - 600 ))|.Id&#39;
+<pre><code class="hljs">curl -s --unix-socket /run/docker.sock http://docker/images/json \
+    <span class="hljs-keyword">|</span> jq <span class="hljs-string">&#39;.[]| select( .Created &lt; ( now - 600 ))|.Id&#39;</span>
 </code></pre>
 
 <h3>Search for images that contain given RepoTags and return the created epoch time</h3>
 
-<pre><code>curl -s --unix-socket /run/docker.sock http://docker/images/json \
-    | jq &#39;.[] | select( .RepoTags[] == &quot;perl:5.24&quot; )|.Created&#39;
+<pre><code class="hljs">curl -s --unix-socket /run/docker.sock http://docker/images/json \
+    <span class="hljs-keyword">|</span> jq <span class="hljs-string">&#39;.[] | select( .RepoTags[] == &quot;perl:5.24&quot; )|.Created&#39;</span>
 </code></pre>
 
 <h2>References:</h2>

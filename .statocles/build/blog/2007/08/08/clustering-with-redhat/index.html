@@ -10,6 +10,7 @@
         <title>Clustering with Red Hat - Neil H. Watson</title>
         <meta content="Statocles 0.077" name="generator">
         
+        <link href="/theme/plugin/highlight/default.css" rel="stylesheet" type="text/css">
 
         <!-- For source highlighting -->
         <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/default.min.css" rel="stylesheet">
@@ -164,24 +165,18 @@ GATEWAY=172.16.1.1
 IPADDR=172.16.1.203
 </code></pre></li>
 <li><p>Activate the bonding by restarting the network service. Test for fail over.</p></li>
-<li><p>Stop all unneeded services from starting at boot.</p>
-
-<pre><code>chkconfig --del &lt;service&gt;
-</code></pre></li>
-<li><p>Install the NTP service and point it to an ntp server.</p></li>
-<li><p>Install Redhat Cluster Suite by subscribing the system to the channel and
-running up2date.</p>
-
-<pre><code>up2date --installall rhel-x86_64-as-cluster
-</code></pre></li>
-<li><p>Create the shared partition on a SAN. Format it to ext3. Ensure that the
+<li>Stop all unneeded services from starting at boot.
+<code><pre>chkconfig --del <service></service></pre></code></li>
+<li>Install the NTP service and point it to an ntp server.</li>
+<li>Install Redhat Cluster Suite by subscribing the system to the channel and
+running up2date.
+<code><pre>up2date --installall rhel-x86_64-as-cluster</pre></code></li>
+<li>Create the shared partition on a SAN. Format it to ext3. Ensure that the
 server can mount the shared partition but do not allow the server to mount
 this partition automatically. Make fstab entry with the noauto option to
-prevent mount and boot time.</p></li>
-<li><p>Install Perl SSL module for iLO management</p>
-
-<pre><code>up2date -i perl-Crypt-SSLeay
-</code></pre></li>
+prevent mount and boot time.</li>
+<li>Install Perl SSL module for iLO management
+<code><pre>up2date -i perl-Crypt-SSLeay</pre></code></li>
 </ol>
 
 <h3>Install DB2 on primary node</h3>
@@ -411,15 +406,15 @@ will prevent the cluster from attempting to use it if the running node should
 fail. Stop these services, in order, and then ensure that they do not start at
 boot time:</p>
 
-<pre><code>    service rgmanager stop
-    service fenced stop
-    service cman stop
-    service ccsd stop
+<pre><code>service rgmanager stop
+service fenced stop
+service cman stop
+service ccsd stop
 
-    chkconfig --del rgmanager
-    chkconfig --del fenced
-    chkconfig --del cman
-    chkconfig --del ccsd
+chkconfig --del rgmanager
+chkconfig --del fenced
+chkconfig --del cman
+chkconfig --del ccsd
 </code></pre>
 
 <h3>Perform off line maintenance</h3>
@@ -459,17 +454,17 @@ service rgmanager start
 
 <p>The command clustat will return the status of the cluster. For example:</p>
 
-<pre><code>    [root@hadrian ~]# clustat
-    Member Status: Quorate
+<pre><code>[root@hadrian ~]# clustat
+Member Status: Quorate
 
-      Member Name                  Status
-      ------ ----                  ------
-      hadrian                      Online, Local, rgmanager
-      caesar                       Online, rgmanager
+  Member Name                  Status
+  ------ ----                  ------
+  hadrian                      Online, Local, rgmanager
+  caesar                       Online, rgmanager
 
-      Service Name   Owner (Last)             State         
-      ------- ----   ----- ------             -----         
-      db2            hadrian                  started
+  Service Name   Owner (Last)             State         
+  ------- ----   ----- ------             -----         
+  db2            hadrian                  started
 </code></pre>
 
 <h3>Log files</h3>
@@ -479,46 +474,46 @@ status events and fail overs. For example:</p>
 
 <h4>Status check</h4>
 
-<pre><code>    Aug 16 15:09:40 caesar clurgmgrd: [5159]: &lt;info&gt; Executing
-    /etc/rc.d/init.d/db2 status 
-    Aug 16 15:09:40 caesar su(pam_unix)[28369]: session opened for user dwapinst by
-    (uid=0)
-    Aug 16 15:09:40 caesar su: 
-    Aug 16 15:09:40 caesar su: Instance  : dwapinst
-    Aug 16 15:09:40 caesar su: DB2 State : Available
-    Aug 16 15:09:40 caesar su(pam_unix)[28369]: session closed for user dwapinst
-    Aug 16 15:09:40 caesar db2:  succeeded
+<pre><code>Aug 16 15:09:40 caesar clurgmgrd: [5159]: &lt;info&gt; Executing
+/etc/rc.d/init.d/db2 status 
+Aug 16 15:09:40 caesar su(pam_unix)[28369]: session opened for user dwapinst by
+(uid=0)
+Aug 16 15:09:40 caesar su: 
+Aug 16 15:09:40 caesar su: Instance  : dwapinst
+Aug 16 15:09:40 caesar su: DB2 State : Available
+Aug 16 15:09:40 caesar su(pam_unix)[28369]: session closed for user dwapinst
+Aug 16 15:09:40 caesar db2:  succeeded
 </code></pre>
 
 <h4>Failover</h4>
 
-<pre><code>    Aug 16 15:03:26 hadrian kernel: end_request: I/O error, dev sda, sector 65
-    Aug 16 15:03:26 hadrian kernel: EXT3-fs: unable to read superblock
-    Aug 16 15:03:26 hadrian clurgmgrd: [4679]: &lt;err&gt; &#39;mount -t ext3
-    /dev/sda1 /db2&#39; failed, error=32
-    Aug 16 15:03:26 hadrian clurgmgrd[4679]: &lt;notice&gt; start on fs &quot;db2&quot;
-    returned 2 (invalid argument(s))
-    Aug 16 15:03:26 hadrian clurgmgrd[4679]: &lt;warning&gt; #68: Failed to start
-    db2; return value: 1
-    Aug 16 15:03:26 hadrian clurgmgrd[4679]: &lt;notice&gt; Stopping service db2
-    Aug 16 15:03:26 hadrian clurgmgrd: [4679]: &lt;info&gt; Executing
-    /etc/rc.d/init.d/db2 stop
-    Aug 16 15:03:26 hadrian su(pam_unix)[27368]: session opened for user dwapinst
-    by (uid=0)
-    Aug 16 15:03:26 hadrian su:
-    Aug 16 15:03:26 hadrian su: Instance  : dwapinst
-    Aug 16 15:03:26 hadrian su: DB2 State : Operable
-    Aug 16 15:03:26 hadrian su(pam_unix)[27368]: session closed for user dwapinst
-    Aug 16 15:03:26 hadrian db2:  failed
-    Aug 16 15:03:26 hadrian db2:  succeeded
-    Aug 16 15:03:26 hadrian clurgmgrd: [4679]: &lt;info&gt; /dev/sda1 is not
-    mounted
-    Aug 16 15:03:31 hadrian clurgmgrd[4679]: &lt;notice&gt; Service db2 is
-    recovering
-    Aug 16 15:03:31 hadrian clurgmgrd[4679]: &lt;warning&gt; #71: Relocating failed
-    service db2
-    Aug 16 15:03:35 hadrian clurgmgrd[4679]: &lt;notice&gt; Service db2 is now
-    running on member 1
+<pre><code>Aug 16 15:03:26 hadrian kernel: end_request: I/O error, dev sda, sector 65
+Aug 16 15:03:26 hadrian kernel: EXT3-fs: unable to read superblock
+Aug 16 15:03:26 hadrian clurgmgrd: [4679]: &lt;err&gt; &#39;mount -t ext3
+/dev/sda1 /db2&#39; failed, error=32
+Aug 16 15:03:26 hadrian clurgmgrd[4679]: &lt;notice&gt; start on fs &quot;db2&quot;
+returned 2 (invalid argument(s))
+Aug 16 15:03:26 hadrian clurgmgrd[4679]: &lt;warning&gt; #68: Failed to start
+db2; return value: 1
+Aug 16 15:03:26 hadrian clurgmgrd[4679]: &lt;notice&gt; Stopping service db2
+Aug 16 15:03:26 hadrian clurgmgrd: [4679]: &lt;info&gt; Executing
+/etc/rc.d/init.d/db2 stop
+Aug 16 15:03:26 hadrian su(pam_unix)[27368]: session opened for user dwapinst
+by (uid=0)
+Aug 16 15:03:26 hadrian su:
+Aug 16 15:03:26 hadrian su: Instance  : dwapinst
+Aug 16 15:03:26 hadrian su: DB2 State : Operable
+Aug 16 15:03:26 hadrian su(pam_unix)[27368]: session closed for user dwapinst
+Aug 16 15:03:26 hadrian db2:  failed
+Aug 16 15:03:26 hadrian db2:  succeeded
+Aug 16 15:03:26 hadrian clurgmgrd: [4679]: &lt;info&gt; /dev/sda1 is not
+mounted
+Aug 16 15:03:31 hadrian clurgmgrd[4679]: &lt;notice&gt; Service db2 is
+recovering
+Aug 16 15:03:31 hadrian clurgmgrd[4679]: &lt;warning&gt; #71: Relocating failed
+service db2
+Aug 16 15:03:35 hadrian clurgmgrd[4679]: &lt;notice&gt; Service db2 is now
+running on member 1
 </code></pre>
 
 <h3><a name="conslusion"></a>Conclusions</h3>
@@ -554,89 +549,89 @@ load balancing instead of or, in addition to redundancy.</p>
 
 <h3><a name="appendix-a"></a>DB2 init script</h3>
 
-<pre><code>    #!/bin/bash
-    #
-    #-------------------------  /etc/init.d/db2 ------------------------
-    # db2 
-    #
-    # description:  Start up the db2 service 
+<pre><code class="hljs"><span class="hljs-comment">#!/bin/bash</span><span class="hljs-comment">
+</span><span class="hljs-comment">#</span><span class="hljs-comment">
+</span><span class="hljs-comment">#-------------------------  /etc/init.d/db2 ------------------------</span><span class="hljs-comment">
+</span><span class="hljs-comment"># db2 </span><span class="hljs-comment">
+</span><span class="hljs-comment">#</span><span class="hljs-comment">
+</span><span class="hljs-comment"># description:  Start up the db2 service </span><span class="hljs-comment">
+</span>
+<span class="hljs-comment"># Source function library.</span><span class="hljs-comment">
+</span>        . /etc/rc.d/init.d/functions
 
-    # Source function library.
-            . /etc/rc.d/init.d/functions
+<span class="hljs-comment"># Application owner </span><span class="hljs-comment">
+</span>USER=dwapinst
 
-    # Application owner 
-    USER=dwapinst
+RETVAL=0
+prog=<span class="hljs-string">&quot;db2&quot;</span>
 
-    RETVAL=0
-    prog=&quot;db2&quot;
+<span class="hljs-string">start()</span> <span class="hljs-keyword">{</span>
+    <span class="hljs-built-in">echo</span> -n <span class="hljs-string">$&quot;Starting </span>$prog<span class="hljs-string">:&quot;</span>
+    initlog -c <span class="hljs-string">&quot;/bin/su - </span>$USER<span class="hljs-string"> -c &#39;db2start&#39;&quot;</span> <span class="hljs-keyword">&amp;&amp;</span> success <span class="hljs-keyword">||</span> failure
+    RETVAL=$?
+    <span class="hljs-built-in">echo</span> <span class="hljs-string">&quot;&quot;</span>
 
-    start() {
-        echo -n $&quot;Starting $prog:&quot;
-        initlog -c &quot;/bin/su - $USER -c &#39;db2start&#39;&quot; &amp;&amp; success || failure
-        RETVAL=$?
-        echo &quot;&quot;
+<span class="hljs-keyword">}</span>
 
-    }
+<span class="hljs-string">status()</span> <span class="hljs-keyword">{</span>
+    initlog -c <span class="hljs-string">&quot;/bin/su - </span>$USER<span class="hljs-string"> -c &#39;db2gcf -s&#39;&quot;</span> <span class="hljs-keyword">&amp;&amp;</span> success <span class="hljs-keyword">||</span> failure
+    RETVAL=$?
+    <span class="hljs-built-in">echo</span> <span class="hljs-string">&quot;&quot;</span>
+<span class="hljs-keyword">}</span>
 
-    status() {
-        initlog -c &quot;/bin/su - $USER -c &#39;db2gcf -s&#39;&quot; &amp;&amp; success || failure
-        RETVAL=$?
-        echo &quot;&quot;
-    }
+<span class="hljs-string">stop()</span> <span class="hljs-keyword">{</span>
+    <span class="hljs-built-in">echo</span> -n <span class="hljs-string">$&quot;Stopping </span>$prog<span class="hljs-string">:&quot;</span>
 
-    stop() {
-        echo -n $&quot;Stopping $prog:&quot;
+    <span class="hljs-comment"># Is DB2 already stopped?</span><span class="hljs-comment">
+</span>    status
+    <span class="hljs-keyword">if</span><span class="hljs-built-in"> [</span> $RETVAL -gt 0<span class="hljs-built-in"> ]</span>; <span class="hljs-keyword">then</span>
 
-        # Is DB2 already stopped?
+        <span class="hljs-comment"># Already stoped return 0</span><span class="hljs-comment">
+</span>        <span class="hljs-built-in">echo</span> <span class="hljs-string">&quot;Already stopped&quot;</span>
+        success
+        RETVAL=0
+        <span class="hljs-built-in">echo</span> <span class="hljs-string">&quot;&quot;</span>
+    <span class="hljs-keyword">else</span>
+        <span class="hljs-comment"># DB2 must still be running.  Stop it.</span><span class="hljs-comment">
+</span>        initlog -c <span class="hljs-string">&quot;/bin/su - </span>$USER<span class="hljs-string"> -c </span><span class="hljs-type">\
+</span><span class="hljs-string">            &#39;db2 force application all&#39;&quot;</span> \
+            <span class="hljs-keyword">&amp;&amp;</span> success <span class="hljs-keyword">||</span> failure <span class="hljs-keyword">&amp;</span>
+        sleep 5
+        initlog -c <span class="hljs-string">&quot;/bin/su - </span>$USER<span class="hljs-string"> -c </span><span class="hljs-type">\
+</span><span class="hljs-string">            &#39;db2stop force&#39;&quot;</span> <span class="hljs-keyword">&amp;&amp;</span> success \
+            <span class="hljs-keyword">||</span> failure <span class="hljs-keyword">&amp;</span>
+        sleep 5
+        initlog -c <span class="hljs-string">&quot;/bin/su - </span>$USER<span class="hljs-string"> -c </span><span class="hljs-type">\
+</span><span class="hljs-string">            &#39;db2_kill&#39;&quot;</span> <span class="hljs-keyword">&amp;&amp;</span> success \
+            <span class="hljs-keyword">||</span> failure <span class="hljs-keyword">&amp;</span>
+        <span class="hljs-built-in">echo</span> <span class="hljs-string">&quot;&quot;</span>
+    <span class="hljs-keyword">fi</span>
+<span class="hljs-keyword">}</span>
+
+<span class="hljs-keyword">case</span> <span class="hljs-string">&quot;</span>$1<span class="hljs-string">&quot;</span><span class="hljs-keyword"> in</span>
+ start<span class="hljs-keyword">)</span>
+   start
+        <span class="hljs-keyword">;;</span>
+ stop<span class="hljs-keyword">)</span>
+        stop 
+        <span class="hljs-keyword">;;</span>
+
+ status<span class="hljs-keyword">)</span>
         status
-        if [ $RETVAL -gt 0 ]; then
+        <span class="hljs-keyword">;;</span>
 
-            # Already stoped return 0
-            echo &quot;Already stopped&quot;
-            success
-            RETVAL=0
-            echo &quot;&quot;
-        else
-            # DB2 must still be running.  Stop it.
-            initlog -c &quot;/bin/su - $USER -c \
-                &#39;db2 force application all&#39;&quot; \
-                &amp;&amp; success || failure &amp;
-            sleep 5
-            initlog -c &quot;/bin/su - $USER -c \
-                &#39;db2stop force&#39;&quot; &amp;&amp; success \
-                || failure &amp;
-            sleep 5
-            initlog -c &quot;/bin/su - $USER -c \
-                &#39;db2_kill&#39;&quot; &amp;&amp; success \
-                || failure &amp;
-            echo &quot;&quot;
-        fi
-    }
+ restart<span class="hljs-keyword">)</span>
+   stop
+        sleep 3
+   start
+        <span class="hljs-keyword">;;</span>
+ *<span class="hljs-keyword">)</span>
+    <span class="hljs-built-in">echo</span> <span class="hljs-string">$&quot;Usage: </span>$0<span class="hljs-string"> {start|stop|restart}&quot;</span>
+    RETVAL=1
+    <span class="hljs-keyword">;;</span>
+<span class="hljs-keyword">esac</span>
 
-    case &quot;$1&quot; in
-     start)
-       start
-            ;;
-     stop)
-            stop 
-            ;;
-
-     status)
-            status
-            ;;
-
-     restart)
-       stop
-            sleep 3
-       start
-            ;;
-     *)
-        echo $&quot;Usage: $0 {start|stop|restart}&quot;
-        RETVAL=1
-        ;;
-    esac
-
-    exit $RETVAL
+<span class="hljs-built-in">exit</span> $RETVAL
 </code></pre>
 
             </section>

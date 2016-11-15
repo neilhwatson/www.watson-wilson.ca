@@ -95,25 +95,18 @@ between revisions of this paper and Redhat’s documentation.
         IPADDR=172.16.1.203
 
 1. Activate the bonding by restarting the network service. Test for fail over.
-
 1. Stop all unneeded services from starting at boot.
-
-        chkconfig --del <service>
-
+<code><pre>chkconfig --del <service></pre></code>
 1. Install the NTP service and point it to an ntp server.
 1. Install Redhat Cluster Suite by subscribing the system to the channel and
    running up2date.
-
-        up2date --installall rhel-x86_64-as-cluster
-
+<code><pre>up2date --installall rhel-x86_64-as-cluster</pre></code>
 1. Create the shared partition on a SAN. Format it to ext3. Ensure that the
    server can mount the shared partition but do not allow the server to mount
    this partition automatically. Make fstab entry with the noauto option to
    prevent mount and boot time.
-
 1. Install Perl SSL module for iLO management
-
-        up2date -i perl-Crypt-SSLeay
+<code><pre>up2date -i perl-Crypt-SSLeay</pre></code>
 
 ### Install DB2 on primary node
 
@@ -318,15 +311,15 @@ will prevent the cluster from attempting to use it if the running node should
 fail. Stop these services, in order, and then ensure that they do not start at
 boot time:
 
-        service rgmanager stop
-        service fenced stop
-        service cman stop
-        service ccsd stop
+    service rgmanager stop
+    service fenced stop
+    service cman stop
+    service ccsd stop
 
-        chkconfig --del rgmanager
-        chkconfig --del fenced
-        chkconfig --del cman
-        chkconfig --del ccsd
+    chkconfig --del rgmanager
+    chkconfig --del fenced
+    chkconfig --del cman
+    chkconfig --del ccsd
 
 ### Perform off line maintenance
 
@@ -362,17 +355,17 @@ You must have a working X server to use this option.
 
 The command clustat will return the status of the cluster. For example:
 
-        [root@hadrian ~]# clustat
-        Member Status: Quorate
+    [root@hadrian ~]# clustat
+    Member Status: Quorate
 
-          Member Name                  Status
-          ------ ----                  ------
-          hadrian                      Online, Local, rgmanager
-          caesar                       Online, rgmanager
+      Member Name                  Status
+      ------ ----                  ------
+      hadrian                      Online, Local, rgmanager
+      caesar                       Online, rgmanager
 
-          Service Name   Owner (Last)             State         
-          ------- ----   ----- ------             -----         
-          db2            hadrian                  started
+      Service Name   Owner (Last)             State         
+      ------- ----   ----- ------             -----         
+      db2            hadrian                  started
 
 ### Log files
 
@@ -381,45 +374,45 @@ status events and fail overs. For example:
 
 #### Status check
 
-        Aug 16 15:09:40 caesar clurgmgrd: [5159]: <info> Executing
-        /etc/rc.d/init.d/db2 status 
-        Aug 16 15:09:40 caesar su(pam_unix)[28369]: session opened for user dwapinst by
-        (uid=0)
-        Aug 16 15:09:40 caesar su: 
-        Aug 16 15:09:40 caesar su: Instance  : dwapinst
-        Aug 16 15:09:40 caesar su: DB2 State : Available
-        Aug 16 15:09:40 caesar su(pam_unix)[28369]: session closed for user dwapinst
-        Aug 16 15:09:40 caesar db2:  succeeded
+    Aug 16 15:09:40 caesar clurgmgrd: [5159]: <info> Executing
+    /etc/rc.d/init.d/db2 status 
+    Aug 16 15:09:40 caesar su(pam_unix)[28369]: session opened for user dwapinst by
+    (uid=0)
+    Aug 16 15:09:40 caesar su: 
+    Aug 16 15:09:40 caesar su: Instance  : dwapinst
+    Aug 16 15:09:40 caesar su: DB2 State : Available
+    Aug 16 15:09:40 caesar su(pam_unix)[28369]: session closed for user dwapinst
+    Aug 16 15:09:40 caesar db2:  succeeded
 
 #### Failover
 
-        Aug 16 15:03:26 hadrian kernel: end_request: I/O error, dev sda, sector 65
-        Aug 16 15:03:26 hadrian kernel: EXT3-fs: unable to read superblock
-        Aug 16 15:03:26 hadrian clurgmgrd: [4679]: <err> 'mount -t ext3
-        /dev/sda1 /db2' failed, error=32
-        Aug 16 15:03:26 hadrian clurgmgrd[4679]: <notice> start on fs "db2"
-        returned 2 (invalid argument(s))
-        Aug 16 15:03:26 hadrian clurgmgrd[4679]: <warning> #68: Failed to start
-        db2; return value: 1
-        Aug 16 15:03:26 hadrian clurgmgrd[4679]: <notice> Stopping service db2
-        Aug 16 15:03:26 hadrian clurgmgrd: [4679]: <info> Executing
-        /etc/rc.d/init.d/db2 stop
-        Aug 16 15:03:26 hadrian su(pam_unix)[27368]: session opened for user dwapinst
-        by (uid=0)
-        Aug 16 15:03:26 hadrian su:
-        Aug 16 15:03:26 hadrian su: Instance  : dwapinst
-        Aug 16 15:03:26 hadrian su: DB2 State : Operable
-        Aug 16 15:03:26 hadrian su(pam_unix)[27368]: session closed for user dwapinst
-        Aug 16 15:03:26 hadrian db2:  failed
-        Aug 16 15:03:26 hadrian db2:  succeeded
-        Aug 16 15:03:26 hadrian clurgmgrd: [4679]: <info> /dev/sda1 is not
-        mounted
-        Aug 16 15:03:31 hadrian clurgmgrd[4679]: <notice> Service db2 is
-        recovering
-        Aug 16 15:03:31 hadrian clurgmgrd[4679]: <warning> #71: Relocating failed
-        service db2
-        Aug 16 15:03:35 hadrian clurgmgrd[4679]: <notice> Service db2 is now
-        running on member 1
+    Aug 16 15:03:26 hadrian kernel: end_request: I/O error, dev sda, sector 65
+    Aug 16 15:03:26 hadrian kernel: EXT3-fs: unable to read superblock
+    Aug 16 15:03:26 hadrian clurgmgrd: [4679]: <err> 'mount -t ext3
+    /dev/sda1 /db2' failed, error=32
+    Aug 16 15:03:26 hadrian clurgmgrd[4679]: <notice> start on fs "db2"
+    returned 2 (invalid argument(s))
+    Aug 16 15:03:26 hadrian clurgmgrd[4679]: <warning> #68: Failed to start
+    db2; return value: 1
+    Aug 16 15:03:26 hadrian clurgmgrd[4679]: <notice> Stopping service db2
+    Aug 16 15:03:26 hadrian clurgmgrd: [4679]: <info> Executing
+    /etc/rc.d/init.d/db2 stop
+    Aug 16 15:03:26 hadrian su(pam_unix)[27368]: session opened for user dwapinst
+    by (uid=0)
+    Aug 16 15:03:26 hadrian su:
+    Aug 16 15:03:26 hadrian su: Instance  : dwapinst
+    Aug 16 15:03:26 hadrian su: DB2 State : Operable
+    Aug 16 15:03:26 hadrian su(pam_unix)[27368]: session closed for user dwapinst
+    Aug 16 15:03:26 hadrian db2:  failed
+    Aug 16 15:03:26 hadrian db2:  succeeded
+    Aug 16 15:03:26 hadrian clurgmgrd: [4679]: <info> /dev/sda1 is not
+    mounted
+    Aug 16 15:03:31 hadrian clurgmgrd[4679]: <notice> Service db2 is
+    recovering
+    Aug 16 15:03:31 hadrian clurgmgrd[4679]: <warning> #71: Relocating failed
+    service db2
+    Aug 16 15:03:35 hadrian clurgmgrd[4679]: <notice> Service db2 is now
+    running on member 1
 
 ### <a name='conslusion'></a>Conclusions
 
@@ -453,88 +446,90 @@ load balancing instead of or, in addition to redundancy.
 
 ### <a name='appendix-a'></a>DB2 init script
 
-        #!/bin/bash
-        #
-        #-------------------------  /etc/init.d/db2 ------------------------
-        # db2 
-        #
-        # description:  Start up the db2 service 
-        
-        # Source function library.
-                . /etc/rc.d/init.d/functions
-        
-        # Application owner 
-        USER=dwapinst
+%= highlight Bash => begin
+#!/bin/bash
+#
+#-------------------------  /etc/init.d/db2 ------------------------
+# db2 
+#
+# description:  Start up the db2 service 
 
+# Source function library.
+        . /etc/rc.d/init.d/functions
+
+# Application owner 
+USER=dwapinst
+
+RETVAL=0
+prog="db2"
+
+start() {
+    echo -n $"Starting $prog:"
+    initlog -c "/bin/su - $USER -c 'db2start'" && success || failure
+    RETVAL=$?
+    echo ""
+
+}
+
+status() {
+    initlog -c "/bin/su - $USER -c 'db2gcf -s'" && success || failure
+    RETVAL=$?
+    echo ""
+}
+
+stop() {
+    echo -n $"Stopping $prog:"
+
+    # Is DB2 already stopped?
+    status
+    if [ $RETVAL -gt 0 ]; then
+      
+        # Already stoped return 0
+        echo "Already stopped"
+        success
         RETVAL=0
-        prog="db2"
+        echo ""
+    else
+        # DB2 must still be running.  Stop it.
+        initlog -c "/bin/su - $USER -c \\
+            'db2 force application all'" \\
+            && success || failure &
+        sleep 5
+        initlog -c "/bin/su - $USER -c \\
+            'db2stop force'" && success \\
+            || failure &
+        sleep 5
+        initlog -c "/bin/su - $USER -c \\
+            'db2_kill'" && success \\
+            || failure &
+        echo ""
+    fi
+}
 
-        start() {
-            echo -n $"Starting $prog:"
-            initlog -c "/bin/su - $USER -c 'db2start'" && success || failure
-            RETVAL=$?
-            echo ""
+case "$1" in
+ start)
+   start
+        ;;
+ stop)
+        stop 
+        ;;
 
-        }
+ status)
+        status
+        ;;
 
-        status() {
-            initlog -c "/bin/su - $USER -c 'db2gcf -s'" && success || failure
-            RETVAL=$?
-            echo ""
-        }
+ restart)
+   stop
+        sleep 3
+   start
+        ;;
+ *)
+    echo $"Usage: $0 {start|stop|restart}"
+    RETVAL=1
+    ;;
+esac
 
-        stop() {
-            echo -n $"Stopping $prog:"
-
-            # Is DB2 already stopped?
-            status
-            if [ $RETVAL -gt 0 ]; then
-              
-                # Already stoped return 0
-                echo "Already stopped"
-                success
-                RETVAL=0
-                echo ""
-            else
-                # DB2 must still be running.  Stop it.
-                initlog -c "/bin/su - $USER -c \\
-                    'db2 force application all'" \\
-                    && success || failure &
-                sleep 5
-                initlog -c "/bin/su - $USER -c \\
-                    'db2stop force'" && success \\
-                    || failure &
-                sleep 5
-                initlog -c "/bin/su - $USER -c \\
-                    'db2_kill'" && success \\
-                    || failure &
-                echo ""
-            fi
-        }
-
-        case "$1" in
-         start)
-           start
-                ;;
-         stop)
-                stop 
-                ;;
-
-         status)
-                status
-                ;;
-
-         restart)
-           stop
-                sleep 3
-           start
-                ;;
-         *)
-            echo $"Usage: $0 {start|stop|restart}"
-            RETVAL=1
-            ;;
-        esac
-
-        exit $RETVAL
+exit $RETVAL
+% end
 
 

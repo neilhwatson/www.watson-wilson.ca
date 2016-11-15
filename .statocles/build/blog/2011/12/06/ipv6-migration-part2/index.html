@@ -10,6 +10,7 @@
         <title>IPv6 Migration part 2 - Neil H. Watson</title>
         <meta content="Statocles 0.077" name="generator">
         
+        <link href="/theme/plugin/highlight/default.css" rel="stylesheet" type="text/css">
 
         <!-- For source highlighting -->
         <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/default.min.css" rel="stylesheet">
@@ -110,16 +111,16 @@ the in past. A working DNS service is paramount for successful use of IPV6.</p>
 
 <p>Next was to configure a virtual host in Apache.</p>
 
-<pre><code>Listen [2604:8800:100:111::2]:80
-&lt;VirtualHost *:80&gt;
+<pre><code class="hljs">    Listen<span class="hljs-string"> [2604:8800:100:111::2]:80
+    &lt;VirtualHost *:80&gt;
 
-    ServerName ipv6.watson-wilson.ca
-    DocumentRoot &quot;/var/www/ipv6/&quot;
-    ErrorLog /var/log/apache2/error_log
-    CustomLog /var/log/apache2/access_log combined
+        ServerName ipv6.watson-wilson.ca
+        DocumentRoot &quot;/var/www/ipv6/&quot;
+        ErrorLog /var/log/apache2/error_log
+        CustomLog /var/log/apache2/access_log combined
 
-&lt;/VirtualHost&gt;
-</code></pre>
+    &lt;/VirtualHost&gt;
+</span></code></pre>
 
 <p>If you have an IPV6 tunnel you can visit it here. If not, you can visit it via
 <a href="http://ipv6proxy.net">ipv6proxy.net</a>.</p>

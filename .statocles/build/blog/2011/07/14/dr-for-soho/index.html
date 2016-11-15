@@ -10,6 +10,7 @@
         <title>Disaster recovery for small business - Neil H. Watson</title>
         <meta content="Statocles 0.077" name="generator">
         
+        <link href="/theme/plugin/highlight/default.css" rel="stylesheet" type="text/css">
 
         <!-- For source highlighting -->
         <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/default.min.css" rel="stylesheet">
@@ -87,7 +88,7 @@ perform my backups with Tar. I want to use GnuPG to encrypt them. Consult with
 the GnuPG documentation on how to generate a key pair. Once you have done so
 you can encrypt your backups like this.</p>
 
-<pre><code>gpg -r &quot;Neil Watson&quot; -o - -e mybackup.tar.gz |        ssh vpn.example.com &quot;cat &gt; backups/mybackup.tar.gz.en&quot;
+<pre><code class="hljs">    gpg -r <span class="hljs-string">&quot;Neil Watson&quot;</span> -o - -e mybackup.tar.gz <span class="hljs-keyword">|</span>        ssh vpn.example.com <span class="hljs-string">&quot;cat &gt; backups/mybackup.tar.gz.en&quot;</span>
 </code></pre>
 
 <p>This instructs GnuGP to encrypt my backup tar file. The encrypted file is sent

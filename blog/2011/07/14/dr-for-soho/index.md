@@ -23,8 +23,10 @@ perform my backups with Tar. I want to use GnuPG to encrypt them. Consult with
 the GnuPG documentation on how to generate a key pair. Once you have done so
 you can encrypt your backups like this.
 
+%= highlight Bash => begin
     gpg -r "Neil Watson" -o - -e mybackup.tar.gz | \
        ssh vpn.example.com "cat > backups/mybackup.tar.gz.en"
+% end
 
 This instructs GnuGP to encrypt my backup tar file. The encrypted file is sent
 to standard output. This is piped to SSH where it is redirected to a target

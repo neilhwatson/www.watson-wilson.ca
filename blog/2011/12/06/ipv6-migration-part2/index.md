@@ -44,6 +44,7 @@ the in past. A working DNS service is paramount for successful use of IPV6.
 
 Next was to configure a virtual host in Apache.
 
+%= highlight 'Apache Configuration' => begin
     Listen [2604:8800:100:111::2]:80
     <VirtualHost *:80>
 
@@ -53,6 +54,7 @@ Next was to configure a virtual host in Apache.
         CustomLog /var/log/apache2/access_log combined
 
     </VirtualHost>
+% end
 
 If you have an IPV6 tunnel you can visit it here. If not, you can visit it via
 [ipv6proxy.net](http://ipv6proxy.net).

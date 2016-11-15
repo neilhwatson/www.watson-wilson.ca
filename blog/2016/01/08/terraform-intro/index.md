@@ -40,7 +40,7 @@ are not yet defined. But the groups and keys will be created next, so,
 run terraform a second time and it will converge, by creating just the instance
 while leaving the already existing groups and keys as they are.
 
-<pre><code>
+%= highlight Javascript => begin
 provider "aws" {
    access_key = "your_key_here"
    secret_key = "your_secret_here"
@@ -94,7 +94,7 @@ resource "aws_instance" "tfdemo" {
    key_name = "neptune"
    security_groups = [ "ssh", "http", "default" ]
 }
-</code></pre>
+% end
 
 I've shown only a small portion of what terraform can do. Most
 [things](https://terraform.io/docs/providers/aws/index.html) you might want to

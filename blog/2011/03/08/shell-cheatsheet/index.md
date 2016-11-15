@@ -22,11 +22,15 @@ The following may not apply to all shells.
 - Delete shell history entry: `history -d <number>`
 - Rename rpmnew files:
 
-        find -type f -name "*.rpmnew" | sed 's/\(^.*\)\(\.rpmnew\)$/mv -f \1\2 \1/' |sh
+%= highlight Bash => begin
+find -type f -name "*.rpmnew" | sed 's/\(^.*\)\(\.rpmnew\)$/mv -f \1\2 \1/' |sh
+% end
 
 - Search and replace files in place:
 
-        find /path -name "*.*" -exec | perl -pi -e 's///g' {} \;
+%= highlight Bash => begin
+find /path -name "*.*" -exec | perl -pi -e 's///g' {} \;
+% end
 
 - vi cli editing: `set -o vi` Now esc to enter command mode where vi keys
   work. Pressing enter returns to normal mode.

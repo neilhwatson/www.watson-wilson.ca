@@ -12,6 +12,7 @@
         <link href="/blog/index.atom" rel="alternate" type="application/atom+xml">
         <link href="/blog/index.rss" rel="alternate" type="application/rss+xml">
         
+        <link href="/theme/plugin/highlight/default.css" rel="stylesheet" type="text/css">
 
         <!-- For source highlighting -->
         <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/default.min.css" rel="stylesheet">
@@ -309,16 +310,22 @@ virtualization solution for both desktops and servers, Linux and Windows.</p>
 <li>Recall all arguements from last command: <code>!*</code></li>
 <li>Clear shell history: <code>history -c</code></li>
 <li>Delete shell history entry: <code>history -d &lt;number&gt;</code></li>
-<li><p>Rename rpmnew files:</p>
+<li>Rename rpmnew files:</li>
+</ul>
 
-<pre><code>find -type f -name &quot;*.rpmnew&quot; | sed &#39;s/\(^.*\)\(\.rpmnew\)$/mv -f \1\2 \1/&#39; |sh
-</code></pre></li>
-<li><p>Search and replace files in place:</p>
+<pre><code class="hljs">find -type f -name <span class="hljs-string">&quot;*.rpmnew&quot;</span> <span class="hljs-keyword">|</span> sed <span class="hljs-string">&#39;s/\(^.*\)\(\.rpmnew\)$/mv -f \1\2 \1/&#39;</span> <span class="hljs-keyword">|</span>sh
+</code></pre>
 
-<pre><code>find /path -name &quot;*.*&quot; -exec | perl -pi -e &#39;s///g&#39; {} \;
-</code></pre></li>
-<li><p>vi cli editing: <code>set -o vi</code> Now esc to enter command mode where vi keys
-work. Pressing enter returns to normal mode.</p></li>
+<ul>
+<li>Search and replace files in place:</li>
+</ul>
+
+<pre><code class="hljs">find /path -name <span class="hljs-string">&quot;*.*&quot;</span> -exec <span class="hljs-keyword">|</span> perl -pi -e <span class="hljs-string">&#39;s///g&#39;</span> <span class="hljs-type">{}</span> <span class="hljs-type">\;</span>
+</code></pre>
+
+<ul>
+<li>vi cli editing: <code>set -o vi</code> Now esc to enter command mode where vi keys
+work. Pressing enter returns to normal mode.</li>
 </ul>
 
 

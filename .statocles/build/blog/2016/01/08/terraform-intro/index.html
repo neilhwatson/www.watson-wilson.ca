@@ -10,6 +10,7 @@
         <title>Introduction to Terraform - Neil H. Watson</title>
         <meta content="Statocles 0.077" name="generator">
         
+        <link href="/theme/plugin/highlight/default.css" rel="stylesheet" type="text/css">
 
         <!-- For source highlighting -->
         <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/default.min.css" rel="stylesheet">
@@ -109,59 +110,58 @@ are not yet defined. But the groups and keys will be created next, so,
 run terraform a second time and it will converge, by creating just the instance
 while leaving the already existing groups and keys as they are.</p>
 
-<pre><code>
-provider &quot;aws&quot; {
-   access_key = &quot;your_key_here&quot;
-   secret_key = &quot;your_secret_here&quot;
-   region = &quot;us-east-1&quot;
+<pre><code class="hljs">provider <span class="hljs-string">&quot;aws&quot;</span> {
+   access_key = <span class="hljs-string">&quot;your_key_here&quot;</span>
+   secret_key = <span class="hljs-string">&quot;your_secret_here&quot;</span>
+   region = <span class="hljs-string">&quot;us-east-1&quot;</span>
 }
 
-resource &quot;aws_key_pair&quot; &quot;neptune&quot; {
-   key_name = &quot;neptune&quot;
-   public_key = &quot;ssh-rsa AAA removed for brevity 1XCr neil@neptune&quot;
+resource <span class="hljs-string">&quot;aws_key_pair&quot;</span> <span class="hljs-string">&quot;neptune&quot;</span> {
+   key_name = <span class="hljs-string">&quot;neptune&quot;</span>
+   public_key = <span class="hljs-string">&quot;ssh-rsa AAA removed for brevity 1XCr neil@neptune&quot;</span>
 }
 
-resource &quot;aws_security_group&quot; &quot;ssh&quot; {
-   name = &quot;ssh&quot;
-   description = &quot;Allow inbound ssh&quot;
+resource <span class="hljs-string">&quot;aws_security_group&quot;</span> <span class="hljs-string">&quot;ssh&quot;</span> {
+   <span class="hljs-type">name</span> = <span class="hljs-string">&quot;ssh&quot;</span>
+   <span class="hljs-type">description</span> = <span class="hljs-string">&quot;Allow inbound ssh&quot;</span>
    ingress = {
       from_port = 0
-      to_port   = 22
-      protocol  = &quot;tcp&quot;
-      cidr_blocks = [ &quot;0.0.0.0/0&quot; ]
+      to_port   = <span class="hljs-number">22</span>
+      <span class="hljs-type">protocol</span>  = <span class="hljs-string">&quot;tcp&quot;</span>
+      cidr_blocks = [ <span class="hljs-string">&quot;0.0.0.0/0&quot;</span> ]
    }
 }
 
-resource &quot;aws_security_group&quot; &quot;http&quot; {
-   name = &quot;http&quot;
-   description = &quot;Allow inbound http&quot;
+resource <span class="hljs-string">&quot;aws_security_group&quot;</span> <span class="hljs-string">&quot;http&quot;</span> {
+   <span class="hljs-type">name</span> = <span class="hljs-string">&quot;http&quot;</span>
+   <span class="hljs-type">description</span> = <span class="hljs-string">&quot;Allow inbound http&quot;</span>
    ingress = {
       from_port = 0
-      to_port   = 80 
-      protocol  = &quot;tcp&quot;
-      cidr_blocks = [ &quot;0.0.0.0/0&quot; ]
+      to_port   = <span class="hljs-number">80</span> 
+      <span class="hljs-type">protocol</span>  = <span class="hljs-string">&quot;tcp&quot;</span>
+      cidr_blocks = [ <span class="hljs-string">&quot;0.0.0.0/0&quot;</span> ]
    }
    egress = {
       from_port = 0
-      to_port   = 80
-      protocol  = &quot;tcp&quot;
-      cidr_blocks = [ &quot;0.0.0.0/0&quot; ]
+      to_port   = <span class="hljs-number">80</span>
+      <span class="hljs-type">protocol</span>  = <span class="hljs-string">&quot;tcp&quot;</span>
+      cidr_blocks = [ <span class="hljs-string">&quot;0.0.0.0/0&quot;</span> ]
    }
    egress = {
       from_port = 0
       to_port   = 443
-      protocol  = &quot;tcp&quot;
-      cidr_blocks = [ &quot;0.0.0.0/0&quot; ]
+      <span class="hljs-type">protocol</span>  = <span class="hljs-string">&quot;tcp&quot;</span>
+      cidr_blocks = [ <span class="hljs-string">&quot;0.0.0.0/0&quot;</span> ]
    }
 }
 
-resource &quot;aws_instance&quot; &quot;tfdemo&quot; {
+resource <span class="hljs-string">&quot;aws_instance&quot;</span> <span class="hljs-string">&quot;tfdemo&quot;</span> {
 
-    ami = &quot;ami-60b6c60a&quot;
-    instance_type = &quot;t2.micro&quot;
+    ami = <span class="hljs-string">&quot;ami-60b6c60a&quot;</span>
+    instance_type = <span class="hljs-string">&quot;t2.micro&quot;</span>
 
-   key_name = &quot;neptune&quot;
-   security_groups = [ &quot;ssh&quot;, &quot;http&quot;, &quot;default&quot; ]
+   key_name = <span class="hljs-string">&quot;neptune&quot;</span>
+   security_groups = [ <span class="hljs-string">&quot;ssh&quot;</span>, <span class="hljs-string">&quot;http&quot;</span>, <span class="hljs-string">&quot;default&quot;</span> ]
 }
 </code></pre>
 
