@@ -3,7 +3,6 @@ MAINTAINER  Neil Watson <neil@watson-wilson.ca>
 COPY .statocles/build /usr/share/nginx/html
 EXPOSE 80
 LABEL site="www.watson-wilson.ca"
-LABEL version="1.0"
 
 # TODO add --drop-cap
 
@@ -15,7 +14,7 @@ LABEL version="1.0"
 
 # Run with, where host port 8000 is mapped to conatiner port 80, exposed by
 # Docker file
-# docker run --cap-drop=all --cap-add=chown --cap-add=net_bind_service --cap-add=setgid --cap-add=setuid --detach --publish 8000:80 --name www.watson-wilson.ca -t www.watson-wilson.ca
+# docker run --cap-drop=all --cap-add=chown --cap-add=net_bind_service --restart=unless-stopped --cap-add=setgid --cap-add=setuid --detach --publish 8000:80 --name www.watson-wilson.ca -t www.watson-wilson.ca
 
 # Stop with
 # docker stop $(docker ps |awk '$2 ~ /^www.watson-wilson.ca/ { print $1 }')
