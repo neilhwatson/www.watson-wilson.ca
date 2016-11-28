@@ -280,25 +280,101 @@ file permissions, and much more.</p>
 
 <p>Here is the more condensed data for file permissions with less syntax.</p>
 
-<pre><code># efl_files_perms.txt
-any ;; /etc/passwd ;; no ;; .* ;; 644 ;; root ;; root ;; security
-any ;; /etc/shadow ;; no ;; .* ;; 600 ;; root ;; root ;; security
-any ;; /tmp        ;; no ;; .* ;; 777 ;; root ;; root ;; security
+<h4>efl_files_perms.json</h4>
+
+<pre><code>[
+  {
+     &quot;leaf_regex&quot; : &quot;.*&quot;,
+     &quot;group&quot; : &quot;security&quot;,
+     &quot;negate&quot; : &quot;644&quot;,
+     &quot;owner&quot; : &quot;root&quot;,
+     &quot;file_promiser&quot; : &quot;/etc/passwd&quot;,
+     &quot;class&quot; : &quot;any&quot;,
+     &quot;mode&quot; : &quot;root&quot;,
+     &quot;recurse_level&quot; : &quot;no&quot;
+  },
+  {
+     &quot;leaf_regex&quot; : &quot;.*&quot;,
+     &quot;owner&quot; : &quot;root&quot;,
+     &quot;group&quot; : &quot;security&quot;,
+     &quot;negate&quot; : &quot;600&quot;,
+     &quot;class&quot; : &quot;any&quot;,
+     &quot;file_promiser&quot; : &quot;/etc/shadow&quot;,
+     &quot;recurse_level&quot; : &quot;no&quot;,
+     &quot;mode&quot; : &quot;root&quot;
+  },
+  {
+     &quot;leaf_regex&quot; : &quot;.*&quot;,
+     &quot;owner&quot; : &quot;root&quot;,
+     &quot;group&quot; : &quot;security&quot;,
+     &quot;negate&quot; : &quot;777&quot;,
+     &quot;class&quot; : &quot;any&quot;,
+     &quot;file_promiser&quot; : &quot;/tmp&quot;,
+     &quot;recurse_level&quot; : &quot;no&quot;,
+     &quot;mode&quot; : &quot;root&quot;
+  }
+]
 </code></pre>
 
 <p>Here is the more condensed data for services with less syntax.</p>
 
-<pre><code># efl_services.txt
-any ;; ^/usr/sbin/ntpd ;; /etc/ntp.conf ;; ${sys.workdir}/sitefiles/etc/ntp.conf ;;        efl_c.policy_servers ;; no ;; no ;; 644 ;; root ;; root ;;        /sbin/service ntp restart ;; ntp time sync
-any ;; ^/usr/sbin/sshd ;; /etc/ssh/sshd_conf ;; ${sys.workdir}/sitefiles/etc/ssh/sshd_conf ;;        efl_c.policy_servers ;; no ;; no ;; 644 ;; root ;; root ;;        /sbin/service sshd restart ;; sshd remote access, security
+<h4>efl_services.json</h4>
+
+<pre><code>[
+  {
+     &quot;template&quot; : &quot;no&quot;,
+     &quot;restart_cmd&quot; : &quot;/sbin/service ntp restart&quot;,
+     &quot;class&quot; : &quot;any&quot;,
+     &quot;config_file&quot; : &quot;/etc/ntp.conf&quot;,
+     &quot;server&quot; : &quot;efl_c.policy_servers&quot;,
+     &quot;config_file_src&quot; : &quot;${sys.workdir}/sitefiles/etc/ntp.conf&quot;,
+     &quot;promisee&quot; : &quot;ntp time sync&quot;,
+     &quot;mode&quot; : &quot;644&quot;,
+     &quot;owner&quot; : &quot;root&quot;,
+     &quot;encrypt&quot; : &quot;no&quot;,
+     &quot;group&quot; : &quot;root&quot;,
+     &quot;process_regex&quot; : &quot;^/usr/sbin/ntpd&quot;
+  },
+  {
+     &quot;encrypt&quot; : &quot;no&quot;,
+     &quot;group&quot; : &quot;root&quot;,
+     &quot;mode&quot; : &quot;644&quot;,
+     &quot;owner&quot; : &quot;root&quot;,
+     &quot;process_regex&quot; : &quot;^/usr/sbin/sshd&quot;,
+     &quot;class&quot; : &quot;any&quot;,
+     &quot;config_file&quot; : &quot;/etc/ssh/sshd_conf&quot;,
+     &quot;template&quot; : &quot;no&quot;,
+     &quot;restart_cmd&quot; : &quot;/sbin/service sshd restart&quot;,
+     &quot;promisee&quot; : &quot;sshd remote access, security&quot;,
+     &quot;server&quot; : &quot;efl_c.policy_servers&quot;,
+     &quot;config_file_src&quot; : &quot;${sys.workdir}/sitefiles/etc/ssh/sshd_conf&quot;
+  }
+]
 </code></pre>
 
 <p>Here is the more condensed data for method promises to call the EFL
 bundles.</p>
 
-<pre><code># efl_main.txt
-any ;; File permissions ;; efl_file_perms ;; 1 ;;        ${sys.workdir}/inputs/params/efl_file_perms.txt ;; file permissions
-any ;; services ;; efl_services ;; 1 ;;        ${sys.workdir}/inputs/params/efl_services.txt ;; services
+<h4>efl_main.json</h4>
+
+<pre><code>[
+  {
+     &quot;promiser&quot; : &quot;File permissions&quot;,
+     &quot;promisee&quot; : &quot;file permissions&quot;,
+     &quot;class&quot; : &quot;any&quot;,
+     &quot;parameter&quot; : &quot;${sys.workdir}/inputs/params/efl_file_perms.txt&quot;,
+     &quot;bundle&quot; : &quot;efl_file_perms&quot;,
+     &quot;ifelapsed&quot; : &quot;1&quot;
+  },
+  {
+     &quot;ifelapsed&quot; : &quot;1&quot;,
+     &quot;parameter&quot; : &quot;${sys.workdir}/inputs/params/efl_services.txt&quot;,
+     &quot;bundle&quot; : &quot;efl_services&quot;,
+     &quot;class&quot; : &quot;any&quot;,
+     &quot;promisee&quot; : &quot;services&quot;,
+     &quot;promiser&quot; : &quot;services&quot;
+  }
+]
 </code></pre>
 
 <p>Now I don&#39;t have to add new policy to make new promises. I simply edit

@@ -231,29 +231,100 @@ file permissions, and much more.
 
 Here is the more condensed data for file permissions with less syntax.
 
-    # efl_files_perms.txt
-    any ;; /etc/passwd ;; no ;; .* ;; 644 ;; root ;; root ;; security
-    any ;; /etc/shadow ;; no ;; .* ;; 600 ;; root ;; root ;; security
-    any ;; /tmp        ;; no ;; .* ;; 777 ;; root ;; root ;; security
+#### efl_files_perms.json
+
+    [
+      {
+         "leaf_regex" : ".*",
+         "group" : "security",
+         "negate" : "644",
+         "owner" : "root",
+         "file_promiser" : "/etc/passwd",
+         "class" : "any",
+         "mode" : "root",
+         "recurse_level" : "no"
+      },
+      {
+         "leaf_regex" : ".*",
+         "owner" : "root",
+         "group" : "security",
+         "negate" : "600",
+         "class" : "any",
+         "file_promiser" : "/etc/shadow",
+         "recurse_level" : "no",
+         "mode" : "root"
+      },
+      {
+         "leaf_regex" : ".*",
+         "owner" : "root",
+         "group" : "security",
+         "negate" : "777",
+         "class" : "any",
+         "file_promiser" : "/tmp",
+         "recurse_level" : "no",
+         "mode" : "root"
+      }
+    ]
+
 
 Here is the more condensed data for services with less syntax.
 
-    # efl_services.txt
-    any ;; ^/usr/sbin/ntpd ;; /etc/ntp.conf ;; ${sys.workdir}/sitefiles/etc/ntp.conf ;; \
-       efl_c.policy_servers ;; no ;; no ;; 644 ;; root ;; root ;; \
-       /sbin/service ntp restart ;; ntp time sync
-    any ;; ^/usr/sbin/sshd ;; /etc/ssh/sshd_conf ;; ${sys.workdir}/sitefiles/etc/ssh/sshd_conf ;; \
-       efl_c.policy_servers ;; no ;; no ;; 644 ;; root ;; root ;; \
-       /sbin/service sshd restart ;; sshd remote access, security
+#### efl_services.json
+
+    [
+      {
+         "template" : "no",
+         "restart_cmd" : "/sbin/service ntp restart",
+         "class" : "any",
+         "config_file" : "/etc/ntp.conf",
+         "server" : "efl_c.policy_servers",
+         "config_file_src" : "${sys.workdir}/sitefiles/etc/ntp.conf",
+         "promisee" : "ntp time sync",
+         "mode" : "644",
+         "owner" : "root",
+         "encrypt" : "no",
+         "group" : "root",
+         "process_regex" : "^/usr/sbin/ntpd"
+      },
+      {
+         "encrypt" : "no",
+         "group" : "root",
+         "mode" : "644",
+         "owner" : "root",
+         "process_regex" : "^/usr/sbin/sshd",
+         "class" : "any",
+         "config_file" : "/etc/ssh/sshd_conf",
+         "template" : "no",
+         "restart_cmd" : "/sbin/service sshd restart",
+         "promisee" : "sshd remote access, security",
+         "server" : "efl_c.policy_servers",
+         "config_file_src" : "${sys.workdir}/sitefiles/etc/ssh/sshd_conf"
+      }
+    ]
 
 Here is the more condensed data for method promises to call the EFL
 bundles.
 
-    # efl_main.txt
-    any ;; File permissions ;; efl_file_perms ;; 1 ;; \
-       ${sys.workdir}/inputs/params/efl_file_perms.txt ;; file permissions
-    any ;; services ;; efl_services ;; 1 ;; \
-       ${sys.workdir}/inputs/params/efl_services.txt ;; services
+#### efl_main.json
+
+    [
+      {
+         "promiser" : "File permissions",
+         "promisee" : "file permissions",
+         "class" : "any",
+         "parameter" : "${sys.workdir}/inputs/params/efl_file_perms.txt",
+         "bundle" : "efl_file_perms",
+         "ifelapsed" : "1"
+      },
+      {
+         "ifelapsed" : "1",
+         "parameter" : "${sys.workdir}/inputs/params/efl_services.txt",
+         "bundle" : "efl_services",
+         "class" : "any",
+         "promisee" : "services",
+         "promiser" : "services"
+      }
+    ]
 
 Now I don't have to add new policy to make new promises. I simply edit
 the data files. But are these promisers still logically grouped? Yes
