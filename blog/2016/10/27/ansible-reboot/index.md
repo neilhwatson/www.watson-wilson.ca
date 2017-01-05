@@ -31,6 +31,21 @@ You can reboot and reconnect to your hosts between [Ansible](http://ansible.com)
 
 	# Continue your tasks...
 
+### Update 5 Jan 2017
+
+Here's another option using the [wait_for](http://docs.ansible.com/ansible/wait_for_module.html) module.
+
+	- name: reboot                                                              
+		at: command=reboot count=1 units=minutes                                  
+																			 
+	- name: wait for sshd on vms to resume                                      
+	  wait_for:                                                                 
+		host: maple.example.com                                                    
+		port: 22                                                                
+		delay: 90       
+
+	# Continue your tasks...
+
 1. [blocks](http://docs.ansible.com/ansible/playbooks_blocks.html) group tasks for better control and debugging.
 1. [at](http://docs.ansible.com/ansible/at_module.html) uses the UNIX [at](https://linux.die.net/man/1/at) tool.
 1. [pause](http://docs.ansible.com/ansible/pause_module.html) pauses like sleep.

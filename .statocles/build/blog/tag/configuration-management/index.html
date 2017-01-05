@@ -105,6 +105,22 @@
 # Continue your tasks...
 </code></pre>
 
+<h3>Update 5 Jan 2017</h3>
+
+<p>Here&#39;s another option using the <a href="http://docs.ansible.com/ansible/wait_for_module.html">wait_for</a> module.</p>
+
+<pre><code>- name: reboot                                                              
+    at: command=reboot count=1 units=minutes                                  
+
+- name: wait for sshd on vms to resume                                      
+  wait_for:                                                                 
+    host: maple.example.com                                                    
+    port: 22                                                                
+    delay: 90       
+
+# Continue your tasks...
+</code></pre>
+
 <ol>
 <li><a href="http://docs.ansible.com/ansible/playbooks_blocks.html">blocks</a> group tasks for better control and debugging.</li>
 <li><a href="http://docs.ansible.com/ansible/at_module.html">at</a> uses the UNIX <a href="https://linux.die.net/man/1/at">at</a> tool.</li>
