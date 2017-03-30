@@ -5,7 +5,7 @@
     <updated>2016-03-27T00:00:00Z</updated>
     <link href="http://watson-wilson.ca/blog/tag/cfengine.atom" rel="self" />
     <link href="http://watson-wilson.ca/blog/tag/cfengine/" rel="alternate" />
-    <generator version="0.077">Statocles</generator>
+    <generator version="0.083">Statocles</generator>
     <entry>
         <id>http://watson-wilson.ca/blog/2016/03/27/vote_for_cfengine_bugs/</id>
         <title>Vote for your favourite CFEngine bugs</title>
@@ -104,30 +104,31 @@ it&#39;s possible.</p>
         <category term="software testing" />
     </entry>
     <entry>
-        <id>http://watson-wilson.ca/blog/2015/08/20/testing-cfengine-using-efl-tap-and-perl/</id>
-        <title>Testing CFEngine policy using EFL, TAP, and Perl</title>
+        <id>http://watson-wilson.ca/blog/2015/08/20/build-better-regular-expressions-in-cfengine/</id>
+        <title>Build better regular expressions in CFEngine</title>
         <author><name>nwatson</name></author>
-        <link href="http://watson-wilson.ca/blog/2015/08/20/testing-cfengine-using-efl-tap-and-perl/" rel="alternate" />
+        <link href="http://watson-wilson.ca/blog/2015/08/20/build-better-regular-expressions-in-cfengine/" rel="alternate" />
         <content type="html"><![CDATA[
-            <p><img alt="Prove and TAP output" src="http://watson-wilson.ca/static/images/efl_tests.png"></p>
+            <p><img alt="picture of a regex" src="http://watson-wilson.ca/static/images/regex.png"></p>
 
-<p>It&#39;s a dirty secret that few test their CFEngine policies, and fewer
-still test them well. Now EFL has two bundles for testing that produce
-TAP output.</p>
+<p>Regular expressions can vary from simple to WTF. Usually they tend
+toward the latter. What most don&#39;t realized, or are too lazy to use, is
+that regular expressions can be made to include friendly whitespace and
+comments. CFEngine is no exception.</p>
 
-                <p><a href="http://watson-wilson.ca/blog/2015/08/20/testing-cfengine-using-efl-tap-and-perl/#section-2">Continue reading...</a></p>
+                <p><a href="http://watson-wilson.ca/blog/2015/08/20/build-better-regular-expressions-in-cfengine/#section-2">Continue reading...</a></p>
             <p>Tags:
+                <a href="http://watson-wilson.ca/blog/tag/best-practices/">best practices</a>
                 <a href="http://watson-wilson.ca/blog/tag/cfengine/">cfengine</a>
-                <a href="http://watson-wilson.ca/blog/tag/devops/">devops</a>
-                <a href="http://watson-wilson.ca/blog/tag/efl/">EFL</a>
-                <a href="http://watson-wilson.ca/blog/tag/software-testing/">software testing</a>
+                <a href="http://watson-wilson.ca/blog/tag/pcre/">pcre</a>
+                <a href="http://watson-wilson.ca/blog/tag/regex/">regex</a>
             </p>
         ]]></content>
-        <updated>2015-08-20T15:33:18Z</updated>
+        <updated>2015-08-20T21:51:58Z</updated>
+        <category term="best practices" />
         <category term="cfengine" />
-        <category term="devops" />
-        <category term="EFL" />
-        <category term="software testing" />
+        <category term="pcre" />
+        <category term="regex" />
     </entry>
 </feed>
 

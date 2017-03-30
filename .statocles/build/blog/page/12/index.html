@@ -8,7 +8,7 @@
         <!--<link rel="stylesheet" href="/theme/css/statocles-bootstrap.css" />-->
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
         <title>Neil H. Watson</title>
-        <meta content="Statocles 0.077" name="generator">
+        <meta content="Statocles 0.083" name="generator">
         <link href="/blog/index.atom" rel="alternate" type="application/atom+xml">
         <link href="/blog/index.rss" rel="alternate" type="application/rss+xml">
         
@@ -57,6 +57,32 @@
 
             <article>
                 <header>
+                    <h1><a href="/blog/2013/07/26/profiling-policy-performance-in-cfengine/">Profiling policy performance in CFEngine</a></h1>
+
+                    <p class="tags">Tags:
+                        <a href="/blog/tag/cfengine/" rel="tag">cfengine</a>
+                    </p>
+
+                    <aside>
+                        <p><time datetime="2013-07-26">
+                            Posted on 2013-07-26
+                        </time>
+                            by nwatson
+                        </p>
+                    </aside>
+
+                </header>
+
+                <p><a href="http://www.loicp.eu/">Loïc Pefferkorn</a> has created the <a href="https://github.com/lpefferkorn/cfe-profiler">cfe-profiler</a>.
+It is a library that times the execution of CFEngine bundles in your
+policy. Let&#39;s take a look.</p>
+
+
+                    <p><a href="/blog/2013/07/26/profiling-policy-performance-in-cfengine/index.html#section-2">Continue reading Profiling policy performance in CFEngine...</a></p>
+
+            </article>
+            <article>
+                <header>
                     <h1><a href="/blog/2013/07/19/polling-cfengine-with-opennms/">Polling CFEngine with Opennms</a></h1>
 
                     <p class="tags">Tags:
@@ -81,99 +107,6 @@ monitoring system.</p>
 
 
                     <p><a href="/blog/2013/07/19/polling-cfengine-with-opennms/index.html#section-2">Continue reading Polling CFEngine with Opennms...</a></p>
-
-            </article>
-            <article>
-                <header>
-                    <h1><a href="/blog/2013/05/09/pcre-cheatsheet/">PCRE cheatsheet</a></h1>
-
-                    <p class="tags">Tags:
-                        <a href="/blog/tag/cfengine/" rel="tag">cfengine</a>
-                        <a href="/blog/tag/cheatsheet/" rel="tag">cheatsheet</a>
-                        <a href="/blog/tag/pcre/" rel="tag">pcre</a>
-                        <a href="/blog/tag/regex/" rel="tag">regex</a>
-                    </p>
-
-                    <aside>
-                        <p><time datetime="2013-05-09">
-                            Posted on 2013-05-09
-                        </time>
-                            by nwatson
-                        </p>
-                    </aside>
-
-                </header>
-
-                <p>Although similar to Perl, PCRE has some syntax that can be
-difficult to remember. When I&#39;m working with CFEngine I often have to
-look it up. Here is a cheat-sheet to save time.</p>
-
-
-                    <p><a href="/blog/2013/05/09/pcre-cheatsheet/index.html#section-2">Continue reading PCRE cheatsheet...</a></p>
-
-            </article>
-            <article>
-                <header>
-                    <h1><a href="/blog/2013/05/09/its-time-to-rethink-anti-virus/">It&#39;s time to rethink Anti-virus</a></h1>
-
-                    <p class="tags">Tags:
-                        <a href="/blog/tag/anti-virus/" rel="tag">anti-virus</a>
-                        <a href="/blog/tag/security/" rel="tag">security</a>
-                        <a href="/blog/tag/virus/" rel="tag">virus</a>
-                    </p>
-
-                    <aside>
-                        <p><time datetime="2013-05-09">
-                            Posted on 2013-05-09
-                        </time>
-                            by nwatson
-                        </p>
-                    </aside>
-
-                </header>
-
-                <p>Anti-virus is always a step behind. It&#39;s a good revenue stream for
-anti-virus software makers. For end users it&#39;s a race to the horizon.
---- Virus pattern recognition only works on patterns that have been
-discovered, researched, and added to the pattern database. Recent
-anti-virus pattern databases now detect more than 22 million patterns.
-Is it a wonder that anti-virus software kills computer performance? <a href="http://www.symantec.com/security_response/definitions/certified/">1</a></p>
-
-<p>The impossible pattern race is bad. The system crippling false alarms
-are worse. In the recent past most major anti-virus tools have crippled
-corporate and person computers by mistakenly quarantining a Windows
-system or application file.<a href="http://www.theregister.co.uk/2013/02/06/kaspersky_win_xp_update_snafu/">1</a>,
-<a href="http://www.theregister.co.uk/2012/09/20/sophos_auto_immune_update_chaos/">2</a>,
-<a href="http://www.pcmag.com/article2/0,2817,2362926,00.asp">3</a></p>
-
-<p>I&#39;m not a computer virus expert. But there has to be a better way to
-protect us. I can think of some.</p>
-
-<p>White listing defines what files are allowed to execute on a system.
-Any file not on the white list is denied execution. For most corporate
-workstations this is ideal. A few hundred executable files are white
-listed and the workstation becomes secure. More generic workstations,
-like home computers, require longer lists. This is not insurmountable.
-I&#39;d rather subscribe to a ten thousand item white list than a 22
-million item black list. The look ups will be shorter and new threats
-do not get an automatic free pass.</p>
-
-<p>Mandatory access control. SELinux is the well known form of MAC. MAC is
-similar to white listing but goes further. Programs are not just denied
-execution rights. Their rights to access the rest of the system are
-explicitly defined. For example, a web browser may be allowed to touch
-printing, browser cache, and other relevant files. Anything else is
-denied, by default. Viruses cannot run wild on the system because
-they&#39;ve not been defined to be allowed to do so. Set up and maintenance
-of such a systems is no small task. Neither is maintaining a growing
-list of 22 million virus definitions.</p>
-
-<p>I&#39;m not a computer virus expert. But the arms race between new viruses
-and new definitions can never be won. It&#39;s time for a new approach.
-Consider that the next time your computer is churning another
-anti-virus disk scan.</p>
-
-
 
             </article>
             <article>
@@ -278,28 +211,93 @@ site.</a></p>
             </article>
             <article>
                 <header>
-                    <h1><a href="/blog/2013/02/22/dns-renaming/">Avoid the cost of renaming hundreds of hosts</a></h1>
+                    <h1><a href="/blog/2013/05/09/pcre-cheatsheet/">PCRE cheatsheet</a></h1>
 
                     <p class="tags">Tags:
-                        <a href="/blog/tag/dns/" rel="tag">dns</a>
+                        <a href="/blog/tag/cfengine/" rel="tag">cfengine</a>
+                        <a href="/blog/tag/cheatsheet/" rel="tag">cheatsheet</a>
+                        <a href="/blog/tag/pcre/" rel="tag">pcre</a>
+                        <a href="/blog/tag/regex/" rel="tag">regex</a>
                     </p>
 
                     <aside>
-                        <p><time datetime="2013-02-22">
-                            Posted on 2013-02-22
+                        <p><time datetime="2013-05-09">
+                            Posted on 2013-05-09
                         </time>
+                            by nwatson
                         </p>
                     </aside>
 
                 </header>
 
-                <p>Your hosts are named after your data centre. Now you must move hundreds of
-hosts to another data centre. Do you rename them or abandon the naming
-convention?</p>
+                <p>Although similar to Perl, PCRE has some syntax that can be
+difficult to remember. When I&#39;m working with CFEngine I often have to
+look it up. Here is a cheat-sheet to save time.</p>
 
-<p>A client of mine is facing this challenge. I&#39;ve discussed host naming before..
-Host are not static. They change functions and locations. Think ahead before
-naming them.</p>
+
+                    <p><a href="/blog/2013/05/09/pcre-cheatsheet/index.html#section-2">Continue reading PCRE cheatsheet...</a></p>
+
+            </article>
+            <article>
+                <header>
+                    <h1><a href="/blog/2013/05/09/its-time-to-rethink-anti-virus/">It&#39;s time to rethink Anti-virus</a></h1>
+
+                    <p class="tags">Tags:
+                        <a href="/blog/tag/anti-virus/" rel="tag">anti-virus</a>
+                        <a href="/blog/tag/security/" rel="tag">security</a>
+                        <a href="/blog/tag/virus/" rel="tag">virus</a>
+                    </p>
+
+                    <aside>
+                        <p><time datetime="2013-05-09">
+                            Posted on 2013-05-09
+                        </time>
+                            by nwatson
+                        </p>
+                    </aside>
+
+                </header>
+
+                <p>Anti-virus is always a step behind. It&#39;s a good revenue stream for
+anti-virus software makers. For end users it&#39;s a race to the horizon.
+--- Virus pattern recognition only works on patterns that have been
+discovered, researched, and added to the pattern database. Recent
+anti-virus pattern databases now detect more than 22 million patterns.
+Is it a wonder that anti-virus software kills computer performance? <a href="http://www.symantec.com/security_response/definitions/certified/">1</a></p>
+
+<p>The impossible pattern race is bad. The system crippling false alarms
+are worse. In the recent past most major anti-virus tools have crippled
+corporate and person computers by mistakenly quarantining a Windows
+system or application file.<a href="http://www.theregister.co.uk/2013/02/06/kaspersky_win_xp_update_snafu/">1</a>,
+<a href="http://www.theregister.co.uk/2012/09/20/sophos_auto_immune_update_chaos/">2</a>,
+<a href="http://www.pcmag.com/article2/0,2817,2362926,00.asp">3</a></p>
+
+<p>I&#39;m not a computer virus expert. But there has to be a better way to
+protect us. I can think of some.</p>
+
+<p>White listing defines what files are allowed to execute on a system.
+Any file not on the white list is denied execution. For most corporate
+workstations this is ideal. A few hundred executable files are white
+listed and the workstation becomes secure. More generic workstations,
+like home computers, require longer lists. This is not insurmountable.
+I&#39;d rather subscribe to a ten thousand item white list than a 22
+million item black list. The look ups will be shorter and new threats
+do not get an automatic free pass.</p>
+
+<p>Mandatory access control. SELinux is the well known form of MAC. MAC is
+similar to white listing but goes further. Programs are not just denied
+execution rights. Their rights to access the rest of the system are
+explicitly defined. For example, a web browser may be allowed to touch
+printing, browser cache, and other relevant files. Anything else is
+denied, by default. Viruses cannot run wild on the system because
+they&#39;ve not been defined to be allowed to do so. Set up and maintenance
+of such a systems is no small task. Neither is maintaining a growing
+list of 22 million virus definitions.</p>
+
+<p>I&#39;m not a computer virus expert. But the arms race between new viruses
+and new definitions can never be won. It&#39;s time for a new approach.
+Consider that the next time your computer is churning another
+anti-virus disk scan.</p>
 
 
 

@@ -5,7 +5,25 @@
         <link>http://watson-wilson.ca/blog/</link>
         <atom:link href="http://watson-wilson.ca/blog/index.rss" rel="self" type="application/rss+xml" />
         <description>Blog feed of Neil H. Watson</description>
-        <generator>Statocles 0.077</generator>
+        <generator>Statocles 0.083</generator>
+        <item>
+            <title>Terraform modules</title>
+            <link>http://watson-wilson.ca/blog/2017/03/30/terraform-modules/</link>
+            <guid>http://watson-wilson.ca/blog/2017/03/30/terraform-modules/</guid>
+            <description><![CDATA[
+                <p>Here&#39;s what I&#39;ve learned so far using Terraform and its modules. I&#39;ve just scratched the surface so test and research on your own.</p>
+
+                    <p><a href="http://watson-wilson.ca/blog/2017/03/30/terraform-modules/#section-2">Continue reading...</a></p>
+                <p>Tags:
+                    <a href="http://watson-wilson.ca/blog/tag/terraform/">terraform</a>
+                    <a href="http://watson-wilson.ca/blog/tag/cloud/">cloud</a>
+                    <a href="http://watson-wilson.ca/blog/tag/configuration-management/">configuration management</a>
+                </p>
+            ]]></description>
+            <pubDate>
+                Thu, 30 Mar 2017 00:00:00 +0000
+            </pubDate>
+        </item>
         <item>
             <title>Docker API from CLI</title>
             <link>http://watson-wilson.ca/blog/2016/11/15/docker_api_from_cli/</link>
@@ -40,54 +58,6 @@ remote accessible port, but in these examples I&#39;ll show local socket only.</
                 <p><a href="http://ansible.com"><img alt="go to ansible.com" src="http://watson-wilson.ca/static/images/ansible_logo_round.png" style="float:right" width="150px"></a></p>
 
 <p>You can reboot and reconnect to your hosts between <a href="http://ansible.com">Ansible</a> tasks. </p>
-
-<pre><code>---
-# Other task above here.
-
-# Now reboot and reconnect
-- block:
-
-    # The at module allows ansible to issue the command and disconnect 
-    # cleanly before the reboot disconnects the network connection.
-   - name: Reboot in one minute
-     at: command=reboot count=1 units=minutes
-
-   # You may need to adjust this dependong on how fast your host halts.
-   - name: Wait for reboot to start and hopefully finish 
-     pause: minutes=2
-
-   - name: Try to re-connect to rebooted host before continuing  
-     command: /bin/true
-     register: online
-     retries: 20
-     delay: 30
-     until: online|success
-
-# Continue your tasks...
-</code></pre>
-
-<h3>Update 5 Jan 2017</h3>
-
-<p>Here&#39;s another option using the <a href="http://docs.ansible.com/ansible/wait_for_module.html">wait_for</a> module.</p>
-
-<pre><code>- name: reboot                                                              
-    at: command=reboot count=1 units=minutes                                  
-
-- name: wait for sshd on vms to resume                                      
-  wait_for:                                                                 
-    host: maple.example.com                                                    
-    port: 22                                                                
-    delay: 90       
-
-# Continue your tasks...
-</code></pre>
-
-<ol>
-<li><a href="http://docs.ansible.com/ansible/playbooks_blocks.html">blocks</a> group tasks for better control and debugging.</li>
-<li><a href="http://docs.ansible.com/ansible/at_module.html">at</a> uses the UNIX <a href="https://linux.die.net/man/1/at">at</a> tool.</li>
-<li><a href="http://docs.ansible.com/ansible/pause_module.html">pause</a> pauses like sleep.</li>
-<li>Retries and delay works like a <a href="http://docs.ansible.com/ansible/playbooks_loops.html#do-until-loops">do until</a> loops.</li>
-</ol>
 
                     <p><a href="http://watson-wilson.ca/blog/2016/10/27/ansible-reboot/#section-2">Continue reading...</a></p>
                 <p>Tags:
@@ -140,29 +110,6 @@ powered by Python.</p>
             ]]></description>
             <pubDate>
                 Fri, 22 Jul 2016 00:00:00 +0000
-            </pubDate>
-        </item>
-        <item>
-            <title>Vote for your favourite CFEngine bugs</title>
-            <link>http://watson-wilson.ca/blog/2016/03/27/vote_for_cfengine_bugs/</link>
-            <guid>http://watson-wilson.ca/blog/2016/03/27/vote_for_cfengine_bugs/</guid>
-            <description><![CDATA[
-                <p><a href="https://openclipart.org/detail/223801/bad-bug">
-    <img alt="bug photo" src="https://openclipart.org/download/223801/bad-bug.svg" style="float:right"></a></p>
-
-<p>CFEngine has switched to a
-<a href="https://tracker.mender.io/projects/CFE/summary">JIRA bug system</a> and this
-system allows us to vote for bugs. I encourage you to vote for your favourite
-bugs; here are mine:</p>
-
-                    <p><a href="http://watson-wilson.ca/blog/2016/03/27/vote_for_cfengine_bugs/#section-2">Continue reading...</a></p>
-                <p>Tags:
-                    <a href="http://watson-wilson.ca/blog/tag/cfengine/">cfengine</a>
-                    <a href="http://watson-wilson.ca/blog/tag/configuration-management/">configuration management</a>
-                </p>
-            ]]></description>
-            <pubDate>
-                Sun, 27 Mar 2016 00:00:00 +0000
             </pubDate>
         </item>
     </channel>

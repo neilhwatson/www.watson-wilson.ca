@@ -5,7 +5,7 @@
         <link>http://watson-wilson.ca/blog/tag/perl/</link>
         <atom:link href="http://watson-wilson.ca/blog/tag/perl.rss" rel="self" type="application/rss+xml" />
         <description>Blog feed of Neil H. Watson</description>
-        <generator>Statocles 0.077</generator>
+        <generator>Statocles 0.083</generator>
         <item>
             <title>Perl cheatsheet</title>
             <link>http://watson-wilson.ca/blog/2015/11/25/perl-cheatsheet/</link>
@@ -50,24 +50,6 @@ Lots of interesting stuff in that repo.</p>
             </pubDate>
         </item>
         <item>
-            <title>Purging old systems from Red Hat Satellite</title>
-            <link>http://watson-wilson.ca/blog/2015/06/10/purging-old-systems-from-red-hat-satellite/</link>
-            <guid>http://watson-wilson.ca/blog/2015/06/10/purging-old-systems-from-red-hat-satellite/</guid>
-            <description><![CDATA[
-                <p>I&#39;ve been involved in a Red Hat Satellite (version 5) project recently.</p>
-
-                    <p><a href="http://watson-wilson.ca/blog/2015/06/10/purging-old-systems-from-red-hat-satellite/#section-2">Continue reading...</a></p>
-                <p>Tags:
-                    <a href="http://watson-wilson.ca/blog/tag/perl/">perl</a>
-                    <a href="http://watson-wilson.ca/blog/tag/redhat/">redhat</a>
-                    <a href="http://watson-wilson.ca/blog/tag/satellite/">satellite</a>
-                </p>
-            ]]></description>
-            <pubDate>
-                Wed, 10 Jun 2015 09:04:40 +0000
-            </pubDate>
-        </item>
-        <item>
             <title>Cfbot answers your questions on IRC</title>
             <link>http://watson-wilson.ca/blog/2015/06/10/cfbot-answers-your-questions-on-irc/</link>
             <guid>http://watson-wilson.ca/blog/2015/06/10/cfbot-answers-your-questions-on-irc/</guid>
@@ -87,6 +69,24 @@ The bot returns definitions of submitted keywords.</p>
             ]]></description>
             <pubDate>
                 Wed, 10 Jun 2015 09:32:18 +0000
+            </pubDate>
+        </item>
+        <item>
+            <title>Purging old systems from Red Hat Satellite</title>
+            <link>http://watson-wilson.ca/blog/2015/06/10/purging-old-systems-from-red-hat-satellite/</link>
+            <guid>http://watson-wilson.ca/blog/2015/06/10/purging-old-systems-from-red-hat-satellite/</guid>
+            <description><![CDATA[
+                <p>I&#39;ve been involved in a Red Hat Satellite (version 5) project recently.</p>
+
+                    <p><a href="http://watson-wilson.ca/blog/2015/06/10/purging-old-systems-from-red-hat-satellite/#section-2">Continue reading...</a></p>
+                <p>Tags:
+                    <a href="http://watson-wilson.ca/blog/tag/perl/">perl</a>
+                    <a href="http://watson-wilson.ca/blog/tag/redhat/">redhat</a>
+                    <a href="http://watson-wilson.ca/blog/tag/satellite/">satellite</a>
+                </p>
+            ]]></description>
+            <pubDate>
+                Wed, 10 Jun 2015 09:04:40 +0000
             </pubDate>
         </item>
     </channel>

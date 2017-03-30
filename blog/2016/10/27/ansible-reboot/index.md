@@ -7,7 +7,8 @@ tags: configuration management, ansible, orchestration, scripting
 
 You can reboot and reconnect to your hosts between [Ansible](http://ansible.com) tasks. 
 
-    ---
+---
+
 	# Other task above here.
 
     # Now reboot and reconnect

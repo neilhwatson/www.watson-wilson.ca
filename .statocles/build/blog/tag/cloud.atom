@@ -2,10 +2,29 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>http://watson-wilson.ca/blog/tag/cloud/</id>
     <title>Neil H. Watson</title>
-    <updated>2016-10-10T00:00:00Z</updated>
+    <updated>2017-03-30T00:00:00Z</updated>
     <link href="http://watson-wilson.ca/blog/tag/cloud.atom" rel="self" />
     <link href="http://watson-wilson.ca/blog/tag/cloud/" rel="alternate" />
-    <generator version="0.077">Statocles</generator>
+    <generator version="0.083">Statocles</generator>
+    <entry>
+        <id>http://watson-wilson.ca/blog/2017/03/30/terraform-modules/</id>
+        <title>Terraform modules</title>
+        <link href="http://watson-wilson.ca/blog/2017/03/30/terraform-modules/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p>Here&#39;s what I&#39;ve learned so far using Terraform and its modules. I&#39;ve just scratched the surface so test and research on your own.</p>
+
+                <p><a href="http://watson-wilson.ca/blog/2017/03/30/terraform-modules/#section-2">Continue reading...</a></p>
+            <p>Tags:
+                <a href="http://watson-wilson.ca/blog/tag/terraform/">terraform</a>
+                <a href="http://watson-wilson.ca/blog/tag/cloud/">cloud</a>
+                <a href="http://watson-wilson.ca/blog/tag/configuration-management/">configuration management</a>
+            </p>
+        ]]></content>
+        <updated>2017-03-30T00:00:00Z</updated>
+        <category term="terraform" />
+        <category term="cloud" />
+        <category term="configuration management" />
+    </entry>
     <entry>
         <id>http://watson-wilson.ca/blog/2016/10/10/cloudfoundry/</id>
         <title>Bosh and Cloud Foundry, an intro</title>

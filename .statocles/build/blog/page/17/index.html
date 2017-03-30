@@ -8,11 +8,10 @@
         <!--<link rel="stylesheet" href="/theme/css/statocles-bootstrap.css" />-->
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
         <title>Neil H. Watson</title>
-        <meta content="Statocles 0.077" name="generator">
+        <meta content="Statocles 0.083" name="generator">
         <link href="/blog/index.atom" rel="alternate" type="application/atom+xml">
         <link href="/blog/index.rss" rel="alternate" type="application/rss+xml">
         
-        <link href="/theme/plugin/highlight/default.css" rel="stylesheet" type="text/css">
 
         <!-- For source highlighting -->
         <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/default.min.css" rel="stylesheet">
@@ -58,6 +57,33 @@
 
             <article>
                 <header>
+                    <h1><a href="/blog/2011/05/24/cfengine-links/">Creating links using Cfengine</a></h1>
+
+                    <p class="tags">Tags:
+                        <a href="/blog/tag/cfengine/" rel="tag">cfengine</a>
+                        <a href="/blog/tag/cfengine-cookbook/" rel="tag">cfengine cookbook</a>
+                        <a href="/blog/tag/configuration-management/" rel="tag">configuration management</a>
+                    </p>
+
+                    <aside>
+                        <p><time datetime="2011-05-24">
+                            Posted on 2011-05-24
+                        </time>
+                        </p>
+                    </aside>
+
+                </header>
+
+                <h3>Problem</h3>
+
+<p>You Cfengine binaries are in /var/cfengine/bin but you want them in the PATH.</p>
+
+
+                    <p><a href="/blog/2011/05/24/cfengine-links/index.html#section-2">Continue reading Creating links using Cfengine...</a></p>
+
+            </article>
+            <article>
+                <header>
                     <h1><a href="/blog/2011/05/09/rhev-overview/">A brief overview of Red Hat Enterprise Virtualization</a></h1>
 
                     <p class="tags">Tags:
@@ -84,107 +110,6 @@ virtualization solution for both desktops and servers, Linux and Windows.</p>
 
 
                     <p><a href="/blog/2011/05/09/rhev-overview/index.html#section-2">Continue reading A brief overview of Red Hat Enterprise Virtualization...</a></p>
-
-            </article>
-            <article>
-                <header>
-                    <h1><a href="/blog/2011/03/08/svn-cheatsheet/">Subversion Cheatsheet</a></h1>
-
-                    <p class="tags">Tags:
-                        <a href="/blog/tag/subversion/" rel="tag">subversion</a>
-                        <a href="/blog/tag/svn/" rel="tag">svn</a>
-                        <a href="/blog/tag/cheatsheet/" rel="tag">cheatsheet</a>
-                    </p>
-
-                    <aside>
-                        <p><time datetime="2011-03-08">
-                            Posted on 2011-03-08
-                        </time>
-                        </p>
-                    </aside>
-
-                </header>
-
-                <table>
-<tr>
-    <td>Add to working copy</td>
-    <td><code>svn add <file></file></code></td>
-</tr>
-<tr>
-    <td>Backup to hot copy</td>
-    <td><code>hot-backup.py /opt/svn /opt/svn-backup</code></td>
-</tr>
-<tr>
-    <td>Change log view</td>
-    <td><code>svn log file:///opt/svn/scripts/firewall/firewall-new</code></td>
-</tr>
-<tr>
-    <td>Checkout</td>
-    <td><code>svn checkout file:///opt/svn/profile</code></td>
-</tr>
-<tr>
-    <td>Commit changes</td>
-    <td><code>svn commit --message &quot;Your log message&quot;</code></td>
-</tr>
-<tr>
-    <td>Copy to working copy</td>
-    <td><code>svn copy <file> <file></file></file></code></td>
-</tr>
-<tr>
-    <td>Create respository</td>
-    <td><code>svnadmin create --fs-type fsfs /opt/svn</code></td>
-</tr>
-<tr>
-    <td>Delete from working copy</td>
-    <td><code>svn delete <file></file></code></td>
-</tr>
-<tr>
-    <td>Diff changes</td>
-    <td><code>svn diff</code></td>
-</tr>
-<tr>
-    <td>Initial Import</td>
-    <td><code>svn import . file:///opt/svn --message &quot;Initial import&quot;</code></td>
-</tr>
-<tr>
-    <td>Merging to current directory</td>
-    <td><code>svn merge <merge to@rev> <merge from@rev></merge></merge></code></td>
-</tr>
-<tr>
-    <td>Move file in working copy</td>
-    <td><code>svn move <file1> <file2></file2></file1></code></td>
-</tr>
-<tr>
-    <td>Remote Checkout</td>
-    <td><code>svn checkout svn+ssh://<user>@<hostname>/opt/svn/<project></project></hostname></user></code></td>
-</tr>
-<tr>
-    <td>Revert all changes</td>
-    <td><code>svn revert <file></file></code></td>
-</tr>
-<tr>
-    <td>Review changes</td>
-    <td><code>svn status</code></td>
-</tr>
-<tr>
-    <td>Review commit log</td>
-    <td><code>svn log</code></td>
-</tr>
-<tr>
-    <td>Update working copy</td>
-    <td><code>svn update <file> (may overwrite changes)</file></code></td>
-</tr>
-<tr>
-    <td>View file</td>
-    <td><code>svn cat file:///opt/svn/profile/.profile</code></td>
-</tr>
-<tr>
-    <td>View repository tree</td>
-    <td><code>svnlook tree /opt/svn</code></td>
-</tr>
-</table>
-
-
 
             </article>
             <article>
@@ -272,12 +197,12 @@ virtualization solution for both desktops and servers, Linux and Windows.</p>
             </article>
             <article>
                 <header>
-                    <h1><a href="/blog/2011/03/08/shell-cheatsheet/">Shell cheatsheet</a></h1>
+                    <h1><a href="/blog/2011/03/08/enterprise-sysadmin/">Enterprise system administration using configuration management</a></h1>
 
                     <p class="tags">Tags:
-                        <a href="/blog/tag/shell/" rel="tag">shell</a>
-                        <a href="/blog/tag/cli/" rel="tag">cli</a>
-                        <a href="/blog/tag/cheatsheet/" rel="tag">cheatsheet</a>
+                        <a href="/blog/tag/configuration-management/" rel="tag">configuration management</a>
+                        <a href="/blog/tag/sysadmin/" rel="tag">sysadmin</a>
+                        <a href="/blog/tag/cfengine/" rel="tag">cfengine</a>
                     </p>
 
                     <aside>
@@ -289,55 +214,22 @@ virtualization solution for both desktops and servers, Linux and Windows.</p>
 
                 </header>
 
-                <p>The following may not apply to all shells.</p>
-
-<h2>Job control</h2>
-
-<ul>
-<li>Resume job after suspend: <code>ctrl-q</code></li>
-<li>Resume job in background: <code>bg &lt;job number&gt;</code></li>
-<li>Resume job in foreground: <code>fg &lt;job number&gt;</code></li>
-<li>Suspend delay (suspend at stdin): <code>ctrl-y</code></li>
-<li>Suspend:  <code>ctrl-z</code></li>
-</ul>
-
-<h2>Command line laziness</h2>
-
-<ul>
-<li>Recall history line 66: <code>!66</code></li>
-<li>Recall last command: <code>!!</code></li>
-<li>Recall last arguement from last command: <code>!$</code></li>
-<li>Recall all arguements from last command: <code>!*</code></li>
-<li>Clear shell history: <code>history -c</code></li>
-<li>Delete shell history entry: <code>history -d &lt;number&gt;</code></li>
-<li>Rename rpmnew files:</li>
-</ul>
-
-<pre><code class="hljs">find -type f -name <span class="hljs-string">&quot;*.rpmnew&quot;</span> <span class="hljs-keyword">|</span> sed <span class="hljs-string">&#39;s/\(^.*\)\(\.rpmnew\)$/mv -f \1\2 \1/&#39;</span> <span class="hljs-keyword">|</span>sh
-</code></pre>
-
-<ul>
-<li>Search and replace files in place:</li>
-</ul>
-
-<pre><code class="hljs">find /path -name <span class="hljs-string">&quot;*.*&quot;</span> -exec <span class="hljs-keyword">|</span> perl -pi -e <span class="hljs-string">&#39;s///g&#39;</span> <span class="hljs-type">{}</span> <span class="hljs-type">\;</span>
-</code></pre>
-
-<ul>
-<li>vi cli editing: <code>set -o vi</code> Now esc to enter command mode where vi keys
-work. Pressing enter returns to normal mode.</li>
-</ul>
+                <p>To maintain the large quantity of servers typically found in enterprise
+organizations, systems administration must move beyond manual and custom
+scripts toward a centralized configuration management service. This move can
+save an organization considerable time and money.</p>
 
 
+                    <p><a href="/blog/2011/03/08/enterprise-sysadmin/index.html#section-2">Continue reading Enterprise system administration using configuration management...</a></p>
 
             </article>
             <article>
                 <header>
-                    <h1><a href="/blog/2011/03/08/posix-regex-cheatsheet/">POSIX regular expression cheatsheet</a></h1>
+                    <h1><a href="/blog/2011/03/08/apt-cheatsheet/">Debian Apt Cheatsheet</a></h1>
 
                     <p class="tags">Tags:
-                        <a href="/blog/tag/posix/" rel="tag">posix</a>
-                        <a href="/blog/tag/regex/" rel="tag">regex</a>
+                        <a href="/blog/tag/debian/" rel="tag">debian</a>
+                        <a href="/blog/tag/apt/" rel="tag">apt</a>
                         <a href="/blog/tag/cheatsheet/" rel="tag">cheatsheet</a>
                     </p>
 
@@ -352,52 +244,64 @@ work. Pressing enter returns to normal mode.</li>
 
                 <table>
 <tr>
-    <td>Alphabetic</td>
-    <td>[:alpha:]</td>
+    <td>Download and build source package</td>
+    <td><code>apt-get -b source <package name></package></code></td>
 </tr>
 <tr>
-    <td>Alphanumeric</td>
-    <td>[:alnum:]</td>
+    <td>Download and install dependencies for source package</td>
+    <td><code>apt-get build-dep <package name></package></code></td>
 </tr>
 <tr>
-    <td>Control characters</td>
-    <td>[:cntrl:]</td>
+    <td>Download source package</td>
+    <td><code>apt-get source <package name></package></code></td>
 </tr>
 <tr>
-    <td>Hex numbers</td>
-    <td>[:xdigit:]</td>
+    <td>Install package &quot;on demand&quot;</td>
+    <td><code>auto-apt run <program></program></code></td>
 </tr>
 <tr>
-    <td>Lowercase</td>
-    <td>[:lower:]</td>
+    <td>List contents of a package</td>
+    <td><code>apt-file list <package name></package></code></td>
 </tr>
 <tr>
-    <td>Nonespace characters</td>
-    <td>[:graph:]</td>
+    <td>List installed packages</td>
+    <td><code>dpkg -l</code></td>
 </tr>
 <tr>
-    <td>Numbers</td>
-    <td>[:digit:]</td>
+    <td>Remove package and configuration files</td>
+    <td><code>apt-get --purge remove <package name></package></code></td>
 </tr>
 <tr>
-    <td>Printable</td>
-    <td>[:print:]</td>
+    <td>Search for Debian Packages</td>
+    <td><code>http://www.debian.org/distrib/packages</code></td>
 </tr>
 <tr>
-    <td>Punctuation</td>
-    <td>[:punct:]</td>
+    <td>Search for packages</td>
+    <td><code>apt-cache search <string></string></code></td>
 </tr>
 <tr>
-    <td>Tab or space</td>
-    <td>[:blank:]</td>
+    <td>Show package dependencies</td>
+    <td><code>apt-cache depends <string></string></code></td>
 </tr>
 <tr>
-    <td>Uppercase</td>
-    <td>[:upper:]</td>
+    <td>Show package information</td>
+    <td><code>apt-cache show <string></string></code></td>
 </tr>
 <tr>
-    <td>White space</td>
-    <td>[:space:]</td>
+    <td>Show package that supplies a given file</td>
+    <td><code>apt-file search <file name></file></code></td>
+</tr>
+<tr>
+    <td>Show package that supplies a given file</td>
+    <td><code>COLUMNS=132 dpkg -S <file name></file></code></td>
+</tr>
+<tr>
+    <td>Show source package information</td>
+    <td><code>apt-cache showsrc <package name></package></code></td>
+</tr>
+<tr>
+    <td>Update `apt-file and auto-apt database</td>
+    <td><code>apt-file update</code></td>
 </tr>
 </table>
 

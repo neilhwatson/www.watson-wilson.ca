@@ -5,7 +5,7 @@
         <link>http://watson-wilson.ca/blog/tag/cfengine-cookbook/</link>
         <atom:link href="http://watson-wilson.ca/blog/tag/cfengine-cookbook.rss" rel="self" type="application/rss+xml" />
         <description>Blog feed of Neil H. Watson</description>
-        <generator>Statocles 0.077</generator>
+        <generator>Statocles 0.083</generator>
         <item>
             <title>Backups using Cfengine</title>
             <link>http://watson-wilson.ca/blog/2011/10/02/cfengine-backups/</link>
@@ -48,6 +48,27 @@
             </pubDate>
         </item>
         <item>
+            <title>Banning processes using CFEngine</title>
+            <link>http://watson-wilson.ca/blog/2011/05/26/cfengine-banning-process/</link>
+            <guid>http://watson-wilson.ca/blog/2011/05/26/cfengine-banning-process/</guid>
+            <description><![CDATA[
+                <h3>Problem</h3>
+
+<p>You want to prevent certain processes from running.</p>
+
+                    <p><a href="http://watson-wilson.ca/blog/2011/05/26/cfengine-banning-process/#section-2">Continue reading...</a></p>
+                <p>Tags:
+                    <a href="http://watson-wilson.ca/blog/tag/cfengine/">cfengine</a>
+                    <a href="http://watson-wilson.ca/blog/tag/cfengine-cookbook/">cfengine cookbook</a>
+                    <a href="http://watson-wilson.ca/blog/tag/configuration-management/">configuration management</a>
+                    <a href="http://watson-wilson.ca/blog/tag/infosec/">infosec</a>
+                </p>
+            ]]></description>
+            <pubDate>
+                Thu, 26 May 2011 00:00:00 +0000
+            </pubDate>
+        </item>
+        <item>
             <title>Template files using CFEngine</title>
             <link>http://watson-wilson.ca/blog/2011/05/26/cfengine-templates/</link>
             <guid>http://watson-wilson.ca/blog/2011/05/26/cfengine-templates/</guid>
@@ -70,40 +91,20 @@ different file for so many hosts? Sysadmins are a lazy lot.</p>
             </pubDate>
         </item>
         <item>
-            <title>Disk space monitoring using CFEngine</title>
-            <link>http://watson-wilson.ca/blog/2011/05/26/cfengine-storage/</link>
-            <guid>http://watson-wilson.ca/blog/2011/05/26/cfengine-storage/</guid>
+            <title>SSH public key distribution using CFEngine</title>
+            <link>http://watson-wilson.ca/blog/2011/05/26/cfengine-ssh-keys/</link>
+            <guid>http://watson-wilson.ca/blog/2011/05/26/cfengine-ssh-keys/</guid>
             <description><![CDATA[
                 <h3>Problem</h3>
 
-<p>You want to monitor free disk space.</p>
+<p>You want to distribute public SSH keys.</p>
 
-                    <p><a href="http://watson-wilson.ca/blog/2011/05/26/cfengine-storage/#section-2">Continue reading...</a></p>
+                    <p><a href="http://watson-wilson.ca/blog/2011/05/26/cfengine-ssh-keys/#section-2">Continue reading...</a></p>
                 <p>Tags:
                     <a href="http://watson-wilson.ca/blog/tag/cfengine/">cfengine</a>
                     <a href="http://watson-wilson.ca/blog/tag/cfengine-cookbook/">cfengine cookbook</a>
-                    <a href="http://watson-wilson.ca/blog/tag/configuration-management/">configuration management</a>
-                    <a href="http://watson-wilson.ca/blog/tag/monitoring/">monitoring</a>
-                </p>
-            ]]></description>
-            <pubDate>
-                Thu, 26 May 2011 00:00:00 +0000
-            </pubDate>
-        </item>
-        <item>
-            <title>Starting processes using Cfengine</title>
-            <link>http://watson-wilson.ca/blog/2011/05/26/cfengine-start-process/</link>
-            <guid>http://watson-wilson.ca/blog/2011/05/26/cfengine-start-process/</guid>
-            <description><![CDATA[
-                <h3>Problem</h3>
-
-<p>You want to ensure that a process is running.</p>
-
-                    <p><a href="http://watson-wilson.ca/blog/2011/05/26/cfengine-start-process/#section-2">Continue reading...</a></p>
-                <p>Tags:
-                    <a href="http://watson-wilson.ca/blog/tag/cfengine/">cfengine</a>
-                    <a href="http://watson-wilson.ca/blog/tag/cfengine-cookbook/">cfengine cookbook</a>
-                    <a href="http://watson-wilson.ca/blog/tag/configuration-management/">configuration management</a>
+                    <a href="http://watson-wilson.ca/blog/tag/ssh/">ssh</a>
+                    <a href="http://watson-wilson.ca/blog/tag/infosec/">infosec</a>
                 </p>
             ]]></description>
             <pubDate>

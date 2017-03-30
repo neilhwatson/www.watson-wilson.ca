@@ -5,7 +5,7 @@
     <updated>2015-11-25T00:00:00Z</updated>
     <link href="http://watson-wilson.ca/blog/tag/perl.atom" rel="self" />
     <link href="http://watson-wilson.ca/blog/tag/perl/" rel="alternate" />
-    <generator version="0.077">Statocles</generator>
+    <generator version="0.083">Statocles</generator>
     <entry>
         <id>http://watson-wilson.ca/blog/2015/11/25/perl-cheatsheet/</id>
         <title>Perl cheatsheet</title>
@@ -55,26 +55,6 @@ Lots of interesting stuff in that repo.</p>
         <category term="markdown" />
     </entry>
     <entry>
-        <id>http://watson-wilson.ca/blog/2015/06/10/purging-old-systems-from-red-hat-satellite/</id>
-        <title>Purging old systems from Red Hat Satellite</title>
-        <author><name>nwatson</name></author>
-        <link href="http://watson-wilson.ca/blog/2015/06/10/purging-old-systems-from-red-hat-satellite/" rel="alternate" />
-        <content type="html"><![CDATA[
-            <p>I&#39;ve been involved in a Red Hat Satellite (version 5) project recently.</p>
-
-                <p><a href="http://watson-wilson.ca/blog/2015/06/10/purging-old-systems-from-red-hat-satellite/#section-2">Continue reading...</a></p>
-            <p>Tags:
-                <a href="http://watson-wilson.ca/blog/tag/perl/">perl</a>
-                <a href="http://watson-wilson.ca/blog/tag/redhat/">redhat</a>
-                <a href="http://watson-wilson.ca/blog/tag/satellite/">satellite</a>
-            </p>
-        ]]></content>
-        <updated>2015-06-10T09:04:40Z</updated>
-        <category term="perl" />
-        <category term="redhat" />
-        <category term="satellite" />
-    </entry>
-    <entry>
         <id>http://watson-wilson.ca/blog/2015/06/10/cfbot-answers-your-questions-on-irc/</id>
         <title>Cfbot answers your questions on IRC</title>
         <author><name>nwatson</name></author>
@@ -97,6 +77,26 @@ The bot returns definitions of submitted keywords.</p>
         <category term="cfengine" />
         <category term="irc" />
         <category term="perl" />
+    </entry>
+    <entry>
+        <id>http://watson-wilson.ca/blog/2015/06/10/purging-old-systems-from-red-hat-satellite/</id>
+        <title>Purging old systems from Red Hat Satellite</title>
+        <author><name>nwatson</name></author>
+        <link href="http://watson-wilson.ca/blog/2015/06/10/purging-old-systems-from-red-hat-satellite/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p>I&#39;ve been involved in a Red Hat Satellite (version 5) project recently.</p>
+
+                <p><a href="http://watson-wilson.ca/blog/2015/06/10/purging-old-systems-from-red-hat-satellite/#section-2">Continue reading...</a></p>
+            <p>Tags:
+                <a href="http://watson-wilson.ca/blog/tag/perl/">perl</a>
+                <a href="http://watson-wilson.ca/blog/tag/redhat/">redhat</a>
+                <a href="http://watson-wilson.ca/blog/tag/satellite/">satellite</a>
+            </p>
+        ]]></content>
+        <updated>2015-06-10T09:04:40Z</updated>
+        <category term="perl" />
+        <category term="redhat" />
+        <category term="satellite" />
     </entry>
 </feed>
 

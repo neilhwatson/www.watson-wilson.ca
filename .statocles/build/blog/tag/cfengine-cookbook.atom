@@ -5,7 +5,7 @@
     <updated>2011-10-02T00:00:00Z</updated>
     <link href="http://watson-wilson.ca/blog/tag/cfengine-cookbook.atom" rel="self" />
     <link href="http://watson-wilson.ca/blog/tag/cfengine-cookbook/" rel="alternate" />
-    <generator version="0.077">Statocles</generator>
+    <generator version="0.083">Statocles</generator>
     <entry>
         <id>http://watson-wilson.ca/blog/2011/10/02/cfengine-backups/</id>
         <title>Backups using Cfengine</title>
@@ -51,6 +51,29 @@
         <category term="configuration management" />
     </entry>
     <entry>
+        <id>http://watson-wilson.ca/blog/2011/05/26/cfengine-banning-process/</id>
+        <title>Banning processes using CFEngine</title>
+        <link href="http://watson-wilson.ca/blog/2011/05/26/cfengine-banning-process/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <h3>Problem</h3>
+
+<p>You want to prevent certain processes from running.</p>
+
+                <p><a href="http://watson-wilson.ca/blog/2011/05/26/cfengine-banning-process/#section-2">Continue reading...</a></p>
+            <p>Tags:
+                <a href="http://watson-wilson.ca/blog/tag/cfengine/">cfengine</a>
+                <a href="http://watson-wilson.ca/blog/tag/cfengine-cookbook/">cfengine cookbook</a>
+                <a href="http://watson-wilson.ca/blog/tag/configuration-management/">configuration management</a>
+                <a href="http://watson-wilson.ca/blog/tag/infosec/">infosec</a>
+            </p>
+        ]]></content>
+        <updated>2011-05-26T00:00:00Z</updated>
+        <category term="cfengine" />
+        <category term="cfengine cookbook" />
+        <category term="configuration management" />
+        <category term="infosec" />
+    </entry>
+    <entry>
         <id>http://watson-wilson.ca/blog/2011/05/26/cfengine-templates/</id>
         <title>Template files using CFEngine</title>
         <link href="http://watson-wilson.ca/blog/2011/05/26/cfengine-templates/" rel="alternate" />
@@ -74,48 +97,27 @@ different file for so many hosts? Sysadmins are a lazy lot.</p>
         <category term="configuration management" />
     </entry>
     <entry>
-        <id>http://watson-wilson.ca/blog/2011/05/26/cfengine-storage/</id>
-        <title>Disk space monitoring using CFEngine</title>
-        <link href="http://watson-wilson.ca/blog/2011/05/26/cfengine-storage/" rel="alternate" />
+        <id>http://watson-wilson.ca/blog/2011/05/26/cfengine-ssh-keys/</id>
+        <title>SSH public key distribution using CFEngine</title>
+        <link href="http://watson-wilson.ca/blog/2011/05/26/cfengine-ssh-keys/" rel="alternate" />
         <content type="html"><![CDATA[
             <h3>Problem</h3>
 
-<p>You want to monitor free disk space.</p>
+<p>You want to distribute public SSH keys.</p>
 
-                <p><a href="http://watson-wilson.ca/blog/2011/05/26/cfengine-storage/#section-2">Continue reading...</a></p>
+                <p><a href="http://watson-wilson.ca/blog/2011/05/26/cfengine-ssh-keys/#section-2">Continue reading...</a></p>
             <p>Tags:
                 <a href="http://watson-wilson.ca/blog/tag/cfengine/">cfengine</a>
                 <a href="http://watson-wilson.ca/blog/tag/cfengine-cookbook/">cfengine cookbook</a>
-                <a href="http://watson-wilson.ca/blog/tag/configuration-management/">configuration management</a>
-                <a href="http://watson-wilson.ca/blog/tag/monitoring/">monitoring</a>
+                <a href="http://watson-wilson.ca/blog/tag/ssh/">ssh</a>
+                <a href="http://watson-wilson.ca/blog/tag/infosec/">infosec</a>
             </p>
         ]]></content>
         <updated>2011-05-26T00:00:00Z</updated>
         <category term="cfengine" />
         <category term="cfengine cookbook" />
-        <category term="configuration management" />
-        <category term="monitoring" />
-    </entry>
-    <entry>
-        <id>http://watson-wilson.ca/blog/2011/05/26/cfengine-start-process/</id>
-        <title>Starting processes using Cfengine</title>
-        <link href="http://watson-wilson.ca/blog/2011/05/26/cfengine-start-process/" rel="alternate" />
-        <content type="html"><![CDATA[
-            <h3>Problem</h3>
-
-<p>You want to ensure that a process is running.</p>
-
-                <p><a href="http://watson-wilson.ca/blog/2011/05/26/cfengine-start-process/#section-2">Continue reading...</a></p>
-            <p>Tags:
-                <a href="http://watson-wilson.ca/blog/tag/cfengine/">cfengine</a>
-                <a href="http://watson-wilson.ca/blog/tag/cfengine-cookbook/">cfengine cookbook</a>
-                <a href="http://watson-wilson.ca/blog/tag/configuration-management/">configuration management</a>
-            </p>
-        ]]></content>
-        <updated>2011-05-26T00:00:00Z</updated>
-        <category term="cfengine" />
-        <category term="cfengine cookbook" />
-        <category term="configuration management" />
+        <category term="ssh" />
+        <category term="infosec" />
     </entry>
 </feed>
 

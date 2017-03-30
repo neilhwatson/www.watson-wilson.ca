@@ -8,10 +8,11 @@
         <!--<link rel="stylesheet" href="/theme/css/statocles-bootstrap.css" />-->
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
         <title>Neil H. Watson</title>
-        <meta content="Statocles 0.077" name="generator">
+        <meta content="Statocles 0.083" name="generator">
         <link href="/blog/index.atom" rel="alternate" type="application/atom+xml">
         <link href="/blog/index.rss" rel="alternate" type="application/rss+xml">
         
+        <link href="/theme/plugin/highlight/default.css" rel="stylesheet" type="text/css">
 
         <!-- For source highlighting -->
         <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/default.min.css" rel="stylesheet">
@@ -57,11 +58,12 @@
 
             <article>
                 <header>
-                    <h1><a href="/blog/2011/03/08/opensource-support/">No support for open source projects</a></h1>
+                    <h1><a href="/blog/2011/03/08/shell-cheatsheet/">Shell cheatsheet</a></h1>
 
                     <p class="tags">Tags:
-                        <a href="/blog/tag/opensource/" rel="tag">opensource</a>
-                        <a href="/blog/tag/support/" rel="tag">support</a>
+                        <a href="/blog/tag/shell/" rel="tag">shell</a>
+                        <a href="/blog/tag/cli/" rel="tag">cli</a>
+                        <a href="/blog/tag/cheatsheet/" rel="tag">cheatsheet</a>
                     </p>
 
                     <aside>
@@ -73,11 +75,155 @@
 
                 </header>
 
-                <p>Many believe that open source projects cannot be used in the enterprise because
-of the lack of support. This is untrue.</p>
+                <p>The following may not apply to all shells.</p>
+
+<h2>Job control</h2>
+
+<ul>
+<li>Resume job after suspend: <code>ctrl-q</code></li>
+<li>Resume job in background: <code>bg &lt;job number&gt;</code></li>
+<li>Resume job in foreground: <code>fg &lt;job number&gt;</code></li>
+<li>Suspend delay (suspend at stdin): <code>ctrl-y</code></li>
+<li>Suspend:  <code>ctrl-z</code></li>
+</ul>
+
+<h2>Command line laziness</h2>
+
+<ul>
+<li>Recall history line 66: <code>!66</code></li>
+<li>Recall last command: <code>!!</code></li>
+<li>Recall last arguement from last command: <code>!$</code></li>
+<li>Recall all arguements from last command: <code>!*</code></li>
+<li>Clear shell history: <code>history -c</code></li>
+<li>Delete shell history entry: <code>history -d &lt;number&gt;</code></li>
+<li>Rename rpmnew files:</li>
+</ul>
+
+<pre><code class="hljs">find -type f -name <span class="hljs-string">&quot;*.rpmnew&quot;</span> <span class="hljs-keyword">|</span> sed <span class="hljs-string">&#39;s/\(^.*\)\(\.rpmnew\)$/mv -f \1\2 \1/&#39;</span> <span class="hljs-keyword">|</span>sh
+</code></pre>
+
+<ul>
+<li>Search and replace files in place:</li>
+</ul>
+
+<pre><code class="hljs">find /path -name <span class="hljs-string">&quot;*.*&quot;</span> -exec <span class="hljs-keyword">|</span> perl -pi -e <span class="hljs-string">&#39;s///g&#39;</span> <span class="hljs-type">{}</span> <span class="hljs-type">\;</span>
+</code></pre>
+
+<ul>
+<li>vi cli editing: <code>set -o vi</code> Now esc to enter command mode where vi keys
+work. Pressing enter returns to normal mode.</li>
+</ul>
 
 
-                    <p><a href="/blog/2011/03/08/opensource-support/index.html#section-2">Continue reading No support for open source projects...</a></p>
+
+            </article>
+            <article>
+                <header>
+                    <h1><a href="/blog/2011/03/08/posix-regex-cheatsheet/">POSIX regular expression cheatsheet</a></h1>
+
+                    <p class="tags">Tags:
+                        <a href="/blog/tag/posix/" rel="tag">posix</a>
+                        <a href="/blog/tag/regex/" rel="tag">regex</a>
+                        <a href="/blog/tag/cheatsheet/" rel="tag">cheatsheet</a>
+                    </p>
+
+                    <aside>
+                        <p><time datetime="2011-03-08">
+                            Posted on 2011-03-08
+                        </time>
+                        </p>
+                    </aside>
+
+                </header>
+
+                <table>
+<tr>
+    <td>Alphabetic</td>
+    <td>[:alpha:]</td>
+</tr>
+<tr>
+    <td>Alphanumeric</td>
+    <td>[:alnum:]</td>
+</tr>
+<tr>
+    <td>Control characters</td>
+    <td>[:cntrl:]</td>
+</tr>
+<tr>
+    <td>Hex numbers</td>
+    <td>[:xdigit:]</td>
+</tr>
+<tr>
+    <td>Lowercase</td>
+    <td>[:lower:]</td>
+</tr>
+<tr>
+    <td>Nonespace characters</td>
+    <td>[:graph:]</td>
+</tr>
+<tr>
+    <td>Numbers</td>
+    <td>[:digit:]</td>
+</tr>
+<tr>
+    <td>Printable</td>
+    <td>[:print:]</td>
+</tr>
+<tr>
+    <td>Punctuation</td>
+    <td>[:punct:]</td>
+</tr>
+<tr>
+    <td>Tab or space</td>
+    <td>[:blank:]</td>
+</tr>
+<tr>
+    <td>Uppercase</td>
+    <td>[:upper:]</td>
+</tr>
+<tr>
+    <td>White space</td>
+    <td>[:space:]</td>
+</tr>
+</table>
+
+
+
+            </article>
+            <article>
+                <header>
+                    <h1><a href="/blog/2011/03/08/linux-network-cheatsheet/">Linux networking cheatsheet</a></h1>
+
+                    <p class="tags">Tags:
+                        <a href="/blog/tag/linux/" rel="tag">linux</a>
+                        <a href="/blog/tag/networking/" rel="tag">networking</a>
+                        <a href="/blog/tag/cheatsheet/" rel="tag">cheatsheet</a>
+                    </p>
+
+                    <aside>
+                        <p><time datetime="2011-03-08">
+                            Posted on 2011-03-08
+                        </time>
+                        </p>
+                    </aside>
+
+                </header>
+
+                <h3>Network calculation</h3>
+
+<table>
+<tr>
+    <td>Show network info</td>
+    <td><code>ipcalc 10.0.0.0/24</code><br><code>ipcalc 10.0.0.0/255.255.255.0</code></td>
+</tr>
+<tr>
+    <td>Segment network into 2 50 node subnets</td>
+    <td><code>ipcalc 10.0.0.0/24 -s 50 50</code></td>
+</tr>
+</table>
+
+
+                    <p><a href="/blog/2011/03/08/linux-network-cheatsheet/index.html#section-2">Continue reading Linux networking cheatsheet...</a></p>
 
             </article>
             <article>
@@ -132,12 +278,11 @@ the test file.</li>
             </article>
             <article>
                 <header>
-                    <h1><a href="/blog/2011/03/08/linux-network-cheatsheet/">Linux networking cheatsheet</a></h1>
+                    <h1><a href="/blog/2011/03/08/opensource-support/">No support for open source projects</a></h1>
 
                     <p class="tags">Tags:
-                        <a href="/blog/tag/linux/" rel="tag">linux</a>
-                        <a href="/blog/tag/networking/" rel="tag">networking</a>
-                        <a href="/blog/tag/cheatsheet/" rel="tag">cheatsheet</a>
+                        <a href="/blog/tag/opensource/" rel="tag">opensource</a>
+                        <a href="/blog/tag/support/" rel="tag">support</a>
                     </p>
 
                     <aside>
@@ -149,114 +294,11 @@ the test file.</li>
 
                 </header>
 
-                <h3>Network calculation</h3>
-
-<table>
-<tr>
-    <td>Show network info</td>
-    <td><code>ipcalc 10.0.0.0/24</code><br><code>ipcalc 10.0.0.0/255.255.255.0</code></td>
-</tr>
-<tr>
-    <td>Segment network into 2 50 node subnets</td>
-    <td><code>ipcalc 10.0.0.0/24 -s 50 50</code></td>
-</tr>
-</table>
+                <p>Many believe that open source projects cannot be used in the enterprise because
+of the lack of support. This is untrue.</p>
 
 
-                    <p><a href="/blog/2011/03/08/linux-network-cheatsheet/index.html#section-2">Continue reading Linux networking cheatsheet...</a></p>
-
-            </article>
-            <article>
-                <header>
-                    <h1><a href="/blog/2011/03/08/gnu-screen-cheatsheet/">GNU Screen cheatsheet</a></h1>
-
-                    <p class="tags">Tags:
-                        <a href="/blog/tag/shell/" rel="tag">shell</a>
-                        <a href="/blog/tag/cli/" rel="tag">cli</a>
-                        <a href="/blog/tag/cheatsheet/" rel="tag">cheatsheet</a>
-                    </p>
-
-                    <aside>
-                        <p><time datetime="2011-03-08">
-                            Posted on 2011-03-08
-                        </time>
-                        </p>
-                    </aside>
-
-                </header>
-
-                <table>
-<tr>
-    <td>Change to other region</td>
-    <td><code>ctrl-a tab</code></td>
-</tr>
-<tr>
-    <td>Change to other screen</td>
-    <td><code>ctrl-a 0-9</code></td>
-</tr>
-<tr>
-    <td>Detach</td>
-    <td><code>ctrl-a d</code></td>
-</tr>
-<tr>
-    <td>Help</td>
-    <td><code>ctrl-a ?</code></td>
-</tr>
-<tr>
-    <td>Kill screen</td>
-    <td><code>ctrl-a \</code></td>
-</tr>
-<tr>
-    <td>Kill region</td>
-    <td><code>ctrl-a x</code></td>
-</tr>
-<tr>
-    <td>New screen</td>
-    <td><code>ctrl-a c</code></td>
-</tr>
-<tr>
-    <td>Reattach</td>
-    <td><code>screen -r</code></td>
-</tr>
-<tr>
-    <td>Serial connection</td>
-    <td><code>screen /dev/ttyUSB0 9600</code></td>
-</tr>
-<tr>
-    <td>Split</td>
-    <td><code>ctrl-a s</code></td>
-</tr>
-</table>
-
-
-
-            </article>
-            <article>
-                <header>
-                    <h1><a href="/blog/2011/03/08/enterprise-sysadmin/">Enterprise system administration using configuration management</a></h1>
-
-                    <p class="tags">Tags:
-                        <a href="/blog/tag/configuration-management/" rel="tag">configuration management</a>
-                        <a href="/blog/tag/sysadmin/" rel="tag">sysadmin</a>
-                        <a href="/blog/tag/cfengine/" rel="tag">cfengine</a>
-                    </p>
-
-                    <aside>
-                        <p><time datetime="2011-03-08">
-                            Posted on 2011-03-08
-                        </time>
-                        </p>
-                    </aside>
-
-                </header>
-
-                <p>To maintain the large quantity of servers typically found in enterprise
-organizations, systems administration must move beyond manual and custom
-scripts toward a centralized configuration management service. This move can
-save an organization considerable time and money.</p>
-
-
-                    <p><a href="/blog/2011/03/08/enterprise-sysadmin/index.html#section-2">Continue reading Enterprise system administration using configuration management...</a></p>
+                    <p><a href="/blog/2011/03/08/opensource-support/index.html#section-2">Continue reading No support for open source projects...</a></p>
 
             </article>
         </main>

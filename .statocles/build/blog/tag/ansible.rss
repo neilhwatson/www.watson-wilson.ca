@@ -5,7 +5,7 @@
         <link>http://watson-wilson.ca/blog/tag/ansible/</link>
         <atom:link href="http://watson-wilson.ca/blog/tag/ansible.rss" rel="self" type="application/rss+xml" />
         <description>Blog feed of Neil H. Watson</description>
-        <generator>Statocles 0.077</generator>
+        <generator>Statocles 0.083</generator>
         <item>
             <title>Reboot and reconnect between Ansible tasks</title>
             <link>http://watson-wilson.ca/blog/2016/10/27/ansible-reboot/</link>
@@ -14,54 +14,6 @@
                 <p><a href="http://ansible.com"><img alt="go to ansible.com" src="http://watson-wilson.ca/static/images/ansible_logo_round.png" style="float:right" width="150px"></a></p>
 
 <p>You can reboot and reconnect to your hosts between <a href="http://ansible.com">Ansible</a> tasks. </p>
-
-<pre><code>---
-# Other task above here.
-
-# Now reboot and reconnect
-- block:
-
-    # The at module allows ansible to issue the command and disconnect 
-    # cleanly before the reboot disconnects the network connection.
-   - name: Reboot in one minute
-     at: command=reboot count=1 units=minutes
-
-   # You may need to adjust this dependong on how fast your host halts.
-   - name: Wait for reboot to start and hopefully finish 
-     pause: minutes=2
-
-   - name: Try to re-connect to rebooted host before continuing  
-     command: /bin/true
-     register: online
-     retries: 20
-     delay: 30
-     until: online|success
-
-# Continue your tasks...
-</code></pre>
-
-<h3>Update 5 Jan 2017</h3>
-
-<p>Here&#39;s another option using the <a href="http://docs.ansible.com/ansible/wait_for_module.html">wait_for</a> module.</p>
-
-<pre><code>- name: reboot                                                              
-    at: command=reboot count=1 units=minutes                                  
-
-- name: wait for sshd on vms to resume                                      
-  wait_for:                                                                 
-    host: maple.example.com                                                    
-    port: 22                                                                
-    delay: 90       
-
-# Continue your tasks...
-</code></pre>
-
-<ol>
-<li><a href="http://docs.ansible.com/ansible/playbooks_blocks.html">blocks</a> group tasks for better control and debugging.</li>
-<li><a href="http://docs.ansible.com/ansible/at_module.html">at</a> uses the UNIX <a href="https://linux.die.net/man/1/at">at</a> tool.</li>
-<li><a href="http://docs.ansible.com/ansible/pause_module.html">pause</a> pauses like sleep.</li>
-<li>Retries and delay works like a <a href="http://docs.ansible.com/ansible/playbooks_loops.html#do-until-loops">do until</a> loops.</li>
-</ol>
 
                     <p><a href="http://watson-wilson.ca/blog/2016/10/27/ansible-reboot/#section-2">Continue reading...</a></p>
                 <p>Tags:

@@ -5,7 +5,7 @@
     <updated>2015-10-13T09:54:06Z</updated>
     <link href="http://watson-wilson.ca/blog/tag/efl.atom" rel="self" />
     <link href="http://watson-wilson.ca/blog/tag/efl/" rel="alternate" />
-    <generator version="0.077">Statocles</generator>
+    <generator version="0.083">Statocles</generator>
     <entry>
         <id>http://watson-wilson.ca/blog/2015/10/13/simple-cfengine-setup-with-efl/</id>
         <title>Simple CFEngine setup with EFL</title>

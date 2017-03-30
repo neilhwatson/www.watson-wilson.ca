@@ -8,7 +8,7 @@
         <!--<link rel="stylesheet" href="/theme/css/statocles-bootstrap.css" />-->
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
         <title>Neil H. Watson</title>
-        <meta content="Statocles 0.077" name="generator">
+        <meta content="Statocles 0.083" name="generator">
         <link href="/blog/tag/configuration-management.atom" rel="alternate" type="application/atom+xml">
         <link href="/blog/tag/configuration-management.rss" rel="alternate" type="application/rss+xml">
         
@@ -58,6 +58,31 @@
 
             <article>
                 <header>
+                    <h1><a href="/blog/2017/03/30/terraform-modules/">Terraform modules</a></h1>
+
+                    <p class="tags">Tags:
+                        <a href="/blog/tag/terraform/" rel="tag">terraform</a>
+                        <a href="/blog/tag/cloud/" rel="tag">cloud</a>
+                        <a href="/blog/tag/configuration-management/" rel="tag">configuration management</a>
+                    </p>
+
+                    <aside>
+                        <p><time datetime="2017-03-30">
+                            Posted on 2017-03-30
+                        </time>
+                        </p>
+                    </aside>
+
+                </header>
+
+                <p>Here&#39;s what I&#39;ve learned so far using Terraform and its modules. I&#39;ve just scratched the surface so test and research on your own.</p>
+
+
+                    <p><a href="/blog/2017/03/30/terraform-modules/index.html#section-2">Continue reading Terraform modules...</a></p>
+
+            </article>
+            <article>
+                <header>
                     <h1><a href="/blog/2016/10/27/ansible-reboot/">Reboot and reconnect between Ansible tasks</a></h1>
 
                     <p class="tags">Tags:
@@ -80,55 +105,8 @@
 
 <p>You can reboot and reconnect to your hosts between <a href="http://ansible.com">Ansible</a> tasks. </p>
 
-<pre><code>---
-# Other task above here.
 
-# Now reboot and reconnect
-- block:
-
-    # The at module allows ansible to issue the command and disconnect 
-    # cleanly before the reboot disconnects the network connection.
-   - name: Reboot in one minute
-     at: command=reboot count=1 units=minutes
-
-   # You may need to adjust this dependong on how fast your host halts.
-   - name: Wait for reboot to start and hopefully finish 
-     pause: minutes=2
-
-   - name: Try to re-connect to rebooted host before continuing  
-     command: /bin/true
-     register: online
-     retries: 20
-     delay: 30
-     until: online|success
-
-# Continue your tasks...
-</code></pre>
-
-<h3>Update 5 Jan 2017</h3>
-
-<p>Here&#39;s another option using the <a href="http://docs.ansible.com/ansible/wait_for_module.html">wait_for</a> module.</p>
-
-<pre><code>- name: reboot                                                              
-    at: command=reboot count=1 units=minutes                                  
-
-- name: wait for sshd on vms to resume                                      
-  wait_for:                                                                 
-    host: maple.example.com                                                    
-    port: 22                                                                
-    delay: 90       
-
-# Continue your tasks...
-</code></pre>
-
-<ol>
-<li><a href="http://docs.ansible.com/ansible/playbooks_blocks.html">blocks</a> group tasks for better control and debugging.</li>
-<li><a href="http://docs.ansible.com/ansible/at_module.html">at</a> uses the UNIX <a href="https://linux.die.net/man/1/at">at</a> tool.</li>
-<li><a href="http://docs.ansible.com/ansible/pause_module.html">pause</a> pauses like sleep.</li>
-<li>Retries and delay works like a <a href="http://docs.ansible.com/ansible/playbooks_loops.html#do-until-loops">do until</a> loops.</li>
-</ol>
-
-
+                    <p><a href="/blog/2016/10/27/ansible-reboot/index.html#section-2">Continue reading Reboot and reconnect between Ansible tasks...</a></p>
 
             </article>
             <article>
@@ -224,32 +202,6 @@ environment using a descriptive language.</p>
 </ul>
 
 
-
-            </article>
-            <article>
-                <header>
-                    <h1><a href="/blog/2011/09/27/cfengine-alt-crond/">CFEngine as a crond alternative</a></h1>
-
-                    <p class="tags">Tags:
-                        <a href="/blog/tag/cfengine/" rel="tag">cfengine</a>
-                        <a href="/blog/tag/configuration-management/" rel="tag">configuration management</a>
-                        <a href="/blog/tag/cron/" rel="tag">cron</a>
-                    </p>
-
-                    <aside>
-                        <p><time datetime="2011-09-27">
-                            Posted on 2011-09-27
-                        </time>
-                        </p>
-                    </aside>
-
-                </header>
-
-                <p>CFEngine’s time based classes and promise theory make it an attractive
-alternative to venerable crond.</p>
-
-
-                    <p><a href="/blog/2011/09/27/cfengine-alt-crond/index.html#section-2">Continue reading CFEngine as a crond alternative...</a></p>
 
             </article>
         </main>

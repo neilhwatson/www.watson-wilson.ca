@@ -5,7 +5,7 @@
     <updated>2016-07-22T00:00:00Z</updated>
     <link href="http://watson-wilson.ca/blog/tag/github.atom" rel="self" />
     <link href="http://watson-wilson.ca/blog/tag/github/" rel="alternate" />
-    <generator version="0.077">Statocles</generator>
+    <generator version="0.083">Statocles</generator>
     <entry>
         <id>http://watson-wilson.ca/blog/2016/07/22/grip/</id>
         <title>Previewing Markdown using grip</title>

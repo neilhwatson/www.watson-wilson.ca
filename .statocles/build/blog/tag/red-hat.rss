@@ -5,7 +5,7 @@
         <link>http://watson-wilson.ca/blog/tag/red-hat/</link>
         <atom:link href="http://watson-wilson.ca/blog/tag/red-hat.rss" rel="self" type="application/rss+xml" />
         <description>Blog feed of Neil H. Watson</description>
-        <generator>Statocles 0.077</generator>
+        <generator>Statocles 0.083</generator>
         <item>
             <title>Installing Spacewalk</title>
             <link>http://watson-wilson.ca/blog/2015/12/08/spacewalk/</link>
