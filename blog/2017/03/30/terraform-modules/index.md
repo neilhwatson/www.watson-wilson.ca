@@ -3,6 +3,8 @@ title: Terraform modules
 tags: terraform, cloud, configuration management
 ---
 
+<a href="https://terraform.io/"><img style='float:right' alt='terraform logo' width='120px' src='https://raw.githubusercontent.com/hashicorp/terraform/master/website/source/assets/images/logo-static.png' ></a>
+
 Here's what I've learned so far using Terraform and its modules. I've just scratched the surface so test and research on your own.
 
 ---
