@@ -1,7 +1,5 @@
 ---
-title: 404 - Not found
+title: Page not found
 ---
 
-### 404 - Not found
-
-Sorry, I've moved pages around. Go back to the index or try the search again.
+![404 page not found](https://http.cat/404.jpg)
