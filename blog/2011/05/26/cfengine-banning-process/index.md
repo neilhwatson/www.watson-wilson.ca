@@ -18,7 +18,7 @@ signal is sent.
 
 Be careful because "snmpd" is a regular expression. It may match more than you
 think. Our intent is to look for a running instance of snmpd but this would
-also match “vim snmpd.conf”.
+also match "vim snmpd.conf".
 
     bundle agent recipe {
 
