@@ -16,7 +16,7 @@ of processes running that match the regular expression “snmpd”. If such
 processes are found a term signal is sent. If that signal is ignored a kill
 signal is sent.
 
-Be careful because “snmpd” is a regular expression. It may match more than you
+Be careful because "snmpd" is a regular expression. It may match more than you
 think. Our intent is to look for a running instance of snmpd but this would
 also match “vim snmpd.conf”.
 
