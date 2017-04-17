@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Neil H. Watson</title>
+        <link>http://watson-wilson.ca/blog/tag/aws/</link>
+        <atom:link href="http://watson-wilson.ca/blog/tag/aws.rss" rel="self" type="application/rss+xml" />
+        <description>Blog feed of Neil H. Watson</description>
+        <generator>Statocles 0.083</generator>
+        <item>
+            <title>Understanding Terraform State</title>
+            <link>http://watson-wilson.ca/blog/2017/04/17/terraform-state/</link>
+            <guid>http://watson-wilson.ca/blog/2017/04/17/terraform-state/</guid>
+            <description><![CDATA[
+                <p><a href="https://terraform.io/"><img alt="terraform logo" src="https://raw.githubusercontent.com/hashicorp/terraform/master/website/source/assets/images/og-image.png" style="float:right" width="120px"></a></p>
+
+<p>Terraform <a href="https://www.terraform.io/docs/state/purpose.html">state</a> is a database kept by Terraform to help it reconcile Terraform resource dependencies, and reconcile between Terraform code and the actual state on the target infrastructure. For example, in the state, Terraform expects to find an entry that matches your AWS resource defining a Route53 record and in your Terraform code. Whether or not the entry exits determines if Terraform will make a change or not.</p>
+
+                    <p><a href="http://watson-wilson.ca/blog/2017/04/17/terraform-state/#section-2">Continue reading...</a></p>
+                <p>Tags:
+                    <a href="http://watson-wilson.ca/blog/tag/terraform/">terraform</a>
+                    <a href="http://watson-wilson.ca/blog/tag/configuration-management/">configuration management</a>
+                    <a href="http://watson-wilson.ca/blog/tag/cloud/">cloud</a>
+                    <a href="http://watson-wilson.ca/blog/tag/aws/">AWS</a>
+                </p>
+            ]]></description>
+            <pubDate>
+                Mon, 17 Apr 2017 00:00:00 +0000
+            </pubDate>
+        </item>
+        <item>
+            <title>Terraform modules</title>
+            <link>http://watson-wilson.ca/blog/2017/03/30/terraform-modules/</link>
+            <guid>http://watson-wilson.ca/blog/2017/03/30/terraform-modules/</guid>
+            <description><![CDATA[
+                <p><a href="https://terraform.io/"><img alt="terraform logo" src="https://raw.githubusercontent.com/hashicorp/terraform/master/website/source/assets/images/og-image.png" style="float:right" width="120px"></a></p>
+
+<p>Here&#39;s what I&#39;ve learned so far using Terraform and its modules. I&#39;ve just scratched the surface so test and research on your own.</p>
+
+                    <p><a href="http://watson-wilson.ca/blog/2017/03/30/terraform-modules/#section-2">Continue reading...</a></p>
+                <p>Tags:
+                    <a href="http://watson-wilson.ca/blog/tag/terraform/">terraform</a>
+                    <a href="http://watson-wilson.ca/blog/tag/cloud/">cloud</a>
+                    <a href="http://watson-wilson.ca/blog/tag/configuration-management/">configuration management</a>
+                    <a href="http://watson-wilson.ca/blog/tag/aws/">AWS</a>
+                </p>
+            ]]></description>
+            <pubDate>
+                Thu, 30 Mar 2017 00:00:00 +0000
+            </pubDate>
+        </item>
+    </channel>
+</rss>
+

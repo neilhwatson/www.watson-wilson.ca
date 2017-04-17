@@ -2,16 +2,39 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>http://watson-wilson.ca/blog/</id>
     <title>Neil H. Watson</title>
-    <updated>2017-03-30T00:00:00Z</updated>
+    <updated>2017-04-17T00:00:00Z</updated>
     <link href="http://watson-wilson.ca/blog/index.atom" rel="self" />
     <link href="http://watson-wilson.ca/blog/" rel="alternate" />
     <generator version="0.083">Statocles</generator>
+    <entry>
+        <id>http://watson-wilson.ca/blog/2017/04/17/terraform-state/</id>
+        <title>Understanding Terraform State</title>
+        <link href="http://watson-wilson.ca/blog/2017/04/17/terraform-state/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p><a href="https://terraform.io/"><img alt="terraform logo" src="https://raw.githubusercontent.com/hashicorp/terraform/master/website/source/assets/images/og-image.png" style="float:right" width="120px"></a></p>
+
+<p>Terraform <a href="https://www.terraform.io/docs/state/purpose.html">state</a> is a database kept by Terraform to help it reconcile Terraform resource dependencies, and reconcile between Terraform code and the actual state on the target infrastructure. For example, in the state, Terraform expects to find an entry that matches your AWS resource defining a Route53 record and in your Terraform code. Whether or not the entry exits determines if Terraform will make a change or not.</p>
+
+                <p><a href="http://watson-wilson.ca/blog/2017/04/17/terraform-state/#section-2">Continue reading...</a></p>
+            <p>Tags:
+                <a href="http://watson-wilson.ca/blog/tag/terraform/">terraform</a>
+                <a href="http://watson-wilson.ca/blog/tag/configuration-management/">configuration management</a>
+                <a href="http://watson-wilson.ca/blog/tag/cloud/">cloud</a>
+                <a href="http://watson-wilson.ca/blog/tag/aws/">AWS</a>
+            </p>
+        ]]></content>
+        <updated>2017-04-17T00:00:00Z</updated>
+        <category term="terraform" />
+        <category term="configuration management" />
+        <category term="cloud" />
+        <category term="AWS" />
+    </entry>
     <entry>
         <id>http://watson-wilson.ca/blog/2017/03/30/terraform-modules/</id>
         <title>Terraform modules</title>
         <link href="http://watson-wilson.ca/blog/2017/03/30/terraform-modules/" rel="alternate" />
         <content type="html"><![CDATA[
-            <p><a href="https://terraform.io/"><img alt="terraform logo" src="https://raw.githubusercontent.com/hashicorp/terraform/master/website/source/assets/images/logo-static.png" style="float:right" width="120px"></a></p>
+            <p><a href="https://terraform.io/"><img alt="terraform logo" src="https://raw.githubusercontent.com/hashicorp/terraform/master/website/source/assets/images/og-image.png" style="float:right" width="120px"></a></p>
 
 <p>Here&#39;s what I&#39;ve learned so far using Terraform and its modules. I&#39;ve just scratched the surface so test and research on your own.</p>
 
@@ -20,12 +43,14 @@
                 <a href="http://watson-wilson.ca/blog/tag/terraform/">terraform</a>
                 <a href="http://watson-wilson.ca/blog/tag/cloud/">cloud</a>
                 <a href="http://watson-wilson.ca/blog/tag/configuration-management/">configuration management</a>
+                <a href="http://watson-wilson.ca/blog/tag/aws/">AWS</a>
             </p>
         ]]></content>
         <updated>2017-03-30T00:00:00Z</updated>
         <category term="terraform" />
         <category term="cloud" />
         <category term="configuration management" />
+        <category term="AWS" />
     </entry>
     <entry>
         <id>http://watson-wilson.ca/blog/2016/11/15/docker_api_from_cli/</id>
@@ -101,28 +126,6 @@ remote accessible port, but in these examples I&#39;ll show local socket only.</
         <category term="cloud foundry" />
         <category term="bosh" />
         <category term="containers" />
-    </entry>
-    <entry>
-        <id>http://watson-wilson.ca/blog/2016/07/22/grip/</id>
-        <title>Previewing Markdown using grip</title>
-        <link href="http://watson-wilson.ca/blog/2016/07/22/grip/" rel="alternate" />
-        <content type="html"><![CDATA[
-            <p>Review your markdown locally with <a href="https://github.com/joeyespo/grip">Grip</a>,
-powered by Python.</p>
-
-                <p><a href="http://watson-wilson.ca/blog/2016/07/22/grip/#section-2">Continue reading...</a></p>
-            <p>Tags:
-                <a href="http://watson-wilson.ca/blog/tag/markdown/">markdown</a>
-                <a href="http://watson-wilson.ca/blog/tag/github/">github</a>
-                <a href="http://watson-wilson.ca/blog/tag/bitbucket/">bitbucket</a>
-                <a href="http://watson-wilson.ca/blog/tag/python/">python</a>
-            </p>
-        ]]></content>
-        <updated>2016-07-22T00:00:00Z</updated>
-        <category term="markdown" />
-        <category term="github" />
-        <category term="bitbucket" />
-        <category term="python" />
     </entry>
 </feed>
 

@@ -1,9 +1,9 @@
 ---
 title: Terraform modules
-tags: terraform, cloud, configuration management
+tags: terraform, cloud, configuration management, AWS
 ---
 
-<a href="https://terraform.io/"><img style='float:right' alt='terraform logo' width='120px' src='https://raw.githubusercontent.com/hashicorp/terraform/master/website/source/assets/images/logo-static.png' ></a>
+<a href="https://terraform.io/"><img style='float:right' alt='terraform logo' width='120px' src='https://raw.githubusercontent.com/hashicorp/terraform/master/website/source/assets/images/og-image.png' ></a>
 
 Here's what I've learned so far using Terraform and its modules. I've just scratched the surface so test and research on your own.
 
@@ -66,6 +66,27 @@ Now if we want to use this bucket in a later policy the output of the module all
 
 You should read more over at [terraform.io](https://www.terraform.io/docs/index.html).
 
+#### Don't use named parameters
+
+    module "mymod" {
+        source = "./mymod"
+        param  =  {
+            one = "my param"
+            two = "my other param"
+        }
+    }
+
+
+    # Module starts here
+    variable "param" {
+        type = "map"
+        one  = "1"
+        two  = "2"
+    }
+
+This is a tempting idiom and common in many languages, but it does not work in Terraform. Or rather it does not work as expected. Each parameter passed to a module erases the default declaration in the module. Thus a passed map deletes, and does not merge with, the default declared map. All defaults will be lost.
+
+
 ### Other things I've learned about terraform
 
 - There are no loops. You can't pass a module a list of data for it to loop over. You must call the module multiple times by hand.
@@ -77,4 +98,8 @@ You should read more over at [terraform.io](https://www.terraform.io/docs/index.
 - Terraform plan, plan, and plan more while you get the hang of it.
 
 - If using [Route53](https://aws.amazon.com/route53/details/) for your DNS but your domain is registered else where you'll get new NS AWS servers when create a new zone. So if you destroy and recreate a zone you'll have to update your registrar.
+
+### Further reading
+
+- My [Terraform examples](http://github.com/neilhwatson/nustuff/terraform).
 

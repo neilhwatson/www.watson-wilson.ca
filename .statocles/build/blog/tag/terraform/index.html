@@ -58,12 +58,41 @@
 
             <article>
                 <header>
+                    <h1><a href="/blog/2017/04/17/terraform-state/">Understanding Terraform State</a></h1>
+
+                    <p class="tags">Tags:
+                        <a href="/blog/tag/terraform/" rel="tag">terraform</a>
+                        <a href="/blog/tag/configuration-management/" rel="tag">configuration management</a>
+                        <a href="/blog/tag/cloud/" rel="tag">cloud</a>
+                        <a href="/blog/tag/aws/" rel="tag">AWS</a>
+                    </p>
+
+                    <aside>
+                        <p><time datetime="2017-04-17">
+                            Posted on 2017-04-17
+                        </time>
+                        </p>
+                    </aside>
+
+                </header>
+
+                <p><a href="https://terraform.io/"><img alt="terraform logo" src="https://raw.githubusercontent.com/hashicorp/terraform/master/website/source/assets/images/og-image.png" style="float:right" width="120px"></a></p>
+
+<p>Terraform <a href="https://www.terraform.io/docs/state/purpose.html">state</a> is a database kept by Terraform to help it reconcile Terraform resource dependencies, and reconcile between Terraform code and the actual state on the target infrastructure. For example, in the state, Terraform expects to find an entry that matches your AWS resource defining a Route53 record and in your Terraform code. Whether or not the entry exits determines if Terraform will make a change or not.</p>
+
+
+                    <p><a href="/blog/2017/04/17/terraform-state/index.html#section-2">Continue reading Understanding Terraform State...</a></p>
+
+            </article>
+            <article>
+                <header>
                     <h1><a href="/blog/2017/03/30/terraform-modules/">Terraform modules</a></h1>
 
                     <p class="tags">Tags:
                         <a href="/blog/tag/terraform/" rel="tag">terraform</a>
                         <a href="/blog/tag/cloud/" rel="tag">cloud</a>
                         <a href="/blog/tag/configuration-management/" rel="tag">configuration management</a>
+                        <a href="/blog/tag/aws/" rel="tag">AWS</a>
                     </p>
 
                     <aside>
@@ -75,7 +104,7 @@
 
                 </header>
 
-                <p><a href="https://terraform.io/"><img alt="terraform logo" src="https://raw.githubusercontent.com/hashicorp/terraform/master/website/source/assets/images/logo-static.png" style="float:right" width="120px"></a></p>
+                <p><a href="https://terraform.io/"><img alt="terraform logo" src="https://raw.githubusercontent.com/hashicorp/terraform/master/website/source/assets/images/og-image.png" style="float:right" width="120px"></a></p>
 
 <p>Here&#39;s what I&#39;ve learned so far using Terraform and its modules. I&#39;ve just scratched the surface so test and research on your own.</p>
 
@@ -102,7 +131,7 @@
 
                 </header>
 
-                <p><a href="https://terraform.io/"><img alt="terraform logo" src="https://raw.githubusercontent.com/hashicorp/terraform/master/website/source/assets/images/logo-static.png" style="float:right" width="120px"></a></p>
+                <p><a href="https://terraform.io/"><img alt="terraform logo" src="https://raw.githubusercontent.com/hashicorp/terraform/master/website/source/assets/images/og-image.png" style="float:right" width="120px"></a></p>
 
 <p><a href="https://terraform.io/">Terraform</a> allows you to manage your AWS, and other
 cloud infrastructure, the same way you would manage servers using configuration
@@ -132,7 +161,7 @@ convergent so only required changes are applied.</p>
 
                 </header>
 
-                <p><a href="https://terraform.io/"><img alt="terraform logo" src="https://raw.githubusercontent.com/hashicorp/terraform/master/website/source/assets/images/logo-static.png" style="float:right" width="120px"></a></p>
+                <p><a href="https://terraform.io/"><img alt="terraform logo" src="https://raw.githubusercontent.com/hashicorp/terraform/master/website/source/assets/images/og-image.png" style="float:right" width="120px"></a></p>
 
 <p>I saw a great <a href="https://terraform.io/">Terraform</a> presentation last week at a
 Devops <a href="http://www.meetup.com/DevOpsTO/">meetup</a>. Terraform is a configuration
@@ -169,6 +198,7 @@ environment using a descriptive language.</p>
             <li><a href="/blog/tag/ansible/">ansible</a></li>
             <li><a href="/blog/tag/anti-virus/">anti-virus</a></li>
             <li><a href="/blog/tag/apt/">apt</a></li>
+            <li><a href="/blog/tag/aws/">AWS</a></li>
             <li><a href="/blog/tag/backup/">backup</a></li>
             <li><a href="/blog/tag/best-practices/">best practices</a></li>
             <li><a href="/blog/tag/bitbucket/">bitbucket</a></li>

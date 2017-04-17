@@ -2,16 +2,39 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>http://watson-wilson.ca/blog/tag/configuration-management/</id>
     <title>Neil H. Watson</title>
-    <updated>2017-03-30T00:00:00Z</updated>
+    <updated>2017-04-17T00:00:00Z</updated>
     <link href="http://watson-wilson.ca/blog/tag/configuration-management.atom" rel="self" />
     <link href="http://watson-wilson.ca/blog/tag/configuration-management/" rel="alternate" />
     <generator version="0.083">Statocles</generator>
+    <entry>
+        <id>http://watson-wilson.ca/blog/2017/04/17/terraform-state/</id>
+        <title>Understanding Terraform State</title>
+        <link href="http://watson-wilson.ca/blog/2017/04/17/terraform-state/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p><a href="https://terraform.io/"><img alt="terraform logo" src="https://raw.githubusercontent.com/hashicorp/terraform/master/website/source/assets/images/og-image.png" style="float:right" width="120px"></a></p>
+
+<p>Terraform <a href="https://www.terraform.io/docs/state/purpose.html">state</a> is a database kept by Terraform to help it reconcile Terraform resource dependencies, and reconcile between Terraform code and the actual state on the target infrastructure. For example, in the state, Terraform expects to find an entry that matches your AWS resource defining a Route53 record and in your Terraform code. Whether or not the entry exits determines if Terraform will make a change or not.</p>
+
+                <p><a href="http://watson-wilson.ca/blog/2017/04/17/terraform-state/#section-2">Continue reading...</a></p>
+            <p>Tags:
+                <a href="http://watson-wilson.ca/blog/tag/terraform/">terraform</a>
+                <a href="http://watson-wilson.ca/blog/tag/configuration-management/">configuration management</a>
+                <a href="http://watson-wilson.ca/blog/tag/cloud/">cloud</a>
+                <a href="http://watson-wilson.ca/blog/tag/aws/">AWS</a>
+            </p>
+        ]]></content>
+        <updated>2017-04-17T00:00:00Z</updated>
+        <category term="terraform" />
+        <category term="configuration management" />
+        <category term="cloud" />
+        <category term="AWS" />
+    </entry>
     <entry>
         <id>http://watson-wilson.ca/blog/2017/03/30/terraform-modules/</id>
         <title>Terraform modules</title>
         <link href="http://watson-wilson.ca/blog/2017/03/30/terraform-modules/" rel="alternate" />
         <content type="html"><![CDATA[
-            <p><a href="https://terraform.io/"><img alt="terraform logo" src="https://raw.githubusercontent.com/hashicorp/terraform/master/website/source/assets/images/logo-static.png" style="float:right" width="120px"></a></p>
+            <p><a href="https://terraform.io/"><img alt="terraform logo" src="https://raw.githubusercontent.com/hashicorp/terraform/master/website/source/assets/images/og-image.png" style="float:right" width="120px"></a></p>
 
 <p>Here&#39;s what I&#39;ve learned so far using Terraform and its modules. I&#39;ve just scratched the surface so test and research on your own.</p>
 
@@ -20,12 +43,14 @@
                 <a href="http://watson-wilson.ca/blog/tag/terraform/">terraform</a>
                 <a href="http://watson-wilson.ca/blog/tag/cloud/">cloud</a>
                 <a href="http://watson-wilson.ca/blog/tag/configuration-management/">configuration management</a>
+                <a href="http://watson-wilson.ca/blog/tag/aws/">AWS</a>
             </p>
         ]]></content>
         <updated>2017-03-30T00:00:00Z</updated>
         <category term="terraform" />
         <category term="cloud" />
         <category term="configuration management" />
+        <category term="AWS" />
     </entry>
     <entry>
         <id>http://watson-wilson.ca/blog/2016/10/27/ansible-reboot/</id>
@@ -78,7 +103,7 @@ bugs; here are mine:</p>
         <title>Introduction to Terraform</title>
         <link href="http://watson-wilson.ca/blog/2016/01/08/terraform-intro/" rel="alternate" />
         <content type="html"><![CDATA[
-            <p><a href="https://terraform.io/"><img alt="terraform logo" src="https://raw.githubusercontent.com/hashicorp/terraform/master/website/source/assets/images/logo-static.png" style="float:right" width="120px"></a></p>
+            <p><a href="https://terraform.io/"><img alt="terraform logo" src="https://raw.githubusercontent.com/hashicorp/terraform/master/website/source/assets/images/og-image.png" style="float:right" width="120px"></a></p>
 
 <p><a href="https://terraform.io/">Terraform</a> allows you to manage your AWS, and other
 cloud infrastructure, the same way you would manage servers using configuration
@@ -96,36 +121,6 @@ convergent so only required changes are applied.</p>
         <category term="terraform" />
         <category term="cloud" />
         <category term="configuration management" />
-    </entry>
-    <entry>
-        <id>http://watson-wilson.ca/blog/2015/11/25/terraform/</id>
-        <title>Terraform: config management for the cloud</title>
-        <link href="http://watson-wilson.ca/blog/2015/11/25/terraform/" rel="alternate" />
-        <content type="html"><![CDATA[
-            <p><a href="https://terraform.io/"><img alt="terraform logo" src="https://raw.githubusercontent.com/hashicorp/terraform/master/website/source/assets/images/logo-static.png" style="float:right" width="120px"></a></p>
-
-<p>I saw a great <a href="https://terraform.io/">Terraform</a> presentation last week at a
-Devops <a href="http://www.meetup.com/DevOpsTO/">meetup</a>. Terraform is a configuration
-management tool for virtual infrastructure. You can define your AWS or similar
-environment using a descriptive language.</p>
-
-<ul>
-<li><a href="http://slides.com/adammeghji/universe-terraform#/">Slides</a></li>
-<li><a href="https://github.com/adammeghji/terraform-demo">Sample code</a></li>
-<li><a href="https://plus.google.com/events/cfjrv6r27e3k6t65n28fdmp6j9c">Recording</a></li>
-</ul>
-
-                <p><a href="http://watson-wilson.ca/blog/2015/11/25/terraform/#section-2">Continue reading...</a></p>
-            <p>Tags:
-                <a href="http://watson-wilson.ca/blog/tag/configuration-management/">configuration management</a>
-                <a href="http://watson-wilson.ca/blog/tag/cloud/">cloud</a>
-                <a href="http://watson-wilson.ca/blog/tag/terraform/">terraform</a>
-            </p>
-        ]]></content>
-        <updated>2015-11-25T00:00:00Z</updated>
-        <category term="configuration management" />
-        <category term="cloud" />
-        <category term="terraform" />
     </entry>
 </feed>
 

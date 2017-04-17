@@ -56,6 +56,7 @@
                     <a href="/blog/tag/terraform/" rel="tag">terraform</a>
                     <a href="/blog/tag/cloud/" rel="tag">cloud</a>
                     <a href="/blog/tag/configuration-management/" rel="tag">configuration management</a>
+                    <a href="/blog/tag/aws/" rel="tag">AWS</a>
                 </p>
 
                 <aside>
@@ -68,7 +69,7 @@
 
             </header>
             <section id="section-1">
-                <p><a href="https://terraform.io/"><img alt="terraform logo" src="https://raw.githubusercontent.com/hashicorp/terraform/master/website/source/assets/images/logo-static.png" style="float:right" width="120px"></a></p>
+                <p><a href="https://terraform.io/"><img alt="terraform logo" src="https://raw.githubusercontent.com/hashicorp/terraform/master/website/source/assets/images/og-image.png" style="float:right" width="120px"></a></p>
 
 <p>Here&#39;s what I&#39;ve learned so far using Terraform and its modules. I&#39;ve just scratched the surface so test and research on your own.</p>
 
@@ -133,6 +134,27 @@ output &quot;bucket_id&quot;
 
 <p>You should read more over at <a href="https://www.terraform.io/docs/index.html">terraform.io</a>.</p>
 
+<h4>Don&#39;t use named parameters</h4>
+
+<pre><code>module &quot;mymod&quot; {
+    source = &quot;./mymod&quot;
+    param  =  {
+        one = &quot;my param&quot;
+        two = &quot;my other param&quot;
+    }
+}
+
+
+# Module starts here
+variable &quot;param&quot; {
+    type = &quot;map&quot;
+    one  = &quot;1&quot;
+    two  = &quot;2&quot;
+}
+</code></pre>
+
+<p>This is a tempting idiom and common in many languages, but it does not work in Terraform. Or rather it does not work as expected. Each parameter passed to a module erases the default declaration in the module. Thus a passed map deletes, and does not merge with, the default declared map. All defaults will be lost.</p>
+
 <h3>Other things I&#39;ve learned about terraform</h3>
 
 <ul>
@@ -141,6 +163,12 @@ output &quot;bucket_id&quot;
 <li><p>Use a <a href="https://www.terraform.io/docs/providers/aws/index.html">role based host</a> like at an AWS EC2 host with IAM to authorize terraform to access your provider. Avoid storing passwords.</p></li>
 <li><p>Terraform plan, plan, and plan more while you get the hang of it.</p></li>
 <li><p>If using <a href="https://aws.amazon.com/route53/details/">Route53</a> for your DNS but your domain is registered else where you&#39;ll get new NS AWS servers when create a new zone. So if you destroy and recreate a zone you&#39;ll have to update your registrar.</p></li>
+</ul>
+
+<h3>Further reading</h3>
+
+<ul>
+<li>My <a href="http://github.com/neilhwatson/nustuff/terraform">Terraform examples</a>.</li>
 </ul>
 
             </section>
@@ -158,6 +186,7 @@ output &quot;bucket_id&quot;
                 <li><a href="/blog/tag/ansible/">ansible</a></li>
                 <li><a href="/blog/tag/anti-virus/">anti-virus</a></li>
                 <li><a href="/blog/tag/apt/">apt</a></li>
+                <li><a href="/blog/tag/aws/">AWS</a></li>
                 <li><a href="/blog/tag/backup/">backup</a></li>
                 <li><a href="/blog/tag/best-practices/">best practices</a></li>
                 <li><a href="/blog/tag/bitbucket/">bitbucket</a></li>
