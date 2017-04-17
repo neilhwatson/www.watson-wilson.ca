@@ -13,7 +13,7 @@ Terraform [state](https://www.terraform.io/docs/state/purpose.html) is a databas
 
 The following table describes what Terraform will do regarding a resource depending on whether or not it exists in state and in AWS.
 
-<table>
+<table class="table">
 <tr>
 	<th>Exists in Terraform state</th>
 	<th>Exist in AWS</th>
