@@ -2,10 +2,37 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>http://watson-wilson.ca/blog/tag/perl/</id>
     <title>Neil H. Watson</title>
-    <updated>2015-11-25T00:00:00Z</updated>
+    <updated>2017-04-18T00:00:00Z</updated>
     <link href="http://watson-wilson.ca/blog/tag/perl.atom" rel="self" />
     <link href="http://watson-wilson.ca/blog/tag/perl/" rel="alternate" />
     <generator version="0.083">Statocles</generator>
+    <entry>
+        <id>http://watson-wilson.ca/blog/2017/04/18/improve-programming/</id>
+        <title>Improve your Python, Perl, or Ruby</title>
+        <link href="http://watson-wilson.ca/blog/2017/04/18/improve-programming/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p><img alt="oreilly funny book cover" src="http://watson-wilson.ca/static/images/copy-paste-stack.jpg" style="float:right" width="120px"></p>
+
+<p>Learn Python, Perl, or Ruby by example with my production focused templates. Each template can be an object or procedural, has standard CLI options, documentation, and is test driven.</p>
+
+                <p><a href="http://watson-wilson.ca/blog/2017/04/18/improve-programming/#section-2">Continue reading...</a></p>
+            <p>Tags:
+                <a href="http://watson-wilson.ca/blog/tag/programming/">programming</a>
+                <a href="http://watson-wilson.ca/blog/tag/scripting/">scripting</a>
+                <a href="http://watson-wilson.ca/blog/tag/python/">python</a>
+                <a href="http://watson-wilson.ca/blog/tag/perl/">perl</a>
+                <a href="http://watson-wilson.ca/blog/tag/ruby/">ruby</a>
+                <a href="http://watson-wilson.ca/blog/tag/shell/">shell</a>
+            </p>
+        ]]></content>
+        <updated>2017-04-18T00:00:00Z</updated>
+        <category term="programming" />
+        <category term="scripting" />
+        <category term="python" />
+        <category term="perl" />
+        <category term="ruby" />
+        <category term="shell" />
+    </entry>
     <entry>
         <id>http://watson-wilson.ca/blog/2015/11/25/perl-cheatsheet/</id>
         <title>Perl cheatsheet</title>

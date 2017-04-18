@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Neil H. Watson</title>
+        <link>http://watson-wilson.ca/blog/tag/azure/</link>
+        <atom:link href="http://watson-wilson.ca/blog/tag/azure.rss" rel="self" type="application/rss+xml" />
+        <description>Blog feed of Neil H. Watson</description>
+        <generator>Statocles 0.083</generator>
+        <item>
+            <title>Build on Azure with Terraform</title>
+            <link>http://watson-wilson.ca/blog/2017/04/18/terraform-azure/</link>
+            <guid>http://watson-wilson.ca/blog/2017/04/18/terraform-azure/</guid>
+            <description><![CDATA[
+                <p><a href="https://terraform.io/"><img alt="terraform logo" src="https://raw.githubusercontent.com/hashicorp/terraform/master/website/source/assets/images/og-image.png" style="float:right" width="120px"></a></p>
+
+<p>Build Azure VMs with Terraform using my <a href="https://github.com/neilhwatson/nustuff/tree/master/terraform/on-azure">example code</a></p>
+
+                    <p><a href="http://watson-wilson.ca/blog/2017/04/18/terraform-azure/#section-2">Continue reading...</a></p>
+                <p>Tags:
+                    <a href="http://watson-wilson.ca/blog/tag/terraform/">terraform</a>
+                    <a href="http://watson-wilson.ca/blog/tag/configuration-management/">configuration management</a>
+                    <a href="http://watson-wilson.ca/blog/tag/azure/">azure</a>
+                </p>
+            ]]></description>
+            <pubDate>
+                Tue, 18 Apr 2017 00:00:00 +0000
+            </pubDate>
+        </item>
+    </channel>
+</rss>
+

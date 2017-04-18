@@ -4,7 +4,7 @@
         <loc>http://watson-wilson.ca/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2017-04-17</lastmod>
+        <lastmod>2017-04-18</lastmod>
     </url>
     <url>
         <loc>http://watson-wilson.ca/blog/2007/08/08/clustering-with-redhat/</loc>
@@ -595,118 +595,130 @@
         <lastmod>2017-04-17</lastmod>
     </url>
     <url>
+        <loc>http://watson-wilson.ca/blog/2017/04/18/improve-programming/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2017-04-18</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/2017/04/18/terraform-azure/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2017-04-18</lastmod>
+    </url>
+    <url>
         <loc>http://watson-wilson.ca/blog/page/10/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2017-04-17</lastmod>
+        <lastmod>2017-04-18</lastmod>
     </url>
     <url>
         <loc>http://watson-wilson.ca/blog/page/11/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2017-04-17</lastmod>
+        <lastmod>2017-04-18</lastmod>
     </url>
     <url>
         <loc>http://watson-wilson.ca/blog/page/12/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2017-04-17</lastmod>
+        <lastmod>2017-04-18</lastmod>
     </url>
     <url>
         <loc>http://watson-wilson.ca/blog/page/13/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2017-04-17</lastmod>
+        <lastmod>2017-04-18</lastmod>
     </url>
     <url>
         <loc>http://watson-wilson.ca/blog/page/14/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2017-04-17</lastmod>
+        <lastmod>2017-04-18</lastmod>
     </url>
     <url>
         <loc>http://watson-wilson.ca/blog/page/15/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2017-04-17</lastmod>
+        <lastmod>2017-04-18</lastmod>
     </url>
     <url>
         <loc>http://watson-wilson.ca/blog/page/16/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2017-04-17</lastmod>
+        <lastmod>2017-04-18</lastmod>
     </url>
     <url>
         <loc>http://watson-wilson.ca/blog/page/17/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2017-04-17</lastmod>
+        <lastmod>2017-04-18</lastmod>
     </url>
     <url>
         <loc>http://watson-wilson.ca/blog/page/18/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2017-04-17</lastmod>
+        <lastmod>2017-04-18</lastmod>
     </url>
     <url>
         <loc>http://watson-wilson.ca/blog/page/19/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2017-04-17</lastmod>
+        <lastmod>2017-04-18</lastmod>
     </url>
     <url>
         <loc>http://watson-wilson.ca/blog/page/2/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2017-04-17</lastmod>
+        <lastmod>2017-04-18</lastmod>
     </url>
     <url>
         <loc>http://watson-wilson.ca/blog/page/20/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2017-04-17</lastmod>
+        <lastmod>2017-04-18</lastmod>
     </url>
     <url>
         <loc>http://watson-wilson.ca/blog/page/3/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2017-04-17</lastmod>
+        <lastmod>2017-04-18</lastmod>
     </url>
     <url>
         <loc>http://watson-wilson.ca/blog/page/4/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2017-04-17</lastmod>
+        <lastmod>2017-04-18</lastmod>
     </url>
     <url>
         <loc>http://watson-wilson.ca/blog/page/5/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2017-04-17</lastmod>
+        <lastmod>2017-04-18</lastmod>
     </url>
     <url>
         <loc>http://watson-wilson.ca/blog/page/6/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2017-04-17</lastmod>
+        <lastmod>2017-04-18</lastmod>
     </url>
     <url>
         <loc>http://watson-wilson.ca/blog/page/7/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2017-04-17</lastmod>
+        <lastmod>2017-04-18</lastmod>
     </url>
     <url>
         <loc>http://watson-wilson.ca/blog/page/8/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2017-04-17</lastmod>
+        <lastmod>2017-04-18</lastmod>
     </url>
     <url>
         <loc>http://watson-wilson.ca/blog/page/9/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2017-04-17</lastmod>
+        <lastmod>2017-04-18</lastmod>
     </url>
     <url>
         <loc>http://watson-wilson.ca/blog/tag/ansible/</loc>
@@ -731,6 +743,12 @@
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
         <lastmod>2017-04-17</lastmod>
+    </url>
+    <url>
+        <loc>http://watson-wilson.ca/blog/tag/azure/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2017-04-18</lastmod>
     </url>
     <url>
         <loc>http://watson-wilson.ca/blog/tag/backup/</loc>
@@ -886,25 +904,25 @@
         <loc>http://watson-wilson.ca/blog/tag/configuration-management/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2017-04-17</lastmod>
+        <lastmod>2017-04-18</lastmod>
     </url>
     <url>
         <loc>http://watson-wilson.ca/blog/tag/configuration-management/page/2/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2017-04-17</lastmod>
+        <lastmod>2017-04-18</lastmod>
     </url>
     <url>
         <loc>http://watson-wilson.ca/blog/tag/configuration-management/page/3/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2017-04-17</lastmod>
+        <lastmod>2017-04-18</lastmod>
     </url>
     <url>
         <loc>http://watson-wilson.ca/blog/tag/configuration-management/page/4/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2017-04-17</lastmod>
+        <lastmod>2017-04-18</lastmod>
     </url>
     <url>
         <loc>http://watson-wilson.ca/blog/tag/containers/</loc>
@@ -1156,7 +1174,7 @@
         <loc>http://watson-wilson.ca/blog/tag/perl/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2015-11-25</lastmod>
+        <lastmod>2017-04-18</lastmod>
     </url>
     <url>
         <loc>http://watson-wilson.ca/blog/tag/posix/</loc>
@@ -1168,7 +1186,7 @@
         <loc>http://watson-wilson.ca/blog/tag/programming/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2015-11-25</lastmod>
+        <lastmod>2017-04-18</lastmod>
     </url>
     <url>
         <loc>http://watson-wilson.ca/blog/tag/provisioning/</loc>
@@ -1180,7 +1198,7 @@
         <loc>http://watson-wilson.ca/blog/tag/python/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2016-07-22</lastmod>
+        <lastmod>2017-04-18</lastmod>
     </url>
     <url>
         <loc>http://watson-wilson.ca/blog/tag/red-hat/</loc>
@@ -1207,6 +1225,12 @@
         <lastmod>2011-05-09</lastmod>
     </url>
     <url>
+        <loc>http://watson-wilson.ca/blog/tag/ruby/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2017-04-18</lastmod>
+    </url>
+    <url>
         <loc>http://watson-wilson.ca/blog/tag/san/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
@@ -1222,7 +1246,7 @@
         <loc>http://watson-wilson.ca/blog/tag/scripting/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2016-10-27</lastmod>
+        <lastmod>2017-04-18</lastmod>
     </url>
     <url>
         <loc>http://watson-wilson.ca/blog/tag/security/</loc>
@@ -1240,7 +1264,7 @@
         <loc>http://watson-wilson.ca/blog/tag/shell/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2011-03-08</lastmod>
+        <lastmod>2017-04-18</lastmod>
     </url>
     <url>
         <loc>http://watson-wilson.ca/blog/tag/software-testing/</loc>
@@ -1318,7 +1342,7 @@
         <loc>http://watson-wilson.ca/blog/tag/terraform/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2017-04-17</lastmod>
+        <lastmod>2017-04-18</lastmod>
     </url>
     <url>
         <loc>http://watson-wilson.ca/blog/tag/virus/</loc>
@@ -1342,31 +1366,31 @@
         <loc>http://watson-wilson.ca/page/</loc>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
-        <lastmod>2017-04-17</lastmod>
+        <lastmod>2017-04-18</lastmod>
     </url>
     <url>
         <loc>http://watson-wilson.ca/page/404/</loc>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
-        <lastmod>2017-04-17</lastmod>
+        <lastmod>2017-04-18</lastmod>
     </url>
     <url>
         <loc>http://watson-wilson.ca/page/about/</loc>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
-        <lastmod>2017-04-17</lastmod>
+        <lastmod>2017-04-18</lastmod>
     </url>
     <url>
         <loc>http://watson-wilson.ca/page/evolvethinking/</loc>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
-        <lastmod>2017-04-17</lastmod>
+        <lastmod>2017-04-18</lastmod>
     </url>
     <url>
         <loc>http://watson-wilson.ca/page/projects/</loc>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
-        <lastmod>2017-04-17</lastmod>
+        <lastmod>2017-04-18</lastmod>
     </url>
 </urlset>
 

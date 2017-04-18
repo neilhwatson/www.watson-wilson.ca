@@ -7,6 +7,49 @@
         <description>Blog feed of Neil H. Watson</description>
         <generator>Statocles 0.083</generator>
         <item>
+            <title>Improve your Python, Perl, or Ruby</title>
+            <link>http://watson-wilson.ca/blog/2017/04/18/improve-programming/</link>
+            <guid>http://watson-wilson.ca/blog/2017/04/18/improve-programming/</guid>
+            <description><![CDATA[
+                <p><img alt="oreilly funny book cover" src="http://watson-wilson.ca/static/images/copy-paste-stack.jpg" style="float:right" width="120px"></p>
+
+<p>Learn Python, Perl, or Ruby by example with my production focused templates. Each template can be an object or procedural, has standard CLI options, documentation, and is test driven.</p>
+
+                    <p><a href="http://watson-wilson.ca/blog/2017/04/18/improve-programming/#section-2">Continue reading...</a></p>
+                <p>Tags:
+                    <a href="http://watson-wilson.ca/blog/tag/programming/">programming</a>
+                    <a href="http://watson-wilson.ca/blog/tag/scripting/">scripting</a>
+                    <a href="http://watson-wilson.ca/blog/tag/python/">python</a>
+                    <a href="http://watson-wilson.ca/blog/tag/perl/">perl</a>
+                    <a href="http://watson-wilson.ca/blog/tag/ruby/">ruby</a>
+                    <a href="http://watson-wilson.ca/blog/tag/shell/">shell</a>
+                </p>
+            ]]></description>
+            <pubDate>
+                Tue, 18 Apr 2017 00:00:00 +0000
+            </pubDate>
+        </item>
+        <item>
+            <title>Build on Azure with Terraform</title>
+            <link>http://watson-wilson.ca/blog/2017/04/18/terraform-azure/</link>
+            <guid>http://watson-wilson.ca/blog/2017/04/18/terraform-azure/</guid>
+            <description><![CDATA[
+                <p><a href="https://terraform.io/"><img alt="terraform logo" src="https://raw.githubusercontent.com/hashicorp/terraform/master/website/source/assets/images/og-image.png" style="float:right" width="120px"></a></p>
+
+<p>Build Azure VMs with Terraform using my <a href="https://github.com/neilhwatson/nustuff/tree/master/terraform/on-azure">example code</a></p>
+
+                    <p><a href="http://watson-wilson.ca/blog/2017/04/18/terraform-azure/#section-2">Continue reading...</a></p>
+                <p>Tags:
+                    <a href="http://watson-wilson.ca/blog/tag/terraform/">terraform</a>
+                    <a href="http://watson-wilson.ca/blog/tag/configuration-management/">configuration management</a>
+                    <a href="http://watson-wilson.ca/blog/tag/azure/">azure</a>
+                </p>
+            ]]></description>
+            <pubDate>
+                Tue, 18 Apr 2017 00:00:00 +0000
+            </pubDate>
+        </item>
+        <item>
             <title>Understanding Terraform State</title>
             <link>http://watson-wilson.ca/blog/2017/04/17/terraform-state/</link>
             <guid>http://watson-wilson.ca/blog/2017/04/17/terraform-state/</guid>
@@ -72,48 +115,6 @@ remote accessible port, but in these examples I&#39;ll show local socket only.</
             ]]></description>
             <pubDate>
                 Tue, 15 Nov 2016 00:00:00 +0000
-            </pubDate>
-        </item>
-        <item>
-            <title>Reboot and reconnect between Ansible tasks</title>
-            <link>http://watson-wilson.ca/blog/2016/10/27/ansible-reboot/</link>
-            <guid>http://watson-wilson.ca/blog/2016/10/27/ansible-reboot/</guid>
-            <description><![CDATA[
-                <p><a href="http://ansible.com"><img alt="go to ansible.com" src="http://watson-wilson.ca/static/images/ansible_logo_round.png" style="float:right" width="150px"></a></p>
-
-<p>You can reboot and reconnect to your hosts between <a href="http://ansible.com">Ansible</a> tasks. </p>
-
-                    <p><a href="http://watson-wilson.ca/blog/2016/10/27/ansible-reboot/#section-2">Continue reading...</a></p>
-                <p>Tags:
-                    <a href="http://watson-wilson.ca/blog/tag/configuration-management/">configuration management</a>
-                    <a href="http://watson-wilson.ca/blog/tag/ansible/">ansible</a>
-                    <a href="http://watson-wilson.ca/blog/tag/orchestration/">orchestration</a>
-                    <a href="http://watson-wilson.ca/blog/tag/scripting/">scripting</a>
-                </p>
-            ]]></description>
-            <pubDate>
-                Thu, 27 Oct 2016 00:00:00 +0000
-            </pubDate>
-        </item>
-        <item>
-            <title>Bosh and Cloud Foundry, an intro</title>
-            <link>http://watson-wilson.ca/blog/2016/10/10/cloudfoundry/</link>
-            <guid>http://watson-wilson.ca/blog/2016/10/10/cloudfoundry/</guid>
-            <description><![CDATA[
-                <p><a href="https://cloudfoundry.org/"><img alt="cloudfoundry website" src="http://watson-wilson.ca/static/images/Cloud-Foundry-Logo.png" style="float:right" width="120px"></a></p>
-
-<p><a href="https://www.cloudfoundry.org/">Cloud Foundry</a> is an open source platform as a service product owned by Pivotal Software. CF allows you to deploy applications to containers on AWS, Azue, VMware vSphere, and others.</p>
-
-                    <p><a href="http://watson-wilson.ca/blog/2016/10/10/cloudfoundry/#section-2">Continue reading...</a></p>
-                <p>Tags:
-                    <a href="http://watson-wilson.ca/blog/tag/cloud/">cloud</a>
-                    <a href="http://watson-wilson.ca/blog/tag/cloud-foundry/">cloud foundry</a>
-                    <a href="http://watson-wilson.ca/blog/tag/bosh/">bosh</a>
-                    <a href="http://watson-wilson.ca/blog/tag/containers/">containers</a>
-                </p>
-            ]]></description>
-            <pubDate>
-                Mon, 10 Oct 2016 00:00:00 +0000
             </pubDate>
         </item>
     </channel>

@@ -7,6 +7,29 @@
         <description>Blog feed of Neil H. Watson</description>
         <generator>Statocles 0.083</generator>
         <item>
+            <title>Improve your Python, Perl, or Ruby</title>
+            <link>http://watson-wilson.ca/blog/2017/04/18/improve-programming/</link>
+            <guid>http://watson-wilson.ca/blog/2017/04/18/improve-programming/</guid>
+            <description><![CDATA[
+                <p><img alt="oreilly funny book cover" src="http://watson-wilson.ca/static/images/copy-paste-stack.jpg" style="float:right" width="120px"></p>
+
+<p>Learn Python, Perl, or Ruby by example with my production focused templates. Each template can be an object or procedural, has standard CLI options, documentation, and is test driven.</p>
+
+                    <p><a href="http://watson-wilson.ca/blog/2017/04/18/improve-programming/#section-2">Continue reading...</a></p>
+                <p>Tags:
+                    <a href="http://watson-wilson.ca/blog/tag/programming/">programming</a>
+                    <a href="http://watson-wilson.ca/blog/tag/scripting/">scripting</a>
+                    <a href="http://watson-wilson.ca/blog/tag/python/">python</a>
+                    <a href="http://watson-wilson.ca/blog/tag/perl/">perl</a>
+                    <a href="http://watson-wilson.ca/blog/tag/ruby/">ruby</a>
+                    <a href="http://watson-wilson.ca/blog/tag/shell/">shell</a>
+                </p>
+            ]]></description>
+            <pubDate>
+                Tue, 18 Apr 2017 00:00:00 +0000
+            </pubDate>
+        </item>
+        <item>
             <title>Reboot and reconnect between Ansible tasks</title>
             <link>http://watson-wilson.ca/blog/2016/10/27/ansible-reboot/</link>
             <guid>http://watson-wilson.ca/blog/2016/10/27/ansible-reboot/</guid>

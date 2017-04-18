@@ -7,6 +7,26 @@
         <description>Blog feed of Neil H. Watson</description>
         <generator>Statocles 0.083</generator>
         <item>
+            <title>Build on Azure with Terraform</title>
+            <link>http://watson-wilson.ca/blog/2017/04/18/terraform-azure/</link>
+            <guid>http://watson-wilson.ca/blog/2017/04/18/terraform-azure/</guid>
+            <description><![CDATA[
+                <p><a href="https://terraform.io/"><img alt="terraform logo" src="https://raw.githubusercontent.com/hashicorp/terraform/master/website/source/assets/images/og-image.png" style="float:right" width="120px"></a></p>
+
+<p>Build Azure VMs with Terraform using my <a href="https://github.com/neilhwatson/nustuff/tree/master/terraform/on-azure">example code</a></p>
+
+                    <p><a href="http://watson-wilson.ca/blog/2017/04/18/terraform-azure/#section-2">Continue reading...</a></p>
+                <p>Tags:
+                    <a href="http://watson-wilson.ca/blog/tag/terraform/">terraform</a>
+                    <a href="http://watson-wilson.ca/blog/tag/configuration-management/">configuration management</a>
+                    <a href="http://watson-wilson.ca/blog/tag/azure/">azure</a>
+                </p>
+            ]]></description>
+            <pubDate>
+                Tue, 18 Apr 2017 00:00:00 +0000
+            </pubDate>
+        </item>
+        <item>
             <title>Understanding Terraform State</title>
             <link>http://watson-wilson.ca/blog/2017/04/17/terraform-state/</link>
             <guid>http://watson-wilson.ca/blog/2017/04/17/terraform-state/</guid>
@@ -90,29 +110,6 @@ bugs; here are mine:</p>
             ]]></description>
             <pubDate>
                 Sun, 27 Mar 2016 00:00:00 +0000
-            </pubDate>
-        </item>
-        <item>
-            <title>Introduction to Terraform</title>
-            <link>http://watson-wilson.ca/blog/2016/01/08/terraform-intro/</link>
-            <guid>http://watson-wilson.ca/blog/2016/01/08/terraform-intro/</guid>
-            <description><![CDATA[
-                <p><a href="https://terraform.io/"><img alt="terraform logo" src="https://raw.githubusercontent.com/hashicorp/terraform/master/website/source/assets/images/og-image.png" style="float:right" width="120px"></a></p>
-
-<p><a href="https://terraform.io/">Terraform</a> allows you to manage your AWS, and other
-cloud infrastructure, the same way you would manage servers using configuration
-management products like CFEngine or Puppet. Terraform is idempotent and
-convergent so only required changes are applied.</p>
-
-                    <p><a href="http://watson-wilson.ca/blog/2016/01/08/terraform-intro/#section-2">Continue reading...</a></p>
-                <p>Tags:
-                    <a href="http://watson-wilson.ca/blog/tag/terraform/">terraform</a>
-                    <a href="http://watson-wilson.ca/blog/tag/cloud/">cloud</a>
-                    <a href="http://watson-wilson.ca/blog/tag/configuration-management/">configuration management</a>
-                </p>
-            ]]></description>
-            <pubDate>
-                Fri, 08 Jan 2016 00:00:00 +0000
             </pubDate>
         </item>
     </channel>

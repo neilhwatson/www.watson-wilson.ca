@@ -22,3 +22,7 @@ The [Evolve Free Library](https://github.com/neilhwatson/evolve_cfengine_freelib
 ### Delta Reporting
 
 [Delta Reporting](https://github.com/neilhwatson/delta_reporting) is and auditing and compliance engine for CFEngine.
+
+### Nustuff
+
+[Nustuff](https://github.com/neilhwatson/nustuff) is a collection sysadmin tools, programming, and devops examples. A good resource for you next TIL moment.

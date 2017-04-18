@@ -2,10 +2,31 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>http://watson-wilson.ca/blog/tag/terraform/</id>
     <title>Neil H. Watson</title>
-    <updated>2017-04-17T00:00:00Z</updated>
+    <updated>2017-04-18T00:00:00Z</updated>
     <link href="http://watson-wilson.ca/blog/tag/terraform.atom" rel="self" />
     <link href="http://watson-wilson.ca/blog/tag/terraform/" rel="alternate" />
     <generator version="0.083">Statocles</generator>
+    <entry>
+        <id>http://watson-wilson.ca/blog/2017/04/18/terraform-azure/</id>
+        <title>Build on Azure with Terraform</title>
+        <link href="http://watson-wilson.ca/blog/2017/04/18/terraform-azure/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p><a href="https://terraform.io/"><img alt="terraform logo" src="https://raw.githubusercontent.com/hashicorp/terraform/master/website/source/assets/images/og-image.png" style="float:right" width="120px"></a></p>
+
+<p>Build Azure VMs with Terraform using my <a href="https://github.com/neilhwatson/nustuff/tree/master/terraform/on-azure">example code</a></p>
+
+                <p><a href="http://watson-wilson.ca/blog/2017/04/18/terraform-azure/#section-2">Continue reading...</a></p>
+            <p>Tags:
+                <a href="http://watson-wilson.ca/blog/tag/terraform/">terraform</a>
+                <a href="http://watson-wilson.ca/blog/tag/configuration-management/">configuration management</a>
+                <a href="http://watson-wilson.ca/blog/tag/azure/">azure</a>
+            </p>
+        ]]></content>
+        <updated>2017-04-18T00:00:00Z</updated>
+        <category term="terraform" />
+        <category term="configuration management" />
+        <category term="azure" />
+    </entry>
     <entry>
         <id>http://watson-wilson.ca/blog/2017/04/17/terraform-state/</id>
         <title>Understanding Terraform State</title>

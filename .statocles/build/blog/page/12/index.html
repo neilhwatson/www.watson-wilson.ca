@@ -57,6 +57,62 @@
 
             <article>
                 <header>
+                    <h1><a href="/blog/2013/10/11/make-cfengine-simple-using-the-evolve-free-library/">Make CFEngine simple using the Evolve Free Library</a></h1>
+
+                    <p class="tags">Tags:
+                        <a href="/blog/tag/cfengine/" rel="tag">cfengine</a>
+                        <a href="/blog/tag/efl/" rel="tag">EFL</a>
+                    </p>
+
+                    <aside>
+                        <p><time datetime="2013-10-11">
+                            Posted on 2013-10-11
+                        </time>
+                            by nwatson
+                        </p>
+                    </aside>
+
+                </header>
+
+                <p><a href="https://github.com/neilhwatson/evolve_cfengine_freelib">EFL</a> makes
+using CFEngine both simple and easy. <a href="https://github.com/neilhwatson/evolve_cfengine_freelib">EFL</a>
+is a collection of data driven bundles that promise many common
+configuration states. Here are a few examples covering just a few
+bundles found in <a href="https://github.com/neilhwatson/evolve_cfengine_freelib">EFL</a>.</p>
+
+
+                    <p><a href="/blog/2013/10/11/make-cfengine-simple-using-the-evolve-free-library/index.html#section-2">Continue reading Make CFEngine simple using the Evolve Free Library...</a></p>
+
+            </article>
+            <article>
+                <header>
+                    <h1><a href="/blog/2013/09/11/experimental-and-coming-soon-features-in-cfengine/">Experimental and coming soon features in CFEngine</a></h1>
+
+                    <p class="tags">Tags:
+                        <a href="/blog/tag/cfengine/" rel="tag">cfengine</a>
+                    </p>
+
+                    <aside>
+                        <p><time datetime="2013-09-11">
+                            Posted on 2013-09-11
+                        </time>
+                            by nwatson
+                        </p>
+                    </aside>
+
+                </header>
+
+                <p>Pull requests for CFEngine Core, at <a href="https://github.com/cfengine/core/pulls">Github</a>,
+and CFEngine&#39;s <a href="https://cfengine.com/dev/projects/core">issue tracker</a>
+show some interesting proposals for future versions of CFEngine. Here&#39;s
+a quick summary for you.</p>
+
+
+                    <p><a href="/blog/2013/09/11/experimental-and-coming-soon-features-in-cfengine/index.html#section-2">Continue reading Experimental and coming soon features in CFEngine...</a></p>
+
+            </article>
+            <article>
+                <header>
                     <h1><a href="/blog/2013/08/07/secure-sysctl-settings-with-cfengine/">Secure sysctl settings with CFEngine</a></h1>
 
                     <p class="tags">Tags:
@@ -177,135 +233,6 @@ monitoring system.</p>
                     <p><a href="/blog/2013/07/19/polling-cfengine-with-opennms/index.html#section-2">Continue reading Polling CFEngine with Opennms...</a></p>
 
             </article>
-            <article>
-                <header>
-                    <h1><a href="/blog/2013/05/09/evolve-thinkings-free-cfengine-library/">Evolve Thinking&#39;s free CFEngine library</a></h1>
-
-                    <p class="tags">Tags:
-                        <a href="/blog/tag/cfengine/" rel="tag">cfengine</a>
-                        <a href="/blog/tag/efl/" rel="tag">EFL</a>
-                    </p>
-
-                    <aside>
-                        <p><time datetime="2013-05-09">
-                            Posted on 2013-05-09
-                        </time>
-                            by nwatson
-                        </p>
-                    </aside>
-
-                </header>
-
-                <p>Our free CFEngine library empowers users to build and deploy new
-policy faster, simplify existing policy, and reduce staff training. ---
-We do this by offering simple reusable bundles and full data separation
-using CSV parameter files.</p>
-
-<p>Just as CFEngine uses a handful of promises to affect so much change on
-a host, our small collection of bundles can accomplish most high level
-tasks in CFEngine.</p>
-
-<p>Typical CFEngine bundles in use today are too specialized. A bundle for
-cron tables, a bundle for resolv.conf, and another for NTP. This is too
-specialized and too costly. There is a better way. Simpler bundles can
-offer greater flexibility and easier reuse at a lower cost. A single
-service bundle can promise cron tables, NTP, and more. A single editing
-template bundle can promise resolv.conf, the hosts file, shell
-profiles, and more. Our library does this and more.</p>
-
-<p>Consider this data file for the bundle <em>efl_chkconfig_enable_service</em>.
-If the context class is true then the given service is enabled for boot
-time start using the chkconfig command.</p>
-
-<pre><code># context(0) ;; service name(1) ;; Promisee(3)
-
-any          ;; cfengine3       ;; Sysadmin team
-web_server   ;; apache2         ;; Web team
-dev.dns      ;; bind            ;; Dev team
-</code></pre>
-
-<p>You can call the bundle like this:</p>
-
-<pre><code>&quot;enable with chkconfig&quot;
-usebundle =&gt; efl_chkconfig_enable_service(
-   &quot;${sys.workdir}/inputs/user_data/bundle_params/efl_chkconfig_enable_service.txt&quot;
-);
-</code></pre>
-
-<p>To enable a new service, change only the data file. The promisee is
-very important. It will help you to find all related data. Labelling a
-promisee &quot;SSH services for DMZ&quot; will help find all SSH entries, in all
-data files using a single search.</p>
-
-<p>Our library offers a further step in data separation. The method above
-can be placed in a data file. The bundle efl_main takes a data file
-that describes method calls and parameters. For example:</p>
-
-<pre><code># context(0) ;; promiser(1) ;; bundle(2) ;; ifelapsed(3) ;; parameter(4) ;; promisee(5)
-
-any ;; host classes ;; efl_class_hostname ;; 1 ;; /var/cfengine/inputs/user_data/classes/efl_class_hostname-ipv6_only.txt ;; Neil Watson
-any ;; chkconfig enable ;; efl_chkconfig_enable_service ;; 1 ;; /var/cfengine/inputs/user_data/bundle_params/efl_chkconfig_enable_service.txt ;; Neil Watson
-</code></pre>
-
-<p>When the given context is true a bundle is invoked with the given
-parameter and using <em>ifelapsed</em>.</p>
-
-<p>At this release the free library offer these bundles and more:</p>
-
-<ul>
-<li><p>Enable and disable services using chkconfig.</p></li>
-<li><p>Install and remove packages.</p></li>
-<li><p>Promise sysctl.conf.</p></li>
-<li><p>Promise live sysctl kernel settings.</p></li>
-<li><p>Delete files.</p></li>
-<li><p>Copy files.</p></li>
-<li><p>Edit templates.</p></li>
-<li><p>Promise commands.</p></li>
-<li><p>Define classes</p></li>
-<li><p>Promise links.</p></li>
-<li><p>Define global variables.</p></li>
-<li><p>Promise that services are configured and running.</p></li>
-<li><p>Promise file permissions.</p></li>
-</ul>
-
-<p>In the future we&#39;ll be offering special purpose bundles that use these
-simple bundles, ready to use parameter files, and more.</p>
-
-<p>The Evolve free library is open source and available at my <a href="https://github.com/neilhwatson/">Git Hub
-site.</a></p>
-
-
-
-            </article>
-            <article>
-                <header>
-                    <h1><a href="/blog/2013/05/09/pcre-cheatsheet/">PCRE cheatsheet</a></h1>
-
-                    <p class="tags">Tags:
-                        <a href="/blog/tag/cfengine/" rel="tag">cfengine</a>
-                        <a href="/blog/tag/cheatsheet/" rel="tag">cheatsheet</a>
-                        <a href="/blog/tag/pcre/" rel="tag">pcre</a>
-                        <a href="/blog/tag/regex/" rel="tag">regex</a>
-                    </p>
-
-                    <aside>
-                        <p><time datetime="2013-05-09">
-                            Posted on 2013-05-09
-                        </time>
-                            by nwatson
-                        </p>
-                    </aside>
-
-                </header>
-
-                <p>Although similar to Perl, PCRE has some syntax that can be
-difficult to remember. When I&#39;m working with CFEngine I often have to
-look it up. Here is a cheat-sheet to save time.</p>
-
-
-                    <p><a href="/blog/2013/05/09/pcre-cheatsheet/index.html#section-2">Continue reading PCRE cheatsheet...</a></p>
-
-            </article>
         </main>
 
         <ul class="pager">
@@ -328,6 +255,7 @@ look it up. Here is a cheat-sheet to save time.</p>
             <li><a href="/blog/tag/anti-virus/">anti-virus</a></li>
             <li><a href="/blog/tag/apt/">apt</a></li>
             <li><a href="/blog/tag/aws/">AWS</a></li>
+            <li><a href="/blog/tag/azure/">azure</a></li>
             <li><a href="/blog/tag/backup/">backup</a></li>
             <li><a href="/blog/tag/best-practices/">best practices</a></li>
             <li><a href="/blog/tag/bitbucket/">bitbucket</a></li>
@@ -383,6 +311,7 @@ look it up. Here is a cheat-sheet to save time.</p>
             <li><a href="/blog/tag/redhat/">redhat</a></li>
             <li><a href="/blog/tag/regex/">regex</a></li>
             <li><a href="/blog/tag/rhev/">rhev</a></li>
+            <li><a href="/blog/tag/ruby/">ruby</a></li>
             <li><a href="/blog/tag/san/">san</a></li>
             <li><a href="/blog/tag/satellite/">satellite</a></li>
             <li><a href="/blog/tag/scripting/">scripting</a></li>
