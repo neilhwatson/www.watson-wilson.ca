@@ -7,6 +7,28 @@
         <description>Blog feed of Neil H. Watson</description>
         <generator>Statocles 0.083</generator>
         <item>
+            <title>Linux, Ubiquity, and IPv6 privacy extensions</title>
+            <link>http://watson-wilson.ca/blog/2017/04/29/ipv6-priv/</link>
+            <guid>http://watson-wilson.ca/blog/2017/04/29/ipv6-priv/</guid>
+            <description><![CDATA[
+                <p><img alt="Success with IPv6" src="http://watson-wilson.ca/static/images/ipv6-success-kid.jpg" style="float:right" width="150"></p>
+
+<p>Here are some quick notes about IPv6 on an Ubiquity router and Linux clients, using privacy extensions. With IPv6 everyone gets a public IP address. In order to offer some privacy, the IPv6 privacy extensions allow clients to change IPv6 addresses over a period of time.</p>
+
+                    <p><a href="http://watson-wilson.ca/blog/2017/04/29/ipv6-priv/#section-2">Continue reading...</a></p>
+                <p>Tags:
+                    <a href="http://watson-wilson.ca/blog/tag/ipv6/">ipv6</a>
+                    <a href="http://watson-wilson.ca/blog/tag/security/">security</a>
+                    <a href="http://watson-wilson.ca/blog/tag/linux/">linux</a>
+                    <a href="http://watson-wilson.ca/blog/tag/networking/">networking</a>
+                    <a href="http://watson-wilson.ca/blog/tag/slaac/">slaac</a>
+                </p>
+            ]]></description>
+            <pubDate>
+                Sat, 29 Apr 2017 00:00:00 +0000
+            </pubDate>
+        </item>
+        <item>
             <title>Improve your Python, Perl, or Ruby</title>
             <link>http://watson-wilson.ca/blog/2017/04/18/improve-programming/</link>
             <guid>http://watson-wilson.ca/blog/2017/04/18/improve-programming/</guid>
@@ -89,32 +111,6 @@
             ]]></description>
             <pubDate>
                 Thu, 30 Mar 2017 00:00:00 +0000
-            </pubDate>
-        </item>
-        <item>
-            <title>Docker API from CLI</title>
-            <link>http://watson-wilson.ca/blog/2016/11/15/docker_api_from_cli/</link>
-            <guid>http://watson-wilson.ca/blog/2016/11/15/docker_api_from_cli/</guid>
-            <description><![CDATA[
-                <p><a href="https://docker.com/"><img alt="Docker website" src="http://watson-wilson.ca/static/images/docker-logo.png" style="float:right" width="120px"></a></p>
-
-<p>Docker has command line programs, but they are not well suited to automation.
-Return values and pars-able output are both lacking, but there is an
-<a href="https://docs.docker.com/engine/reference/api/docker_remote_api/">API</a> that you
-can use instead. The Dockerd api can listen on a local socket or even a
-remote accessible port, but in these examples I&#39;ll show local socket only.</p>
-
-                    <p><a href="http://watson-wilson.ca/blog/2016/11/15/docker_api_from_cli/#section-2">Continue reading...</a></p>
-                <p>Tags:
-                    <a href="http://watson-wilson.ca/blog/tag/docker/">docker</a>
-                    <a href="http://watson-wilson.ca/blog/tag/containers/">containers</a>
-                    <a href="http://watson-wilson.ca/blog/tag/jq/">jq</a>
-                    <a href="http://watson-wilson.ca/blog/tag/json/">json</a>
-                    <a href="http://watson-wilson.ca/blog/tag/cli/">cli</a>
-                </p>
-            ]]></description>
-            <pubDate>
-                Tue, 15 Nov 2016 00:00:00 +0000
             </pubDate>
         </item>
     </channel>

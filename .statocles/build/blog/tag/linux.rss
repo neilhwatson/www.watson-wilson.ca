@@ -7,6 +7,28 @@
         <description>Blog feed of Neil H. Watson</description>
         <generator>Statocles 0.083</generator>
         <item>
+            <title>Linux, Ubiquity, and IPv6 privacy extensions</title>
+            <link>http://watson-wilson.ca/blog/2017/04/29/ipv6-priv/</link>
+            <guid>http://watson-wilson.ca/blog/2017/04/29/ipv6-priv/</guid>
+            <description><![CDATA[
+                <p><img alt="Success with IPv6" src="http://watson-wilson.ca/static/images/ipv6-success-kid.jpg" style="float:right" width="150"></p>
+
+<p>Here are some quick notes about IPv6 on an Ubiquity router and Linux clients, using privacy extensions. With IPv6 everyone gets a public IP address. In order to offer some privacy, the IPv6 privacy extensions allow clients to change IPv6 addresses over a period of time.</p>
+
+                    <p><a href="http://watson-wilson.ca/blog/2017/04/29/ipv6-priv/#section-2">Continue reading...</a></p>
+                <p>Tags:
+                    <a href="http://watson-wilson.ca/blog/tag/ipv6/">ipv6</a>
+                    <a href="http://watson-wilson.ca/blog/tag/security/">security</a>
+                    <a href="http://watson-wilson.ca/blog/tag/linux/">linux</a>
+                    <a href="http://watson-wilson.ca/blog/tag/networking/">networking</a>
+                    <a href="http://watson-wilson.ca/blog/tag/slaac/">slaac</a>
+                </p>
+            ]]></description>
+            <pubDate>
+                Sat, 29 Apr 2017 00:00:00 +0000
+            </pubDate>
+        </item>
+        <item>
             <title>Changes in virt-install and Kickstart in RHEL7</title>
             <link>http://watson-wilson.ca/blog/2014/10/30/changes-in-virt-install-and-kickstart-in-rhel7/</link>
             <guid>http://watson-wilson.ca/blog/2014/10/30/changes-in-virt-install-and-kickstart-in-rhel7/</guid>

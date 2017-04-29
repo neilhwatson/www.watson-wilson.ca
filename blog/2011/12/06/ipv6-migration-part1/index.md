@@ -3,7 +3,7 @@ title: IPv6 Migration part 1
 tags: ipv6, networking
 ---
 
-<img style='float:right' alt='Success with IPv6' src='/static/images/ipv6-success-kid.jpg' width='300' >
+<img style='float:right' alt='Success with IPv6' src='/static/images/ipv6-success-kid.jpg' width='150' >
 
 The first step in my exploration of IPV6 was to get an IPV6 address via an IPV4
 to IPV6 tunnel. A little research lead me to the fine folks at SixXS.

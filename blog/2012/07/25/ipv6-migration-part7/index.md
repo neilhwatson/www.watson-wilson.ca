@@ -3,7 +3,7 @@ title: IPv6 Migration part 7
 tags: ipv6, networking
 ---
 
-<img style='float:right' alt='Success with IPv6' src='/static/images/ipv6-success-kid.jpg' width='300' >
+<img style='float:right' alt='Success with IPv6' src='/static/images/ipv6-success-kid.jpg' width='150' >
 
 I've broken up with [SixXS](https://www.sixxs.net/).
 [Hurricane Electric](http://he.net) is my new girl.
