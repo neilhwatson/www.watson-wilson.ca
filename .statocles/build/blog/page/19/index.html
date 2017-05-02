@@ -12,6 +12,7 @@
         <link href="/blog/index.atom" rel="alternate" type="application/atom+xml">
         <link href="/blog/index.rss" rel="alternate" type="application/rss+xml">
         
+        <link href="/theme/plugin/highlight/default.css" rel="stylesheet" type="text/css">
 
         <!-- For source highlighting -->
         <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/default.min.css" rel="stylesheet">
@@ -55,6 +56,67 @@
         <main>
 
 
+            <article>
+                <header>
+                    <h1><a href="/blog/2011/03/08/shell-cheatsheet/">Shell cheatsheet</a></h1>
+
+                    <p class="tags">Tags:
+                        <a href="/blog/tag/shell/" rel="tag">shell</a>
+                        <a href="/blog/tag/cli/" rel="tag">cli</a>
+                        <a href="/blog/tag/cheatsheet/" rel="tag">cheatsheet</a>
+                    </p>
+
+                    <aside>
+                        <p><time datetime="2011-03-08">
+                            Posted on 2011-03-08
+                        </time>
+                        </p>
+                    </aside>
+
+                </header>
+
+                <p>The following may not apply to all shells.</p>
+
+<h2>Job control</h2>
+
+<ul>
+<li>Resume job after suspend: <code>ctrl-q</code></li>
+<li>Resume job in background: <code>bg &lt;job number&gt;</code></li>
+<li>Resume job in foreground: <code>fg &lt;job number&gt;</code></li>
+<li>Suspend delay (suspend at stdin): <code>ctrl-y</code></li>
+<li>Suspend:  <code>ctrl-z</code></li>
+</ul>
+
+<h2>Command line laziness</h2>
+
+<ul>
+<li>Recall history line 66: <code>!66</code></li>
+<li>Recall last command: <code>!!</code></li>
+<li>Recall last arguement from last command: <code>!$</code></li>
+<li>Recall all arguements from last command: <code>!*</code></li>
+<li>Clear shell history: <code>history -c</code></li>
+<li>Delete shell history entry: <code>history -d &lt;number&gt;</code></li>
+<li>Rename rpmnew files:</li>
+</ul>
+
+<pre><code class="hljs">find -type f -name <span class="hljs-string">&quot;*.rpmnew&quot;</span> <span class="hljs-keyword">|</span> sed <span class="hljs-string">&#39;s/\(^.*\)\(\.rpmnew\)$/mv -f \1\2 \1/&#39;</span> <span class="hljs-keyword">|</span>sh
+</code></pre>
+
+<ul>
+<li>Search and replace files in place:</li>
+</ul>
+
+<pre><code class="hljs">find /path -name <span class="hljs-string">&quot;*.*&quot;</span> -exec <span class="hljs-keyword">|</span> perl -pi -e <span class="hljs-string">&#39;s///g&#39;</span> <span class="hljs-type">{}</span> <span class="hljs-type">\;</span>
+</code></pre>
+
+<ul>
+<li>vi cli editing: <code>set -o vi</code> Now esc to enter command mode where vi keys
+work. Pressing enter returns to normal mode.</li>
+</ul>
+
+
+
+            </article>
             <article>
                 <header>
                     <h1><a href="/blog/2011/03/08/posix-regex-cheatsheet/">POSIX regular expression cheatsheet</a></h1>
@@ -237,71 +299,6 @@ of the lack of support. This is untrue.</p>
 
 
                     <p><a href="/blog/2011/03/08/opensource-support/index.html#section-2">Continue reading No support for open source projects...</a></p>
-
-            </article>
-            <article>
-                <header>
-                    <h1><a href="/blog/2011/03/08/gnu-screen-cheatsheet/">GNU Screen cheatsheet</a></h1>
-
-                    <p class="tags">Tags:
-                        <a href="/blog/tag/shell/" rel="tag">shell</a>
-                        <a href="/blog/tag/cli/" rel="tag">cli</a>
-                        <a href="/blog/tag/cheatsheet/" rel="tag">cheatsheet</a>
-                    </p>
-
-                    <aside>
-                        <p><time datetime="2011-03-08">
-                            Posted on 2011-03-08
-                        </time>
-                        </p>
-                    </aside>
-
-                </header>
-
-                <table>
-<tr>
-    <td>Change to other region</td>
-    <td><code>ctrl-a tab</code></td>
-</tr>
-<tr>
-    <td>Change to other screen</td>
-    <td><code>ctrl-a 0-9</code></td>
-</tr>
-<tr>
-    <td>Detach</td>
-    <td><code>ctrl-a d</code></td>
-</tr>
-<tr>
-    <td>Help</td>
-    <td><code>ctrl-a ?</code></td>
-</tr>
-<tr>
-    <td>Kill screen</td>
-    <td><code>ctrl-a \</code></td>
-</tr>
-<tr>
-    <td>Kill region</td>
-    <td><code>ctrl-a x</code></td>
-</tr>
-<tr>
-    <td>New screen</td>
-    <td><code>ctrl-a c</code></td>
-</tr>
-<tr>
-    <td>Reattach</td>
-    <td><code>screen -r</code></td>
-</tr>
-<tr>
-    <td>Serial connection</td>
-    <td><code>screen /dev/ttyUSB0 9600</code></td>
-</tr>
-<tr>
-    <td>Split</td>
-    <td><code>ctrl-a s</code></td>
-</tr>
-</table>
-
-
 
             </article>
         </main>

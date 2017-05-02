@@ -7,6 +7,43 @@
         <description>Blog feed of Neil H. Watson</description>
         <generator>Statocles 0.083</generator>
         <item>
+            <title>Beginner facts about IPv6</title>
+            <link>http://watson-wilson.ca/blog/2017/05/02/ipv6-facts/</link>
+            <guid>http://watson-wilson.ca/blog/2017/05/02/ipv6-facts/</guid>
+            <description><![CDATA[
+                <p><img alt="Success with IPv6" src="http://watson-wilson.ca/static/images/ipv6-success-kid.jpg" style="float:right" width="150"></p>
+
+<ul>
+<li><p>This is an IPv4 address in hexadecimal: FF.FF.FF.FF (255.255.255.255).</p></li>
+<li><p>This is an IPv6 address, which are always in hexadecimal: FFFF:FFFF:FFFF:FFFF:FFFF:FFFF:FFFF:FFFF. See the difference in size?</p></li>
+<li><p><em>Everyone gets public</em> IPv6 addresses. There is no need for NAT.</p></li>
+<li><p>I&#39;ll say it again, there is a <em>no need for NAT</em>. Firewalls still work, but don&#39;t use NAT.</p></li>
+<li><p>No NAT means end to end communication with less complexity. Rejoice!</p></li>
+<li><p>You will be assigned a large subnet of public IPv6 addresses. No more rationing a handful of public IPs.</p></li>
+<li><p>The smallest typical <a href="https://en.wikipedia.org/wiki/IPv6_subnetting_reference">subnet</a> of IPv6 is a /64 or 2<sup>64</sup> addresses. IPv4 space, <em>all of it</em> contains 2<sup>32 addresses.</sup></p></li>
+<li><p>Small organizations, or even your home, are assigned a /56 which contains 256 /64 subnets.</p></li>
+<li><p>Larger organization are assigned a /48 which contains 65535 /64 subnets.</p></li>
+<li><p>Go back and count those in your head again. I&#39;ll wait.</p></li>
+<li><p><a href="https://github.com/sii/sipcalc">Sipcalc</a> is a good IPv6 subnet calculator.</p></li>
+<li><p>Addresses can be statelessly assigned to nodes using <a href="https://en.wikipedia.org/wiki/IPv6#Stateless_address_autoconfiguration_.28SLAAC.29">SLAAC</a>.</p></li>
+<li><p>Addresses can be assigned statefully using <a href="https://en.wikipedia.org/wiki/DHCPv6">DHCPv6</a>.</p></li>
+<li><p>IPv6 and IPv4 are separate protocols and co-exist. This is called <a href="https://en.wikipedia.org/wiki/IPv6#Transition_mechanisms">dual stack</a>.</p></li>
+<li><p>You must have separate routing and firewall rules for both IPv4 and IPv6.</p></li>
+<li><p>Services must be configured to listen on IPv6, but most do so by default already.</p></li>
+<li><p>A DNS A record for an IPv6 address is an AAAA or &#39;quad A&#39; record. <code>dig aaaa watson-wilson.ca</code>.</p></li>
+</ul>
+
+                    <p><a href="http://watson-wilson.ca/blog/2017/05/02/ipv6-facts/#section-2">Continue reading...</a></p>
+                <p>Tags:
+                    <a href="http://watson-wilson.ca/blog/tag/networking/">networking</a>
+                    <a href="http://watson-wilson.ca/blog/tag/ipv6/">ipv6</a>
+                </p>
+            ]]></description>
+            <pubDate>
+                Tue, 02 May 2017 00:00:00 +0000
+            </pubDate>
+        </item>
+        <item>
             <title>Linux, Ubiquity, and IPv6 privacy extensions</title>
             <link>http://watson-wilson.ca/blog/2017/04/29/ipv6-priv/</link>
             <guid>http://watson-wilson.ca/blog/2017/04/29/ipv6-priv/</guid>
@@ -92,25 +129,6 @@ records. Now I&#39;ll explain IPV6 PTR records.</p>
             ]]></description>
             <pubDate>
                 Wed, 25 Jul 2012 00:00:00 +0000
-            </pubDate>
-        </item>
-        <item>
-            <title>IPv6 Migration part 6</title>
-            <link>http://watson-wilson.ca/blog/2012/07/05/ipv6-migration-part6/</link>
-            <guid>http://watson-wilson.ca/blog/2012/07/05/ipv6-migration-part6/</guid>
-            <description><![CDATA[
-                <p>Liberation! Using IPV6, I have 18,446,744,073,709,551,616 public IP addresses.
-This is considered a small offering (/64). Normally, an organization would get
-a /48 network that contains 65536 /64 subnets.</p>
-
-                    <p><a href="http://watson-wilson.ca/blog/2012/07/05/ipv6-migration-part6/#section-2">Continue reading...</a></p>
-                <p>Tags:
-                    <a href="http://watson-wilson.ca/blog/tag/ipv6/">ipv6</a>
-                    <a href="http://watson-wilson.ca/blog/tag/networking/">networking</a>
-                </p>
-            ]]></description>
-            <pubDate>
-                Thu, 05 Jul 2012 00:00:00 +0000
             </pubDate>
         </item>
     </channel>
