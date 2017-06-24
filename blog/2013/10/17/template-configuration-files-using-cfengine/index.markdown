@@ -176,7 +176,7 @@ Run the agent.
 
     $ cf-agent -IKf ./edit_template.cf 
     2013-10-17T13:03:52-0400
-       nfo: /main/methods/'any'/resolv_conf/files/'/tmp/resolv.conf':
+       info: /main/methods/'any'/resolv_conf/files/'/tmp/resolv.conf':
        Created file '/tmp/resolv.conf', mode 0600
     2013-10-17T13:03:52-0400
        info: /main/methods/'any'/resolv_conf/files/'/tmp/resolv.conf':
@@ -231,11 +231,11 @@ to six.
 
   * Six is the promisee for documentation and searching.
 
-    # context(0) ;; promiser file(1)    ;; source file(2) \
-       ;; mode(3) ;; owner(4) ;; group(5) ;; promisee(6)
-    
-    any          ;; /etc/resolv.conf    ;; /var/cfengine/sitefiles/misc/etc/resolv.conf.tmp \
-       ;; 644 ;; root ;; root ;; Neil Watson
+        # context(0) ;; promiser file(1)    ;; source file(2) \\
+           ;; mode(3) ;; owner(4) ;; group(5) ;; promisee(6)
+
+        any ;; /etc/resolv.conf ;; /var/cfengine/sitefiles/misc/etc/resolv.conf.tmp \\
+           ;; 644 ;; root ;; root ;; Neil Watson
 
 Call the bundle using a method.
 

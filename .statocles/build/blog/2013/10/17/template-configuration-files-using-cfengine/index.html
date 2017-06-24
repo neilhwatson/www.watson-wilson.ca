@@ -226,7 +226,7 @@ timeout:2
 
 <pre><code>$ cf-agent -IKf ./edit_template.cf 
 2013-10-17T13:03:52-0400
-   nfo: /main/methods/&#39;any&#39;/resolv_conf/files/&#39;/tmp/resolv.conf&#39;:
+   info: /main/methods/&#39;any&#39;/resolv_conf/files/&#39;/tmp/resolv.conf&#39;:
    Created file &#39;/tmp/resolv.conf&#39;, mode 0600
 2013-10-17T13:03:52-0400
    info: /main/methods/&#39;any&#39;/resolv_conf/files/&#39;/tmp/resolv.conf&#39;:
@@ -278,9 +278,13 @@ promised if this class expression is true.</p></li>
 <li><p>Five defines the group of the promiser file.</p></li>
 <li><p>Six is the promisee for documentation and searching.</p>
 
-<h1>context(0) ;; promiser file(1)    ;; source file(2)        ;; mode(3) ;; owner(4) ;; group(5) ;; promisee(6)</h1>
+<pre><code># context(0) ;; promiser file(1)    ;; source file(2) \
+   ;; mode(3) ;; owner(4) ;; group(5) ;; promisee(6)
 
-<p>any          ;; /etc/resolv.conf    ;; /var/cfengine/sitefiles/misc/etc/resolv.conf.tmp        ;; 644 ;; root ;; root ;; Neil Watson</p></li>
+
+any ;; /etc/resolv.conf ;; /var/cfengine/sitefiles/misc/etc/resolv.conf.tmp \
+   ;; 644 ;; root ;; root ;; Neil Watson
+</code></pre></li>
 </ul>
 
 <p>Call the bundle using a method.</p>
