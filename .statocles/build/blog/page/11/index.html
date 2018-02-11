@@ -58,6 +58,32 @@
 
             <article>
                 <header>
+                    <h1><a href="/blog/2013/11/27/json-containers-improve-cfengine-and-efl/">JSON containers improve CFEngine and EFL</a></h1>
+
+                    <p class="tags">Tags:
+                        <a href="/blog/tag/cfengine/" rel="tag">cfengine</a>
+                        <a href="/blog/tag/efl/" rel="tag">EFL</a>
+                    </p>
+
+                    <aside>
+                        <p><time datetime="2013-11-27">
+                            Posted on 2013-11-27
+                        </time>
+                            by nwatson
+                        </p>
+                    </aside>
+
+                </header>
+
+                <p>CFEngine 3.6 will be able to parse JSON files making EFL data files
+more readable.</p>
+
+
+                    <p><a href="/blog/2013/11/27/json-containers-improve-cfengine-and-efl/index.html#section-2">Continue reading JSON containers improve CFEngine and EFL...</a></p>
+
+            </article>
+            <article>
+                <header>
                     <h1><a href="/blog/2013/11/27/nix-ifvarclass-and-other-changes-i-wish-for-cfengine/">Nix ifvarclass and other changes I wish for CFEngine</a></h1>
 
                     <p class="tags">Tags:
@@ -193,87 +219,6 @@ for more help and information.</p>
 
 
             </article>
-            <article>
-                <header>
-                    <h1><a href="/blog/2013/10/19/simple-cfengine-server-access-promises-using-efl/">Simple CFEngine server access promises using EFL</a></h1>
-
-                    <p class="tags">Tags:
-                        <a href="/blog/tag/cfengine/" rel="tag">cfengine</a>
-                        <a href="/blog/tag/efl/" rel="tag">EFL</a>
-                    </p>
-
-                    <aside>
-                        <p><time datetime="2013-10-19">
-                            Posted on 2013-10-19
-                        </time>
-                            by nwatson
-                        </p>
-                    </aside>
-
-                </header>
-
-                <p>Here&#39;s an EFL bundle that simplifies access promises for cf-serverd.
-CFEngine users with a complex environment will especially benefit. ---
-The <a href="http://watson-wilson.ca/make-cfengine-simple-using-the-evolve-free-library/">Evolve Thinking Free Library or EFL</a>
-provides commonly used promise bundles that you can configure using
-simple CSV parameter files. You don&#39;t need a PHD in CFEngie to get
-things done.</p>
-
-<p>Unlike EFL agent bundles the server bundle efl_server cannot be passed
-parameter files. The is a CFEngine limit. Instead variable
-&#39;efl_server_txt&#39; in the bundle &#39;efl_c&#39; defines the location of the
-parameter file to
-${sys.workdir}/inputs/user_data/bundle_params/efl_server.txt. The file
-format has four columns from zero to three.</p>
-
-<ul>
-<li><p>Zero is the constraining class expression. The record is only
-promised if this class expression is true.</p></li>
-<li><p>One is the promiser directory that we are granting access to.</p></li>
-<li><p>Two is comma separated list of IP&#39;s or hostnames who we grant
-access to (see <a href="https://cfengine.com/docs/3.5/reference-promise-types-access.html#admit">admit</a>).</p></li>
-<li><p>Three is a free form promisee for documentation and searching.</p>
-
-<h1>Context(0) ;; promiser directory(1) ;; Command separated admit list(2) ;; Promisee(3)</h1>
-
-<p>am_policy_hub ;; ${sys.workdir}/masterfiles ;;  2001:470:1d:a2f::/64 ;; Bootstrapping and updates
-ettin    ;; ${sys.workdir}/private/alix/ ;; 2001:470:1d:a2f::1 ;; 6in4 tunnel
-mercury  ;; /var/www/blog1/              ;; ${sys.policy_hub}  ;; Backups
-titan    ;; /var/www/evolve/             ;; ${sys.policy_hub}  ;; Backups
-any      ;; ${sys.workdir}/drop/         ;; ${sys.policy_hub}  ;; File transfers as needed</p></li>
-</ul>
-
-<p>If you run cf-serverd -Fvl you&#39;ll see the access rules being applied.</p>
-
-<pre><code>cf3&gt; *****************************************************************
-cf3&gt; BUNDLE efl_server
-cf3&gt; *****************************************************************
-cf3&gt;    =========================================================
-cf3&gt;    access in bundle efl_server (0)
-cf3&gt;    =========================================================
-cf3&gt; . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
-cf3&gt; Skipping whole next promise (/var/www/evolve-wp/), as var-context titan is not relevant
-cf3&gt; . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
-cf3&gt; . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
-cf3&gt; Skipping whole next promise (/var/www/blog1/), as var-context mercury is not relevant
-cf3&gt; . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
-cf3&gt; Summarize control promises
-cf3&gt; Granted access to paths :
-cf3&gt; Path &#39;/var/cfengine/private/alix&#39; (encrypt=0)
-cf3&gt; Admit: &#39;2001:470:1d:a2f::1&#39; root=
-cf3&gt; Path &#39;/var/cfengine/drop&#39; (encrypt=0)
-cf3&gt; Admit: &#39;2001:470:1d:a2f::2&#39; root=
-</code></pre>
-
-<p>When you upgrade CFEngine the upgrade offers new inputs like the sever
-bundle &#39;access_rules&#39; in the file cf_server.cf. If you have access
-rules in that bundle you&#39;ll need to merge the old file with the
-upgrade&#39;s improved file. Using the efl_server bundle the data is
-separated from policy eliminating the need to merge policy files.</p>
-
-
-
-            </article>
         </main>
 
         <ul class="pager">
@@ -295,6 +240,8 @@ separated from policy eliminating the need to merge policy files.</p>
             <li><a href="/blog/tag/ansible/">ansible</a></li>
             <li><a href="/blog/tag/anti-virus/">anti-virus</a></li>
             <li><a href="/blog/tag/apt/">apt</a></li>
+            <li><a href="/blog/tag/asg/">asg</a></li>
+            <li><a href="/blog/tag/autoscaling/">autoscaling</a></li>
             <li><a href="/blog/tag/aws/">AWS</a></li>
             <li><a href="/blog/tag/azure/">azure</a></li>
             <li><a href="/blog/tag/backup/">backup</a></li>

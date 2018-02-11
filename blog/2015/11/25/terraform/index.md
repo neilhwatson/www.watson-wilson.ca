@@ -3,7 +3,7 @@ title: Terraform: config management for the cloud
 tags: configuration management, cloud, terraform
 ---
 
-<a href="https://terraform.io/"><img style='float:right' alt='terraform logo' width='120px' src='https://raw.githubusercontent.com/hashicorp/terraform/master/website/source/assets/images/og-image.png' ></a>
+<a href="https://terraform.io/"><img style='float:right' alt='terraform logo' width='120px' src='https://raw.githubusercontent.com/hashicorp/terraform-website/master/content//source/assets/images/og-image.png' ></a>
 
 I saw a great [Terraform](https://terraform.io/) presentation last week at a
 Devops [meetup](http://www.meetup.com/DevOpsTO/). Terraform is a configuration

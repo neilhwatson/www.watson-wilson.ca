@@ -3,7 +3,7 @@ title: Introduction to Terraform
 tags: terraform, cloud, configuration management
 ---
 
-<a href="https://terraform.io/"><img style='float:right' alt='terraform logo' width='120px' src='https://raw.githubusercontent.com/hashicorp/terraform/master/website/source/assets/images/og-image.png' ></a>
+<a href="https://terraform.io/"><img style='float:right' alt='terraform logo' width='120px' src='https://raw.githubusercontent.com/hashicorp/terraform-website/master/content//source/assets/images/og-image.png' ></a>
 
 [Terraform](https://terraform.io/) allows you to manage your AWS, and other
 cloud infrastructure, the same way you would manage servers using configuration

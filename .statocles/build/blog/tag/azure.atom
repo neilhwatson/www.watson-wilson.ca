@@ -11,7 +11,7 @@
         <title>Build on Azure with Terraform</title>
         <link href="http://watson-wilson.ca/blog/2017/04/18/terraform-azure/" rel="alternate" />
         <content type="html"><![CDATA[
-            <p><a href="https://terraform.io/"><img alt="terraform logo" src="https://raw.githubusercontent.com/hashicorp/terraform/master/website/source/assets/images/og-image.png" style="float:right" width="120px"></a></p>
+            <p><a href="https://terraform.io/"><img alt="terraform logo" src="https://raw.githubusercontent.com/hashicorp/terraform-website/master/content//source/assets/images/og-image.png" style="float:right" width="120px"></a></p>
 
 <p>Build Azure VMs with Terraform using my <a href="https://github.com/neilhwatson/terraform-modules">example code</a></p>
 

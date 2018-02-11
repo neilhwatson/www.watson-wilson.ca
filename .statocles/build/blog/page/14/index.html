@@ -58,6 +58,70 @@
 
             <article>
                 <header>
+                    <h1><a href="/blog/2013/05/09/its-time-to-rethink-anti-virus/">It&#39;s time to rethink Anti-virus</a></h1>
+
+                    <p class="tags">Tags:
+                        <a href="/blog/tag/anti-virus/" rel="tag">anti-virus</a>
+                        <a href="/blog/tag/security/" rel="tag">security</a>
+                        <a href="/blog/tag/virus/" rel="tag">virus</a>
+                    </p>
+
+                    <aside>
+                        <p><time datetime="2013-05-09">
+                            Posted on 2013-05-09
+                        </time>
+                            by nwatson
+                        </p>
+                    </aside>
+
+                </header>
+
+                <p>Anti-virus is always a step behind. It&#39;s a good revenue stream for
+anti-virus software makers. For end users it&#39;s a race to the horizon.
+--- Virus pattern recognition only works on patterns that have been
+discovered, researched, and added to the pattern database. Recent
+anti-virus pattern databases now detect more than 22 million patterns.
+Is it a wonder that anti-virus software kills computer performance? <a href="http://www.symantec.com/security_response/definitions/certified/">1</a></p>
+
+<p>The impossible pattern race is bad. The system crippling false alarms
+are worse. In the recent past most major anti-virus tools have crippled
+corporate and person computers by mistakenly quarantining a Windows
+system or application file.<a href="http://www.theregister.co.uk/2013/02/06/kaspersky_win_xp_update_snafu/">1</a>,
+<a href="http://www.theregister.co.uk/2012/09/20/sophos_auto_immune_update_chaos/">2</a>,
+<a href="http://www.pcmag.com/article2/0,2817,2362926,00.asp">3</a></p>
+
+<p>I&#39;m not a computer virus expert. But there has to be a better way to
+protect us. I can think of some.</p>
+
+<p>White listing defines what files are allowed to execute on a system.
+Any file not on the white list is denied execution. For most corporate
+workstations this is ideal. A few hundred executable files are white
+listed and the workstation becomes secure. More generic workstations,
+like home computers, require longer lists. This is not insurmountable.
+I&#39;d rather subscribe to a ten thousand item white list than a 22
+million item black list. The look ups will be shorter and new threats
+do not get an automatic free pass.</p>
+
+<p>Mandatory access control. SELinux is the well known form of MAC. MAC is
+similar to white listing but goes further. Programs are not just denied
+execution rights. Their rights to access the rest of the system are
+explicitly defined. For example, a web browser may be allowed to touch
+printing, browser cache, and other relevant files. Anything else is
+denied, by default. Viruses cannot run wild on the system because
+they&#39;ve not been defined to be allowed to do so. Set up and maintenance
+of such a systems is no small task. Neither is maintaining a growing
+list of 22 million virus definitions.</p>
+
+<p>I&#39;m not a computer virus expert. But the arms race between new viruses
+and new definitions can never be won. It&#39;s time for a new approach.
+Consider that the next time your computer is churning another
+anti-virus disk scan.</p>
+
+
+
+            </article>
+            <article>
+                <header>
                     <h1><a href="/blog/2013/02/22/dns-renaming/">Avoid the cost of renaming hundreds of hosts</a></h1>
 
                     <p class="tags">Tags:
@@ -161,32 +225,6 @@ records. Now I&#39;ll explain IPV6 PTR records.</p>
                     <p><a href="/blog/2012/07/25/ipv6-migration-part7/index.html#section-2">Continue reading IPv6 Migration part 7...</a></p>
 
             </article>
-            <article>
-                <header>
-                    <h1><a href="/blog/2012/07/05/ipv6-migration-part6/">IPv6 Migration part 6</a></h1>
-
-                    <p class="tags">Tags:
-                        <a href="/blog/tag/ipv6/" rel="tag">ipv6</a>
-                        <a href="/blog/tag/networking/" rel="tag">networking</a>
-                    </p>
-
-                    <aside>
-                        <p><time datetime="2012-07-05">
-                            Posted on 2012-07-05
-                        </time>
-                        </p>
-                    </aside>
-
-                </header>
-
-                <p>Liberation! Using IPV6, I have 18,446,744,073,709,551,616 public IP addresses.
-This is considered a small offering (/64). Normally, an organization would get
-a /48 network that contains 65536 /64 subnets.</p>
-
-
-                    <p><a href="/blog/2012/07/05/ipv6-migration-part6/index.html#section-2">Continue reading IPv6 Migration part 6...</a></p>
-
-            </article>
         </main>
 
         <ul class="pager">
@@ -208,6 +246,8 @@ a /48 network that contains 65536 /64 subnets.</p>
             <li><a href="/blog/tag/ansible/">ansible</a></li>
             <li><a href="/blog/tag/anti-virus/">anti-virus</a></li>
             <li><a href="/blog/tag/apt/">apt</a></li>
+            <li><a href="/blog/tag/asg/">asg</a></li>
+            <li><a href="/blog/tag/autoscaling/">autoscaling</a></li>
             <li><a href="/blog/tag/aws/">AWS</a></li>
             <li><a href="/blog/tag/azure/">azure</a></li>
             <li><a href="/blog/tag/backup/">backup</a></li>
