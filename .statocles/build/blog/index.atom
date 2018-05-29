@@ -3,13 +3,13 @@
     <id>http://watson-wilson.ca/blog/</id>
     <title>Neil H. Watson</title>
     <updated>2018-02-11T00:00:00Z</updated>
-    <link href="http://watson-wilson.ca/blog/index.atom" rel="self" />
-    <link href="http://watson-wilson.ca/blog/" rel="alternate" />
-    <generator version="0.083">Statocles</generator>
+    <link rel="self" href="http://watson-wilson.ca/blog/index.atom"/>
+    <link rel="alternate" href="http://watson-wilson.ca/blog/"/>
+    <generator version="0.093">Statocles</generator>
     <entry>
         <id>http://watson-wilson.ca/blog/2018/02/11/aws-asg-of-one/</id>
         <title>AWS single host resilience with autoscaling groups</title>
-        <link href="http://watson-wilson.ca/blog/2018/02/11/aws-asg-of-one/" rel="alternate" />
+        <link rel="alternate" href="http://watson-wilson.ca/blog/2018/02/11/aws-asg-of-one/" />
         <content type="html"><![CDATA[
             <p><a href="https://aws.amazon.com/"><img alt="aws logo" src="http://watson-wilson.ca/static/images/aws.png" style="float:right" width="120px"></a></p>
 
@@ -36,7 +36,7 @@
     <entry>
         <id>http://watson-wilson.ca/blog/2017/05/02/ipv6-facts/</id>
         <title>Beginner facts about IPv6</title>
-        <link href="http://watson-wilson.ca/blog/2017/05/02/ipv6-facts/" rel="alternate" />
+        <link rel="alternate" href="http://watson-wilson.ca/blog/2017/05/02/ipv6-facts/" />
         <content type="html"><![CDATA[
             <p><img alt="Success with IPv6" src="http://watson-wilson.ca/static/images/ipv6-success-kid.jpg" style="float:right" width="150"></p>
 
@@ -73,7 +73,7 @@
     <entry>
         <id>http://watson-wilson.ca/blog/2017/04/29/ipv6-priv/</id>
         <title>Linux, Ubiquity, and IPv6 privacy extensions</title>
-        <link href="http://watson-wilson.ca/blog/2017/04/29/ipv6-priv/" rel="alternate" />
+        <link rel="alternate" href="http://watson-wilson.ca/blog/2017/04/29/ipv6-priv/" />
         <content type="html"><![CDATA[
             <p><img alt="Success with IPv6" src="http://watson-wilson.ca/static/images/ipv6-success-kid.jpg" style="float:right" width="150"></p>
 
@@ -98,7 +98,7 @@
     <entry>
         <id>http://watson-wilson.ca/blog/2017/04/18/improve-programming/</id>
         <title>Improve your Python, Perl, or Ruby</title>
-        <link href="http://watson-wilson.ca/blog/2017/04/18/improve-programming/" rel="alternate" />
+        <link rel="alternate" href="http://watson-wilson.ca/blog/2017/04/18/improve-programming/" />
         <content type="html"><![CDATA[
             <p><img alt="oreilly funny book cover" src="http://watson-wilson.ca/static/images/copy-paste-stack.jpg" style="float:right" width="120px"></p>
 
@@ -125,7 +125,7 @@
     <entry>
         <id>http://watson-wilson.ca/blog/2017/04/18/terraform-azure/</id>
         <title>Build on Azure with Terraform</title>
-        <link href="http://watson-wilson.ca/blog/2017/04/18/terraform-azure/" rel="alternate" />
+        <link rel="alternate" href="http://watson-wilson.ca/blog/2017/04/18/terraform-azure/" />
         <content type="html"><![CDATA[
             <p><a href="https://terraform.io/"><img alt="terraform logo" src="https://raw.githubusercontent.com/hashicorp/terraform-website/master/content//source/assets/images/og-image.png" style="float:right" width="120px"></a></p>
 

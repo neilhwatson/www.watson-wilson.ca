@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="en"> 
     <head>
-        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
         <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-        <link href="/theme/css/readability-bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="/theme/css/readability-bootstrap.min.css" />
         <!--<link rel="stylesheet" href="/theme/css/statocles-bootstrap.css" />-->
-        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
         <title>Template files using CFEngine - Neil H. Watson</title>
-        <meta content="Statocles 0.083" name="generator">
+        <meta name="generator" content="Statocles 0.093" />
         
 
         <!-- For source highlighting -->
-        <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/default.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/default.min.css">
         <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js"></script>
         <script>hljs.initHighlightingOnLoad();</script>
 
@@ -24,7 +24,7 @@
                 <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
                     <div class="navbar-header">
-                        <button class="navbar-toggle" data-target="#top-navbar-collapse-1" data-toggle="collapse" type="button">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#top-navbar-collapse-1">
                             <span class="sr-only">Toggle navigation</span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
@@ -88,27 +88,27 @@ during the edit.</p>
 
   vars:
     mars::
-      &quot;manager&quot; string =&gt; &quot;Neil Watson&quot;;
-      &quot;phone&quot; string =&gt; &quot;555-555-5555&quot;;
-      &quot;email&quot; string =&gt; &quot;neil@example.com&quot;;
+      "manager" string =&gt; "Neil Watson";
+      "phone" string =&gt; "555-555-5555";
+      "email" string =&gt; "neil@example.com";
 
     venus::
-      &quot;manager&quot; string =&gt; &quot;Lisamarie Wilson&quot;;
-      &quot;phone&quot; string =&gt; &quot;555-555-5554&quot;;
-      &quot;email&quot; string =&gt; &quot;lisa@example.com&quot;;
+      "manager" string =&gt; "Lisamarie Wilson";
+      "phone" string =&gt; "555-555-5554";
+      "email" string =&gt; "lisa@example.com";
 
   files:
-    &quot;/tmp/motd.tmp&quot;
-      handle =&gt; &quot;motd_template&quot;,
-      comment =&gt; &quot;MOTD template file&quot;,
-      perms =&gt; mog(&quot;0644&quot;,&quot;root&quot;,&quot;root&quot;),
-      copy_from =&gt; remote_cp (&quot;/var/cf-masterfiles/motd.tmp&quot;,&quot;localhost&quot;);
+    "/tmp/motd.tmp"
+      handle =&gt; "motd_template",
+      comment =&gt; "MOTD template file",
+      perms =&gt; mog("0644","root","root"),
+      copy_from =&gt; remote_cp ("/var/cf-masterfiles/motd.tmp","localhost");
 
-    &quot;/etc/motd&quot;
-      handle =&gt; &quot;motd_file&quot;,
-      comment =&gt; &quot;Expand motd file from template&quot;,
-      create =&gt; &quot;true&quot;,
-      edit_line =&gt; expand_template(&quot;/tmp/motd.tmp&quot;);
+    "/etc/motd"
+      handle =&gt; "motd_file",
+      comment =&gt; "Expand motd file from template",
+      create =&gt; "true",
+      edit_line =&gt; expand_template("/tmp/motd.tmp");
 }
 </code></pre>
 
@@ -136,13 +136,13 @@ cf3  -&gt; Not attempting to preserve file permissions from the source
 cf3  -&gt; Object /tmp/motd.tmp had permission 600, changed it to 644
 ...
 cf3  -&gt; Using literal pathtype for /etc/motd
-cf3  -&gt; File &quot;/etc/motd&quot; exists as promised
+cf3  -&gt; File "/etc/motd" exists as promised
 cf3  -&gt; Handling file existence constraints on /etc/motd
 cf3  -&gt; Handling file edits in edit_line bundle expand_template
 cf3 
 cf3       * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 * *
-cf3       BUNDLE expand_template( {&#39;/tmp/motd.tmp&#39;} )
+cf3       BUNDLE expand_template( {'/tmp/motd.tmp'} )
 cf3       * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 * *
 cf3 
@@ -162,20 +162,20 @@ cf3
 cf3     Comment:  Expand variables in the template file
 cf3     .........................................................
 cf3 
-cf3  -&gt; Promised file line &quot;###################################&quot; exists
+cf3  -&gt; Promised file line "###################################" exists
 within file /etc/motd (
-cf3  -&gt; Promised file line &quot;This host is the property of
+cf3  -&gt; Promised file line "This host is the property of
 Example.com.  Use is restricted to aut
 motd (promise kept)
-cf3  -&gt; Promised file line &quot;&quot; exists within file /etc/motd (promise
+cf3  -&gt; Promised file line "" exists within file /etc/motd (promise
 kept)
-cf3  -&gt; Inserting the promised line &quot;Manager:   Lisamarie Wilson&quot; into
+cf3  -&gt; Inserting the promised line "Manager:   Lisamarie Wilson" into
 /etc/motd after locator
-cf3  -&gt; Inserting the promised line &quot;Phone:             555-555-5554&quot;
+cf3  -&gt; Inserting the promised line "Phone:             555-555-5554"
 into /etc/motd after loca
-cf3  -&gt; Inserting the promised line &quot;Email:
-lisa@example.com&quot; into /etc/motd after 
-cf3  -&gt; Promised file line &quot;###################################&quot; exists
+cf3  -&gt; Inserting the promised line "Email:
+lisa@example.com" into /etc/motd after 
+cf3  -&gt; Promised file line "###################################" exists
 within file /etc/motd (
 cf3      ??  Private class context
 </code></pre>
@@ -208,7 +208,7 @@ writes.</p>
     </div>
 
     <div class="col-md-3">
-        <iframe frameborder="0" src="https://duckduckgo.com/search.html?site=watson-wilson.ca&amp;prefill=Search DuckDuckGo" style="overflow:hidden;margin:0;padding:0;width:350px;height:40px;"></iframe>
+        <iframe src="https://duckduckgo.com/search.html?site=watson-wilson.ca&prefill=Search DuckDuckGo" style="overflow:hidden;margin:0;padding:0;width:350px;height:40px;" frameborder="0"></iframe>
 
         <nav id="tags">
             <h1>Tags</h1>
@@ -304,31 +304,31 @@ writes.</p>
 
 </div>
 
-<div class="row">
-   <div class="col-md-1">
-       <img atl="Neil Watson" src="https://gravatar.com/avatar/1f0969599955a953e592034929ed7a23">
+<div class='row'>
+   <div class='col-md-1'>
+       <img atl='Neil Watson' src='https://gravatar.com/avatar/1f0969599955a953e592034929ed7a23' >
    </div>
 
-       <div class="col-md-1">
+       <div class='col-md-1'>
             <!-- reddit this -->
-            <a href="//www.reddit.com/submit" onclick="window.location = &#39;//www.reddit.com/submit?url=&#39; + encodeURIComponent(window.location); return false"><img alt="submit to reddit" border="0" src="//www.redditstatic.com/spreddit7.gif"></a>
+            <a href="//www.reddit.com/submit" onclick="window.location = '//www.reddit.com/submit?url=' + encodeURIComponent(window.location); return false"><img src="//www.redditstatic.com/spreddit7.gif" alt="submit to reddit" border="0" /></a>
        </div>
 
-       <div class="col-md-1">
+       <div class='col-md-1'>
           <!-- Tweet this -->
-          <a class="twitter-share-button" data-count="none" data-via="neil_h_watson" href="https://twitter.com/share">Tweet</a>
+          <a href="https://twitter.com/share" class="twitter-share-button" data-via="neil_h_watson" data-count="none">Tweet</a>
     <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
        </div>
 
-       <div class="col-md-1">
+       <div class='col-md-1'>
           <!-- follow me on twitter -->
-          <a class="twitter-follow-button" data-show-count="false" data-show-screen-name="false" href="https://twitter.com/neil_h_watson">Follow @neil_h_watson</a>
+          <a href="https://twitter.com/neil_h_watson" class="twitter-follow-button" data-show-count="false" data-show-screen-name="false">Follow @neil_h_watson</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
         </div>
 
-       <div class="col-md-1">
+       <div class='col-md-1'>
            <!-- follw me on github -->
-            <a aria-label="Follow @neilhwatson on GitHub" class="github-button" data-style="mega" href="https://github.com/neilhwatson">Follow</a>
+            <a aria-label="Follow @neilhwatson on GitHub" data-style="mega" href="https://github.com/neilhwatson" class="github-button">Follow</a>
             <script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
        </div>
 
@@ -338,9 +338,9 @@ writes.</p>
         <footer>
             
             <h1></h1>
-            <div class="col-md-5"> </div>
+            <div class='col-md-5'> </div>
             <div class="col-md-3 container tagline">
-                <a href="http://preaction.me/statocles">Made with Statocles</a><br>
+                <a href="http://preaction.me/statocles">Made with Statocles</a><br/>
                 <a href="http://www.perl.org">Powered by Perl</a>
             </div>
         </footer>

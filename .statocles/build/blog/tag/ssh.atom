@@ -3,13 +3,13 @@
     <id>http://watson-wilson.ca/blog/tag/ssh/</id>
     <title>Neil H. Watson</title>
     <updated>2011-05-26T00:00:00Z</updated>
-    <link href="http://watson-wilson.ca/blog/tag/ssh.atom" rel="self" />
-    <link href="http://watson-wilson.ca/blog/tag/ssh/" rel="alternate" />
-    <generator version="0.083">Statocles</generator>
+    <link rel="self" href="http://watson-wilson.ca/blog/tag/ssh.atom"/>
+    <link rel="alternate" href="http://watson-wilson.ca/blog/tag/ssh/"/>
+    <generator version="0.093">Statocles</generator>
     <entry>
         <id>http://watson-wilson.ca/blog/2011/05/26/cfengine-ssh-keys/</id>
         <title>SSH public key distribution using CFEngine</title>
-        <link href="http://watson-wilson.ca/blog/2011/05/26/cfengine-ssh-keys/" rel="alternate" />
+        <link rel="alternate" href="http://watson-wilson.ca/blog/2011/05/26/cfengine-ssh-keys/" />
         <content type="html"><![CDATA[
             <h3>Problem</h3>
 

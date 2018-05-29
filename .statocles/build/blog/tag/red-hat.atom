@@ -3,13 +3,13 @@
     <id>http://watson-wilson.ca/blog/tag/red-hat/</id>
     <title>Neil H. Watson</title>
     <updated>2015-12-08T00:00:00Z</updated>
-    <link href="http://watson-wilson.ca/blog/tag/red-hat.atom" rel="self" />
-    <link href="http://watson-wilson.ca/blog/tag/red-hat/" rel="alternate" />
-    <generator version="0.083">Statocles</generator>
+    <link rel="self" href="http://watson-wilson.ca/blog/tag/red-hat.atom"/>
+    <link rel="alternate" href="http://watson-wilson.ca/blog/tag/red-hat/"/>
+    <generator version="0.093">Statocles</generator>
     <entry>
         <id>http://watson-wilson.ca/blog/2015/12/08/spacewalk/</id>
         <title>Installing Spacewalk</title>
-        <link href="http://watson-wilson.ca/blog/2015/12/08/spacewalk/" rel="alternate" />
+        <link rel="alternate" href="http://watson-wilson.ca/blog/2015/12/08/spacewalk/" />
         <content type="html"><![CDATA[
             <p>Here&#39;s a quick procedure for installing <a href="http://spacewalk.redhat.com/">Spacewalk</a>.</p>
 
@@ -32,7 +32,7 @@
     <entry>
         <id>http://watson-wilson.ca/blog/2011/05/09/rhev-overview/</id>
         <title>A brief overview of Red Hat Enterprise Virtualization</title>
-        <link href="http://watson-wilson.ca/blog/2011/05/09/rhev-overview/" rel="alternate" />
+        <link rel="alternate" href="http://watson-wilson.ca/blog/2011/05/09/rhev-overview/" />
         <content type="html"><![CDATA[
             <p>Red Hat Enterprise Virtualization is a fairly new product offering from Red
 Hat. Red Hat acquired RHEV when they purchased Qumranet in September 2008.
@@ -57,7 +57,7 @@ virtualization solution for both desktops and servers, Linux and Windows.</p>
     <entry>
         <id>http://watson-wilson.ca/blog/2007/08/08/clustering-with-redhat/</id>
         <title>Clustering with Red Hat</title>
-        <link href="http://watson-wilson.ca/blog/2007/08/08/clustering-with-redhat/" rel="alternate" />
+        <link rel="alternate" href="http://watson-wilson.ca/blog/2007/08/08/clustering-with-redhat/" />
         <content type="html"><![CDATA[
             <p>This entry presents an overview of how to build a DB2 service cluster using the
 Red Hat Cluster Suite. This procedure can be useful in learning how to setup

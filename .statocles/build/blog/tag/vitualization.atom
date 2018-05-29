@@ -3,13 +3,13 @@
     <id>http://watson-wilson.ca/blog/tag/vitualization/</id>
     <title>Neil H. Watson</title>
     <updated>2011-05-09T00:00:00Z</updated>
-    <link href="http://watson-wilson.ca/blog/tag/vitualization.atom" rel="self" />
-    <link href="http://watson-wilson.ca/blog/tag/vitualization/" rel="alternate" />
-    <generator version="0.083">Statocles</generator>
+    <link rel="self" href="http://watson-wilson.ca/blog/tag/vitualization.atom"/>
+    <link rel="alternate" href="http://watson-wilson.ca/blog/tag/vitualization/"/>
+    <generator version="0.093">Statocles</generator>
     <entry>
         <id>http://watson-wilson.ca/blog/2011/05/09/rhev-overview/</id>
         <title>A brief overview of Red Hat Enterprise Virtualization</title>
-        <link href="http://watson-wilson.ca/blog/2011/05/09/rhev-overview/" rel="alternate" />
+        <link rel="alternate" href="http://watson-wilson.ca/blog/2011/05/09/rhev-overview/" />
         <content type="html"><![CDATA[
             <p>Red Hat Enterprise Virtualization is a fairly new product offering from Red
 Hat. Red Hat acquired RHEV when they purchased Qumranet in September 2008.

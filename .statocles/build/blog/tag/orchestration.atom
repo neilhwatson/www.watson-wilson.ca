@@ -3,13 +3,13 @@
     <id>http://watson-wilson.ca/blog/tag/orchestration/</id>
     <title>Neil H. Watson</title>
     <updated>2016-10-27T00:00:00Z</updated>
-    <link href="http://watson-wilson.ca/blog/tag/orchestration.atom" rel="self" />
-    <link href="http://watson-wilson.ca/blog/tag/orchestration/" rel="alternate" />
-    <generator version="0.083">Statocles</generator>
+    <link rel="self" href="http://watson-wilson.ca/blog/tag/orchestration.atom"/>
+    <link rel="alternate" href="http://watson-wilson.ca/blog/tag/orchestration/"/>
+    <generator version="0.093">Statocles</generator>
     <entry>
         <id>http://watson-wilson.ca/blog/2016/10/27/ansible-reboot/</id>
         <title>Reboot and reconnect between Ansible tasks</title>
-        <link href="http://watson-wilson.ca/blog/2016/10/27/ansible-reboot/" rel="alternate" />
+        <link rel="alternate" href="http://watson-wilson.ca/blog/2016/10/27/ansible-reboot/" />
         <content type="html"><![CDATA[
             <p><a href="http://ansible.com"><img alt="go to ansible.com" src="http://watson-wilson.ca/static/images/ansible_logo_round.png" style="float:right" width="150px"></a></p>
 

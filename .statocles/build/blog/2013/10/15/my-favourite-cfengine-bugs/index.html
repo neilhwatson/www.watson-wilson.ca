@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="en"> 
     <head>
-        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
         <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-        <link href="/theme/css/readability-bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="/theme/css/readability-bootstrap.min.css" />
         <!--<link rel="stylesheet" href="/theme/css/statocles-bootstrap.css" />-->
-        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
         <title>My 'favourite' CFEngine bugs - Neil H. Watson</title>
-        <meta content="Statocles 0.083" name="generator">
+        <meta name="generator" content="Statocles 0.093" />
         
 
         <!-- For source highlighting -->
-        <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/default.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/default.min.css">
         <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js"></script>
         <script>hljs.initHighlightingOnLoad();</script>
 
@@ -24,7 +24,7 @@
                 <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
                     <div class="navbar-header">
-                        <button class="navbar-toggle" data-target="#top-navbar-collapse-1" data-toggle="collapse" type="button">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#top-navbar-collapse-1">
                             <span class="sr-only">Toggle navigation</span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
@@ -52,7 +52,7 @@
     <div class="col-md-9">
         <main>
             <header>
-                <h1>My &#39;favourite&#39; CFEngine bugs</h1>
+                <h1>My 'favourite' CFEngine bugs</h1>
                 <p class="tags">Tags:
                     <a href="/blog/tag/cfengine/" rel="tag">cfengine</a>
                 </p>
@@ -69,18 +69,18 @@
             </header>
             <section id="section-1">
                 <p>What follows is a list of CFEngine bugs, and work-arounds if I have
-them, that affect projects I&#39;m working on and may also affect yours.</p>
+them, that affect projects I'm working on and may also affect yours.</p>
 
             </section>
             <section id="section-2">
-                <h3>Vars policy is always &#39;free&#39;.</h3>
+                <h3>Vars policy is always 'free'.</h3>
 
 <p>Versions affect: 3.3.5 to 3.5.2</p>
 
-<p>Variables are supposed to default to &#39;constant&#39;. That is, its value
+<p>Variables are supposed to default to 'constant'. That is, its value
 cannot be changed after initial definition. If you wish to change this,
-you can set the variable promiser&#39;s policy to &#39;free&#39; (<a href="https://cfengine.com/docs/3.5/reference-promise-types-vars.html#policy">see here</a>).
-A bug has broken this behavior, causing all vars to be set to &#39;free&#39;. I
+you can set the variable promiser's policy to 'free' (<a href="https://cfengine.com/docs/3.5/reference-promise-types-vars.html#policy">see here</a>).
+A bug has broken this behavior, causing all vars to be set to 'free'. I
 have no work around for this bug.</p>
 
 <ul>
@@ -107,7 +107,7 @@ library uses this workaround.</p>
 <p>Versions affected: 3.4.0 to 3.5.2</p>
 
 <p>In theory usebundle can point to an array. A bug prevents this. The
-Evolve free library bundle <a href="https://github.com/neilhwatson/evolve_cfengine_freelib/blob/master/masterfiles/lib/evolve_freelib.cf">&quot;efl_bug2638&quot;</a>
+Evolve free library bundle <a href="https://github.com/neilhwatson/evolve_cfengine_freelib/blob/master/masterfiles/lib/evolve_freelib.cf">"efl_bug2638"</a>
 shows how to work around this.</p>
 
 <ul>
@@ -140,7 +140,7 @@ the action log. It is very messy involving external scripts.</p>
 and a more succinct output. Sadly this feature is too immature,
 containing multiple bugs. The expansion of variable promisers does not
 work. The promisee information is logged at the end of promise
-evaluation rather than at the beginning (you&#39;ll find the comment and
+evaluation rather than at the beginning (you'll find the comment and
 handle at the beginning, but not promisees). Process matches in
 processes promises are shown before the promiser. Verbose logs are now
 more confusing than before. Legacy verbose logging, -lv, can help a
@@ -169,10 +169,10 @@ output is missing this information. There is no work around.</p>
 
 <p>Versions affected: all but the latest.</p>
 
-<p>New versions of CFEngine can have &#39;surprises&#39;. Because of this, people
+<p>New versions of CFEngine can have 'surprises'. Because of this, people
 like to keep using old versions and migrate slowly to newer versions.
 The CFEngine provided repositories only keep the latest version. If you
-want to pin and install a specific CFEngine version you&#39;ll need to
+want to pin and install a specific CFEngine version you'll need to
 create your own repository.</p>
 
 <ul>
@@ -183,13 +183,13 @@ create your own repository.</p>
 
 <p>Versions affected: 3.4.0 to 3.5.2</p>
 
-<p>IPV6 provides the end to end connectivity that IPV4 cannot. I&#39;ve <a href="http://watson-wilson.ca/ipv6/">blogged</a>
+<p>IPV6 provides the end to end connectivity that IPV4 cannot. I've <a href="http://watson-wilson.ca/ipv6/">blogged</a>
 about IPV6 including how to use and get IPV6. Evolve uses IPV6 in
 production and development. Many programs already fully support IPV6,
 but CFEngine is not yet one of them. Using the CFEngine policy that it
 comes packaged with, you cannot bootstrap an agent host to an IPV6
 server. The work around is to edit the provided failsafe.cf file
-removing &#39;skipidentify&#39; in the agent control body. Alternatively,
+removing 'skipidentify' in the agent control body. Alternatively,
 bootstrap by hand, copying keys and inputs manually.</p>
 
 <ul>
@@ -209,9 +209,9 @@ is no workaround.</p>
 
 <p>Versions affected: All</p>
 
-<p>CFEngine&#39;s website and package repositories have no IPV6 addresses. If
-you have IPV6 only hosts you&#39;ll need a <a href="http://en.wikipedia.org/wiki/6to4">6to4</a>
-service, use <a href="http://www.normation.com/en/cfengine-package-repositories">Normation&#39;s mirror</a>,
+<p>CFEngine's website and package repositories have no IPV6 addresses. If
+you have IPV6 only hosts you'll need a <a href="http://en.wikipedia.org/wiki/6to4">6to4</a>
+service, use <a href="http://www.normation.com/en/cfengine-package-repositories">Normation's mirror</a>,
 or make your own mirror.</p>
 
 <ul>
@@ -225,7 +225,7 @@ or make your own mirror.</p>
     </div>
 
     <div class="col-md-3">
-        <iframe frameborder="0" src="https://duckduckgo.com/search.html?site=watson-wilson.ca&amp;prefill=Search DuckDuckGo" style="overflow:hidden;margin:0;padding:0;width:350px;height:40px;"></iframe>
+        <iframe src="https://duckduckgo.com/search.html?site=watson-wilson.ca&prefill=Search DuckDuckGo" style="overflow:hidden;margin:0;padding:0;width:350px;height:40px;" frameborder="0"></iframe>
 
         <nav id="tags">
             <h1>Tags</h1>
@@ -321,31 +321,31 @@ or make your own mirror.</p>
 
 </div>
 
-<div class="row">
-   <div class="col-md-1">
-       <img atl="Neil Watson" src="https://gravatar.com/avatar/1f0969599955a953e592034929ed7a23">
+<div class='row'>
+   <div class='col-md-1'>
+       <img atl='Neil Watson' src='https://gravatar.com/avatar/1f0969599955a953e592034929ed7a23' >
    </div>
 
-       <div class="col-md-1">
+       <div class='col-md-1'>
             <!-- reddit this -->
-            <a href="//www.reddit.com/submit" onclick="window.location = &#39;//www.reddit.com/submit?url=&#39; + encodeURIComponent(window.location); return false"><img alt="submit to reddit" border="0" src="//www.redditstatic.com/spreddit7.gif"></a>
+            <a href="//www.reddit.com/submit" onclick="window.location = '//www.reddit.com/submit?url=' + encodeURIComponent(window.location); return false"><img src="//www.redditstatic.com/spreddit7.gif" alt="submit to reddit" border="0" /></a>
        </div>
 
-       <div class="col-md-1">
+       <div class='col-md-1'>
           <!-- Tweet this -->
-          <a class="twitter-share-button" data-count="none" data-via="neil_h_watson" href="https://twitter.com/share">Tweet</a>
+          <a href="https://twitter.com/share" class="twitter-share-button" data-via="neil_h_watson" data-count="none">Tweet</a>
     <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
        </div>
 
-       <div class="col-md-1">
+       <div class='col-md-1'>
           <!-- follow me on twitter -->
-          <a class="twitter-follow-button" data-show-count="false" data-show-screen-name="false" href="https://twitter.com/neil_h_watson">Follow @neil_h_watson</a>
+          <a href="https://twitter.com/neil_h_watson" class="twitter-follow-button" data-show-count="false" data-show-screen-name="false">Follow @neil_h_watson</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
         </div>
 
-       <div class="col-md-1">
+       <div class='col-md-1'>
            <!-- follw me on github -->
-            <a aria-label="Follow @neilhwatson on GitHub" class="github-button" data-style="mega" href="https://github.com/neilhwatson">Follow</a>
+            <a aria-label="Follow @neilhwatson on GitHub" data-style="mega" href="https://github.com/neilhwatson" class="github-button">Follow</a>
             <script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
        </div>
 
@@ -355,9 +355,9 @@ or make your own mirror.</p>
         <footer>
             
             <h1></h1>
-            <div class="col-md-5"> </div>
+            <div class='col-md-5'> </div>
             <div class="col-md-3 container tagline">
-                <a href="http://preaction.me/statocles">Made with Statocles</a><br>
+                <a href="http://preaction.me/statocles">Made with Statocles</a><br/>
                 <a href="http://www.perl.org">Powered by Perl</a>
             </div>
         </footer>

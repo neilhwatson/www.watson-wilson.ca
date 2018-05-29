@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="en"> 
     <head>
-        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
         <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-        <link href="/theme/css/readability-bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="/theme/css/readability-bootstrap.min.css" />
         <!--<link rel="stylesheet" href="/theme/css/statocles-bootstrap.css" />-->
-        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
         <title>CFEngine best practices: part 2 - Neil H. Watson</title>
-        <meta content="Statocles 0.083" name="generator">
+        <meta name="generator" content="Statocles 0.093" />
         
 
         <!-- For source highlighting -->
-        <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/default.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/default.min.css">
         <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js"></script>
         <script>hljs.initHighlightingOnLoad();</script>
 
@@ -24,7 +24,7 @@
                 <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
                     <div class="navbar-header">
-                        <button class="navbar-toggle" data-target="#top-navbar-collapse-1" data-toggle="collapse" type="button">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#top-navbar-collapse-1">
                             <span class="sr-only">Toggle navigation</span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
@@ -71,10 +71,10 @@
 
             </header>
             <section id="section-1">
-                <p><img alt="stormtrooper-apple" src="/static/images/stormtrooper-apple.jpg"></p>
+                <p><img src="/static/images/stormtrooper-apple.jpg" alt="stormtrooper-apple" /></p>
 
 <p>Continuing on from <a href="http://watson-wilson.ca/cfengine-best-practices-testing/">testing best practices</a>,
-let&#39;s look at other best practices to make you a CFEngine ninja.</p>
+let's look at other best practices to make you a CFEngine ninja.</p>
 
             </section>
             <section id="section-2">
@@ -82,15 +82,15 @@ let&#39;s look at other best practices to make you a CFEngine ninja.</p>
 
 <p>CFEngine is different. It took me a while to understand it. It was a
 lot like calculus. In the beginning my brain exploded, but later it
-began to understand. I was enlightened. Let me tell you what I&#39;ve
+began to understand. I was enlightened. Let me tell you what I've
 learned about CFEngine.</p>
 
-<h5>Don&#39;t think procedurally</h5>
+<h5>Don't think procedurally</h5>
 
-<p>CFEngine&#39;s declarative language requires a different approach to
-development than scripting. Let&#39;s break the shackles of procedure and
-declare our promises! Don&#39;t think &#39;what steps do I take to make this
-configuration?&#39; CFEngine is designed to use its own built in procedures
+<p>CFEngine's declarative language requires a different approach to
+development than scripting. Let's break the shackles of procedure and
+declare our promises! Don't think 'what steps do I take to make this
+configuration?' CFEngine is designed to use its own built in procedures
 to reach your goal. A promise declares what you want, not how to get
 there.</p>
 
@@ -112,17 +112,17 @@ own built in code to make it happen.</p>
 <p>Figure 2: A clear promise no politician would make. </p>
 
 <pre><code>files:
-   &quot;/etc/resolv.conf&quot;
-       perms     =&gt; mog( &quot;644&quot;, &quot;root&quot;, &quot;root&quot; ),
-       copy_from =&gt; remote_cp( &quot;/var/cfengine/temps&quot;, &quot;${sys.policy_server}&quot; );
+   "/etc/resolv.conf"
+       perms     =&gt; mog( "644", "root", "root" ),
+       copy_from =&gt; remote_cp( "/var/cfengine/temps", "${sys.policy_server}" );
 </code></pre>
 
 <h5>Focus on the end goal</h5>
 
 <p>When you begin to write a promise or a bundle of promises focus on the
-end goal. What is the ideal state you&#39;re trying to reach? Describe it
+end goal. What is the ideal state you're trying to reach? Describe it
 in your language, and then in the CFEngine language. Before you know it
-you&#39;ll have a prototype and you did not need a procedure.</p>
+you'll have a prototype and you did not need a procedure.</p>
 
 <h5>Think of CFEngine promises</h5>
 
@@ -133,8 +133,8 @@ and the promises you need will be obvious.</p>
 
 <h5>Less is more</h5>
 
-<p>Beginners often don&#39;t realize how much CFEngine can figure out
-automatically. Don&#39;t try to box in your policies with too many
+<p>Beginners often don't realize how much CFEngine can figure out
+automatically. Don't try to box in your policies with too many
 restrictions. Start very simply and the results will surprise you.</p>
 
 <h4>Build reusable bundles</h4>
@@ -154,7 +154,7 @@ has many such examples for your reference.</p>
 <p>Speaking of template files, I always favour them over policies that
 only promise selected lines inside an existing file. The trouble with
 promising only a portion of the file is, what if the rest of the file
-is corrupt? Don&#39;t go half way. Deliver a complete promise and your boss
+is corrupt? Don't go half way. Deliver a complete promise and your boss
 will thank you.</p>
 
 <h4>Readability</h4>
@@ -167,13 +167,13 @@ efficiency it often becomes very hard to understand. Use comment,
 handle, and tag attributes to document your promises and use meta
 promises to document your bundles. One of the great things about
 CFEngine is that once it is working you seldom have to revisit your
-promises, but when you do you&#39;d better be able to understand them.</p>
+promises, but when you do you'd better be able to understand them.</p>
 
 <h4>Naming conventions</h4>
 
 <p>I encourage you to seek out the many readily available CFEngine
 frameworks that offer a vast collection of ready to use promises and
-bundles. Don&#39;t reinvent the wheel. If you do write your own policies
+bundles. Don't reinvent the wheel. If you do write your own policies
 name them well.</p>
 
 <h5>Bundle names</h5>
@@ -182,7 +182,7 @@ name them well.</p>
 the first one <em>ssh</em> may not be a good idea. Use more descriptive names.
 One large organization I worked with had bundles written by many
 departments. They used a numbering system like ssh_1122. I prefer using
-bundles names that imply the bundle&#39;s intent; <em>Ssh_for_dmz</em> is much
+bundles names that imply the bundle's intent; <em>Ssh_for_dmz</em> is much
 clearer than <em>ssh_by_neil</em>.</p>
 
 <h5>Handle names</h5>
@@ -195,16 +195,16 @@ community is <em>bundlename_promisetype_class_promiser</em>.</p>
 <pre><code>bundle agent efl_main( ref )
 
 methods:
-   &quot;methods loop wrapper&quot;
-      comment    =&gt; &quot;Call wrapper bundle to workaround naked variable bug.&quot;,
-      handle     =&gt; &quot;efl_main_methods_loop_wrapper&quot;;
+   "methods loop wrapper"
+      comment    =&gt; "Call wrapper bundle to workaround naked variable bug.",
+      handle     =&gt; "efl_main_methods_loop_wrapper";
 
 bundle agent efl_command ( ref )
 
    commands:
-      &quot;${${command[${c}]}}&quot; -&gt; { &quot;${${promisee[${c}]}}&quot; }
-         comment    =&gt; &quot;Run desired command&quot;,
-         handle     =&gt; &quot;efl_command_commands&quot;,
+      "${${command[${c}]}}" -&gt; { "${${promisee[${c}]}}" }
+         comment    =&gt; "Run desired command",
+         handle     =&gt; "efl_command_commands",
 </code></pre>
 
 <h5>Class names</h5>
@@ -223,7 +223,7 @@ CFEngine, but I find that too complex. For me simple prefixes suffice.</p>
 
 <h4>Use separate promises for file permissions and content.</h4>
 
-<p>It&#39;s common to promise file permissions and content in a single
+<p>It's common to promise file permissions and content in a single
 promise, but what if the promiser file is sshd_config? If you have a
 follow up promise to restart sshd if sshd_config changes that restart
 will be triggered even by a permission only repair. Separate these into
@@ -246,10 +246,10 @@ common cause of slow running policies. Use the shell sparingly.</p>
 
 <h5>Beware the shell environment</h5>
 
-<p>Like crond, CFEngine&#39;s environment when it starts a shell process is
+<p>Like crond, CFEngine's environment when it starts a shell process is
 different than your shell environment. Test carefully.</p>
 
-<h5>Don&#39;t use command promises to cheat</h5>
+<h5>Don't use command promises to cheat</h5>
 
 <p>Some folks, unable to get the promise they want, resort to using a
 commands promise to call a script. Shell commands slow the agent down
@@ -262,14 +262,14 @@ determine promise success.</p>
 success. Promises that are too broad, like bulk, recursive file
 permissions, can affect files you did not think about.</p>
 
-<h4>Don&#39;t mess with update.cf or failsafe.cf</h4>
+<h4>Don't mess with update.cf or failsafe.cf</h4>
 
-<p>In CFEngine&#39;s default policy update.cf, previously called failsafe.cf,
+<p>In CFEngine's default policy update.cf, previously called failsafe.cf,
 allows the agent to pull new policy from the policy server. If
 promises.cf or related files have errors the agent may not run, but
 update.cf is separate and will allow the agent to download corrected
 files when they are available. If update.cf has an error, however,
-there is no mechanism to get repairs, and you&#39;ll have to fix <em>every
+there is no mechanism to get repairs, and you'll have to fix <em>every
 host by hand</em>. If you choose to modify update.cf and related files,
 test <em>very carefully</em>.</p>
 
@@ -282,7 +282,7 @@ update.cf directly.</p>
 <pre><code>cf-agent -f update.cf &amp;&amp; cf-agent
 </code></pre>
 
-<p>You may recognize this, it is similar to the run command in cf-execd&#39;s
+<p>You may recognize this, it is similar to the run command in cf-execd's
 control body. I also go a step further and configure a bootstrap
 process if the update fails.</p>
 
@@ -293,7 +293,7 @@ process if the update fails.</p>
 
 <h4>Summary</h4>
 
-<p>This ends the second part of my best practices with CFEngine. Let&#39;s
+<p>This ends the second part of my best practices with CFEngine. Let's
 review.</p>
 
 <ul>
@@ -310,9 +310,9 @@ CFEngine promises.</p></li>
 <li><p>Embrace normal ordering.</p></li>
 <li><p>Use shell commands sparingly.</p></li>
 <li><p>Beware the shell environment.</p></li>
-<li><p>Don&#39;t use command promises to cheat.</p></li>
+<li><p>Don't use command promises to cheat.</p></li>
 <li><p>Avoid promises that are to broad.</p></li>
-<li><p>Don&#39;t mess with update.cf or failsafe.cf</p></li>
+<li><p>Don't mess with update.cf or failsafe.cf</p></li>
 </ul>
 
 <h4>Frameworks</h4>
@@ -326,10 +326,10 @@ and also offers the <a href="https://docs.cfengine.com/latest/reference-design-c
 <li><p><a href="http://www.ncf.io/">NCF</a> by <a href="http://normation.com">Normation</a>.</p></li>
 <li><p><a href="http://wiki.webhuis.nl/index.php/Dynamic_Cfengine3">Dynamic Cfengine3</a>
 by <a href="http://webhuis.nl/">WebHuis</a>.</p></li>
-<li><p>Brian Bennett&#39;s <a href="https://digitalelf.net/blog/categories/cfengine/">framework</a>.</p></li>
-<li><p><a href="https://github.com/neilhwatson/evolve_cfengine_freelib">Evolve Thinking&#39;s free library (EFL)</a>
+<li><p>Brian Bennett's <a href="https://digitalelf.net/blog/categories/cfengine/">framework</a>.</p></li>
+<li><p><a href="https://github.com/neilhwatson/evolve_cfengine_freelib">Evolve Thinking's free library (EFL)</a>
 contains a large collection of ready to use, scalable promises. It
-is portable, able to work with CFEngine&#39;s base framework or any
+is portable, able to work with CFEngine's base framework or any
 other policy you use. EFL also powers <a href="http://watson-wilson.ca/products/delta-reporting/">Delta Reporting</a>
 an open source reporting tool for CFEngine.</p></li>
 </ul>
@@ -341,7 +341,7 @@ an open source reporting tool for CFEngine.</p></li>
     </div>
 
     <div class="col-md-3">
-        <iframe frameborder="0" src="https://duckduckgo.com/search.html?site=watson-wilson.ca&amp;prefill=Search DuckDuckGo" style="overflow:hidden;margin:0;padding:0;width:350px;height:40px;"></iframe>
+        <iframe src="https://duckduckgo.com/search.html?site=watson-wilson.ca&prefill=Search DuckDuckGo" style="overflow:hidden;margin:0;padding:0;width:350px;height:40px;" frameborder="0"></iframe>
 
         <nav id="tags">
             <h1>Tags</h1>
@@ -437,31 +437,31 @@ an open source reporting tool for CFEngine.</p></li>
 
 </div>
 
-<div class="row">
-   <div class="col-md-1">
-       <img atl="Neil Watson" src="https://gravatar.com/avatar/1f0969599955a953e592034929ed7a23">
+<div class='row'>
+   <div class='col-md-1'>
+       <img atl='Neil Watson' src='https://gravatar.com/avatar/1f0969599955a953e592034929ed7a23' >
    </div>
 
-       <div class="col-md-1">
+       <div class='col-md-1'>
             <!-- reddit this -->
-            <a href="//www.reddit.com/submit" onclick="window.location = &#39;//www.reddit.com/submit?url=&#39; + encodeURIComponent(window.location); return false"><img alt="submit to reddit" border="0" src="//www.redditstatic.com/spreddit7.gif"></a>
+            <a href="//www.reddit.com/submit" onclick="window.location = '//www.reddit.com/submit?url=' + encodeURIComponent(window.location); return false"><img src="//www.redditstatic.com/spreddit7.gif" alt="submit to reddit" border="0" /></a>
        </div>
 
-       <div class="col-md-1">
+       <div class='col-md-1'>
           <!-- Tweet this -->
-          <a class="twitter-share-button" data-count="none" data-via="neil_h_watson" href="https://twitter.com/share">Tweet</a>
+          <a href="https://twitter.com/share" class="twitter-share-button" data-via="neil_h_watson" data-count="none">Tweet</a>
     <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
        </div>
 
-       <div class="col-md-1">
+       <div class='col-md-1'>
           <!-- follow me on twitter -->
-          <a class="twitter-follow-button" data-show-count="false" data-show-screen-name="false" href="https://twitter.com/neil_h_watson">Follow @neil_h_watson</a>
+          <a href="https://twitter.com/neil_h_watson" class="twitter-follow-button" data-show-count="false" data-show-screen-name="false">Follow @neil_h_watson</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
         </div>
 
-       <div class="col-md-1">
+       <div class='col-md-1'>
            <!-- follw me on github -->
-            <a aria-label="Follow @neilhwatson on GitHub" class="github-button" data-style="mega" href="https://github.com/neilhwatson">Follow</a>
+            <a aria-label="Follow @neilhwatson on GitHub" data-style="mega" href="https://github.com/neilhwatson" class="github-button">Follow</a>
             <script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
        </div>
 
@@ -471,9 +471,9 @@ an open source reporting tool for CFEngine.</p></li>
         <footer>
             
             <h1></h1>
-            <div class="col-md-5"> </div>
+            <div class='col-md-5'> </div>
             <div class="col-md-3 container tagline">
-                <a href="http://preaction.me/statocles">Made with Statocles</a><br>
+                <a href="http://preaction.me/statocles">Made with Statocles</a><br/>
                 <a href="http://www.perl.org">Powered by Perl</a>
             </div>
         </footer>

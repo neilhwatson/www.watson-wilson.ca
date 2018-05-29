@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="en"> 
     <head>
-        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
         <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-        <link href="/theme/css/readability-bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="/theme/css/readability-bootstrap.min.css" />
         <!--<link rel="stylesheet" href="/theme/css/statocles-bootstrap.css" />-->
-        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
         <title>New packages promises in EFL - Neil H. Watson</title>
-        <meta content="Statocles 0.083" name="generator">
+        <meta name="generator" content="Statocles 0.093" />
         
 
         <!-- For source highlighting -->
-        <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/default.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/default.min.css">
         <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js"></script>
         <script>hljs.initHighlightingOnLoad();</script>
 
@@ -24,7 +24,7 @@
                 <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
                     <div class="navbar-header">
-                        <button class="navbar-toggle" data-target="#top-navbar-collapse-1" data-toggle="collapse" type="button">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#top-navbar-collapse-1">
                             <span class="sr-only">Toggle navigation</span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
@@ -70,20 +70,20 @@
 
             </header>
             <section id="section-1">
-                <p><img alt="A package" src="/static/images/cubimal-package.png"></p>
+                <p><img src="/static/images/cubimal-package.png" alt="A package" /></p>
 
 <p>Good news everyone. CFEngine 3.7 has revamped packages promises making
 them simpler and more reliable. These new promises are now used in EFL
-with the bundle efl_packages_new. The bundle&#39;s parameter file looks
+with the bundle efl_packages_new. The bundle's parameter file looks
 like this:</p>
 
             </section>
             <section id="section-2">
                 <p>Call the bundle (but using efl_main is recommended).</p>
 
-<pre><code>&quot;my packages&quot;
+<pre><code>"my packages"
    usebunnde =&gt; efl_packages_new(
-      &#39;${sys.inputdir}/efl_data/bundle_params/packages.csv&#39; );
+      '${sys.inputdir}/efl_data/bundle_params/packages.csv' );
 </code></pre>
 
 <p>In csv format.</p>
@@ -102,7 +102,7 @@ manager can find. Otherwise you must specify the precise version
 string. The new packages promises do not permit more complex version
 comparison at this time.</p>
 
-<p><strong>Note: You must enable the packages_module in promises.cf&#39;s <a href="https://github.com/cfengine/masterfiles/blob/master/promises.cf#L68">common
+<p><strong>Note: You must enable the packages_module in promises.cf's <a href="https://github.com/cfengine/masterfiles/blob/master/promises.cf#L68">common
 body control</a></strong>:</p>
 
 <pre><code>package_inventory =&gt; { $(package_module_knowledge.platform_default) };
@@ -112,7 +112,7 @@ body control</a></strong>:</p>
 Currently only yum and apt-get are supported. See <a href="https://github.com/cfengine/masterfiles/blob/master/modules/packages/apt_get">here</a>
 for the gory details.</p>
 
-<p>Don&#39;t like the pseudo CSV files? Then you can use JSON format. EFL even
+<p>Don't like the pseudo CSV files? Then you can use JSON format. EFL even
 comes with a conversion tool, <a href="https://github.com/neilhwatson/evolve_cfengine_freelib/blob/master/bin/eflconvert">eflconvert</a>.
 I converted the above csv file like this:</p>
 
@@ -123,20 +123,20 @@ I converted the above csv file like this:</p>
 
 <pre><code>[
    {
-      &quot;package_name&quot; : &quot;nano&quot;,
-      &quot;class&quot; : &quot;any&quot;,
-      &quot;promisee&quot; : &quot;efl development&quot;,
-      &quot;package_version&quot; : &quot;0&quot;,
-      &quot;package_policy&quot; : &quot;absent&quot;,
-      &quot;architecture&quot; : &quot;amd64&quot;
+      "package_name" : "nano",
+      "class" : "any",
+      "promisee" : "efl development",
+      "package_version" : "0",
+      "package_policy" : "absent",
+      "architecture" : "amd64"
    },
    {
-      &quot;package_policy&quot; : &quot;present&quot;,
-      &quot;architecture&quot; : &quot;amd64&quot;,
-      &quot;promisee&quot; : &quot;efl development&quot;,
-      &quot;package_version&quot; : &quot;0&quot;,
-      &quot;package_name&quot; : &quot;e3&quot;,
-      &quot;class&quot; : &quot;any&quot;
+      "package_policy" : "present",
+      "architecture" : "amd64",
+      "promisee" : "efl development",
+      "package_version" : "0",
+      "package_name" : "e3",
+      "class" : "any"
    }
 ]
 </code></pre>
@@ -170,7 +170,7 @@ I converted the above csv file like this:</p>
     </div>
 
     <div class="col-md-3">
-        <iframe frameborder="0" src="https://duckduckgo.com/search.html?site=watson-wilson.ca&amp;prefill=Search DuckDuckGo" style="overflow:hidden;margin:0;padding:0;width:350px;height:40px;"></iframe>
+        <iframe src="https://duckduckgo.com/search.html?site=watson-wilson.ca&prefill=Search DuckDuckGo" style="overflow:hidden;margin:0;padding:0;width:350px;height:40px;" frameborder="0"></iframe>
 
         <nav id="tags">
             <h1>Tags</h1>
@@ -266,31 +266,31 @@ I converted the above csv file like this:</p>
 
 </div>
 
-<div class="row">
-   <div class="col-md-1">
-       <img atl="Neil Watson" src="https://gravatar.com/avatar/1f0969599955a953e592034929ed7a23">
+<div class='row'>
+   <div class='col-md-1'>
+       <img atl='Neil Watson' src='https://gravatar.com/avatar/1f0969599955a953e592034929ed7a23' >
    </div>
 
-       <div class="col-md-1">
+       <div class='col-md-1'>
             <!-- reddit this -->
-            <a href="//www.reddit.com/submit" onclick="window.location = &#39;//www.reddit.com/submit?url=&#39; + encodeURIComponent(window.location); return false"><img alt="submit to reddit" border="0" src="//www.redditstatic.com/spreddit7.gif"></a>
+            <a href="//www.reddit.com/submit" onclick="window.location = '//www.reddit.com/submit?url=' + encodeURIComponent(window.location); return false"><img src="//www.redditstatic.com/spreddit7.gif" alt="submit to reddit" border="0" /></a>
        </div>
 
-       <div class="col-md-1">
+       <div class='col-md-1'>
           <!-- Tweet this -->
-          <a class="twitter-share-button" data-count="none" data-via="neil_h_watson" href="https://twitter.com/share">Tweet</a>
+          <a href="https://twitter.com/share" class="twitter-share-button" data-via="neil_h_watson" data-count="none">Tweet</a>
     <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
        </div>
 
-       <div class="col-md-1">
+       <div class='col-md-1'>
           <!-- follow me on twitter -->
-          <a class="twitter-follow-button" data-show-count="false" data-show-screen-name="false" href="https://twitter.com/neil_h_watson">Follow @neil_h_watson</a>
+          <a href="https://twitter.com/neil_h_watson" class="twitter-follow-button" data-show-count="false" data-show-screen-name="false">Follow @neil_h_watson</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
         </div>
 
-       <div class="col-md-1">
+       <div class='col-md-1'>
            <!-- follw me on github -->
-            <a aria-label="Follow @neilhwatson on GitHub" class="github-button" data-style="mega" href="https://github.com/neilhwatson">Follow</a>
+            <a aria-label="Follow @neilhwatson on GitHub" data-style="mega" href="https://github.com/neilhwatson" class="github-button">Follow</a>
             <script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
        </div>
 
@@ -300,9 +300,9 @@ I converted the above csv file like this:</p>
         <footer>
             
             <h1></h1>
-            <div class="col-md-5"> </div>
+            <div class='col-md-5'> </div>
             <div class="col-md-3 container tagline">
-                <a href="http://preaction.me/statocles">Made with Statocles</a><br>
+                <a href="http://preaction.me/statocles">Made with Statocles</a><br/>
                 <a href="http://www.perl.org">Powered by Perl</a>
             </div>
         </footer>

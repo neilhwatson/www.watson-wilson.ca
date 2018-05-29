@@ -3,13 +3,13 @@
     <id>http://watson-wilson.ca/blog/tag/cluster/</id>
     <title>Neil H. Watson</title>
     <updated>2011-03-07T00:00:00Z</updated>
-    <link href="http://watson-wilson.ca/blog/tag/cluster.atom" rel="self" />
-    <link href="http://watson-wilson.ca/blog/tag/cluster/" rel="alternate" />
-    <generator version="0.083">Statocles</generator>
+    <link rel="self" href="http://watson-wilson.ca/blog/tag/cluster.atom"/>
+    <link rel="alternate" href="http://watson-wilson.ca/blog/tag/cluster/"/>
+    <generator version="0.093">Statocles</generator>
     <entry>
         <id>http://watson-wilson.ca/blog/2011/03/07/heartbeat2-cheatsheet/</id>
         <title>Heartbeat 2 cheatsheet</title>
-        <link href="http://watson-wilson.ca/blog/2011/03/07/heartbeat2-cheatsheet/" rel="alternate" />
+        <link rel="alternate" href="http://watson-wilson.ca/blog/2011/03/07/heartbeat2-cheatsheet/" />
         <content type="html"><![CDATA[
             <h3>Commands</h3>
 
@@ -87,7 +87,7 @@
     <entry>
         <id>http://watson-wilson.ca/blog/2007/08/08/clustering-with-redhat/</id>
         <title>Clustering with Red Hat</title>
-        <link href="http://watson-wilson.ca/blog/2007/08/08/clustering-with-redhat/" rel="alternate" />
+        <link rel="alternate" href="http://watson-wilson.ca/blog/2007/08/08/clustering-with-redhat/" />
         <content type="html"><![CDATA[
             <p>This entry presents an overview of how to build a DB2 service cluster using the
 Red Hat Cluster Suite. This procedure can be useful in learning how to setup

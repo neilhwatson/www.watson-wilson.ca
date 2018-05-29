@@ -60,17 +60,17 @@ A virt-install script
 
     #!/bin/sh
     
-    virt-install -n altair -r 1024 --vcpus 1 \
-            --description='rhel7 DR development' \
-            -l http://mirror.csclub.uwaterloo.ca/centos/7/os/x86_64/ \
-            --os-type=linux --os-variant=rhel7 \
-            --disk pool=vg,bus=virtio,size=40 \
-            --network bridge=br0,model=virtio \
-            --autostart \
-       --graphics none \
-       --console pty,target_type=serial \
-       --extra-args "console=ttyS0,115200n8 serial \
-    inst.sshd ks=http://172.16.100.1/ks/altair.cfg"
+    virt-install -n altair -r 1024 --vcpus 1 \\
+        --description='rhel7 DR development' \\
+        -l http://mirror.csclub.uwaterloo.ca/centos/7/os/x86_64/ \\
+        --os-type=linux --os-variant=rhel7 \\
+        --disk pool=vg,bus=virtio,size=40 \\
+        --network bridge=br0,model=virtio \\
+        --autostart \\
+        --graphics none \\
+        --console pty,target_type=serial \\
+        --extra-args "console=ttyS0,115200n8 serial \\
+        inst.sshd ks=http://172.16.100.1/ks/altair.cfg"
 
 The Anaconda syntax for kickstart is a little different or more strict
 that it was previously. I had to account for the following changes.

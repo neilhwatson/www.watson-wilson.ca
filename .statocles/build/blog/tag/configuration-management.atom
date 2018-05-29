@@ -3,13 +3,13 @@
     <id>http://watson-wilson.ca/blog/tag/configuration-management/</id>
     <title>Neil H. Watson</title>
     <updated>2017-04-18T00:00:00Z</updated>
-    <link href="http://watson-wilson.ca/blog/tag/configuration-management.atom" rel="self" />
-    <link href="http://watson-wilson.ca/blog/tag/configuration-management/" rel="alternate" />
-    <generator version="0.083">Statocles</generator>
+    <link rel="self" href="http://watson-wilson.ca/blog/tag/configuration-management.atom"/>
+    <link rel="alternate" href="http://watson-wilson.ca/blog/tag/configuration-management/"/>
+    <generator version="0.093">Statocles</generator>
     <entry>
         <id>http://watson-wilson.ca/blog/2017/04/18/terraform-azure/</id>
         <title>Build on Azure with Terraform</title>
-        <link href="http://watson-wilson.ca/blog/2017/04/18/terraform-azure/" rel="alternate" />
+        <link rel="alternate" href="http://watson-wilson.ca/blog/2017/04/18/terraform-azure/" />
         <content type="html"><![CDATA[
             <p><a href="https://terraform.io/"><img alt="terraform logo" src="https://raw.githubusercontent.com/hashicorp/terraform-website/master/content//source/assets/images/og-image.png" style="float:right" width="120px"></a></p>
 
@@ -30,7 +30,7 @@
     <entry>
         <id>http://watson-wilson.ca/blog/2017/04/17/terraform-state/</id>
         <title>Understanding Terraform State</title>
-        <link href="http://watson-wilson.ca/blog/2017/04/17/terraform-state/" rel="alternate" />
+        <link rel="alternate" href="http://watson-wilson.ca/blog/2017/04/17/terraform-state/" />
         <content type="html"><![CDATA[
             <p><a href="https://terraform.io/"><img alt="terraform logo" src="https://raw.githubusercontent.com/hashicorp/terraform-website/master/content//source/assets/images/og-image.png" style="float:right" width="120px"></a></p>
 
@@ -53,7 +53,7 @@
     <entry>
         <id>http://watson-wilson.ca/blog/2017/03/30/terraform-modules/</id>
         <title>Terraform modules</title>
-        <link href="http://watson-wilson.ca/blog/2017/03/30/terraform-modules/" rel="alternate" />
+        <link rel="alternate" href="http://watson-wilson.ca/blog/2017/03/30/terraform-modules/" />
         <content type="html"><![CDATA[
             <p><a href="https://terraform.io/"><img alt="terraform logo" src="https://raw.githubusercontent.com/hashicorp/terraform-website/master/content//source/assets/images/og-image.png" style="float:right" width="120px"></a></p>
 
@@ -76,7 +76,7 @@
     <entry>
         <id>http://watson-wilson.ca/blog/2016/10/27/ansible-reboot/</id>
         <title>Reboot and reconnect between Ansible tasks</title>
-        <link href="http://watson-wilson.ca/blog/2016/10/27/ansible-reboot/" rel="alternate" />
+        <link rel="alternate" href="http://watson-wilson.ca/blog/2016/10/27/ansible-reboot/" />
         <content type="html"><![CDATA[
             <p><a href="http://ansible.com"><img alt="go to ansible.com" src="http://watson-wilson.ca/static/images/ansible_logo_round.png" style="float:right" width="150px"></a></p>
 
@@ -99,7 +99,7 @@
     <entry>
         <id>http://watson-wilson.ca/blog/2016/03/27/vote_for_cfengine_bugs/</id>
         <title>Vote for your favourite CFEngine bugs</title>
-        <link href="http://watson-wilson.ca/blog/2016/03/27/vote_for_cfengine_bugs/" rel="alternate" />
+        <link rel="alternate" href="http://watson-wilson.ca/blog/2016/03/27/vote_for_cfengine_bugs/" />
         <content type="html"><![CDATA[
             <p><a href="https://openclipart.org/detail/223801/bad-bug">
     <img alt="bug photo" src="https://openclipart.org/download/223801/bad-bug.svg" style="float:right"></a></p>

@@ -3,13 +3,13 @@
     <id>http://watson-wilson.ca/blog/tag/cfengine/</id>
     <title>Neil H. Watson</title>
     <updated>2016-03-27T00:00:00Z</updated>
-    <link href="http://watson-wilson.ca/blog/tag/cfengine.atom" rel="self" />
-    <link href="http://watson-wilson.ca/blog/tag/cfengine/" rel="alternate" />
-    <generator version="0.083">Statocles</generator>
+    <link rel="self" href="http://watson-wilson.ca/blog/tag/cfengine.atom"/>
+    <link rel="alternate" href="http://watson-wilson.ca/blog/tag/cfengine/"/>
+    <generator version="0.093">Statocles</generator>
     <entry>
         <id>http://watson-wilson.ca/blog/2016/03/27/vote_for_cfengine_bugs/</id>
         <title>Vote for your favourite CFEngine bugs</title>
-        <link href="http://watson-wilson.ca/blog/2016/03/27/vote_for_cfengine_bugs/" rel="alternate" />
+        <link rel="alternate" href="http://watson-wilson.ca/blog/2016/03/27/vote_for_cfengine_bugs/" />
         <content type="html"><![CDATA[
             <p><a href="https://openclipart.org/detail/223801/bad-bug">
     <img alt="bug photo" src="https://openclipart.org/download/223801/bad-bug.svg" style="float:right"></a></p>
@@ -33,7 +33,7 @@ bugs; here are mine:</p>
         <id>http://watson-wilson.ca/blog/2015/10/13/simple-cfengine-setup-with-efl/</id>
         <title>Simple CFEngine setup with EFL</title>
         <author><name>nwatson</name></author>
-        <link href="http://watson-wilson.ca/blog/2015/10/13/simple-cfengine-setup-with-efl/" rel="alternate" />
+        <link rel="alternate" href="http://watson-wilson.ca/blog/2015/10/13/simple-cfengine-setup-with-efl/" />
         <content type="html"><![CDATA[
             <p><img alt="image of stopwatch" src="http://watson-wilson.ca/static/images/stopwatch_13154_sm.gif"></p>
 
@@ -55,7 +55,7 @@ addon.</p>
         <id>http://watson-wilson.ca/blog/2015/09/30/essential-audit-reports-with-delta-reporting/</id>
         <title>Essential audit reports with Delta Reporting</title>
         <author><name>nwatson</name></author>
-        <link href="http://watson-wilson.ca/blog/2015/09/30/essential-audit-reports-with-delta-reporting/" rel="alternate" />
+        <link rel="alternate" href="http://watson-wilson.ca/blog/2015/09/30/essential-audit-reports-with-delta-reporting/" />
         <content type="html"><![CDATA[
             <p><img alt="Delta Reporting dashboard" src="http://watson-wilson.ca/static/images/dr-dashboard.png">
 Delta Reporting has simple yet powerful reports. See a gallery of essential
@@ -78,7 +78,7 @@ ones
         <id>http://watson-wilson.ca/blog/2015/09/18/auditing-hosts-using-cfengine-efl-and-delta-reporting/</id>
         <title>Auditing hosts using CFEngine, EFL, and Delta Reporting</title>
         <author><name>nwatson</name></author>
-        <link href="http://watson-wilson.ca/blog/2015/09/18/auditing-hosts-using-cfengine-efl-and-delta-reporting/" rel="alternate" />
+        <link rel="alternate" href="http://watson-wilson.ca/blog/2015/09/18/auditing-hosts-using-cfengine-efl-and-delta-reporting/" />
         <content type="html"><![CDATA[
             <p><img alt="Clip board" src="http://watson-wilson.ca/static/images/Liste-300px.png"></p>
 
@@ -107,7 +107,7 @@ it&#39;s possible.</p>
         <id>http://watson-wilson.ca/blog/2015/08/20/build-better-regular-expressions-in-cfengine/</id>
         <title>Build better regular expressions in CFEngine</title>
         <author><name>nwatson</name></author>
-        <link href="http://watson-wilson.ca/blog/2015/08/20/build-better-regular-expressions-in-cfengine/" rel="alternate" />
+        <link rel="alternate" href="http://watson-wilson.ca/blog/2015/08/20/build-better-regular-expressions-in-cfengine/" />
         <content type="html"><![CDATA[
             <p><img alt="picture of a regex" src="http://watson-wilson.ca/static/images/regex.png"></p>
 

@@ -3,13 +3,13 @@
     <id>http://watson-wilson.ca/blog/tag/github/</id>
     <title>Neil H. Watson</title>
     <updated>2016-07-22T00:00:00Z</updated>
-    <link href="http://watson-wilson.ca/blog/tag/github.atom" rel="self" />
-    <link href="http://watson-wilson.ca/blog/tag/github/" rel="alternate" />
-    <generator version="0.083">Statocles</generator>
+    <link rel="self" href="http://watson-wilson.ca/blog/tag/github.atom"/>
+    <link rel="alternate" href="http://watson-wilson.ca/blog/tag/github/"/>
+    <generator version="0.093">Statocles</generator>
     <entry>
         <id>http://watson-wilson.ca/blog/2016/07/22/grip/</id>
         <title>Previewing Markdown using grip</title>
-        <link href="http://watson-wilson.ca/blog/2016/07/22/grip/" rel="alternate" />
+        <link rel="alternate" href="http://watson-wilson.ca/blog/2016/07/22/grip/" />
         <content type="html"><![CDATA[
             <p>Review your markdown locally with <a href="https://github.com/joeyespo/grip">Grip</a>,
 powered by Python.</p>

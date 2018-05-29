@@ -5,7 +5,7 @@
         <link>http://watson-wilson.ca/blog/tag/json/</link>
         <atom:link href="http://watson-wilson.ca/blog/tag/json.rss" rel="self" type="application/rss+xml" />
         <description>Blog feed of Neil H. Watson</description>
-        <generator>Statocles 0.083</generator>
+        <generator>Statocles 0.093</generator>
         <item>
             <title>Docker API from CLI</title>
             <link>http://watson-wilson.ca/blog/2016/11/15/docker_api_from_cli/</link>

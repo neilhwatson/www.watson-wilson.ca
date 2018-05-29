@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="en"> 
     <head>
-        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
         <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-        <link href="/theme/css/readability-bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="/theme/css/readability-bootstrap.min.css" />
         <!--<link rel="stylesheet" href="/theme/css/statocles-bootstrap.css" />-->
-        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
         <title>Testing CFEngine policy - Neil H. Watson</title>
-        <meta content="Statocles 0.083" name="generator">
+        <meta name="generator" content="Statocles 0.093" />
         
 
         <!-- For source highlighting -->
-        <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/default.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/default.min.css">
         <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js"></script>
         <script>hljs.initHighlightingOnLoad();</script>
 
@@ -24,7 +24,7 @@
                 <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
                     <div class="navbar-header">
-                        <button class="navbar-toggle" data-target="#top-navbar-collapse-1" data-toggle="collapse" type="button">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#top-navbar-collapse-1">
                             <span class="sr-only">Toggle navigation</span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
@@ -71,10 +71,10 @@
 
             </header>
             <section id="section-1">
-                <p><img alt="f4-crashtest" src="/static/images/f4-crashtest.jpg"></p>
+                <p><img src="/static/images/f4-crashtest.jpg" alt="f4-crashtest" /></p>
 
 <p>After 2 productive days at <a href="http://www.devopsdays.org/events/2014-toronto/">Devopsdays Toronto</a>
-I&#39;ve been thinking more about how to test CFEngine policy. Not just
+I've been thinking more about how to test CFEngine policy. Not just
 prototype, but production tests too. The ideal situation is that a
 machine tests your would-be production policy and then deploys it fully
 if the test suite passes. This is completely automatic. How do we get
@@ -83,15 +83,15 @@ there?</p>
             </section>
             <section id="section-2">
                 <p>In my blog about <a href="http://watson-wilson.ca/cfengine-best-practices-testing/">CFEngine best practices: testing</a>
-I discussed unit testing, and test reporting. Let&#39;s expand on that.
-I&#39;ve recently created a new bundle in <a href="https://github.com/neilhwatson/evolve_cfengine_freelib/commit/874dcc22f28fda3ba4b967c24bfb983156e75fe7">EFL</a>
-for testing. If you are familiar with Perl&#39;s <a href="https://metacpan.org/pod/Test::More">Test::More</a>
+I discussed unit testing, and test reporting. Let's expand on that.
+I've recently created a new bundle in <a href="https://github.com/neilhwatson/evolve_cfengine_freelib/commit/874dcc22f28fda3ba4b967c24bfb983156e75fe7">EFL</a>
+for testing. If you are familiar with Perl's <a href="https://metacpan.org/pod/Test::More">Test::More</a>
 you will recognize the form. Efl_test_simple tests whether or not a
 class is defined, you decide if the class being defined is a pass or
 fail. The test class is actually a regular expression for added
 flexibility.</p>
 
-<p>We usually judge a promise&#39;s success with classes. The classes
+<p>We usually judge a promise's success with classes. The classes
 attribute can define classes based on success, repair, or failure. EFL
 promises define classes if kept, repaired, or</p>
 
@@ -103,25 +103,25 @@ promises define classes if kept, repaired, or</p>
 <p>If you know the expected class you can test for its existence.
 Elf_test_simple lets you define a test for a class and will return a
 pass or fail. As with all EFL bundles we use an external parameter
-file. It&#39;s data may look like this:</p>
+file. It's data may look like this:</p>
 
 <pre><code># class ;; test class ;; is or isnt true ;; name of test
-run_my_tests ;; _var_cfengine_modules_mymodule_pl_efl_command_commands_repaired ;; is ;; My module pass if &#39;repaired&#39;
+run_my_tests ;; _var_cfengine_modules_mymodule_pl_efl_command_commands_repaired ;; is ;; My module pass if 'repaired'
 run_my_tests ;; negative_test_never ;; is ;; Negative test, should always fail
 run_my_tests ;; danger_class ;; isnt ;; Fail if class is defined
 </code></pre>
 
 <p>If the agent is run with <em>run_my_tests</em> as true reports are generated.</p>
 
-<pre><code>cf-agent -KD run_my_tests|grep &#39;R:&#39;
-2014-09-15T12:13:16-0400   notice: R: PASS, _var_cfengine_modules_mymodule_pl_handle_efl_command_commands_repaired, My module pass if &#39;repaired&#39;
+<pre><code>cf-agent -KD run_my_tests|grep 'R:'
+2014-09-15T12:13:16-0400   notice: R: PASS, _var_cfengine_modules_mymodule_pl_handle_efl_command_commands_repaired, My module pass if 'repaired'
 2014-09-15T12:13:16-0400   notice: R: FAIL, negative_test_never, Negative test, should always fail
 2014-09-15T12:13:16-0400   notice: R: PASS,  danger_class, Fail if class is defined
 </code></pre>
 
 <p>The test class can be a regular expression, so you could test for <em>.</em><em>failed*
 to flag any failed promises from EFL. Did you know that you can use
-EFL&#39;s class body <em>elf</em>rkn</em> to define kept, not kept, and repaired
+EFL's class body <em>elf</em>rkn</em> to define kept, not kept, and repaired
 classes for your own custom promises?</p>
 
 <h4>Third party testing</h4>
@@ -129,20 +129,20 @@ classes for your own custom promises?</p>
 <p>To be extra sure of your policy you could use a tool other than
 CFEngine to test CFEngine policy outcome. This eliminates false test
 results due to CFEngine bugs. There are open source system test tool
-available. Currently I&#39;m looking at <a href="http://serverspec.org/">Serverspec</a>.
+available. Currently I'm looking at <a href="http://serverspec.org/">Serverspec</a>.
 Serverspec is a Ruby based tool that can examine a local or remote host
 using SSH and Sudo. Visit Serverspec for installation instructions and
-note that a major new release is due in October. Here&#39;s an example spec
+note that a major new release is due in October. Here's an example spec
 file that tests SSHD.</p>
 
 <pre><code>~/src/serverspec$ cat spec/localhost/ssh_spec.rb 
-require &#39;spec_helper&#39;
+require 'spec_helper'
 
-describe package(&#39;openssh-server&#39;) do
+describe package('openssh-server') do
   it { should be_installed }
 end
 
-describe service(&#39;/usr/sbin/sshd&#39;) do
+describe service('/usr/sbin/sshd') do
   it { should be_running   }
 end
 
@@ -150,7 +150,7 @@ describe port(22) do
   it { should be_listening }
 end
 
-describe file(&#39;/etc/ssh/sshd_config&#39;) do
+describe file('/etc/ssh/sshd_config') do
   it { should be_file }
 end
 </code></pre>
@@ -164,7 +164,7 @@ end
 <li><p>The file <em>/etc/ssh/sshd_config</em> must exist and a be regular file.</p></li>
 </ol>
 
-<p>When I run it I&#39;m prompted for my password to use with Sudo.</p>
+<p>When I run it I'm prompted for my password to use with Sudo.</p>
 
 <pre><code>$ rake spec
 /tool/pandora64/.package/ruby-1.9.3-p0/bin/ruby -S rspec spec/localhost/ssh_spec.rb
@@ -178,8 +178,8 @@ Finished in 7.29 seconds
 <p>The number of tests available is extensive, making Serverspec a good
 option for third party testing.</p>
 
-<p>I&#39;ve only scratched the surface of <em>devops</em> style testing, but
-hopefully you&#39;ll see the potential. I hope to follow up with more on
+<p>I've only scratched the surface of <em>devops</em> style testing, but
+hopefully you'll see the potential. I hope to follow up with more on
 testing the in future.</p>
 
             </section>
@@ -189,7 +189,7 @@ testing the in future.</p>
     </div>
 
     <div class="col-md-3">
-        <iframe frameborder="0" src="https://duckduckgo.com/search.html?site=watson-wilson.ca&amp;prefill=Search DuckDuckGo" style="overflow:hidden;margin:0;padding:0;width:350px;height:40px;"></iframe>
+        <iframe src="https://duckduckgo.com/search.html?site=watson-wilson.ca&prefill=Search DuckDuckGo" style="overflow:hidden;margin:0;padding:0;width:350px;height:40px;" frameborder="0"></iframe>
 
         <nav id="tags">
             <h1>Tags</h1>
@@ -285,31 +285,31 @@ testing the in future.</p>
 
 </div>
 
-<div class="row">
-   <div class="col-md-1">
-       <img atl="Neil Watson" src="https://gravatar.com/avatar/1f0969599955a953e592034929ed7a23">
+<div class='row'>
+   <div class='col-md-1'>
+       <img atl='Neil Watson' src='https://gravatar.com/avatar/1f0969599955a953e592034929ed7a23' >
    </div>
 
-       <div class="col-md-1">
+       <div class='col-md-1'>
             <!-- reddit this -->
-            <a href="//www.reddit.com/submit" onclick="window.location = &#39;//www.reddit.com/submit?url=&#39; + encodeURIComponent(window.location); return false"><img alt="submit to reddit" border="0" src="//www.redditstatic.com/spreddit7.gif"></a>
+            <a href="//www.reddit.com/submit" onclick="window.location = '//www.reddit.com/submit?url=' + encodeURIComponent(window.location); return false"><img src="//www.redditstatic.com/spreddit7.gif" alt="submit to reddit" border="0" /></a>
        </div>
 
-       <div class="col-md-1">
+       <div class='col-md-1'>
           <!-- Tweet this -->
-          <a class="twitter-share-button" data-count="none" data-via="neil_h_watson" href="https://twitter.com/share">Tweet</a>
+          <a href="https://twitter.com/share" class="twitter-share-button" data-via="neil_h_watson" data-count="none">Tweet</a>
     <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
        </div>
 
-       <div class="col-md-1">
+       <div class='col-md-1'>
           <!-- follow me on twitter -->
-          <a class="twitter-follow-button" data-show-count="false" data-show-screen-name="false" href="https://twitter.com/neil_h_watson">Follow @neil_h_watson</a>
+          <a href="https://twitter.com/neil_h_watson" class="twitter-follow-button" data-show-count="false" data-show-screen-name="false">Follow @neil_h_watson</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
         </div>
 
-       <div class="col-md-1">
+       <div class='col-md-1'>
            <!-- follw me on github -->
-            <a aria-label="Follow @neilhwatson on GitHub" class="github-button" data-style="mega" href="https://github.com/neilhwatson">Follow</a>
+            <a aria-label="Follow @neilhwatson on GitHub" data-style="mega" href="https://github.com/neilhwatson" class="github-button">Follow</a>
             <script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
        </div>
 
@@ -319,9 +319,9 @@ testing the in future.</p>
         <footer>
             
             <h1></h1>
-            <div class="col-md-5"> </div>
+            <div class='col-md-5'> </div>
             <div class="col-md-3 container tagline">
-                <a href="http://preaction.me/statocles">Made with Statocles</a><br>
+                <a href="http://preaction.me/statocles">Made with Statocles</a><br/>
                 <a href="http://www.perl.org">Powered by Perl</a>
             </div>
         </footer>

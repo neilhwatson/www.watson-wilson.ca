@@ -3,13 +3,13 @@
     <id>http://watson-wilson.ca/blog/tag/jekyll/</id>
     <title>Neil H. Watson</title>
     <updated>2015-11-17T00:00:00Z</updated>
-    <link href="http://watson-wilson.ca/blog/tag/jekyll.atom" rel="self" />
-    <link href="http://watson-wilson.ca/blog/tag/jekyll/" rel="alternate" />
-    <generator version="0.083">Statocles</generator>
+    <link rel="self" href="http://watson-wilson.ca/blog/tag/jekyll.atom"/>
+    <link rel="alternate" href="http://watson-wilson.ca/blog/tag/jekyll/"/>
+    <generator version="0.093">Statocles</generator>
     <entry>
         <id>http://watson-wilson.ca/blog/2015/11/17/new_site/</id>
         <title>New site</title>
-        <link href="http://watson-wilson.ca/blog/2015/11/17/new_site/" rel="alternate" />
+        <link rel="alternate" href="http://watson-wilson.ca/blog/2015/11/17/new_site/" />
         <content type="html"><![CDATA[
             <p><img alt="Perl logo" src="http://watson-wilson.ca/static/images/perl_camel.gif" style="float:right"></p>
 

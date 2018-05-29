@@ -3,13 +3,13 @@
     <id>http://watson-wilson.ca/blog/tag/aws/</id>
     <title>Neil H. Watson</title>
     <updated>2018-02-11T00:00:00Z</updated>
-    <link href="http://watson-wilson.ca/blog/tag/aws.atom" rel="self" />
-    <link href="http://watson-wilson.ca/blog/tag/aws/" rel="alternate" />
-    <generator version="0.083">Statocles</generator>
+    <link rel="self" href="http://watson-wilson.ca/blog/tag/aws.atom"/>
+    <link rel="alternate" href="http://watson-wilson.ca/blog/tag/aws/"/>
+    <generator version="0.093">Statocles</generator>
     <entry>
         <id>http://watson-wilson.ca/blog/2018/02/11/aws-asg-of-one/</id>
         <title>AWS single host resilience with autoscaling groups</title>
-        <link href="http://watson-wilson.ca/blog/2018/02/11/aws-asg-of-one/" rel="alternate" />
+        <link rel="alternate" href="http://watson-wilson.ca/blog/2018/02/11/aws-asg-of-one/" />
         <content type="html"><![CDATA[
             <p><a href="https://aws.amazon.com/"><img alt="aws logo" src="http://watson-wilson.ca/static/images/aws.png" style="float:right" width="120px"></a></p>
 
@@ -36,7 +36,7 @@
     <entry>
         <id>http://watson-wilson.ca/blog/2017/04/17/terraform-state/</id>
         <title>Understanding Terraform State</title>
-        <link href="http://watson-wilson.ca/blog/2017/04/17/terraform-state/" rel="alternate" />
+        <link rel="alternate" href="http://watson-wilson.ca/blog/2017/04/17/terraform-state/" />
         <content type="html"><![CDATA[
             <p><a href="https://terraform.io/"><img alt="terraform logo" src="https://raw.githubusercontent.com/hashicorp/terraform-website/master/content//source/assets/images/og-image.png" style="float:right" width="120px"></a></p>
 
@@ -59,7 +59,7 @@
     <entry>
         <id>http://watson-wilson.ca/blog/2017/03/30/terraform-modules/</id>
         <title>Terraform modules</title>
-        <link href="http://watson-wilson.ca/blog/2017/03/30/terraform-modules/" rel="alternate" />
+        <link rel="alternate" href="http://watson-wilson.ca/blog/2017/03/30/terraform-modules/" />
         <content type="html"><![CDATA[
             <p><a href="https://terraform.io/"><img alt="terraform logo" src="https://raw.githubusercontent.com/hashicorp/terraform-website/master/content//source/assets/images/og-image.png" style="float:right" width="120px"></a></p>
 

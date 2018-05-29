@@ -5,7 +5,7 @@
         <link>http://watson-wilson.ca/blog/tag/opennms/</link>
         <atom:link href="http://watson-wilson.ca/blog/tag/opennms.rss" rel="self" type="application/rss+xml" />
         <description>Blog feed of Neil H. Watson</description>
-        <generator>Statocles 0.083</generator>
+        <generator>Statocles 0.093</generator>
         <item>
             <title>OpenNMS: the open source enterprise monitoring solution you&#39;ve never heard of.</title>
             <link>http://watson-wilson.ca/blog/2013/10/31/opennms-the-open-source-enterprise-monitoring-solution-youve-never-heard-of/</link>

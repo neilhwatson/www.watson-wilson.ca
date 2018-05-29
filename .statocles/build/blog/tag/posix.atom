@@ -3,13 +3,13 @@
     <id>http://watson-wilson.ca/blog/tag/posix/</id>
     <title>Neil H. Watson</title>
     <updated>2011-03-08T00:00:00Z</updated>
-    <link href="http://watson-wilson.ca/blog/tag/posix.atom" rel="self" />
-    <link href="http://watson-wilson.ca/blog/tag/posix/" rel="alternate" />
-    <generator version="0.083">Statocles</generator>
+    <link rel="self" href="http://watson-wilson.ca/blog/tag/posix.atom"/>
+    <link rel="alternate" href="http://watson-wilson.ca/blog/tag/posix/"/>
+    <generator version="0.093">Statocles</generator>
     <entry>
         <id>http://watson-wilson.ca/blog/2011/03/08/posix-regex-cheatsheet/</id>
         <title>POSIX regular expression cheatsheet</title>
-        <link href="http://watson-wilson.ca/blog/2011/03/08/posix-regex-cheatsheet/" rel="alternate" />
+        <link rel="alternate" href="http://watson-wilson.ca/blog/2011/03/08/posix-regex-cheatsheet/" />
         <content type="html"><![CDATA[
             <table>
 <tr>
