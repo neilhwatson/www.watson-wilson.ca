@@ -9,7 +9,7 @@ Here are some cool [Ansible](https://ansible.com) tips I've learned recently.
 
 ---
 
-Validating input
+## Validating input
 
 The [assert module](https://docs.ansible.com/ansible/latest/modules/assert_module.html) evaluates if statements are true of false. Use it to validate input.
 
@@ -28,7 +28,7 @@ Running it looks like this:
         "msg": "'myhost' must be defined 'ansible-playbook -e 'myhost=me.example.com'"
     }
 
-Working with APIs
+## Working with APIs
 
 When I'm doing continuous integration I'm often calling APIs. The [URI module](https://docs.ansible.com/ansible/latest/modules/uri_module.html) makes https calls.
 
@@ -47,7 +47,7 @@ When I'm doing continuous integration I'm often calling APIs. The [URI module](h
 * The events variable is very large. I leave it for you to look at.
 * Use the assert module to validate what was returned.
 
-Readable Ansible output
+## Readable Ansible output
 
 I loath Ansible's default output. It's ugly and hard to read like JSON, but it's not valid JSON. What's the point of it except to torture honest users? Fight back and turn the output into readable YAML.
 

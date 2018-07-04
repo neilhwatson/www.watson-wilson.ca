@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en"> 
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="/theme/css/readability-bootstrap.min.css" />
+        <!--<link rel="stylesheet" href="/theme/css/statocles-bootstrap.css" />-->
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+        <title>AWS single host resilience with autoscaling groups - Neil H. Watson</title>
+        <meta name="generator" content="Statocles 0.093" />
+        
+        <link rel="stylesheet" href="/theme/plugin/highlight/default.css" type="text/css" />
+
+        <!-- For source highlighting -->
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/default.min.css">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+
+    </head>
+    <body>
+        <header>
+            <nav class="navbar navbar-default navbar-static-top" role="navigation">
+                <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#top-navbar-collapse-1">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="/">Neil H. Watson</a>
+                    </div>
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="top-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <li><a href="/page/about">About me</a></li>
+                            <li><a href="/static/resume_neil_h_watson.pdf">Resume</a></li>
+                            <li><a href="/page/projects">Projects</a></li>
+                            <li><a href="/page/evolvethinking">UPDATE: EvolveThinking</a></li>
+                        </ul>
+                        
+                    </div>
+                </div>
+            </nav>
+            
+        </header>
+        <div class="main container">
+            <div class="row">
+
+    <div class="col-md-9">
+        <main>
+            <header>
+                <h1>AWS single host resilience with autoscaling groups</h1>
+                <p class="tags">Tags:
+                    <a href="/blog/tag/aws/" rel="tag">AWS</a>
+                    <a href="/blog/tag/cloud/" rel="tag">cloud</a>
+                    <a href="/blog/tag/asg/" rel="tag">asg</a>
+                    <a href="/blog/tag/autoscaling/" rel="tag">autoscaling</a>
+                    <a href="/blog/tag/high-availability/" rel="tag">high availability</a>
+                    <a href="/blog/tag/terraform/" rel="tag">terraform</a>
+                </p>
+
+                <aside>
+                    <p><time datetime="2018-02-11">
+                        Posted on 2018-02-11
+                    </time>
+                    </p>
+                </aside>
+
+
+            </header>
+            <section id="section-1">
+                <p><a href="https://aws.amazon.com/"><img style='float:right' alt='aws logo' width='120px' src='/static/images/aws.png' ></a></p>
+
+<p>Make even a single AWS EC2 host highly available using autoscaling groups. Here's example using ASG, EFS for persistent data, and Terraform for easy automation.</p>
+
+            </section>
+            <section id="section-2">
+                <p>Although this example is about AWS, other cloud providers can have similar concepts for you to use. My goal for this exercise was to create a single host for some remote work, have it resilient against zone outages, and have persistent data if the host is recreated.</p>
+
+<h2>Key Concepts</h2>
+
+<ul>
+<li><a href="http://docs.aws.amazon.com/autoscaling/latest/userguide/WhatIsAutoScaling.html">Autoscaling</a> is a way to duplication VMs on demand.</li>
+<li><a href="https://aws.amazon.com/efs/">EFS</a> Hint: <em>It's NFS</em></li>
+<li><a href="https://www.terraform.io/">Terraform</a> Is way to build your infrastructure with code. Hint: <em>Like <a href="https://aws.amazon.com/cloudformation/">CloudFormation</a> but better</em></li>
+<li><a href="https://github.com/neilhwatson/terraform-modules">Terraform Modules</a> used in this example.</li>
+</ul>
+
+<h2>Code for EFS</h2>
+
+<p>EFS, to spite Amazon's <a href="https://www.expeditedssl.com/aws-in-plain-english">awful naming schemes</a>, is simply a managed NFS service. You define a file system, and then a mount target (exports for NFS veterans) in any subnet where your EC2 instance may reside.</p>
+
+<p>EFS works on TCP port 2049. <a href="http://docs.aws.amazon.com/efs/latest/ug/security-considerations.html">Configure your security groups</a> as required. I did this, binding the EFS required rules to a security group that will be use by my instance:</p>
+
+<pre><code>resource "aws_security_group" "nfs01" {
+    vpc_id      = "${data.terraform_remote_state.vpc01.vpc}"
+    tags        = "${var.tag}"
+
+    ingress {
+        from_port        = 2049
+        to_port          = 2049
+        protocol         = "tcp"
+        security_groups  = [ "${aws_security_group.sg01.id}" ]
+    }
+}
+</code></pre>
+
+<p>Back to EFS, here is how I define an EFS file system and a mount target for each of my two subnets:</p>
+
+<pre><code>resource "aws_efs_file_system" "neil" {
+  creation_token = "neil-home"
+  tags           = "${var.tag}"
+}
+resource "aws_efs_mount_target" "neil01" {
+  file_system_id  = "${aws_efs_file_system.neil.id}"
+  subnet_id       = "${data.terraform_remote_state.vpc01.subnet01_id}"
+  security_groups = [ "${aws_security_group.nfs01.id}" ]
+}
+resource "aws_efs_mount_target" "neil02" {
+  file_system_id  = "${aws_efs_file_system.neil.id}"
+  subnet_id       = "${data.terraform_remote_state.vpc01.subnet02_id}"
+  security_groups = [ "${aws_security_group.nfs01.id}" ]
+}
+</code></pre>
+
+<h2>Code for ASG</h2>
+
+<p>The autoscaling group or ASG, defines what my instance should look like, including it's size (the default), what SSH key to use, security groups to assign, VPC subnets, and the user data to provision it. Note that I use a <a href="http://docs.aws.amazon.com/efs/latest/ug/security-considerations.html">Terraform Module</a> and it's details are <a href="https://github.com/neilhwatson/terraform-modules/blob/master/aws/ec2/asg/00_main.tf">here</a>.</p>
+
+<pre><code>module "asg" {
+   asg_name            = "jumpbox"
+   min_size            = 0
+   desired_capacity    = 1
+   source              = "github.com/neilhwatson/terraform-modules//aws/ec2/asg"
+   ami_id              = "${module.ami01.image_id}"
+   ssh_key             = "luna"
+   instance_profile    = "${aws_iam_instance_profile.route53_upsert.id}"
+   security_groups     = [ "${aws_security_group.sg01.id}" ]
+   user_data           = "${data.template_file.user-data.rendered}"
+   tag                 = "${var.tag}"
+   associate_public_ip = "true"
+   vpc_zone_ids        = [ "${data.terraform_remote_state.vpc01.subnet01_id}"
+                     , "${data.terraform_remote_state.vpc01.subnet02_id}" ]
+}
+</code></pre>
+
+<p>The magic is in the minimum size and the desired_capacity. It means that there should be between 0 and 1 instances and that 1 is the ideal. This ensures that there will always be one instance, never more than one, and if for any reason an instance dies, another one will be created.</p>
+
+<h2>User data</h2>
+
+<p>User data is AWS speak for a basic provisioning script. Mine is quite large, but hears the key points:</p>
+
+<h3>Its a template</h3>
+
+<p>Terraform has a <a href="https://www.terraform.io/docs/providers/template/d/file.html">template feature</a>. In this case my user-data.sh is template and I instruct Terraform to render it, replacing the given vars. In this case subnets and the EFS target DNS names.</p>
+
+<pre><code>data "template_file" "user-data" {
+  template = "${file("user_data.sh")}"
+
+  vars {
+     subnet01    = "${data.terraform_remote_state.vpc01.subnet01_id}"
+     subnet02    = "${data.terraform_remote_state.vpc01.subnet02_id}"
+     nfstarget01 = "${aws_efs_mount_target.neil01.dns_name}"
+     nfstarget02 = "${aws_efs_mount_target.neil01.dns_name}"
+  }
+}
+</code></pre>
+
+<p>Earlier in my ASG setup, I passed this parameter, the user data template:</p>
+
+<pre><code>user_data = "${data.template_file.user-data.rendered}"
+</code></pre>
+
+<h3>EFS</h3>
+
+<p>Functions to mount EFS and put the mount in fstab:</p>
+
+<pre><code>function mount_nfs() {
+   host=$1
+
+   mkdir /home/neil
+   mount -t nfs -o           nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2           $${host}:/ /home/neil
+}
+
+function add_mount_to_fstab() {
+   host=$1
+
+   echo "$${host}:/ /home/neil nfs4 nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,_netdev 0 0"           &gt;&gt; /etc/fstab
+
+}
+</code></pre>
+
+<p>Each EFS mount target has a different hostname. Dig into the script and you'll see how I figure out which EFS target to point to.</p>
+
+<h2>DNS</h2>
+
+<p>If the instance re-spawns, and with a different IP address, how can I ensure it's DNS records are current? An elastic IP is an obvious choice, but I can do it cheaper.  I configured my VPC to automatically assign public IPs to hosts. Now I just need to get that IP? The <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html">instance metadata</a> will provide, and once I know that I use <a href="https://github.com/barnybug/cli53">cli53</a> to set or change my A and AAAA records for the new IP address.</p>
+
+<h2>The script</h2>
+
+<p>This is a <a href="https://www.terraform.io/docs/providers/template/d/file.html">Terraform template</a> of the script ${} variables will be substituted by Terraform. $${} variables are normal shell variables.</p>
+
+<pre><code class="hljs">    <span class="hljs-comment">#!/bin/bash -x</span><span class="hljs-comment">
+</span>
+    <span class="hljs-keyword">set</span> -e
+    <span class="hljs-built-in">echo</span> <span class="hljs-string">"########### Starting user data ##########"</span>
+
+    A_RECORD=orion
+    DOMAIN=watson-wilson.ca.
+    cli53=https://github.com/barnybug/cli53/releases/download/0.8.12/cli53-linux-amd64
+
+    meta_host=http://169.254.169.254/latest/meta-data
+    mac_addr=$(curl -s $$<span class="hljs-type">{meta_host}</span>/network/interfaces/macs/)
+    subnet01=${subnet01}
+    subnet02=${subnet02}
+    nfstarget01=${nfstarget01}
+    nfstarget02=${nfstarget02}
+
+    <span class="hljs-keyword">function</span><span class="hljs-string"> get_ipv4()</span> <span class="hljs-keyword">{</span>
+       ipv4=$(curl -s $$<span class="hljs-type">{meta_host}</span>/public-ipv4)
+
+       <span class="hljs-built-in">echo</span> $ipv4
+    <span class="hljs-keyword">}</span>
+
+    <span class="hljs-keyword">function</span><span class="hljs-string"> get_ipv6()</span> <span class="hljs-keyword">{</span>
+
+       ipv6=$(curl -s $$<span class="hljs-type">{meta_host}/network/interfaces/macs/$${mac_addr}</span>ipv6s)
+
+       <span class="hljs-built-in">echo</span> $ipv6
+    <span class="hljs-keyword">}</span>
+
+    <span class="hljs-keyword">function</span><span class="hljs-string"> get_subnet_id()</span> <span class="hljs-keyword">{</span>
+       id=$(curl -s $$<span class="hljs-type">{meta_host}/network/interfaces/macs/$${mac_addr}</span>/subnet-id)
+
+       <span class="hljs-built-in">echo</span> $id
+    <span class="hljs-keyword">}</span>
+
+    <span class="hljs-keyword">function</span><span class="hljs-string"> mount_nfs()</span> <span class="hljs-keyword">{</span>
+       host=$1
+
+       mkdir /home/neil
+       mount -t nfs -o           nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2           $$<span class="hljs-type">{host}</span>:/ /home/neil
+    <span class="hljs-keyword">}</span>
+
+    <span class="hljs-keyword">function</span><span class="hljs-string"> add_mount_to_fstab()</span> <span class="hljs-keyword">{</span>
+       host=$1
+
+       <span class="hljs-built-in">echo</span> <span class="hljs-string">"</span>$$<span class="hljs-string">{host}:/ /home/neil nfs4 nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,_netdev 0 0"</span>           &gt;&gt; /etc/fstab
+
+    <span class="hljs-keyword">}</span>
+
+    <span class="hljs-comment"># For buggy ubuntu ipv6 config</span><span class="hljs-comment">
+</span>    <span class="hljs-built-in">echo</span> <span class="hljs-string">"iface eth0 inet6 dhcp"</span> &gt;&gt; /etc/network/interfaces.d/60-default-with-ipv6.cfg
+    dhclient -6
+
+    add-apt-repository -y ppa:ansible/ansible
+    apt-get -y update
+    DEBIAN_FRONTEND=noninteractive apt-get -y -o Dpkg::Options::=<span class="hljs-string">"--force-confdef"</span> -o Dpkg::Options::=<span class="hljs-string">"--force-confold"</span> upgrade
+    apt-get -y install         curl         git         ansible         awscli         nfs-common
+
+    <span class="hljs-comment">#</span><span class="hljs-comment">
+</span>    <span class="hljs-comment"># NFS mount</span><span class="hljs-comment">
+</span>    <span class="hljs-comment">#</span><span class="hljs-comment">
+</span>    subnetid=$(get_subnet_id)
+    <span class="hljs-keyword">if [[</span> $subnetid = $subnet01<span class="hljs-keyword"> ]]</span>
+    <span class="hljs-keyword">then</span>
+       nfshost=$nfstarget01
+    <span class="hljs-keyword">elif [[</span> $subnetid = $subnet02<span class="hljs-keyword"> ]]</span>
+    <span class="hljs-keyword">then</span>
+       nfshost=$nfstarget02
+    <span class="hljs-keyword">else</span>
+       <span class="hljs-built-in">echo</span> <span class="hljs-string">"ERROR cannot find subnet and nfs target"</span>
+       <span class="hljs-built-in">exit</span> 1
+    <span class="hljs-keyword">fi</span>
+
+    mount_nfs $nfshost
+    add_mount_to_fstab $nfshost
+
+    <span class="hljs-comment">#</span><span class="hljs-comment">
+</span>    <span class="hljs-comment"># Set this host's IP address to the desired DNS name.</span><span class="hljs-comment">
+</span>    <span class="hljs-comment">#</span><span class="hljs-comment">
+</span>    curl -sLo /usr/local/bin/cli53 $cli53
+    chmod 755 /usr/local/bin/cli53
+
+    hostname=$(curl -s $$<span class="hljs-type">{meta_host}</span>/public-hostname)
+
+    ipv4=$(get_ipv4)
+    cli53 rrcreate --replace $DOMAIN <span class="hljs-string">"</span>$A_RECORD<span class="hljs-string"> 60 A </span>$ipv4<span class="hljs-string">"</span>
+
+    ipv6=$(get_ipv6)
+    cli53 rrcreate --replace $DOMAIN <span class="hljs-string">"</span>$A_RECORD<span class="hljs-string"> 60 AAAA </span>$ipv6<span class="hljs-string">"</span>
+
+    <span class="hljs-comment">#</span><span class="hljs-comment">
+</span>    <span class="hljs-comment"># Setup access to provisioning repo</span><span class="hljs-comment">
+</span>    <span class="hljs-comment">#</span><span class="hljs-comment">
+</span>    cat &lt;&lt;'END_PULL' &gt; /etc/cron.hourly/ansible-pull
+    #!/bin/bash
+
+    ansible-pull -f -U https://git-codecommit.ca-central-1.amazonaws.com/v1/repos/instance-provisioner jump-box.yml
+
+    END_PULL
+
+    chmod 755 /etc/cron.hourly/ansible-pull
+
+    export HOME="/root"
+    cd $HOME
+    git config --global credential.helper '!aws codecommit credential-helper $@'
+    git config --global credential.UseHttpPath true
+    aws configure set region ca-central-1
+
+    /etc/cron.hourly/ansible-pull
+
+    ansible-pull -U https://git-codecommit.ca-central-1.amazonaws.com/v1/repos/instance-provisioner cfbot.yml
+</code></pre>
+
+            </section>
+        </main>
+
+
+    </div>
+
+    <div class="col-md-3">
+        <iframe src="https://duckduckgo.com/search.html?site=watson-wilson.ca&prefill=Search DuckDuckGo" style="overflow:hidden;margin:0;padding:0;width:350px;height:40px;" frameborder="0"></iframe>
+
+        <nav id="tags">
+            <h1>Tags</h1>
+            <ul class="list-inline">
+                <li><a href="/blog/tag/ansible/">ansible</a></li>
+                <li><a href="/blog/tag/anti-virus/">anti-virus</a></li>
+                <li><a href="/blog/tag/apt/">apt</a></li>
+                <li><a href="/blog/tag/asg/">asg</a></li>
+                <li><a href="/blog/tag/autoscaling/">autoscaling</a></li>
+                <li><a href="/blog/tag/aws/">AWS</a></li>
+                <li><a href="/blog/tag/azure/">azure</a></li>
+                <li><a href="/blog/tag/backup/">backup</a></li>
+                <li><a href="/blog/tag/best-practices/">best practices</a></li>
+                <li><a href="/blog/tag/bitbucket/">bitbucket</a></li>
+                <li><a href="/blog/tag/bosh/">bosh</a></li>
+                <li><a href="/blog/tag/cfengine/">cfengine</a></li>
+                <li><a href="/blog/tag/cfengine-cookbook/">cfengine cookbook</a></li>
+                <li><a href="/blog/tag/cheatsheet/">cheatsheet</a></li>
+                <li><a href="/blog/tag/cli/">cli</a></li>
+                <li><a href="/blog/tag/cloud/">cloud</a></li>
+                <li><a href="/blog/tag/cloud-foundry/">cloud foundry</a></li>
+                <li><a href="/blog/tag/cluster/">cluster</a></li>
+                <li><a href="/blog/tag/conferences/">conferences</a></li>
+                <li><a href="/blog/tag/configuration-management/">configuration management</a></li>
+                <li><a href="/blog/tag/containers/">containers</a></li>
+                <li><a href="/blog/tag/continuous-integration/">continuous integration</a></li>
+                <li><a href="/blog/tag/cron/">cron</a></li>
+                <li><a href="/blog/tag/debian/">debian</a></li>
+                <li><a href="/blog/tag/delta-reporting/">delta reporting</a></li>
+                <li><a href="/blog/tag/devops/">devops</a></li>
+                <li><a href="/blog/tag/dns/">dns</a></li>
+                <li><a href="/blog/tag/docker/">docker</a></li>
+                <li><a href="/blog/tag/dr/">dr</a></li>
+                <li><a href="/blog/tag/efl/">EFL</a></li>
+                <li><a href="/blog/tag/github/">github</a></li>
+                <li><a href="/blog/tag/heartbeat/">heartbeat</a></li>
+                <li><a href="/blog/tag/high-availability/">high availability</a></li>
+                <li><a href="/blog/tag/infosec/">infosec</a></li>
+                <li><a href="/blog/tag/ipv6/">ipv6</a></li>
+                <li><a href="/blog/tag/irc/">irc</a></li>
+                <li><a href="/blog/tag/iscsi/">iscsi</a></li>
+                <li><a href="/blog/tag/jekyll/">jekyll</a></li>
+                <li><a href="/blog/tag/jq/">jq</a></li>
+                <li><a href="/blog/tag/json/">json</a></li>
+                <li><a href="/blog/tag/kickstart/">kickstart</a></li>
+                <li><a href="/blog/tag/kvm/">kvm</a></li>
+                <li><a href="/blog/tag/linux/">linux</a></li>
+                <li><a href="/blog/tag/markdown/">markdown</a></li>
+                <li><a href="/blog/tag/monitoring/">monitoring</a></li>
+                <li><a href="/blog/tag/multipathd/">multipathd</a></li>
+                <li><a href="/blog/tag/mustache/">mustache</a></li>
+                <li><a href="/blog/tag/networking/">networking</a></li>
+                <li><a href="/blog/tag/opennms/">opennms</a></li>
+                <li><a href="/blog/tag/opensource/">opensource</a></li>
+                <li><a href="/blog/tag/oracle/">oracle</a></li>
+                <li><a href="/blog/tag/orchestration/">orchestration</a></li>
+                <li><a href="/blog/tag/patching/">patching</a></li>
+                <li><a href="/blog/tag/pcre/">pcre</a></li>
+                <li><a href="/blog/tag/perl/">perl</a></li>
+                <li><a href="/blog/tag/posix/">posix</a></li>
+                <li><a href="/blog/tag/programming/">programming</a></li>
+                <li><a href="/blog/tag/provisioning/">provisioning</a></li>
+                <li><a href="/blog/tag/python/">python</a></li>
+                <li><a href="/blog/tag/red-hat/">red hat</a></li>
+                <li><a href="/blog/tag/redhat/">redhat</a></li>
+                <li><a href="/blog/tag/regex/">regex</a></li>
+                <li><a href="/blog/tag/rhev/">rhev</a></li>
+                <li><a href="/blog/tag/ruby/">ruby</a></li>
+                <li><a href="/blog/tag/san/">san</a></li>
+                <li><a href="/blog/tag/satellite/">satellite</a></li>
+                <li><a href="/blog/tag/scripting/">scripting</a></li>
+                <li><a href="/blog/tag/security/">security</a></li>
+                <li><a href="/blog/tag/serverspec/">serverspec</a></li>
+                <li><a href="/blog/tag/shell/">shell</a></li>
+                <li><a href="/blog/tag/slaac/">slaac</a></li>
+                <li><a href="/blog/tag/software-testing/">software testing</a></li>
+                <li><a href="/blog/tag/solaris/">solaris</a></li>
+                <li><a href="/blog/tag/spacewalk/">spacewalk</a></li>
+                <li><a href="/blog/tag/ssh/">ssh</a></li>
+                <li><a href="/blog/tag/statocles/">statocles</a></li>
+                <li><a href="/blog/tag/subversion/">subversion</a></li>
+                <li><a href="/blog/tag/sun/">sun</a></li>
+                <li><a href="/blog/tag/support/">support</a></li>
+                <li><a href="/blog/tag/svn/">svn</a></li>
+                <li><a href="/blog/tag/sysadmin/">sysadmin</a></li>
+                <li><a href="/blog/tag/sysctl/">sysctl</a></li>
+                <li><a href="/blog/tag/terraform/">terraform</a></li>
+                <li><a href="/blog/tag/virus/">virus</a></li>
+                <li><a href="/blog/tag/vitualization/">vitualization</a></li>
+                <li><a href="/blog/tag/website/">website</a></li>
+            </ul>
+        </nav>
+    </div>
+
+</div>
+
+<div class='row'>
+   <div class='col-md-1'>
+       <img atl='Neil Watson' src='https://gravatar.com/avatar/1f0969599955a953e592034929ed7a23' >
+   </div>
+
+       <div class='col-md-1'>
+            <!-- reddit this -->
+            <a href="//www.reddit.com/submit" onclick="window.location = '//www.reddit.com/submit?url=' + encodeURIComponent(window.location); return false"><img src="//www.redditstatic.com/spreddit7.gif" alt="submit to reddit" border="0" /></a>
+       </div>
+
+       <div class='col-md-1'>
+          <!-- Tweet this -->
+          <a href="https://twitter.com/share" class="twitter-share-button" data-via="neil_h_watson" data-count="none">Tweet</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+       </div>
+
+       <div class='col-md-1'>
+          <!-- follow me on twitter -->
+          <a href="https://twitter.com/neil_h_watson" class="twitter-follow-button" data-show-count="false" data-show-screen-name="false">Follow @neil_h_watson</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+        </div>
+
+       <div class='col-md-1'>
+           <!-- follw me on github -->
+            <a aria-label="Follow @neilhwatson on GitHub" data-style="mega" href="https://github.com/neilhwatson" class="github-button">Follow</a>
+            <script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
+       </div>
+
+</div>
+
+        </div>
+        <footer>
+            
+            <h1></h1>
+            <div class='col-md-5'> </div>
+            <div class="col-md-3 container tagline">
+                <a href="http://preaction.me/statocles">Made with Statocles</a><br/>
+                <a href="http://www.perl.org">Powered by Perl</a>
+            </div>
+        </footer>
+    </body>
+</html>

@@ -58,6 +58,34 @@
 
             <article>
                 <header>
+                    <h1><a href="/blog/2014/03/27/delta-reporting-answers-question-about-your-cfengine-infrastructure/">Delta Reporting answers questions about your CFEngine infrastructure</a></h1>
+
+                    <p class="tags">Tags:
+                        <a href="/blog/tag/cfengine/" rel="tag">cfengine</a>
+                        <a href="/blog/tag/delta-reporting/" rel="tag">delta reporting</a>
+                    </p>
+
+                    <aside>
+                        <p><time datetime="2014-03-27">
+                            Posted on 2014-03-27
+                        </time>
+                            by nwatson
+                        </p>
+                    </aside>
+
+                </header>
+
+                <p><img alt="dr-logo-100" src="/static/images/dr-logo-100.png"></p>
+
+<p>Learn what <a href="https://github.com/neilhwatson/delta_reporting">Delta Reporting</a> can answer for
+you, all from one place.</p>
+
+
+                    <p><a href="/blog/2014/03/27/delta-reporting-answers-question-about-your-cfengine-infrastructure/index.html#section-2">Continue reading Delta Reporting answers questions about your CFEngine infrastructure...</a></p>
+
+            </article>
+            <article>
+                <header>
                     <h1><a href="/blog/2014/03/25/delta-reporting-open-source-and-live-demo/">Delta Reporting, Open Source, and Live Demo</a></h1>
 
                     <p class="tags">Tags:
@@ -172,132 +200,6 @@ maintain.</p>
                     <p><a href="/blog/2014/02/21/why-use-efl-with-cfengine/index.html#section-2">Continue reading Why use EFL with CFEngine?...</a></p>
 
             </article>
-            <article>
-                <header>
-                    <h1><a href="/blog/2014/01/23/new-mustache-templates-in-cfengine-3-6/">New mustache templates in CFEngine 3.6</a></h1>
-
-                    <p class="tags">Tags:
-                        <a href="/blog/tag/cfengine/" rel="tag">cfengine</a>
-                    </p>
-
-                    <aside>
-                        <p><time datetime="2014-01-23">
-                            Posted on 2014-01-23
-                        </time>
-                            by nwatson
-                        </p>
-                    </aside>
-
-                </header>
-
-                <p>Mustache templates are a new alternative template method in 3.6. Let&#39;s
-see how they work. --- <a href="http://watson-wilson.ca/template-configuration-files-using-cfengine/">Recall</a>
-my previous talk about templates and how to use them in CFEngine 3.5.</p>
-
-<pre><code>body common control
-{
-        bundlesequence =&gt; { &quot;main&quot;, };
-}
-
-bundle agent main
-{
-        methods:
-
-                &quot;any&quot; usebundle =&gt; resolv_conf;
-}
-
-bundle agent resolv_conf 
-{
-   meta:
-      &quot;purpose&quot; string =&gt; &quot;Example of edit_template use&quot;;
-
-   files:
-      &quot;/tmp/resolv.conf&quot;
-         create          =&gt; &#39;true&#39;,
-         template_method =&gt; &quot;mustache&quot;,
-         edit_template   =&gt; &quot;${sys.workdir}/inputs/resolv.tmp&quot;;
-
-}
-</code></pre>
-
-<p>There is a new attribute called template_method. Here we define the
-mustache method. The actual template is below.</p>
-
-<pre><code>{{#classes.sweden}}
-nameserver 172.16.100.2
-nameserver 172.16.100.1
-{{/classes.sweden}}
-
-{{#classes.toronto}}
-nameserver 192.168.100.254
-nameserver 192.168.100.253
-{{/classes.toronto}}
-
-domain watson-wilson.ca
-search watson-wilson.ca
-timeout:2
-</code></pre>
-
-<p>Can you spot the new class syntax? Rather than [%CFEngine
-<class_name>:: %] there are now opening and closing class tags,
-{{#classes.<class_name>}} and {{/classes.<class_name>}} that surround
-the lines that the class applies to. This is different than CFEngine&#39;s
-normal implied class application where the preceding class is assumed
-still valid until the next class is stated. Lines outside of class tags
-are part of the any class.</class_name></class_name></class_name></p>
-
-<p>At a lower level the agent is using the <a href="https://cfengine.com/docs/master/reference-functions-datastate.html">datastate</a>,
-which is an internal representation of the vars and classes available
-to the agent. It&#39;s layout is roughly this:</p>
-
-<pre><code>{
- &quot;classes&quot;: {
- &quot;ipv4_172&quot;: true,
- &quot;fe80__fc54_ff_fe34_5399&quot;: true,
- &quot;agent&quot;: true,
- &quot;Lcycle_1&quot;: true,
-
-....
-&quot;vars&quot;: {
- &quot;sys&quot;: {
-   &quot;systime&quot;: &quot;1390500650&quot;,
-   &quot;flavour&quot;: &quot;debian_jessie&quot;,
-   &quot;hardware_addresses&quot;: [
-     &quot;00:1e:67:8b:f7:13&quot;
-   ],
-   &quot;fqhost&quot;: &quot;ettin.watson-wilson.ca&quot;,
-   &quot;ipv4_1[br0]&quot;: &quot;172&quot;,
-   &quot;uptime&quot;: &quot;7348&quot;,
-   &quot;bindir&quot;: &quot;/home/neil/.cfagent/bin&quot;,
-   &quot;arch&quot;: &quot;x86_64&quot;,
-   &quot;ipv4&quot;: &quot;172.16.100.1&quot;,
-....
-</code></pre>
-
-<p>I show only a small piece of it because the full collection is very
-large. It gives you an idea of what the agent knows. For this example
-it&#39;s not important. Just be aware that it exists. Now, let&#39;s run the
-example policy.</p>
-
-<pre><code>$ cf-agent -IKf ./edit_template.cf -D toronto; cat /tmp/resolv.conf 
-
-nameserver 192.168.100.254
-nameserver 192.168.100.253
-
-domain watson-wilson.ca
-search watson-wilson.ca
-timeout:2
-</code></pre>
-
-<p>Some folks will be pleased to see that the two blank lines in the
-template exist in the promiser file. That suggests that duplicate lines
-will <em>not be skipped</em> in mustache templates.</p>
-
-<p><a href="https://cfengine.com/docs/master/reference-promise-types-files.html#edit_template">Further reading</a></p>
-
-
-
-            </article>
         </main>
 
         <ul class="pager">
@@ -337,6 +239,7 @@ will <em>not be skipped</em> in mustache templates.</p>
             <li><a href="/blog/tag/conferences/">conferences</a></li>
             <li><a href="/blog/tag/configuration-management/">configuration management</a></li>
             <li><a href="/blog/tag/containers/">containers</a></li>
+            <li><a href="/blog/tag/continuous-integration/">continuous integration</a></li>
             <li><a href="/blog/tag/cron/">cron</a></li>
             <li><a href="/blog/tag/debian/">debian</a></li>
             <li><a href="/blog/tag/delta-reporting/">delta reporting</a></li>

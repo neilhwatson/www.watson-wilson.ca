@@ -7,6 +7,27 @@
         <description>Blog feed of Neil H. Watson</description>
         <generator>Statocles 0.093</generator>
         <item>
+            <title>Ansible tips</title>
+            <link>http://watson-wilson.ca/blog/2018/07/03/ansible-tips/</link>
+            <guid>http://watson-wilson.ca/blog/2018/07/03/ansible-tips/</guid>
+            <description><![CDATA[
+                <p><a href="http://ansible.com"><img alt="go to ansible.com" src="http://watson-wilson.ca/static/images/ansible_logo_round.png" style="float:right" width="150px"></a></p>
+
+<p>Here are some cool <a href="https://ansible.com">Ansible</a> tips I&#39;ve learned recently.</p>
+
+                    <p><a href="http://watson-wilson.ca/blog/2018/07/03/ansible-tips/#section-2">Continue reading...</a></p>
+                <p>Tags:
+                    <a href="http://watson-wilson.ca/blog/tag/ansible/">ansible</a>
+                    <a href="http://watson-wilson.ca/blog/tag/continuous-integration/">continuous integration</a>
+                    <a href="http://watson-wilson.ca/blog/tag/configuration-management/">configuration management</a>
+                    <a href="http://watson-wilson.ca/blog/tag/scripting/">scripting</a>
+                </p>
+            ]]></description>
+            <pubDate>
+                Tue, 03 Jul 2018 00:00:00 +0000
+            </pubDate>
+        </item>
+        <item>
             <title>Build on Azure with Terraform</title>
             <link>http://watson-wilson.ca/blog/2017/04/18/terraform-azure/</link>
             <guid>http://watson-wilson.ca/blog/2017/04/18/terraform-azure/</guid>
@@ -87,29 +108,6 @@
             ]]></description>
             <pubDate>
                 Thu, 27 Oct 2016 00:00:00 +0000
-            </pubDate>
-        </item>
-        <item>
-            <title>Vote for your favourite CFEngine bugs</title>
-            <link>http://watson-wilson.ca/blog/2016/03/27/vote_for_cfengine_bugs/</link>
-            <guid>http://watson-wilson.ca/blog/2016/03/27/vote_for_cfengine_bugs/</guid>
-            <description><![CDATA[
-                <p><a href="https://openclipart.org/detail/223801/bad-bug">
-    <img alt="bug photo" src="https://openclipart.org/download/223801/bad-bug.svg" style="float:right"></a></p>
-
-<p>CFEngine has switched to a
-<a href="https://tracker.mender.io/projects/CFE/summary">JIRA bug system</a> and this
-system allows us to vote for bugs. I encourage you to vote for your favourite
-bugs; here are mine:</p>
-
-                    <p><a href="http://watson-wilson.ca/blog/2016/03/27/vote_for_cfengine_bugs/#section-2">Continue reading...</a></p>
-                <p>Tags:
-                    <a href="http://watson-wilson.ca/blog/tag/cfengine/">cfengine</a>
-                    <a href="http://watson-wilson.ca/blog/tag/configuration-management/">configuration management</a>
-                </p>
-            ]]></description>
-            <pubDate>
-                Sun, 27 Mar 2016 00:00:00 +0000
             </pubDate>
         </item>
     </channel>

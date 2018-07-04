@@ -58,6 +58,59 @@
 
             <article>
                 <header>
+                    <h1><a href="/blog/2013/10/30/cfengine-2-to-3-migration-beware-of-data-loss/">CFEngine 2 to 3 migration? Beware of data loss</a></h1>
+
+                    <p class="tags">Tags:
+                        <a href="/blog/tag/cfengine/" rel="tag">cfengine</a>
+                    </p>
+
+                    <aside>
+                        <p><time datetime="2013-10-30">
+                            Posted on 2013-10-30
+                        </time>
+                            by nwatson
+                        </p>
+                    </aside>
+
+                </header>
+
+                <p>CFEengine 3 bootstrapping can result in the loss of CFEngine 2 inputs.
+A common strategy to migrate from CFEngine 2 to 3 is to run both in
+parallel. --- Both versions share the same default inputs directory of
+/var/cfengine/inputs. A CF3 bootstrap deletes all files in the inputs
+directory:</p>
+
+<pre><code>[root@atlrhel5is cfengine]# cf-agent -IB hub.example.com 
+2013-10-29T12:37:43-0400     info: Removing all files in &#39;/var/cfengine/inputs/&#39;
+</code></pre>
+
+<p><em>Now your working CF2 inputs are gone.</em> I&#39;ve reported a <a href="https://cfengine.com/dev/issues/3605">bug</a>
+about this, but I do not know when or if it will be addressed. As a
+work around I suggest a wrapper script to your bootstrap procedure.
+Something like this snippet:</p>
+
+<pre><code>TS=$(date +%s)
+
+mkdir /var/cfengine/inputs-${TS}
+cp -r /var/cfengine/inputs/* /var/cfengine/inputs-${TS}
+
+if [ $? -eq 0 ]
+   then
+      cf-agent -B hub.example.com
+      cp -nr /var/cfengine/inputs-${TS}/* /var/cfengine/inputs/
+fi
+</code></pre>
+
+<p>This will preserve and restore your pre-bootstrap inputs, while keeping
+any new files created by the bootstrap. Be sure to test any bootstrap
+or upgrade procedure thoroughly. <a href="http://watson-wilson.ca/contact-us/">Contact us</a>
+for more help and information.</p>
+
+
+
+            </article>
+            <article>
+                <header>
                     <h1><a href="/blog/2013/10/19/simple-cfengine-server-access-promises-using-efl/">Simple CFEngine server access promises using EFL</a></h1>
 
                     <p class="tags">Tags:
@@ -219,33 +272,6 @@ bundles found in <a href="https://github.com/neilhwatson/evolve_cfengine_freelib
                     <p><a href="/blog/2013/10/11/make-cfengine-simple-using-the-evolve-free-library/index.html#section-2">Continue reading Make CFEngine simple using the Evolve Free Library...</a></p>
 
             </article>
-            <article>
-                <header>
-                    <h1><a href="/blog/2013/09/11/experimental-and-coming-soon-features-in-cfengine/">Experimental and coming soon features in CFEngine</a></h1>
-
-                    <p class="tags">Tags:
-                        <a href="/blog/tag/cfengine/" rel="tag">cfengine</a>
-                    </p>
-
-                    <aside>
-                        <p><time datetime="2013-09-11">
-                            Posted on 2013-09-11
-                        </time>
-                            by nwatson
-                        </p>
-                    </aside>
-
-                </header>
-
-                <p>Pull requests for CFEngine Core, at <a href="https://github.com/cfengine/core/pulls">Github</a>,
-and CFEngine&#39;s <a href="https://cfengine.com/dev/projects/core">issue tracker</a>
-show some interesting proposals for future versions of CFEngine. Here&#39;s
-a quick summary for you.</p>
-
-
-                    <p><a href="/blog/2013/09/11/experimental-and-coming-soon-features-in-cfengine/index.html#section-2">Continue reading Experimental and coming soon features in CFEngine...</a></p>
-
-            </article>
         </main>
 
         <ul class="pager">
@@ -285,6 +311,7 @@ a quick summary for you.</p>
             <li><a href="/blog/tag/conferences/">conferences</a></li>
             <li><a href="/blog/tag/configuration-management/">configuration management</a></li>
             <li><a href="/blog/tag/containers/">containers</a></li>
+            <li><a href="/blog/tag/continuous-integration/">continuous integration</a></li>
             <li><a href="/blog/tag/cron/">cron</a></li>
             <li><a href="/blog/tag/debian/">debian</a></li>
             <li><a href="/blog/tag/delta-reporting/">delta reporting</a></li>

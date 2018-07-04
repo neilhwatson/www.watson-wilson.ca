@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>http://watson-wilson.ca/blog/tag/autoscaling/</id>
+    <title>Neil H. Watson</title>
+    <updated>2018-02-11T00:00:00Z</updated>
+    <link rel="self" href="http://watson-wilson.ca/blog/tag/autoscaling.atom"/>
+    <link rel="alternate" href="http://watson-wilson.ca/blog/tag/autoscaling/"/>
+    <generator version="0.093">Statocles</generator>
+    <entry>
+        <id>http://watson-wilson.ca/blog/2018/02/11/aws-asg-of-one/</id>
+        <title>AWS single host resilience with autoscaling groups</title>
+        <link rel="alternate" href="http://watson-wilson.ca/blog/2018/02/11/aws-asg-of-one/" />
+        <content type="html"><![CDATA[
+            <p><a href="https://aws.amazon.com/"><img alt="aws logo" src="http://watson-wilson.ca/static/images/aws.png" style="float:right" width="120px"></a></p>
+
+<p>Make even a single AWS EC2 host highly available using autoscaling groups. Here&#39;s example using ASG, EFS for persistent data, and Terraform for easy automation.</p>
+
+                <p><a href="http://watson-wilson.ca/blog/2018/02/11/aws-asg-of-one/#section-2">Continue reading...</a></p>
+            <p>Tags:
+                <a href="http://watson-wilson.ca/blog/tag/aws/">AWS</a>
+                <a href="http://watson-wilson.ca/blog/tag/cloud/">cloud</a>
+                <a href="http://watson-wilson.ca/blog/tag/asg/">asg</a>
+                <a href="http://watson-wilson.ca/blog/tag/autoscaling/">autoscaling</a>
+                <a href="http://watson-wilson.ca/blog/tag/high-availability/">high availability</a>
+                <a href="http://watson-wilson.ca/blog/tag/terraform/">terraform</a>
+            </p>
+        ]]></content>
+        <updated>2018-02-11T00:00:00Z</updated>
+        <category term="AWS" />
+        <category term="cloud" />
+        <category term="asg" />
+        <category term="autoscaling" />
+        <category term="high availability" />
+        <category term="terraform" />
+    </entry>
+</feed>
+

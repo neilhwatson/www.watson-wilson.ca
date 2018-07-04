@@ -2,10 +2,33 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>http://watson-wilson.ca/blog/</id>
     <title>Neil H. Watson</title>
-    <updated>2018-02-11T00:00:00Z</updated>
+    <updated>2018-07-03T00:00:00Z</updated>
     <link rel="self" href="http://watson-wilson.ca/blog/index.atom"/>
     <link rel="alternate" href="http://watson-wilson.ca/blog/"/>
     <generator version="0.093">Statocles</generator>
+    <entry>
+        <id>http://watson-wilson.ca/blog/2018/07/03/ansible-tips/</id>
+        <title>Ansible tips</title>
+        <link rel="alternate" href="http://watson-wilson.ca/blog/2018/07/03/ansible-tips/" />
+        <content type="html"><![CDATA[
+            <p><a href="http://ansible.com"><img alt="go to ansible.com" src="http://watson-wilson.ca/static/images/ansible_logo_round.png" style="float:right" width="150px"></a></p>
+
+<p>Here are some cool <a href="https://ansible.com">Ansible</a> tips I&#39;ve learned recently.</p>
+
+                <p><a href="http://watson-wilson.ca/blog/2018/07/03/ansible-tips/#section-2">Continue reading...</a></p>
+            <p>Tags:
+                <a href="http://watson-wilson.ca/blog/tag/ansible/">ansible</a>
+                <a href="http://watson-wilson.ca/blog/tag/continuous-integration/">continuous integration</a>
+                <a href="http://watson-wilson.ca/blog/tag/configuration-management/">configuration management</a>
+                <a href="http://watson-wilson.ca/blog/tag/scripting/">scripting</a>
+            </p>
+        ]]></content>
+        <updated>2018-07-03T00:00:00Z</updated>
+        <category term="ansible" />
+        <category term="continuous integration" />
+        <category term="configuration management" />
+        <category term="scripting" />
+    </entry>
     <entry>
         <id>http://watson-wilson.ca/blog/2018/02/11/aws-asg-of-one/</id>
         <title>AWS single host resilience with autoscaling groups</title>
@@ -121,27 +144,6 @@
         <category term="perl" />
         <category term="ruby" />
         <category term="shell" />
-    </entry>
-    <entry>
-        <id>http://watson-wilson.ca/blog/2017/04/18/terraform-azure/</id>
-        <title>Build on Azure with Terraform</title>
-        <link rel="alternate" href="http://watson-wilson.ca/blog/2017/04/18/terraform-azure/" />
-        <content type="html"><![CDATA[
-            <p><a href="https://terraform.io/"><img alt="terraform logo" src="https://raw.githubusercontent.com/hashicorp/terraform-website/master/content//source/assets/images/og-image.png" style="float:right" width="120px"></a></p>
-
-<p>Build Azure VMs with Terraform using my <a href="https://github.com/neilhwatson/terraform-modules">example code</a></p>
-
-                <p><a href="http://watson-wilson.ca/blog/2017/04/18/terraform-azure/#section-2">Continue reading...</a></p>
-            <p>Tags:
-                <a href="http://watson-wilson.ca/blog/tag/terraform/">terraform</a>
-                <a href="http://watson-wilson.ca/blog/tag/configuration-management/">configuration management</a>
-                <a href="http://watson-wilson.ca/blog/tag/azure/">azure</a>
-            </p>
-        ]]></content>
-        <updated>2017-04-18T00:00:00Z</updated>
-        <category term="terraform" />
-        <category term="configuration management" />
-        <category term="azure" />
     </entry>
 </feed>
 

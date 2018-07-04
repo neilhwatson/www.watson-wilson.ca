@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Neil H. Watson</title>
+        <link>http://watson-wilson.ca/blog/tag/asg/</link>
+        <atom:link href="http://watson-wilson.ca/blog/tag/asg.rss" rel="self" type="application/rss+xml" />
+        <description>Blog feed of Neil H. Watson</description>
+        <generator>Statocles 0.093</generator>
+        <item>
+            <title>AWS single host resilience with autoscaling groups</title>
+            <link>http://watson-wilson.ca/blog/2018/02/11/aws-asg-of-one/</link>
+            <guid>http://watson-wilson.ca/blog/2018/02/11/aws-asg-of-one/</guid>
+            <description><![CDATA[
+                <p><a href="https://aws.amazon.com/"><img alt="aws logo" src="http://watson-wilson.ca/static/images/aws.png" style="float:right" width="120px"></a></p>
+
+<p>Make even a single AWS EC2 host highly available using autoscaling groups. Here&#39;s example using ASG, EFS for persistent data, and Terraform for easy automation.</p>
+
+                    <p><a href="http://watson-wilson.ca/blog/2018/02/11/aws-asg-of-one/#section-2">Continue reading...</a></p>
+                <p>Tags:
+                    <a href="http://watson-wilson.ca/blog/tag/aws/">AWS</a>
+                    <a href="http://watson-wilson.ca/blog/tag/cloud/">cloud</a>
+                    <a href="http://watson-wilson.ca/blog/tag/asg/">asg</a>
+                    <a href="http://watson-wilson.ca/blog/tag/autoscaling/">autoscaling</a>
+                    <a href="http://watson-wilson.ca/blog/tag/high-availability/">high availability</a>
+                    <a href="http://watson-wilson.ca/blog/tag/terraform/">terraform</a>
+                </p>
+            ]]></description>
+            <pubDate>
+                Sun, 11 Feb 2018 00:00:00 +0000
+            </pubDate>
+        </item>
+    </channel>
+</rss>
+

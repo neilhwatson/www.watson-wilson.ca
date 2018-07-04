@@ -59,6 +59,34 @@
 
             <article>
                 <header>
+                    <h1><a href="/blog/2011/03/08/enterprise-sysadmin/">Enterprise system administration using configuration management</a></h1>
+
+                    <p class="tags">Tags:
+                        <a href="/blog/tag/configuration-management/" rel="tag">configuration management</a>
+                        <a href="/blog/tag/sysadmin/" rel="tag">sysadmin</a>
+                        <a href="/blog/tag/cfengine/" rel="tag">cfengine</a>
+                    </p>
+
+                    <aside>
+                        <p><time datetime="2011-03-08">
+                            Posted on 2011-03-08
+                        </time>
+                        </p>
+                    </aside>
+
+                </header>
+
+                <p>To maintain the large quantity of servers typically found in enterprise
+organizations, systems administration must move beyond manual and custom
+scripts toward a centralized configuration management service. This move can
+save an organization considerable time and money.</p>
+
+
+                    <p><a href="/blog/2011/03/08/enterprise-sysadmin/index.html#section-2">Continue reading Enterprise system administration using configuration management...</a></p>
+
+            </article>
+            <article>
+                <header>
                     <h1><a href="/blog/2011/03/08/apt-cheatsheet/">Debian Apt Cheatsheet</a></h1>
 
                     <p class="tags">Tags:
@@ -312,56 +340,6 @@ work. Pressing enter returns to normal mode.</li>
                     <p><a href="/blog/2011/03/08/linux-network-cheatsheet/index.html#section-2">Continue reading Linux networking cheatsheet...</a></p>
 
             </article>
-            <article>
-                <header>
-                    <h1><a href="/blog/2011/03/08/multipathd-testing/">Multipathd testing</a></h1>
-
-                    <p class="tags">Tags:
-                        <a href="/blog/tag/multipathd/" rel="tag">multipathd</a>
-                        <a href="/blog/tag/iscsi/" rel="tag">iscsi</a>
-                        <a href="/blog/tag/san/" rel="tag">san</a>
-                    </p>
-
-                    <aside>
-                        <p><time datetime="2011-03-08">
-                            Posted on 2011-03-08
-                        </time>
-                        </p>
-                    </aside>
-
-                </header>
-
-                <ol>
-<li>Format and mount the SAN LUN.</li>
-<li>Start a write to the mounted filesystem <code>cat /dev/zero &gt;&gt; /pathto/mnt/testfile &amp;</code></li>
-<li>Now connect to the multipath daemon in interactive mode <code>multipathd -k</code></li>
-<li><p>View current paths with show maps topology</p>
-
-<p>multipathd&gt; show maps topology
-reload: mpath5 (360060e801045249004f2a5f900000031) dm-7 HITACHI,DF600F
-[size=128G][features=0][hwhandler=0][rw]
-_ round-robin 0 [prio=1][active]
- _ 1:0:0:4 sdb 8:16  [active][ready]
-_ round-robin 0 [prio=0][enabled]
- _ 2:0:0:4 sdc 8:32  [active][ready]</p></li>
-<li><p>There are two paths shown as sdb and sdc. Delete one path.
-    del path sdb</p></li>
-<li>Suspend with ctrl-z and check that the write is still happening.
-    ls -l /pathto/mnt If testfile is still growing then the path sdc is working.</li>
-<li>Resume multipath with fg 2. Re-add the path.
-    add path sdb</li>
-<li>Now remove the other path.
-    del path sdc</li>
-<li>Again suspend iwth ctrl-z and check that the test file is growing. If so
-then resume multipath and re-add the path.
-    add path sdc</li>
-<li>Testing complete. Exit with ctrl-c. Kill the write job with kill %1. Remove
-the test file.</li>
-</ol>
-
-
-
-            </article>
         </main>
 
         <ul class="pager">
@@ -401,6 +379,7 @@ the test file.</li>
             <li><a href="/blog/tag/conferences/">conferences</a></li>
             <li><a href="/blog/tag/configuration-management/">configuration management</a></li>
             <li><a href="/blog/tag/containers/">containers</a></li>
+            <li><a href="/blog/tag/continuous-integration/">continuous integration</a></li>
             <li><a href="/blog/tag/cron/">cron</a></li>
             <li><a href="/blog/tag/debian/">debian</a></li>
             <li><a href="/blog/tag/delta-reporting/">delta reporting</a></li>
