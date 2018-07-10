@@ -37,8 +37,10 @@ site:
     args:
 
         plugins:
-            highlight:
-                $class: Statocles::Plugin::Highlight
+          link_check:
+            $class: Statocles::Plugin::LinkCheck
+          highlight:
+            $class: Statocles::Plugin::Highlight
                 #$args:
                     #style: default
 
