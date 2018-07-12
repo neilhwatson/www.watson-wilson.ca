@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Neil H. Watson</title>
+        <link>http://watson-wilson.ca/blog/tag/yamllint/</link>
+        <atom:link href="http://watson-wilson.ca/blog/tag/yamllint.rss" rel="self" type="application/rss+xml" />
+        <description>Blog feed of Neil H. Watson</description>
+        <generator>Statocles 0.093</generator>
+        <item>
+            <title>More Ansible tips</title>
+            <link>http://watson-wilson.ca/blog/2018/07/11/ansible-tips/</link>
+            <guid>http://watson-wilson.ca/blog/2018/07/11/ansible-tips/</guid>
+            <description><![CDATA[
+                <p><a href="http://ansible.com"><img alt="go to ansible.com" src="http://watson-wilson.ca/static/images/ansible_logo_round.png" style="float:right" width="150px"></a></p>
+
+<p>Here are more cool <a href="https://ansible.com">Ansible</a> tips I&#39;ve learned recently.</p>
+
+                    <p><a href="http://watson-wilson.ca/blog/2018/07/11/ansible-tips/#section-2">Continue reading...</a></p>
+                <p>Tags:
+                    <a href="http://watson-wilson.ca/blog/tag/ansible/">ansible</a>
+                    <a href="http://watson-wilson.ca/blog/tag/continuous-integration/">continuous integration</a>
+                    <a href="http://watson-wilson.ca/blog/tag/yaml/">yaml</a>
+                    <a href="http://watson-wilson.ca/blog/tag/yamllint/">yamllint</a>
+                    <a href="http://watson-wilson.ca/blog/tag/configuration-management/">configuration management</a>
+                    <a href="http://watson-wilson.ca/blog/tag/scripting/">scripting</a>
+                </p>
+            ]]></description>
+            <pubDate>
+                Wed, 11 Jul 2018 00:00:00 +0000
+            </pubDate>
+        </item>
+    </channel>
+</rss>
+

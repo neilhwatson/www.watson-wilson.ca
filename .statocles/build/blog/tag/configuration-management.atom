@@ -2,10 +2,37 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>http://watson-wilson.ca/blog/tag/configuration-management/</id>
     <title>Neil H. Watson</title>
-    <updated>2018-07-03T00:00:00Z</updated>
+    <updated>2018-07-11T00:00:00Z</updated>
     <link rel="self" href="http://watson-wilson.ca/blog/tag/configuration-management.atom"/>
     <link rel="alternate" href="http://watson-wilson.ca/blog/tag/configuration-management/"/>
     <generator version="0.093">Statocles</generator>
+    <entry>
+        <id>http://watson-wilson.ca/blog/2018/07/11/ansible-tips/</id>
+        <title>More Ansible tips</title>
+        <link rel="alternate" href="http://watson-wilson.ca/blog/2018/07/11/ansible-tips/" />
+        <content type="html"><![CDATA[
+            <p><a href="http://ansible.com"><img alt="go to ansible.com" src="http://watson-wilson.ca/static/images/ansible_logo_round.png" style="float:right" width="150px"></a></p>
+
+<p>Here are more cool <a href="https://ansible.com">Ansible</a> tips I&#39;ve learned recently.</p>
+
+                <p><a href="http://watson-wilson.ca/blog/2018/07/11/ansible-tips/#section-2">Continue reading...</a></p>
+            <p>Tags:
+                <a href="http://watson-wilson.ca/blog/tag/ansible/">ansible</a>
+                <a href="http://watson-wilson.ca/blog/tag/continuous-integration/">continuous integration</a>
+                <a href="http://watson-wilson.ca/blog/tag/yaml/">yaml</a>
+                <a href="http://watson-wilson.ca/blog/tag/yamllint/">yamllint</a>
+                <a href="http://watson-wilson.ca/blog/tag/configuration-management/">configuration management</a>
+                <a href="http://watson-wilson.ca/blog/tag/scripting/">scripting</a>
+            </p>
+        ]]></content>
+        <updated>2018-07-11T00:00:00Z</updated>
+        <category term="ansible" />
+        <category term="continuous integration" />
+        <category term="yaml" />
+        <category term="yamllint" />
+        <category term="configuration management" />
+        <category term="scripting" />
+    </entry>
     <entry>
         <id>http://watson-wilson.ca/blog/2018/07/03/ansible-tips/</id>
         <title>Ansible tips</title>
@@ -95,29 +122,6 @@
         <category term="cloud" />
         <category term="configuration management" />
         <category term="AWS" />
-    </entry>
-    <entry>
-        <id>http://watson-wilson.ca/blog/2016/10/27/ansible-reboot/</id>
-        <title>Reboot and reconnect between Ansible tasks</title>
-        <link rel="alternate" href="http://watson-wilson.ca/blog/2016/10/27/ansible-reboot/" />
-        <content type="html"><![CDATA[
-            <p><a href="http://ansible.com"><img alt="go to ansible.com" src="http://watson-wilson.ca/static/images/ansible_logo_round.png" style="float:right" width="150px"></a></p>
-
-<p>You can reboot and reconnect to your hosts between <a href="http://ansible.com">Ansible</a> tasks. </p>
-
-                <p><a href="http://watson-wilson.ca/blog/2016/10/27/ansible-reboot/#section-2">Continue reading...</a></p>
-            <p>Tags:
-                <a href="http://watson-wilson.ca/blog/tag/configuration-management/">configuration management</a>
-                <a href="http://watson-wilson.ca/blog/tag/ansible/">ansible</a>
-                <a href="http://watson-wilson.ca/blog/tag/orchestration/">orchestration</a>
-                <a href="http://watson-wilson.ca/blog/tag/scripting/">scripting</a>
-            </p>
-        ]]></content>
-        <updated>2016-10-27T00:00:00Z</updated>
-        <category term="configuration management" />
-        <category term="ansible" />
-        <category term="orchestration" />
-        <category term="scripting" />
     </entry>
 </feed>
 

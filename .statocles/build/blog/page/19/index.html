@@ -59,6 +59,89 @@
 
             <article>
                 <header>
+                    <h1><a href="/blog/2011/03/08/solaris-cheatsheet/">Solaris and Sun/Oracle cheatsheet</a></h1>
+
+                    <p class="tags">Tags:
+                        <a href="/blog/tag/solaris/" rel="tag">solaris</a>
+                        <a href="/blog/tag/sun/" rel="tag">sun</a>
+                        <a href="/blog/tag/oracle/" rel="tag">oracle</a>
+                        <a href="/blog/tag/cheatsheet/" rel="tag">cheatsheet</a>
+                    </p>
+
+                    <aside>
+                        <p><time datetime="2011-03-08">
+                            Posted on 2011-03-08
+                        </time>
+                        </p>
+                    </aside>
+
+                </header>
+
+                <h3>Init levels</h3>
+
+<table>
+<tr>
+    <td>0</td>
+    <td>Go into boot prompt (OK).</td>
+</tr>
+<tr>
+    <td>1</td>
+    <td>Put the system in system administrator mode. All file systems are
+    mounted. Only a small set of essential kernel processes are left running.
+    This mode is for administrative tasks such as installing optional utility
+    packages. All files are accessible and no users are logged in on the
+    system.</td>
+</tr>
+<tr>
+    <td>2</td>
+    <td>Put the system in multi-user mode. All multi-user environment terminal
+    processes and daemons are spawned. This state is commonly referred to as
+    the multi-user state.</td>
+</tr>
+<tr>
+    <td>3</td>
+    <td>Start the remote file sharing processes and dae mons. Mount and
+    advertise remote resources. Run level 3 extends multi-user mode and is
+    known as the remote-file-sharing state.</td>
+</tr>
+<tr>
+    <td>4</td>
+    <td>Is available to be defined as an alternative multi-user environment
+    configuration. It is not necessary for system operation and is usually not
+    used.</td>
+</tr>
+<tr>
+    <td>5</td>
+    <td>Shut the machine down so that it is safe to remove the power. Have the
+    machine remove power, if possible.</td>
+</tr>
+<tr>
+    <td>6</td>
+    <td>Stop the operating system and reboot to the state defined by the
+    initdefault entry in /etc/inittab.</td>
+</tr>
+<tr>
+    <td><code><pre>reboot -- -x</pre></code></td>
+    <td>Reboot and issue boot -x (boot to non-cluster mode) at boot
+    prompt.</td>
+</tr>
+<tr>
+    <td><code><pre>`reboot -- -xs`</pre></code></td>
+    <td>Reboot and issue `boot -xs` (single user, non-cluster mode) at boot
+    prompt.</td>
+</tr>
+<tr>
+    <td><code><pre>`reboot -- -r`</pre></code></td>
+    <td>Reboot and issue boot -r (reconfigure) at boot prompt.</td>
+</tr>
+</table>
+
+
+                    <p><a href="/blog/2011/03/08/solaris-cheatsheet/index.html#section-2">Continue reading Solaris and Sun/Oracle cheatsheet...</a></p>
+
+            </article>
+            <article>
+                <header>
                     <h1><a href="/blog/2011/03/08/enterprise-sysadmin/">Enterprise system administration using configuration management</a></h1>
 
                     <p class="tags">Tags:
@@ -304,42 +387,6 @@ work. Pressing enter returns to normal mode.</li>
 
 
             </article>
-            <article>
-                <header>
-                    <h1><a href="/blog/2011/03/08/linux-network-cheatsheet/">Linux networking cheatsheet</a></h1>
-
-                    <p class="tags">Tags:
-                        <a href="/blog/tag/linux/" rel="tag">linux</a>
-                        <a href="/blog/tag/networking/" rel="tag">networking</a>
-                        <a href="/blog/tag/cheatsheet/" rel="tag">cheatsheet</a>
-                    </p>
-
-                    <aside>
-                        <p><time datetime="2011-03-08">
-                            Posted on 2011-03-08
-                        </time>
-                        </p>
-                    </aside>
-
-                </header>
-
-                <h3>Network calculation</h3>
-
-<table>
-<tr>
-    <td>Show network info</td>
-    <td><code>ipcalc 10.0.0.0/24</code><br><code>ipcalc 10.0.0.0/255.255.255.0</code></td>
-</tr>
-<tr>
-    <td>Segment network into 2 50 node subnets</td>
-    <td><code>ipcalc 10.0.0.0/24 -s 50 50</code></td>
-</tr>
-</table>
-
-
-                    <p><a href="/blog/2011/03/08/linux-network-cheatsheet/index.html#section-2">Continue reading Linux networking cheatsheet...</a></p>
-
-            </article>
         </main>
 
         <ul class="pager">
@@ -444,6 +491,8 @@ work. Pressing enter returns to normal mode.</li>
             <li><a href="/blog/tag/virus/">virus</a></li>
             <li><a href="/blog/tag/vitualization/">vitualization</a></li>
             <li><a href="/blog/tag/website/">website</a></li>
+            <li><a href="/blog/tag/yaml/">yaml</a></li>
+            <li><a href="/blog/tag/yamllint/">yamllint</a></li>
         </ul>
         <h1>Feeds</h1>
         <ul class="list-inline">
