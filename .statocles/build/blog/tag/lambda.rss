@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Neil H. Watson</title>
+        <link>http://watson-wilson.ca/blog/tag/lambda/</link>
+        <atom:link href="http://watson-wilson.ca/blog/tag/lambda.rss" rel="self" type="application/rss+xml" />
+        <description>Blog feed of Neil H. Watson</description>
+        <generator>Statocles 0.093</generator>
+        <item>
+            <title>Intro to Lambda using Ansible</title>
+            <link>http://watson-wilson.ca/blog/2018/07/22/lambda/</link>
+            <guid>http://watson-wilson.ca/blog/2018/07/22/lambda/</guid>
+            <description><![CDATA[
+                <p><a href="http://watson-wilson.ca/blog/2018/07/22/lambda/"><img alt="aws logo" src="http://watson-wilson.ca/static/images/aws.png" style="float:right" width="120px"></a></p>
+
+<p>Here&#39;s a simple example of an <a href="https://aws.amazon.com/lambda/">AWS Lambda</a> using <a href="https://www.ansible.com/">Ansible</a> to set it up.</p>
+
+                    <p><a href="http://watson-wilson.ca/blog/2018/07/22/lambda/#section-2">Continue reading...</a></p>
+                <p>Tags:
+                    <a href="http://watson-wilson.ca/blog/tag/aws/">AWS</a>
+                    <a href="http://watson-wilson.ca/blog/tag/ansible/">ansible</a>
+                    <a href="http://watson-wilson.ca/blog/tag/lambda/">lambda</a>
+                    <a href="http://watson-wilson.ca/blog/tag/cloud/">cloud</a>
+                    <a href="http://watson-wilson.ca/blog/tag/serverless/">serverless</a>
+                </p>
+            ]]></description>
+            <pubDate>
+                Sun, 22 Jul 2018 00:00:00 +0000
+            </pubDate>
+        </item>
+    </channel>
+</rss>
+

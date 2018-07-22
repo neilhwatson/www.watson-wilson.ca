@@ -2,10 +2,35 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>http://watson-wilson.ca/blog/tag/aws/</id>
     <title>Neil H. Watson</title>
-    <updated>2018-02-11T00:00:00Z</updated>
+    <updated>2018-07-22T00:00:00Z</updated>
     <link rel="self" href="http://watson-wilson.ca/blog/tag/aws.atom"/>
     <link rel="alternate" href="http://watson-wilson.ca/blog/tag/aws/"/>
     <generator version="0.093">Statocles</generator>
+    <entry>
+        <id>http://watson-wilson.ca/blog/2018/07/22/lambda/</id>
+        <title>Intro to Lambda using Ansible</title>
+        <link rel="alternate" href="http://watson-wilson.ca/blog/2018/07/22/lambda/" />
+        <content type="html"><![CDATA[
+            <p><a href="http://watson-wilson.ca/blog/2018/07/22/lambda/"><img alt="aws logo" src="http://watson-wilson.ca/static/images/aws.png" style="float:right" width="120px"></a></p>
+
+<p>Here&#39;s a simple example of an <a href="https://aws.amazon.com/lambda/">AWS Lambda</a> using <a href="https://www.ansible.com/">Ansible</a> to set it up.</p>
+
+                <p><a href="http://watson-wilson.ca/blog/2018/07/22/lambda/#section-2">Continue reading...</a></p>
+            <p>Tags:
+                <a href="http://watson-wilson.ca/blog/tag/aws/">AWS</a>
+                <a href="http://watson-wilson.ca/blog/tag/ansible/">ansible</a>
+                <a href="http://watson-wilson.ca/blog/tag/lambda/">lambda</a>
+                <a href="http://watson-wilson.ca/blog/tag/cloud/">cloud</a>
+                <a href="http://watson-wilson.ca/blog/tag/serverless/">serverless</a>
+            </p>
+        ]]></content>
+        <updated>2018-07-22T00:00:00Z</updated>
+        <category term="AWS" />
+        <category term="ansible" />
+        <category term="lambda" />
+        <category term="cloud" />
+        <category term="serverless" />
+    </entry>
     <entry>
         <id>http://watson-wilson.ca/blog/2018/02/11/aws-asg-of-one/</id>
         <title>AWS single host resilience with autoscaling groups</title>

@@ -2,10 +2,35 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>http://watson-wilson.ca/blog/</id>
     <title>Neil H. Watson</title>
-    <updated>2018-07-11T00:00:00Z</updated>
+    <updated>2018-07-22T00:00:00Z</updated>
     <link rel="self" href="http://watson-wilson.ca/blog/index.atom"/>
     <link rel="alternate" href="http://watson-wilson.ca/blog/"/>
     <generator version="0.093">Statocles</generator>
+    <entry>
+        <id>http://watson-wilson.ca/blog/2018/07/22/lambda/</id>
+        <title>Intro to Lambda using Ansible</title>
+        <link rel="alternate" href="http://watson-wilson.ca/blog/2018/07/22/lambda/" />
+        <content type="html"><![CDATA[
+            <p><a href="http://watson-wilson.ca/blog/2018/07/22/lambda/"><img alt="aws logo" src="http://watson-wilson.ca/static/images/aws.png" style="float:right" width="120px"></a></p>
+
+<p>Here&#39;s a simple example of an <a href="https://aws.amazon.com/lambda/">AWS Lambda</a> using <a href="https://www.ansible.com/">Ansible</a> to set it up.</p>
+
+                <p><a href="http://watson-wilson.ca/blog/2018/07/22/lambda/#section-2">Continue reading...</a></p>
+            <p>Tags:
+                <a href="http://watson-wilson.ca/blog/tag/aws/">AWS</a>
+                <a href="http://watson-wilson.ca/blog/tag/ansible/">ansible</a>
+                <a href="http://watson-wilson.ca/blog/tag/lambda/">lambda</a>
+                <a href="http://watson-wilson.ca/blog/tag/cloud/">cloud</a>
+                <a href="http://watson-wilson.ca/blog/tag/serverless/">serverless</a>
+            </p>
+        ]]></content>
+        <updated>2018-07-22T00:00:00Z</updated>
+        <category term="AWS" />
+        <category term="ansible" />
+        <category term="lambda" />
+        <category term="cloud" />
+        <category term="serverless" />
+    </entry>
     <entry>
         <id>http://watson-wilson.ca/blog/2018/07/11/ansible-tips/</id>
         <title>More Ansible tips</title>
@@ -119,31 +144,6 @@
         <updated>2017-05-02T00:00:00Z</updated>
         <category term="networking" />
         <category term="ipv6" />
-    </entry>
-    <entry>
-        <id>http://watson-wilson.ca/blog/2017/04/29/ipv6-priv/</id>
-        <title>Linux, Ubiquity, and IPv6 privacy extensions</title>
-        <link rel="alternate" href="http://watson-wilson.ca/blog/2017/04/29/ipv6-priv/" />
-        <content type="html"><![CDATA[
-            <p><img alt="Success with IPv6" src="http://watson-wilson.ca/static/images/ipv6-success-kid.jpg" style="float:right" width="150"></p>
-
-<p>Here are some quick notes about IPv6 on an Ubiquity router and Linux clients, using privacy extensions. With IPv6 everyone gets a public IP address. In order to offer some privacy, the IPv6 privacy extensions allow clients to change IPv6 addresses over a period of time.</p>
-
-                <p><a href="http://watson-wilson.ca/blog/2017/04/29/ipv6-priv/#section-2">Continue reading...</a></p>
-            <p>Tags:
-                <a href="http://watson-wilson.ca/blog/tag/ipv6/">ipv6</a>
-                <a href="http://watson-wilson.ca/blog/tag/security/">security</a>
-                <a href="http://watson-wilson.ca/blog/tag/linux/">linux</a>
-                <a href="http://watson-wilson.ca/blog/tag/networking/">networking</a>
-                <a href="http://watson-wilson.ca/blog/tag/slaac/">slaac</a>
-            </p>
-        ]]></content>
-        <updated>2017-04-29T00:00:00Z</updated>
-        <category term="ipv6" />
-        <category term="security" />
-        <category term="linux" />
-        <category term="networking" />
-        <category term="slaac" />
     </entry>
 </feed>
 
