@@ -3,13 +3,13 @@
     <id>http://watson-wilson.ca/blog/tag/subversion/</id>
     <title>Neil H. Watson</title>
     <updated>2011-03-08T00:00:00Z</updated>
-    <link rel="self" href="http://watson-wilson.ca/blog/tag/subversion.atom"/>
-    <link rel="alternate" href="http://watson-wilson.ca/blog/tag/subversion/"/>
+    <link href="http://watson-wilson.ca/blog/tag/subversion.atom" rel="self" />
+    <link href="http://watson-wilson.ca/blog/tag/subversion/" rel="alternate" />
     <generator version="0.093">Statocles</generator>
     <entry>
         <id>http://watson-wilson.ca/blog/2011/03/08/svn-cheatsheet/</id>
         <title>Subversion Cheatsheet</title>
-        <link rel="alternate" href="http://watson-wilson.ca/blog/2011/03/08/svn-cheatsheet/" />
+        <link href="http://watson-wilson.ca/blog/2011/03/08/svn-cheatsheet/" rel="alternate" />
         <content type="html"><![CDATA[
             <table>
 <tr>

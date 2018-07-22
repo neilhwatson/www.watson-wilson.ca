@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="en"> 
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
         <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-        <link rel="stylesheet" href="/theme/css/readability-bootstrap.min.css" />
+        <link href="/theme/css/readability-bootstrap.min.css" rel="stylesheet">
         <!--<link rel="stylesheet" href="/theme/css/statocles-bootstrap.css" />-->
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
         <title>CFEngine tutorial - Neil H. Watson</title>
-        <meta name="generator" content="Statocles 0.093" />
+        <meta content="Statocles 0.093" name="generator">
         
 
         <!-- For source highlighting -->
-        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/default.min.css">
+        <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/default.min.css" rel="stylesheet">
         <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js"></script>
         <script>hljs.initHighlightingOnLoad();</script>
 
@@ -24,7 +24,7 @@
                 <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
                     <div class="navbar-header">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#top-navbar-collapse-1">
+                        <button class="navbar-toggle" data-target="#top-navbar-collapse-1" data-toggle="collapse" type="button">
                             <span class="sr-only">Toggle navigation</span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
@@ -74,7 +74,7 @@
 <li><p><a href="#others">Other examples</a></p></li>
 </ol>
 
-<h2><a name='overview'></a>Overview</h2>
+<h2><a name="overview"></a>Overview</h2>
 
 <p>CFEngine is a configuration management tool that allows a system administrator
 to configure multiple hosts continuously. CFEngine runs as a client/server
@@ -90,7 +90,7 @@ manner.</p>
 
 <h5>Figure: CFEngine cycle</h5>
 
-<p><img src="/blog/2011/03/08/cfengine-tutorial/cfcycle.png" alt="CFEngine cyclet" /></p>
+<p><img alt="CFEngine cyclet" src="/blog/2011/03/08/cfengine-tutorial/cfcycle.png"></p>
 
 <p>As seen in the figure CFEngine agents (cf-agent) contact the policy server
 (cf-serverd) for new or changed policies or files. This is a “pull” method in
@@ -104,7 +104,7 @@ alleviated by the use of policy mirrors (see figure).</p>
 
 <h5>Figure: CFEngine Mirror</h5>
 
-<p><img src="/blog/2011/03/08/cfengine-tutorial/mirror.png" alt="CFEngine mirros" /></p>
+<p><img alt="CFEngine mirros" src="/blog/2011/03/08/cfengine-tutorial/mirror.png"></p>
 
 <p>CFEngine 3 consists of a number of components. As this is an introductory
 tutorial some components will not be covered here.</p>
@@ -137,7 +137,7 @@ use to maintain itself and the client hosts. The majority of work with CFEngine
 will involve files located here. The mandatory files are failsafe.cf, update.cf
 and promises.cf. Other files are user defined and will be discussed later.</p>
 
-<h2><a name='basic'></a>Basic example</h2>
+<h2><a name="basic"></a>Basic example</h2>
 
 <p>Here I’ll present a basic example of CFEngine. Functionally it will do little
 more than ensuring that CFEngine is running. What is learned from this example
@@ -189,13 +189,13 @@ However, CFEngine tends to be more sensitive to white space.</p>
 <li>Body part lines end with semicolons.</li>
 <li>Variables are identified by $ and usually contained in brackets to separate them from surrounding text.</li>
 <li>Most user defined information is contained within double quotations.</li>
-<li>Comments begin with # or can be included in the promise so that CFEngine will print them during a run (comment => "My comment").</li>
+<li>Comments begin with # or can be included in the promise so that CFEngine will print them during a run (comment =&gt; &quot;My comment&quot;).</li>
 </ol>
 
 <p>If you follow the examples contained in this paper you’ll not have to worry
 much about syntax.</p>
 
-<p>There are three CFEngine commands you'll need to use for these examples. The
+<p>There are three CFEngine commands you&#39;ll need to use for these examples. The
 server is started by cf-serverd. After starting it will fork to the background.
 The command cf-promises will validate a CFEngine policy. It is a good way to
 check for syntax errors. Finally cf-agent is the agent that will do the work.
@@ -209,35 +209,35 @@ Using the -v and -n options will allow you to test and debug your policy.</p>
 4  
 5  body common control {
 6      bundlesequence =&gt; {
-7          "update",
-8          "executor",
-9          "server",
-10         "crontabs",
-11         "cfbackup" # should be last
+7          &quot;update&quot;,
+8          &quot;executor&quot;,
+9          &quot;server&quot;,
+10         &quot;crontabs&quot;,
+11         &quot;cfbackup&quot; # should be last
 12      };
 13  
 14      inputs =&gt; {
-15          "update.cf",
-16          "library.cf",
-17          "cf-serverd.cf",
-18          "cf-execd.cf",
-19          "crontabs.cf",
-20          "cfbackup.cf"
+15          &quot;update.cf&quot;,
+16          &quot;library.cf&quot;,
+17          &quot;cf-serverd.cf&quot;,
+18          &quot;cf-execd.cf&quot;,
+19          &quot;crontabs.cf&quot;,
+20          &quot;cfbackup.cf&quot;
 21      };
 22  }
 23  
 24  bundle common g{
 25      vars: 
-26          "masterfiles" string =&gt; "/var/cf-masterfiles";
-27 "inputs" string =&gt; "${masterfiles}/config/branches/cf3/inputs";
-28              "workdir" string =&gt; "/var/cfengine";
+26          &quot;masterfiles&quot; string =&gt; &quot;/var/cf-masterfiles&quot;;
+27 &quot;inputs&quot; string =&gt; &quot;${masterfiles}/config/branches/cf3/inputs&quot;;
+28              &quot;workdir&quot; string =&gt; &quot;/var/cfengine&quot;;
 29          # for HA add more policy hosts
-30          "phost" string =&gt; "192.168.0.1";
+30          &quot;phost&quot; string =&gt; &quot;192.168.0.1&quot;;
 31  }
 32  
 33  body agent control {
 34      # Do not rely on DNS
-35      skipidentify =&gt; "true";
+35      skipidentify =&gt; &quot;true&quot;;
 36  }
 </code></pre>
 
@@ -280,62 +280,62 @@ necessary.</p>
 6  
 7      vars: 
 8      
-9    "masterfiles" string =&gt; "/var/cf-masterfiles";
-10    "inputs" string =&gt; "${masterfiles}/config/branches/cf3/inputs";
+9    &quot;masterfiles&quot; string =&gt; &quot;/var/cf-masterfiles&quot;;
+10    &quot;inputs&quot; string =&gt; &quot;${masterfiles}/config/branches/cf3/inputs&quot;;
 11  # for HA add more policy hosts
-12          "phost" string =&gt; "192.168.0.1";
+12          &quot;phost&quot; string =&gt; &quot;192.168.0.1&quot;;
 13  
 14      files:
 15  
 16      # Fix directories
-17          "/var/cfengine/."
-18              create =&gt; "true",
-19              perms =&gt; usystem("0700");
+17          &quot;/var/cfengine/.&quot;
+18              create =&gt; &quot;true&quot;,
+19              perms =&gt; usystem(&quot;0700&quot;);
 20  
-21          "/var/cfengine/bin/."
-22              create =&gt; "true",
-23              perms =&gt; usystem("0700");
+21          &quot;/var/cfengine/bin/.&quot;
+22              create =&gt; &quot;true&quot;,
+23              perms =&gt; usystem(&quot;0700&quot;);
 24  
-25          "/var/cfengine/ppkeys/."
-26              perms =&gt; usystem("0700");
+25          &quot;/var/cfengine/ppkeys/.&quot;
+26              perms =&gt; usystem(&quot;0700&quot;);
 27  
 28      # Copy inputs
-29          "/var/cfengine/inputs"
-30              perms =&gt; usystem("0600"),
-31              copy_from =&gt; umycopy("${inputs}"),
-32              depth_search =&gt; urecurse("inf");
+29          &quot;/var/cfengine/inputs&quot;
+30              perms =&gt; usystem(&quot;0600&quot;),
+31              copy_from =&gt; umycopy(&quot;${inputs}&quot;),
+32              depth_search =&gt; urecurse(&quot;inf&quot;);
 33  
 34      # Copy binaries
-35          "/var/cfengine/bin/cf-failsafe.sh"
-36              perms =&gt; usystem("0700"),
+35          &quot;/var/cfengine/bin/cf-failsafe.sh&quot;
+36              perms =&gt; usystem(&quot;0700&quot;),
 37              copy_from =&gt; 
-38  umycopy("$(masterfiles)/config/branches/cf3/bin/cf-failsafe.sh");
+38  umycopy(&quot;$(masterfiles)/config/branches/cf3/bin/cf-failsafe.sh&quot;);
 39   
 40          debian_5.64_bit::
-41              "/var/cfengine/bin"
-42              perms =&gt; usystem("0700"),
+41              &quot;/var/cfengine/bin&quot;
+42              perms =&gt; usystem(&quot;0700&quot;),
 43              copy_from =&gt; 
-44  umycopy("$(masterfiles)/config/branches/cf3/bin/debian-5-64"),
-45              depth_search =&gt; urecurse("1");
+44  umycopy(&quot;$(masterfiles)/config/branches/cf3/bin/debian-5-64&quot;),
+45              depth_search =&gt; urecurse(&quot;1&quot;);
 46  }
 47  
 48  body depth_search urecurse(d) {
-49      depth =&gt; "${d}";
-50      exclude_dirs =&gt; { "\.svn" };
+49      depth =&gt; &quot;${d}&quot;;
+50      exclude_dirs =&gt; { &quot;\.svn&quot; };
 51  }
 52  
 53  body perms usystem(p) {
-54      mode =&gt; "${p}";
-55      owners =&gt; { "root" };
-56      groups =&gt; { "root" };
+54      mode =&gt; &quot;${p}&quot;;
+55      owners =&gt; { &quot;root&quot; };
+56      groups =&gt; { &quot;root&quot; };
 57  }
 58  
 59  body copy_from umycopy(from) {
-60      source =&gt; "${from}";
-61      servers =&gt; { "${phost}" };
-62      compare =&gt; "digest";
-63      verify =&gt; "true";
-64  #    purge =&gt; "true";
+60      source =&gt; &quot;${from}&quot;;
+61      servers =&gt; { &quot;${phost}&quot; };
+62      compare =&gt; &quot;digest&quot;;
+63      verify =&gt; &quot;true&quot;;
+64  #    purge =&gt; &quot;true&quot;;
 65  }
 </code></pre>
 
@@ -439,8 +439,8 @@ have errors. There are many ways that one might be creative with this file.</p>
 3  #######################
 4  
 5  body common control { 
-6      bundlesequence =&gt; { "update" }; 
-7      inputs =&gt; { "update.cf" }; 
+6      bundlesequence =&gt; { &quot;update&quot; }; 
+7      inputs =&gt; { &quot;update.cf&quot; }; 
 8  }
 </code></pre>
 
@@ -458,21 +458,21 @@ saver.</p>
 <pre><code>1  # Library of commond code
 2  
 3  body depth_search recurse(d) {
-4      depth =&gt; "${d}";
+4      depth =&gt; &quot;${d}&quot;;
 5  # exclude .svn revision control files
-6      exclude_dirs =&gt; { "\.svn" };
+6      exclude_dirs =&gt; { &quot;\.svn&quot; };
 7  }
 8  
 9  body perms system(p,u,g) {
-10      mode =&gt; "${p}";
-11      owners =&gt; { "${u}" };
-12      groups =&gt; { "${g}" };
+10      mode =&gt; &quot;${p}&quot;;
+11      owners =&gt; { &quot;${u}&quot; };
+12      groups =&gt; { &quot;${g}&quot; };
 13  }
 14  
 15  body copy_from mycopy(from,server) {
-16      source =&gt; "${from}";
-17      servers =&gt; { "${server}" };
-18      compare =&gt; "digest";
+16      source =&gt; &quot;${from}&quot;;
+17      servers =&gt; { &quot;${server}&quot; };
+18      compare =&gt; &quot;digest&quot;;
 19  }
 </code></pre>
 
@@ -491,17 +491,17 @@ defines that copies are compared using MD5 hashes.</p>
 
 <pre><code>1  body server control {
 2  # Do not use DNS
-3      skipverify =&gt; { "192.168.0.*" };
-4      allowconnects =&gt; { "192.168.0.0/24" };
-5      allowallconnects =&gt; { "192.168.0.0/24" };
-6      maxconnections =&gt; "5";
-7      logallconnections =&gt; "true";
-8      trustkeysfrom =&gt; { "192.168.0.1" };
-9      bindtointerface =&gt; "192.168.0.1";
+3      skipverify =&gt; { &quot;192.168.0.*&quot; };
+4      allowconnects =&gt; { &quot;192.168.0.0/24&quot; };
+5      allowallconnects =&gt; { &quot;192.168.0.0/24&quot; };
+6      maxconnections =&gt; &quot;5&quot;;
+7      logallconnections =&gt; &quot;true&quot;;
+8      trustkeysfrom =&gt; { &quot;192.168.0.1&quot; };
+9      bindtointerface =&gt; &quot;192.168.0.1&quot;;
 10  
 11      cfruncommand =&gt;
-12              "${g.workdir}/bin/cf-agent"; 
-13      allowusers =&gt; { "root" };
+12              &quot;${g.workdir}/bin/cf-agent&quot;; 
+13      allowusers =&gt; { &quot;root&quot; };
 14  
 15  }
 16  
@@ -509,29 +509,29 @@ defines that copies are compared using MD5 hashes.</p>
 18  bundle agent server {
 19      processes:
 20  
-21          "cf-serverd"
-22              restart_class =&gt; "start_cfserverd";
+21          &quot;cf-serverd&quot;
+22              restart_class =&gt; &quot;start_cfserverd&quot;;
 23  
 24      commands:
 25  
 26          start_cfserverd::
-27              "${g.workdir}/bin/cf-serverd";
+27              &quot;${g.workdir}/bin/cf-serverd&quot;;
 28  }
 29  
 30  
 31  bundle server access_rules {
 32      access:
-33          "${g.masterfiles}"
-34              admit =&gt; { "192\.168\.0\..*" };
+33          &quot;${g.masterfiles}&quot;
+34              admit =&gt; { &quot;192\.168\.0\..*&quot; };
 35  
-36          # All policy hosts to 'push'.
-37          "${g.workdir}/bin/cf-agent"
-38              admit =&gt; { "${g.phost}" };
+36          # All policy hosts to &#39;push&#39;.
+37          &quot;${g.workdir}/bin/cf-agent&quot;
+38              admit =&gt; { &quot;${g.phost}&quot; };
 39  }
 40  
 41  body runagent control {
 42      hosts =&gt; {
-43          "192.168.0.1"
+43          &quot;192.168.0.1&quot;
 44      };
 45  }
 </code></pre>
@@ -611,25 +611,25 @@ and starts cf-agent at defined intervals.</p>
 3  #######################
 4  
 5  body executor control {
-6      splaytime =&gt; "1";
-7      mailto =&gt; "root@example.com";
-8      smtpserver =&gt; "192.168.0.1";
-9      mailmaxlines =&gt; "100";
-10      schedule =&gt; { "Min15_20", "Min45_50" };
-11      executorfacility =&gt; "LOG_DAEMON";
+6      splaytime =&gt; &quot;1&quot;;
+7      mailto =&gt; &quot;root@example.com&quot;;
+8      smtpserver =&gt; &quot;192.168.0.1&quot;;
+9      mailmaxlines =&gt; &quot;100&quot;;
+10      schedule =&gt; { &quot;Min15_20&quot;, &quot;Min45_50&quot; };
+11      executorfacility =&gt; &quot;LOG_DAEMON&quot;;
 12  }
 13  
 14  bundle agent executor {
 15  
 16      processes:
 17  
-18          "cf-execd"
-19              restart_class =&gt; "start_cfexecd";
+18          &quot;cf-execd&quot;
+19              restart_class =&gt; &quot;start_cfexecd&quot;;
 20  
 21      commands:
 22  
 23          start_cfexecd::
-24              "${g.workdir}/bin/cf-execd";
+24              &quot;${g.workdir}/bin/cf-execd&quot;;
 25  
 26  }
 27  
@@ -676,13 +676,13 @@ not find an already running process.  crontabs.cf</p>
 6  
 7  bundle agent crontabs {
 8   vars:
-9      "crontabs" string =&gt; "/var/spool/cron/crontabs";
+9      &quot;crontabs&quot; string =&gt; &quot;/var/spool/cron/crontabs&quot;;
 10  
 11   files:
-12      "${crontabs}/root"
-13          perms =&gt; system("0600","root","root"),
+12      &quot;${crontabs}/root&quot;
+13          perms =&gt; system(&quot;0600&quot;,&quot;root&quot;,&quot;root&quot;),
 14          copy_from =&gt; 
-15 mycopy("${g.masterfiles}/config/branches/cf3/crontabs/ettin/root","${g.phost}");
+15 mycopy(&quot;${g.masterfiles}/config/branches/cf3/crontabs/ettin/root&quot;,&quot;${g.phost}&quot;);
 16  }
 </code></pre>
 
@@ -709,30 +709,30 @@ recovery.</p>
 2  
 3      vars:
 4  
-5          "failsafe" string =&gt; "/var/cf-failsafe";
+5          &quot;failsafe&quot; string =&gt; &quot;/var/cf-failsafe&quot;;
 6  
 7      files:
 8  
-9      "${failsafe}/bin/cf-agent"
-10          perms =&gt; system("0700","root","root"),
-11 copy_from =&gt; mycopy("${g.workdir}/bin/cf-agent", "localhost");
+9      &quot;${failsafe}/bin/cf-agent&quot;
+10          perms =&gt; system(&quot;0700&quot;,&quot;root&quot;,&quot;root&quot;),
+11 copy_from =&gt; mycopy(&quot;${g.workdir}/bin/cf-agent&quot;, &quot;localhost&quot;);
 12  
-13      "${failsafe}/bin/cf-failsafe.sh"
-14          perms =&gt; system("0700","root","root"),
-15 copy_from =&gt; mycopy("${g.workdir}/bin/cf-failsafe.sh", "localhost");
+13      &quot;${failsafe}/bin/cf-failsafe.sh&quot;
+14          perms =&gt; system(&quot;0700&quot;,&quot;root&quot;,&quot;root&quot;),
+15 copy_from =&gt; mycopy(&quot;${g.workdir}/bin/cf-failsafe.sh&quot;, &quot;localhost&quot;);
 16  
-17      "${failsafe}/ppkeys"
-18          perms =&gt; system("0600","root","root"),
-19 copy_from =&gt; mycopy("${g.workdir}/ppkeys", "localhost"),
-20          depth_search =&gt; recurse("inf");
+17      &quot;${failsafe}/ppkeys&quot;
+18          perms =&gt; system(&quot;0600&quot;,&quot;root&quot;,&quot;root&quot;),
+19 copy_from =&gt; mycopy(&quot;${g.workdir}/ppkeys&quot;, &quot;localhost&quot;),
+20          depth_search =&gt; recurse(&quot;inf&quot;);
 21  
-22      "${failsafe}/inputs/failsafe.cf"
-23          perms =&gt; system("0600","root","root"),
-24 copy_from =&gt; mycopy("${g.workdir}/inputs/failsafe.cf", "localhost");
+22      &quot;${failsafe}/inputs/failsafe.cf&quot;
+23          perms =&gt; system(&quot;0600&quot;,&quot;root&quot;,&quot;root&quot;),
+24 copy_from =&gt; mycopy(&quot;${g.workdir}/inputs/failsafe.cf&quot;, &quot;localhost&quot;);
 25  
-26      "${failsafe}/inputs/update.cf"
-27          perms =&gt; system("0700","root","root"),
-28 copy_from =&gt; mycopy("${g.workdir}/inputs/update.cf", "localhost");
+26      &quot;${failsafe}/inputs/update.cf&quot;
+27          perms =&gt; system(&quot;0700&quot;,&quot;root&quot;,&quot;root&quot;),
+28 copy_from =&gt; mycopy(&quot;${g.workdir}/inputs/update.cf&quot;, &quot;localhost&quot;);
 29  
 30  }
 </code></pre>
@@ -781,7 +781,7 @@ entries in that crontab looks like this.</p>
 failsafe script will be run instead. This is one of the many strategies one can
 use to ensure that CFEngine will continue to run even the face of difficulty.</p>
 
-<h2><a name='other'></a>Other examples</h2>
+<h2><a name="other"></a>Other examples</h2>
 
 <p>Now that you’ve seen a basic example, lets look at some further ones to
 illustrate how CFEngine might be used in production.</p>
@@ -796,29 +796,29 @@ of the file “/etc/ntp.conf”.</p>
 <pre><code>1  bundle agent ntp {
 2  
 3    vars:
-4        "ntp1" string =&gt; "tick.example.com";
-5        "ntp2" string =&gt; "tock.example.com";
-6        "ntp3" string =&gt; "ding.example.com";
+4        &quot;ntp1&quot; string =&gt; &quot;tick.example.com&quot;;
+5        &quot;ntp2&quot; string =&gt; &quot;tock.example.com&quot;;
+6        &quot;ntp3&quot; string =&gt; &quot;ding.example.com&quot;;
 7 
 8    classes:
-9        "ntp_servers" or =&gt; { "${ntp1}", "${ntp2}", "${ntp3}" };
+9        &quot;ntp_servers&quot; or =&gt; { &quot;${ntp1}&quot;, &quot;${ntp2}&quot;, &quot;${ntp3}&quot; };
 10
 11    files:
 12        !ntp_servers::
-13            "/etc/ntp.conf"
+13            &quot;/etc/ntp.conf&quot;
 14                edit_line =&gt; 
-15 AppendIfNoLine("server ${ntp1}", "server ${ntp2}", "server ${ntp3}");
+15 AppendIfNoLine(&quot;server ${ntp1}&quot;, &quot;server ${ntp2}&quot;, &quot;server ${ntp3}&quot;);
 16  }
 17  
 18  bundle edit_line AppendIfNoLine(a,b,c){
 19    insert_lines:
-20        "${a}" location =&gt; "append";
-21        "${b}" location =&gt; "append";
-22        "${c}" location =&gt; "append";
+20        &quot;${a}&quot; location =&gt; &quot;append&quot;;
+21        &quot;${b}&quot; location =&gt; &quot;append&quot;;
+22        &quot;${c}&quot; location =&gt; &quot;append&quot;;
 23  }
 24  
 25  body location append {
-26    before_after =&gt; "after";
+26    before_after =&gt; &quot;after&quot;;
 27  }
 </code></pre>
 
@@ -864,14 +864,14 @@ simple involves renaming it and perhaps altering the permissions.</p>
 
 <pre><code>1  bundle agent disableftp {
 2      files:
-3          "/etc/vsftpd/vsftpd.conf"
+3          &quot;/etc/vsftpd/vsftpd.conf&quot;
 4              rename =&gt; disable;
 5  }
 6  
 7  body rename disable{
-8      disable =&gt; "true";
-9      disable_suffix =&gt; ".cfdisabled";
-10      disable_mode =&gt; "0600";
+8      disable =&gt; &quot;true&quot;;
+9      disable_suffix =&gt; &quot;.cfdisabled&quot;;
+10      disable_mode =&gt; &quot;0600&quot;;
 11  }
 </code></pre>
 
@@ -898,7 +898,7 @@ such as warn.</p>
 
 <pre><code>1 processes:
 2      secure_hosts::
-3          "stunnel"   signals =&gt; { "term", "kill" };
+3          &quot;stunnel&quot;   signals =&gt; { &quot;term&quot;, &quot;kill&quot; };
 </code></pre>
 
 <p>Line 1 identifies the processes action.</p>
@@ -917,7 +917,7 @@ a “kill” signal will be tried instead.</p>
     </div>
 
     <div class="col-md-3">
-        <iframe src="https://duckduckgo.com/search.html?site=watson-wilson.ca&prefill=Search DuckDuckGo" style="overflow:hidden;margin:0;padding:0;width:350px;height:40px;" frameborder="0"></iframe>
+        <iframe frameborder="0" src="https://duckduckgo.com/search.html?site=watson-wilson.ca&amp;prefill=Search DuckDuckGo" style="overflow:hidden;margin:0;padding:0;width:350px;height:40px;"></iframe>
 
         <nav id="tags">
             <h1>Tags</h1>
@@ -1018,31 +1018,31 @@ a “kill” signal will be tried instead.</p>
 
 </div>
 
-<div class='row'>
-   <div class='col-md-1'>
-       <img atl='Neil Watson' src='https://gravatar.com/avatar/1f0969599955a953e592034929ed7a23' >
+<div class="row">
+   <div class="col-md-1">
+       <img atl="Neil Watson" src="https://gravatar.com/avatar/1f0969599955a953e592034929ed7a23">
    </div>
 
-       <div class='col-md-1'>
+       <div class="col-md-1">
             <!-- reddit this -->
-            <a href="//www.reddit.com/submit" onclick="window.location = '//www.reddit.com/submit?url=' + encodeURIComponent(window.location); return false"><img src="//www.redditstatic.com/spreddit7.gif" alt="submit to reddit" border="0" /></a>
+            <a href="//www.reddit.com/submit" onclick="window.location = &#39;//www.reddit.com/submit?url=&#39; + encodeURIComponent(window.location); return false"><img alt="submit to reddit" border="0" src="//www.redditstatic.com/spreddit7.gif"></a>
        </div>
 
-       <div class='col-md-1'>
+       <div class="col-md-1">
           <!-- Tweet this -->
-          <a href="https://twitter.com/share" class="twitter-share-button" data-via="neil_h_watson" data-count="none">Tweet</a>
+          <a class="twitter-share-button" data-count="none" data-via="neil_h_watson" href="https://twitter.com/share">Tweet</a>
     <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
        </div>
 
-       <div class='col-md-1'>
+       <div class="col-md-1">
           <!-- follow me on twitter -->
-          <a href="https://twitter.com/neil_h_watson" class="twitter-follow-button" data-show-count="false" data-show-screen-name="false">Follow @neil_h_watson</a>
+          <a class="twitter-follow-button" data-show-count="false" data-show-screen-name="false" href="https://twitter.com/neil_h_watson">Follow @neil_h_watson</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
         </div>
 
-       <div class='col-md-1'>
+       <div class="col-md-1">
            <!-- follw me on github -->
-            <a aria-label="Follow @neilhwatson on GitHub" data-style="mega" href="https://github.com/neilhwatson" class="github-button">Follow</a>
+            <a aria-label="Follow @neilhwatson on GitHub" class="github-button" data-style="mega" href="https://github.com/neilhwatson">Follow</a>
             <script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
        </div>
 
@@ -1052,9 +1052,9 @@ a “kill” signal will be tried instead.</p>
         <footer>
             
             <h1></h1>
-            <div class='col-md-5'> </div>
+            <div class="col-md-5"> </div>
             <div class="col-md-3 container tagline">
-                <a href="http://preaction.me/statocles">Made with Statocles</a><br/>
+                <a href="http://preaction.me/statocles">Made with Statocles</a><br>
                 <a href="http://www.perl.org">Powered by Perl</a>
             </div>
         </footer>

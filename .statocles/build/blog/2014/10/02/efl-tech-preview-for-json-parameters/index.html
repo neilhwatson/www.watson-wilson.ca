@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="en"> 
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
         <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-        <link rel="stylesheet" href="/theme/css/readability-bootstrap.min.css" />
+        <link href="/theme/css/readability-bootstrap.min.css" rel="stylesheet">
         <!--<link rel="stylesheet" href="/theme/css/statocles-bootstrap.css" />-->
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
         <title>EFL tech preview for JSON parameters - Neil H. Watson</title>
-        <meta name="generator" content="Statocles 0.093" />
+        <meta content="Statocles 0.093" name="generator">
         
 
         <!-- For source highlighting -->
-        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/default.min.css">
+        <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/default.min.css" rel="stylesheet">
         <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js"></script>
         <script>hljs.initHighlightingOnLoad();</script>
 
@@ -24,7 +24,7 @@
                 <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
                     <div class="navbar-header">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#top-navbar-collapse-1">
+                        <button class="navbar-toggle" data-target="#top-navbar-collapse-1" data-toggle="collapse" type="button">
                             <span class="sr-only">Toggle navigation</span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
@@ -69,13 +69,13 @@
 
             </header>
             <section id="section-1">
-                <p>It's very likely that <a href="https://github.com/neilhwatson/evolve_cfengine_freelib">EFL</a>
+                <p>It&#39;s very likely that <a href="https://github.com/neilhwatson/evolve_cfengine_freelib">EFL</a>
 for CFEngine 3.6 will be able to read both CSV and JSON parameter
 files. Some EFL users are looking forward to this because some CSV
 files have very long lines and are hard to read. On the other hand some
 CSV files are short and less cluttered than an equivalent JSON file
 would be. At first I tried to transition completely to JSON files, but
-upon further consideration EFL will be able to use both. Here's how.</p>
+upon further consideration EFL will be able to use both. Here&#39;s how.</p>
 
             </section>
             <section id="section-2">
@@ -95,253 +95,253 @@ linux ;; /usr/bin/false ;; yes ;; yes ;; 60 ;; promisee for false
 
 <pre><code>[
    {
-      "class": "any",
-      "command": "/usr/bin/true",
-      "useshell": "no",
-      "comment": "This is how comments must be in JSON",
-      "module": "no",
-      "ifelapsed": 1,
-      "promisee": "promisee for true"
+      &quot;class&quot;: &quot;any&quot;,
+      &quot;command&quot;: &quot;/usr/bin/true&quot;,
+      &quot;useshell&quot;: &quot;no&quot;,
+      &quot;comment&quot;: &quot;This is how comments must be in JSON&quot;,
+      &quot;module&quot;: &quot;no&quot;,
+      &quot;ifelapsed&quot;: 1,
+      &quot;promisee&quot;: &quot;promisee for true&quot;
    },
    {
-      "class": "linux",
-      "command": "/usr/bin/false",
-      "useshell": "yes",
-      "module": "yes",
-      "ifelapsed": 60,
-      "promisee": "promisee for false"
+      &quot;class&quot;: &quot;linux&quot;,
+      &quot;command&quot;: &quot;/usr/bin/false&quot;,
+      &quot;useshell&quot;: &quot;yes&quot;,
+      &quot;module&quot;: &quot;yes&quot;,
+      &quot;ifelapsed&quot;: 60,
+      &quot;promisee&quot;: &quot;promisee for false&quot;
    }
 ]
 </code></pre>
 
 <p>The bundle efl_command will call an additional bundle to parse the
 parameter file, but to the you efl_command will work exactly the same
-way. You won't have to change your parameter files to transition from
+way. You won&#39;t have to change your parameter files to transition from
 3.5 to 3.6.</p>
 
 <p>Preview policy</p>
 
 <pre><code>body common control
 {
-        bundlesequence =&gt; { "main", };
+        bundlesequence =&gt; { &quot;main&quot;, };
 }
 
 bundle agent main
 {
    methods:
-      "create param files for example" usebundle =&gt; init( 'testfile' );
+      &quot;create param files for example&quot; usebundle =&gt; init( &#39;testfile&#39; );
 
       parse_json::
-         "json"
-            usebundle =&gt; efl_command( "${sys.workdir}/inputs/testfile.json" );
+         &quot;json&quot;
+            usebundle =&gt; efl_command( &quot;${sys.workdir}/inputs/testfile.json&quot; );
 
       parse_csv::
-         "csv"
-            usebundle =&gt; efl_command( "${sys.workdir}/inputs/testfile.csv" );
+         &quot;csv&quot;
+            usebundle =&gt; efl_command( &quot;${sys.workdir}/inputs/testfile.csv&quot; );
 }
 
 bundle agent efl_command( ref )
 {
    meta:
-      "purpose" string =&gt; "Run given command if context is true.";
-      "field_0" string =&gt; "Context";
-      "field_1" string =&gt; "Command";
-      "field_2" string =&gt; "usehell";
-      "field_3" string =&gt; "module";
-      "field_4" string =&gt; "ifelapsed";
-      "field_5" string =&gt; "promisee";
+      &quot;purpose&quot; string =&gt; &quot;Run given command if context is true.&quot;;
+      &quot;field_0&quot; string =&gt; &quot;Context&quot;;
+      &quot;field_1&quot; string =&gt; &quot;Command&quot;;
+      &quot;field_2&quot; string =&gt; &quot;usehell&quot;;
+      &quot;field_3&quot; string =&gt; &quot;module&quot;;
+      &quot;field_4&quot; string =&gt; &quot;ifelapsed&quot;;
+      &quot;field_5&quot; string =&gt; &quot;promisee&quot;;
 
    vars:
-      "p"
-         comment =&gt; "Prefix to call fq var names from method call bundle",
-         string  =&gt; "efl_command_parse";
+      &quot;p&quot;
+         comment =&gt; &quot;Prefix to call fq var names from method call bundle&quot;,
+         string  =&gt; &quot;efl_command_parse&quot;;
 
    methods:
-      'parse data'
-         inherit   =&gt; 'true',
-         usebundle =&gt; efl_command_parse( "${ref}" );
+      &#39;parse data&#39;
+         inherit   =&gt; &#39;true&#39;,
+         usebundle =&gt; efl_command_parse( &quot;${ref}&quot; );
 
 ## Demonstrate that command parameters are parsed without 
 ## using an actual commands promise
    reports:
-   '
-   "${${p}.command[${${p}.i}]}" -&gt; { "${${p}.promisee[${${p}.i}]}" }
-      comment    =&gt; "Run desired command",
-      handle     =&gt; "efl_command_commands",
-      ifvarclass =&gt; "${${p}.class[${${p}.i}]}",
-      contain    =&gt; contain_efl_command( "${${p}.useshell[${${p}.i}]}" ),
-      module     =&gt; "${${p}.module[${${p}.i}]}",
-      classes    =&gt; efl_rkn( "${${p}.command[${${p}.i}]}",
-         "efl_command_commands" ),
-      action     =&gt; efl_delta_reporting( "efl_command_commands",
-         "${${p}.command[${${p}.i}]}", "${${p}.promisee[${${p}.i}]}",
-         "${${p}.ifelapsed[${${p}.i}]}"); ';
+   &#39;
+   &quot;${${p}.command[${${p}.i}]}&quot; -&gt; { &quot;${${p}.promisee[${${p}.i}]}&quot; }
+      comment    =&gt; &quot;Run desired command&quot;,
+      handle     =&gt; &quot;efl_command_commands&quot;,
+      ifvarclass =&gt; &quot;${${p}.class[${${p}.i}]}&quot;,
+      contain    =&gt; contain_efl_command( &quot;${${p}.useshell[${${p}.i}]}&quot; ),
+      module     =&gt; &quot;${${p}.module[${${p}.i}]}&quot;,
+      classes    =&gt; efl_rkn( &quot;${${p}.command[${${p}.i}]}&quot;,
+         &quot;efl_command_commands&quot; ),
+      action     =&gt; efl_delta_reporting( &quot;efl_command_commands&quot;,
+         &quot;${${p}.command[${${p}.i}]}&quot;, &quot;${${p}.promisee[${${p}.i}]}&quot;,
+         &quot;${${p}.ifelapsed[${${p}.i}]}&quot;); &#39;;
 }
 
 bundle agent efl_command_parse ( ref )
 {
    meta:
-      'purpose' string =&gt; "Parse data for efl_command via method.";
-      'note'    string =&gt; "Using a method avoids the loss of a pass.";
+      &#39;purpose&#39; string =&gt; &quot;Parse data for efl_command via method.&quot;;
+      &#39;note&#39;    string =&gt; &quot;Using a method avoids the loss of a pass.&quot;;
 
    vars:
-      "ref_canon" string =&gt; canonify( "${ref}" );
+      &quot;ref_canon&quot; string =&gt; canonify( &quot;${ref}&quot; );
 
 ## Pasrse CSV files
-      "cmd_o"
-         comment    =&gt; "Read data file for parsing.",
-         ifvarclass =&gt; "parse_${ref_canon}_as_csv" ,
+      &quot;cmd_o&quot;
+         comment    =&gt; &quot;Read data file for parsing.&quot;,
+         ifvarclass =&gt; &quot;parse_${ref_canon}_as_csv&quot; ,
          data       =&gt; data_readstringarrayidx(
-            "${ref}",
-            "${efl_c.comment}",
-            "${efl_c.array_delimiter}",
-            "${efl_c.max_num}",
-            "${efl_c.max_bytes}"
+            &quot;${ref}&quot;,
+            &quot;${efl_c.comment}&quot;,
+            &quot;${efl_c.array_delimiter}&quot;,
+            &quot;${efl_c.max_num}&quot;,
+            &quot;${efl_c.max_bytes}&quot;
          );
 
 ## Pasrse JSON files
-      "cmd_o"
-         ifvarclass =&gt; "parse_${ref_canon}_as_json" ,
-         data       =&gt; readjson( "${ref}", "${efl_c.max_bytes}" );
+      &quot;cmd_o&quot;
+         ifvarclass =&gt; &quot;parse_${ref_canon}_as_json&quot; ,
+         data       =&gt; readjson( &quot;${ref}&quot;, &quot;${efl_c.max_bytes}&quot; );
 
-      "i"
-         ifvarclass =&gt; "parse_${ref_canon}_as_json|parse_${ref_canon}_as_csv",
-         slist      =&gt; getindices( "cmd_o" );
+      &quot;i&quot;
+         ifvarclass =&gt; &quot;parse_${ref_canon}_as_json|parse_${ref_canon}_as_csv&quot;,
+         slist      =&gt; getindices( &quot;cmd_o&quot; );
 
 ## Build final common data array for bundle use and expand internal vars
 ## to work around bug 2333
-      "class[${i}]"
-         ifvarclass =&gt; "parse_${ref_canon}_as_csv",
-         string     =&gt; "${cmd_o[${i}][0]}";
-      "class[${i}]"
-         ifvarclass =&gt; "parse_${ref_canon}_as_json",
-         string     =&gt; "${cmd_o[${i}][class]}";
-      "command[${i}]"
-         ifvarclass =&gt; "parse_${ref_canon}_as_csv",
-         string     =&gt; "${cmd_o[${i}][1]}";
-      "command[${i}]"
-         ifvarclass =&gt; "parse_${ref_canon}_as_json",
-         string     =&gt; "${cmd_o[${i}][command]}";
-      "useshell[${i}]"
-         ifvarclass =&gt; "parse_${ref_canon}_as_csv",
-         string     =&gt; "${cmd_o[${i}][2]}";
-      "useshell[${i}]"
-         ifvarclass =&gt; "parse_${ref_canon}_as_json",
-         string     =&gt; "${cmd_o[${i}][useshell]}";
-      "module[${i}]"
-         ifvarclass =&gt; "parse_${ref_canon}_as_csv",
-         string     =&gt; "${cmd_o[${i}][3]}";
-      "module[${i}]"
-         ifvarclass =&gt; "parse_${ref_canon}_as_json",
-         string     =&gt; "${cmd_o[${i}][module]}";
-      "ifelapsed[${i}]"
-         ifvarclass =&gt; "parse_${ref_canon}_as_csv",
-         string     =&gt; "${cmd_o[${i}][4]}";
-      "ifelapsed[${i}]"
-         ifvarclass =&gt; "parse_${ref_canon}_as_json",
-         string     =&gt; "${cmd_o[${i}][ifelapsed]}";
-      "promisee[${i}]"
-         ifvarclass =&gt; "parse_${ref_canon}_as_csv",
-         string     =&gt; "${cmd_o[${i}][5]}";
-      "promisee[${i}]"
-         ifvarclass =&gt; "parse_${ref_canon}_as_json",
-         string     =&gt; "${cmd_o[${i}][promisee]}";
+      &quot;class[${i}]&quot;
+         ifvarclass =&gt; &quot;parse_${ref_canon}_as_csv&quot;,
+         string     =&gt; &quot;${cmd_o[${i}][0]}&quot;;
+      &quot;class[${i}]&quot;
+         ifvarclass =&gt; &quot;parse_${ref_canon}_as_json&quot;,
+         string     =&gt; &quot;${cmd_o[${i}][class]}&quot;;
+      &quot;command[${i}]&quot;
+         ifvarclass =&gt; &quot;parse_${ref_canon}_as_csv&quot;,
+         string     =&gt; &quot;${cmd_o[${i}][1]}&quot;;
+      &quot;command[${i}]&quot;
+         ifvarclass =&gt; &quot;parse_${ref_canon}_as_json&quot;,
+         string     =&gt; &quot;${cmd_o[${i}][command]}&quot;;
+      &quot;useshell[${i}]&quot;
+         ifvarclass =&gt; &quot;parse_${ref_canon}_as_csv&quot;,
+         string     =&gt; &quot;${cmd_o[${i}][2]}&quot;;
+      &quot;useshell[${i}]&quot;
+         ifvarclass =&gt; &quot;parse_${ref_canon}_as_json&quot;,
+         string     =&gt; &quot;${cmd_o[${i}][useshell]}&quot;;
+      &quot;module[${i}]&quot;
+         ifvarclass =&gt; &quot;parse_${ref_canon}_as_csv&quot;,
+         string     =&gt; &quot;${cmd_o[${i}][3]}&quot;;
+      &quot;module[${i}]&quot;
+         ifvarclass =&gt; &quot;parse_${ref_canon}_as_json&quot;,
+         string     =&gt; &quot;${cmd_o[${i}][module]}&quot;;
+      &quot;ifelapsed[${i}]&quot;
+         ifvarclass =&gt; &quot;parse_${ref_canon}_as_csv&quot;,
+         string     =&gt; &quot;${cmd_o[${i}][4]}&quot;;
+      &quot;ifelapsed[${i}]&quot;
+         ifvarclass =&gt; &quot;parse_${ref_canon}_as_json&quot;,
+         string     =&gt; &quot;${cmd_o[${i}][ifelapsed]}&quot;;
+      &quot;promisee[${i}]&quot;
+         ifvarclass =&gt; &quot;parse_${ref_canon}_as_csv&quot;,
+         string     =&gt; &quot;${cmd_o[${i}][5]}&quot;;
+      &quot;promisee[${i}]&quot;
+         ifvarclass =&gt; &quot;parse_${ref_canon}_as_json&quot;,
+         string     =&gt; &quot;${cmd_o[${i}][promisee]}&quot;;
 
    classes:
-      "parse_${ref_canon}_as_json"
-         expression =&gt; regcmp( ".*\.(json|dat|jsn)", ${ref} );
-      "parse_${ref_canon}_as_csv"
-         expression =&gt; regcmp( ".*\.(txt|csv)", ${ref} );
+      &quot;parse_${ref_canon}_as_json&quot;
+         expression =&gt; regcmp( &quot;.*\.(json|dat|jsn)&quot;, ${ref} );
+      &quot;parse_${ref_canon}_as_csv&quot;
+         expression =&gt; regcmp( &quot;.*\.(txt|csv)&quot;, ${ref} );
 }
 
 bundle agent init ( ref )
 {
    meta:
-      'purpose' string =&gt; "Promise json and csv files for this demonstration";
+      &#39;purpose&#39; string =&gt; &quot;Promise json and csv files for this demonstration&quot;;
 
    vars:
-      "${ref}_contents[json]" string =&gt; '
+      &quot;${ref}_contents[json]&quot; string =&gt; &#39;
 [
    {
-      "class": "any",
-      "command": "/usr/bin/true",
-      "useshell": "no",
-      "comment": "This is how comments must be in JSON",
-      "module": "no",
-      "ifelapsed": 1,
-      "promisee": "promisee for true"
+      &quot;class&quot;: &quot;any&quot;,
+      &quot;command&quot;: &quot;/usr/bin/true&quot;,
+      &quot;useshell&quot;: &quot;no&quot;,
+      &quot;comment&quot;: &quot;This is how comments must be in JSON&quot;,
+      &quot;module&quot;: &quot;no&quot;,
+      &quot;ifelapsed&quot;: 1,
+      &quot;promisee&quot;: &quot;promisee for true&quot;
    },
    {
-      "class": "linux",
-      "command": "/usr/bin/false",
-      "useshell": "yes",
-      "module": "yes",
-      "ifelapsed": 60,
-      "promisee": "promisee for false"
+      &quot;class&quot;: &quot;linux&quot;,
+      &quot;command&quot;: &quot;/usr/bin/false&quot;,
+      &quot;useshell&quot;: &quot;yes&quot;,
+      &quot;module&quot;: &quot;yes&quot;,
+      &quot;ifelapsed&quot;: 60,
+      &quot;promisee&quot;: &quot;promisee for false&quot;
    }
-]';
-      "${ref}_contents[csv]" string =&gt; "
+]&#39;;
+      &quot;${ref}_contents[csv]&quot; string =&gt; &quot;
 any ;; /usr/bin/true ;; no ;; no ;; 1 ;; promisee for true
 # comments more flexible in csv.
 linux ;; /usr/bin/false ;; yes ;; yes ;; 60 ;; promisee for false
-";
+&quot;;
 
-   "i" slist =&gt; getindices( '${ref}_contents' );
+   &quot;i&quot; slist =&gt; getindices( &#39;${ref}_contents&#39; );
 
    files:
-      "${sys.workdir}/inputs/${ref}.${i}" -&gt; { "Neil H Watson", "EFL" }
-         create        =&gt; 'true',
+      &quot;${sys.workdir}/inputs/${ref}.${i}&quot; -&gt; { &quot;Neil H Watson&quot;, &quot;EFL&quot; }
+         create        =&gt; &#39;true&#39;,
          edit_defaults =&gt; empty,
-         edit_line     =&gt; append_if_no_line( "${${ref}_contents[${i}]}" );
+         edit_line     =&gt; append_if_no_line( &quot;${${ref}_contents[${i}]}&quot; );
 }
 
 body edit_defaults empty
 {
-      empty_file_before_editing =&gt; "true";
-      edit_backup =&gt; "false";
+      empty_file_before_editing =&gt; &quot;true&quot;;
+      edit_backup =&gt; &quot;false&quot;;
 }
 bundle edit_line append_if_no_line(str)
 {
   insert_lines:
-      "$(str)";
+      &quot;$(str)&quot;;
 }
 
 bundle common efl_c
 {
    meta:
-      "purpose" string =&gt; "Common configs for all EFL bundles";
+      &quot;purpose&quot; string =&gt; &quot;Common configs for all EFL bundles&quot;;
 
    vars:
 #
 # Configs for reading data files
 #
-      "cache"
-         comment =&gt; "Location for agent to cache template and other temp files",
-         string  =&gt; "/var/cache/cfengine";
+      &quot;cache&quot;
+         comment =&gt; &quot;Location for agent to cache template and other temp files&quot;,
+         string  =&gt; &quot;/var/cache/cfengine&quot;;
 
-      "class"
-         comment =&gt; "Regex to extract class name from parameter file name.",
-         string  =&gt; ".*?-(\w+)\.txt";
+      &quot;class&quot;
+         comment =&gt; &quot;Regex to extract class name from parameter file name.&quot;,
+         string  =&gt; &quot;.*?-(\w+)\.txt&quot;;
 
-      "comment"
-         comment =&gt; "Comment string in data file.",
-         string  =&gt; "\s*#[^\n]*";
+      &quot;comment&quot;
+         comment =&gt; &quot;Comment string in data file.&quot;,
+         string  =&gt; &quot;\s*#[^\n]*&quot;;
 
-      "array_delimiter"
-         comment =&gt; "Field delimiter for CSV data files read by readstringarrayidx",
-         string  =&gt; "\s*;;\s*";
+      &quot;array_delimiter&quot;
+         comment =&gt; &quot;Field delimiter for CSV data files read by readstringarrayidx&quot;,
+         string  =&gt; &quot;\s*;;\s*&quot;;
 
-      "slist_delimiter"
-         comment =&gt; "Field delimiter for CSV data files read by readstringlist",
-         string  =&gt; "\s";
+      &quot;slist_delimiter&quot;
+         comment =&gt; &quot;Field delimiter for CSV data files read by readstringlist&quot;,
+         string  =&gt; &quot;\s&quot;;
 
-      "max_num"
-         comment =&gt; "Maximum number of lines to read from data file",
-         int     =&gt; "500";
+      &quot;max_num&quot;
+         comment =&gt; &quot;Maximum number of lines to read from data file&quot;,
+         int     =&gt; &quot;500&quot;;
 
-      "max_bytes"
-         comment =&gt; "Maximum number of bytes to read from data file.",
-         string  =&gt; "1M";
+      &quot;max_bytes&quot;
+         comment =&gt; &quot;Maximum number of bytes to read from data file.&quot;,
+         string  =&gt; &quot;1M&quot;;
 
 }
 </code></pre>
@@ -350,59 +350,59 @@ bundle common efl_c
 
 <pre><code>neil@ettin ~/.cfagent/inputs $ cf-agent -Kf ./efl36.cf -D parse_csv
 R: 
-   "/usr/bin/true" -&gt; { "promisee for true" }
-      comment    =&gt; "Run desired command",
-      handle     =&gt; "efl_command_commands",
-      ifvarclass =&gt; "any",
-      contain    =&gt; contain_efl_command( "no" ),
-      module     =&gt; "no",
-      classes    =&gt; efl_rkn( "/usr/bin/true",
-         "efl_command_commands" ),
-      action     =&gt; efl_delta_reporting( "efl_command_commands",
-         "/usr/bin/true", "promisee for true",
-         "1"); 
+   &quot;/usr/bin/true&quot; -&gt; { &quot;promisee for true&quot; }
+      comment    =&gt; &quot;Run desired command&quot;,
+      handle     =&gt; &quot;efl_command_commands&quot;,
+      ifvarclass =&gt; &quot;any&quot;,
+      contain    =&gt; contain_efl_command( &quot;no&quot; ),
+      module     =&gt; &quot;no&quot;,
+      classes    =&gt; efl_rkn( &quot;/usr/bin/true&quot;,
+         &quot;efl_command_commands&quot; ),
+      action     =&gt; efl_delta_reporting( &quot;efl_command_commands&quot;,
+         &quot;/usr/bin/true&quot;, &quot;promisee for true&quot;,
+         &quot;1&quot;); 
 R: 
-   "/usr/bin/false" -&gt; { "promisee for false" }
-      comment    =&gt; "Run desired command",
-      handle     =&gt; "efl_command_commands",
-      ifvarclass =&gt; "linux",
-      contain    =&gt; contain_efl_command( "yes" ),
-      module     =&gt; "yes",
-      classes    =&gt; efl_rkn( "/usr/bin/false",
-         "efl_command_commands" ),
-      action     =&gt; efl_delta_reporting( "efl_command_commands",
-         "/usr/bin/false", "promisee for false",
-         "60"); 
+   &quot;/usr/bin/false&quot; -&gt; { &quot;promisee for false&quot; }
+      comment    =&gt; &quot;Run desired command&quot;,
+      handle     =&gt; &quot;efl_command_commands&quot;,
+      ifvarclass =&gt; &quot;linux&quot;,
+      contain    =&gt; contain_efl_command( &quot;yes&quot; ),
+      module     =&gt; &quot;yes&quot;,
+      classes    =&gt; efl_rkn( &quot;/usr/bin/false&quot;,
+         &quot;efl_command_commands&quot; ),
+      action     =&gt; efl_delta_reporting( &quot;efl_command_commands&quot;,
+         &quot;/usr/bin/false&quot;, &quot;promisee for false&quot;,
+         &quot;60&quot;); 
 
 neil@ettin ~/.cfagent/inputs $ cf-agent -Kf ./efl36.cf -D parse_json
 R: 
-   "/usr/bin/true" -&gt; { "promiser for true" }
-      comment    =&gt; "Run desired command",
-      handle     =&gt; "efl_command_commands",
-      ifvarclass =&gt; "any",
-      contain    =&gt; contain_efl_command( "no" ),
-      module     =&gt; "no",
-      classes    =&gt; efl_rkn( "/usr/bin/true",
-         "efl_command_commands" ),
-      action     =&gt; efl_delta_reporting( "efl_command_commands",
-         "/usr/bin/true", "promiser for true",
-         "1"); 
+   &quot;/usr/bin/true&quot; -&gt; { &quot;promiser for true&quot; }
+      comment    =&gt; &quot;Run desired command&quot;,
+      handle     =&gt; &quot;efl_command_commands&quot;,
+      ifvarclass =&gt; &quot;any&quot;,
+      contain    =&gt; contain_efl_command( &quot;no&quot; ),
+      module     =&gt; &quot;no&quot;,
+      classes    =&gt; efl_rkn( &quot;/usr/bin/true&quot;,
+         &quot;efl_command_commands&quot; ),
+      action     =&gt; efl_delta_reporting( &quot;efl_command_commands&quot;,
+         &quot;/usr/bin/true&quot;, &quot;promiser for true&quot;,
+         &quot;1&quot;); 
 R: 
-   "/usr/bin/false" -&gt; { "promiser for false" }
-      comment    =&gt; "Run desired command",
-      handle     =&gt; "efl_command_commands",
-      ifvarclass =&gt; "linux",
-      contain    =&gt; contain_efl_command( "yes" ),
-      module     =&gt; "yes",
-      classes    =&gt; efl_rkn( "/usr/bin/false",
-         "efl_command_commands" ),
-      action     =&gt; efl_delta_reporting( "efl_command_commands",
-         "/usr/bin/false", "promiser for false",
-         "60"); 
+   &quot;/usr/bin/false&quot; -&gt; { &quot;promiser for false&quot; }
+      comment    =&gt; &quot;Run desired command&quot;,
+      handle     =&gt; &quot;efl_command_commands&quot;,
+      ifvarclass =&gt; &quot;linux&quot;,
+      contain    =&gt; contain_efl_command( &quot;yes&quot; ),
+      module     =&gt; &quot;yes&quot;,
+      classes    =&gt; efl_rkn( &quot;/usr/bin/false&quot;,
+         &quot;efl_command_commands&quot; ),
+      action     =&gt; efl_delta_reporting( &quot;efl_command_commands&quot;,
+         &quot;/usr/bin/false&quot;, &quot;promiser for false&quot;,
+         &quot;60&quot;); 
 </code></pre>
 
 <p>Once CFEngine 3.6 stabilizes look for updates in <a href="https://github.com/neilhwatson/evolve_cfengine_freelib">EFL</a>.
-In the mean time I recommend you stick with EFL's 3.5 branch and
+In the mean time I recommend you stick with EFL&#39;s 3.5 branch and
 CFEngine 3.5.</p>
 
             </section>
@@ -412,7 +412,7 @@ CFEngine 3.5.</p>
     </div>
 
     <div class="col-md-3">
-        <iframe src="https://duckduckgo.com/search.html?site=watson-wilson.ca&prefill=Search DuckDuckGo" style="overflow:hidden;margin:0;padding:0;width:350px;height:40px;" frameborder="0"></iframe>
+        <iframe frameborder="0" src="https://duckduckgo.com/search.html?site=watson-wilson.ca&amp;prefill=Search DuckDuckGo" style="overflow:hidden;margin:0;padding:0;width:350px;height:40px;"></iframe>
 
         <nav id="tags">
             <h1>Tags</h1>
@@ -513,31 +513,31 @@ CFEngine 3.5.</p>
 
 </div>
 
-<div class='row'>
-   <div class='col-md-1'>
-       <img atl='Neil Watson' src='https://gravatar.com/avatar/1f0969599955a953e592034929ed7a23' >
+<div class="row">
+   <div class="col-md-1">
+       <img atl="Neil Watson" src="https://gravatar.com/avatar/1f0969599955a953e592034929ed7a23">
    </div>
 
-       <div class='col-md-1'>
+       <div class="col-md-1">
             <!-- reddit this -->
-            <a href="//www.reddit.com/submit" onclick="window.location = '//www.reddit.com/submit?url=' + encodeURIComponent(window.location); return false"><img src="//www.redditstatic.com/spreddit7.gif" alt="submit to reddit" border="0" /></a>
+            <a href="//www.reddit.com/submit" onclick="window.location = &#39;//www.reddit.com/submit?url=&#39; + encodeURIComponent(window.location); return false"><img alt="submit to reddit" border="0" src="//www.redditstatic.com/spreddit7.gif"></a>
        </div>
 
-       <div class='col-md-1'>
+       <div class="col-md-1">
           <!-- Tweet this -->
-          <a href="https://twitter.com/share" class="twitter-share-button" data-via="neil_h_watson" data-count="none">Tweet</a>
+          <a class="twitter-share-button" data-count="none" data-via="neil_h_watson" href="https://twitter.com/share">Tweet</a>
     <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
        </div>
 
-       <div class='col-md-1'>
+       <div class="col-md-1">
           <!-- follow me on twitter -->
-          <a href="https://twitter.com/neil_h_watson" class="twitter-follow-button" data-show-count="false" data-show-screen-name="false">Follow @neil_h_watson</a>
+          <a class="twitter-follow-button" data-show-count="false" data-show-screen-name="false" href="https://twitter.com/neil_h_watson">Follow @neil_h_watson</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
         </div>
 
-       <div class='col-md-1'>
+       <div class="col-md-1">
            <!-- follw me on github -->
-            <a aria-label="Follow @neilhwatson on GitHub" data-style="mega" href="https://github.com/neilhwatson" class="github-button">Follow</a>
+            <a aria-label="Follow @neilhwatson on GitHub" class="github-button" data-style="mega" href="https://github.com/neilhwatson">Follow</a>
             <script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
        </div>
 
@@ -547,9 +547,9 @@ CFEngine 3.5.</p>
         <footer>
             
             <h1></h1>
-            <div class='col-md-5'> </div>
+            <div class="col-md-5"> </div>
             <div class="col-md-3 container tagline">
-                <a href="http://preaction.me/statocles">Made with Statocles</a><br/>
+                <a href="http://preaction.me/statocles">Made with Statocles</a><br>
                 <a href="http://www.perl.org">Powered by Perl</a>
             </div>
         </footer>

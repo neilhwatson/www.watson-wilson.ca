@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="en"> 
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
         <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-        <link rel="stylesheet" href="/theme/css/readability-bootstrap.min.css" />
+        <link href="/theme/css/readability-bootstrap.min.css" rel="stylesheet">
         <!--<link rel="stylesheet" href="/theme/css/statocles-bootstrap.css" />-->
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
         <title>Docker API from CLI - Neil H. Watson</title>
-        <meta name="generator" content="Statocles 0.093" />
+        <meta content="Statocles 0.093" name="generator">
         
-        <link rel="stylesheet" href="/theme/plugin/highlight/default.css" type="text/css" />
+        <link href="/theme/plugin/highlight/default.css" rel="stylesheet" type="text/css">
 
         <!-- For source highlighting -->
-        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/default.min.css">
+        <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/default.min.css" rel="stylesheet">
         <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js"></script>
         <script>hljs.initHighlightingOnLoad();</script>
 
@@ -25,7 +25,7 @@
                 <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
                     <div class="navbar-header">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#top-navbar-collapse-1">
+                        <button class="navbar-toggle" data-target="#top-navbar-collapse-1" data-toggle="collapse" type="button">
                             <span class="sr-only">Toggle navigation</span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
@@ -72,20 +72,20 @@
 
             </header>
             <section id="section-1">
-                <p><a href="https://docker.com/"><img style='float:right' alt='Docker website' width='120px' src='/static/images/docker-logo.png'></a></p>
+                <p><a href="https://docker.com/"><img alt="Docker website" src="/static/images/docker-logo.png" style="float:right" width="120px"></a></p>
 
 <p>Docker has command line programs, but they are not well suited to automation.
 Return values and pars-able output are both lacking, but there is an
 <a href="https://docs.docker.com/engine/reference/api/docker_remote_api/">API</a> that you
 can use instead. The Dockerd api can listen on a local socket or even a
-remote accessible port, but in these examples I'll show local socket only.</p>
+remote accessible port, but in these examples I&#39;ll show local socket only.</p>
 
             </section>
             <section id="section-2">
                 <h2>Raw</h2>
 
 <p>Use <a href="https://curl.haxx.se/">curl</a> to connect to the docker socket, and give a
-URL related to Docker's API. In this example you'll get compressed and
+URL related to Docker&#39;s API. In this example you&#39;ll get compressed and
 unreadable JSON about all installed Docker images.</p>
 
 <h3>List all docker images</h3>
@@ -100,21 +100,21 @@ unreadable JSON about all installed Docker images.</p>
 <pre><code class="hljs">curl --unix-socket /run/docker.sock http://docker/images/json<span class="hljs-keyword">|</span> jq .
 </code></pre>
 
-<p>Here's an excerpt, one image:</p>
+<p>Here&#39;s an excerpt, one image:</p>
 
 <pre><code class="hljs">{
-    <span class="hljs-string">"Id"</span>: <span class="hljs-string">"sha256:25e41e468c9cb4351dbbeedf2a9d266bcdf2257d3b1188a73b421b2035513f01"</span>,
-    <span class="hljs-string">"ParentId"</span>: <span class="hljs-string">""</span>,
-    <span class="hljs-string">"RepoTags"</span>: [
-          <span class="hljs-string">"perl:5.24"</span>
+    <span class="hljs-string">&quot;Id&quot;</span>: <span class="hljs-string">&quot;sha256:25e41e468c9cb4351dbbeedf2a9d266bcdf2257d3b1188a73b421b2035513f01&quot;</span>,
+    <span class="hljs-string">&quot;ParentId&quot;</span>: <span class="hljs-string">&quot;&quot;</span>,
+    <span class="hljs-string">&quot;RepoTags&quot;</span>: [
+          <span class="hljs-string">&quot;perl:5.24&quot;</span>
     ],
-    <span class="hljs-string">"RepoDigests"</span>: [
-      <span class="hljs-string">"perl@sha256:6c589d851fed973cf7e1285abc13f4f92d31665f6acf4e094819d5292160e5c7"</span>
+    <span class="hljs-string">&quot;RepoDigests&quot;</span>: [
+      <span class="hljs-string">&quot;perl@sha256:6c589d851fed973cf7e1285abc13f4f92d31665f6acf4e094819d5292160e5c7&quot;</span>
     ],
-    <span class="hljs-string">"Created"</span>: <span class="hljs-number">1477122199</span>,
-    <span class="hljs-string">"Size"</span>: <span class="hljs-number">655927650</span>,
-    <span class="hljs-string">"VirtualSize"</span>: <span class="hljs-number">655927650</span>,
-    <span class="hljs-string">"Labels"</span>: {}
+    <span class="hljs-string">&quot;Created&quot;</span>: <span class="hljs-number">1477122199</span>,
+    <span class="hljs-string">&quot;Size&quot;</span>: <span class="hljs-number">655927650</span>,
+    <span class="hljs-string">&quot;VirtualSize&quot;</span>: <span class="hljs-number">655927650</span>,
+    <span class="hljs-string">&quot;Labels&quot;</span>: {}
 },
 </code></pre>
 
@@ -123,34 +123,34 @@ unreadable JSON about all installed Docker images.</p>
 <h3>Return just the image ids</h3>
 
 <pre><code class="hljs">curl -s --unix-socket /run/docker.sock http://docker/images/json \
-    <span class="hljs-keyword">|</span> jq <span class="hljs-string">'.[]|.Id'</span>
+    <span class="hljs-keyword">|</span> jq <span class="hljs-string">&#39;.[]|.Id&#39;</span>
 </code></pre>
 
 <h3>Return image ids and creation epoch time</h3>
 
 <pre><code class="hljs">curl -s --unix-socket /run/docker.sock http://docker/images/json \
-    <span class="hljs-keyword">|</span> jq <span class="hljs-string">'.[]|.Id,.Created'</span>
+    <span class="hljs-keyword">|</span> jq <span class="hljs-string">&#39;.[]|.Id,.Created&#39;</span>
 </code></pre>
 
 <h3>Search for a given image and return created epoch time</h3>
 
 <pre><code class="hljs">curl -s --unix-socket /run/docker.sock http://docker/images/json \
-    <span class="hljs-keyword">|</span> jq <span class="hljs-string">'.[]| select( .Id \</span><span class="hljs-string">
+    <span class="hljs-keyword">|</span> jq <span class="hljs-string">&#39;.[]| select( .Id \</span><span class="hljs-string">
 </span><span class="hljs-string">    == \</span><span class="hljs-string">
-</span><span class="hljs-string">    "sha256:52c080433dada462d6c7fbaa7f84f96a20448a23cdcec115cf17deaee8d3c4a8" )\</span><span class="hljs-string">
-</span><span class="hljs-string">    |.Created'</span>
+</span><span class="hljs-string">    &quot;sha256:52c080433dada462d6c7fbaa7f84f96a20448a23cdcec115cf17deaee8d3c4a8&quot; )\</span><span class="hljs-string">
+</span><span class="hljs-string">    |.Created&#39;</span>
 </code></pre>
 
 <h3>Search for images created earlier than 10 minutes ago</h3>
 
 <pre><code class="hljs">curl -s --unix-socket /run/docker.sock http://docker/images/json \
-    <span class="hljs-keyword">|</span> jq <span class="hljs-string">'.[]| select( .Created &lt; ( now - 600 ))|.Id'</span>
+    <span class="hljs-keyword">|</span> jq <span class="hljs-string">&#39;.[]| select( .Created &lt; ( now - 600 ))|.Id&#39;</span>
 </code></pre>
 
 <h3>Search for images that contain given RepoTags and return the created epoch time</h3>
 
 <pre><code class="hljs">curl -s --unix-socket /run/docker.sock http://docker/images/json \
-    <span class="hljs-keyword">|</span> jq <span class="hljs-string">'.[] | select( .RepoTags[] == "perl:5.24" )|.Created'</span>
+    <span class="hljs-keyword">|</span> jq <span class="hljs-string">&#39;.[] | select( .RepoTags[] == &quot;perl:5.24&quot; )|.Created&#39;</span>
 </code></pre>
 
 <h2>References:</h2>
@@ -167,7 +167,7 @@ unreadable JSON about all installed Docker images.</p>
     </div>
 
     <div class="col-md-3">
-        <iframe src="https://duckduckgo.com/search.html?site=watson-wilson.ca&prefill=Search DuckDuckGo" style="overflow:hidden;margin:0;padding:0;width:350px;height:40px;" frameborder="0"></iframe>
+        <iframe frameborder="0" src="https://duckduckgo.com/search.html?site=watson-wilson.ca&amp;prefill=Search DuckDuckGo" style="overflow:hidden;margin:0;padding:0;width:350px;height:40px;"></iframe>
 
         <nav id="tags">
             <h1>Tags</h1>
@@ -268,31 +268,31 @@ unreadable JSON about all installed Docker images.</p>
 
 </div>
 
-<div class='row'>
-   <div class='col-md-1'>
-       <img atl='Neil Watson' src='https://gravatar.com/avatar/1f0969599955a953e592034929ed7a23' >
+<div class="row">
+   <div class="col-md-1">
+       <img atl="Neil Watson" src="https://gravatar.com/avatar/1f0969599955a953e592034929ed7a23">
    </div>
 
-       <div class='col-md-1'>
+       <div class="col-md-1">
             <!-- reddit this -->
-            <a href="//www.reddit.com/submit" onclick="window.location = '//www.reddit.com/submit?url=' + encodeURIComponent(window.location); return false"><img src="//www.redditstatic.com/spreddit7.gif" alt="submit to reddit" border="0" /></a>
+            <a href="//www.reddit.com/submit" onclick="window.location = &#39;//www.reddit.com/submit?url=&#39; + encodeURIComponent(window.location); return false"><img alt="submit to reddit" border="0" src="//www.redditstatic.com/spreddit7.gif"></a>
        </div>
 
-       <div class='col-md-1'>
+       <div class="col-md-1">
           <!-- Tweet this -->
-          <a href="https://twitter.com/share" class="twitter-share-button" data-via="neil_h_watson" data-count="none">Tweet</a>
+          <a class="twitter-share-button" data-count="none" data-via="neil_h_watson" href="https://twitter.com/share">Tweet</a>
     <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
        </div>
 
-       <div class='col-md-1'>
+       <div class="col-md-1">
           <!-- follow me on twitter -->
-          <a href="https://twitter.com/neil_h_watson" class="twitter-follow-button" data-show-count="false" data-show-screen-name="false">Follow @neil_h_watson</a>
+          <a class="twitter-follow-button" data-show-count="false" data-show-screen-name="false" href="https://twitter.com/neil_h_watson">Follow @neil_h_watson</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
         </div>
 
-       <div class='col-md-1'>
+       <div class="col-md-1">
            <!-- follw me on github -->
-            <a aria-label="Follow @neilhwatson on GitHub" data-style="mega" href="https://github.com/neilhwatson" class="github-button">Follow</a>
+            <a aria-label="Follow @neilhwatson on GitHub" class="github-button" data-style="mega" href="https://github.com/neilhwatson">Follow</a>
             <script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
        </div>
 
@@ -302,9 +302,9 @@ unreadable JSON about all installed Docker images.</p>
         <footer>
             
             <h1></h1>
-            <div class='col-md-5'> </div>
+            <div class="col-md-5"> </div>
             <div class="col-md-3 container tagline">
-                <a href="http://preaction.me/statocles">Made with Statocles</a><br/>
+                <a href="http://preaction.me/statocles">Made with Statocles</a><br>
                 <a href="http://www.perl.org">Powered by Perl</a>
             </div>
         </footer>

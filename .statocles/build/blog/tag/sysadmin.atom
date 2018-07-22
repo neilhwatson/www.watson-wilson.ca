@@ -3,13 +3,13 @@
     <id>http://watson-wilson.ca/blog/tag/sysadmin/</id>
     <title>Neil H. Watson</title>
     <updated>2011-03-08T00:00:00Z</updated>
-    <link rel="self" href="http://watson-wilson.ca/blog/tag/sysadmin.atom"/>
-    <link rel="alternate" href="http://watson-wilson.ca/blog/tag/sysadmin/"/>
+    <link href="http://watson-wilson.ca/blog/tag/sysadmin.atom" rel="self" />
+    <link href="http://watson-wilson.ca/blog/tag/sysadmin/" rel="alternate" />
     <generator version="0.093">Statocles</generator>
     <entry>
         <id>http://watson-wilson.ca/blog/2011/03/08/enterprise-sysadmin/</id>
         <title>Enterprise system administration using configuration management</title>
-        <link rel="alternate" href="http://watson-wilson.ca/blog/2011/03/08/enterprise-sysadmin/" />
+        <link href="http://watson-wilson.ca/blog/2011/03/08/enterprise-sysadmin/" rel="alternate" />
         <content type="html"><![CDATA[
             <p>To maintain the large quantity of servers typically found in enterprise
 organizations, systems administration must move beyond manual and custom

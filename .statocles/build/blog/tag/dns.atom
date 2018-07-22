@@ -3,13 +3,13 @@
     <id>http://watson-wilson.ca/blog/tag/dns/</id>
     <title>Neil H. Watson</title>
     <updated>2013-02-22T00:00:00Z</updated>
-    <link rel="self" href="http://watson-wilson.ca/blog/tag/dns.atom"/>
-    <link rel="alternate" href="http://watson-wilson.ca/blog/tag/dns/"/>
+    <link href="http://watson-wilson.ca/blog/tag/dns.atom" rel="self" />
+    <link href="http://watson-wilson.ca/blog/tag/dns/" rel="alternate" />
     <generator version="0.093">Statocles</generator>
     <entry>
         <id>http://watson-wilson.ca/blog/2013/02/22/dns-renaming/</id>
         <title>Avoid the cost of renaming hundreds of hosts</title>
-        <link rel="alternate" href="http://watson-wilson.ca/blog/2013/02/22/dns-renaming/" />
+        <link href="http://watson-wilson.ca/blog/2013/02/22/dns-renaming/" rel="alternate" />
         <content type="html"><![CDATA[
             <p>Your hosts are named after your data centre. Now you must move hundreds of
 hosts to another data centre. Do you rename them or abandon the naming
@@ -30,7 +30,7 @@ naming them.</p>
     <entry>
         <id>http://watson-wilson.ca/blog/2011/03/03/host-naming/</id>
         <title>Choosing a host naming convention</title>
-        <link rel="alternate" href="http://watson-wilson.ca/blog/2011/03/03/host-naming/" />
+        <link href="http://watson-wilson.ca/blog/2011/03/03/host-naming/" rel="alternate" />
         <content type="html"><![CDATA[
             <p><object data="/static/images/hello_my_name_is_dns.svg" style="float:right" type="image/svg+xhtml" width="300px">
     Hello, my name is Dns

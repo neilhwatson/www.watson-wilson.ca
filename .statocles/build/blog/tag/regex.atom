@@ -3,14 +3,14 @@
     <id>http://watson-wilson.ca/blog/tag/regex/</id>
     <title>Neil H. Watson</title>
     <updated>2015-08-20T21:51:58Z</updated>
-    <link rel="self" href="http://watson-wilson.ca/blog/tag/regex.atom"/>
-    <link rel="alternate" href="http://watson-wilson.ca/blog/tag/regex/"/>
+    <link href="http://watson-wilson.ca/blog/tag/regex.atom" rel="self" />
+    <link href="http://watson-wilson.ca/blog/tag/regex/" rel="alternate" />
     <generator version="0.093">Statocles</generator>
     <entry>
         <id>http://watson-wilson.ca/blog/2015/08/20/build-better-regular-expressions-in-cfengine/</id>
         <title>Build better regular expressions in CFEngine</title>
         <author><name>nwatson</name></author>
-        <link rel="alternate" href="http://watson-wilson.ca/blog/2015/08/20/build-better-regular-expressions-in-cfengine/" />
+        <link href="http://watson-wilson.ca/blog/2015/08/20/build-better-regular-expressions-in-cfengine/" rel="alternate" />
         <content type="html"><![CDATA[
             <p><img alt="picture of a regex" src="http://watson-wilson.ca/static/images/regex.png"></p>
 
@@ -37,7 +37,7 @@ comments. CFEngine is no exception.</p>
         <id>http://watson-wilson.ca/blog/2013/05/09/pcre-cheatsheet/</id>
         <title>PCRE cheatsheet</title>
         <author><name>nwatson</name></author>
-        <link rel="alternate" href="http://watson-wilson.ca/blog/2013/05/09/pcre-cheatsheet/" />
+        <link href="http://watson-wilson.ca/blog/2013/05/09/pcre-cheatsheet/" rel="alternate" />
         <content type="html"><![CDATA[
             <p>Although similar to Perl, PCRE has some syntax that can be
 difficult to remember. When I&#39;m working with CFEngine I often have to
@@ -60,7 +60,7 @@ look it up. Here is a cheat-sheet to save time.</p>
     <entry>
         <id>http://watson-wilson.ca/blog/2011/03/08/posix-regex-cheatsheet/</id>
         <title>POSIX regular expression cheatsheet</title>
-        <link rel="alternate" href="http://watson-wilson.ca/blog/2011/03/08/posix-regex-cheatsheet/" />
+        <link href="http://watson-wilson.ca/blog/2011/03/08/posix-regex-cheatsheet/" rel="alternate" />
         <content type="html"><![CDATA[
             <table>
 <tr>

@@ -3,13 +3,13 @@
     <id>http://watson-wilson.ca/blog/tag/satellite/</id>
     <title>Neil H. Watson</title>
     <updated>2015-12-08T00:00:00Z</updated>
-    <link rel="self" href="http://watson-wilson.ca/blog/tag/satellite.atom"/>
-    <link rel="alternate" href="http://watson-wilson.ca/blog/tag/satellite/"/>
+    <link href="http://watson-wilson.ca/blog/tag/satellite.atom" rel="self" />
+    <link href="http://watson-wilson.ca/blog/tag/satellite/" rel="alternate" />
     <generator version="0.093">Statocles</generator>
     <entry>
         <id>http://watson-wilson.ca/blog/2015/12/08/spacewalk/</id>
         <title>Installing Spacewalk</title>
-        <link rel="alternate" href="http://watson-wilson.ca/blog/2015/12/08/spacewalk/" />
+        <link href="http://watson-wilson.ca/blog/2015/12/08/spacewalk/" rel="alternate" />
         <content type="html"><![CDATA[
             <p>Here&#39;s a quick procedure for installing <a href="http://spacewalk.redhat.com/">Spacewalk</a>.</p>
 
@@ -33,7 +33,7 @@
         <id>http://watson-wilson.ca/blog/2015/06/10/purging-old-systems-from-red-hat-satellite/</id>
         <title>Purging old systems from Red Hat Satellite</title>
         <author><name>nwatson</name></author>
-        <link rel="alternate" href="http://watson-wilson.ca/blog/2015/06/10/purging-old-systems-from-red-hat-satellite/" />
+        <link href="http://watson-wilson.ca/blog/2015/06/10/purging-old-systems-from-red-hat-satellite/" rel="alternate" />
         <content type="html"><![CDATA[
             <p>I&#39;ve been involved in a Red Hat Satellite (version 5) project recently.</p>
 

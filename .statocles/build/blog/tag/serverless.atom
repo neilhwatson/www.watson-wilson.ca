@@ -3,13 +3,13 @@
     <id>http://watson-wilson.ca/blog/tag/serverless/</id>
     <title>Neil H. Watson</title>
     <updated>2018-07-22T00:00:00Z</updated>
-    <link rel="self" href="http://watson-wilson.ca/blog/tag/serverless.atom"/>
-    <link rel="alternate" href="http://watson-wilson.ca/blog/tag/serverless/"/>
+    <link href="http://watson-wilson.ca/blog/tag/serverless.atom" rel="self" />
+    <link href="http://watson-wilson.ca/blog/tag/serverless/" rel="alternate" />
     <generator version="0.093">Statocles</generator>
     <entry>
         <id>http://watson-wilson.ca/blog/2018/07/22/lambda/</id>
         <title>Intro to Lambda using Ansible</title>
-        <link rel="alternate" href="http://watson-wilson.ca/blog/2018/07/22/lambda/" />
+        <link href="http://watson-wilson.ca/blog/2018/07/22/lambda/" rel="alternate" />
         <content type="html"><![CDATA[
             <p><a href="http://watson-wilson.ca/blog/2018/07/22/lambda/"><img alt="aws logo" src="http://watson-wilson.ca/static/images/aws.png" style="float:right" width="120px"></a></p>
 

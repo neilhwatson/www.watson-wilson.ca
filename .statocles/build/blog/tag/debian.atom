@@ -3,14 +3,14 @@
     <id>http://watson-wilson.ca/blog/tag/debian/</id>
     <title>Neil H. Watson</title>
     <updated>2014-10-30T10:10:50Z</updated>
-    <link rel="self" href="http://watson-wilson.ca/blog/tag/debian.atom"/>
-    <link rel="alternate" href="http://watson-wilson.ca/blog/tag/debian/"/>
+    <link href="http://watson-wilson.ca/blog/tag/debian.atom" rel="self" />
+    <link href="http://watson-wilson.ca/blog/tag/debian/" rel="alternate" />
     <generator version="0.093">Statocles</generator>
     <entry>
         <id>http://watson-wilson.ca/blog/2014/10/30/changes-in-virt-install-and-kickstart-in-rhel7/</id>
         <title>Changes in virt-install and Kickstart in RHEL7</title>
         <author><name>nwatson</name></author>
-        <link rel="alternate" href="http://watson-wilson.ca/blog/2014/10/30/changes-in-virt-install-and-kickstart-in-rhel7/" />
+        <link href="http://watson-wilson.ca/blog/2014/10/30/changes-in-virt-install-and-kickstart-in-rhel7/" rel="alternate" />
         <content type="html"><![CDATA[
             <p><img alt="army provisions" src="http://watson-wilson.ca/static/images/mre-case.jpg"></p>
 
@@ -44,7 +44,7 @@ hosts.</p>
     <entry>
         <id>http://watson-wilson.ca/blog/2011/03/08/apt-cheatsheet/</id>
         <title>Debian Apt Cheatsheet</title>
-        <link rel="alternate" href="http://watson-wilson.ca/blog/2011/03/08/apt-cheatsheet/" />
+        <link href="http://watson-wilson.ca/blog/2011/03/08/apt-cheatsheet/" rel="alternate" />
         <content type="html"><![CDATA[
             <table>
 <tr>

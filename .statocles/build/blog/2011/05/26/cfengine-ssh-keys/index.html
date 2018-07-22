@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="en"> 
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
         <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-        <link rel="stylesheet" href="/theme/css/readability-bootstrap.min.css" />
+        <link href="/theme/css/readability-bootstrap.min.css" rel="stylesheet">
         <!--<link rel="stylesheet" href="/theme/css/statocles-bootstrap.css" />-->
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
         <title>SSH public key distribution using CFEngine - Neil H. Watson</title>
-        <meta name="generator" content="Statocles 0.093" />
+        <meta content="Statocles 0.093" name="generator">
         
 
         <!-- For source highlighting -->
-        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/default.min.css">
+        <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/default.min.css" rel="stylesheet">
         <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js"></script>
         <script>hljs.initHighlightingOnLoad();</script>
 
@@ -24,7 +24,7 @@
                 <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
                     <div class="navbar-header">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#top-navbar-collapse-1">
+                        <button class="navbar-toggle" data-target="#top-navbar-collapse-1" data-toggle="collapse" type="button">
                             <span class="sr-only">Toggle navigation</span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
@@ -84,11 +84,11 @@ involves a simple copy.</p>
 <pre><code>bundle agent recipe {
 
  files:
-   "/home/neil/.ssh/authorized_keys"
-     handle =&gt; "neil_ssh_pub",
-     comment =&gt; "Install Neil's public ssh key",
-     perms =&gt; mog("0600", "neil", "neil"),
-     copy_from =&gt; remote_cp("/var/cf-masterfiles/sshkeys/neil-pub","venus");
+   &quot;/home/neil/.ssh/authorized_keys&quot;
+     handle =&gt; &quot;neil_ssh_pub&quot;,
+     comment =&gt; &quot;Install Neil&#39;s public ssh key&quot;,
+     perms =&gt; mog(&quot;0600&quot;, &quot;neil&quot;, &quot;neil&quot;),
+     copy_from =&gt; remote_cp(&quot;/var/cf-masterfiles/sshkeys/neil-pub&quot;,&quot;venus&quot;);
 }
 </code></pre>
 
@@ -98,7 +98,7 @@ owner, group and mode.</p>
 <pre><code>cf3     Promise handle: neil_ssh_pub
 cf3     Promise made by: /home/neil/.ssh/authorized_keys
 cf3
-cf3     Comment:  Install Neil's public ssh key
+cf3     Comment:  Install Neil&#39;s public ssh key
 cf3     .........................................................
 cf3
 cf3  -&gt; Handling file existence constraints on
@@ -119,7 +119,7 @@ cf3  -&gt; Last saw venus (+192.168.0.15) now
 cf3 Loaded /vars:/cfengine/ppkeys/root-192.168.0.15.pub
 cf3 .....................[.h.a.i.l.].................................
 cf3 Strong authentication of server=venus connection confirmed
-cf3  -&gt; Destination file "/home/neil/.ssh/authorized_keys" already
+cf3  -&gt; Destination file &quot;/home/neil/.ssh/authorized_keys&quot; already
 exists
 cf3  -&gt; Not attempting to preserve file permissions from the source
 cf3  -&gt; File permissions on /home/neil/.ssh/authorized_keys as promised
@@ -137,48 +137,48 @@ required.</p>
 <pre><code>bundle agent recipe {
 
   vars:
-    "keys" slist =&gt; { 
-      "ssh-rsa AAAAB31yc2E...EZFcqZ0CSQ1OPw== neil@pearl.watson-wilson.ca",
-      "ssh-rsa AAAAB31yc2E...NezfCQz0CSQ1OPw== neil@ruby.watson-wilson.ca"
+    &quot;keys&quot; slist =&gt; { 
+      &quot;ssh-rsa AAAAB31yc2E...EZFcqZ0CSQ1OPw== neil@pearl.watson-wilson.ca&quot;,
+      &quot;ssh-rsa AAAAB31yc2E...NezfCQz0CSQ1OPw== neil@ruby.watson-wilson.ca&quot;
     };
 
   files:
-    "/home/neil/.ssh/authorized_keys"
-      handle =&gt; "neil_ssh_pub",
-      comment =&gt; "Install Neil's public ssh keys",
-      perms =&gt; mog("0644","neil","neil"),
-      edit_line =&gt; append_if_no_lines( "@{recipe.keys}" );
+    &quot;/home/neil/.ssh/authorized_keys&quot;
+      handle =&gt; &quot;neil_ssh_pub&quot;,
+      comment =&gt; &quot;Install Neil&#39;s public ssh keys&quot;,
+      perms =&gt; mog(&quot;0644&quot;,&quot;neil&quot;,&quot;neil&quot;),
+      edit_line =&gt; append_if_no_lines( &quot;@{recipe.keys}&quot; );
 }
 </code></pre>
 
 <p>This bundle appends authorized_keys with the given key lines. Note that we pass
 the list to the edit_line bundle “append_if_no_lines” as “@{recipe.keys}”. Were
 we to pass just “@{keys}” to the body part that part would think the list is
-scoped locally and would be blank. By qualifying it with the bundle's name the
+scoped locally and would be blank. By qualifying it with the bundle&#39;s name the
 correct list is used.</p>
 
 <pre><code>cf3     Promise handle: 
 cf3     Promise made by: ssh-rsa
 AAAAB3NzaC1yc2EAAAABIwAAAQEA0Rg/vwLT9Hk4+wp5rVtKRgn9cHC3zHWHAW
 cf3 
-cf3     Comment:  Append lines to the file if they don't already exist
+cf3     Comment:  Append lines to the file if they don&#39;t already exist
 cf3     .........................................................
 cf3 
-cf3  -&gt; Inserting the promised line "ssh-rsa
+cf3  -&gt; Inserting the promised line &quot;ssh-rsa
 AAAAB3NzaC1yc2EAAAABIwAAAQEA0Rg/vwLT9Hk4+wp5rVtKRg
-n-wilson.ca" into /home/neil/.ssh/authorized_keys after locator
+n-wilson.ca&quot; into /home/neil/.ssh/authorized_keys after locator
 cf3 
 cf3     .........................................................
 cf3     Promise handle: 
 cf3     Promise made by: ssh-rsa
 AAAAB3NzaC1yc2EaaaabiWaaaqea0rG/VWlt9hK4+WP5RvTkrGN9Chc3Zhwhaw
 cf3 
-cf3     Comment:  Append lines to the file if they don't already exist
+cf3     Comment:  Append lines to the file if they don&#39;t already exist
 cf3     .........................................................
 cf3 
-cf3  -&gt; Inserting the promised line "ssh-rsa
+cf3  -&gt; Inserting the promised line &quot;ssh-rsa
 AAAAB3NzaC1yc2EaaaabiWaaaqea0rG/VWlt9hK4+WP5RvTkrG
--wilson.ca" into /home/neil/.ssh/authorized_keys after locator
+-wilson.ca&quot; into /home/neil/.ssh/authorized_keys after locator
 </code></pre>
 
             </section>
@@ -188,7 +188,7 @@ AAAAB3NzaC1yc2EaaaabiWaaaqea0rG/VWlt9hK4+WP5RvTkrG
     </div>
 
     <div class="col-md-3">
-        <iframe src="https://duckduckgo.com/search.html?site=watson-wilson.ca&prefill=Search DuckDuckGo" style="overflow:hidden;margin:0;padding:0;width:350px;height:40px;" frameborder="0"></iframe>
+        <iframe frameborder="0" src="https://duckduckgo.com/search.html?site=watson-wilson.ca&amp;prefill=Search DuckDuckGo" style="overflow:hidden;margin:0;padding:0;width:350px;height:40px;"></iframe>
 
         <nav id="tags">
             <h1>Tags</h1>
@@ -289,31 +289,31 @@ AAAAB3NzaC1yc2EaaaabiWaaaqea0rG/VWlt9hK4+WP5RvTkrG
 
 </div>
 
-<div class='row'>
-   <div class='col-md-1'>
-       <img atl='Neil Watson' src='https://gravatar.com/avatar/1f0969599955a953e592034929ed7a23' >
+<div class="row">
+   <div class="col-md-1">
+       <img atl="Neil Watson" src="https://gravatar.com/avatar/1f0969599955a953e592034929ed7a23">
    </div>
 
-       <div class='col-md-1'>
+       <div class="col-md-1">
             <!-- reddit this -->
-            <a href="//www.reddit.com/submit" onclick="window.location = '//www.reddit.com/submit?url=' + encodeURIComponent(window.location); return false"><img src="//www.redditstatic.com/spreddit7.gif" alt="submit to reddit" border="0" /></a>
+            <a href="//www.reddit.com/submit" onclick="window.location = &#39;//www.reddit.com/submit?url=&#39; + encodeURIComponent(window.location); return false"><img alt="submit to reddit" border="0" src="//www.redditstatic.com/spreddit7.gif"></a>
        </div>
 
-       <div class='col-md-1'>
+       <div class="col-md-1">
           <!-- Tweet this -->
-          <a href="https://twitter.com/share" class="twitter-share-button" data-via="neil_h_watson" data-count="none">Tweet</a>
+          <a class="twitter-share-button" data-count="none" data-via="neil_h_watson" href="https://twitter.com/share">Tweet</a>
     <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
        </div>
 
-       <div class='col-md-1'>
+       <div class="col-md-1">
           <!-- follow me on twitter -->
-          <a href="https://twitter.com/neil_h_watson" class="twitter-follow-button" data-show-count="false" data-show-screen-name="false">Follow @neil_h_watson</a>
+          <a class="twitter-follow-button" data-show-count="false" data-show-screen-name="false" href="https://twitter.com/neil_h_watson">Follow @neil_h_watson</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
         </div>
 
-       <div class='col-md-1'>
+       <div class="col-md-1">
            <!-- follw me on github -->
-            <a aria-label="Follow @neilhwatson on GitHub" data-style="mega" href="https://github.com/neilhwatson" class="github-button">Follow</a>
+            <a aria-label="Follow @neilhwatson on GitHub" class="github-button" data-style="mega" href="https://github.com/neilhwatson">Follow</a>
             <script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
        </div>
 
@@ -323,9 +323,9 @@ AAAAB3NzaC1yc2EaaaabiWaaaqea0rG/VWlt9hK4+WP5RvTkrG
         <footer>
             
             <h1></h1>
-            <div class='col-md-5'> </div>
+            <div class="col-md-5"> </div>
             <div class="col-md-3 container tagline">
-                <a href="http://preaction.me/statocles">Made with Statocles</a><br/>
+                <a href="http://preaction.me/statocles">Made with Statocles</a><br>
                 <a href="http://www.perl.org">Powered by Perl</a>
             </div>
         </footer>

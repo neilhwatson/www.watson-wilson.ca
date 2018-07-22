@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="en"> 
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
         <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-        <link rel="stylesheet" href="/theme/css/readability-bootstrap.min.css" />
+        <link href="/theme/css/readability-bootstrap.min.css" rel="stylesheet">
         <!--<link rel="stylesheet" href="/theme/css/statocles-bootstrap.css" />-->
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
         <title>CFEngine best practices: deployment, upgrades, and scaling - Neil H. Watson</title>
-        <meta name="generator" content="Statocles 0.093" />
+        <meta content="Statocles 0.093" name="generator">
         
 
         <!-- For source highlighting -->
-        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/default.min.css">
+        <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/default.min.css" rel="stylesheet">
         <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js"></script>
         <script>hljs.initHighlightingOnLoad();</script>
 
@@ -24,7 +24,7 @@
                 <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
                     <div class="navbar-header">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#top-navbar-collapse-1">
+                        <button class="navbar-toggle" data-target="#top-navbar-collapse-1" data-toggle="collapse" type="button">
                             <span class="sr-only">Toggle navigation</span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
@@ -71,7 +71,7 @@
 
             </header>
             <section id="section-1">
-                <p><img src="/static/images/sts-atlantis.jpg" alt="sts-atlantis" /></p>
+                <p><img alt="sts-atlantis" src="/static/images/sts-atlantis.jpg"></p>
 
 <p>Part 3 of CFEngine best practices.</p>
 
@@ -80,7 +80,7 @@
                 <h4>Version control</h4>
 
 <p>Put your CFEngine policy and supporting programs, data files, and
-documentation into version control. Like any other code you'll benefit
+documentation into version control. Like any other code you&#39;ll benefit
 from knowing its history. You can use branches to promote new policy
 from testing to production. I recommend using three branches: dev, qa,
 and production. Have servers and agents dedicated to each branch. The
@@ -99,15 +99,15 @@ works with most RCS products.</p>
 upgrade path is steep and rocky. Many are just now starting this climb.
 The best upgrade path is to set up separate CFEngine 3 servers, and
 install CFEngine 3 on your clients while continuing to use CFEngine 2.
-CFEngine 2's <em>cfagent</em> can run in parallel with the CFEngine 3 <em>cf-agent</em>.
+CFEngine 2&#39;s <em>cfagent</em> can run in parallel with the CFEngine 3 <em>cf-agent</em>.
 The two versions do not share any common files so there is no overlap.
 They do share common directories; the most important is inputs.</p>
 
 <p>When you bootstrap CFEngine 3, using its built in bootstrap feature,
 cf-agent will delete all files in inputs including any related to
-CFEngine 2. If you want to run 2 and 3 in parallel you'll need a
-wrapper script around CFEngine 3's bootstrap process to backup and
-restore CFEngine 2's inputs. <a href="https://tracker.mender.io/browse/CFE-959">here</a>
+CFEngine 2. If you want to run 2 and 3 in parallel you&#39;ll need a
+wrapper script around CFEngine 3&#39;s bootstrap process to backup and
+restore CFEngine 2&#39;s inputs. <a href="https://tracker.mender.io/browse/CFE-959">here</a>
 is an interesting discussion on this topic. With both agents running in
 parallel you can reduce your CF2 policy and increase your CF3 in
 gradually.</p>
@@ -130,7 +130,7 @@ its own new bugs. An example of the former: in version 3.5.0 the syntax
 checker became more strict, reporting errors that previous versions
 missed. Examples of the latter include many fixed and outstanding
 regression bugs. Trust is earned. Make CFEngine, and any other
-software, earn your trust. Here's a more practical approach to
+software, earn your trust. Here&#39;s a more practical approach to
 upgrading.</p>
 
 <h5>Steps to upgrading CFEngine, practical</h5>
@@ -144,7 +144,7 @@ upgrade is complete.</p></li>
 <li><p>Repeat server and client upgrade steps for qa and production.</p></li>
 </ol>
 
-<p>As release candidates come out, you'll get a chance to experience and
+<p>As release candidates come out, you&#39;ll get a chance to experience and
 see what others experience with the proposed new version. Watch the
 bugs that get resolved and those that remain open. There may be new
 syntax or features that are not compatible with your current version of
@@ -161,7 +161,7 @@ production.</p>
 
 <p>Figure 1: Delta Reporting showing an ntp process promise on multiple
 hosts
-<a href="/static/images/dr-process-report.png"><img src="/static/images/dr-process-report.png" alt="Reporting on ntp process promises" /></a></p>
+<a href="/static/images/dr-process-report.png"><img alt="Reporting on ntp process promises" src="/static/images/dr-process-report.png"></a></p>
 
 <h4>Upgrading policy</h4>
 
@@ -188,7 +188,7 @@ schedule daemon cf-exed checks its current hard classes versus the time
 classes specified in its control body schedule attribute. If there is a
 match, the <em>exec_command</em> is run. If you have a thousand hosts all of
 them will start at the same time causing the server needless load and
-dropped connections. Splaytime is set in cf-execd's control body. Each
+dropped connections. Splaytime is set in cf-execd&#39;s control body. Each
 agent generates a deterministic time between zero and splaytime minutes
 and waits that amount of time before running the exec_command. Thus
 your agent starts are splayed. Always set splaytime to the interval or
@@ -216,17 +216,17 @@ this list using the <em>shuffle</em> function and you add load balancing.</p>
 
 <p>The trouble with having no multi-server bootstrap is that we are left
 to handle key exchanges between agents and multiple servers. There are
-multiple ways to do this. I won't go into detail here, but give you a
+multiple ways to do this. I won&#39;t go into detail here, but give you a
 high overview instead.</p>
 
 <p>Recall that for agent and server to trust each other there must be
-access promises, each must have the other's public key stored in the
-ppkeys directory, and the server's allowconnects and allowallconnects
+access promises, each must have the other&#39;s public key stored in the
+ppkeys directory, and the server&#39;s allowconnects and allowallconnects
 must include the agent. You can have all redundant servers share the
-same private keys or give them separate keys. Either way you'll need to
+same private keys or give them separate keys. Either way you&#39;ll need to
 sync some or all of the ppkeys directory between the servers so that
 each has a copy of all agent public keys. Also, ensure that each client
-has a copy of each server's public key.</p>
+has a copy of each server&#39;s public key.</p>
 
 <h4>Make policy that makes the agent self reliant</h4>
 
@@ -244,23 +244,23 @@ ones.</p>
 <p>Figure 2: Caching source files </p>
 
 <pre><code>files:
-   "${efl_c.cache}/${${config_file[${s}]}}" -&gt; { "${${promisee[${s}]}}" }
-      comment =&gt; "Cache the source file",
-      handle =&gt; "efl_service_files_cache",
-      create =&gt; "true",
-      copy_from =&gt; efl_cpf( "${${source_file[${s}]}}", "@{${${server[${s}]}}}" );
+   &quot;${efl_c.cache}/${${config_file[${s}]}}&quot; -&gt; { &quot;${${promisee[${s}]}}&quot; }
+      comment =&gt; &quot;Cache the source file&quot;,
+      handle =&gt; &quot;efl_service_files_cache&quot;,
+      create =&gt; &quot;true&quot;,
+      copy_from =&gt; efl_cpf( &quot;${${source_file[${s}]}}&quot;, &quot;@{${${server[${s}]}}}&quot; );
 
-   "${${config_file[${s}]}}" -&gt; { "${${promisee[${s}]}}" }
-      comment =&gt; "Promise contents of configuration file from the cache",
-      handle =&gt; "efl_service_files_config",
-      create =&gt; "true",
-      copy_from =&gt; efl_cpf( "${efl_c.cache}/${${config_file[${s}]}}", "localhost" );
+   &quot;${${config_file[${s}]}}&quot; -&gt; { &quot;${${promisee[${s}]}}&quot; }
+      comment =&gt; &quot;Promise contents of configuration file from the cache&quot;,
+      handle =&gt; &quot;efl_service_files_config&quot;,
+      create =&gt; &quot;true&quot;,
+      copy_from =&gt; efl_cpf( &quot;${efl_c.cache}/${${config_file[${s}]}}&quot;, &quot;localhost&quot; );
 </code></pre>
 
 <h4>Limiting agent input files</h4>
 
-<p>When using CFEngine's bootstrap feature all the contents of the
-server's masterfiles directory is copied to the agent's inputs
+<p>When using CFEngine&#39;s bootstrap feature all the contents of the
+server&#39;s masterfiles directory is copied to the agent&#39;s inputs
 directory. You may want to limit which input files are copied. A good
 approach is to keep only the most basic files in masterfiles, including
 policy for the agent to download other files from directories <em>outside</em>
@@ -293,7 +293,7 @@ switch. You must limit access using server access promises.</p>
     </div>
 
     <div class="col-md-3">
-        <iframe src="https://duckduckgo.com/search.html?site=watson-wilson.ca&prefill=Search DuckDuckGo" style="overflow:hidden;margin:0;padding:0;width:350px;height:40px;" frameborder="0"></iframe>
+        <iframe frameborder="0" src="https://duckduckgo.com/search.html?site=watson-wilson.ca&amp;prefill=Search DuckDuckGo" style="overflow:hidden;margin:0;padding:0;width:350px;height:40px;"></iframe>
 
         <nav id="tags">
             <h1>Tags</h1>
@@ -394,31 +394,31 @@ switch. You must limit access using server access promises.</p>
 
 </div>
 
-<div class='row'>
-   <div class='col-md-1'>
-       <img atl='Neil Watson' src='https://gravatar.com/avatar/1f0969599955a953e592034929ed7a23' >
+<div class="row">
+   <div class="col-md-1">
+       <img atl="Neil Watson" src="https://gravatar.com/avatar/1f0969599955a953e592034929ed7a23">
    </div>
 
-       <div class='col-md-1'>
+       <div class="col-md-1">
             <!-- reddit this -->
-            <a href="//www.reddit.com/submit" onclick="window.location = '//www.reddit.com/submit?url=' + encodeURIComponent(window.location); return false"><img src="//www.redditstatic.com/spreddit7.gif" alt="submit to reddit" border="0" /></a>
+            <a href="//www.reddit.com/submit" onclick="window.location = &#39;//www.reddit.com/submit?url=&#39; + encodeURIComponent(window.location); return false"><img alt="submit to reddit" border="0" src="//www.redditstatic.com/spreddit7.gif"></a>
        </div>
 
-       <div class='col-md-1'>
+       <div class="col-md-1">
           <!-- Tweet this -->
-          <a href="https://twitter.com/share" class="twitter-share-button" data-via="neil_h_watson" data-count="none">Tweet</a>
+          <a class="twitter-share-button" data-count="none" data-via="neil_h_watson" href="https://twitter.com/share">Tweet</a>
     <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
        </div>
 
-       <div class='col-md-1'>
+       <div class="col-md-1">
           <!-- follow me on twitter -->
-          <a href="https://twitter.com/neil_h_watson" class="twitter-follow-button" data-show-count="false" data-show-screen-name="false">Follow @neil_h_watson</a>
+          <a class="twitter-follow-button" data-show-count="false" data-show-screen-name="false" href="https://twitter.com/neil_h_watson">Follow @neil_h_watson</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
         </div>
 
-       <div class='col-md-1'>
+       <div class="col-md-1">
            <!-- follw me on github -->
-            <a aria-label="Follow @neilhwatson on GitHub" data-style="mega" href="https://github.com/neilhwatson" class="github-button">Follow</a>
+            <a aria-label="Follow @neilhwatson on GitHub" class="github-button" data-style="mega" href="https://github.com/neilhwatson">Follow</a>
             <script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
        </div>
 
@@ -428,9 +428,9 @@ switch. You must limit access using server access promises.</p>
         <footer>
             
             <h1></h1>
-            <div class='col-md-5'> </div>
+            <div class="col-md-5"> </div>
             <div class="col-md-3 container tagline">
-                <a href="http://preaction.me/statocles">Made with Statocles</a><br/>
+                <a href="http://preaction.me/statocles">Made with Statocles</a><br>
                 <a href="http://www.perl.org">Powered by Perl</a>
             </div>
         </footer>

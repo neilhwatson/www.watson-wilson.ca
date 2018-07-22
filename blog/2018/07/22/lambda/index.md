@@ -132,4 +132,4 @@ Here they are:
     PLAY RECAP **************************************************************
     localhost                : ok=6    changed=4    unreachable=0    failed=0   
 
-There's a lot more to Lambdas; I encourage you to read up on them. Also know that Lambda is not unique. Other container technologies like [Kubernetes](https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/) and [Cloud Foundry](https://www.cloudfoundry.org/) can run short duration containers.
+There's a lot more to Lambdas; I encourage you to read up on them. Also know that Lambda is not unique. Other container technologies like [Kubernetes](https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/) and [Cloud Foundry](https://www.cloudfoundry.org/) can run short duration containers. You can find the the code for this post [here](https://github.com/neilhwatson/nustuff/tree/master/aws/lambda).

@@ -3,13 +3,13 @@
     <id>http://watson-wilson.ca/blog/tag/linux/</id>
     <title>Neil H. Watson</title>
     <updated>2017-04-29T00:00:00Z</updated>
-    <link rel="self" href="http://watson-wilson.ca/blog/tag/linux.atom"/>
-    <link rel="alternate" href="http://watson-wilson.ca/blog/tag/linux/"/>
+    <link href="http://watson-wilson.ca/blog/tag/linux.atom" rel="self" />
+    <link href="http://watson-wilson.ca/blog/tag/linux/" rel="alternate" />
     <generator version="0.093">Statocles</generator>
     <entry>
         <id>http://watson-wilson.ca/blog/2017/04/29/ipv6-priv/</id>
         <title>Linux, Ubiquity, and IPv6 privacy extensions</title>
-        <link rel="alternate" href="http://watson-wilson.ca/blog/2017/04/29/ipv6-priv/" />
+        <link href="http://watson-wilson.ca/blog/2017/04/29/ipv6-priv/" rel="alternate" />
         <content type="html"><![CDATA[
             <p><img alt="Success with IPv6" src="http://watson-wilson.ca/static/images/ipv6-success-kid.jpg" style="float:right" width="150"></p>
 
@@ -35,7 +35,7 @@
         <id>http://watson-wilson.ca/blog/2014/10/30/changes-in-virt-install-and-kickstart-in-rhel7/</id>
         <title>Changes in virt-install and Kickstart in RHEL7</title>
         <author><name>nwatson</name></author>
-        <link rel="alternate" href="http://watson-wilson.ca/blog/2014/10/30/changes-in-virt-install-and-kickstart-in-rhel7/" />
+        <link href="http://watson-wilson.ca/blog/2014/10/30/changes-in-virt-install-and-kickstart-in-rhel7/" rel="alternate" />
         <content type="html"><![CDATA[
             <p><img alt="army provisions" src="http://watson-wilson.ca/static/images/mre-case.jpg"></p>
 
@@ -70,7 +70,7 @@ hosts.</p>
         <id>http://watson-wilson.ca/blog/2013/08/07/secure-sysctl-settings-with-cfengine/</id>
         <title>Secure sysctl settings with CFEngine</title>
         <author><name>nwatson</name></author>
-        <link rel="alternate" href="http://watson-wilson.ca/blog/2013/08/07/secure-sysctl-settings-with-cfengine/" />
+        <link href="http://watson-wilson.ca/blog/2013/08/07/secure-sysctl-settings-with-cfengine/" rel="alternate" />
         <content type="html"><![CDATA[
             <p>Here&#39;s how to maintain Linux sysctl settings across all hosts in
 an organization using the Evolve <a href="http://watson-wilson.ca/evolve-thinkings-free-cfengine-library/">free promise library</a>
@@ -134,7 +134,7 @@ reduce the load from excessive promise evaluation.</p>
     <entry>
         <id>http://watson-wilson.ca/blog/2011/03/08/linux-network-cheatsheet/</id>
         <title>Linux networking cheatsheet</title>
-        <link rel="alternate" href="http://watson-wilson.ca/blog/2011/03/08/linux-network-cheatsheet/" />
+        <link href="http://watson-wilson.ca/blog/2011/03/08/linux-network-cheatsheet/" rel="alternate" />
         <content type="html"><![CDATA[
             <h3>Network calculation</h3>
 

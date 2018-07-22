@@ -3,14 +3,14 @@
     <id>http://watson-wilson.ca/blog/tag/delta-reporting/</id>
     <title>Neil H. Watson</title>
     <updated>2015-09-30T11:34:03Z</updated>
-    <link rel="self" href="http://watson-wilson.ca/blog/tag/delta-reporting.atom"/>
-    <link rel="alternate" href="http://watson-wilson.ca/blog/tag/delta-reporting/"/>
+    <link href="http://watson-wilson.ca/blog/tag/delta-reporting.atom" rel="self" />
+    <link href="http://watson-wilson.ca/blog/tag/delta-reporting/" rel="alternate" />
     <generator version="0.093">Statocles</generator>
     <entry>
         <id>http://watson-wilson.ca/blog/2015/09/30/essential-audit-reports-with-delta-reporting/</id>
         <title>Essential audit reports with Delta Reporting</title>
         <author><name>nwatson</name></author>
-        <link rel="alternate" href="http://watson-wilson.ca/blog/2015/09/30/essential-audit-reports-with-delta-reporting/" />
+        <link href="http://watson-wilson.ca/blog/2015/09/30/essential-audit-reports-with-delta-reporting/" rel="alternate" />
         <content type="html"><![CDATA[
             <p><img alt="Delta Reporting dashboard" src="http://watson-wilson.ca/static/images/dr-dashboard.png">
 Delta Reporting has simple yet powerful reports. See a gallery of essential
@@ -33,7 +33,7 @@ ones
         <id>http://watson-wilson.ca/blog/2015/09/18/auditing-hosts-using-cfengine-efl-and-delta-reporting/</id>
         <title>Auditing hosts using CFEngine, EFL, and Delta Reporting</title>
         <author><name>nwatson</name></author>
-        <link rel="alternate" href="http://watson-wilson.ca/blog/2015/09/18/auditing-hosts-using-cfengine-efl-and-delta-reporting/" />
+        <link href="http://watson-wilson.ca/blog/2015/09/18/auditing-hosts-using-cfengine-efl-and-delta-reporting/" rel="alternate" />
         <content type="html"><![CDATA[
             <p><img alt="Clip board" src="http://watson-wilson.ca/static/images/Liste-300px.png"></p>
 
@@ -62,7 +62,7 @@ it&#39;s possible.</p>
         <id>http://watson-wilson.ca/blog/2014/09/26/shellshock-free-with-cfengine-and-delta-reporting/</id>
         <title>Shellshock free with CFEngine and Delta Reporting</title>
         <author><name>nwatson</name></author>
-        <link rel="alternate" href="http://watson-wilson.ca/blog/2014/09/26/shellshock-free-with-cfengine-and-delta-reporting/" />
+        <link href="http://watson-wilson.ca/blog/2014/09/26/shellshock-free-with-cfengine-and-delta-reporting/" rel="alternate" />
         <content type="html"><![CDATA[
             <p><img alt="Hosts reported free of shell shock" src="http://watson-wilson.ca/static/images/shell_shock.png"></p>
 
@@ -90,7 +90,7 @@ not long. First we had to design a test for the vulnerability.</p>
         <id>http://watson-wilson.ca/blog/2014/09/19/testing-cfengine-policy-by-counting-classes/</id>
         <title>Testing CFEngine policy by counting classes</title>
         <author><name>nwatson</name></author>
-        <link rel="alternate" href="http://watson-wilson.ca/blog/2014/09/19/testing-cfengine-policy-by-counting-classes/" />
+        <link href="http://watson-wilson.ca/blog/2014/09/19/testing-cfengine-policy-by-counting-classes/" rel="alternate" />
         <content type="html"><![CDATA[
             <p><img alt="counting" src="http://watson-wilson.ca/static/images/counting.jpg"></p>
 
@@ -123,7 +123,7 @@ template.</p>
         <id>http://watson-wilson.ca/blog/2014/09/04/delta-reporting-and-cfengine-are-not-centralized-applications/</id>
         <title>Delta Reporting and CFEngine are NOT centralized applications</title>
         <author><name>nwatson</name></author>
-        <link rel="alternate" href="http://watson-wilson.ca/blog/2014/09/04/delta-reporting-and-cfengine-are-not-centralized-applications/" />
+        <link href="http://watson-wilson.ca/blog/2014/09/04/delta-reporting-and-cfengine-are-not-centralized-applications/" rel="alternate" />
         <content type="html"><![CDATA[
             <p><a href="https://github.com/neilhwatson/delta_reporting">Delta Reporting</a>
 and CFEngine are not centralized applications. Yes, I do describe DR as

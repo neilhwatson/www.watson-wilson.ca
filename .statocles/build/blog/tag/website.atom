@@ -3,13 +3,13 @@
     <id>http://watson-wilson.ca/blog/tag/website/</id>
     <title>Neil H. Watson</title>
     <updated>2015-11-17T00:00:00Z</updated>
-    <link rel="self" href="http://watson-wilson.ca/blog/tag/website.atom"/>
-    <link rel="alternate" href="http://watson-wilson.ca/blog/tag/website/"/>
+    <link href="http://watson-wilson.ca/blog/tag/website.atom" rel="self" />
+    <link href="http://watson-wilson.ca/blog/tag/website/" rel="alternate" />
     <generator version="0.093">Statocles</generator>
     <entry>
         <id>http://watson-wilson.ca/blog/2015/11/17/new_site/</id>
         <title>New site</title>
-        <link rel="alternate" href="http://watson-wilson.ca/blog/2015/11/17/new_site/" />
+        <link href="http://watson-wilson.ca/blog/2015/11/17/new_site/" rel="alternate" />
         <content type="html"><![CDATA[
             <p><img alt="Perl logo" src="http://watson-wilson.ca/static/images/perl_camel.gif" style="float:right"></p>
 

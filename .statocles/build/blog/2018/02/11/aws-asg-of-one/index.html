@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="en"> 
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
         <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-        <link rel="stylesheet" href="/theme/css/readability-bootstrap.min.css" />
+        <link href="/theme/css/readability-bootstrap.min.css" rel="stylesheet">
         <!--<link rel="stylesheet" href="/theme/css/statocles-bootstrap.css" />-->
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
         <title>AWS single host resilience with autoscaling groups - Neil H. Watson</title>
-        <meta name="generator" content="Statocles 0.093" />
+        <meta content="Statocles 0.093" name="generator">
         
-        <link rel="stylesheet" href="/theme/plugin/highlight/default.css" type="text/css" />
+        <link href="/theme/plugin/highlight/default.css" rel="stylesheet" type="text/css">
 
         <!-- For source highlighting -->
-        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/default.min.css">
+        <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/default.min.css" rel="stylesheet">
         <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js"></script>
         <script>hljs.initHighlightingOnLoad();</script>
 
@@ -25,7 +25,7 @@
                 <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
                     <div class="navbar-header">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#top-navbar-collapse-1">
+                        <button class="navbar-toggle" data-target="#top-navbar-collapse-1" data-toggle="collapse" type="button">
                             <span class="sr-only">Toggle navigation</span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
@@ -73,9 +73,9 @@
 
             </header>
             <section id="section-1">
-                <p><a href="https://aws.amazon.com/"><img style='float:right' alt='aws logo' width='120px' src='/static/images/aws.png' ></a></p>
+                <p><a href="https://aws.amazon.com/"><img alt="aws logo" src="/static/images/aws.png" style="float:right" width="120px"></a></p>
 
-<p>Make even a single AWS EC2 host highly available using autoscaling groups. Here's example using ASG, EFS for persistent data, and Terraform for easy automation.</p>
+<p>Make even a single AWS EC2 host highly available using autoscaling groups. Here&#39;s example using ASG, EFS for persistent data, and Terraform for easy automation.</p>
 
             </section>
             <section id="section-2">
@@ -85,66 +85,66 @@
 
 <ul>
 <li><a href="http://docs.aws.amazon.com/autoscaling/latest/userguide/WhatIsAutoScaling.html">Autoscaling</a> is a way to duplication VMs on demand.</li>
-<li><a href="https://aws.amazon.com/efs/">EFS</a> Hint: <em>It's NFS</em></li>
+<li><a href="https://aws.amazon.com/efs/">EFS</a> Hint: <em>It&#39;s NFS</em></li>
 <li><a href="https://www.terraform.io/">Terraform</a> Is way to build your infrastructure with code. Hint: <em>Like <a href="https://aws.amazon.com/cloudformation/">CloudFormation</a> but better</em></li>
 <li><a href="https://github.com/neilhwatson/terraform-modules">Terraform Modules</a> used in this example.</li>
 </ul>
 
 <h2>Code for EFS</h2>
 
-<p>EFS, to spite Amazon's <a href="https://www.expeditedssl.com/aws-in-plain-english">awful naming schemes</a>, is simply a managed NFS service. You define a file system, and then a mount target (exports for NFS veterans) in any subnet where your EC2 instance may reside.</p>
+<p>EFS, to spite Amazon&#39;s <a href="https://www.expeditedssl.com/aws-in-plain-english">awful naming schemes</a>, is simply a managed NFS service. You define a file system, and then a mount target (exports for NFS veterans) in any subnet where your EC2 instance may reside.</p>
 
 <p>EFS works on TCP port 2049. <a href="http://docs.aws.amazon.com/efs/latest/ug/security-considerations.html">Configure your security groups</a> as required. I did this, binding the EFS required rules to a security group that will be use by my instance:</p>
 
-<pre><code>resource "aws_security_group" "nfs01" {
-    vpc_id      = "${data.terraform_remote_state.vpc01.vpc}"
-    tags        = "${var.tag}"
+<pre><code>resource &quot;aws_security_group&quot; &quot;nfs01&quot; {
+    vpc_id      = &quot;${data.terraform_remote_state.vpc01.vpc}&quot;
+    tags        = &quot;${var.tag}&quot;
 
     ingress {
         from_port        = 2049
         to_port          = 2049
-        protocol         = "tcp"
-        security_groups  = [ "${aws_security_group.sg01.id}" ]
+        protocol         = &quot;tcp&quot;
+        security_groups  = [ &quot;${aws_security_group.sg01.id}&quot; ]
     }
 }
 </code></pre>
 
 <p>Back to EFS, here is how I define an EFS file system and a mount target for each of my two subnets:</p>
 
-<pre><code>resource "aws_efs_file_system" "neil" {
-  creation_token = "neil-home"
-  tags           = "${var.tag}"
+<pre><code>resource &quot;aws_efs_file_system&quot; &quot;neil&quot; {
+  creation_token = &quot;neil-home&quot;
+  tags           = &quot;${var.tag}&quot;
 }
-resource "aws_efs_mount_target" "neil01" {
-  file_system_id  = "${aws_efs_file_system.neil.id}"
-  subnet_id       = "${data.terraform_remote_state.vpc01.subnet01_id}"
-  security_groups = [ "${aws_security_group.nfs01.id}" ]
+resource &quot;aws_efs_mount_target&quot; &quot;neil01&quot; {
+  file_system_id  = &quot;${aws_efs_file_system.neil.id}&quot;
+  subnet_id       = &quot;${data.terraform_remote_state.vpc01.subnet01_id}&quot;
+  security_groups = [ &quot;${aws_security_group.nfs01.id}&quot; ]
 }
-resource "aws_efs_mount_target" "neil02" {
-  file_system_id  = "${aws_efs_file_system.neil.id}"
-  subnet_id       = "${data.terraform_remote_state.vpc01.subnet02_id}"
-  security_groups = [ "${aws_security_group.nfs01.id}" ]
+resource &quot;aws_efs_mount_target&quot; &quot;neil02&quot; {
+  file_system_id  = &quot;${aws_efs_file_system.neil.id}&quot;
+  subnet_id       = &quot;${data.terraform_remote_state.vpc01.subnet02_id}&quot;
+  security_groups = [ &quot;${aws_security_group.nfs01.id}&quot; ]
 }
 </code></pre>
 
 <h2>Code for ASG</h2>
 
-<p>The autoscaling group or ASG, defines what my instance should look like, including it's size (the default), what SSH key to use, security groups to assign, VPC subnets, and the user data to provision it. Note that I use a <a href="http://docs.aws.amazon.com/efs/latest/ug/security-considerations.html">Terraform Module</a> and it's details are <a href="https://github.com/neilhwatson/terraform-modules/blob/master/aws/ec2/asg/00_main.tf">here</a>.</p>
+<p>The autoscaling group or ASG, defines what my instance should look like, including it&#39;s size (the default), what SSH key to use, security groups to assign, VPC subnets, and the user data to provision it. Note that I use a <a href="http://docs.aws.amazon.com/efs/latest/ug/security-considerations.html">Terraform Module</a> and it&#39;s details are <a href="https://github.com/neilhwatson/terraform-modules/blob/master/aws/ec2/asg/00_main.tf">here</a>.</p>
 
-<pre><code>module "asg" {
-   asg_name            = "jumpbox"
+<pre><code>module &quot;asg&quot; {
+   asg_name            = &quot;jumpbox&quot;
    min_size            = 0
    desired_capacity    = 1
-   source              = "github.com/neilhwatson/terraform-modules//aws/ec2/asg"
-   ami_id              = "${module.ami01.image_id}"
-   ssh_key             = "luna"
-   instance_profile    = "${aws_iam_instance_profile.route53_upsert.id}"
-   security_groups     = [ "${aws_security_group.sg01.id}" ]
-   user_data           = "${data.template_file.user-data.rendered}"
-   tag                 = "${var.tag}"
-   associate_public_ip = "true"
-   vpc_zone_ids        = [ "${data.terraform_remote_state.vpc01.subnet01_id}"
-                     , "${data.terraform_remote_state.vpc01.subnet02_id}" ]
+   source              = &quot;github.com/neilhwatson/terraform-modules//aws/ec2/asg&quot;
+   ami_id              = &quot;${module.ami01.image_id}&quot;
+   ssh_key             = &quot;luna&quot;
+   instance_profile    = &quot;${aws_iam_instance_profile.route53_upsert.id}&quot;
+   security_groups     = [ &quot;${aws_security_group.sg01.id}&quot; ]
+   user_data           = &quot;${data.template_file.user-data.rendered}&quot;
+   tag                 = &quot;${var.tag}&quot;
+   associate_public_ip = &quot;true&quot;
+   vpc_zone_ids        = [ &quot;${data.terraform_remote_state.vpc01.subnet01_id}&quot;
+                     , &quot;${data.terraform_remote_state.vpc01.subnet02_id}&quot; ]
 }
 </code></pre>
 
@@ -158,21 +158,21 @@ resource "aws_efs_mount_target" "neil02" {
 
 <p>Terraform has a <a href="https://www.terraform.io/docs/providers/template/d/file.html">template feature</a>. In this case my user-data.sh is template and I instruct Terraform to render it, replacing the given vars. In this case subnets and the EFS target DNS names.</p>
 
-<pre><code>data "template_file" "user-data" {
-  template = "${file("user_data.sh")}"
+<pre><code>data &quot;template_file&quot; &quot;user-data&quot; {
+  template = &quot;${file(&quot;user_data.sh&quot;)}&quot;
 
   vars {
-     subnet01    = "${data.terraform_remote_state.vpc01.subnet01_id}"
-     subnet02    = "${data.terraform_remote_state.vpc01.subnet02_id}"
-     nfstarget01 = "${aws_efs_mount_target.neil01.dns_name}"
-     nfstarget02 = "${aws_efs_mount_target.neil01.dns_name}"
+     subnet01    = &quot;${data.terraform_remote_state.vpc01.subnet01_id}&quot;
+     subnet02    = &quot;${data.terraform_remote_state.vpc01.subnet02_id}&quot;
+     nfstarget01 = &quot;${aws_efs_mount_target.neil01.dns_name}&quot;
+     nfstarget02 = &quot;${aws_efs_mount_target.neil01.dns_name}&quot;
   }
 }
 </code></pre>
 
 <p>Earlier in my ASG setup, I passed this parameter, the user data template:</p>
 
-<pre><code>user_data = "${data.template_file.user-data.rendered}"
+<pre><code>user_data = &quot;${data.template_file.user-data.rendered}&quot;
 </code></pre>
 
 <h3>EFS</h3>
@@ -189,16 +189,16 @@ resource "aws_efs_mount_target" "neil02" {
 function add_mount_to_fstab() {
    host=$1
 
-   echo "$${host}:/ /home/neil nfs4 nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,_netdev 0 0"           &gt;&gt; /etc/fstab
+   echo &quot;$${host}:/ /home/neil nfs4 nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,_netdev 0 0&quot;           &gt;&gt; /etc/fstab
 
 }
 </code></pre>
 
-<p>Each EFS mount target has a different hostname. Dig into the script and you'll see how I figure out which EFS target to point to.</p>
+<p>Each EFS mount target has a different hostname. Dig into the script and you&#39;ll see how I figure out which EFS target to point to.</p>
 
 <h2>DNS</h2>
 
-<p>If the instance re-spawns, and with a different IP address, how can I ensure it's DNS records are current? An elastic IP is an obvious choice, but I can do it cheaper.  I configured my VPC to automatically assign public IPs to hosts. Now I just need to get that IP? The <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html">instance metadata</a> will provide, and once I know that I use <a href="https://github.com/barnybug/cli53">cli53</a> to set or change my A and AAAA records for the new IP address.</p>
+<p>If the instance re-spawns, and with a different IP address, how can I ensure it&#39;s DNS records are current? An elastic IP is an obvious choice, but I can do it cheaper.  I configured my VPC to automatically assign public IPs to hosts. Now I just need to get that IP? The <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html">instance metadata</a> will provide, and once I know that I use <a href="https://github.com/barnybug/cli53">cli53</a> to set or change my A and AAAA records for the new IP address.</p>
 
 <h2>The script</h2>
 
@@ -207,7 +207,7 @@ function add_mount_to_fstab() {
 <pre><code class="hljs">    <span class="hljs-comment">#!/bin/bash -x</span><span class="hljs-comment">
 </span>
     <span class="hljs-keyword">set</span> -e
-    <span class="hljs-built-in">echo</span> <span class="hljs-string">"########### Starting user data ##########"</span>
+    <span class="hljs-built-in">echo</span> <span class="hljs-string">&quot;########### Starting user data ##########&quot;</span>
 
     A_RECORD=orion
     DOMAIN=watson-wilson.ca.
@@ -249,17 +249,17 @@ function add_mount_to_fstab() {
     <span class="hljs-keyword">function</span><span class="hljs-string"> add_mount_to_fstab()</span> <span class="hljs-keyword">{</span>
        host=$1
 
-       <span class="hljs-built-in">echo</span> <span class="hljs-string">"</span>$$<span class="hljs-string">{host}:/ /home/neil nfs4 nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,_netdev 0 0"</span>           &gt;&gt; /etc/fstab
+       <span class="hljs-built-in">echo</span> <span class="hljs-string">&quot;</span>$$<span class="hljs-string">{host}:/ /home/neil nfs4 nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,_netdev 0 0&quot;</span>           &gt;&gt; /etc/fstab
 
     <span class="hljs-keyword">}</span>
 
     <span class="hljs-comment"># For buggy ubuntu ipv6 config</span><span class="hljs-comment">
-</span>    <span class="hljs-built-in">echo</span> <span class="hljs-string">"iface eth0 inet6 dhcp"</span> &gt;&gt; /etc/network/interfaces.d/60-default-with-ipv6.cfg
+</span>    <span class="hljs-built-in">echo</span> <span class="hljs-string">&quot;iface eth0 inet6 dhcp&quot;</span> &gt;&gt; /etc/network/interfaces.d/60-default-with-ipv6.cfg
     dhclient -6
 
     add-apt-repository -y ppa:ansible/ansible
     apt-get -y update
-    DEBIAN_FRONTEND=noninteractive apt-get -y -o Dpkg::Options::=<span class="hljs-string">"--force-confdef"</span> -o Dpkg::Options::=<span class="hljs-string">"--force-confold"</span> upgrade
+    DEBIAN_FRONTEND=noninteractive apt-get -y -o Dpkg::Options::=<span class="hljs-string">&quot;--force-confdef&quot;</span> -o Dpkg::Options::=<span class="hljs-string">&quot;--force-confold&quot;</span> upgrade
     apt-get -y install         curl         git         ansible         awscli         nfs-common
 
     <span class="hljs-comment">#</span><span class="hljs-comment">
@@ -273,7 +273,7 @@ function add_mount_to_fstab() {
     <span class="hljs-keyword">then</span>
        nfshost=$nfstarget02
     <span class="hljs-keyword">else</span>
-       <span class="hljs-built-in">echo</span> <span class="hljs-string">"ERROR cannot find subnet and nfs target"</span>
+       <span class="hljs-built-in">echo</span> <span class="hljs-string">&quot;ERROR cannot find subnet and nfs target&quot;</span>
        <span class="hljs-built-in">exit</span> 1
     <span class="hljs-keyword">fi</span>
 
@@ -281,7 +281,7 @@ function add_mount_to_fstab() {
     add_mount_to_fstab $nfshost
 
     <span class="hljs-comment">#</span><span class="hljs-comment">
-</span>    <span class="hljs-comment"># Set this host's IP address to the desired DNS name.</span><span class="hljs-comment">
+</span>    <span class="hljs-comment"># Set this host&#39;s IP address to the desired DNS name.</span><span class="hljs-comment">
 </span>    <span class="hljs-comment">#</span><span class="hljs-comment">
 </span>    curl -sLo /usr/local/bin/cli53 $cli53
     chmod 755 /usr/local/bin/cli53
@@ -289,15 +289,15 @@ function add_mount_to_fstab() {
     hostname=$(curl -s $$<span class="hljs-type">{meta_host}</span>/public-hostname)
 
     ipv4=$(get_ipv4)
-    cli53 rrcreate --replace $DOMAIN <span class="hljs-string">"</span>$A_RECORD<span class="hljs-string"> 60 A </span>$ipv4<span class="hljs-string">"</span>
+    cli53 rrcreate --replace $DOMAIN <span class="hljs-string">&quot;</span>$A_RECORD<span class="hljs-string"> 60 A </span>$ipv4<span class="hljs-string">&quot;</span>
 
     ipv6=$(get_ipv6)
-    cli53 rrcreate --replace $DOMAIN <span class="hljs-string">"</span>$A_RECORD<span class="hljs-string"> 60 AAAA </span>$ipv6<span class="hljs-string">"</span>
+    cli53 rrcreate --replace $DOMAIN <span class="hljs-string">&quot;</span>$A_RECORD<span class="hljs-string"> 60 AAAA </span>$ipv6<span class="hljs-string">&quot;</span>
 
     <span class="hljs-comment">#</span><span class="hljs-comment">
 </span>    <span class="hljs-comment"># Setup access to provisioning repo</span><span class="hljs-comment">
 </span>    <span class="hljs-comment">#</span><span class="hljs-comment">
-</span>    cat &lt;&lt;'END_PULL' &gt; /etc/cron.hourly/ansible-pull
+</span>    cat &lt;&lt;&#39;END_PULL&#39; &gt; /etc/cron.hourly/ansible-pull
     #!/bin/bash
 
     ansible-pull -f -U https://git-codecommit.ca-central-1.amazonaws.com/v1/repos/instance-provisioner jump-box.yml
@@ -306,9 +306,9 @@ function add_mount_to_fstab() {
 
     chmod 755 /etc/cron.hourly/ansible-pull
 
-    export HOME="/root"
+    export HOME=&quot;/root&quot;
     cd $HOME
-    git config --global credential.helper '!aws codecommit credential-helper $@'
+    git config --global credential.helper &#39;!aws codecommit credential-helper $@&#39;
     git config --global credential.UseHttpPath true
     aws configure set region ca-central-1
 
@@ -324,7 +324,7 @@ function add_mount_to_fstab() {
     </div>
 
     <div class="col-md-3">
-        <iframe src="https://duckduckgo.com/search.html?site=watson-wilson.ca&prefill=Search DuckDuckGo" style="overflow:hidden;margin:0;padding:0;width:350px;height:40px;" frameborder="0"></iframe>
+        <iframe frameborder="0" src="https://duckduckgo.com/search.html?site=watson-wilson.ca&amp;prefill=Search DuckDuckGo" style="overflow:hidden;margin:0;padding:0;width:350px;height:40px;"></iframe>
 
         <nav id="tags">
             <h1>Tags</h1>
@@ -425,31 +425,31 @@ function add_mount_to_fstab() {
 
 </div>
 
-<div class='row'>
-   <div class='col-md-1'>
-       <img atl='Neil Watson' src='https://gravatar.com/avatar/1f0969599955a953e592034929ed7a23' >
+<div class="row">
+   <div class="col-md-1">
+       <img atl="Neil Watson" src="https://gravatar.com/avatar/1f0969599955a953e592034929ed7a23">
    </div>
 
-       <div class='col-md-1'>
+       <div class="col-md-1">
             <!-- reddit this -->
-            <a href="//www.reddit.com/submit" onclick="window.location = '//www.reddit.com/submit?url=' + encodeURIComponent(window.location); return false"><img src="//www.redditstatic.com/spreddit7.gif" alt="submit to reddit" border="0" /></a>
+            <a href="//www.reddit.com/submit" onclick="window.location = &#39;//www.reddit.com/submit?url=&#39; + encodeURIComponent(window.location); return false"><img alt="submit to reddit" border="0" src="//www.redditstatic.com/spreddit7.gif"></a>
        </div>
 
-       <div class='col-md-1'>
+       <div class="col-md-1">
           <!-- Tweet this -->
-          <a href="https://twitter.com/share" class="twitter-share-button" data-via="neil_h_watson" data-count="none">Tweet</a>
+          <a class="twitter-share-button" data-count="none" data-via="neil_h_watson" href="https://twitter.com/share">Tweet</a>
     <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
        </div>
 
-       <div class='col-md-1'>
+       <div class="col-md-1">
           <!-- follow me on twitter -->
-          <a href="https://twitter.com/neil_h_watson" class="twitter-follow-button" data-show-count="false" data-show-screen-name="false">Follow @neil_h_watson</a>
+          <a class="twitter-follow-button" data-show-count="false" data-show-screen-name="false" href="https://twitter.com/neil_h_watson">Follow @neil_h_watson</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
         </div>
 
-       <div class='col-md-1'>
+       <div class="col-md-1">
            <!-- follw me on github -->
-            <a aria-label="Follow @neilhwatson on GitHub" data-style="mega" href="https://github.com/neilhwatson" class="github-button">Follow</a>
+            <a aria-label="Follow @neilhwatson on GitHub" class="github-button" data-style="mega" href="https://github.com/neilhwatson">Follow</a>
             <script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
        </div>
 
@@ -459,9 +459,9 @@ function add_mount_to_fstab() {
         <footer>
             
             <h1></h1>
-            <div class='col-md-5'> </div>
+            <div class="col-md-5"> </div>
             <div class="col-md-3 container tagline">
-                <a href="http://preaction.me/statocles">Made with Statocles</a><br/>
+                <a href="http://preaction.me/statocles">Made with Statocles</a><br>
                 <a href="http://www.perl.org">Powered by Perl</a>
             </div>
         </footer>

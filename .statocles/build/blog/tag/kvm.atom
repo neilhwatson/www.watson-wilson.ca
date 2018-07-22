@@ -3,14 +3,14 @@
     <id>http://watson-wilson.ca/blog/tag/kvm/</id>
     <title>Neil H. Watson</title>
     <updated>2014-10-30T10:10:50Z</updated>
-    <link rel="self" href="http://watson-wilson.ca/blog/tag/kvm.atom"/>
-    <link rel="alternate" href="http://watson-wilson.ca/blog/tag/kvm/"/>
+    <link href="http://watson-wilson.ca/blog/tag/kvm.atom" rel="self" />
+    <link href="http://watson-wilson.ca/blog/tag/kvm/" rel="alternate" />
     <generator version="0.093">Statocles</generator>
     <entry>
         <id>http://watson-wilson.ca/blog/2014/10/30/changes-in-virt-install-and-kickstart-in-rhel7/</id>
         <title>Changes in virt-install and Kickstart in RHEL7</title>
         <author><name>nwatson</name></author>
-        <link rel="alternate" href="http://watson-wilson.ca/blog/2014/10/30/changes-in-virt-install-and-kickstart-in-rhel7/" />
+        <link href="http://watson-wilson.ca/blog/2014/10/30/changes-in-virt-install-and-kickstart-in-rhel7/" rel="alternate" />
         <content type="html"><![CDATA[
             <p><img alt="army provisions" src="http://watson-wilson.ca/static/images/mre-case.jpg"></p>
 
@@ -44,7 +44,7 @@ hosts.</p>
     <entry>
         <id>http://watson-wilson.ca/blog/2011/05/09/rhev-overview/</id>
         <title>A brief overview of Red Hat Enterprise Virtualization</title>
-        <link rel="alternate" href="http://watson-wilson.ca/blog/2011/05/09/rhev-overview/" />
+        <link href="http://watson-wilson.ca/blog/2011/05/09/rhev-overview/" rel="alternate" />
         <content type="html"><![CDATA[
             <p>Red Hat Enterprise Virtualization is a fairly new product offering from Red
 Hat. Red Hat acquired RHEV when they purchased Qumranet in September 2008.

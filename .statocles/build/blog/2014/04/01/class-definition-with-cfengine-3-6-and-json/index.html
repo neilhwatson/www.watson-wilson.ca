@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="en"> 
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
         <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-        <link rel="stylesheet" href="/theme/css/readability-bootstrap.min.css" />
+        <link href="/theme/css/readability-bootstrap.min.css" rel="stylesheet">
         <!--<link rel="stylesheet" href="/theme/css/statocles-bootstrap.css" />-->
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
         <title>Class definition with CFEngine 3.6 and JSON - Neil H. Watson</title>
-        <meta name="generator" content="Statocles 0.093" />
+        <meta content="Statocles 0.093" name="generator">
         
 
         <!-- For source highlighting -->
-        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/default.min.css">
+        <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/default.min.css" rel="stylesheet">
         <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js"></script>
         <script>hljs.initHighlightingOnLoad();</script>
 
@@ -24,7 +24,7 @@
                 <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
                     <div class="navbar-header">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#top-navbar-collapse-1">
+                        <button class="navbar-toggle" data-target="#top-navbar-collapse-1" data-toggle="collapse" type="button">
                             <span class="sr-only">Toggle navigation</span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
@@ -71,88 +71,88 @@
             <section id="section-1">
                 <p>JSON in CFEngine 3.6, coming soon, offers a great way to separate your
 data from your policy. Consider this example. It sets the promiser
-class if the host's unqualified hostname is found in the hosts list. If
+class if the host&#39;s unqualified hostname is found in the hosts list. If
 you want add or remove hosts or classes, just edit the JSON file. Look
-for this in EFL after CFEngine's 3.6 release.</p>
+for this in EFL after CFEngine&#39;s 3.6 release.</p>
 
             </section>
             <section id="section-2">
                 <p>body common control
     {
-            bundlesequence => { "main", };
+            bundlesequence =&gt; { &quot;main&quot;, };
     }</p>
 
 <pre><code>bundle agent main
 {
         methods:
-                "any" usebundle =&gt; init( "${sys.workdir}/inputs/class_by_hostname.dat" );
-                "any" usebundle =&gt; run( "${sys.workdir}/inputs/class_by_hostname.dat" );
-                "any" usebundle =&gt; check;
+                &quot;any&quot; usebundle =&gt; init( &quot;${sys.workdir}/inputs/class_by_hostname.dat&quot; );
+                &quot;any&quot; usebundle =&gt; run( &quot;${sys.workdir}/inputs/class_by_hostname.dat&quot; );
+                &quot;any&quot; usebundle =&gt; check;
 }
 
 bundle agent init ( ref )
 {
    vars:
-      "class_by_hostname" string =&gt; '
+      &quot;class_by_hostname&quot; string =&gt; &#39;
 [
    {
-      "promiser_class": "dns_host",
-      "promisee": "my, myself, and I",
-      "hosts": [
-         "blue", "red", "yellow", "moon", 
-         "ettin", "black", "green", "purple"
+      &quot;promiser_class&quot;: &quot;dns_host&quot;,
+      &quot;promisee&quot;: &quot;my, myself, and I&quot;,
+      &quot;hosts&quot;: [
+         &quot;blue&quot;, &quot;red&quot;, &quot;yellow&quot;, &quot;moon&quot;, 
+         &quot;ettin&quot;, &quot;black&quot;, &quot;green&quot;, &quot;purple&quot;
          ],
    },
    {
-      "promiser_class": "email_host",
-      "promisee": "you, yourself",
-      "hosts": [
-         "pluto", "venus", "ettin", "moon"
+      &quot;promiser_class&quot;: &quot;email_host&quot;,
+      &quot;promisee&quot;: &quot;you, yourself&quot;,
+      &quot;hosts&quot;: [
+         &quot;pluto&quot;, &quot;venus&quot;, &quot;ettin&quot;, &quot;moon&quot;
          ],
    }
 ]
-';
+&#39;;
 
    files:
-      "${ref}" -&gt; { "Neil H Watson", "Evolve Thinking" }
-         create        =&gt; 'true',
+      &quot;${ref}&quot; -&gt; { &quot;Neil H Watson&quot;, &quot;Evolve Thinking&quot; }
+         create        =&gt; &#39;true&#39;,
          edit_defaults =&gt; empty,
-         edit_line     =&gt; append_if_no_line( "${class_by_hostname}" );
+         edit_line     =&gt; append_if_no_line( &quot;${class_by_hostname}&quot; );
 }
 
 bundle agent run ( ref )
 {
    meta:
-      "purpose" string =&gt; "Set class if uqhost matches names in hosts list";
+      &quot;purpose&quot; string =&gt; &quot;Set class if uqhost matches names in hosts list&quot;;
 
    vars:
-      "d" data =&gt; readjson( "${ref}", 2048 );
-      "i" slist =&gt; getindices( "d" );
+      &quot;d&quot; data =&gt; readjson( &quot;${ref}&quot;, 2048 );
+      &quot;i&quot; slist =&gt; getindices( &quot;d&quot; );
 
    classes:
-      "${d[${i}][promiser_class]}" -&gt; { "${d[${i}][promisee]}" }
-         scope      =&gt; 'namespace',
-         expression =&gt; strcmp( "${sys.uqhost}", "${d[${i}][hosts]}" );
+      &quot;${d[${i}][promiser_class]}&quot; -&gt; { &quot;${d[${i}][promisee]}&quot; }
+         scope      =&gt; &#39;namespace&#39;,
+         expression =&gt; strcmp( &quot;${sys.uqhost}&quot;, &quot;${d[${i}][hosts]}&quot; );
 }
 
 bundle agent check
 {
    reports:
       dns_host::
-         "This is a dns_host.";
+         &quot;This is a dns_host.&quot;;
       email_host::
-         "This is an email_host.";
+         &quot;This is an email_host.&quot;;
 }
 
 body edit_defaults empty
 {
-      empty_file_before_editing =&gt; "true";
-      edit_backup =&gt; "false";
+      empty_file_before_editing =&gt; &quot;true&quot;;
+      edit_backup =&gt; &quot;false&quot;;
 }
 bundle edit_line append_if_no_line(str)
 {
   insert_lines:
-      "$(str)";
+      &quot;$(str)&quot;;
 }
 
 $ hostname
@@ -170,7 +170,7 @@ R: This is an email_host.
     </div>
 
     <div class="col-md-3">
-        <iframe src="https://duckduckgo.com/search.html?site=watson-wilson.ca&prefill=Search DuckDuckGo" style="overflow:hidden;margin:0;padding:0;width:350px;height:40px;" frameborder="0"></iframe>
+        <iframe frameborder="0" src="https://duckduckgo.com/search.html?site=watson-wilson.ca&amp;prefill=Search DuckDuckGo" style="overflow:hidden;margin:0;padding:0;width:350px;height:40px;"></iframe>
 
         <nav id="tags">
             <h1>Tags</h1>
@@ -271,31 +271,31 @@ R: This is an email_host.
 
 </div>
 
-<div class='row'>
-   <div class='col-md-1'>
-       <img atl='Neil Watson' src='https://gravatar.com/avatar/1f0969599955a953e592034929ed7a23' >
+<div class="row">
+   <div class="col-md-1">
+       <img atl="Neil Watson" src="https://gravatar.com/avatar/1f0969599955a953e592034929ed7a23">
    </div>
 
-       <div class='col-md-1'>
+       <div class="col-md-1">
             <!-- reddit this -->
-            <a href="//www.reddit.com/submit" onclick="window.location = '//www.reddit.com/submit?url=' + encodeURIComponent(window.location); return false"><img src="//www.redditstatic.com/spreddit7.gif" alt="submit to reddit" border="0" /></a>
+            <a href="//www.reddit.com/submit" onclick="window.location = &#39;//www.reddit.com/submit?url=&#39; + encodeURIComponent(window.location); return false"><img alt="submit to reddit" border="0" src="//www.redditstatic.com/spreddit7.gif"></a>
        </div>
 
-       <div class='col-md-1'>
+       <div class="col-md-1">
           <!-- Tweet this -->
-          <a href="https://twitter.com/share" class="twitter-share-button" data-via="neil_h_watson" data-count="none">Tweet</a>
+          <a class="twitter-share-button" data-count="none" data-via="neil_h_watson" href="https://twitter.com/share">Tweet</a>
     <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
        </div>
 
-       <div class='col-md-1'>
+       <div class="col-md-1">
           <!-- follow me on twitter -->
-          <a href="https://twitter.com/neil_h_watson" class="twitter-follow-button" data-show-count="false" data-show-screen-name="false">Follow @neil_h_watson</a>
+          <a class="twitter-follow-button" data-show-count="false" data-show-screen-name="false" href="https://twitter.com/neil_h_watson">Follow @neil_h_watson</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
         </div>
 
-       <div class='col-md-1'>
+       <div class="col-md-1">
            <!-- follw me on github -->
-            <a aria-label="Follow @neilhwatson on GitHub" data-style="mega" href="https://github.com/neilhwatson" class="github-button">Follow</a>
+            <a aria-label="Follow @neilhwatson on GitHub" class="github-button" data-style="mega" href="https://github.com/neilhwatson">Follow</a>
             <script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
        </div>
 
@@ -305,9 +305,9 @@ R: This is an email_host.
         <footer>
             
             <h1></h1>
-            <div class='col-md-5'> </div>
+            <div class="col-md-5"> </div>
             <div class="col-md-3 container tagline">
-                <a href="http://preaction.me/statocles">Made with Statocles</a><br/>
+                <a href="http://preaction.me/statocles">Made with Statocles</a><br>
                 <a href="http://www.perl.org">Powered by Perl</a>
             </div>
         </footer>

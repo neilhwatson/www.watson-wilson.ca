@@ -3,13 +3,13 @@
     <id>http://watson-wilson.ca/blog/tag/ansible/</id>
     <title>Neil H. Watson</title>
     <updated>2018-07-22T00:00:00Z</updated>
-    <link rel="self" href="http://watson-wilson.ca/blog/tag/ansible.atom"/>
-    <link rel="alternate" href="http://watson-wilson.ca/blog/tag/ansible/"/>
+    <link href="http://watson-wilson.ca/blog/tag/ansible.atom" rel="self" />
+    <link href="http://watson-wilson.ca/blog/tag/ansible/" rel="alternate" />
     <generator version="0.093">Statocles</generator>
     <entry>
         <id>http://watson-wilson.ca/blog/2018/07/22/lambda/</id>
         <title>Intro to Lambda using Ansible</title>
-        <link rel="alternate" href="http://watson-wilson.ca/blog/2018/07/22/lambda/" />
+        <link href="http://watson-wilson.ca/blog/2018/07/22/lambda/" rel="alternate" />
         <content type="html"><![CDATA[
             <p><a href="http://watson-wilson.ca/blog/2018/07/22/lambda/"><img alt="aws logo" src="http://watson-wilson.ca/static/images/aws.png" style="float:right" width="120px"></a></p>
 
@@ -34,7 +34,7 @@
     <entry>
         <id>http://watson-wilson.ca/blog/2018/07/11/ansible-tips/</id>
         <title>More Ansible tips</title>
-        <link rel="alternate" href="http://watson-wilson.ca/blog/2018/07/11/ansible-tips/" />
+        <link href="http://watson-wilson.ca/blog/2018/07/11/ansible-tips/" rel="alternate" />
         <content type="html"><![CDATA[
             <p><a href="http://ansible.com"><img alt="go to ansible.com" src="http://watson-wilson.ca/static/images/ansible_logo_round.png" style="float:right" width="150px"></a></p>
 
@@ -61,7 +61,7 @@
     <entry>
         <id>http://watson-wilson.ca/blog/2018/07/03/ansible-tips/</id>
         <title>Ansible tips</title>
-        <link rel="alternate" href="http://watson-wilson.ca/blog/2018/07/03/ansible-tips/" />
+        <link href="http://watson-wilson.ca/blog/2018/07/03/ansible-tips/" rel="alternate" />
         <content type="html"><![CDATA[
             <p><a href="http://ansible.com"><img alt="go to ansible.com" src="http://watson-wilson.ca/static/images/ansible_logo_round.png" style="float:right" width="150px"></a></p>
 
@@ -84,7 +84,7 @@
     <entry>
         <id>http://watson-wilson.ca/blog/2016/10/27/ansible-reboot/</id>
         <title>Reboot and reconnect between Ansible tasks</title>
-        <link rel="alternate" href="http://watson-wilson.ca/blog/2016/10/27/ansible-reboot/" />
+        <link href="http://watson-wilson.ca/blog/2016/10/27/ansible-reboot/" rel="alternate" />
         <content type="html"><![CDATA[
             <p><a href="http://ansible.com"><img alt="go to ansible.com" src="http://watson-wilson.ca/static/images/ansible_logo_round.png" style="float:right" width="150px"></a></p>
 

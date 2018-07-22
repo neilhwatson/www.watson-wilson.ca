@@ -3,13 +3,13 @@
     <id>http://watson-wilson.ca/blog/tag/shell/</id>
     <title>Neil H. Watson</title>
     <updated>2017-04-18T00:00:00Z</updated>
-    <link rel="self" href="http://watson-wilson.ca/blog/tag/shell.atom"/>
-    <link rel="alternate" href="http://watson-wilson.ca/blog/tag/shell/"/>
+    <link href="http://watson-wilson.ca/blog/tag/shell.atom" rel="self" />
+    <link href="http://watson-wilson.ca/blog/tag/shell/" rel="alternate" />
     <generator version="0.093">Statocles</generator>
     <entry>
         <id>http://watson-wilson.ca/blog/2017/04/18/improve-programming/</id>
         <title>Improve your Python, Perl, or Ruby</title>
-        <link rel="alternate" href="http://watson-wilson.ca/blog/2017/04/18/improve-programming/" />
+        <link href="http://watson-wilson.ca/blog/2017/04/18/improve-programming/" rel="alternate" />
         <content type="html"><![CDATA[
             <p><img alt="oreilly funny book cover" src="http://watson-wilson.ca/static/images/copy-paste-stack.jpg" style="float:right" width="120px"></p>
 
@@ -36,7 +36,7 @@
     <entry>
         <id>http://watson-wilson.ca/blog/2011/03/08/shell-cheatsheet/</id>
         <title>Shell cheatsheet</title>
-        <link rel="alternate" href="http://watson-wilson.ca/blog/2011/03/08/shell-cheatsheet/" />
+        <link href="http://watson-wilson.ca/blog/2011/03/08/shell-cheatsheet/" rel="alternate" />
         <content type="html"><![CDATA[
             <p>The following may not apply to all shells.</p>
 
@@ -92,7 +92,7 @@ work. Pressing enter returns to normal mode.</li>
     <entry>
         <id>http://watson-wilson.ca/blog/2011/03/08/gnu-screen-cheatsheet/</id>
         <title>GNU Screen cheatsheet</title>
-        <link rel="alternate" href="http://watson-wilson.ca/blog/2011/03/08/gnu-screen-cheatsheet/" />
+        <link href="http://watson-wilson.ca/blog/2011/03/08/gnu-screen-cheatsheet/" rel="alternate" />
         <content type="html"><![CDATA[
             <table>
 <tr>

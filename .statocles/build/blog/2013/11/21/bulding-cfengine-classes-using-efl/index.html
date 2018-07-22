@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="en"> 
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
         <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-        <link rel="stylesheet" href="/theme/css/readability-bootstrap.min.css" />
+        <link href="/theme/css/readability-bootstrap.min.css" rel="stylesheet">
         <!--<link rel="stylesheet" href="/theme/css/statocles-bootstrap.css" />-->
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
         <title>Bulding CFEngine classes using EFL - Neil H. Watson</title>
-        <meta name="generator" content="Statocles 0.093" />
+        <meta content="Statocles 0.093" name="generator">
         
 
         <!-- For source highlighting -->
-        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/default.min.css">
+        <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/default.min.css" rel="stylesheet">
         <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js"></script>
         <script>hljs.initHighlightingOnLoad();</script>
 
@@ -24,7 +24,7 @@
                 <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
                     <div class="navbar-header">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#top-navbar-collapse-1">
+                        <button class="navbar-toggle" data-target="#top-navbar-collapse-1" data-toggle="collapse" type="button">
                             <span class="sr-only">Toggle navigation</span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
@@ -76,7 +76,7 @@ His post inspired me to write about classifying hosts using <a href="http://wats
             </section>
             <section id="section-2">
                 <p>EFL allows you classify your hosts using data separation and external
-modules. Let's look at the current bundles available to you and how you
+modules. Let&#39;s look at the current bundles available to you and how you
 can expand EFL adding your own.</p>
 
 <p>All of these bundles take a CSV file as a parameter. You can call the
@@ -112,8 +112,8 @@ which is less accurately called a global class.</p>
 
 <p>Call the bundle via method.</p>
 
-<pre><code>"Set web_server class"
-   usebundle =&gt; efl_class_hostname( "${sys.workdir}/inputs/efl_class_hostname-web_servers.txt" );
+<pre><code>&quot;Set web_server class&quot;
+   usebundle =&gt; efl_class_hostname( &quot;${sys.workdir}/inputs/efl_class_hostname-web_servers.txt&quot; );
 </code></pre>
 
 <h3>Classes from reading external command output</h3>
@@ -137,19 +137,19 @@ the command in four.</p></li>
 
 <h1>Define global class if anchored regex matches command output.</h1>
 
-<h1>context(0) ;; class promiser(1) ;; 'not' match?(2) ;; command(3)               ;; useshell/noshell(4) ;; anchored regex(5) ;; promisee(6)</h1>
+<h1>context(0) ;; class promiser(1) ;; &#39;not&#39; match?(2) ;; command(3)               ;; useshell/noshell(4) ;; anchored regex(5) ;; promisee(6)</h1>
 
 <p>debian       ;;  install_cfengine_apt_key ;; yes ;; /usr/bin/apt-key list               ;; useshell ;; (?ims).<em>?CFEngine Community package repository.</em> ;; Neil Watson</p></li>
 </ul>
 
-<p>The above record runs the command 'apt-key list' on hosts of the debian
+<p>The above record runs the command &#39;apt-key list&#39; on hosts of the debian
 class. If the given regular expression is not matched (see column two),
-then the class 'install_cfengine_apt_key' is set.</p>
+then the class &#39;install_cfengine_apt_key&#39; is set.</p>
 
 <p>Call the bundle using a method.</p>
 
-<pre><code>"Class by shell and regcmp"
-   usebundle =&gt; efl_class_cmd_regcmp "${sys.workdir}/efl_class_cmd_regcmp.txt" );
+<pre><code>&quot;Class by shell and regcmp&quot;
+   usebundle =&gt; efl_class_cmd_regcmp &quot;${sys.workdir}/efl_class_cmd_regcmp.txt&quot; );
 </code></pre>
 
 <h3>Classes from expressions</h3>
@@ -169,13 +169,13 @@ then the class in column zero is defined.</p></li>
 <p>dmz_a               ;; ipv4_10_10_10|ipv4_10_10_11 ;; dmz_a networks</p></li>
 </ul>
 
-<p>The class 'dmz_a' is defined if either of the given classes, which in
+<p>The class &#39;dmz_a&#39; is defined if either of the given classes, which in
 this case are hard classes, are defined.</p>
 
 <p>Call the bundle using a method.</p>
 
-<pre><code>"classify by expressions"
-   usebundle =&gt; efl_class_expression( "${sys.workdir}/efl_class_expression.txt" );
+<pre><code>&quot;classify by expressions&quot;
+   usebundle =&gt; efl_class_expression( &quot;${sys.workdir}/efl_class_expression.txt&quot; );
 </code></pre>
 
 <h3>Classes from the classmatch function</h3>
@@ -199,8 +199,8 @@ match.</p></li>
 
 <p>Call the bundle using a method.</p>
 
-<pre><code>"Class by classmatch function"
-   usebundle =&gt; efl_class_classmatch( "${sys.workdir}/efl_class_classmatch.txt" );
+<pre><code>&quot;Class by classmatch function&quot;
+   usebundle =&gt; efl_class_classmatch( &quot;${sys.workdir}/efl_class_classmatch.txt&quot; );
 </code></pre>
 
 <h3>Classes from the iprange function</h3>
@@ -225,8 +225,8 @@ sandbox_hosts       ;; 192.168.0.10-15 ;; CFEngine sandbox hosts</p></li>
 
 <p>Call the bundle using a method.</p>
 
-<pre><code>"Class by iprange function"
-   usebundle =&gt; efl_class_iprange( "${sys.workdir}/efl_class_iprange.txt" );
+<pre><code>&quot;Class by iprange function&quot;
+   usebundle =&gt; efl_class_iprange( &quot;${sys.workdir}/efl_class_iprange.txt&quot; );
 </code></pre>
 
 <h3>Classes from external modules</h3>
@@ -234,7 +234,7 @@ sandbox_hosts       ;; 192.168.0.10-15 ;; CFEngine sandbox hosts</p></li>
 <p>The bundle efl_command (also discussed <a href="http://watson-wilson.ca/make-cfengine-simple-using-the-evolve-free-library/">here</a>.)
 promises to run given commands, constrained by a class expression. When
 the module options at column three is true then the promise attribute
-'module' is set to true and cf-agent will treat the output of the
+&#39;module&#39; is set to true and cf-agent will treat the output of the
 command as module syntax. Consider the following parameter file. It has
 six columns from zero to five.</p>
 
@@ -257,18 +257,18 @@ or ‘no’).</p></li>
 
 <p>Call the bundle using a method.</p>
 
-<pre><code>"Run commands or modules"
-   usebundle =&gt; efl_command( "${sys.workdir}/inputs/efl_command.txt" );
+<pre><code>&quot;Run commands or modules&quot;
+   usebundle =&gt; efl_command( &quot;${sys.workdir}/inputs/efl_command.txt&quot; );
 </code></pre>
 
 <h3>Expanding EFL</h3>
 
 <p>Most bundles in EFL are so similar that you can easily create your own
 bundles by copying existing ones. There is even a template called
-'efl_skeleton' for this very purpose. A common change might be to
+&#39;efl_skeleton&#39; for this very purpose. A common change might be to
 duplicate a class bundle but change it to a common bundle. Such bundles
 would define classes that cf-serverd can use. If you do develop new
-bundles I hope you'll contribute them back to <a href="https://github.com/neilhwatson/evolve_cfengine_freelib">EFL</a>.</p>
+bundles I hope you&#39;ll contribute them back to <a href="https://github.com/neilhwatson/evolve_cfengine_freelib">EFL</a>.</p>
 
             </section>
         </main>
@@ -277,7 +277,7 @@ bundles I hope you'll contribute them back to <a href="https://github.com/neilhw
     </div>
 
     <div class="col-md-3">
-        <iframe src="https://duckduckgo.com/search.html?site=watson-wilson.ca&prefill=Search DuckDuckGo" style="overflow:hidden;margin:0;padding:0;width:350px;height:40px;" frameborder="0"></iframe>
+        <iframe frameborder="0" src="https://duckduckgo.com/search.html?site=watson-wilson.ca&amp;prefill=Search DuckDuckGo" style="overflow:hidden;margin:0;padding:0;width:350px;height:40px;"></iframe>
 
         <nav id="tags">
             <h1>Tags</h1>
@@ -378,31 +378,31 @@ bundles I hope you'll contribute them back to <a href="https://github.com/neilhw
 
 </div>
 
-<div class='row'>
-   <div class='col-md-1'>
-       <img atl='Neil Watson' src='https://gravatar.com/avatar/1f0969599955a953e592034929ed7a23' >
+<div class="row">
+   <div class="col-md-1">
+       <img atl="Neil Watson" src="https://gravatar.com/avatar/1f0969599955a953e592034929ed7a23">
    </div>
 
-       <div class='col-md-1'>
+       <div class="col-md-1">
             <!-- reddit this -->
-            <a href="//www.reddit.com/submit" onclick="window.location = '//www.reddit.com/submit?url=' + encodeURIComponent(window.location); return false"><img src="//www.redditstatic.com/spreddit7.gif" alt="submit to reddit" border="0" /></a>
+            <a href="//www.reddit.com/submit" onclick="window.location = &#39;//www.reddit.com/submit?url=&#39; + encodeURIComponent(window.location); return false"><img alt="submit to reddit" border="0" src="//www.redditstatic.com/spreddit7.gif"></a>
        </div>
 
-       <div class='col-md-1'>
+       <div class="col-md-1">
           <!-- Tweet this -->
-          <a href="https://twitter.com/share" class="twitter-share-button" data-via="neil_h_watson" data-count="none">Tweet</a>
+          <a class="twitter-share-button" data-count="none" data-via="neil_h_watson" href="https://twitter.com/share">Tweet</a>
     <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
        </div>
 
-       <div class='col-md-1'>
+       <div class="col-md-1">
           <!-- follow me on twitter -->
-          <a href="https://twitter.com/neil_h_watson" class="twitter-follow-button" data-show-count="false" data-show-screen-name="false">Follow @neil_h_watson</a>
+          <a class="twitter-follow-button" data-show-count="false" data-show-screen-name="false" href="https://twitter.com/neil_h_watson">Follow @neil_h_watson</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
         </div>
 
-       <div class='col-md-1'>
+       <div class="col-md-1">
            <!-- follw me on github -->
-            <a aria-label="Follow @neilhwatson on GitHub" data-style="mega" href="https://github.com/neilhwatson" class="github-button">Follow</a>
+            <a aria-label="Follow @neilhwatson on GitHub" class="github-button" data-style="mega" href="https://github.com/neilhwatson">Follow</a>
             <script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
        </div>
 
@@ -412,9 +412,9 @@ bundles I hope you'll contribute them back to <a href="https://github.com/neilhw
         <footer>
             
             <h1></h1>
-            <div class='col-md-5'> </div>
+            <div class="col-md-5"> </div>
             <div class="col-md-3 container tagline">
-                <a href="http://preaction.me/statocles">Made with Statocles</a><br/>
+                <a href="http://preaction.me/statocles">Made with Statocles</a><br>
                 <a href="http://www.perl.org">Powered by Perl</a>
             </div>
         </footer>

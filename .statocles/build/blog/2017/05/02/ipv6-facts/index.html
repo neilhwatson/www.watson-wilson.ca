@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="en"> 
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
         <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-        <link rel="stylesheet" href="/theme/css/readability-bootstrap.min.css" />
+        <link href="/theme/css/readability-bootstrap.min.css" rel="stylesheet">
         <!--<link rel="stylesheet" href="/theme/css/statocles-bootstrap.css" />-->
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
         <title>Beginner facts about IPv6 - Neil H. Watson</title>
-        <meta name="generator" content="Statocles 0.093" />
+        <meta content="Statocles 0.093" name="generator">
         
 
         <!-- For source highlighting -->
-        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/default.min.css">
+        <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/default.min.css" rel="stylesheet">
         <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js"></script>
         <script>hljs.initHighlightingOnLoad();</script>
 
@@ -24,7 +24,7 @@
                 <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
                     <div class="navbar-header">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#top-navbar-collapse-1">
+                        <button class="navbar-toggle" data-target="#top-navbar-collapse-1" data-toggle="collapse" type="button">
                             <span class="sr-only">Toggle navigation</span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
@@ -68,26 +68,26 @@
 
             </header>
             <section id="section-1">
-                <p><img style='float:right' alt='Success with IPv6' src='/static/images/ipv6-success-kid.jpg' width='150' ></p>
+                <p><img alt="Success with IPv6" src="/static/images/ipv6-success-kid.jpg" style="float:right" width="150"></p>
 
 <ul>
 <li><p>This is an IPv4 address in hexadecimal: FF.FF.FF.FF (255.255.255.255).</p></li>
 <li><p>This is an IPv6 address, which are always in hexadecimal: FFFF:FFFF:FFFF:FFFF:FFFF:FFFF:FFFF:FFFF. See the difference in size?</p></li>
 <li><p><em>Everyone gets public</em> IPv6 addresses. There is no need for NAT.</p></li>
-<li><p>I'll say it again, there is a <em>no need for NAT</em>. Firewalls still work, but don't use NAT.</p></li>
+<li><p>I&#39;ll say it again, there is a <em>no need for NAT</em>. Firewalls still work, but don&#39;t use NAT.</p></li>
 <li><p>No NAT means end to end communication with less complexity. Rejoice!</p></li>
 <li><p>You will be assigned a large subnet of public IPv6 addresses. No more rationing a handful of public IPs.</p></li>
-<li><p>The smallest typical <a href="https://en.wikipedia.org/wiki/IPv6_subnetting_reference">subnet</a> of IPv6 is a /64 or 2<sup>64</sup> addresses. IPv4 space, <em>all of it</em> contains 2<sup>32</sub> addresses.</p></li>
+<li><p>The smallest typical <a href="https://en.wikipedia.org/wiki/IPv6_subnetting_reference">subnet</a> of IPv6 is a /64 or 2<sup>64</sup> addresses. IPv4 space, <em>all of it</em> contains 2<sup>32 addresses.</sup></p></li>
 <li><p>Small organizations, or even your home, are assigned a /56 which contains 256 /64 subnets.</p></li>
 <li><p>Larger organization are assigned a /48 which contains 65535 /64 subnets.</p></li>
-<li><p>Go back and count those in your head again. I'll wait.</p></li>
+<li><p>Go back and count those in your head again. I&#39;ll wait.</p></li>
 <li><p><a href="https://github.com/sii/sipcalc">Sipcalc</a> is a good IPv6 subnet calculator.</p></li>
 <li><p>Addresses can be statelessly assigned to nodes using <a href="https://en.wikipedia.org/wiki/IPv6#Stateless_address_autoconfiguration_.28SLAAC.29">SLAAC</a>.</p></li>
 <li><p>Addresses can be assigned statefully using <a href="https://en.wikipedia.org/wiki/DHCPv6">DHCPv6</a>.</p></li>
 <li><p>IPv6 and IPv4 are separate protocols and co-exist. This is called <a href="https://en.wikipedia.org/wiki/IPv6#Transition_mechanisms">dual stack</a>.</p></li>
 <li><p>You must have separate routing and firewall rules for both IPv4 and IPv6.</p></li>
 <li><p>Services must be configured to listen on IPv6, but most do so by default already.</p></li>
-<li><p>A DNS A record for an IPv6 address is an AAAA or 'quad A' record. <code>dig aaaa watson-wilson.ca</code>.</p></li>
+<li><p>A DNS A record for an IPv6 address is an AAAA or &#39;quad A&#39; record. <code>dig aaaa watson-wilson.ca</code>.</p></li>
 </ul>
 
             </section>
@@ -97,7 +97,7 @@
     </div>
 
     <div class="col-md-3">
-        <iframe src="https://duckduckgo.com/search.html?site=watson-wilson.ca&prefill=Search DuckDuckGo" style="overflow:hidden;margin:0;padding:0;width:350px;height:40px;" frameborder="0"></iframe>
+        <iframe frameborder="0" src="https://duckduckgo.com/search.html?site=watson-wilson.ca&amp;prefill=Search DuckDuckGo" style="overflow:hidden;margin:0;padding:0;width:350px;height:40px;"></iframe>
 
         <nav id="tags">
             <h1>Tags</h1>
@@ -198,31 +198,31 @@
 
 </div>
 
-<div class='row'>
-   <div class='col-md-1'>
-       <img atl='Neil Watson' src='https://gravatar.com/avatar/1f0969599955a953e592034929ed7a23' >
+<div class="row">
+   <div class="col-md-1">
+       <img atl="Neil Watson" src="https://gravatar.com/avatar/1f0969599955a953e592034929ed7a23">
    </div>
 
-       <div class='col-md-1'>
+       <div class="col-md-1">
             <!-- reddit this -->
-            <a href="//www.reddit.com/submit" onclick="window.location = '//www.reddit.com/submit?url=' + encodeURIComponent(window.location); return false"><img src="//www.redditstatic.com/spreddit7.gif" alt="submit to reddit" border="0" /></a>
+            <a href="//www.reddit.com/submit" onclick="window.location = &#39;//www.reddit.com/submit?url=&#39; + encodeURIComponent(window.location); return false"><img alt="submit to reddit" border="0" src="//www.redditstatic.com/spreddit7.gif"></a>
        </div>
 
-       <div class='col-md-1'>
+       <div class="col-md-1">
           <!-- Tweet this -->
-          <a href="https://twitter.com/share" class="twitter-share-button" data-via="neil_h_watson" data-count="none">Tweet</a>
+          <a class="twitter-share-button" data-count="none" data-via="neil_h_watson" href="https://twitter.com/share">Tweet</a>
     <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
        </div>
 
-       <div class='col-md-1'>
+       <div class="col-md-1">
           <!-- follow me on twitter -->
-          <a href="https://twitter.com/neil_h_watson" class="twitter-follow-button" data-show-count="false" data-show-screen-name="false">Follow @neil_h_watson</a>
+          <a class="twitter-follow-button" data-show-count="false" data-show-screen-name="false" href="https://twitter.com/neil_h_watson">Follow @neil_h_watson</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
         </div>
 
-       <div class='col-md-1'>
+       <div class="col-md-1">
            <!-- follw me on github -->
-            <a aria-label="Follow @neilhwatson on GitHub" data-style="mega" href="https://github.com/neilhwatson" class="github-button">Follow</a>
+            <a aria-label="Follow @neilhwatson on GitHub" class="github-button" data-style="mega" href="https://github.com/neilhwatson">Follow</a>
             <script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
        </div>
 
@@ -232,9 +232,9 @@
         <footer>
             
             <h1></h1>
-            <div class='col-md-5'> </div>
+            <div class="col-md-5"> </div>
             <div class="col-md-3 container tagline">
-                <a href="http://preaction.me/statocles">Made with Statocles</a><br/>
+                <a href="http://preaction.me/statocles">Made with Statocles</a><br>
                 <a href="http://www.perl.org">Powered by Perl</a>
             </div>
         </footer>

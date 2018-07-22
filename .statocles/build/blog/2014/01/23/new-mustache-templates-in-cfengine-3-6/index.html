@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="en"> 
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
         <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-        <link rel="stylesheet" href="/theme/css/readability-bootstrap.min.css" />
+        <link href="/theme/css/readability-bootstrap.min.css" rel="stylesheet">
         <!--<link rel="stylesheet" href="/theme/css/statocles-bootstrap.css" />-->
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
         <title>New mustache templates in CFEngine 3.6 - Neil H. Watson</title>
-        <meta name="generator" content="Statocles 0.093" />
+        <meta content="Statocles 0.093" name="generator">
         
 
         <!-- For source highlighting -->
-        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/default.min.css">
+        <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/default.min.css" rel="stylesheet">
         <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js"></script>
         <script>hljs.initHighlightingOnLoad();</script>
 
@@ -24,7 +24,7 @@
                 <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
                     <div class="navbar-header">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#top-navbar-collapse-1">
+                        <button class="navbar-toggle" data-target="#top-navbar-collapse-1" data-toggle="collapse" type="button">
                             <span class="sr-only">Toggle navigation</span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
@@ -68,32 +68,32 @@
 
             </header>
             <section id="section-1">
-                <p>Mustache templates are a new alternative template method in 3.6. Let's
+                <p>Mustache templates are a new alternative template method in 3.6. Let&#39;s
 see how they work. --- <a href="http://watson-wilson.ca/template-configuration-files-using-cfengine/">Recall</a>
 my previous talk about templates and how to use them in CFEngine 3.5.</p>
 
 <pre><code>body common control
 {
-        bundlesequence =&gt; { "main", };
+        bundlesequence =&gt; { &quot;main&quot;, };
 }
 
 bundle agent main
 {
         methods:
 
-                "any" usebundle =&gt; resolv_conf;
+                &quot;any&quot; usebundle =&gt; resolv_conf;
 }
 
 bundle agent resolv_conf 
 {
    meta:
-      "purpose" string =&gt; "Example of edit_template use";
+      &quot;purpose&quot; string =&gt; &quot;Example of edit_template use&quot;;
 
    files:
-      "/tmp/resolv.conf"
-         create          =&gt; 'true',
-         template_method =&gt; "mustache",
-         edit_template   =&gt; "${sys.workdir}/inputs/resolv.tmp";
+      &quot;/tmp/resolv.conf&quot;
+         create          =&gt; &#39;true&#39;,
+         template_method =&gt; &quot;mustache&quot;,
+         edit_template   =&gt; &quot;${sys.workdir}/inputs/resolv.tmp&quot;;
 
 }
 </code></pre>
@@ -119,42 +119,42 @@ timeout:2
 <p>Can you spot the new class syntax? Rather than [%CFEngine
 <class_name>:: %] there are now opening and closing class tags,
 {{#classes.<class_name>}} and {{/classes.<class_name>}} that surround
-the lines that the class applies to. This is different than CFEngine's
+the lines that the class applies to. This is different than CFEngine&#39;s
 normal implied class application where the preceding class is assumed
 still valid until the next class is stated. Lines outside of class tags
-are part of the any class.</p>
+are part of the any class.</class_name></class_name></class_name></p>
 
 <p>At a lower level the agent is using the <a href="https://cfengine.com/docs/master/reference-functions-datastate.html">datastate</a>,
 which is an internal representation of the vars and classes available
-to the agent. It's layout is roughly this:</p>
+to the agent. It&#39;s layout is roughly this:</p>
 
 <pre><code>{
- "classes": {
- "ipv4_172": true,
- "fe80__fc54_ff_fe34_5399": true,
- "agent": true,
- "Lcycle_1": true,
+ &quot;classes&quot;: {
+ &quot;ipv4_172&quot;: true,
+ &quot;fe80__fc54_ff_fe34_5399&quot;: true,
+ &quot;agent&quot;: true,
+ &quot;Lcycle_1&quot;: true,
 
 ....
-"vars": {
- "sys": {
-   "systime": "1390500650",
-   "flavour": "debian_jessie",
-   "hardware_addresses": [
-     "00:1e:67:8b:f7:13"
+&quot;vars&quot;: {
+ &quot;sys&quot;: {
+   &quot;systime&quot;: &quot;1390500650&quot;,
+   &quot;flavour&quot;: &quot;debian_jessie&quot;,
+   &quot;hardware_addresses&quot;: [
+     &quot;00:1e:67:8b:f7:13&quot;
    ],
-   "fqhost": "ettin.watson-wilson.ca",
-   "ipv4_1[br0]": "172",
-   "uptime": "7348",
-   "bindir": "/home/neil/.cfagent/bin",
-   "arch": "x86_64",
-   "ipv4": "172.16.100.1",
+   &quot;fqhost&quot;: &quot;ettin.watson-wilson.ca&quot;,
+   &quot;ipv4_1[br0]&quot;: &quot;172&quot;,
+   &quot;uptime&quot;: &quot;7348&quot;,
+   &quot;bindir&quot;: &quot;/home/neil/.cfagent/bin&quot;,
+   &quot;arch&quot;: &quot;x86_64&quot;,
+   &quot;ipv4&quot;: &quot;172.16.100.1&quot;,
 ....
 </code></pre>
 
 <p>I show only a small piece of it because the full collection is very
 large. It gives you an idea of what the agent knows. For this example
-it's not important. Just be aware that it exists. Now, let's run the
+it&#39;s not important. Just be aware that it exists. Now, let&#39;s run the
 example policy.</p>
 
 <pre><code>$ cf-agent -IKf ./edit_template.cf -D toronto; cat /tmp/resolv.conf 
@@ -180,7 +180,7 @@ will <em>not be skipped</em> in mustache templates.</p>
     </div>
 
     <div class="col-md-3">
-        <iframe src="https://duckduckgo.com/search.html?site=watson-wilson.ca&prefill=Search DuckDuckGo" style="overflow:hidden;margin:0;padding:0;width:350px;height:40px;" frameborder="0"></iframe>
+        <iframe frameborder="0" src="https://duckduckgo.com/search.html?site=watson-wilson.ca&amp;prefill=Search DuckDuckGo" style="overflow:hidden;margin:0;padding:0;width:350px;height:40px;"></iframe>
 
         <nav id="tags">
             <h1>Tags</h1>
@@ -281,31 +281,31 @@ will <em>not be skipped</em> in mustache templates.</p>
 
 </div>
 
-<div class='row'>
-   <div class='col-md-1'>
-       <img atl='Neil Watson' src='https://gravatar.com/avatar/1f0969599955a953e592034929ed7a23' >
+<div class="row">
+   <div class="col-md-1">
+       <img atl="Neil Watson" src="https://gravatar.com/avatar/1f0969599955a953e592034929ed7a23">
    </div>
 
-       <div class='col-md-1'>
+       <div class="col-md-1">
             <!-- reddit this -->
-            <a href="//www.reddit.com/submit" onclick="window.location = '//www.reddit.com/submit?url=' + encodeURIComponent(window.location); return false"><img src="//www.redditstatic.com/spreddit7.gif" alt="submit to reddit" border="0" /></a>
+            <a href="//www.reddit.com/submit" onclick="window.location = &#39;//www.reddit.com/submit?url=&#39; + encodeURIComponent(window.location); return false"><img alt="submit to reddit" border="0" src="//www.redditstatic.com/spreddit7.gif"></a>
        </div>
 
-       <div class='col-md-1'>
+       <div class="col-md-1">
           <!-- Tweet this -->
-          <a href="https://twitter.com/share" class="twitter-share-button" data-via="neil_h_watson" data-count="none">Tweet</a>
+          <a class="twitter-share-button" data-count="none" data-via="neil_h_watson" href="https://twitter.com/share">Tweet</a>
     <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
        </div>
 
-       <div class='col-md-1'>
+       <div class="col-md-1">
           <!-- follow me on twitter -->
-          <a href="https://twitter.com/neil_h_watson" class="twitter-follow-button" data-show-count="false" data-show-screen-name="false">Follow @neil_h_watson</a>
+          <a class="twitter-follow-button" data-show-count="false" data-show-screen-name="false" href="https://twitter.com/neil_h_watson">Follow @neil_h_watson</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
         </div>
 
-       <div class='col-md-1'>
+       <div class="col-md-1">
            <!-- follw me on github -->
-            <a aria-label="Follow @neilhwatson on GitHub" data-style="mega" href="https://github.com/neilhwatson" class="github-button">Follow</a>
+            <a aria-label="Follow @neilhwatson on GitHub" class="github-button" data-style="mega" href="https://github.com/neilhwatson">Follow</a>
             <script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
        </div>
 
@@ -315,9 +315,9 @@ will <em>not be skipped</em> in mustache templates.</p>
         <footer>
             
             <h1></h1>
-            <div class='col-md-5'> </div>
+            <div class="col-md-5"> </div>
             <div class="col-md-3 container tagline">
-                <a href="http://preaction.me/statocles">Made with Statocles</a><br/>
+                <a href="http://preaction.me/statocles">Made with Statocles</a><br>
                 <a href="http://www.perl.org">Powered by Perl</a>
             </div>
         </footer>

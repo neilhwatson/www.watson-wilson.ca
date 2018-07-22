@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="en"> 
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
         <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-        <link rel="stylesheet" href="/theme/css/readability-bootstrap.min.css" />
+        <link href="/theme/css/readability-bootstrap.min.css" rel="stylesheet">
         <!--<link rel="stylesheet" href="/theme/css/statocles-bootstrap.css" />-->
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
         <title>JSON containers improve CFEngine and EFL - Neil H. Watson</title>
-        <meta name="generator" content="Statocles 0.093" />
+        <meta content="Statocles 0.093" name="generator">
         
 
         <!-- For source highlighting -->
-        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/default.min.css">
+        <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/default.min.css" rel="stylesheet">
         <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js"></script>
         <script>hljs.initHighlightingOnLoad();</script>
 
@@ -24,7 +24,7 @@
                 <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
                     <div class="navbar-header">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#top-navbar-collapse-1">
+                        <button class="navbar-toggle" data-target="#top-navbar-collapse-1" data-toggle="collapse" type="button">
                             <span class="sr-only">Toggle navigation</span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
@@ -90,83 +90,83 @@ readable.</p>
 
 <pre><code>body common control
 {
-        bundlesequence =&gt; { "main", };
+        bundlesequence =&gt; { &quot;main&quot;, };
 }
 
 bundle agent main
 {
         methods:
-                "any" usebundle =&gt; init;
-                "any" usebundle =&gt; sysctl( "/tmp/sysctl.json" );
+                &quot;any&quot; usebundle =&gt; init;
+                &quot;any&quot; usebundle =&gt; sysctl( &quot;/tmp/sysctl.json&quot; );
 }
 
 bundle agent init 
 {
         vars:
-                "sysctl" string =&gt; '
+                &quot;sysctl&quot; string =&gt; &#39;
 [
     {
-        "context": "any",
-        "name": "net.ipv6.conf.all.accept_ra",
-        "value": 0,
-        "promisee": "IPV6 Team"
+        &quot;context&quot;: &quot;any&quot;,
+        &quot;name&quot;: &quot;net.ipv6.conf.all.accept_ra&quot;,
+        &quot;value&quot;: 0,
+        &quot;promisee&quot;: &quot;IPV6 Team&quot;
     },
     {
-        "context": "any",
-        "name": "net.ipv6.conf.default.autoconf",
-        "value": 0,
-        "promisee": "IPV6 Team"
+        &quot;context&quot;: &quot;any&quot;,
+        &quot;name&quot;: &quot;net.ipv6.conf.default.autoconf&quot;,
+        &quot;value&quot;: 0,
+        &quot;promisee&quot;: &quot;IPV6 Team&quot;
     }
 ]
-';
+&#39;;
    files:
-      "/tmp/sysctl.json"
+      &quot;/tmp/sysctl.json&quot;
          edit_defaults =&gt; empty,
-         create        =&gt; 'true',
-         edit_line     =&gt; el_init( "${sysctl}" );
+         create        =&gt; &#39;true&#39;,
+         edit_line     =&gt; el_init( &quot;${sysctl}&quot; );
 }
 
 body edit_defaults empty
 {
-   empty_file_before_editing =&gt; "true";
-   edit_backup               =&gt; "false";
+   empty_file_before_editing =&gt; &quot;true&quot;;
+   edit_backup               =&gt; &quot;false&quot;;
 }
 
 bundle edit_line el_init( str )
 {
    insert_lines:
-      "${str}";
+      &quot;${str}&quot;;
 }
 
 bundle agent sysctl( ref )
 {
    vars:
-      "sysctl"
-         comment =&gt; "Read json file into container",
-# New vars type 'data'.
-         data    =&gt; readjson( "${ref}", 1024 );
+      &quot;sysctl&quot;
+         comment =&gt; &quot;Read json file into container&quot;,
+# New vars type &#39;data&#39;.
+         data    =&gt; readjson( &quot;${ref}&quot;, 1024 );
 
-      "i"
-         comment =&gt; "Get index of json for iteration",
-         slist   =&gt; getindices( "sysctl" );
+      &quot;i&quot;
+         comment =&gt; &quot;Get index of json for iteration&quot;,
+         slist   =&gt; getindices( &quot;sysctl&quot; );
 
    reports:
-      "
+      &quot;
 context  =&gt; ${sysctl[${i}][context]}
 name     =&gt; ${sysctl[${i}][name]}
 value    =&gt; ${sysctl[${i}][value]}
 promisee =&gt; ${sysctl[${i}][promisee]}
-";
+&quot;;
 }
 
 $ cf-agent -f ./json.cf
-2013-11-27T13:48:04-0500   notice: /main/methods/'any'/sysctl: R: 
+2013-11-27T13:48:04-0500   notice: /main/methods/&#39;any&#39;/sysctl: R: 
 context  =&gt; any
 name     =&gt; net.ipv6.conf.all.accept_ra
 value    =&gt; 0
 promisee =&gt; IPV6 Team
 
-2013-11-27T13:48:04-0500   notice: /main/methods/'any'/sysctl: R: 
+2013-11-27T13:48:04-0500   notice: /main/methods/&#39;any&#39;/sysctl: R: 
 context  =&gt; any
 name     =&gt; net.ipv6.conf.default.autoconf
 value    =&gt; 0
@@ -180,7 +180,7 @@ promisee =&gt; IPV6 Team
     </div>
 
     <div class="col-md-3">
-        <iframe src="https://duckduckgo.com/search.html?site=watson-wilson.ca&prefill=Search DuckDuckGo" style="overflow:hidden;margin:0;padding:0;width:350px;height:40px;" frameborder="0"></iframe>
+        <iframe frameborder="0" src="https://duckduckgo.com/search.html?site=watson-wilson.ca&amp;prefill=Search DuckDuckGo" style="overflow:hidden;margin:0;padding:0;width:350px;height:40px;"></iframe>
 
         <nav id="tags">
             <h1>Tags</h1>
@@ -281,31 +281,31 @@ promisee =&gt; IPV6 Team
 
 </div>
 
-<div class='row'>
-   <div class='col-md-1'>
-       <img atl='Neil Watson' src='https://gravatar.com/avatar/1f0969599955a953e592034929ed7a23' >
+<div class="row">
+   <div class="col-md-1">
+       <img atl="Neil Watson" src="https://gravatar.com/avatar/1f0969599955a953e592034929ed7a23">
    </div>
 
-       <div class='col-md-1'>
+       <div class="col-md-1">
             <!-- reddit this -->
-            <a href="//www.reddit.com/submit" onclick="window.location = '//www.reddit.com/submit?url=' + encodeURIComponent(window.location); return false"><img src="//www.redditstatic.com/spreddit7.gif" alt="submit to reddit" border="0" /></a>
+            <a href="//www.reddit.com/submit" onclick="window.location = &#39;//www.reddit.com/submit?url=&#39; + encodeURIComponent(window.location); return false"><img alt="submit to reddit" border="0" src="//www.redditstatic.com/spreddit7.gif"></a>
        </div>
 
-       <div class='col-md-1'>
+       <div class="col-md-1">
           <!-- Tweet this -->
-          <a href="https://twitter.com/share" class="twitter-share-button" data-via="neil_h_watson" data-count="none">Tweet</a>
+          <a class="twitter-share-button" data-count="none" data-via="neil_h_watson" href="https://twitter.com/share">Tweet</a>
     <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
        </div>
 
-       <div class='col-md-1'>
+       <div class="col-md-1">
           <!-- follow me on twitter -->
-          <a href="https://twitter.com/neil_h_watson" class="twitter-follow-button" data-show-count="false" data-show-screen-name="false">Follow @neil_h_watson</a>
+          <a class="twitter-follow-button" data-show-count="false" data-show-screen-name="false" href="https://twitter.com/neil_h_watson">Follow @neil_h_watson</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
         </div>
 
-       <div class='col-md-1'>
+       <div class="col-md-1">
            <!-- follw me on github -->
-            <a aria-label="Follow @neilhwatson on GitHub" data-style="mega" href="https://github.com/neilhwatson" class="github-button">Follow</a>
+            <a aria-label="Follow @neilhwatson on GitHub" class="github-button" data-style="mega" href="https://github.com/neilhwatson">Follow</a>
             <script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
        </div>
 
@@ -315,9 +315,9 @@ promisee =&gt; IPV6 Team
         <footer>
             
             <h1></h1>
-            <div class='col-md-5'> </div>
+            <div class="col-md-5"> </div>
             <div class="col-md-3 container tagline">
-                <a href="http://preaction.me/statocles">Made with Statocles</a><br/>
+                <a href="http://preaction.me/statocles">Made with Statocles</a><br>
                 <a href="http://www.perl.org">Powered by Perl</a>
             </div>
         </footer>

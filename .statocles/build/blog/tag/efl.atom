@@ -3,14 +3,14 @@
     <id>http://watson-wilson.ca/blog/tag/efl/</id>
     <title>Neil H. Watson</title>
     <updated>2015-10-13T09:54:06Z</updated>
-    <link rel="self" href="http://watson-wilson.ca/blog/tag/efl.atom"/>
-    <link rel="alternate" href="http://watson-wilson.ca/blog/tag/efl/"/>
+    <link href="http://watson-wilson.ca/blog/tag/efl.atom" rel="self" />
+    <link href="http://watson-wilson.ca/blog/tag/efl/" rel="alternate" />
     <generator version="0.093">Statocles</generator>
     <entry>
         <id>http://watson-wilson.ca/blog/2015/10/13/simple-cfengine-setup-with-efl/</id>
         <title>Simple CFEngine setup with EFL</title>
         <author><name>nwatson</name></author>
-        <link rel="alternate" href="http://watson-wilson.ca/blog/2015/10/13/simple-cfengine-setup-with-efl/" />
+        <link href="http://watson-wilson.ca/blog/2015/10/13/simple-cfengine-setup-with-efl/" rel="alternate" />
         <content type="html"><![CDATA[
             <p><img alt="image of stopwatch" src="http://watson-wilson.ca/static/images/stopwatch_13154_sm.gif"></p>
 
@@ -32,7 +32,7 @@ addon.</p>
         <id>http://watson-wilson.ca/blog/2015/09/18/auditing-hosts-using-cfengine-efl-and-delta-reporting/</id>
         <title>Auditing hosts using CFEngine, EFL, and Delta Reporting</title>
         <author><name>nwatson</name></author>
-        <link rel="alternate" href="http://watson-wilson.ca/blog/2015/09/18/auditing-hosts-using-cfengine-efl-and-delta-reporting/" />
+        <link href="http://watson-wilson.ca/blog/2015/09/18/auditing-hosts-using-cfengine-efl-and-delta-reporting/" rel="alternate" />
         <content type="html"><![CDATA[
             <p><img alt="Clip board" src="http://watson-wilson.ca/static/images/Liste-300px.png"></p>
 
@@ -61,7 +61,7 @@ it&#39;s possible.</p>
         <id>http://watson-wilson.ca/blog/2015/08/20/testing-cfengine-using-efl-tap-and-perl/</id>
         <title>Testing CFEngine policy using EFL, TAP, and Perl</title>
         <author><name>nwatson</name></author>
-        <link rel="alternate" href="http://watson-wilson.ca/blog/2015/08/20/testing-cfengine-using-efl-tap-and-perl/" />
+        <link href="http://watson-wilson.ca/blog/2015/08/20/testing-cfengine-using-efl-tap-and-perl/" rel="alternate" />
         <content type="html"><![CDATA[
             <p><img alt="Prove and TAP output" src="http://watson-wilson.ca/static/images/efl_tests.png"></p>
 
@@ -87,7 +87,7 @@ TAP output.</p>
         <id>http://watson-wilson.ca/blog/2015/08/20/efl-is-tested-for-your-confidence/</id>
         <title>EFL is tested for your confidence</title>
         <author><name>nwatson</name></author>
-        <link rel="alternate" href="http://watson-wilson.ca/blog/2015/08/20/efl-is-tested-for-your-confidence/" />
+        <link href="http://watson-wilson.ca/blog/2015/08/20/efl-is-tested-for-your-confidence/" rel="alternate" />
         <content type="html"><![CDATA[
             <p><img alt="EFL has more than 170 tests" src="http://watson-wilson.ca/static/images/efl_tests.png"></p>
 
@@ -110,7 +110,7 @@ in your production environment.</p>
         <id>http://watson-wilson.ca/blog/2015/07/29/new-packages-promises-in-efl/</id>
         <title>New packages promises in EFL</title>
         <author><name>nwatson</name></author>
-        <link rel="alternate" href="http://watson-wilson.ca/blog/2015/07/29/new-packages-promises-in-efl/" />
+        <link href="http://watson-wilson.ca/blog/2015/07/29/new-packages-promises-in-efl/" rel="alternate" />
         <content type="html"><![CDATA[
             <p><img alt="A package" src="http://watson-wilson.ca/static/images/cubimal-package.png"></p>
 

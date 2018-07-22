@@ -3,13 +3,13 @@
     <id>http://watson-wilson.ca/blog/tag/cheatsheet/</id>
     <title>Neil H. Watson</title>
     <updated>2015-11-25T00:00:00Z</updated>
-    <link rel="self" href="http://watson-wilson.ca/blog/tag/cheatsheet.atom"/>
-    <link rel="alternate" href="http://watson-wilson.ca/blog/tag/cheatsheet/"/>
+    <link href="http://watson-wilson.ca/blog/tag/cheatsheet.atom" rel="self" />
+    <link href="http://watson-wilson.ca/blog/tag/cheatsheet/" rel="alternate" />
     <generator version="0.093">Statocles</generator>
     <entry>
         <id>http://watson-wilson.ca/blog/2015/11/25/perl-cheatsheet/</id>
         <title>Perl cheatsheet</title>
-        <link rel="alternate" href="http://watson-wilson.ca/blog/2015/11/25/perl-cheatsheet/" />
+        <link href="http://watson-wilson.ca/blog/2015/11/25/perl-cheatsheet/" rel="alternate" />
         <content type="html"><![CDATA[
             <p>If you are looking for my Perl cheatsheet, it&#39;s over
 <a href="https://github.com/neilhwatson/nustuff/blob/master/perl/cheatsheet.pod">here</a>.
@@ -33,7 +33,7 @@ Lots of interesting stuff in that repo.</p>
         <id>http://watson-wilson.ca/blog/2013/05/09/pcre-cheatsheet/</id>
         <title>PCRE cheatsheet</title>
         <author><name>nwatson</name></author>
-        <link rel="alternate" href="http://watson-wilson.ca/blog/2013/05/09/pcre-cheatsheet/" />
+        <link href="http://watson-wilson.ca/blog/2013/05/09/pcre-cheatsheet/" rel="alternate" />
         <content type="html"><![CDATA[
             <p>Although similar to Perl, PCRE has some syntax that can be
 difficult to remember. When I&#39;m working with CFEngine I often have to
@@ -56,7 +56,7 @@ look it up. Here is a cheat-sheet to save time.</p>
     <entry>
         <id>http://watson-wilson.ca/blog/2011/03/08/solaris-cheatsheet/</id>
         <title>Solaris and Sun/Oracle cheatsheet</title>
-        <link rel="alternate" href="http://watson-wilson.ca/blog/2011/03/08/solaris-cheatsheet/" />
+        <link href="http://watson-wilson.ca/blog/2011/03/08/solaris-cheatsheet/" rel="alternate" />
         <content type="html"><![CDATA[
             <h3>Init levels</h3>
 
@@ -134,7 +134,7 @@ look it up. Here is a cheat-sheet to save time.</p>
     <entry>
         <id>http://watson-wilson.ca/blog/2011/03/08/apt-cheatsheet/</id>
         <title>Debian Apt Cheatsheet</title>
-        <link rel="alternate" href="http://watson-wilson.ca/blog/2011/03/08/apt-cheatsheet/" />
+        <link href="http://watson-wilson.ca/blog/2011/03/08/apt-cheatsheet/" rel="alternate" />
         <content type="html"><![CDATA[
             <table>
 <tr>
@@ -214,7 +214,7 @@ look it up. Here is a cheat-sheet to save time.</p>
     <entry>
         <id>http://watson-wilson.ca/blog/2011/03/08/shell-cheatsheet/</id>
         <title>Shell cheatsheet</title>
-        <link rel="alternate" href="http://watson-wilson.ca/blog/2011/03/08/shell-cheatsheet/" />
+        <link href="http://watson-wilson.ca/blog/2011/03/08/shell-cheatsheet/" rel="alternate" />
         <content type="html"><![CDATA[
             <p>The following may not apply to all shells.</p>
 

@@ -3,14 +3,14 @@
     <id>http://watson-wilson.ca/blog/tag/irc/</id>
     <title>Neil H. Watson</title>
     <updated>2015-06-10T09:32:18Z</updated>
-    <link rel="self" href="http://watson-wilson.ca/blog/tag/irc.atom"/>
-    <link rel="alternate" href="http://watson-wilson.ca/blog/tag/irc/"/>
+    <link href="http://watson-wilson.ca/blog/tag/irc.atom" rel="self" />
+    <link href="http://watson-wilson.ca/blog/tag/irc/" rel="alternate" />
     <generator version="0.093">Statocles</generator>
     <entry>
         <id>http://watson-wilson.ca/blog/2015/06/10/cfbot-answers-your-questions-on-irc/</id>
         <title>Cfbot answers your questions on IRC</title>
         <author><name>nwatson</name></author>
-        <link rel="alternate" href="http://watson-wilson.ca/blog/2015/06/10/cfbot-answers-your-questions-on-irc/" />
+        <link href="http://watson-wilson.ca/blog/2015/06/10/cfbot-answers-your-questions-on-irc/" rel="alternate" />
         <content type="html"><![CDATA[
             <p><img alt="A robot, courtesy clipartlord.com" src="http://watson-wilson.ca/static/images/robot41.png"></p>
 

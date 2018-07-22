@@ -3,13 +3,13 @@
     <id>http://watson-wilson.ca/blog/tag/configuration-management/</id>
     <title>Neil H. Watson</title>
     <updated>2018-07-11T00:00:00Z</updated>
-    <link rel="self" href="http://watson-wilson.ca/blog/tag/configuration-management.atom"/>
-    <link rel="alternate" href="http://watson-wilson.ca/blog/tag/configuration-management/"/>
+    <link href="http://watson-wilson.ca/blog/tag/configuration-management.atom" rel="self" />
+    <link href="http://watson-wilson.ca/blog/tag/configuration-management/" rel="alternate" />
     <generator version="0.093">Statocles</generator>
     <entry>
         <id>http://watson-wilson.ca/blog/2018/07/11/ansible-tips/</id>
         <title>More Ansible tips</title>
-        <link rel="alternate" href="http://watson-wilson.ca/blog/2018/07/11/ansible-tips/" />
+        <link href="http://watson-wilson.ca/blog/2018/07/11/ansible-tips/" rel="alternate" />
         <content type="html"><![CDATA[
             <p><a href="http://ansible.com"><img alt="go to ansible.com" src="http://watson-wilson.ca/static/images/ansible_logo_round.png" style="float:right" width="150px"></a></p>
 
@@ -36,7 +36,7 @@
     <entry>
         <id>http://watson-wilson.ca/blog/2018/07/03/ansible-tips/</id>
         <title>Ansible tips</title>
-        <link rel="alternate" href="http://watson-wilson.ca/blog/2018/07/03/ansible-tips/" />
+        <link href="http://watson-wilson.ca/blog/2018/07/03/ansible-tips/" rel="alternate" />
         <content type="html"><![CDATA[
             <p><a href="http://ansible.com"><img alt="go to ansible.com" src="http://watson-wilson.ca/static/images/ansible_logo_round.png" style="float:right" width="150px"></a></p>
 
@@ -59,7 +59,7 @@
     <entry>
         <id>http://watson-wilson.ca/blog/2017/04/18/terraform-azure/</id>
         <title>Build on Azure with Terraform</title>
-        <link rel="alternate" href="http://watson-wilson.ca/blog/2017/04/18/terraform-azure/" />
+        <link href="http://watson-wilson.ca/blog/2017/04/18/terraform-azure/" rel="alternate" />
         <content type="html"><![CDATA[
             <p><a href="https://terraform.io/"><img alt="terraform logo" src="https://raw.githubusercontent.com/hashicorp/terraform-website/master/content//source/assets/images/og-image.png" style="float:right" width="120px"></a></p>
 
@@ -80,7 +80,7 @@
     <entry>
         <id>http://watson-wilson.ca/blog/2017/04/17/terraform-state/</id>
         <title>Understanding Terraform State</title>
-        <link rel="alternate" href="http://watson-wilson.ca/blog/2017/04/17/terraform-state/" />
+        <link href="http://watson-wilson.ca/blog/2017/04/17/terraform-state/" rel="alternate" />
         <content type="html"><![CDATA[
             <p><a href="https://terraform.io/"><img alt="terraform logo" src="https://raw.githubusercontent.com/hashicorp/terraform-website/master/content//source/assets/images/og-image.png" style="float:right" width="120px"></a></p>
 
@@ -103,7 +103,7 @@
     <entry>
         <id>http://watson-wilson.ca/blog/2017/03/30/terraform-modules/</id>
         <title>Terraform modules</title>
-        <link rel="alternate" href="http://watson-wilson.ca/blog/2017/03/30/terraform-modules/" />
+        <link href="http://watson-wilson.ca/blog/2017/03/30/terraform-modules/" rel="alternate" />
         <content type="html"><![CDATA[
             <p><a href="https://terraform.io/"><img alt="terraform logo" src="https://raw.githubusercontent.com/hashicorp/terraform-website/master/content//source/assets/images/og-image.png" style="float:right" width="120px"></a></p>
 
