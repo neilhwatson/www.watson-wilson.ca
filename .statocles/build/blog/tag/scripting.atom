@@ -3,13 +3,13 @@
     <id>http://watson-wilson.ca/blog/tag/scripting/</id>
     <title>Neil H. Watson</title>
     <updated>2018-07-11T00:00:00Z</updated>
-    <link href="http://watson-wilson.ca/blog/tag/scripting.atom" rel="self" />
-    <link href="http://watson-wilson.ca/blog/tag/scripting/" rel="alternate" />
+    <link rel="self" href="http://watson-wilson.ca/blog/tag/scripting.atom"/>
+    <link rel="alternate" href="http://watson-wilson.ca/blog/tag/scripting/"/>
     <generator version="0.093">Statocles</generator>
     <entry>
         <id>http://watson-wilson.ca/blog/2018/07/11/ansible-tips/</id>
         <title>More Ansible tips</title>
-        <link href="http://watson-wilson.ca/blog/2018/07/11/ansible-tips/" rel="alternate" />
+        <link rel="alternate" href="http://watson-wilson.ca/blog/2018/07/11/ansible-tips/" />
         <content type="html"><![CDATA[
             <p><a href="http://ansible.com"><img alt="go to ansible.com" src="http://watson-wilson.ca/static/images/ansible_logo_round.png" style="float:right" width="150px"></a></p>
 
@@ -36,7 +36,7 @@
     <entry>
         <id>http://watson-wilson.ca/blog/2018/07/03/ansible-tips/</id>
         <title>Ansible tips</title>
-        <link href="http://watson-wilson.ca/blog/2018/07/03/ansible-tips/" rel="alternate" />
+        <link rel="alternate" href="http://watson-wilson.ca/blog/2018/07/03/ansible-tips/" />
         <content type="html"><![CDATA[
             <p><a href="http://ansible.com"><img alt="go to ansible.com" src="http://watson-wilson.ca/static/images/ansible_logo_round.png" style="float:right" width="150px"></a></p>
 
@@ -59,7 +59,7 @@
     <entry>
         <id>http://watson-wilson.ca/blog/2017/04/18/improve-programming/</id>
         <title>Improve your Python, Perl, or Ruby</title>
-        <link href="http://watson-wilson.ca/blog/2017/04/18/improve-programming/" rel="alternate" />
+        <link rel="alternate" href="http://watson-wilson.ca/blog/2017/04/18/improve-programming/" />
         <content type="html"><![CDATA[
             <p><img alt="oreilly funny book cover" src="http://watson-wilson.ca/static/images/copy-paste-stack.jpg" style="float:right" width="120px"></p>
 
@@ -86,7 +86,7 @@
     <entry>
         <id>http://watson-wilson.ca/blog/2016/10/27/ansible-reboot/</id>
         <title>Reboot and reconnect between Ansible tasks</title>
-        <link href="http://watson-wilson.ca/blog/2016/10/27/ansible-reboot/" rel="alternate" />
+        <link rel="alternate" href="http://watson-wilson.ca/blog/2016/10/27/ansible-reboot/" />
         <content type="html"><![CDATA[
             <p><a href="http://ansible.com"><img alt="go to ansible.com" src="http://watson-wilson.ca/static/images/ansible_logo_round.png" style="float:right" width="150px"></a></p>
 
@@ -109,7 +109,7 @@
     <entry>
         <id>http://watson-wilson.ca/blog/2015/11/25/perl-cheatsheet/</id>
         <title>Perl cheatsheet</title>
-        <link href="http://watson-wilson.ca/blog/2015/11/25/perl-cheatsheet/" rel="alternate" />
+        <link rel="alternate" href="http://watson-wilson.ca/blog/2015/11/25/perl-cheatsheet/" />
         <content type="html"><![CDATA[
             <p>If you are looking for my Perl cheatsheet, it&#39;s over
 <a href="https://github.com/neilhwatson/nustuff/blob/master/perl/cheatsheet.pod">here</a>.

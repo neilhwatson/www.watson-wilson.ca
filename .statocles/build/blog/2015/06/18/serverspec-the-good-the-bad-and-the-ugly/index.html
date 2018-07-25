@@ -1,19 +1,37 @@
 <!DOCTYPE html>
 <html lang="en"> 
     <head>
-        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
         <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-        <link href="/theme/css/readability-bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="/theme/css/readability-bootstrap.min.css" />
         <!--<link rel="stylesheet" href="/theme/css/statocles-bootstrap.css" />-->
-        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
         <title>Serverspec, the good, the bad, and the ugly - Neil H. Watson</title>
-        <meta content="Statocles 0.093" name="generator">
+        <meta name="generator" content="Statocles 0.093" />
         
 
+        <!-- Twitter for websites -->
+         <script>window.twttr = (function(d, s, id) {
+           var js, fjs = d.getElementsByTagName(s)[0],
+             t = window.twttr || {};
+           if (d.getElementById(id)) return t;
+           js = d.createElement(s);
+           js.id = id;
+           js.src = "https://platform.twitter.com/widgets.js";
+           fjs.parentNode.insertBefore(js, fjs);
+
+           t._e = [];
+           t.ready = function(f) {
+             t._e.push(f);
+           };
+
+           return t;
+         }(document, "script", "twitter-wjs"));</script>
+
         <!-- For source highlighting -->
-        <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/default.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/default.min.css">
         <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js"></script>
         <script>hljs.initHighlightingOnLoad();</script>
 
@@ -24,7 +42,7 @@
                 <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
                     <div class="navbar-header">
-                        <button class="navbar-toggle" data-target="#top-navbar-collapse-1" data-toggle="collapse" type="button">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#top-navbar-collapse-1">
                             <span class="sr-only">Toggle navigation</span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
@@ -70,7 +88,7 @@
 
             </header>
             <section id="section-1">
-                <p>I&#39;ve been using a talking about <a href="http://serverspec.org">Serverspec</a>
+                <p>I've been using a talking about <a href="http://serverspec.org">Serverspec</a>
 lately. Let me tell you about the surprises I found.</p>
 
             </section>
@@ -89,32 +107,32 @@ hosts and, optionally, with privileges.</p>
 desired standard. I could use CFEngine, but I prefer a third party tool
 for better confirmation. The Serverspec file looks like this:</p>
 
-<pre><code>require &#39;spec_helper&#39;
-require &#39;socket&#39;
+<pre><code>require 'spec_helper'
+require 'socket'
 
-describe package(&#39;cfengine-community&#39;) do
+describe package('cfengine-community') do
    it { should be_installed }
 end
 
-describe command( &#39;/var/cfengine/bin/cf-promises --version&#39;) do
+describe command( '/var/cfengine/bin/cf-promises --version') do
    its(:stdout) { should match /3\.6\.5/ }
 end
 
 # Removed due to bug
-# describe service( &#39;cfengine3&#39; ) do
+# describe service( 'cfengine3' ) do
    # it { should be_enabled }
 # end
 
-describe &quot;CFEngine service should start at boot, chkconfig cfengine3&quot; do
-   describe command( &#39;/sbin/chkconfig cfengine3&#39; ) do
+describe "CFEngine service should start at boot, chkconfig cfengine3" do
+   describe command( '/sbin/chkconfig cfengine3' ) do
       its(:exit_status) { should eq 0 }
    end
 end
 
-for proc in [ &#39;execd&#39;, &#39;serverd&#39;, &#39;monitord&#39; ]
-   describe process( &quot;cf-#{proc}&quot; ) do
+for proc in [ 'execd', 'serverd', 'monitord' ]
+   describe process( "cf-#{proc}" ) do
       it { should be_running }
-      its(:user) { should eq &#39;root&#39; }
+      its(:user) { should eq 'root' }
    end
 end
 
@@ -130,7 +148,7 @@ the target machines and returns a report.</p>
 
 <p>As you see the example, I commented out a service test. This test is
 supposed to examine the return code of <code>chkconfig --list cfengin3|grep
-3:on</code> but it always failed. Serverspec&#39;s Github repository has issue
+3:on</code> but it always failed. Serverspec's Github repository has issue
 tracking disabled so I was not able to submit a bug report, and the
 maintainer did not return my email.</p>
 
@@ -138,7 +156,7 @@ maintainer did not return my email.</p>
 
 <p>The Advanced Tips section of <a href="http://serverspec.org/advanced_tips.html">serverspec.org</a>
 provides tips on how to test multiple hosts against a single set of
-tests. This didn&#39;t work well. Testing would stop after the first
+tests. This didn't work well. Testing would stop after the first
 failure rather continuing to each test and each host. With no
 Serverspec community I was limited in who I could ask for help, but I
 did ask a colleague who spoke about Serverspec at Devops Days Toronto.
@@ -179,7 +197,7 @@ questions.</p></li>
     </div>
 
     <div class="col-md-3">
-        <iframe frameborder="0" src="https://duckduckgo.com/search.html?site=watson-wilson.ca&amp;prefill=Search DuckDuckGo" style="overflow:hidden;margin:0;padding:0;width:350px;height:40px;"></iframe>
+        <iframe src="https://duckduckgo.com/search.html?site=watson-wilson.ca&prefill=Search DuckDuckGo" style="overflow:hidden;margin:0;padding:0;width:350px;height:40px;" frameborder="0"></iframe>
 
         <nav id="tags">
             <h1>Tags</h1>
@@ -280,31 +298,35 @@ questions.</p></li>
 
 </div>
 
-<div class="row">
-   <div class="col-md-1">
-       <img atl="Neil Watson" src="https://gravatar.com/avatar/1f0969599955a953e592034929ed7a23">
+<div class='row'>
+   <div class='col-md-1'>
+       <img atl='Neil Watson' src='https://gravatar.com/avatar/1f0969599955a953e592034929ed7a23' >
    </div>
 
-       <div class="col-md-1">
+       <div class='col-md-1'>
             <!-- reddit this -->
-            <a href="//www.reddit.com/submit" onclick="window.location = &#39;//www.reddit.com/submit?url=&#39; + encodeURIComponent(window.location); return false"><img alt="submit to reddit" border="0" src="//www.redditstatic.com/spreddit7.gif"></a>
+            <a href="//www.reddit.com/submit" onclick="window.location = '//www.reddit.com/submit?url=' + encodeURIComponent(window.location); return false"><img src="//www.redditstatic.com/spreddit7.gif" alt="submit to reddit" border="0" /></a>
        </div>
 
-       <div class="col-md-1">
+       <div class='col-md-1'>
           <!-- Tweet this -->
-          <a class="twitter-share-button" data-count="none" data-via="neil_h_watson" href="https://twitter.com/share">Tweet</a>
-    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+          <a class="twitter-share-button"
+             href="https://twitter.com/intent/tweet">
+          Tweet</a>
        </div>
 
-       <div class="col-md-1">
+       <div class='col-md-1'>
           <!-- follow me on twitter -->
-          <a class="twitter-follow-button" data-show-count="false" data-show-screen-name="false" href="https://twitter.com/neil_h_watson">Follow @neil_h_watson</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+         <a class="twitter-follow-button"
+            data-show-count="false"
+            data-show-screen-name="false"
+           href="https://twitter.com/neil_h_watson">
+         Follow @neil_h_watson</a>
         </div>
 
-       <div class="col-md-1">
+       <div class='col-md-1'>
            <!-- follw me on github -->
-            <a aria-label="Follow @neilhwatson on GitHub" class="github-button" data-style="mega" href="https://github.com/neilhwatson">Follow</a>
+            <a aria-label="Follow @neilhwatson on GitHub" data-style="mega" href="https://github.com/neilhwatson" class="github-button">Follow</a>
             <script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
        </div>
 
@@ -314,9 +336,9 @@ questions.</p></li>
         <footer>
             
             <h1></h1>
-            <div class="col-md-5"> </div>
+            <div class='col-md-5'> </div>
             <div class="col-md-3 container tagline">
-                <a href="http://preaction.me/statocles">Made with Statocles</a><br>
+                <a href="http://preaction.me/statocles">Made with Statocles</a><br/>
                 <a href="http://www.perl.org">Powered by Perl</a>
             </div>
         </footer>

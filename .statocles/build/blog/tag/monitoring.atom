@@ -3,14 +3,14 @@
     <id>http://watson-wilson.ca/blog/tag/monitoring/</id>
     <title>Neil H. Watson</title>
     <updated>2013-10-31T12:00:34Z</updated>
-    <link href="http://watson-wilson.ca/blog/tag/monitoring.atom" rel="self" />
-    <link href="http://watson-wilson.ca/blog/tag/monitoring/" rel="alternate" />
+    <link rel="self" href="http://watson-wilson.ca/blog/tag/monitoring.atom"/>
+    <link rel="alternate" href="http://watson-wilson.ca/blog/tag/monitoring/"/>
     <generator version="0.093">Statocles</generator>
     <entry>
         <id>http://watson-wilson.ca/blog/2013/10/31/opennms-the-open-source-enterprise-monitoring-solution-youve-never-heard-of/</id>
         <title>OpenNMS: the open source enterprise monitoring solution you&#39;ve never heard of.</title>
         <author><name>nwatson</name></author>
-        <link href="http://watson-wilson.ca/blog/2013/10/31/opennms-the-open-source-enterprise-monitoring-solution-youve-never-heard-of/" rel="alternate" />
+        <link rel="alternate" href="http://watson-wilson.ca/blog/2013/10/31/opennms-the-open-source-enterprise-monitoring-solution-youve-never-heard-of/" />
         <content type="html"><![CDATA[
             <p><a href="http://www.opennms.org"><img alt="opennms logo" src="http://watson-wilson.ca/static/images/opennms.png"></a></p>
 
@@ -35,7 +35,7 @@ is impressive.</p>
         <id>http://watson-wilson.ca/blog/2013/07/19/polling-cfengine-with-opennms/</id>
         <title>Polling CFEngine with Opennms</title>
         <author><name>nwatson</name></author>
-        <link href="http://watson-wilson.ca/blog/2013/07/19/polling-cfengine-with-opennms/" rel="alternate" />
+        <link rel="alternate" href="http://watson-wilson.ca/blog/2013/07/19/polling-cfengine-with-opennms/" />
         <content type="html"><![CDATA[
             <p>In the coming months I&#39;m going to work with and write about <a href="http://www.opennms.org">Opennms</a>.
 Started in 1999, Opennms is a mature, open source, enterprise scale
@@ -56,7 +56,7 @@ monitoring system.</p>
     <entry>
         <id>http://watson-wilson.ca/blog/2011/05/26/cfengine-storage/</id>
         <title>Disk space monitoring using CFEngine</title>
-        <link href="http://watson-wilson.ca/blog/2011/05/26/cfengine-storage/" rel="alternate" />
+        <link rel="alternate" href="http://watson-wilson.ca/blog/2011/05/26/cfengine-storage/" />
         <content type="html"><![CDATA[
             <h3>Problem</h3>
 

@@ -1,19 +1,37 @@
 <!DOCTYPE html>
 <html lang="en"> 
     <head>
-        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
         <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-        <link href="/theme/css/readability-bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="/theme/css/readability-bootstrap.min.css" />
         <!--<link rel="stylesheet" href="/theme/css/statocles-bootstrap.css" />-->
-        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
         <title>My evolution of CFEngine policy - Neil H. Watson</title>
-        <meta content="Statocles 0.093" name="generator">
+        <meta name="generator" content="Statocles 0.093" />
         
 
+        <!-- Twitter for websites -->
+         <script>window.twttr = (function(d, s, id) {
+           var js, fjs = d.getElementsByTagName(s)[0],
+             t = window.twttr || {};
+           if (d.getElementById(id)) return t;
+           js = d.createElement(s);
+           js.id = id;
+           js.src = "https://platform.twitter.com/widgets.js";
+           fjs.parentNode.insertBefore(js, fjs);
+
+           t._e = [];
+           t.ready = function(f) {
+             t._e.push(f);
+           };
+
+           return t;
+         }(document, "script", "twitter-wjs"));</script>
+
         <!-- For source highlighting -->
-        <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/default.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/default.min.css">
         <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js"></script>
         <script>hljs.initHighlightingOnLoad();</script>
 
@@ -24,7 +42,7 @@
                 <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
                     <div class="navbar-header">
-                        <button class="navbar-toggle" data-target="#top-navbar-collapse-1" data-toggle="collapse" type="button">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#top-navbar-collapse-1">
                             <span class="sr-only">Toggle navigation</span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
@@ -69,14 +87,14 @@
 
             </header>
             <section id="section-1">
-                <p><img alt="Evolution of fire" src="/static/images/fire-240.jpg"></p>
+                <p><img src="/static/images/fire-240.jpg" alt="Evolution of fire" /></p>
 
 <p>My style and approach to CFEngine policy writing has evolved over the
 years. Recently I discussion this with someone new to CFEngine. He was
-on the same path I had taken, but a few steps behind. I hope he&#39;ll
-evolve to the next stage or to a stage that is new to both of us. I&#39;m
+on the same path I had taken, but a few steps behind. I hope he'll
+evolve to the next stage or to a stage that is new to both of us. I'm
 going to share with you the stages of my CFEngine evolution. Perhaps
-you&#39;ll recognize yourself.</p>
+you'll recognize yourself.</p>
 
             </section>
             <section id="section-2">
@@ -84,73 +102,73 @@ you&#39;ll recognize yourself.</p>
 
 <p>My first approach to policy writing were logical bundles, each having a
 single high level purpose. This simple approach helped me to learn
-CFEngine&#39;s declarative and convergent nature.</p>
+CFEngine's declarative and convergent nature.</p>
 
 <pre><code>bundle agent ntp
 {
    packages:
-      &quot;ntpd&quot;
-         package_policy =&gt; &quot;add&quot;,
+      "ntpd"
+         package_policy =&gt; "add",
          package_method =&gt; generic;
 
    files:
-      &quot;/etc/ntp.conf&quot;
+      "/etc/ntp.conf"
          copy_from =&gt; remote_dcp(
-            &quot;${sys.workdir}/sitefiles/ntp.conf&quot;, &quot;${sys.policy_hub}&quot; ),
-         classes   =&gt; if_repaired( &quot;restart_ntp&quot; );
+            "${sys.workdir}/sitefiles/ntp.conf", "${sys.policy_hub}" ),
+         classes   =&gt; if_repaired( "restart_ntp" );
 
-      &quot;/etc/ntp.conf&quot;
-         perms =&gt; mog( &quot;644&quot;, &quot;root&quot;, &quot;root&quot; );
+      "/etc/ntp.conf"
+         perms =&gt; mog( "644", "root", "root" );
 
    processes:
-      &quot;ntpd&quot;
-         process_select =&gt; by_name( &quot;^(/usr/sbin/)*ntpd&quot; ),
-         restart_classs =&gt; &quot;restart_ntp&quot;;
+      "ntpd"
+         process_select =&gt; by_name( "^(/usr/sbin/)*ntpd" ),
+         restart_classs =&gt; "restart_ntp";
 
    commands:
       restart_ntp::
-         &quot;/sbin/service ntpd restart&quot;
+         "/sbin/service ntpd restart"
             comtain =&gt; silent;
 }
 
 bundle agent ssh
 {
    packages:
-      &quot;sshd&quot;
-         package_policy =&gt; &quot;add&quot;,
+      "sshd"
+         package_policy =&gt; "add",
          package_method =&gt; generic;
 
    files:
-      &quot;/etc/sshd_conf&quot;
+      "/etc/sshd_conf"
          copy_from =&gt; remote_dcp(
-            &quot;${sys.workdir}/sitefiles/sshd_conf&quot;, &quot;${sys.policy_hub}&quot; ),
-         classes   =&gt; if_repaired( &quot;restart_ssh&quot; );
+            "${sys.workdir}/sitefiles/sshd_conf", "${sys.policy_hub}" ),
+         classes   =&gt; if_repaired( "restart_ssh" );
 
-      &quot;/etc/sshd_conf&quot;
-         perms =&gt; mog( &quot;644&quot;, &quot;root&quot;, &quot;root&quot; );
+      "/etc/sshd_conf"
+         perms =&gt; mog( "644", "root", "root" );
 
    processes:
-      &quot;sshd&quot;
-         process_select =&gt; by_name( &quot;^(/usr/sbin/)*sshd&quot; ),
-         restart_classs =&gt; &quot;restart_ssh&quot;;
+      "sshd"
+         process_select =&gt; by_name( "^(/usr/sbin/)*sshd" ),
+         restart_classs =&gt; "restart_ssh";
 
    commands:
       restart_ssh::
-         &quot;/sbin/service sshd restart&quot;
+         "/sbin/service sshd restart"
             comtain =&gt; silent;
 }
 
 bundle agent security
 {
    files:
-      &quot;/etc/passwd&quot;
-         perms =&gt; mog( &quot;644&quot;, &quot;root&quot;, &quot;root&quot; );
+      "/etc/passwd"
+         perms =&gt; mog( "644", "root", "root" );
 
-      &quot;/etc/shadow&quot;
-         perms =&gt; mog( &quot;600&quot;, &quot;root&quot;, &quot;root&quot; );
+      "/etc/shadow"
+         perms =&gt; mog( "600", "root", "root" );
 
-      &quot;/tmp/.&quot;
-         perms =&gt; mog( &quot;777&quot;, &quot;root&quot;, &quot;root&quot; );
+      "/tmp/."
+         perms =&gt; mog( "777", "root", "root" );
 
 }
 </code></pre>
@@ -164,7 +182,7 @@ efficient.</p>
 
 <h3>Stage two, reusable method calls.</h3>
 
-<p>CFEngine&#39;s early documentation hinted at methods and reusable policy.
+<p>CFEngine's early documentation hinted at methods and reusable policy.
 In those days the documentation was sparse and good examples were rare,
 but after stage one I had many examples and I saw how methods could be
 employed.</p>
@@ -173,93 +191,93 @@ employed.</p>
 ( path, mode, owner, group )
 {
    files:
-      &quot;${path}&quot;
-         perms =&gt; mog( &quot;${mode}&quot;, &quot;${owner}&quot;, &quot;${group}&quot; );
+      "${path}"
+         perms =&gt; mog( "${mode}", "${owner}", "${group}" );
 }
 
 bundle agent service
 ( package, config_file, process, command, mode, owner, group )
 {
    packages:
-      &quot;${package}&quot;
-         package_policy =&gt; &quot;add&quot;,
+      "${package}"
+         package_policy =&gt; "add",
          package_method =&gt; generic;
 
    files:
-      &quot;${config_file}&quot;
-         copy_from =&gt; remote_dcp( &quot;${sys.workdir}/sitefiles/${config_file}&quot;, &quot;${sys.policy_hub}&quot; ),
-         classes   =&gt; if_repaired( &quot;restart_${process}&quot; );
+      "${config_file}"
+         copy_from =&gt; remote_dcp( "${sys.workdir}/sitefiles/${config_file}", "${sys.policy_hub}" ),
+         classes   =&gt; if_repaired( "restart_${process}" );
 
-      &quot;${config_file}&quot;
-         perms =&gt; mog( &quot;${mode}&quot;, &quot;${owner}&quot; &quot;${group}&quot; );
+      "${config_file}"
+         perms =&gt; mog( "${mode}", "${owner}" "${group}" );
 
    processes:
-      &quot;${process}&quot;
-         process_select =&gt; by_name( &quot;${process}&quot; ),
-         restart_classs =&gt; &quot;restart_${process}&quot;;
+      "${process}"
+         process_select =&gt; by_name( "${process}" ),
+         restart_classs =&gt; "restart_${process}";
 
    commands:
-      &quot;${command}&quot;
-         ifvarclass =&gt; canonify( &quot;restart_${process}&quot; ),
+      "${command}"
+         ifvarclass =&gt; canonify( "restart_${process}" ),
          comtain    =&gt; silent;
 }
 
 bundle agent main
 {
    vars:
-      &quot;service[ntp][package]&quot;     string =&gt; &quot;ntpd&quot;;
-      &quot;service[ntp][config_file]&quot; string =&gt; &quot;/etc/ntp.conf&quot;;
-      &quot;service[ntp][process]&quot;     string =&gt; &quot;^/usr/sbin/ntpd&quot;;
-      &quot;service[ntp][command]&quot;     string =&gt; &quot;/sbin/service ntp restart&quot;;
-      &quot;service[ntp][mode]&quot;        string =&gt; &quot;644&quot;;
-      &quot;service[ntp][owner]&quot;       string =&gt; &quot;root&quot;;
-      &quot;service[ntp][group]&quot;       string =&gt; &quot;root&quot;;
+      "service[ntp][package]"     string =&gt; "ntpd";
+      "service[ntp][config_file]" string =&gt; "/etc/ntp.conf";
+      "service[ntp][process]"     string =&gt; "^/usr/sbin/ntpd";
+      "service[ntp][command]"     string =&gt; "/sbin/service ntp restart";
+      "service[ntp][mode]"        string =&gt; "644";
+      "service[ntp][owner]"       string =&gt; "root";
+      "service[ntp][group]"       string =&gt; "root";
 
-      &quot;service[ssh][package]&quot;     string =&gt; &quot;openssh-server&quot;;
-      &quot;service[ssh][config_file]&quot; string =&gt; &quot;/etc/ssh/sshd_conf&quot;;
-      &quot;service[ssh][process]&quot;     string =&gt; &quot;^/usr/sbin/sshd&quot;;
-      &quot;service[ssh][command]&quot;     string =&gt; &quot;/sbin/service sshd restart&quot;;
-      &quot;service[ssh][mode]&quot;        string =&gt; &quot;644&quot;;
-      &quot;service[ssh][owner]&quot;       string =&gt; &quot;root&quot;;
-      &quot;service[ssh][group]&quot;       string =&gt; &quot;root&quot;;
+      "service[ssh][package]"     string =&gt; "openssh-server";
+      "service[ssh][config_file]" string =&gt; "/etc/ssh/sshd_conf";
+      "service[ssh][process]"     string =&gt; "^/usr/sbin/sshd";
+      "service[ssh][command]"     string =&gt; "/sbin/service sshd restart";
+      "service[ssh][mode]"        string =&gt; "644";
+      "service[ssh][owner]"       string =&gt; "root";
+      "service[ssh][group]"       string =&gt; "root";
 
-      &quot;svc&quot; slist =&gt; getindices( &quot;service&quot; );
+      "svc" slist =&gt; getindices( "service" );
 
-      &quot;security[passwd][path]&quot;  string =&gt; &quot;/etc/passwd&quot;;
-      &quot;security[passwd][mode]&quot;  string =&gt; &quot;644&quot;;
-      &quot;secuirty[passwd][owner]&quot; string =&gt; &quot;root&quot;;
-      &quot;security[passwd][group]&quot; string =&gt; &quot;root&quot;;
+      "security[passwd][path]"  string =&gt; "/etc/passwd";
+      "security[passwd][mode]"  string =&gt; "644";
+      "secuirty[passwd][owner]" string =&gt; "root";
+      "security[passwd][group]" string =&gt; "root";
 
-      &quot;security[shadow][path]&quot;  string =&gt; &quot;/etc/shadow&quot;;
-      &quot;security[shadow][mode]&quot;  string =&gt; &quot;600&quot;;
-      &quot;secuirty[shadow][owner]&quot; string =&gt; &quot;root&quot;;
-      &quot;security[shadow][group]&quot; string =&gt; &quot;root&quot;;
+      "security[shadow][path]"  string =&gt; "/etc/shadow";
+      "security[shadow][mode]"  string =&gt; "600";
+      "secuirty[shadow][owner]" string =&gt; "root";
+      "security[shadow][group]" string =&gt; "root";
 
-      &quot;security[tmp][path]&quot;  string =&gt; &quot;/tmp/.&quot;;
-      &quot;security[tmp][mode]&quot;  string =&gt; &quot;777&quot;;
-      &quot;secuirty[tmp][owner]&quot; string =&gt; &quot;root&quot;;
-      &quot;security[tmp][group]&quot; string =&gt; &quot;root&quot;;
+      "security[tmp][path]"  string =&gt; "/tmp/.";
+      "security[tmp][mode]"  string =&gt; "777";
+      "secuirty[tmp][owner]" string =&gt; "root";
+      "security[tmp][group]" string =&gt; "root";
 
-      &quot;sec&quot; slist =&gt; getindices( &quot;security&quot; );
+      "sec" slist =&gt; getindices( "security" );
 
    methods:
-      &quot;${service[${svc}][package]}&quot;
+      "${service[${svc}][package]}"
          usebundle =&gt; service(
-            &quot;${service[${svc}][package]}&quot;,
-            &quot;${service[${svc}][confi_file]}&quot;,
-            &quot;${service[${svc}][process]}&quot;,
-            &quot;${service[${svc}][command]}&quot;
-            &quot;${service[${svc}][mode]}&quot;
-            &quot;${service[${svc}][owner]}&quot;
-            &quot;${service[${svc}][group]}&quot;
+            "${service[${svc}][package]}",
+            "${service[${svc}][confi_file]}",
+            "${service[${svc}][process]}",
+            "${service[${svc}][command]}"
+            "${service[${svc}][mode]}"
+            "${service[${svc}][owner]}"
+            "${service[${svc}][group]}"
             );
 
-      &quot;${security[${sec}][path]}&quot;
+      "${security[${sec}][path]}"
          usebundle =&gt; security(
-            &quot;${security[${sec}][path]}&quot;,
-            &quot;${security[${sec}][mode]}&quot;
-            &quot;${security[${sec}][owner]}&quot;
-            &quot;${security[${sec}][group]}&quot;
+            "${security[${sec}][path]}",
+            "${security[${sec}][mode]}"
+            "${security[${sec}][owner]}"
+            "${security[${sec}][group]}"
             );
 }
 </code></pre>
@@ -271,8 +289,8 @@ even the long list of methods promises drove me to find a better way.</p>
 <h3>Stage three, reusable data driven policy.</h3>
 
 <p>CFEngine promise types are low level: files, processes, command,
-packages, etc. My need for order drove me to group promises as I&#39;ve
-shown, but must I be so literal? Why can&#39;t I write policy at a similar
+packages, etc. My need for order drove me to group promises as I've
+shown, but must I be so literal? Why can't I write policy at a similar
 low level, but with conceptual rather than literal logical groupings?
 This is when EFL was born. Low level reusable bundles driven by simple
 data files. EFL has bundles similar to stage two, but more low level
@@ -285,34 +303,34 @@ file permissions, and much more.</p>
 
 <pre><code>[
   {
-     &quot;leaf_regex&quot; : &quot;.*&quot;,
-     &quot;group&quot; : &quot;security&quot;,
-     &quot;negate&quot; : &quot;644&quot;,
-     &quot;owner&quot; : &quot;root&quot;,
-     &quot;file_promiser&quot; : &quot;/etc/passwd&quot;,
-     &quot;class&quot; : &quot;any&quot;,
-     &quot;mode&quot; : &quot;root&quot;,
-     &quot;recurse_level&quot; : &quot;no&quot;
+     "leaf_regex" : ".*",
+     "group" : "security",
+     "negate" : "644",
+     "owner" : "root",
+     "file_promiser" : "/etc/passwd",
+     "class" : "any",
+     "mode" : "root",
+     "recurse_level" : "no"
   },
   {
-     &quot;leaf_regex&quot; : &quot;.*&quot;,
-     &quot;owner&quot; : &quot;root&quot;,
-     &quot;group&quot; : &quot;security&quot;,
-     &quot;negate&quot; : &quot;600&quot;,
-     &quot;class&quot; : &quot;any&quot;,
-     &quot;file_promiser&quot; : &quot;/etc/shadow&quot;,
-     &quot;recurse_level&quot; : &quot;no&quot;,
-     &quot;mode&quot; : &quot;root&quot;
+     "leaf_regex" : ".*",
+     "owner" : "root",
+     "group" : "security",
+     "negate" : "600",
+     "class" : "any",
+     "file_promiser" : "/etc/shadow",
+     "recurse_level" : "no",
+     "mode" : "root"
   },
   {
-     &quot;leaf_regex&quot; : &quot;.*&quot;,
-     &quot;owner&quot; : &quot;root&quot;,
-     &quot;group&quot; : &quot;security&quot;,
-     &quot;negate&quot; : &quot;777&quot;,
-     &quot;class&quot; : &quot;any&quot;,
-     &quot;file_promiser&quot; : &quot;/tmp&quot;,
-     &quot;recurse_level&quot; : &quot;no&quot;,
-     &quot;mode&quot; : &quot;root&quot;
+     "leaf_regex" : ".*",
+     "owner" : "root",
+     "group" : "security",
+     "negate" : "777",
+     "class" : "any",
+     "file_promiser" : "/tmp",
+     "recurse_level" : "no",
+     "mode" : "root"
   }
 ]
 </code></pre>
@@ -323,32 +341,32 @@ file permissions, and much more.</p>
 
 <pre><code>[
   {
-     &quot;template&quot; : &quot;no&quot;,
-     &quot;restart_cmd&quot; : &quot;/sbin/service ntp restart&quot;,
-     &quot;class&quot; : &quot;any&quot;,
-     &quot;config_file&quot; : &quot;/etc/ntp.conf&quot;,
-     &quot;server&quot; : &quot;efl_c.policy_servers&quot;,
-     &quot;config_file_src&quot; : &quot;${sys.workdir}/sitefiles/etc/ntp.conf&quot;,
-     &quot;promisee&quot; : &quot;ntp time sync&quot;,
-     &quot;mode&quot; : &quot;644&quot;,
-     &quot;owner&quot; : &quot;root&quot;,
-     &quot;encrypt&quot; : &quot;no&quot;,
-     &quot;group&quot; : &quot;root&quot;,
-     &quot;process_regex&quot; : &quot;^/usr/sbin/ntpd&quot;
+     "template" : "no",
+     "restart_cmd" : "/sbin/service ntp restart",
+     "class" : "any",
+     "config_file" : "/etc/ntp.conf",
+     "server" : "efl_c.policy_servers",
+     "config_file_src" : "${sys.workdir}/sitefiles/etc/ntp.conf",
+     "promisee" : "ntp time sync",
+     "mode" : "644",
+     "owner" : "root",
+     "encrypt" : "no",
+     "group" : "root",
+     "process_regex" : "^/usr/sbin/ntpd"
   },
   {
-     &quot;encrypt&quot; : &quot;no&quot;,
-     &quot;group&quot; : &quot;root&quot;,
-     &quot;mode&quot; : &quot;644&quot;,
-     &quot;owner&quot; : &quot;root&quot;,
-     &quot;process_regex&quot; : &quot;^/usr/sbin/sshd&quot;,
-     &quot;class&quot; : &quot;any&quot;,
-     &quot;config_file&quot; : &quot;/etc/ssh/sshd_conf&quot;,
-     &quot;template&quot; : &quot;no&quot;,
-     &quot;restart_cmd&quot; : &quot;/sbin/service sshd restart&quot;,
-     &quot;promisee&quot; : &quot;sshd remote access, security&quot;,
-     &quot;server&quot; : &quot;efl_c.policy_servers&quot;,
-     &quot;config_file_src&quot; : &quot;${sys.workdir}/sitefiles/etc/ssh/sshd_conf&quot;
+     "encrypt" : "no",
+     "group" : "root",
+     "mode" : "644",
+     "owner" : "root",
+     "process_regex" : "^/usr/sbin/sshd",
+     "class" : "any",
+     "config_file" : "/etc/ssh/sshd_conf",
+     "template" : "no",
+     "restart_cmd" : "/sbin/service sshd restart",
+     "promisee" : "sshd remote access, security",
+     "server" : "efl_c.policy_servers",
+     "config_file_src" : "${sys.workdir}/sitefiles/etc/ssh/sshd_conf"
   }
 ]
 </code></pre>
@@ -360,25 +378,25 @@ bundles.</p>
 
 <pre><code>[
   {
-     &quot;promiser&quot; : &quot;File permissions&quot;,
-     &quot;promisee&quot; : &quot;file permissions&quot;,
-     &quot;class&quot; : &quot;any&quot;,
-     &quot;parameter&quot; : &quot;${sys.workdir}/inputs/params/efl_file_perms.txt&quot;,
-     &quot;bundle&quot; : &quot;efl_file_perms&quot;,
-     &quot;ifelapsed&quot; : &quot;1&quot;
+     "promiser" : "File permissions",
+     "promisee" : "file permissions",
+     "class" : "any",
+     "parameter" : "${sys.workdir}/inputs/params/efl_file_perms.txt",
+     "bundle" : "efl_file_perms",
+     "ifelapsed" : "1"
   },
   {
-     &quot;ifelapsed&quot; : &quot;1&quot;,
-     &quot;parameter&quot; : &quot;${sys.workdir}/inputs/params/efl_services.txt&quot;,
-     &quot;bundle&quot; : &quot;efl_services&quot;,
-     &quot;class&quot; : &quot;any&quot;,
-     &quot;promisee&quot; : &quot;services&quot;,
-     &quot;promiser&quot; : &quot;services&quot;
+     "ifelapsed" : "1",
+     "parameter" : "${sys.workdir}/inputs/params/efl_services.txt",
+     "bundle" : "efl_services",
+     "class" : "any",
+     "promisee" : "services",
+     "promiser" : "services"
   }
 ]
 </code></pre>
 
-<p>Now I don&#39;t have to add new policy to make new promises. I simply edit
+<p>Now I don't have to add new policy to make new promises. I simply edit
 the data files. But are these promisers still logically grouped? Yes
 they are. Each data files has a promisee in the last column. The same
 promisee, or key words in the promisee, in multiple records or files
@@ -401,7 +419,7 @@ logical group is only a grep away. Does this sound familiar?</p>
     </div>
 
     <div class="col-md-3">
-        <iframe frameborder="0" src="https://duckduckgo.com/search.html?site=watson-wilson.ca&amp;prefill=Search DuckDuckGo" style="overflow:hidden;margin:0;padding:0;width:350px;height:40px;"></iframe>
+        <iframe src="https://duckduckgo.com/search.html?site=watson-wilson.ca&prefill=Search DuckDuckGo" style="overflow:hidden;margin:0;padding:0;width:350px;height:40px;" frameborder="0"></iframe>
 
         <nav id="tags">
             <h1>Tags</h1>
@@ -502,31 +520,35 @@ logical group is only a grep away. Does this sound familiar?</p>
 
 </div>
 
-<div class="row">
-   <div class="col-md-1">
-       <img atl="Neil Watson" src="https://gravatar.com/avatar/1f0969599955a953e592034929ed7a23">
+<div class='row'>
+   <div class='col-md-1'>
+       <img atl='Neil Watson' src='https://gravatar.com/avatar/1f0969599955a953e592034929ed7a23' >
    </div>
 
-       <div class="col-md-1">
+       <div class='col-md-1'>
             <!-- reddit this -->
-            <a href="//www.reddit.com/submit" onclick="window.location = &#39;//www.reddit.com/submit?url=&#39; + encodeURIComponent(window.location); return false"><img alt="submit to reddit" border="0" src="//www.redditstatic.com/spreddit7.gif"></a>
+            <a href="//www.reddit.com/submit" onclick="window.location = '//www.reddit.com/submit?url=' + encodeURIComponent(window.location); return false"><img src="//www.redditstatic.com/spreddit7.gif" alt="submit to reddit" border="0" /></a>
        </div>
 
-       <div class="col-md-1">
+       <div class='col-md-1'>
           <!-- Tweet this -->
-          <a class="twitter-share-button" data-count="none" data-via="neil_h_watson" href="https://twitter.com/share">Tweet</a>
-    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+          <a class="twitter-share-button"
+             href="https://twitter.com/intent/tweet">
+          Tweet</a>
        </div>
 
-       <div class="col-md-1">
+       <div class='col-md-1'>
           <!-- follow me on twitter -->
-          <a class="twitter-follow-button" data-show-count="false" data-show-screen-name="false" href="https://twitter.com/neil_h_watson">Follow @neil_h_watson</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+         <a class="twitter-follow-button"
+            data-show-count="false"
+            data-show-screen-name="false"
+           href="https://twitter.com/neil_h_watson">
+         Follow @neil_h_watson</a>
         </div>
 
-       <div class="col-md-1">
+       <div class='col-md-1'>
            <!-- follw me on github -->
-            <a aria-label="Follow @neilhwatson on GitHub" class="github-button" data-style="mega" href="https://github.com/neilhwatson">Follow</a>
+            <a aria-label="Follow @neilhwatson on GitHub" data-style="mega" href="https://github.com/neilhwatson" class="github-button">Follow</a>
             <script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
        </div>
 
@@ -536,9 +558,9 @@ logical group is only a grep away. Does this sound familiar?</p>
         <footer>
             
             <h1></h1>
-            <div class="col-md-5"> </div>
+            <div class='col-md-5'> </div>
             <div class="col-md-3 container tagline">
-                <a href="http://preaction.me/statocles">Made with Statocles</a><br>
+                <a href="http://preaction.me/statocles">Made with Statocles</a><br/>
                 <a href="http://www.perl.org">Powered by Perl</a>
             </div>
         </footer>

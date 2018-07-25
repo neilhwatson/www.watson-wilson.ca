@@ -3,14 +3,14 @@
     <id>http://watson-wilson.ca/blog/tag/pcre/</id>
     <title>Neil H. Watson</title>
     <updated>2015-08-20T21:51:58Z</updated>
-    <link href="http://watson-wilson.ca/blog/tag/pcre.atom" rel="self" />
-    <link href="http://watson-wilson.ca/blog/tag/pcre/" rel="alternate" />
+    <link rel="self" href="http://watson-wilson.ca/blog/tag/pcre.atom"/>
+    <link rel="alternate" href="http://watson-wilson.ca/blog/tag/pcre/"/>
     <generator version="0.093">Statocles</generator>
     <entry>
         <id>http://watson-wilson.ca/blog/2015/08/20/build-better-regular-expressions-in-cfengine/</id>
         <title>Build better regular expressions in CFEngine</title>
         <author><name>nwatson</name></author>
-        <link href="http://watson-wilson.ca/blog/2015/08/20/build-better-regular-expressions-in-cfengine/" rel="alternate" />
+        <link rel="alternate" href="http://watson-wilson.ca/blog/2015/08/20/build-better-regular-expressions-in-cfengine/" />
         <content type="html"><![CDATA[
             <p><img alt="picture of a regex" src="http://watson-wilson.ca/static/images/regex.png"></p>
 
@@ -37,7 +37,7 @@ comments. CFEngine is no exception.</p>
         <id>http://watson-wilson.ca/blog/2013/05/09/pcre-cheatsheet/</id>
         <title>PCRE cheatsheet</title>
         <author><name>nwatson</name></author>
-        <link href="http://watson-wilson.ca/blog/2013/05/09/pcre-cheatsheet/" rel="alternate" />
+        <link rel="alternate" href="http://watson-wilson.ca/blog/2013/05/09/pcre-cheatsheet/" />
         <content type="html"><![CDATA[
             <p>Although similar to Perl, PCRE has some syntax that can be
 difficult to remember. When I&#39;m working with CFEngine I often have to

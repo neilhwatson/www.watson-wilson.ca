@@ -1,19 +1,37 @@
 <!DOCTYPE html>
 <html lang="en"> 
     <head>
-        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
         <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-        <link href="/theme/css/readability-bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="/theme/css/readability-bootstrap.min.css" />
         <!--<link rel="stylesheet" href="/theme/css/statocles-bootstrap.css" />-->
-        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
         <title>Managing crontables with CFEngine - Neil H. Watson</title>
-        <meta content="Statocles 0.093" name="generator">
+        <meta name="generator" content="Statocles 0.093" />
         
 
+        <!-- Twitter for websites -->
+         <script>window.twttr = (function(d, s, id) {
+           var js, fjs = d.getElementsByTagName(s)[0],
+             t = window.twttr || {};
+           if (d.getElementById(id)) return t;
+           js = d.createElement(s);
+           js.id = id;
+           js.src = "https://platform.twitter.com/widgets.js";
+           fjs.parentNode.insertBefore(js, fjs);
+
+           t._e = [];
+           t.ready = function(f) {
+             t._e.push(f);
+           };
+
+           return t;
+         }(document, "script", "twitter-wjs"));</script>
+
         <!-- For source highlighting -->
-        <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/default.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/default.min.css">
         <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js"></script>
         <script>hljs.initHighlightingOnLoad();</script>
 
@@ -24,7 +42,7 @@
                 <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
                     <div class="navbar-header">
-                        <button class="navbar-toggle" data-target="#top-navbar-collapse-1" data-toggle="collapse" type="button">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#top-navbar-collapse-1">
                             <span class="sr-only">Toggle navigation</span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
@@ -82,18 +100,18 @@
 <pre><code>bundle agent recipe {
 
   vars:
-    &quot;root_cron_jobs&quot; slist =&gt; { 
-      &quot;45 * * * * /var/cfengine/bin/cf-execd -F&quot;,
-      &quot;17 0 * * 0 /usr/bin/apt-get update&quot;
+    "root_cron_jobs" slist =&gt; { 
+      "45 * * * * /var/cfengine/bin/cf-execd -F",
+      "17 0 * * 0 /usr/bin/apt-get update"
     };
 
   files:
-    &quot;/var/spool/cron/crontabs/root&quot;
-      handle =&gt; &quot;root_cron_jobs&quot;,
-      comment =&gt; &quot;Promise root cron table entries&quot;,
-      create =&gt; &quot;true&quot;,
-      perms =&gt; mog(&quot;0600&quot;,&quot;root&quot;,&quot;root&quot;),
-      edit_line =&gt; append_if_no_lines( &quot;@{recipe.root_cron_jobs}&quot; );
+    "/var/spool/cron/crontabs/root"
+      handle =&gt; "root_cron_jobs",
+      comment =&gt; "Promise root cron table entries",
+      create =&gt; "true",
+      perms =&gt; mog("0600","root","root"),
+      edit_line =&gt; append_if_no_lines( "@{recipe.root_cron_jobs}" );
 }
 </code></pre>
 
@@ -102,20 +120,20 @@
 <pre><code>cf3     Promise handle: 
 cf3     Promise made by: 45 * * * * /vars:/cfengine/bin/cf-execd -F
 cf3 
-cf3     Comment:  Append lines to the file if they don&#39;t already exist
+cf3     Comment:  Append lines to the file if they don't already exist
 cf3     .........................................................
 cf3 
-cf3  -&gt; Inserting the promised line &quot;45 * * * *
-/var/cfengine/bin/cf-execd -F&quot; into /vars:/spool/
+cf3  -&gt; Inserting the promised line "45 * * * *
+/var/cfengine/bin/cf-execd -F" into /vars:/spool/
 cf3 
 cf3     .........................................................
 cf3     Promise handle: 
 cf3     Promise made by: 17 0 * * 0 /usr/bin/apt-get update
 cf3 
-cf3     Comment:  Append lines to the file if they don&#39;t already exist
+cf3     Comment:  Append lines to the file if they don't already exist
 cf3     .........................................................
 cf3 
-cf3  -&gt; Inserting the promised line &quot;17 0 * * 0 /usr/bin/apt-get update&quot;
+cf3  -&gt; Inserting the promised line "17 0 * * 0 /usr/bin/apt-get update"
 into /var/spool/cron/c
 </code></pre>
 
@@ -129,25 +147,25 @@ promise is repaired.</p>
 <pre><code>bundle agent recipe {
 
   vars:
-    &quot;root_cron_jobs&quot; slist =&gt; { 
-      &quot;45 * * * * /var/cfengine/bin/cf-execd -F&quot;,
-      &quot;17 0 * * 0 /usr/bin/apt-get update&quot;
+    "root_cron_jobs" slist =&gt; { 
+      "45 * * * * /var/cfengine/bin/cf-execd -F",
+      "17 0 * * 0 /usr/bin/apt-get update"
     };
 
   files:
-    &quot;/var/spool/cron/crontabs/root&quot;
-      handle =&gt; &quot;root_cron_jobs&quot;,
-      comment =&gt; &quot;Promise root cron table entries&quot;,
-      create =&gt; &quot;true&quot;,
-      classes =&gt; if_repaired(&quot;root_cron_repaired&quot;),
-      perms =&gt; mog(&quot;0600&quot;,&quot;root&quot;,&quot;root&quot;),
-      edit_line =&gt; append_if_no_lines( &quot;@{recipe.root_cron_jobs}&quot; );
+    "/var/spool/cron/crontabs/root"
+      handle =&gt; "root_cron_jobs",
+      comment =&gt; "Promise root cron table entries",
+      create =&gt; "true",
+      classes =&gt; if_repaired("root_cron_repaired"),
+      perms =&gt; mog("0600","root","root"),
+      edit_line =&gt; append_if_no_lines( "@{recipe.root_cron_jobs}" );
 
   commands:
     root_cron_repaired.(aix|sunos_5_10)::
-      handle =&gt; &quot;update_cron_daemon&quot;,
-      comment =&gt; &quot;Reread cron tables if it was edited.&quot;,
-      &quot;/usr/bin/crontab /var/spool/crontabs/root&quot;;
+      handle =&gt; "update_cron_daemon",
+      comment =&gt; "Reread cron tables if it was edited.",
+      "/usr/bin/crontab /var/spool/crontabs/root";
 }
 </code></pre>
 
@@ -160,29 +178,29 @@ Briefly:</p>
 
   vars:
     debian|ubuntu::
-      &quot;crontabs&quot; string =&gt; &quot;/var/spool/crontabs&quot;;
+      "crontabs" string =&gt; "/var/spool/crontabs";
 
     redhat::
-      &quot;crontabs&quot; string =&gt; &quot;/var/spool/cron&quot;,
+      "crontabs" string =&gt; "/var/spool/cron",
 </code></pre>
 
 <p>This bundle is read early by CFEngine. The strings defined can be referred to
 from any bundle. For example</p>
 
 <pre><code>  files:
-    &quot;${g.crontabs}/root&quot;
-      handle =&gt; &quot;root_cron_jobs&quot;,
-      comment =&gt; &quot;Promise root cron table entries&quot;,
-      create =&gt; &quot;true&quot;,
-      classes =&gt; if_repaired(&quot;root_cron_repaired&quot;),
-      perms =&gt; mog(&quot;0600&quot;,&quot;root&quot;,&quot;root&quot;),
-      edit_line =&gt; append_if_no_lines( &quot;@{recipe.root_cron_jobs}&quot; );
+    "${g.crontabs}/root"
+      handle =&gt; "root_cron_jobs",
+      comment =&gt; "Promise root cron table entries",
+      create =&gt; "true",
+      classes =&gt; if_repaired("root_cron_repaired"),
+      perms =&gt; mog("0600","root","root"),
+      edit_line =&gt; append_if_no_lines( "@{recipe.root_cron_jobs}" );
 
   commands:
     root_cron_repaired.(aix|sunos_5_10)::
-      handle =&gt; &quot;update_cron_daemon&quot;,
-      comment =&gt; &quot;Reread cron tables if it was edited.&quot;,
-      &quot;/usr/bin/crontab ${g.crontabs}/root&quot;;
+      handle =&gt; "update_cron_daemon",
+      comment =&gt; "Reread cron tables if it was edited.",
+      "/usr/bin/crontab ${g.crontabs}/root";
 </code></pre>
 
 <p>Notice how the variable is prefixed with “g”. This tells CFEngine to check the
@@ -202,7 +220,7 @@ are white papers on this at cfengine.com.</p>
     </div>
 
     <div class="col-md-3">
-        <iframe frameborder="0" src="https://duckduckgo.com/search.html?site=watson-wilson.ca&amp;prefill=Search DuckDuckGo" style="overflow:hidden;margin:0;padding:0;width:350px;height:40px;"></iframe>
+        <iframe src="https://duckduckgo.com/search.html?site=watson-wilson.ca&prefill=Search DuckDuckGo" style="overflow:hidden;margin:0;padding:0;width:350px;height:40px;" frameborder="0"></iframe>
 
         <nav id="tags">
             <h1>Tags</h1>
@@ -303,31 +321,35 @@ are white papers on this at cfengine.com.</p>
 
 </div>
 
-<div class="row">
-   <div class="col-md-1">
-       <img atl="Neil Watson" src="https://gravatar.com/avatar/1f0969599955a953e592034929ed7a23">
+<div class='row'>
+   <div class='col-md-1'>
+       <img atl='Neil Watson' src='https://gravatar.com/avatar/1f0969599955a953e592034929ed7a23' >
    </div>
 
-       <div class="col-md-1">
+       <div class='col-md-1'>
             <!-- reddit this -->
-            <a href="//www.reddit.com/submit" onclick="window.location = &#39;//www.reddit.com/submit?url=&#39; + encodeURIComponent(window.location); return false"><img alt="submit to reddit" border="0" src="//www.redditstatic.com/spreddit7.gif"></a>
+            <a href="//www.reddit.com/submit" onclick="window.location = '//www.reddit.com/submit?url=' + encodeURIComponent(window.location); return false"><img src="//www.redditstatic.com/spreddit7.gif" alt="submit to reddit" border="0" /></a>
        </div>
 
-       <div class="col-md-1">
+       <div class='col-md-1'>
           <!-- Tweet this -->
-          <a class="twitter-share-button" data-count="none" data-via="neil_h_watson" href="https://twitter.com/share">Tweet</a>
-    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+          <a class="twitter-share-button"
+             href="https://twitter.com/intent/tweet">
+          Tweet</a>
        </div>
 
-       <div class="col-md-1">
+       <div class='col-md-1'>
           <!-- follow me on twitter -->
-          <a class="twitter-follow-button" data-show-count="false" data-show-screen-name="false" href="https://twitter.com/neil_h_watson">Follow @neil_h_watson</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+         <a class="twitter-follow-button"
+            data-show-count="false"
+            data-show-screen-name="false"
+           href="https://twitter.com/neil_h_watson">
+         Follow @neil_h_watson</a>
         </div>
 
-       <div class="col-md-1">
+       <div class='col-md-1'>
            <!-- follw me on github -->
-            <a aria-label="Follow @neilhwatson on GitHub" class="github-button" data-style="mega" href="https://github.com/neilhwatson">Follow</a>
+            <a aria-label="Follow @neilhwatson on GitHub" data-style="mega" href="https://github.com/neilhwatson" class="github-button">Follow</a>
             <script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
        </div>
 
@@ -337,9 +359,9 @@ are white papers on this at cfengine.com.</p>
         <footer>
             
             <h1></h1>
-            <div class="col-md-5"> </div>
+            <div class='col-md-5'> </div>
             <div class="col-md-3 container tagline">
-                <a href="http://preaction.me/statocles">Made with Statocles</a><br>
+                <a href="http://preaction.me/statocles">Made with Statocles</a><br/>
                 <a href="http://www.perl.org">Powered by Perl</a>
             </div>
         </footer>

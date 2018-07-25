@@ -1,19 +1,37 @@
 <!DOCTYPE html>
 <html lang="en"> 
     <head>
-        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
         <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-        <link href="/theme/css/readability-bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="/theme/css/readability-bootstrap.min.css" />
         <!--<link rel="stylesheet" href="/theme/css/statocles-bootstrap.css" />-->
-        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
         <title>Simple CFEngine setup with EFL - Neil H. Watson</title>
-        <meta content="Statocles 0.093" name="generator">
+        <meta name="generator" content="Statocles 0.093" />
         
 
+        <!-- Twitter for websites -->
+         <script>window.twttr = (function(d, s, id) {
+           var js, fjs = d.getElementsByTagName(s)[0],
+             t = window.twttr || {};
+           if (d.getElementById(id)) return t;
+           js = d.createElement(s);
+           js.id = id;
+           js.src = "https://platform.twitter.com/widgets.js";
+           fjs.parentNode.insertBefore(js, fjs);
+
+           t._e = [];
+           t.ready = function(f) {
+             t._e.push(f);
+           };
+
+           return t;
+         }(document, "script", "twitter-wjs"));</script>
+
         <!-- For source highlighting -->
-        <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/default.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/default.min.css">
         <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js"></script>
         <script>hljs.initHighlightingOnLoad();</script>
 
@@ -24,7 +42,7 @@
                 <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
                     <div class="navbar-header">
-                        <button class="navbar-toggle" data-target="#top-navbar-collapse-1" data-toggle="collapse" type="button">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#top-navbar-collapse-1">
                             <span class="sr-only">Toggle navigation</span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
@@ -69,9 +87,9 @@
 
             </header>
             <section id="section-1">
-                <p><img alt="image of stopwatch" src="/static/images/stopwatch_13154_sm.gif"></p>
+                <p><img src="/static/images/stopwatch_13154_sm.gif" alt="image of stopwatch" /></p>
 
-<p>CFEngine can be confusing and frustrating for new users. I&#39;ll try to
+<p>CFEngine can be confusing and frustrating for new users. I'll try to
 offer you a condensed and easy to follow procedure, including the <a href="https://github.com/neilhwatson/evolve_cfengine_freelib">EFL</a>
 addon.</p>
 
@@ -120,7 +138,7 @@ otherwise.</p>
 <p>Official CFEngine packages are found <a href="https://cfengine.com/product/community/">here</a>.
 Packages for most Linux distributions can be found there. For none
 Linux binaries try <a href="http://www.cfengineers.net/downloads/cfengine-community-packages/">CFEngineers.net</a>
-or you&#39;ll have build your own binaries from the <a href="https://github.com/cfengine/core">source code</a>.
+or you'll have build your own binaries from the <a href="https://github.com/cfengine/core">source code</a>.
 By default CFEngine installs to the prefix /var/cfengine.</p>
 
 <h3>Prep masterfiles</h3>
@@ -135,9 +153,9 @@ You can copy files from other locations too, but bootstrapping is
 always from masterfiles. This is an advanced topic for another
 discussion.</p>
 
-<h3>Prep EFL&#39;s masterfiles</h3>
+<h3>Prep EFL's masterfiles</h3>
 
-<p>Download <a href="https://github.com/neilhwatson/evolve_cfengine_freelib">EFL&#39;s</a>
+<p>Download <a href="https://github.com/neilhwatson/evolve_cfengine_freelib">EFL's</a>
 masterfiles directory into /var/cfengine/masterfiles.</p>
 
 <h4>Edit def.json</h4>
@@ -148,9 +166,9 @@ information. To enable EFL to run add this to
 exists.</p>
 
 <pre><code>{
-   &quot;classes&quot; :
+   "classes" :
       {
-         &quot;services_autorun&quot; : &quot;any&quot;
+         "services_autorun" : "any"
       }
 }
 </code></pre>
@@ -168,16 +186,16 @@ server control</em> add this line:</p>
 
 # Add this line to make cf-server listen on all interfaces, 
 # including IPv6 interfaces
-   bindtointerface =&gt; &quot;::&quot;;
+   bindtointerface =&gt; "::";
 </code></pre>
 
 <h3>Server ACL rules</h3>
 
 <p>Recall that cf-serverd is a file server. Like most file servers it uses
 ACL rules to determine what clients are able to access. Masterfiles
-allows some ACLs in def.json, but EFL&#39;s own mechanism is more flexible.
+allows some ACLs in def.json, but EFL's own mechanism is more flexible.
 In this example, assume your server is 2001:DB8::2, with a hostname of
-&#39;mars&#39; and your other clients are in the range of 2001:DB8::/32. Change
+'mars' and your other clients are in the range of 2001:DB8::/32. Change
 these to IPv6 or 4 addresses as you require. Edit the file
 efl_data/bundle_params/efl_server.json to match what is shown below.
 Cf-serverd will read this file, and if the hosts is a member of the
@@ -187,19 +205,19 @@ are part of the network 2001:0DB8::/32.</p>
 
 <pre><code>[
    {
-      &quot;promisee&quot; : &quot;cfengine server&quot;,
-      &quot;class&quot; : &quot;mars&quot;,
-      &quot;path&quot; : &quot;${sys.workdir}/masterfiles/&quot;,
-      &quot;admit&quot; : [
-         &quot;2001:0DB8::/32&quot;
+      "promisee" : "cfengine server",
+      "class" : "mars",
+      "path" : "${sys.workdir}/masterfiles/",
+      "admit" : [
+         "2001:0DB8::/32"
       ]
    },
    {
-      &quot;path&quot; : &quot;${sys.workdir}/modules/&quot;,
-      &quot;class&quot; : &quot;mars&quot;,
-      &quot;promisee&quot; : &quot;cfengine server&quot;,
-      &quot;admit&quot; : [
-         &quot;2001:0DB8::/32&quot;
+      "path" : "${sys.workdir}/modules/",
+      "class" : "mars",
+      "promisee" : "cfengine server",
+      "admit" : [
+         "2001:0DB8::/32"
       ]
    }
 ]
@@ -216,7 +234,7 @@ to start the server.</p>
 <h3>Test</h3>
 
 <p>Test your new inputs with /var/cfengine/bin/cf-promises -c. If no
-errors are printed and the exit status is zero, you&#39;re good to go.</p>
+errors are printed and the exit status is zero, you're good to go.</p>
 
 <h3>Start cfengine</h3>
 
@@ -225,7 +243,7 @@ errors are printed and the exit status is zero, you&#39;re good to go.</p>
 
 <h3>Boostrap the agent</h3>
 
-<p>Now bootstrap the server to itself. The server is always it&#39;s first
+<p>Now bootstrap the server to itself. The server is always it's first
 client host.</p>
 
 <p>/var/cfengine/bin/cf-agent -B 2001:DB8::2</p>
@@ -235,15 +253,15 @@ client host.</p>
 <h3>Version control</h3>
 
 <p>Now that masterfiles is working check it into version control. Git,
-Mercurial, Subversion, whatever you use, but don&#39;t edit masterfiles
+Mercurial, Subversion, whatever you use, but don't edit masterfiles
 directly. Use version control, stage changes, then deploy to the
 masterfiles directory. See my <a href="http://watson-wilson.ca/cfengine-best-practices-testing/">best practices</a>
 articles for more information on testing and staging.</p>
 
 <h3>Getting stuff done</h3>
 
-<p>Now that masterfiles is working you&#39;ll want to write your own policy.
-You shouldn&#39;t do that, but let me explain before you get angry. EFL can
+<p>Now that masterfiles is working you'll want to write your own policy.
+You shouldn't do that, but let me explain before you get angry. EFL can
 accomplish most of your tasks without you having to write custom
 CFEngine policy. Now that you have EFL installed, mastefiles working,
 and agent hosts boostrapped, you just need to start using EFL. See
@@ -253,7 +271,7 @@ in the EFL install document.</p>
 <h3>About EFL</h3>
 
 <p><a href="https://github.com/neilhwatson/evolve_cfengine_freelib">EFL</a> is an
-open source policy framework for CFEngine. EFL&#39;s goal to tackle the
+open source policy framework for CFEngine. EFL's goal to tackle the
 most common CFEngine tasks without having to write your own policy. It
 is mature (since May 2013), <a href="http://watson-wilson.ca/efl-is-tested-for-your-confidence/">well tested</a>,
 and you can buy support from its creator <a href="http://watson-wilson.ca/">Neil Watson</a>.</p>
@@ -265,7 +283,7 @@ and you can buy support from its creator <a href="http://watson-wilson.ca/">Neil
     </div>
 
     <div class="col-md-3">
-        <iframe frameborder="0" src="https://duckduckgo.com/search.html?site=watson-wilson.ca&amp;prefill=Search DuckDuckGo" style="overflow:hidden;margin:0;padding:0;width:350px;height:40px;"></iframe>
+        <iframe src="https://duckduckgo.com/search.html?site=watson-wilson.ca&prefill=Search DuckDuckGo" style="overflow:hidden;margin:0;padding:0;width:350px;height:40px;" frameborder="0"></iframe>
 
         <nav id="tags">
             <h1>Tags</h1>
@@ -366,31 +384,35 @@ and you can buy support from its creator <a href="http://watson-wilson.ca/">Neil
 
 </div>
 
-<div class="row">
-   <div class="col-md-1">
-       <img atl="Neil Watson" src="https://gravatar.com/avatar/1f0969599955a953e592034929ed7a23">
+<div class='row'>
+   <div class='col-md-1'>
+       <img atl='Neil Watson' src='https://gravatar.com/avatar/1f0969599955a953e592034929ed7a23' >
    </div>
 
-       <div class="col-md-1">
+       <div class='col-md-1'>
             <!-- reddit this -->
-            <a href="//www.reddit.com/submit" onclick="window.location = &#39;//www.reddit.com/submit?url=&#39; + encodeURIComponent(window.location); return false"><img alt="submit to reddit" border="0" src="//www.redditstatic.com/spreddit7.gif"></a>
+            <a href="//www.reddit.com/submit" onclick="window.location = '//www.reddit.com/submit?url=' + encodeURIComponent(window.location); return false"><img src="//www.redditstatic.com/spreddit7.gif" alt="submit to reddit" border="0" /></a>
        </div>
 
-       <div class="col-md-1">
+       <div class='col-md-1'>
           <!-- Tweet this -->
-          <a class="twitter-share-button" data-count="none" data-via="neil_h_watson" href="https://twitter.com/share">Tweet</a>
-    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+          <a class="twitter-share-button"
+             href="https://twitter.com/intent/tweet">
+          Tweet</a>
        </div>
 
-       <div class="col-md-1">
+       <div class='col-md-1'>
           <!-- follow me on twitter -->
-          <a class="twitter-follow-button" data-show-count="false" data-show-screen-name="false" href="https://twitter.com/neil_h_watson">Follow @neil_h_watson</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+         <a class="twitter-follow-button"
+            data-show-count="false"
+            data-show-screen-name="false"
+           href="https://twitter.com/neil_h_watson">
+         Follow @neil_h_watson</a>
         </div>
 
-       <div class="col-md-1">
+       <div class='col-md-1'>
            <!-- follw me on github -->
-            <a aria-label="Follow @neilhwatson on GitHub" class="github-button" data-style="mega" href="https://github.com/neilhwatson">Follow</a>
+            <a aria-label="Follow @neilhwatson on GitHub" data-style="mega" href="https://github.com/neilhwatson" class="github-button">Follow</a>
             <script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
        </div>
 
@@ -400,9 +422,9 @@ and you can buy support from its creator <a href="http://watson-wilson.ca/">Neil
         <footer>
             
             <h1></h1>
-            <div class="col-md-5"> </div>
+            <div class='col-md-5'> </div>
             <div class="col-md-3 container tagline">
-                <a href="http://preaction.me/statocles">Made with Statocles</a><br>
+                <a href="http://preaction.me/statocles">Made with Statocles</a><br/>
                 <a href="http://www.perl.org">Powered by Perl</a>
             </div>
         </footer>

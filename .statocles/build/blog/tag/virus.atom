@@ -3,14 +3,14 @@
     <id>http://watson-wilson.ca/blog/tag/virus/</id>
     <title>Neil H. Watson</title>
     <updated>2013-05-09T10:47:41Z</updated>
-    <link href="http://watson-wilson.ca/blog/tag/virus.atom" rel="self" />
-    <link href="http://watson-wilson.ca/blog/tag/virus/" rel="alternate" />
+    <link rel="self" href="http://watson-wilson.ca/blog/tag/virus.atom"/>
+    <link rel="alternate" href="http://watson-wilson.ca/blog/tag/virus/"/>
     <generator version="0.093">Statocles</generator>
     <entry>
         <id>http://watson-wilson.ca/blog/2013/05/09/its-time-to-rethink-anti-virus/</id>
         <title>It&#39;s time to rethink Anti-virus</title>
         <author><name>nwatson</name></author>
-        <link href="http://watson-wilson.ca/blog/2013/05/09/its-time-to-rethink-anti-virus/" rel="alternate" />
+        <link rel="alternate" href="http://watson-wilson.ca/blog/2013/05/09/its-time-to-rethink-anti-virus/" />
         <content type="html"><![CDATA[
             <p>Anti-virus is always a step behind. It&#39;s a good revenue stream for
 anti-virus software makers. For end users it&#39;s a race to the horizon.

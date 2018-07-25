@@ -3,13 +3,13 @@
     <id>http://watson-wilson.ca/blog/tag/security/</id>
     <title>Neil H. Watson</title>
     <updated>2017-04-29T00:00:00Z</updated>
-    <link href="http://watson-wilson.ca/blog/tag/security.atom" rel="self" />
-    <link href="http://watson-wilson.ca/blog/tag/security/" rel="alternate" />
+    <link rel="self" href="http://watson-wilson.ca/blog/tag/security.atom"/>
+    <link rel="alternate" href="http://watson-wilson.ca/blog/tag/security/"/>
     <generator version="0.093">Statocles</generator>
     <entry>
         <id>http://watson-wilson.ca/blog/2017/04/29/ipv6-priv/</id>
         <title>Linux, Ubiquity, and IPv6 privacy extensions</title>
-        <link href="http://watson-wilson.ca/blog/2017/04/29/ipv6-priv/" rel="alternate" />
+        <link rel="alternate" href="http://watson-wilson.ca/blog/2017/04/29/ipv6-priv/" />
         <content type="html"><![CDATA[
             <p><img alt="Success with IPv6" src="http://watson-wilson.ca/static/images/ipv6-success-kid.jpg" style="float:right" width="150"></p>
 
@@ -35,7 +35,7 @@
         <id>http://watson-wilson.ca/blog/2015/09/30/essential-audit-reports-with-delta-reporting/</id>
         <title>Essential audit reports with Delta Reporting</title>
         <author><name>nwatson</name></author>
-        <link href="http://watson-wilson.ca/blog/2015/09/30/essential-audit-reports-with-delta-reporting/" rel="alternate" />
+        <link rel="alternate" href="http://watson-wilson.ca/blog/2015/09/30/essential-audit-reports-with-delta-reporting/" />
         <content type="html"><![CDATA[
             <p><img alt="Delta Reporting dashboard" src="http://watson-wilson.ca/static/images/dr-dashboard.png">
 Delta Reporting has simple yet powerful reports. See a gallery of essential
@@ -58,7 +58,7 @@ ones
         <id>http://watson-wilson.ca/blog/2015/09/18/auditing-hosts-using-cfengine-efl-and-delta-reporting/</id>
         <title>Auditing hosts using CFEngine, EFL, and Delta Reporting</title>
         <author><name>nwatson</name></author>
-        <link href="http://watson-wilson.ca/blog/2015/09/18/auditing-hosts-using-cfengine-efl-and-delta-reporting/" rel="alternate" />
+        <link rel="alternate" href="http://watson-wilson.ca/blog/2015/09/18/auditing-hosts-using-cfengine-efl-and-delta-reporting/" />
         <content type="html"><![CDATA[
             <p><img alt="Clip board" src="http://watson-wilson.ca/static/images/Liste-300px.png"></p>
 
@@ -87,7 +87,7 @@ it&#39;s possible.</p>
         <id>http://watson-wilson.ca/blog/2014/09/26/shellshock-free-with-cfengine-and-delta-reporting/</id>
         <title>Shellshock free with CFEngine and Delta Reporting</title>
         <author><name>nwatson</name></author>
-        <link href="http://watson-wilson.ca/blog/2014/09/26/shellshock-free-with-cfengine-and-delta-reporting/" rel="alternate" />
+        <link rel="alternate" href="http://watson-wilson.ca/blog/2014/09/26/shellshock-free-with-cfengine-and-delta-reporting/" />
         <content type="html"><![CDATA[
             <p><img alt="Hosts reported free of shell shock" src="http://watson-wilson.ca/static/images/shell_shock.png"></p>
 
@@ -115,7 +115,7 @@ not long. First we had to design a test for the vulnerability.</p>
         <id>http://watson-wilson.ca/blog/2013/08/07/secure-sysctl-settings-with-cfengine/</id>
         <title>Secure sysctl settings with CFEngine</title>
         <author><name>nwatson</name></author>
-        <link href="http://watson-wilson.ca/blog/2013/08/07/secure-sysctl-settings-with-cfengine/" rel="alternate" />
+        <link rel="alternate" href="http://watson-wilson.ca/blog/2013/08/07/secure-sysctl-settings-with-cfengine/" />
         <content type="html"><![CDATA[
             <p>Here&#39;s how to maintain Linux sysctl settings across all hosts in
 an organization using the Evolve <a href="http://watson-wilson.ca/evolve-thinkings-free-cfengine-library/">free promise library</a>

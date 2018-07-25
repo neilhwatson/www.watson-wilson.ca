@@ -20,8 +20,6 @@ Lambda is no exception, it's a service for running your code on short lived pre-
 This code returns a data structure and nothing else.
 
 %= highlight Python => begin
-    import pickle
-
     def my_lambda(event, context):
         '''The name of this sub must match the lambda handler, and the two 
         parameters are required.'''
@@ -37,7 +35,7 @@ This code returns a data structure and nothing else.
 
 Any parameters you pass go into the 'event' parameter. What is returned will end up in stdout. [Context](https://docs.aws.amazon.com/lambda/latest/dg/python-context-object.html) is a object that contains information about the instance of the lambda.
 
-## THe playbook
+## The playbook
 
 ### Zip the Lambda
 

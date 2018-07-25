@@ -3,13 +3,13 @@
     <id>http://watson-wilson.ca/blog/tag/sun/</id>
     <title>Neil H. Watson</title>
     <updated>2011-03-08T00:00:00Z</updated>
-    <link href="http://watson-wilson.ca/blog/tag/sun.atom" rel="self" />
-    <link href="http://watson-wilson.ca/blog/tag/sun/" rel="alternate" />
+    <link rel="self" href="http://watson-wilson.ca/blog/tag/sun.atom"/>
+    <link rel="alternate" href="http://watson-wilson.ca/blog/tag/sun/"/>
     <generator version="0.093">Statocles</generator>
     <entry>
         <id>http://watson-wilson.ca/blog/2011/03/08/solaris-cheatsheet/</id>
         <title>Solaris and Sun/Oracle cheatsheet</title>
-        <link href="http://watson-wilson.ca/blog/2011/03/08/solaris-cheatsheet/" rel="alternate" />
+        <link rel="alternate" href="http://watson-wilson.ca/blog/2011/03/08/solaris-cheatsheet/" />
         <content type="html"><![CDATA[
             <h3>Init levels</h3>
 

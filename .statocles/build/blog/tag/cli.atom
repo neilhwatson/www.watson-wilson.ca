@@ -3,13 +3,13 @@
     <id>http://watson-wilson.ca/blog/tag/cli/</id>
     <title>Neil H. Watson</title>
     <updated>2016-11-15T00:00:00Z</updated>
-    <link href="http://watson-wilson.ca/blog/tag/cli.atom" rel="self" />
-    <link href="http://watson-wilson.ca/blog/tag/cli/" rel="alternate" />
+    <link rel="self" href="http://watson-wilson.ca/blog/tag/cli.atom"/>
+    <link rel="alternate" href="http://watson-wilson.ca/blog/tag/cli/"/>
     <generator version="0.093">Statocles</generator>
     <entry>
         <id>http://watson-wilson.ca/blog/2016/11/15/docker_api_from_cli/</id>
         <title>Docker API from CLI</title>
-        <link href="http://watson-wilson.ca/blog/2016/11/15/docker_api_from_cli/" rel="alternate" />
+        <link rel="alternate" href="http://watson-wilson.ca/blog/2016/11/15/docker_api_from_cli/" />
         <content type="html"><![CDATA[
             <p><a href="https://docker.com/"><img alt="Docker website" src="http://watson-wilson.ca/static/images/docker-logo.png" style="float:right" width="120px"></a></p>
 
@@ -38,7 +38,7 @@ remote accessible port, but in these examples I&#39;ll show local socket only.</
     <entry>
         <id>http://watson-wilson.ca/blog/2011/03/08/shell-cheatsheet/</id>
         <title>Shell cheatsheet</title>
-        <link href="http://watson-wilson.ca/blog/2011/03/08/shell-cheatsheet/" rel="alternate" />
+        <link rel="alternate" href="http://watson-wilson.ca/blog/2011/03/08/shell-cheatsheet/" />
         <content type="html"><![CDATA[
             <p>The following may not apply to all shells.</p>
 
@@ -94,7 +94,7 @@ work. Pressing enter returns to normal mode.</li>
     <entry>
         <id>http://watson-wilson.ca/blog/2011/03/08/gnu-screen-cheatsheet/</id>
         <title>GNU Screen cheatsheet</title>
-        <link href="http://watson-wilson.ca/blog/2011/03/08/gnu-screen-cheatsheet/" rel="alternate" />
+        <link rel="alternate" href="http://watson-wilson.ca/blog/2011/03/08/gnu-screen-cheatsheet/" />
         <content type="html"><![CDATA[
             <table>
 <tr>

@@ -3,13 +3,13 @@
     <id>http://watson-wilson.ca/blog/tag/networking/</id>
     <title>Neil H. Watson</title>
     <updated>2017-05-02T00:00:00Z</updated>
-    <link href="http://watson-wilson.ca/blog/tag/networking.atom" rel="self" />
-    <link href="http://watson-wilson.ca/blog/tag/networking/" rel="alternate" />
+    <link rel="self" href="http://watson-wilson.ca/blog/tag/networking.atom"/>
+    <link rel="alternate" href="http://watson-wilson.ca/blog/tag/networking/"/>
     <generator version="0.093">Statocles</generator>
     <entry>
         <id>http://watson-wilson.ca/blog/2017/05/02/ipv6-facts/</id>
         <title>Beginner facts about IPv6</title>
-        <link href="http://watson-wilson.ca/blog/2017/05/02/ipv6-facts/" rel="alternate" />
+        <link rel="alternate" href="http://watson-wilson.ca/blog/2017/05/02/ipv6-facts/" />
         <content type="html"><![CDATA[
             <p><img alt="Success with IPv6" src="http://watson-wilson.ca/static/images/ipv6-success-kid.jpg" style="float:right" width="150"></p>
 
@@ -46,7 +46,7 @@
     <entry>
         <id>http://watson-wilson.ca/blog/2017/04/29/ipv6-priv/</id>
         <title>Linux, Ubiquity, and IPv6 privacy extensions</title>
-        <link href="http://watson-wilson.ca/blog/2017/04/29/ipv6-priv/" rel="alternate" />
+        <link rel="alternate" href="http://watson-wilson.ca/blog/2017/04/29/ipv6-priv/" />
         <content type="html"><![CDATA[
             <p><img alt="Success with IPv6" src="http://watson-wilson.ca/static/images/ipv6-success-kid.jpg" style="float:right" width="150"></p>
 
@@ -71,7 +71,7 @@
     <entry>
         <id>http://watson-wilson.ca/blog/2012/08/01/ipv6-migration-part8/</id>
         <title>IPv6 Migration part 8</title>
-        <link href="http://watson-wilson.ca/blog/2012/08/01/ipv6-migration-part8/" rel="alternate" />
+        <link rel="alternate" href="http://watson-wilson.ca/blog/2012/08/01/ipv6-migration-part8/" />
         <content type="html"><![CDATA[
             <p>DNS for IPV6 is just like IPV4, but longer. In part 2 I discussed DNS quad A
 records. Now I&#39;ll explain IPV6 PTR records.</p>
@@ -89,7 +89,7 @@ records. Now I&#39;ll explain IPV6 PTR records.</p>
     <entry>
         <id>http://watson-wilson.ca/blog/2012/07/25/ipv6-migration-part7/</id>
         <title>IPv6 Migration part 7</title>
-        <link href="http://watson-wilson.ca/blog/2012/07/25/ipv6-migration-part7/" rel="alternate" />
+        <link rel="alternate" href="http://watson-wilson.ca/blog/2012/07/25/ipv6-migration-part7/" />
         <content type="html"><![CDATA[
             <p><img alt="Success with IPv6" src="http://watson-wilson.ca/static/images/ipv6-success-kid.jpg" style="float:right" width="150"></p>
 
@@ -109,7 +109,7 @@ records. Now I&#39;ll explain IPV6 PTR records.</p>
     <entry>
         <id>http://watson-wilson.ca/blog/2012/07/05/ipv6-migration-part6/</id>
         <title>IPv6 Migration part 6</title>
-        <link href="http://watson-wilson.ca/blog/2012/07/05/ipv6-migration-part6/" rel="alternate" />
+        <link rel="alternate" href="http://watson-wilson.ca/blog/2012/07/05/ipv6-migration-part6/" />
         <content type="html"><![CDATA[
             <p>Liberation! Using IPV6, I have 18,446,744,073,709,551,616 public IP addresses.
 This is considered a small offering (/64). Normally, an organization would get

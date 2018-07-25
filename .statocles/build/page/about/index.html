@@ -1,19 +1,37 @@
 <!DOCTYPE html>
 <html lang="en"> 
     <head>
-        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
         <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-        <link href="/theme/css/readability-bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="/theme/css/readability-bootstrap.min.css" />
         <!--<link rel="stylesheet" href="/theme/css/statocles-bootstrap.css" />-->
-        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
         <title>About me - Neil H. Watson</title>
-        <meta content="Statocles 0.093" name="generator">
+        <meta name="generator" content="Statocles 0.093" />
         
 
+        <!-- Twitter for websites -->
+         <script>window.twttr = (function(d, s, id) {
+           var js, fjs = d.getElementsByTagName(s)[0],
+             t = window.twttr || {};
+           if (d.getElementById(id)) return t;
+           js = d.createElement(s);
+           js.id = id;
+           js.src = "https://platform.twitter.com/widgets.js";
+           fjs.parentNode.insertBefore(js, fjs);
+
+           t._e = [];
+           t.ready = function(f) {
+             t._e.push(f);
+           };
+
+           return t;
+         }(document, "script", "twitter-wjs"));</script>
+
         <!-- For source highlighting -->
-        <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/default.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/default.min.css">
         <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js"></script>
         <script>hljs.initHighlightingOnLoad();</script>
 
@@ -24,7 +42,7 @@
                 <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
                     <div class="navbar-header">
-                        <button class="navbar-toggle" data-target="#top-navbar-collapse-1" data-toggle="collapse" type="button">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#top-navbar-collapse-1">
                             <span class="sr-only">Toggle navigation</span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
@@ -47,65 +65,65 @@
             
         </header>
         <div class="main container">
-            <div class="carousel slide" data-ride="carousel" id="about-me">
+            <div id="about-me" class="carousel slide" data-ride="carousel">
   <!-- Indicators -->
   <ol class="carousel-indicators">
-    <li class="active" data-slide-to="0" data-target="#about-me"></li>
-    <li data-slide-to="1" data-target="#about-me"></li>
-    <li data-slide-to="2" data-target="#about-me"></li>
-    <li data-slide-to="3" data-target="#about-me"></li>
-    <li data-slide-to="4" data-target="#about-me"></li>
-    <li data-slide-to="5" data-target="#about-me"></li>
-    <li data-slide-to="6" data-target="#about-me"></li>
+    <li data-target="#about-me" data-slide-to="0" class="active"></li>
+    <li data-target="#about-me" data-slide-to="1"></li>
+    <li data-target="#about-me" data-slide-to="2"></li>
+    <li data-target="#about-me" data-slide-to="3"></li>
+    <li data-target="#about-me" data-slide-to="4"></li>
+    <li data-target="#about-me" data-slide-to="5"></li>
+    <li data-target="#about-me" data-slide-to="6"></li>
   </ol>
 
   <!-- Wrapper for slides -->
   <div class="carousel-inner" role="listbox">
 
     <div class="item active">
-      <img alt="UNIX books" class="img-responsive center-block" src="/static/images/unix-slide-master_1.jpg">
+      <img class="img-responsive center-block" src="/static/images/unix-slide-master_1.jpg" alt="UNIX books">
       <div class="carousel-caption">
           <h2>Linux and UNIX sysadmin and architecture</h2>
       </div>
     </div>
 
     <div class="item">
-      <img alt="config management books" class="img-responsive center-block" src="/static/images/config-slide-master_1.jpg">
+      <img class="img-responsive center-block" src="/static/images/config-slide-master_1.jpg" alt="config management books">
       <div class="carousel-caption">
           <h2>Configuration management</h2>
       </div>
     </div>
 
     <div class="item">
-      <img alt="Database books" class="img-responsive center-block" src="/static/images/db-slide-master_1.jpg">
+      <img class="img-responsive center-block" src="/static/images/db-slide-master_1.jpg" alt="Database books">
       <div class="carousel-caption">
           <h2>Database design and support </h2>
       </div>
     </div>
 
     <div class="item">
-      <img alt="Perl books" class="img-responsive center-block" src="/static/images/perl-slide-master_1.jpg">
+      <img class="img-responsive center-block" src="/static/images/perl-slide-master_1.jpg" alt="Perl books">
       <div class="carousel-caption">
           <h2>Modern Perl development</h2>
       </div>
     </div>
 
     <div class="item">
-      <img alt="Network books" class="img-responsive center-block" src="/static/images/network-slide-master_1.jpg">
+      <img class="img-responsive center-block" src="/static/images/network-slide-master_1.jpg" alt="Network books">
       <div class="carousel-caption">
           <h2>Network layers too</h2>
       </div>
     </div>
 
     <div class="item">
-      <img alt="Infosec books" class="img-responsive center-block" src="/static/images/infosec-slide-master_1.jpg">
+      <img class="img-responsive center-block" src="/static/images/infosec-slide-master_1.jpg" alt="Infosec books">
       <div class="carousel-caption">
           <h2>Your security is my foremost concern</h2>
       </div>
     </div>
 
     <div class="item">
-      <img alt="sysdamin books" class="img-responsive center-block" src="/static/images/sysadmin-slide-master_1.jpg">
+      <img class="img-responsive center-block" src="/static/images/sysadmin-slide-master_1.jpg" alt="sysdamin books">
       <div class="carousel-caption">
           <h2>Thoughtful and far seeing</h2>
       </div>
@@ -114,12 +132,12 @@
   </div>
 
   <!-- Controls -->
-  <a class="left carousel-control" data-slide="prev" href="#about-me" role="button">
-    <span aria-hidden="true" class="glyphicon glyphicon-chevron-left"></span>
+  <a class="left carousel-control" href="#about-me" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
     <span class="sr-only">Previous</span>
   </a>
-  <a class="right carousel-control" data-slide="next" href="#about-me" role="button">
-    <span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>
+  <a class="right carousel-control" href="#about-me" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
     <span class="sr-only">Next</span>
   </a>
 </div>
@@ -150,22 +168,22 @@ exemplary.</p>
 
 <h3>Find me on line</h3>
 
-<div class="col-md-2">
+<div class='col-md-2'>
 <!-- follw me on github -->
-    <a alt-label="Follow @neilhwatson on GitHub" class="github-button" data-style="mega" href="https://github.com/neilhwatson">Github</a>
+    <a alt-label="Follow @neilhwatson on GitHub" data-style="mega" href="https://github.com/neilhwatson" class="github-button">Github</a>
     <script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
 </div>
 
-<div class="col-md-2">
+<div class='col-md-2'>
 <!-- follow me on twitter -->
-    <a class="twitter-follow-button" data-show-count="false" data-show-screen-name="false" href="https://twitter.com/neil_h_watson">Twitter @neil_h_watson</a>
+    <a href="https://twitter.com/neil_h_watson" class="twitter-follow-button" data-show-count="false" data-show-screen-name="false">Twitter @neil_h_watson</a>
     <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 </div>
 
-<div class="col-md-2">
+<div class='col-md-2'>
 <!-- linkedin profile -->
 <script src="//platform.linkedin.com/in.js" type="text/javascript"></script>
-<script data-id="https://www.linkedin.com/in/neilhwatson" data-related="false" data-text="Neil Watson" type="IN/MemberProfile"></script>
+<script type="IN/MemberProfile" data-id="https://www.linkedin.com/in/neilhwatson" data-related="false" data-text="Neil Watson"></script>
 </div>
 
 
@@ -173,9 +191,9 @@ exemplary.</p>
         <footer>
             
             <h1></h1>
-            <div class="col-md-5"> </div>
+            <div class='col-md-5'> </div>
             <div class="col-md-3 container tagline">
-                <a href="http://preaction.me/statocles">Made with Statocles</a><br>
+                <a href="http://preaction.me/statocles">Made with Statocles</a><br/>
                 <a href="http://www.perl.org">Powered by Perl</a>
             </div>
         </footer>

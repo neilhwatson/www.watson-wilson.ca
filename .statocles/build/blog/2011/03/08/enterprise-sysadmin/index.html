@@ -1,19 +1,37 @@
 <!DOCTYPE html>
 <html lang="en"> 
     <head>
-        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
         <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-        <link href="/theme/css/readability-bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="/theme/css/readability-bootstrap.min.css" />
         <!--<link rel="stylesheet" href="/theme/css/statocles-bootstrap.css" />-->
-        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
         <title>Enterprise system administration using configuration management - Neil H. Watson</title>
-        <meta content="Statocles 0.093" name="generator">
+        <meta name="generator" content="Statocles 0.093" />
         
 
+        <!-- Twitter for websites -->
+         <script>window.twttr = (function(d, s, id) {
+           var js, fjs = d.getElementsByTagName(s)[0],
+             t = window.twttr || {};
+           if (d.getElementById(id)) return t;
+           js = d.createElement(s);
+           js.id = id;
+           js.src = "https://platform.twitter.com/widgets.js";
+           fjs.parentNode.insertBefore(js, fjs);
+
+           t._e = [];
+           t.ready = function(f) {
+             t._e.push(f);
+           };
+
+           return t;
+         }(document, "script", "twitter-wjs"));</script>
+
         <!-- For source highlighting -->
-        <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/default.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/default.min.css">
         <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js"></script>
         <script>hljs.initHighlightingOnLoad();</script>
 
@@ -24,7 +42,7 @@
                 <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
                     <div class="navbar-header">
-                        <button class="navbar-toggle" data-target="#top-navbar-collapse-1" data-toggle="collapse" type="button">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#top-navbar-collapse-1">
                             <span class="sr-only">Toggle navigation</span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
@@ -89,16 +107,16 @@ save an organization considerable time and money.</p>
 <a href="#savings">Savings</a>
 <a href="#control">Perception of control</a></p>
 
-<h2><a name="introduction"></a>Introduction</h2>
+<h2><a name='introduction'></a>Introduction</h2>
 
 <p>When talking about system administration in this paper I am referring to the
 act of maintaining UNIX hosts and their services. System administration is more
 than this but for this paper I will discuss only a subset of system
 administration skills which I call configuration management. Configuration
 management is the act of creating new hosts and maintaining existing ones and
-their services according to the specifications of an organization&#39;s policies.</p>
+their services according to the specifications of an organization's policies.</p>
 
-<h2><a name="stages"></a>Stages of configuration management</h2>
+<h2><a name='stages'></a>Stages of configuration management</h2>
 
 <p>As an organization adds more and more hosts, both physical and virtual, its
 system administrators must spend more and more time ensuring that all hosts
@@ -113,7 +131,7 @@ three distinct phases: manual, custom automation, and dedicated service. Few
 organizations grow beyond the manual stage. Fewer still beyond custom
 automation.</p>
 
-<h3><a name="manual"></a>Manual stage</h3>
+<h3><a name='manual'></a>Manual stage</h3>
 
 <p>Management the manual way (see figure 1) involves copying files and issuing
 manual commands repeatedly to every host. With this method a simple three
@@ -123,9 +141,9 @@ without a manual audit.</p>
 
 <h5>Figure 1: Manual configuration management</h5>
 
-<p><img alt="Manual configuration management" src="/blog/2011/03/08/enterprise-sysadmin/manual-admin.png"></p>
+<p><img src="/blog/2011/03/08/enterprise-sysadmin/manual-admin.png" alt="Manual configuration management" /></p>
 
-<h3><a name="custom"></a>Custom automation stage</h3>
+<h3><a name='custom'></a>Custom automation stage</h3>
 
 <p>Some administrators develop a kit of custom scripts (see figure 2) and files
 that are deployed from host to host by a further set of custom scripts and
@@ -138,9 +156,9 @@ have to spend time learning this entirely custom environment.</p>
 
 <h5>Figure 2: Custom configuration management scripted-admin.png</h5>
 
-<p><img alt="Custom configuration management" src="/blog/2011/03/08/enterprise-sysadmin/scripted-admin.png"></p>
+<p><img src="/blog/2011/03/08/enterprise-sysadmin/scripted-admin.png" alt="Custom configuration management" /></p>
 
-<h3><a name="dedicated"></a>Dedicated service stage</h3>
+<h3><a name='dedicated'></a>Dedicated service stage</h3>
 
 <p>A dedicated configuration management service (see figure 3) offers the time
 savings of automated custom scripts but in a more maintainable way. A Dedicated
@@ -150,7 +168,7 @@ custom it is possible to find new team members with previous experience.</p>
 
 <h5>Figure 3: Dedicated configuration management config-admin.png</h5>
 
-<p><img alt="Dedicated configuration management" src="/blog/2011/03/08/enterprise-sysadmin/config-admin.png"></p>
+<p><img src="/blog/2011/03/08/enterprise-sysadmin/config-admin.png" alt="Dedicated configuration management" /></p>
 
 <p>Dedicated configuration management allows system administrators to control
 servers from a central location. Administrators are able to make a single
@@ -160,12 +178,12 @@ that these changes are applied. This can save an organization time and money.
 All changes in a configuration management system are version controlled. This
 means that all change history is recorded for auditing and disaster recovery.</p>
 
-<h2><a name="practical"></a>Practical Examples</h2>
+<h2><a name='practical'></a>Practical Examples</h2>
 
 <p>The following are practical examples of how configuration management can save
 an organization countless resources.</p>
 
-<h3><a name="secruticy"></a>Security</h3>
+<h3><a name='secruticy'></a>Security</h3>
 
 <p>A tedious and constantly changing security policy must be maintained across
 some or all hosts. Many aspects of a security policy define how a service or
@@ -177,26 +195,26 @@ meet the current policy requirements. New hosts will have the policy
 automatically applied. Policy changes need only be defined once then applied
 automatically to all current and future hosts.</p>
 
-<p>All configurations are stored in the configuration management service&#39;s master
+<p>All configurations are stored in the configuration management service's master
 files location. The master files are version controlled. With version control
 one can easily determine every line that has been changed, when that change was
 checked in and by whom.</p>
 
-<h3><a name="builds"></a>Automated builds</h3>
+<h3><a name='builds'></a>Automated builds</h3>
 
 <p>Jumpstart or kickstart services can only accomplish so much. Final
 configurations are typically done by hand or by a collection of custom scripts.
 A configuration management service can apply all additional custom policy
 changes to the host automatically.</p>
 
-<h3><a name="replacement"></a>Host replacement</h3>
+<h3><a name='replacement'></a>Host replacement</h3>
 
 <p>Host replacement either for end of life hosts or disaster recovery can be more
 automated by using the configuration management service. All configurations of
 the original host are pointed toward the new host where they will be applied
 automatically.</p>
 
-<h3><a name="healing"></a>Self healing</h3>
+<h3><a name='healing'></a>Self healing</h3>
 
 <p>Some organizations run services to ensure that services and processes are
 running, or sometimes not running, on selected hosts. These services are often
@@ -214,7 +232,7 @@ activate a configuration management service when it detects a failure. This
 corrective action may repair the failure, again without the need for
 notification.</p>
 
-<h2><a name="savings"></a>Savings</h2>
+<h2><a name='savings'></a>Savings</h2>
 
 <p>With manual tasks automated staff will now have more time to focus on important
 projects. Large tasks like security audits or patch updates can now be
@@ -225,10 +243,10 @@ healing nature prevents just two outages per year. How many employees had to
 work, or could not work during those outages? Typically even a small outage can
 cost an organization a considerable amount of lost time.</p>
 
-<p></p><table>
+<p><table>
 <tr>
     <td>Task</td>
-    <td colspan="2">Annual time saved in hours</td>
+    <td colspan='2'>Annual time saved in hours</td>
 </tr>
 <tr>
     <td>Per host</td>
@@ -258,9 +276,9 @@ cost an organization a considerable amount of lost time.</p>
     <td>2</td>
     <td>200</td>
     <td>2000</td>
-</tr>
+</tr></p>
 
-<h2><a name="control"></a>Perception of control</h2>
+<h2><a name='control'></a>Perception of control</h2>
 
 <p>Some organizations are not comfortable with the kind of automation that
 configuration management offers. They argue that such automation reduces their
@@ -268,7 +286,7 @@ control. It is safer, they argue, to have a system administrator oversee things
 personally.</p>
 
 <p>Consider that if administrators have to manually confirm that all host
-configurations are current then they are already out of control. If a host&#39;s
+configurations are current then they are already out of control. If a host's
 configuration has diverged from policy it is going to take some time for an
 administrator to manually discover the problem. It is more likely that a
 customer will discover and report the problem first. Where is the control?</p>
@@ -281,14 +299,14 @@ focus on what they are best at. The administrator can creatively develop
 complicated host polices and the computers can continuously and autonomously
 ensure compliance to them.</p>
 
-            </table></section>
+            </section>
         </main>
 
 
     </div>
 
     <div class="col-md-3">
-        <iframe frameborder="0" src="https://duckduckgo.com/search.html?site=watson-wilson.ca&amp;prefill=Search DuckDuckGo" style="overflow:hidden;margin:0;padding:0;width:350px;height:40px;"></iframe>
+        <iframe src="https://duckduckgo.com/search.html?site=watson-wilson.ca&prefill=Search DuckDuckGo" style="overflow:hidden;margin:0;padding:0;width:350px;height:40px;" frameborder="0"></iframe>
 
         <nav id="tags">
             <h1>Tags</h1>
@@ -389,31 +407,35 @@ ensure compliance to them.</p>
 
 </div>
 
-<div class="row">
-   <div class="col-md-1">
-       <img atl="Neil Watson" src="https://gravatar.com/avatar/1f0969599955a953e592034929ed7a23">
+<div class='row'>
+   <div class='col-md-1'>
+       <img atl='Neil Watson' src='https://gravatar.com/avatar/1f0969599955a953e592034929ed7a23' >
    </div>
 
-       <div class="col-md-1">
+       <div class='col-md-1'>
             <!-- reddit this -->
-            <a href="//www.reddit.com/submit" onclick="window.location = &#39;//www.reddit.com/submit?url=&#39; + encodeURIComponent(window.location); return false"><img alt="submit to reddit" border="0" src="//www.redditstatic.com/spreddit7.gif"></a>
+            <a href="//www.reddit.com/submit" onclick="window.location = '//www.reddit.com/submit?url=' + encodeURIComponent(window.location); return false"><img src="//www.redditstatic.com/spreddit7.gif" alt="submit to reddit" border="0" /></a>
        </div>
 
-       <div class="col-md-1">
+       <div class='col-md-1'>
           <!-- Tweet this -->
-          <a class="twitter-share-button" data-count="none" data-via="neil_h_watson" href="https://twitter.com/share">Tweet</a>
-    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+          <a class="twitter-share-button"
+             href="https://twitter.com/intent/tweet">
+          Tweet</a>
        </div>
 
-       <div class="col-md-1">
+       <div class='col-md-1'>
           <!-- follow me on twitter -->
-          <a class="twitter-follow-button" data-show-count="false" data-show-screen-name="false" href="https://twitter.com/neil_h_watson">Follow @neil_h_watson</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+         <a class="twitter-follow-button"
+            data-show-count="false"
+            data-show-screen-name="false"
+           href="https://twitter.com/neil_h_watson">
+         Follow @neil_h_watson</a>
         </div>
 
-       <div class="col-md-1">
+       <div class='col-md-1'>
            <!-- follw me on github -->
-            <a aria-label="Follow @neilhwatson on GitHub" class="github-button" data-style="mega" href="https://github.com/neilhwatson">Follow</a>
+            <a aria-label="Follow @neilhwatson on GitHub" data-style="mega" href="https://github.com/neilhwatson" class="github-button">Follow</a>
             <script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
        </div>
 
@@ -423,9 +445,9 @@ ensure compliance to them.</p>
         <footer>
             
             <h1></h1>
-            <div class="col-md-5"> </div>
+            <div class='col-md-5'> </div>
             <div class="col-md-3 container tagline">
-                <a href="http://preaction.me/statocles">Made with Statocles</a><br>
+                <a href="http://preaction.me/statocles">Made with Statocles</a><br/>
                 <a href="http://www.perl.org">Powered by Perl</a>
             </div>
         </footer>

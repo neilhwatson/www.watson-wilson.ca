@@ -3,14 +3,14 @@
     <id>http://watson-wilson.ca/blog/tag/kickstart/</id>
     <title>Neil H. Watson</title>
     <updated>2014-10-30T10:10:50Z</updated>
-    <link href="http://watson-wilson.ca/blog/tag/kickstart.atom" rel="self" />
-    <link href="http://watson-wilson.ca/blog/tag/kickstart/" rel="alternate" />
+    <link rel="self" href="http://watson-wilson.ca/blog/tag/kickstart.atom"/>
+    <link rel="alternate" href="http://watson-wilson.ca/blog/tag/kickstart/"/>
     <generator version="0.093">Statocles</generator>
     <entry>
         <id>http://watson-wilson.ca/blog/2014/10/30/changes-in-virt-install-and-kickstart-in-rhel7/</id>
         <title>Changes in virt-install and Kickstart in RHEL7</title>
         <author><name>nwatson</name></author>
-        <link href="http://watson-wilson.ca/blog/2014/10/30/changes-in-virt-install-and-kickstart-in-rhel7/" rel="alternate" />
+        <link rel="alternate" href="http://watson-wilson.ca/blog/2014/10/30/changes-in-virt-install-and-kickstart-in-rhel7/" />
         <content type="html"><![CDATA[
             <p><img alt="army provisions" src="http://watson-wilson.ca/static/images/mre-case.jpg"></p>
 
