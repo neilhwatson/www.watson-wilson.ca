@@ -7,6 +7,27 @@
         <description>Blog feed of Neil H. Watson</description>
         <generator>Statocles 0.093</generator>
         <item>
+            <title>Automatic Subnets with Terraform</title>
+            <link>http://watson-wilson.ca/blog/2018/08/19/terraform-subnets/</link>
+            <guid>http://watson-wilson.ca/blog/2018/08/19/terraform-subnets/</guid>
+            <description><![CDATA[
+                <p><a href="https://terraform.io/"><img alt="terraform logo" src="https://raw.githubusercontent.com/hashicorp/terraform-website/master/content//source/assets/images/og-image.png" style="float:right" width="120px"></a></p>
+
+<p>Want to do automatic subnet division in Terraform?</p>
+
+                    <p><a href="http://watson-wilson.ca/blog/2018/08/19/terraform-subnets/#section-2">Continue reading...</a></p>
+                <p>Tags:
+                    <a href="http://watson-wilson.ca/blog/tag/terraform/">terraform</a>
+                    <a href="http://watson-wilson.ca/blog/tag/networking/">networking</a>
+                    <a href="http://watson-wilson.ca/blog/tag/subnet/">subnet</a>
+                    <a href="http://watson-wilson.ca/blog/tag/cloud/">cloud</a>
+                </p>
+            ]]></description>
+            <pubDate>
+                Sun, 19 Aug 2018 00:00:00 +0000
+            </pubDate>
+        </item>
+        <item>
             <title>Beginner facts about IPv6</title>
             <link>http://watson-wilson.ca/blog/2017/05/02/ipv6-facts/</link>
             <guid>http://watson-wilson.ca/blog/2017/05/02/ipv6-facts/</guid>
@@ -101,25 +122,6 @@ records. Now I&#39;ll explain IPV6 PTR records.</p>
             ]]></description>
             <pubDate>
                 Wed, 25 Jul 2012 00:00:00 +0000
-            </pubDate>
-        </item>
-        <item>
-            <title>IPv6 Migration part 6</title>
-            <link>http://watson-wilson.ca/blog/2012/07/05/ipv6-migration-part6/</link>
-            <guid>http://watson-wilson.ca/blog/2012/07/05/ipv6-migration-part6/</guid>
-            <description><![CDATA[
-                <p>Liberation! Using IPV6, I have 18,446,744,073,709,551,616 public IP addresses.
-This is considered a small offering (/64). Normally, an organization would get
-a /48 network that contains 65536 /64 subnets.</p>
-
-                    <p><a href="http://watson-wilson.ca/blog/2012/07/05/ipv6-migration-part6/#section-2">Continue reading...</a></p>
-                <p>Tags:
-                    <a href="http://watson-wilson.ca/blog/tag/ipv6/">ipv6</a>
-                    <a href="http://watson-wilson.ca/blog/tag/networking/">networking</a>
-                </p>
-            ]]></description>
-            <pubDate>
-                Thu, 05 Jul 2012 00:00:00 +0000
             </pubDate>
         </item>
     </channel>

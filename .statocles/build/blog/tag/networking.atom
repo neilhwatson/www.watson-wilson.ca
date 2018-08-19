@@ -2,10 +2,33 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>http://watson-wilson.ca/blog/tag/networking/</id>
     <title>Neil H. Watson</title>
-    <updated>2017-05-02T00:00:00Z</updated>
+    <updated>2018-08-19T00:00:00Z</updated>
     <link rel="self" href="http://watson-wilson.ca/blog/tag/networking.atom"/>
     <link rel="alternate" href="http://watson-wilson.ca/blog/tag/networking/"/>
     <generator version="0.093">Statocles</generator>
+    <entry>
+        <id>http://watson-wilson.ca/blog/2018/08/19/terraform-subnets/</id>
+        <title>Automatic Subnets with Terraform</title>
+        <link rel="alternate" href="http://watson-wilson.ca/blog/2018/08/19/terraform-subnets/" />
+        <content type="html"><![CDATA[
+            <p><a href="https://terraform.io/"><img alt="terraform logo" src="https://raw.githubusercontent.com/hashicorp/terraform-website/master/content//source/assets/images/og-image.png" style="float:right" width="120px"></a></p>
+
+<p>Want to do automatic subnet division in Terraform?</p>
+
+                <p><a href="http://watson-wilson.ca/blog/2018/08/19/terraform-subnets/#section-2">Continue reading...</a></p>
+            <p>Tags:
+                <a href="http://watson-wilson.ca/blog/tag/terraform/">terraform</a>
+                <a href="http://watson-wilson.ca/blog/tag/networking/">networking</a>
+                <a href="http://watson-wilson.ca/blog/tag/subnet/">subnet</a>
+                <a href="http://watson-wilson.ca/blog/tag/cloud/">cloud</a>
+            </p>
+        ]]></content>
+        <updated>2018-08-19T00:00:00Z</updated>
+        <category term="terraform" />
+        <category term="networking" />
+        <category term="subnet" />
+        <category term="cloud" />
+    </entry>
     <entry>
         <id>http://watson-wilson.ca/blog/2017/05/02/ipv6-facts/</id>
         <title>Beginner facts about IPv6</title>
@@ -103,25 +126,6 @@ records. Now I&#39;ll explain IPV6 PTR records.</p>
             </p>
         ]]></content>
         <updated>2012-07-25T00:00:00Z</updated>
-        <category term="ipv6" />
-        <category term="networking" />
-    </entry>
-    <entry>
-        <id>http://watson-wilson.ca/blog/2012/07/05/ipv6-migration-part6/</id>
-        <title>IPv6 Migration part 6</title>
-        <link rel="alternate" href="http://watson-wilson.ca/blog/2012/07/05/ipv6-migration-part6/" />
-        <content type="html"><![CDATA[
-            <p>Liberation! Using IPV6, I have 18,446,744,073,709,551,616 public IP addresses.
-This is considered a small offering (/64). Normally, an organization would get
-a /48 network that contains 65536 /64 subnets.</p>
-
-                <p><a href="http://watson-wilson.ca/blog/2012/07/05/ipv6-migration-part6/#section-2">Continue reading...</a></p>
-            <p>Tags:
-                <a href="http://watson-wilson.ca/blog/tag/ipv6/">ipv6</a>
-                <a href="http://watson-wilson.ca/blog/tag/networking/">networking</a>
-            </p>
-        ]]></content>
-        <updated>2012-07-05T00:00:00Z</updated>
         <category term="ipv6" />
         <category term="networking" />
     </entry>

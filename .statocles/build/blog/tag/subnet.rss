@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Neil H. Watson</title>
+        <link>http://watson-wilson.ca/blog/tag/subnet/</link>
+        <atom:link href="http://watson-wilson.ca/blog/tag/subnet.rss" rel="self" type="application/rss+xml" />
+        <description>Blog feed of Neil H. Watson</description>
+        <generator>Statocles 0.093</generator>
+        <item>
+            <title>Automatic Subnets with Terraform</title>
+            <link>http://watson-wilson.ca/blog/2018/08/19/terraform-subnets/</link>
+            <guid>http://watson-wilson.ca/blog/2018/08/19/terraform-subnets/</guid>
+            <description><![CDATA[
+                <p><a href="https://terraform.io/"><img alt="terraform logo" src="https://raw.githubusercontent.com/hashicorp/terraform-website/master/content//source/assets/images/og-image.png" style="float:right" width="120px"></a></p>
+
+<p>Want to do automatic subnet division in Terraform?</p>
+
+                    <p><a href="http://watson-wilson.ca/blog/2018/08/19/terraform-subnets/#section-2">Continue reading...</a></p>
+                <p>Tags:
+                    <a href="http://watson-wilson.ca/blog/tag/terraform/">terraform</a>
+                    <a href="http://watson-wilson.ca/blog/tag/networking/">networking</a>
+                    <a href="http://watson-wilson.ca/blog/tag/subnet/">subnet</a>
+                    <a href="http://watson-wilson.ca/blog/tag/cloud/">cloud</a>
+                </p>
+            ]]></description>
+            <pubDate>
+                Sun, 19 Aug 2018 00:00:00 +0000
+            </pubDate>
+        </item>
+    </channel>
+</rss>
+

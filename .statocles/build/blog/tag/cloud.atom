@@ -2,10 +2,33 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>http://watson-wilson.ca/blog/tag/cloud/</id>
     <title>Neil H. Watson</title>
-    <updated>2018-07-22T00:00:00Z</updated>
+    <updated>2018-08-19T00:00:00Z</updated>
     <link rel="self" href="http://watson-wilson.ca/blog/tag/cloud.atom"/>
     <link rel="alternate" href="http://watson-wilson.ca/blog/tag/cloud/"/>
     <generator version="0.093">Statocles</generator>
+    <entry>
+        <id>http://watson-wilson.ca/blog/2018/08/19/terraform-subnets/</id>
+        <title>Automatic Subnets with Terraform</title>
+        <link rel="alternate" href="http://watson-wilson.ca/blog/2018/08/19/terraform-subnets/" />
+        <content type="html"><![CDATA[
+            <p><a href="https://terraform.io/"><img alt="terraform logo" src="https://raw.githubusercontent.com/hashicorp/terraform-website/master/content//source/assets/images/og-image.png" style="float:right" width="120px"></a></p>
+
+<p>Want to do automatic subnet division in Terraform?</p>
+
+                <p><a href="http://watson-wilson.ca/blog/2018/08/19/terraform-subnets/#section-2">Continue reading...</a></p>
+            <p>Tags:
+                <a href="http://watson-wilson.ca/blog/tag/terraform/">terraform</a>
+                <a href="http://watson-wilson.ca/blog/tag/networking/">networking</a>
+                <a href="http://watson-wilson.ca/blog/tag/subnet/">subnet</a>
+                <a href="http://watson-wilson.ca/blog/tag/cloud/">cloud</a>
+            </p>
+        ]]></content>
+        <updated>2018-08-19T00:00:00Z</updated>
+        <category term="terraform" />
+        <category term="networking" />
+        <category term="subnet" />
+        <category term="cloud" />
+    </entry>
     <entry>
         <id>http://watson-wilson.ca/blog/2018/07/22/lambda/</id>
         <title>Intro to Lambda using Ansible</title>
@@ -103,29 +126,6 @@
         <category term="cloud" />
         <category term="configuration management" />
         <category term="AWS" />
-    </entry>
-    <entry>
-        <id>http://watson-wilson.ca/blog/2016/10/10/cloudfoundry/</id>
-        <title>Bosh and Cloud Foundry, an intro</title>
-        <link rel="alternate" href="http://watson-wilson.ca/blog/2016/10/10/cloudfoundry/" />
-        <content type="html"><![CDATA[
-            <p><a href="https://cloudfoundry.org/"><img alt="cloudfoundry website" src="http://watson-wilson.ca/static/images/Cloud-Foundry-Logo.png" style="float:right" width="120px"></a></p>
-
-<p><a href="https://www.cloudfoundry.org/">Cloud Foundry</a> is an open source platform as a service product owned by Pivotal Software. CF allows you to deploy applications to containers on AWS, Azue, VMware vSphere, and others.</p>
-
-                <p><a href="http://watson-wilson.ca/blog/2016/10/10/cloudfoundry/#section-2">Continue reading...</a></p>
-            <p>Tags:
-                <a href="http://watson-wilson.ca/blog/tag/cloud/">cloud</a>
-                <a href="http://watson-wilson.ca/blog/tag/cloud-foundry/">cloud foundry</a>
-                <a href="http://watson-wilson.ca/blog/tag/bosh/">bosh</a>
-                <a href="http://watson-wilson.ca/blog/tag/containers/">containers</a>
-            </p>
-        ]]></content>
-        <updated>2016-10-10T00:00:00Z</updated>
-        <category term="cloud" />
-        <category term="cloud foundry" />
-        <category term="bosh" />
-        <category term="containers" />
     </entry>
 </feed>
 

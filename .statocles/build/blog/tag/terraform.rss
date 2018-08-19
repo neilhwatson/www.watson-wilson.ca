@@ -7,6 +7,27 @@
         <description>Blog feed of Neil H. Watson</description>
         <generator>Statocles 0.093</generator>
         <item>
+            <title>Automatic Subnets with Terraform</title>
+            <link>http://watson-wilson.ca/blog/2018/08/19/terraform-subnets/</link>
+            <guid>http://watson-wilson.ca/blog/2018/08/19/terraform-subnets/</guid>
+            <description><![CDATA[
+                <p><a href="https://terraform.io/"><img alt="terraform logo" src="https://raw.githubusercontent.com/hashicorp/terraform-website/master/content//source/assets/images/og-image.png" style="float:right" width="120px"></a></p>
+
+<p>Want to do automatic subnet division in Terraform?</p>
+
+                    <p><a href="http://watson-wilson.ca/blog/2018/08/19/terraform-subnets/#section-2">Continue reading...</a></p>
+                <p>Tags:
+                    <a href="http://watson-wilson.ca/blog/tag/terraform/">terraform</a>
+                    <a href="http://watson-wilson.ca/blog/tag/networking/">networking</a>
+                    <a href="http://watson-wilson.ca/blog/tag/subnet/">subnet</a>
+                    <a href="http://watson-wilson.ca/blog/tag/cloud/">cloud</a>
+                </p>
+            ]]></description>
+            <pubDate>
+                Sun, 19 Aug 2018 00:00:00 +0000
+            </pubDate>
+        </item>
+        <item>
             <title>AWS single host resilience with autoscaling groups</title>
             <link>http://watson-wilson.ca/blog/2018/02/11/aws-asg-of-one/</link>
             <guid>http://watson-wilson.ca/blog/2018/02/11/aws-asg-of-one/</guid>
@@ -89,29 +110,6 @@
             ]]></description>
             <pubDate>
                 Thu, 30 Mar 2017 00:00:00 +0000
-            </pubDate>
-        </item>
-        <item>
-            <title>Introduction to Terraform</title>
-            <link>http://watson-wilson.ca/blog/2016/01/08/terraform-intro/</link>
-            <guid>http://watson-wilson.ca/blog/2016/01/08/terraform-intro/</guid>
-            <description><![CDATA[
-                <p><a href="https://terraform.io/"><img alt="terraform logo" src="https://raw.githubusercontent.com/hashicorp/terraform-website/master/content//source/assets/images/og-image.png" style="float:right" width="120px"></a></p>
-
-<p><a href="https://terraform.io/">Terraform</a> allows you to manage your AWS, and other
-cloud infrastructure, the same way you would manage servers using configuration
-management products like CFEngine or Puppet. Terraform is idempotent and
-convergent so only required changes are applied.</p>
-
-                    <p><a href="http://watson-wilson.ca/blog/2016/01/08/terraform-intro/#section-2">Continue reading...</a></p>
-                <p>Tags:
-                    <a href="http://watson-wilson.ca/blog/tag/terraform/">terraform</a>
-                    <a href="http://watson-wilson.ca/blog/tag/cloud/">cloud</a>
-                    <a href="http://watson-wilson.ca/blog/tag/configuration-management/">configuration management</a>
-                </p>
-            ]]></description>
-            <pubDate>
-                Fri, 08 Jan 2016 00:00:00 +0000
             </pubDate>
         </item>
     </channel>

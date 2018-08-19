@@ -7,6 +7,27 @@
         <description>Blog feed of Neil H. Watson</description>
         <generator>Statocles 0.093</generator>
         <item>
+            <title>Automatic Subnets with Terraform</title>
+            <link>http://watson-wilson.ca/blog/2018/08/19/terraform-subnets/</link>
+            <guid>http://watson-wilson.ca/blog/2018/08/19/terraform-subnets/</guid>
+            <description><![CDATA[
+                <p><a href="https://terraform.io/"><img alt="terraform logo" src="https://raw.githubusercontent.com/hashicorp/terraform-website/master/content//source/assets/images/og-image.png" style="float:right" width="120px"></a></p>
+
+<p>Want to do automatic subnet division in Terraform?</p>
+
+                    <p><a href="http://watson-wilson.ca/blog/2018/08/19/terraform-subnets/#section-2">Continue reading...</a></p>
+                <p>Tags:
+                    <a href="http://watson-wilson.ca/blog/tag/terraform/">terraform</a>
+                    <a href="http://watson-wilson.ca/blog/tag/networking/">networking</a>
+                    <a href="http://watson-wilson.ca/blog/tag/subnet/">subnet</a>
+                    <a href="http://watson-wilson.ca/blog/tag/cloud/">cloud</a>
+                </p>
+            ]]></description>
+            <pubDate>
+                Sun, 19 Aug 2018 00:00:00 +0000
+            </pubDate>
+        </item>
+        <item>
             <title>Intro to Lambda using Ansible</title>
             <link>http://watson-wilson.ca/blog/2018/07/22/lambda/</link>
             <guid>http://watson-wilson.ca/blog/2018/07/22/lambda/</guid>
@@ -91,27 +112,6 @@
             ]]></description>
             <pubDate>
                 Thu, 30 Mar 2017 00:00:00 +0000
-            </pubDate>
-        </item>
-        <item>
-            <title>Bosh and Cloud Foundry, an intro</title>
-            <link>http://watson-wilson.ca/blog/2016/10/10/cloudfoundry/</link>
-            <guid>http://watson-wilson.ca/blog/2016/10/10/cloudfoundry/</guid>
-            <description><![CDATA[
-                <p><a href="https://cloudfoundry.org/"><img alt="cloudfoundry website" src="http://watson-wilson.ca/static/images/Cloud-Foundry-Logo.png" style="float:right" width="120px"></a></p>
-
-<p><a href="https://www.cloudfoundry.org/">Cloud Foundry</a> is an open source platform as a service product owned by Pivotal Software. CF allows you to deploy applications to containers on AWS, Azue, VMware vSphere, and others.</p>
-
-                    <p><a href="http://watson-wilson.ca/blog/2016/10/10/cloudfoundry/#section-2">Continue reading...</a></p>
-                <p>Tags:
-                    <a href="http://watson-wilson.ca/blog/tag/cloud/">cloud</a>
-                    <a href="http://watson-wilson.ca/blog/tag/cloud-foundry/">cloud foundry</a>
-                    <a href="http://watson-wilson.ca/blog/tag/bosh/">bosh</a>
-                    <a href="http://watson-wilson.ca/blog/tag/containers/">containers</a>
-                </p>
-            ]]></description>
-            <pubDate>
-                Mon, 10 Oct 2016 00:00:00 +0000
             </pubDate>
         </item>
     </channel>

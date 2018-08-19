@@ -1,14 +1,14 @@
 ---
-title: Subnetting with Terraform
-tags: terraform, networking, subnets, cloud
+title: Automatic Subnets with Terraform
+tags: terraform, networking, subnet, cloud
 ---
 
-<a href=""><img style='float:right' alt='aws logo' width='120px' src='/static/images/'></a>
+<a href="https://terraform.io/"><img style='float:right' alt='terraform logo' width='120px' src='https://raw.githubusercontent.com/hashicorp/terraform-website/master/content//source/assets/images/og-image.png' ></a>
 
-Want to do automatic subnet divisions in Terraform
+Want to do automatic subnet division in Terraform?
 ---
 
-Say VPC is 10.99.0.0/16 and you want split into a /20, or 4096 addresses. With [sipcalc](https://github.com/sii/sipcalc):
+Say your AWS VPC is 10.99.0.0/16 and you want to split it into a /20, or 4096 address subnets. With [sipcalc](https://github.com/sii/sipcalc):
 
     neil@luna:~$ sipcalc -s 20 10.99.0.0/16
     -[ipv4 : 10.99.0.0/16] - 0
@@ -48,7 +48,7 @@ Say VPC is 10.99.0.0/16 and you want split into a /20, or 4096 addresses. With [
     Network range		- 10.99.0.0 - 10.99.15.255
     Usable range		- 10.99.0.1 - 10.99.15.254
 
-You can do this with terraform's [cidrsubnet function](https://www.terraform.io/docs/configuration/interpolation.html#cidrsubnet-iprange-newbits-netnum-):
+You can do this with terraform's [cidrsubnet function](https://www.terraform.io/docs/configuration/interpolation.html#cidrsubnet-iprange-newbits-netnum-). Terraform even has a console you can use for testing:
 
     neil@luna:~$ terraform console
     > cidrsubnet("10.99.0.0/16", 4, 0)
@@ -60,9 +60,28 @@ You can do this with terraform's [cidrsubnet function](https://www.terraform.io/
 
 Sadly the documentation about the function is poor.
 
-1. The first argument is our VPC's complete cidr.
-1. The second is the number we add to the slash number to get the new subnet slash number. In tis cat /16 + 4 = /20.
-2. The third argument is the index of the list of new subnets. We are dividing 10.99.0.0/16 into multiple smaller subnets. 0 is the start. It's like an array.
+1. The first argument is the VPC's complete cidr.
+1. The second is the number to add to the slash number to get the new subnet slash number. In this case /16 + 4 = /20.
+1. The third argument is the index of the list of new subnets. We are dividing 10.99.0.0/16 into multiple smaller subnets and 0 is the first. It's like an array.
+
+Now use it in Terraform policy to create two subnets, 10.99.0.0/20 and 10.99.16.0/20.
+
+    resource "aws_subnet" "sub01" {
+      vpc_id     = "${aws_vpc.main.id}"
+      # 10.99.0.0/20
+      cidr_block = "${cidrsubnet("10.99.0.0/16", 4, 1)}"
+      tags {
+        Name = "01"
+      }
+    }
+    resource "aws_subnet" "sub02" {
+      vpc_id     = "${aws_vpc.main.id}"
+      # 10.99.16.0/20
+      cidr_block = "${cidrsubnet("10.99.0.0/16", 4, 2)}"
+      tags {
+        Name = "02"
+      }
+    }
 
 A tip of the hat to [It's Just Code](http://blog.itsjustcode.net/blog/2017/11/18/terraform-cidrsubnet-deconstructed/) who explained this so well for me.
 
