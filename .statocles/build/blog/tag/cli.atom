@@ -5,7 +5,7 @@
     <updated>2016-11-15T00:00:00Z</updated>
     <link rel="self" href="http://watson-wilson.ca/blog/tag/cli.atom"/>
     <link rel="alternate" href="http://watson-wilson.ca/blog/tag/cli/"/>
-    <generator version="0.093">Statocles</generator>
+    <generator version="0.094">Statocles</generator>
     <entry>
         <id>http://watson-wilson.ca/blog/2016/11/15/docker_api_from_cli/</id>
         <title>Docker API from CLI</title>

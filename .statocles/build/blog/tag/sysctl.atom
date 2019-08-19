@@ -5,7 +5,7 @@
     <updated>2013-08-07T16:13:42Z</updated>
     <link rel="self" href="http://watson-wilson.ca/blog/tag/sysctl.atom"/>
     <link rel="alternate" href="http://watson-wilson.ca/blog/tag/sysctl/"/>
-    <generator version="0.093">Statocles</generator>
+    <generator version="0.094">Statocles</generator>
     <entry>
         <id>http://watson-wilson.ca/blog/2013/08/07/secure-sysctl-settings-with-cfengine/</id>
         <title>Secure sysctl settings with CFEngine</title>

@@ -5,7 +5,7 @@
     <updated>2016-10-10T00:00:00Z</updated>
     <link rel="self" href="http://watson-wilson.ca/blog/tag/bosh.atom"/>
     <link rel="alternate" href="http://watson-wilson.ca/blog/tag/bosh/"/>
-    <generator version="0.093">Statocles</generator>
+    <generator version="0.094">Statocles</generator>
     <entry>
         <id>http://watson-wilson.ca/blog/2016/10/10/cloudfoundry/</id>
         <title>Bosh and Cloud Foundry, an intro</title>

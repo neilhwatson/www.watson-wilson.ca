@@ -5,7 +5,7 @@
         <link>http://watson-wilson.ca/blog/tag/best-practices/</link>
         <atom:link href="http://watson-wilson.ca/blog/tag/best-practices.rss" rel="self" type="application/rss+xml" />
         <description>Blog feed of Neil H. Watson</description>
-        <generator>Statocles 0.093</generator>
+        <generator>Statocles 0.094</generator>
         <item>
             <title>Build better regular expressions in CFEngine</title>
             <link>http://watson-wilson.ca/blog/2015/08/20/build-better-regular-expressions-in-cfengine/</link>

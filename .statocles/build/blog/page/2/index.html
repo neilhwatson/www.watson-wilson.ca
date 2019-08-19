@@ -9,10 +9,11 @@
         <!--<link rel="stylesheet" href="/theme/css/statocles-bootstrap.css" />-->
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
         <title>Neil H. Watson</title>
-        <meta name="generator" content="Statocles 0.093" />
+        <meta name="generator" content="Statocles 0.094" />
         <link rel="alternate" href="/blog/index.atom" type="application/atom+xml" />
         <link rel="alternate" href="/blog/index.rss" type="application/rss+xml" />
         
+        <link rel="stylesheet" href="/theme/plugin/highlight/default.css" type="text/css" />
 
         <!-- Twitter for websites -->
          <script>window.twttr = (function(d, s, id) {
@@ -74,6 +75,36 @@
         <main>
 
 
+            <article>
+                <header>
+                    <h1><a href="/blog/2018/02/11/aws-asg-of-one/">AWS single host resilience with autoscaling groups</a></h1>
+
+                    <p class="tags">Tags:
+                        <a href="/blog/tag/aws/" rel="tag">AWS</a>
+                        <a href="/blog/tag/cloud/" rel="tag">cloud</a>
+                        <a href="/blog/tag/asg/" rel="tag">asg</a>
+                        <a href="/blog/tag/autoscaling/" rel="tag">autoscaling</a>
+                        <a href="/blog/tag/high-availability/" rel="tag">high availability</a>
+                        <a href="/blog/tag/terraform/" rel="tag">terraform</a>
+                    </p>
+
+                    <aside>
+                        <p><time datetime="2018-02-11">
+                            Posted on 2018-02-11
+                        </time>
+                        </p>
+                    </aside>
+
+                </header>
+
+                <p><a href="https://aws.amazon.com/"><img alt="aws logo" src="/static/images/aws.png" style="float:right" width="120px"></a></p>
+
+<p>Make even a single AWS EC2 host highly available using autoscaling groups. Here&#39;s example using ASG, EFS for persistent data, and Terraform for easy automation.</p>
+
+
+                    <p><a href="/blog/2018/02/11/aws-asg-of-one/index.html#section-2">Continue reading AWS single host resilience with autoscaling groups...</a></p>
+
+            </article>
             <article>
                 <header>
                     <h1><a href="/blog/2017/05/02/ipv6-facts/">Beginner facts about IPv6</a></h1>
@@ -202,34 +233,6 @@
 
 
             </article>
-            <article>
-                <header>
-                    <h1><a href="/blog/2017/04/17/terraform-state/">Understanding Terraform State</a></h1>
-
-                    <p class="tags">Tags:
-                        <a href="/blog/tag/terraform/" rel="tag">terraform</a>
-                        <a href="/blog/tag/configuration-management/" rel="tag">configuration management</a>
-                        <a href="/blog/tag/cloud/" rel="tag">cloud</a>
-                        <a href="/blog/tag/aws/" rel="tag">AWS</a>
-                    </p>
-
-                    <aside>
-                        <p><time datetime="2017-04-17">
-                            Posted on 2017-04-17
-                        </time>
-                        </p>
-                    </aside>
-
-                </header>
-
-                <p><a href="https://terraform.io/"><img alt="terraform logo" src="https://raw.githubusercontent.com/hashicorp/terraform-website/master/content//source/assets/images/og-image.png" style="float:right" width="120px"></a></p>
-
-<p>Terraform <a href="https://www.terraform.io/docs/state/purpose.html">state</a> is a database kept by Terraform to help it reconcile Terraform resource dependencies, and reconcile between Terraform code and the actual state on the target infrastructure. For example, in the state, Terraform expects to find an entry that matches your AWS resource defining a Route53 record and in your Terraform code. Whether or not the entry exits determines if Terraform will make a change or not.</p>
-
-
-                    <p><a href="/blog/2017/04/17/terraform-state/index.html#section-2">Continue reading Understanding Terraform State...</a></p>
-
-            </article>
         </main>
 
         <ul class="pager">
@@ -278,6 +281,7 @@
             <li><a href="/blog/tag/docker/">docker</a></li>
             <li><a href="/blog/tag/dr/">dr</a></li>
             <li><a href="/blog/tag/efl/">EFL</a></li>
+            <li><a href="/blog/tag/ergonomics/">ergonomics</a></li>
             <li><a href="/blog/tag/github/">github</a></li>
             <li><a href="/blog/tag/heartbeat/">heartbeat</a></li>
             <li><a href="/blog/tag/high-availability/">high availability</a></li>
@@ -288,6 +292,7 @@
             <li><a href="/blog/tag/jekyll/">jekyll</a></li>
             <li><a href="/blog/tag/jq/">jq</a></li>
             <li><a href="/blog/tag/json/">json</a></li>
+            <li><a href="/blog/tag/keyboard/">keyboard</a></li>
             <li><a href="/blog/tag/kickstart/">kickstart</a></li>
             <li><a href="/blog/tag/kvm/">kvm</a></li>
             <li><a href="/blog/tag/lambda/">lambda</a></li>

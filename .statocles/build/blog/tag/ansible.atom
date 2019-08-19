@@ -5,13 +5,13 @@
     <updated>2018-07-22T00:00:00Z</updated>
     <link rel="self" href="http://watson-wilson.ca/blog/tag/ansible.atom"/>
     <link rel="alternate" href="http://watson-wilson.ca/blog/tag/ansible/"/>
-    <generator version="0.093">Statocles</generator>
+    <generator version="0.094">Statocles</generator>
     <entry>
         <id>http://watson-wilson.ca/blog/2018/07/22/lambda/</id>
         <title>Intro to Lambda using Ansible</title>
         <link rel="alternate" href="http://watson-wilson.ca/blog/2018/07/22/lambda/" />
         <content type="html"><![CDATA[
-            <p><a href="http://watson-wilson.ca/blog/2018/07/22/lambda/"><img alt="aws logo" src="http://watson-wilson.ca/static/images/aws.png" style="float:right" width="120px"></a></p>
+            <p><img alt="aws logo" src="http://watson-wilson.ca/static/images/aws.png" style="float:right" width="120px"></p>
 
 <p>Here&#39;s a simple example of an <a href="https://aws.amazon.com/lambda/">AWS Lambda</a> using <a href="https://www.ansible.com/">Ansible</a> to set it up.</p>
 

@@ -5,13 +5,13 @@
         <link>http://watson-wilson.ca/blog/tag/serverless/</link>
         <atom:link href="http://watson-wilson.ca/blog/tag/serverless.rss" rel="self" type="application/rss+xml" />
         <description>Blog feed of Neil H. Watson</description>
-        <generator>Statocles 0.093</generator>
+        <generator>Statocles 0.094</generator>
         <item>
             <title>Intro to Lambda using Ansible</title>
             <link>http://watson-wilson.ca/blog/2018/07/22/lambda/</link>
             <guid>http://watson-wilson.ca/blog/2018/07/22/lambda/</guid>
             <description><![CDATA[
-                <p><a href="http://watson-wilson.ca/blog/2018/07/22/lambda/"><img alt="aws logo" src="http://watson-wilson.ca/static/images/aws.png" style="float:right" width="120px"></a></p>
+                <p><img alt="aws logo" src="http://watson-wilson.ca/static/images/aws.png" style="float:right" width="120px"></p>
 
 <p>Here&#39;s a simple example of an <a href="https://aws.amazon.com/lambda/">AWS Lambda</a> using <a href="https://www.ansible.com/">Ansible</a> to set it up.</p>
 

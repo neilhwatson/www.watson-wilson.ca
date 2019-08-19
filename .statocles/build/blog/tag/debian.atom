@@ -5,7 +5,7 @@
     <updated>2014-10-30T10:10:50Z</updated>
     <link rel="self" href="http://watson-wilson.ca/blog/tag/debian.atom"/>
     <link rel="alternate" href="http://watson-wilson.ca/blog/tag/debian/"/>
-    <generator version="0.093">Statocles</generator>
+    <generator version="0.094">Statocles</generator>
     <entry>
         <id>http://watson-wilson.ca/blog/2014/10/30/changes-in-virt-install-and-kickstart-in-rhel7/</id>
         <title>Changes in virt-install and Kickstart in RHEL7</title>

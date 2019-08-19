@@ -5,7 +5,7 @@
     <updated>2015-09-18T13:52:10Z</updated>
     <link rel="self" href="http://watson-wilson.ca/blog/tag/software-testing.atom"/>
     <link rel="alternate" href="http://watson-wilson.ca/blog/tag/software-testing/"/>
-    <generator version="0.093">Statocles</generator>
+    <generator version="0.094">Statocles</generator>
     <entry>
         <id>http://watson-wilson.ca/blog/2015/09/18/auditing-hosts-using-cfengine-efl-and-delta-reporting/</id>
         <title>Auditing hosts using CFEngine, EFL, and Delta Reporting</title>

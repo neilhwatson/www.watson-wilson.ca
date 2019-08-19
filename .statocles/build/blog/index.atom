@@ -2,10 +2,29 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>http://watson-wilson.ca/blog/</id>
     <title>Neil H. Watson</title>
-    <updated>2018-08-19T00:00:00Z</updated>
+    <updated>2019-08-18T00:00:00Z</updated>
     <link rel="self" href="http://watson-wilson.ca/blog/index.atom"/>
     <link rel="alternate" href="http://watson-wilson.ca/blog/"/>
-    <generator version="0.093">Statocles</generator>
+    <generator version="0.094">Statocles</generator>
+    <entry>
+        <id>http://watson-wilson.ca/blog/2019/08/18/uhk/</id>
+        <title>Ultimate Hacking Keyboard review</title>
+        <link rel="alternate" href="http://watson-wilson.ca/blog/2019/08/18/uhk/" />
+        <content type="html"><![CDATA[
+            <p><a href="https://ultimatehackingkeyboard.com/"><img alt="The keyboard" class="img-fluid" src="http://watson-wilson.ca/static/images/uhk1.jpeg" style="float:right" width="50%"></a></p>
+
+<p>Pain. A few years ago I suffered from tendinitis, first in my right elbow then in my right wrist. Physio therapy brought me relief, but I often feel tightness in my wrist after long days of typing or mousing. I searched for a solution.</p>
+
+                <p><a href="http://watson-wilson.ca/blog/2019/08/18/uhk/#section-2">Continue reading...</a></p>
+            <p>Tags:
+                <a href="http://watson-wilson.ca/blog/tag/keyboard/">keyboard</a>
+                <a href="http://watson-wilson.ca/blog/tag/ergonomics/">ergonomics</a>
+            </p>
+        ]]></content>
+        <updated>2019-08-18T00:00:00Z</updated>
+        <category term="keyboard" />
+        <category term="ergonomics" />
+    </entry>
     <entry>
         <id>http://watson-wilson.ca/blog/2018/08/19/terraform-subnets/</id>
         <title>Automatic Subnets with Terraform</title>
@@ -34,7 +53,7 @@
         <title>Intro to Lambda using Ansible</title>
         <link rel="alternate" href="http://watson-wilson.ca/blog/2018/07/22/lambda/" />
         <content type="html"><![CDATA[
-            <p><a href="http://watson-wilson.ca/blog/2018/07/22/lambda/"><img alt="aws logo" src="http://watson-wilson.ca/static/images/aws.png" style="float:right" width="120px"></a></p>
+            <p><img alt="aws logo" src="http://watson-wilson.ca/static/images/aws.png" style="float:right" width="120px"></p>
 
 <p>Here&#39;s a simple example of an <a href="https://aws.amazon.com/lambda/">AWS Lambda</a> using <a href="https://www.ansible.com/">Ansible</a> to set it up.</p>
 
@@ -103,33 +122,6 @@
         <category term="continuous integration" />
         <category term="configuration management" />
         <category term="scripting" />
-    </entry>
-    <entry>
-        <id>http://watson-wilson.ca/blog/2018/02/11/aws-asg-of-one/</id>
-        <title>AWS single host resilience with autoscaling groups</title>
-        <link rel="alternate" href="http://watson-wilson.ca/blog/2018/02/11/aws-asg-of-one/" />
-        <content type="html"><![CDATA[
-            <p><a href="https://aws.amazon.com/"><img alt="aws logo" src="http://watson-wilson.ca/static/images/aws.png" style="float:right" width="120px"></a></p>
-
-<p>Make even a single AWS EC2 host highly available using autoscaling groups. Here&#39;s example using ASG, EFS for persistent data, and Terraform for easy automation.</p>
-
-                <p><a href="http://watson-wilson.ca/blog/2018/02/11/aws-asg-of-one/#section-2">Continue reading...</a></p>
-            <p>Tags:
-                <a href="http://watson-wilson.ca/blog/tag/aws/">AWS</a>
-                <a href="http://watson-wilson.ca/blog/tag/cloud/">cloud</a>
-                <a href="http://watson-wilson.ca/blog/tag/asg/">asg</a>
-                <a href="http://watson-wilson.ca/blog/tag/autoscaling/">autoscaling</a>
-                <a href="http://watson-wilson.ca/blog/tag/high-availability/">high availability</a>
-                <a href="http://watson-wilson.ca/blog/tag/terraform/">terraform</a>
-            </p>
-        ]]></content>
-        <updated>2018-02-11T00:00:00Z</updated>
-        <category term="AWS" />
-        <category term="cloud" />
-        <category term="asg" />
-        <category term="autoscaling" />
-        <category term="high availability" />
-        <category term="terraform" />
     </entry>
 </feed>
 

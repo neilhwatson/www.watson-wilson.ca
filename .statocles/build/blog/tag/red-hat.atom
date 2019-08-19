@@ -5,7 +5,7 @@
     <updated>2015-12-08T00:00:00Z</updated>
     <link rel="self" href="http://watson-wilson.ca/blog/tag/red-hat.atom"/>
     <link rel="alternate" href="http://watson-wilson.ca/blog/tag/red-hat/"/>
-    <generator version="0.093">Statocles</generator>
+    <generator version="0.094">Statocles</generator>
     <entry>
         <id>http://watson-wilson.ca/blog/2015/12/08/spacewalk/</id>
         <title>Installing Spacewalk</title>

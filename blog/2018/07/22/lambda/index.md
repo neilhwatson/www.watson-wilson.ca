@@ -3,7 +3,7 @@ title: Intro to Lambda using Ansible
 tags: AWS, ansible, lambda, cloud, serverless
 ---
 
-<a href=""><img style='float:right' alt='aws logo' width='120px' src='/static/images/aws.png'></a>
+<img style='float:right' alt='aws logo' width='120px' src='/static/images/aws.png'>
 
 Here's a simple example of an [AWS Lambda](https://aws.amazon.com/lambda/) using [Ansible](https://www.ansible.com/) to set it up.
 

@@ -5,7 +5,7 @@
         <link>http://watson-wilson.ca/blog/tag/cfengine-cookbook/</link>
         <atom:link href="http://watson-wilson.ca/blog/tag/cfengine-cookbook.rss" rel="self" type="application/rss+xml" />
         <description>Blog feed of Neil H. Watson</description>
-        <generator>Statocles 0.093</generator>
+        <generator>Statocles 0.094</generator>
         <item>
             <title>Backups using Cfengine</title>
             <link>http://watson-wilson.ca/blog/2011/10/02/cfengine-backups/</link>

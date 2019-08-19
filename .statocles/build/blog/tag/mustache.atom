@@ -5,7 +5,7 @@
     <updated>2015-03-26T10:59:43Z</updated>
     <link rel="self" href="http://watson-wilson.ca/blog/tag/mustache.atom"/>
     <link rel="alternate" href="http://watson-wilson.ca/blog/tag/mustache/"/>
-    <generator version="0.093">Statocles</generator>
+    <generator version="0.094">Statocles</generator>
     <entry>
         <id>http://watson-wilson.ca/blog/2015/03/26/mustache-template-in-cfengine/</id>
         <title>Mustache template in CFEngine</title>

@@ -5,7 +5,7 @@
     <updated>2011-09-27T00:00:00Z</updated>
     <link rel="self" href="http://watson-wilson.ca/blog/tag/cron.atom"/>
     <link rel="alternate" href="http://watson-wilson.ca/blog/tag/cron/"/>
-    <generator version="0.093">Statocles</generator>
+    <generator version="0.094">Statocles</generator>
     <entry>
         <id>http://watson-wilson.ca/blog/2011/09/27/cfengine-alt-crond/</id>
         <title>CFEngine as a crond alternative</title>

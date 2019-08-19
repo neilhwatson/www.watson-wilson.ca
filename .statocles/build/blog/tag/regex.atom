@@ -5,7 +5,7 @@
     <updated>2015-08-20T21:51:58Z</updated>
     <link rel="self" href="http://watson-wilson.ca/blog/tag/regex.atom"/>
     <link rel="alternate" href="http://watson-wilson.ca/blog/tag/regex/"/>
-    <generator version="0.093">Statocles</generator>
+    <generator version="0.094">Statocles</generator>
     <entry>
         <id>http://watson-wilson.ca/blog/2015/08/20/build-better-regular-expressions-in-cfengine/</id>
         <title>Build better regular expressions in CFEngine</title>

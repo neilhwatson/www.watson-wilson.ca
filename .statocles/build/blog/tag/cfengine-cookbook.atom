@@ -5,7 +5,7 @@
     <updated>2011-10-02T00:00:00Z</updated>
     <link rel="self" href="http://watson-wilson.ca/blog/tag/cfengine-cookbook.atom"/>
     <link rel="alternate" href="http://watson-wilson.ca/blog/tag/cfengine-cookbook/"/>
-    <generator version="0.093">Statocles</generator>
+    <generator version="0.094">Statocles</generator>
     <entry>
         <id>http://watson-wilson.ca/blog/2011/10/02/cfengine-backups/</id>
         <title>Backups using Cfengine</title>
