@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en"> 
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
         <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-        <link rel="stylesheet" href="/theme/css/readability-bootstrap.min.css" />
+        <link href="/theme/css/readability-bootstrap.min.css" rel="stylesheet">
         <!--<link rel="stylesheet" href="/theme/css/statocles-bootstrap.css" />-->
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
         <title>Dynamic bundlesequence in CFEngine - Neil H. Watson</title>
-        <meta name="generator" content="Statocles 0.094" />
+        <meta content="Statocles 0.094" name="generator">
         
 
         <!-- Twitter for websites -->
@@ -31,7 +31,7 @@
          }(document, "script", "twitter-wjs"));</script>
 
         <!-- For source highlighting -->
-        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/default.min.css">
+        <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/default.min.css" rel="stylesheet">
         <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js"></script>
         <script>hljs.initHighlightingOnLoad();</script>
 
@@ -42,7 +42,7 @@
                 <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
                     <div class="navbar-header">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#top-navbar-collapse-1">
+                        <button class="navbar-toggle" data-target="#top-navbar-collapse-1" data-toggle="collapse" type="button">
                             <span class="sr-only">Toggle navigation</span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
@@ -103,72 +103,72 @@ build a string list based on class. The alternative is to use methods.</p>
 
         any::
 
-            "bseq" slist =&gt; {
-                "site",
-                "ntp",
-                "hard"
+            &quot;bseq&quot; slist =&gt; {
+                &quot;site&quot;,
+                &quot;ntp&quot;,
+                &quot;hard&quot;
             },
-            policy =&gt; "free";
+            policy =&gt; &quot;free&quot;;
 
         cf_dbs::
 
-            "bseq" slist =&gt; {
+            &quot;bseq&quot; slist =&gt; {
                 @{bseq},
-                "db2",
-                "mysql"
+                &quot;db2&quot;,
+                &quot;mysql&quot;
             },
-            policy =&gt; "free";
+            policy =&gt; &quot;free&quot;;
 
         cf_webfarm::
 
-            "bseq" slist =&gt; {
+            &quot;bseq&quot; slist =&gt; {
                 @{bseq},
-                "httpd",
-                "proxy"
+                &quot;httpd&quot;,
+                &quot;proxy&quot;
             },
-            policy =&gt; "free";
+            policy =&gt; &quot;free&quot;;
 }
 
 body common control {
 
-    bundlesequence =&gt; { "@{g.bseq}" };
+    bundlesequence =&gt; { &quot;@{g.bseq}&quot; };
 
 }
 
 bundle agent site{
     reports:
         cfengine_3::
-            "site bundle";
+            &quot;site bundle&quot;;
 }
 bundle agent ntp{
     reports:
         cfengine_3::
-            "ntp bundle";
+            &quot;ntp bundle&quot;;
 }
 bundle agent hard{
     reports:
         cfengine_3::
-            "hard bundle";
+            &quot;hard bundle&quot;;
 }
 bundle agent db2{
     reports:
         cfengine_3::
-            "db2 bundle";
+            &quot;db2 bundle&quot;;
 }
 bundle agent mysql{
     reports:
         cfengine_3::
-            "mysql bundle";
+            &quot;mysql bundle&quot;;
 }
 bundle agent httpd{
         reports:
             cfengine_3::
-                "httpd bundle";
+                &quot;httpd bundle&quot;;
 }
 bundle agent proxy{
         reports:
             cfengine_3::
-                "proxy bundle";
+                &quot;proxy bundle&quot;;
 }
 </code></pre>
 
@@ -186,7 +186,7 @@ in a common bundle above the common g bundle. For example:</p>
 <pre><code>bundle common classes {
    classes:
 
-      "cf_dbs" or =&gt; { "hosta", "hostb", "hostc" };
+      &quot;cf_dbs&quot; or =&gt; { &quot;hosta&quot;, &quot;hostb&quot;, &quot;hostc&quot; };
 
 }
 bundle common g {
@@ -194,21 +194,21 @@ bundle common g {
 
         any::
 
-            "bseq" slist =&gt; {
-                "site",
-                "ntp",
-                "hard"
+            &quot;bseq&quot; slist =&gt; {
+                &quot;site&quot;,
+                &quot;ntp&quot;,
+                &quot;hard&quot;
             },
-            policy =&gt; "free";
+            policy =&gt; &quot;free&quot;;
 
         cf_dbs::
 
-            "bseq" slist =&gt; {
+            &quot;bseq&quot; slist =&gt; {
                 @{bseq},
-                "db2",
-                "mysql"
+                &quot;db2&quot;,
+                &quot;mysql&quot;
             },
-            policy =&gt; "free";
+            policy =&gt; &quot;free&quot;;
 ..
 </code></pre>
 
@@ -241,7 +241,7 @@ passwords this can be useful.</p>
 
 <pre><code>body common control {
 
-    bundlesequence =&gt; { "main" };
+    bundlesequence =&gt; { &quot;main&quot; };
 
 }
 
@@ -251,55 +251,55 @@ bundle agent main{
 
         any::
 
-            "any" usebundle =&gt; site;
-            "any" usebundle =&gt; ntp;
-            "any" usebundle =&gt; hard;
+            &quot;any&quot; usebundle =&gt; site;
+            &quot;any&quot; usebundle =&gt; ntp;
+            &quot;any&quot; usebundle =&gt; hard;
 
         cf_dbs::
 
-            "cf_dbs" usebundle =&gt; db2;
-            "cf_dbs" usebundle =&gt; mysql;
+            &quot;cf_dbs&quot; usebundle =&gt; db2;
+            &quot;cf_dbs&quot; usebundle =&gt; mysql;
 
         cf_webfarm::
 
-            "cf_dbs" usebundle =&gt; httpd;
-            "cf_dbs" usebundle =&gt; proxy;
+            &quot;cf_dbs&quot; usebundle =&gt; httpd;
+            &quot;cf_dbs&quot; usebundle =&gt; proxy;
 }
 
 bundle agent site{
     reports:
         cfengine_3::
-            "site bundle";
+            &quot;site bundle&quot;;
 }
 bundle agent ntp{
     reports:
         cfengine_3::
-            "ntp bundle";
+            &quot;ntp bundle&quot;;
 }
 bundle agent hard{
     reports:
         cfengine_3::
-            "hard bundle";
+            &quot;hard bundle&quot;;
 }
 bundle agent db2{
     reports:
         cfengine_3::
-            "db2 bundle";
+            &quot;db2 bundle&quot;;
 }
 bundle agent mysql{
     reports:
         cfengine_3::
-            "mysql bundle";
+            &quot;mysql bundle&quot;;
 }
 bundle agent httpd{
         reports:
             cfengine_3::
-                "httpd bundle";
+                &quot;httpd bundle&quot;;
 }
 bundle agent proxy{
         reports:
             cfengine_3::
-                "proxy bundle";
+                &quot;proxy bundle&quot;;
 }
 </code></pre>
 
@@ -309,7 +309,7 @@ cf_webfarms in the same main bundle. For example:</p>
 
 <pre><code>body common control {
 
-    bundlesequence =&gt; { "main" };
+    bundlesequence =&gt; { &quot;main&quot; };
 
 }
 bundle agent main{
@@ -318,57 +318,57 @@ bundle agent main{
 
         cf_dbs1::
 
-            "db2_version" string =&gt; "9.1";
+            &quot;db2_version&quot; string =&gt; &quot;9.1&quot;;
 
         cf_dbs2::
 
-            "db2_version" string =&gt; "9.2";
+            &quot;db2_version&quot; string =&gt; &quot;9.2&quot;;
 
     classes:
 
-        "cf_dbs1" or =&gt; { "dbhost1", "dbhost2", "dbhost3" };
-        "cf_dbs2" or =&gt; { "dbhost4", "dbhost5", "dbhost6" };
-        "cf_dbs" or =&gt; { "cf_dbs1", "cf_dbs2" };
+        &quot;cf_dbs1&quot; or =&gt; { &quot;dbhost1&quot;, &quot;dbhost2&quot;, &quot;dbhost3&quot; };
+        &quot;cf_dbs2&quot; or =&gt; { &quot;dbhost4&quot;, &quot;dbhost5&quot;, &quot;dbhost6&quot; };
+        &quot;cf_dbs&quot; or =&gt; { &quot;cf_dbs1&quot;, &quot;cf_dbs2&quot; };
 
     methods:
 
         any::
 
-            "any" usebundle =&gt; site;
-            "any" usebundle =&gt; ntp;
-            "any" usebundle =&gt; hard;
+            &quot;any&quot; usebundle =&gt; site;
+            &quot;any&quot; usebundle =&gt; ntp;
+            &quot;any&quot; usebundle =&gt; hard;
 
         cf_dbs::
 
-            "cf_dbs" usebundle =&gt; db2( "${db2_version}" );
-            "cf_dbs" usebundle =&gt; mysql;
+            &quot;cf_dbs&quot; usebundle =&gt; db2( &quot;${db2_version}&quot; );
+            &quot;cf_dbs&quot; usebundle =&gt; mysql;
 
 }
 
 bundle agent site{
     reports:
         cfengine_3::
-            "site bundle";
+            &quot;site bundle&quot;;
 }
 bundle agent ntp{
     reports:
         cfengine_3::
-            "ntp bundle";
+            &quot;ntp bundle&quot;;
 }
 bundle agent hard{
     reports:
         cfengine_3::
-            "hard bundle";
+            &quot;hard bundle&quot;;
 }
 bundle agent db2(version){
     reports:
         cfengine_3::
-            "db2 bundle ${version}";
+            &quot;db2 bundle ${version}&quot;;
 }
 bundle agent mysql{
     reports:
         cfengine_3::
-            "mysql bundle";
+            &quot;mysql bundle&quot;;
 }
 </code></pre>
 
@@ -402,7 +402,7 @@ R: mysql bundle
     </div>
 
     <div class="col-md-3">
-        <iframe src="https://duckduckgo.com/search.html?site=watson-wilson.ca&prefill=Search DuckDuckGo" style="overflow:hidden;margin:0;padding:0;width:350px;height:40px;" frameborder="0"></iframe>
+        <iframe frameborder="0" src="https://duckduckgo.com/search.html?site=watson-wilson.ca&amp;prefill=Search DuckDuckGo" style="overflow:hidden;margin:0;padding:0;width:350px;height:40px;"></iframe>
 
         <nav id="tags">
             <h1>Tags</h1>
@@ -506,35 +506,31 @@ R: mysql bundle
 
 </div>
 
-<div class='row'>
-   <div class='col-md-1'>
-       <img atl='Neil Watson' src='https://gravatar.com/avatar/1f0969599955a953e592034929ed7a23' >
+<div class="row">
+   <div class="col-md-1">
+       <img atl="Neil Watson" src="https://gravatar.com/avatar/1f0969599955a953e592034929ed7a23">
    </div>
 
-       <div class='col-md-1'>
+       <div class="col-md-1">
             <!-- reddit this -->
-            <a href="//www.reddit.com/submit" onclick="window.location = '//www.reddit.com/submit?url=' + encodeURIComponent(window.location); return false"><img src="//www.redditstatic.com/spreddit7.gif" alt="submit to reddit" border="0" /></a>
+            <a href="//www.reddit.com/submit" onclick="window.location = &#39;//www.reddit.com/submit?url=&#39; + encodeURIComponent(window.location); return false"><img alt="submit to reddit" border="0" src="//www.redditstatic.com/spreddit7.gif"></a>
        </div>
 
-       <div class='col-md-1'>
+       <div class="col-md-1">
           <!-- Tweet this -->
-          <a class="twitter-share-button"
-             href="https://twitter.com/intent/tweet">
+          <a class="twitter-share-button" href="https://twitter.com/intent/tweet">
           Tweet</a>
        </div>
 
-       <div class='col-md-1'>
+       <div class="col-md-1">
           <!-- follow me on twitter -->
-         <a class="twitter-follow-button"
-            data-show-count="false"
-            data-show-screen-name="false"
-           href="https://twitter.com/neil_h_watson">
+         <a class="twitter-follow-button" data-show-count="false" data-show-screen-name="false" href="https://twitter.com/neil_h_watson">
          Follow @neil_h_watson</a>
         </div>
 
-       <div class='col-md-1'>
+       <div class="col-md-1">
            <!-- follw me on github -->
-            <a aria-label="Follow @neilhwatson on GitHub" data-style="mega" href="https://github.com/neilhwatson" class="github-button">Follow</a>
+            <a aria-label="Follow @neilhwatson on GitHub" class="github-button" data-style="mega" href="https://github.com/neilhwatson">Follow</a>
             <script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
        </div>
 
@@ -544,9 +540,9 @@ R: mysql bundle
         <footer>
             
             <h1></h1>
-            <div class='col-md-5'> </div>
+            <div class="col-md-5"> </div>
             <div class="col-md-3 container tagline">
-                <a href="http://preaction.me/statocles">Made with Statocles</a><br/>
+                <a href="http://preaction.me/statocles">Made with Statocles</a><br>
                 <a href="http://www.perl.org">Powered by Perl</a>
             </div>
         </footer>

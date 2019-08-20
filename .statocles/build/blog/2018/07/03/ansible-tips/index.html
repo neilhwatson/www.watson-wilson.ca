@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en"> 
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
         <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-        <link rel="stylesheet" href="/theme/css/readability-bootstrap.min.css" />
+        <link href="/theme/css/readability-bootstrap.min.css" rel="stylesheet">
         <!--<link rel="stylesheet" href="/theme/css/statocles-bootstrap.css" />-->
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
         <title>Ansible tips - Neil H. Watson</title>
-        <meta name="generator" content="Statocles 0.094" />
+        <meta content="Statocles 0.094" name="generator">
         
 
         <!-- Twitter for websites -->
@@ -31,7 +31,7 @@
          }(document, "script", "twitter-wjs"));</script>
 
         <!-- For source highlighting -->
-        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/default.min.css">
+        <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/default.min.css" rel="stylesheet">
         <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js"></script>
         <script>hljs.initHighlightingOnLoad();</script>
 
@@ -42,7 +42,7 @@
                 <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
                     <div class="navbar-header">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#top-navbar-collapse-1">
+                        <button class="navbar-toggle" data-target="#top-navbar-collapse-1" data-toggle="collapse" type="button">
                             <span class="sr-only">Toggle navigation</span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
@@ -88,9 +88,9 @@
 
             </header>
             <section id="section-1">
-                <p><a href="http://ansible.com"><img style='float:right' alt='go to ansible.com' width='150px' src='/static/images/ansible_logo_round.png' ></a></p>
+                <p><a href="http://ansible.com"><img alt="go to ansible.com" src="/static/images/ansible_logo_round.png" style="float:right" width="150px"></a></p>
 
-<p>Here are some cool <a href="https://ansible.com">Ansible</a> tips I've learned recently.</p>
+<p>Here are some cool <a href="https://ansible.com">Ansible</a> tips I&#39;ve learned recently.</p>
 
             </section>
             <section id="section-2">
@@ -99,7 +99,7 @@
 <p>The <a href="https://docs.ansible.com/ansible/latest/modules/assert_module.html">assert module</a> evaluates if statements are true of false. Use it to validate input.</p>
 
 <pre><code>- assert:
-    msg: "'myhost' must be defined 'ansible-playbook -e 'myhost=me.example.com'"
+    msg: &quot;&#39;myhost&#39; must be defined &#39;ansible-playbook -e &#39;myhost=me.example.com&#39;&quot;
     that:
      - myhost is defined
 </code></pre>
@@ -108,16 +108,16 @@
 
 <pre><code>TASK [assert] ******************************************************************
 fatal: [localhost]: FAILED! =&gt; {
-    "assertion": "myhost is defined", 
-    "changed": false, 
-    "evaluated_to": false, 
-    "msg": "'myhost' must be defined 'ansible-playbook -e 'myhost=me.example.com'"
+    &quot;assertion&quot;: &quot;myhost is defined&quot;, 
+    &quot;changed&quot;: false, 
+    &quot;evaluated_to&quot;: false, 
+    &quot;msg&quot;: &quot;&#39;myhost&#39; must be defined &#39;ansible-playbook -e &#39;myhost=me.example.com&#39;&quot;
 }
 </code></pre>
 
 <h2>Working with APIs</h2>
 
-<p>When I'm doing continuous integration I'm often calling APIs. The <a href="https://docs.ansible.com/ansible/latest/modules/uri_module.html">URI module</a> makes https calls.</p>
+<p>When I&#39;m doing continuous integration I&#39;m often calling APIs. The <a href="https://docs.ansible.com/ansible/latest/modules/uri_module.html">URI module</a> makes https calls.</p>
 
 <pre><code>- name: Get github events
   uri:
@@ -127,19 +127,19 @@ fatal: [localhost]: FAILED! =&gt; {
   register: events
 
 - debug:
-    msg: "{{ events }}"
+    msg: &quot;{{ events }}&quot;
 </code></pre>
 
 <ul>
 <li>The task fails when the status code does not match.</li>
-<li>We return the content and store it in the 'events' variable.</li>
+<li>We return the content and store it in the &#39;events&#39; variable.</li>
 <li>The events variable is very large. I leave it for you to look at.</li>
 <li>Use the assert module to validate what was returned.</li>
 </ul>
 
 <h2>Readable Ansible output</h2>
 
-<p>I loath Ansible's default output. It's ugly and hard to read like JSON, but it's not valid JSON. What's the point of it except to torture honest users? Fight back and turn the output into readable YAML.</p>
+<p>I loath Ansible&#39;s default output. It&#39;s ugly and hard to read like JSON, but it&#39;s not valid JSON. What&#39;s the point of it except to torture honest users? Fight back and turn the output into readable YAML.</p>
 
 <pre><code>ANSIBLE_STDOUT_CALLBACK=yaml ansible-playbook ~/src/neil/test/playbook.yml
 </code></pre>
@@ -151,7 +151,7 @@ stdout_callback = yaml
 </code></pre>
 
 <ul>
-<li>If you're still stuck on Ansible 2.4 use 'debug' instead of 'yaml'.</li>
+<li>If you&#39;re still stuck on Ansible 2.4 use &#39;debug&#39; instead of &#39;yaml&#39;.</li>
 </ul>
 
             </section>
@@ -161,7 +161,7 @@ stdout_callback = yaml
     </div>
 
     <div class="col-md-3">
-        <iframe src="https://duckduckgo.com/search.html?site=watson-wilson.ca&prefill=Search DuckDuckGo" style="overflow:hidden;margin:0;padding:0;width:350px;height:40px;" frameborder="0"></iframe>
+        <iframe frameborder="0" src="https://duckduckgo.com/search.html?site=watson-wilson.ca&amp;prefill=Search DuckDuckGo" style="overflow:hidden;margin:0;padding:0;width:350px;height:40px;"></iframe>
 
         <nav id="tags">
             <h1>Tags</h1>
@@ -265,35 +265,31 @@ stdout_callback = yaml
 
 </div>
 
-<div class='row'>
-   <div class='col-md-1'>
-       <img atl='Neil Watson' src='https://gravatar.com/avatar/1f0969599955a953e592034929ed7a23' >
+<div class="row">
+   <div class="col-md-1">
+       <img atl="Neil Watson" src="https://gravatar.com/avatar/1f0969599955a953e592034929ed7a23">
    </div>
 
-       <div class='col-md-1'>
+       <div class="col-md-1">
             <!-- reddit this -->
-            <a href="//www.reddit.com/submit" onclick="window.location = '//www.reddit.com/submit?url=' + encodeURIComponent(window.location); return false"><img src="//www.redditstatic.com/spreddit7.gif" alt="submit to reddit" border="0" /></a>
+            <a href="//www.reddit.com/submit" onclick="window.location = &#39;//www.reddit.com/submit?url=&#39; + encodeURIComponent(window.location); return false"><img alt="submit to reddit" border="0" src="//www.redditstatic.com/spreddit7.gif"></a>
        </div>
 
-       <div class='col-md-1'>
+       <div class="col-md-1">
           <!-- Tweet this -->
-          <a class="twitter-share-button"
-             href="https://twitter.com/intent/tweet">
+          <a class="twitter-share-button" href="https://twitter.com/intent/tweet">
           Tweet</a>
        </div>
 
-       <div class='col-md-1'>
+       <div class="col-md-1">
           <!-- follow me on twitter -->
-         <a class="twitter-follow-button"
-            data-show-count="false"
-            data-show-screen-name="false"
-           href="https://twitter.com/neil_h_watson">
+         <a class="twitter-follow-button" data-show-count="false" data-show-screen-name="false" href="https://twitter.com/neil_h_watson">
          Follow @neil_h_watson</a>
         </div>
 
-       <div class='col-md-1'>
+       <div class="col-md-1">
            <!-- follw me on github -->
-            <a aria-label="Follow @neilhwatson on GitHub" data-style="mega" href="https://github.com/neilhwatson" class="github-button">Follow</a>
+            <a aria-label="Follow @neilhwatson on GitHub" class="github-button" data-style="mega" href="https://github.com/neilhwatson">Follow</a>
             <script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
        </div>
 
@@ -303,9 +299,9 @@ stdout_callback = yaml
         <footer>
             
             <h1></h1>
-            <div class='col-md-5'> </div>
+            <div class="col-md-5"> </div>
             <div class="col-md-3 container tagline">
-                <a href="http://preaction.me/statocles">Made with Statocles</a><br/>
+                <a href="http://preaction.me/statocles">Made with Statocles</a><br>
                 <a href="http://www.perl.org">Powered by Perl</a>
             </div>
         </footer>

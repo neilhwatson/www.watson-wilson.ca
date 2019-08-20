@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en"> 
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
         <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-        <link rel="stylesheet" href="/theme/css/readability-bootstrap.min.css" />
+        <link href="/theme/css/readability-bootstrap.min.css" rel="stylesheet">
         <!--<link rel="stylesheet" href="/theme/css/statocles-bootstrap.css" />-->
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
         <title>CFEngine best practices: testing - Neil H. Watson</title>
-        <meta name="generator" content="Statocles 0.094" />
+        <meta content="Statocles 0.094" name="generator">
         
 
         <!-- Twitter for websites -->
@@ -31,7 +31,7 @@
          }(document, "script", "twitter-wjs"));</script>
 
         <!-- For source highlighting -->
-        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/default.min.css">
+        <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/default.min.css" rel="stylesheet">
         <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js"></script>
         <script>hljs.initHighlightingOnLoad();</script>
 
@@ -42,7 +42,7 @@
                 <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
                     <div class="navbar-header">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#top-navbar-collapse-1">
+                        <button class="navbar-toggle" data-target="#top-navbar-collapse-1" data-toggle="collapse" type="button">
                             <span class="sr-only">Toggle navigation</span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
@@ -89,13 +89,13 @@
 
             </header>
             <section id="section-1">
-                <p><img src="/static/images/f4-crashtest.jpg" alt="f4-crashtest" /></p>
+                <p><img alt="f4-crashtest" src="/static/images/f4-crashtest.jpg"></p>
 
-<p>CFEngine's autonomous automation means that your policy, mistakes and
+<p>CFEngine&#39;s autonomous automation means that your policy, mistakes and
 all, will be duplicated quickly to all of your hosts. --- Potentially
 tens of thousands of them. When I taught martial arts it was humbling
-to watch a class of thirty duplicate my incorrect movement. I didn't
-know, because I didn't test myself. In martial arts I was simply
+to watch a class of thirty duplicate my incorrect movement. I didn&#39;t
+know, because I didn&#39;t test myself. In martial arts I was simply
 embarrassed, but in configuration management, mistakes could cost me a
 raise or even my job. Testing is the paramount best practice for
 CFEngine. Let me tell you what I have learned.</p>
@@ -113,13 +113,13 @@ Internet get you started.</p>
 <ol>
 <li><p>The <a href="https://github.com/neilhwatson/vim_cf3">Vim CFEngine plugin</a>
 has a built in skeleton policy file. In command mode ,k will insert
-the skeleton into the current buffer. This plugin's syntax
+the skeleton into the current buffer. This plugin&#39;s syntax
 highlighting will alert you about missing quotations and other
 syntax issues. If you are in the church of Emacs, there is an Emacs
 CFEngine plugin elsewhere on the web (its home is nebulous so I
 provide no link).</p></li>
 <li><p>CFEngine ships with many self contained examples that you can
-study. They are located in share/doc/examples in CFEngine's work
+study. They are located in share/doc/examples in CFEngine&#39;s work
 directory (typically /var/cfengine).</p></li>
 </ol>
 
@@ -128,7 +128,7 @@ directory (typically /var/cfengine).</p></li>
 <pre><code>  ettin:/var/cfengine/share/doc/examples# cat unit_depends_on.cf
   body common control
   {
-  bundlesequence =&gt; { "one"  };
+  bundlesequence =&gt; { &quot;one&quot;  };
   }
 
   bundle agent one
@@ -137,11 +137,11 @@ directory (typically /var/cfengine).</p></li>
 
    cfengine_3::
 
-     "two"
-       depends_on =&gt; { "handle_one" };
+     &quot;two&quot;
+       depends_on =&gt; { &quot;handle_one&quot; };
 
-     "one"
-       handle =&gt; "handle_one";
+     &quot;one&quot;
+       handle =&gt; &quot;handle_one&quot;;
 
   }
 </code></pre>
@@ -155,12 +155,12 @@ demonstrate the undesired behaviour.</li>
 
 <h4>Formal testing</h4>
 
-<p>Use real test plans. Don't just test that your policy works, prove it.
-You can even use CFEngine for unit testing. Let's look at an example.
+<p>Use real test plans. Don&#39;t just test that your policy works, prove it.
+You can even use CFEngine for unit testing. Let&#39;s look at an example.
 In practice I recommend you use the
 <a href="https://github.com/neilhwatson/delta_reporting">Free Promise Library(EFL)</a>, or
 some other policy framework, because they have ready to use policies
-that will save you a lot of time, but for this example we'll keep it
+that will save you a lot of time, but for this example we&#39;ll keep it
 small and hand made. I want you to see the concept rather than the
 actual implementation.</p>
 
@@ -172,7 +172,7 @@ is one of those three things. We can restate out example as promising
 to run a command if a process is not found. In this example our process
 is <em>sleep 99</em> and the command is <em>/tmp/proto.sh</em>.</p>
 
-<p>Here's my prototype. Note the <em>init</em> bundle, I use that to promise our
+<p>Here&#39;s my prototype. Note the <em>init</em> bundle, I use that to promise our
 service start script. By including it here my prototype is self
 contained. The bundle <em>proto</em> promises to define the class <em>start_service_proto_sh</em>
 if the process <em>sleep 99</em> is not found. The commands process runs our
@@ -185,38 +185,38 @@ which is from <a href="https://github.com/neilhwatson/delta_reporting">EFL</a>.<
 
 <pre><code>body common control
 {
-        bundlesequence =&gt; { "main", };
+        bundlesequence =&gt; { &quot;main&quot;, };
 }
 
 bundle agent main
 {
         methods:
 
-                "Initialize prototype" usebundle =&gt; init;
-                "My prototype" usebundle =&gt; proto; 
+                &quot;Initialize prototype&quot; usebundle =&gt; init;
+                &quot;My prototype&quot; usebundle =&gt; proto; 
 }
 
 bundle agent init
 {
    meta:
-      'Purpose' string =&gt; 'Initialize prototype service script';
+      &#39;Purpose&#39; string =&gt; &#39;Initialize prototype service script&#39;;
 
    vars:
-      'service_script[location]' string =&gt; "/tmp/proto.sh";
-      'service_script[contents]' string =&gt;
-"#!/bin/sh
+      &#39;service_script[location]&#39; string =&gt; &quot;/tmp/proto.sh&quot;;
+      &#39;service_script[contents]&#39; string =&gt;
+&quot;#!/bin/sh
 exec 1&gt;&amp;- # close stdout
 exec 2&gt;&amp;- # close stderr
 sleep 99 &gt; /dev/null &amp;
 
 exit 0
-";
+&quot;;
 
    files:
-      "${service_script[location]}"
-         comment       =&gt; "Promise working script for testing",
-         create        =&gt; 'true',
-         perms         =&gt; m('755'),
+      &quot;${service_script[location]}&quot;
+         comment       =&gt; &quot;Promise working script for testing&quot;,
+         create        =&gt; &#39;true&#39;,
+         perms         =&gt; m(&#39;755&#39;),
          edit_defaults =&gt; empty,
          edit_line     =&gt; insert_lines( ${service_script[contents]} );
 }
@@ -224,48 +224,48 @@ exit 0
 bundle agent proto
 {
    meta:
-      'Purpose' string =&gt; "Promise to start service if not running.";
+      &#39;Purpose&#39; string =&gt; &quot;Promise to start service if not running.&quot;;
 
    processes:
-      "sleep 99"
-         comment        =&gt; "Test for desired process",
-         process_select =&gt; by_command( "\Asleep 99\Z" ),
-         restart_class  =&gt; "start_service_proto_sh";
+      &quot;sleep 99&quot;
+         comment        =&gt; &quot;Test for desired process&quot;,
+         process_select =&gt; by_command( &quot;\Asleep 99\Z&quot; ),
+         restart_class  =&gt; &quot;start_service_proto_sh&quot;;
 
    commands:
       start_service_proto_sh::
-         "${init.service_script[location]}"
+         &quot;${init.service_script[location]}&quot;
          contain =&gt; in_shell;
 }
 
 body contain in_shell
 {
-   useshell =&gt; "true";
+   useshell =&gt; &quot;true&quot;;
 }
 
 body edit_defaults empty
 {
-   empty_file_before_editing =&gt; "true";
-   edit_backup =&gt; "false";
+   empty_file_before_editing =&gt; &quot;true&quot;;
+   edit_backup =&gt; &quot;false&quot;;
 }
 
 bundle edit_line insert_lines(lines)
 {
    insert_lines:
 
-      "$(lines)"
-      comment =&gt; "Append lines if they don't exist";
+      &quot;$(lines)&quot;
+      comment =&gt; &quot;Append lines if they don&#39;t exist&quot;;
 }
 
 body perms m(mode)
 {
-   mode   =&gt; "$(mode)";
+   mode   =&gt; &quot;$(mode)&quot;;
 }
 
 body process_select by_command( command )
 {
-        command        =&gt; "${command}";
-        process_result =&gt; "command";
+        command        =&gt; &quot;${command}&quot;;
+        process_result =&gt; &quot;command&quot;;
 }
 </code></pre>
 
@@ -273,7 +273,7 @@ body process_select by_command( command )
 attribute. This may seem a duplicate of the promiser itself, but the
 difference is subtle. The promiser is matched against the entire line
 from a ps command. The process_select body uses the <em>command</em> attribute
-to match against the ps command's command column only. I also anchor
+to match against the ps command&#39;s command column only. I also anchor
 the regular expression with \A and \Z. These extra details reduce the
 chances of false positive matching.</p>
 
@@ -294,22 +294,22 @@ error, but the error is often located at the line <em>before</em> the given
 line. Also, one error can result in a cascade of errors, so start with
 the first error listed.</p>
 
-<p>Let's run our test. It's important to know our expected results. If <em>sleep
+<p>Let&#39;s run our test. It&#39;s important to know our expected results. If <em>sleep
 99</em> is not running I expect proto.sh to be run. If sleep 99 is running
-I expect nothing to happen. Let's try it.</p>
+I expect nothing to happen. Let&#39;s try it.</p>
 
 <p>Figure 4: Our first prototype run </p>
 
 <pre><code>neil@ettin ~/.cfagent/inputs $ cf-agent -KIf ./service.cf ; ps -ef |grep sleep ;cf-agent -KIf ./service.cf
-2014-07-03T19:48:21-0400     info: /default/main/methods/'My prototype'/default/proto/processes/'sleep 99'[0]: Making a one-time restart promise for 'sleep 99'
-2014-07-03T19:48:21-0400     info: /default/main/methods/'My prototype'/default/proto/commands/'/tmp/proto.sh'[0]: Executing 'no timeout' ... '/tmp/proto.sh'
-2014-07-03T19:48:21-0400     info: /default/main/methods/'My prototype'/default/proto/commands/'/tmp/proto.sh'[0]: Completed execution of '/tmp/proto.sh'
+2014-07-03T19:48:21-0400     info: /default/main/methods/&#39;My prototype&#39;/default/proto/processes/&#39;sleep 99&#39;[0]: Making a one-time restart promise for &#39;sleep 99&#39;
+2014-07-03T19:48:21-0400     info: /default/main/methods/&#39;My prototype&#39;/default/proto/commands/&#39;/tmp/proto.sh&#39;[0]: Executing &#39;no timeout&#39; ... &#39;/tmp/proto.sh&#39;
+2014-07-03T19:48:21-0400     info: /default/main/methods/&#39;My prototype&#39;/default/proto/commands/&#39;/tmp/proto.sh&#39;[0]: Completed execution of &#39;/tmp/proto.sh&#39;
 neil     102836      1  0 19:48 pts/6    00:00:00 sleep 99
 neil     102838  35478  0 19:48 pts/6    00:00:00 grep --color=auto sleep
 </code></pre>
 
 <p>Success! This is a good first prototype, but I want more and continuous
-testing. Now, I'll add a unit test that makes the agent break its own
+testing. Now, I&#39;ll add a unit test that makes the agent break its own
 configuration. I add this bundle to our prototype file and change the
 methods in the main bundle.</p>
 
@@ -320,26 +320,26 @@ bundle agent main
 {
    methods:
 
-      "Initialize prototype" usebundle =&gt; init;
+      &quot;Initialize prototype&quot; usebundle =&gt; init;
 
       unit_01::
-         "unit_01" usebundle =&gt; unit_01;
+         &quot;unit_01&quot; usebundle =&gt; unit_01;
 
       any::
-         "My prototype" usebundle =&gt; proto; 
+         &quot;My prototype&quot; usebundle =&gt; proto; 
 }
 
 # Added unit test bundle
 bundle agent unit_01
 {
    meta:
-      'Purpose' string =&gt; "Kill process unit test";
+      &#39;Purpose&#39; string =&gt; &quot;Kill process unit test&quot;;
 
    processes:
-      "sleep 99"
-         comment        =&gt; "Test for desired process",
-         process_select =&gt; by_command( "\Asleep 99\Z" ),
-         signals        =&gt; { "term", "kill" };
+      &quot;sleep 99&quot;
+         comment        =&gt; &quot;Test for desired process&quot;,
+         process_select =&gt; by_command( &quot;\Asleep 99\Z&quot; ),
+         signals        =&gt; { &quot;term&quot;, &quot;kill&quot; };
 }
 </code></pre>
 
@@ -350,11 +350,11 @@ to restart it.</p>
 <p>Figure 6: Unit test in action.</p>
 
 <pre><code>neil@ettin ~/.cfagent/inputs $ cf-agent -KIf ./service.cf -D unit_01 ; ps -ef|grep sleep
-2014-07-03T19:15:06-0400     info: /default/main/methods/'unit_01'/default/unit_01/processes/'sleep 99'[0]: Signalled 'term' (15) to process 107369 (neil     107369      1 107360  0.0  0.0   4216   0   356    1 19:14 00:00:00 sleep 99)
-2014-07-03T19:15:06-0400     info: /default/main/methods/'unit_01'/default/unit_01/processes/'sleep 99'[0]: Signalled 'kill' (9) to process 107369 (neil     107369      1 107360  0.0  0.0   4216   0   356    1 19:14 00:00:00 sleep 99)
-2014-07-03T19:15:06-0400     info: /default/main/methods/'My prototype'/default/proto/processes/'sleep 99'[0]: Making a one-time restart promise for 'sleep 99'
-2014-07-03T19:15:06-0400     info: /default/main/methods/'My prototype'/default/proto/commands/'/tmp/proto.sh'[0]: Executing 'no timeout' ... '/tmp/proto.sh'
-2014-07-03T19:15:06-0400     info: /default/main/methods/'My prototype'/default/proto/commands/'/tmp/proto.sh'[0]: Completed execution of '/tmp/proto.sh'
+2014-07-03T19:15:06-0400     info: /default/main/methods/&#39;unit_01&#39;/default/unit_01/processes/&#39;sleep 99&#39;[0]: Signalled &#39;term&#39; (15) to process 107369 (neil     107369      1 107360  0.0  0.0   4216   0   356    1 19:14 00:00:00 sleep 99)
+2014-07-03T19:15:06-0400     info: /default/main/methods/&#39;unit_01&#39;/default/unit_01/processes/&#39;sleep 99&#39;[0]: Signalled &#39;kill&#39; (9) to process 107369 (neil     107369      1 107360  0.0  0.0   4216   0   356    1 19:14 00:00:00 sleep 99)
+2014-07-03T19:15:06-0400     info: /default/main/methods/&#39;My prototype&#39;/default/proto/processes/&#39;sleep 99&#39;[0]: Making a one-time restart promise for &#39;sleep 99&#39;
+2014-07-03T19:15:06-0400     info: /default/main/methods/&#39;My prototype&#39;/default/proto/commands/&#39;/tmp/proto.sh&#39;[0]: Executing &#39;no timeout&#39; ... &#39;/tmp/proto.sh&#39;
+2014-07-03T19:15:06-0400     info: /default/main/methods/&#39;My prototype&#39;/default/proto/commands/&#39;/tmp/proto.sh&#39;[0]: Completed execution of &#39;/tmp/proto.sh&#39;
 neil     107437      1  0 19:15 pts/6    00:00:00 sleep 99
 neil     107439  35478  0 19:15 pts/6    00:00:00 grep --color=auto sleep
 </code></pre>
@@ -375,17 +375,17 @@ more than a few hosts. A less manual approach is to integrate this
 prototype into your main policy, but only run it on select hosts. Then
 you can check each host to see if it is working. If you are using
 central reporting tools like <a href="http://www.rudder-project.org">Rudder</a>, <a href="http://cfengine.com/">CFEngine
-Enterprise</a> or <a href="http://watson-wilson.ca">Evolve's</a>
+Enterprise</a> or <a href="http://watson-wilson.ca">Evolve&#39;s</a>
 own <a href="https://github.com/neilhwatson/delta_reporting">Delta Reporting</a>
-you'll be able to get reports showing your prototype in action on all
+you&#39;ll be able to get reports showing your prototype in action on all
 of your test hosts.</p>
 
 <p>Figure 7: Delta Reporting showing an ntp process promise on multiple
-hosts <a href="/static/images/dr-process-report.png"><img src="/static/images/dr-process-report.png" alt="Reporting on ntp process promises" /></a></p>
+hosts <a href="/static/images/dr-process-report.png"><img alt="Reporting on ntp process promises" src="/static/images/dr-process-report.png"></a></p>
 
 <h4>Summary</h4>
 
-<p>This ends my entry on testing best practices. Let's review.</p>
+<p>This ends my entry on testing best practices. Let&#39;s review.</p>
 
 <ol>
 <li><p>Start with simple prototypes.</p></li>
@@ -402,7 +402,7 @@ hosts <a href="/static/images/dr-process-report.png"><img src="/static/images/dr
     </div>
 
     <div class="col-md-3">
-        <iframe src="https://duckduckgo.com/search.html?site=watson-wilson.ca&prefill=Search DuckDuckGo" style="overflow:hidden;margin:0;padding:0;width:350px;height:40px;" frameborder="0"></iframe>
+        <iframe frameborder="0" src="https://duckduckgo.com/search.html?site=watson-wilson.ca&amp;prefill=Search DuckDuckGo" style="overflow:hidden;margin:0;padding:0;width:350px;height:40px;"></iframe>
 
         <nav id="tags">
             <h1>Tags</h1>
@@ -506,35 +506,31 @@ hosts <a href="/static/images/dr-process-report.png"><img src="/static/images/dr
 
 </div>
 
-<div class='row'>
-   <div class='col-md-1'>
-       <img atl='Neil Watson' src='https://gravatar.com/avatar/1f0969599955a953e592034929ed7a23' >
+<div class="row">
+   <div class="col-md-1">
+       <img atl="Neil Watson" src="https://gravatar.com/avatar/1f0969599955a953e592034929ed7a23">
    </div>
 
-       <div class='col-md-1'>
+       <div class="col-md-1">
             <!-- reddit this -->
-            <a href="//www.reddit.com/submit" onclick="window.location = '//www.reddit.com/submit?url=' + encodeURIComponent(window.location); return false"><img src="//www.redditstatic.com/spreddit7.gif" alt="submit to reddit" border="0" /></a>
+            <a href="//www.reddit.com/submit" onclick="window.location = &#39;//www.reddit.com/submit?url=&#39; + encodeURIComponent(window.location); return false"><img alt="submit to reddit" border="0" src="//www.redditstatic.com/spreddit7.gif"></a>
        </div>
 
-       <div class='col-md-1'>
+       <div class="col-md-1">
           <!-- Tweet this -->
-          <a class="twitter-share-button"
-             href="https://twitter.com/intent/tweet">
+          <a class="twitter-share-button" href="https://twitter.com/intent/tweet">
           Tweet</a>
        </div>
 
-       <div class='col-md-1'>
+       <div class="col-md-1">
           <!-- follow me on twitter -->
-         <a class="twitter-follow-button"
-            data-show-count="false"
-            data-show-screen-name="false"
-           href="https://twitter.com/neil_h_watson">
+         <a class="twitter-follow-button" data-show-count="false" data-show-screen-name="false" href="https://twitter.com/neil_h_watson">
          Follow @neil_h_watson</a>
         </div>
 
-       <div class='col-md-1'>
+       <div class="col-md-1">
            <!-- follw me on github -->
-            <a aria-label="Follow @neilhwatson on GitHub" data-style="mega" href="https://github.com/neilhwatson" class="github-button">Follow</a>
+            <a aria-label="Follow @neilhwatson on GitHub" class="github-button" data-style="mega" href="https://github.com/neilhwatson">Follow</a>
             <script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
        </div>
 
@@ -544,9 +540,9 @@ hosts <a href="/static/images/dr-process-report.png"><img src="/static/images/dr
         <footer>
             
             <h1></h1>
-            <div class='col-md-5'> </div>
+            <div class="col-md-5"> </div>
             <div class="col-md-3 container tagline">
-                <a href="http://preaction.me/statocles">Made with Statocles</a><br/>
+                <a href="http://preaction.me/statocles">Made with Statocles</a><br>
                 <a href="http://www.perl.org">Powered by Perl</a>
             </div>
         </footer>

@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en"> 
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
         <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-        <link rel="stylesheet" href="/theme/css/readability-bootstrap.min.css" />
+        <link href="/theme/css/readability-bootstrap.min.css" rel="stylesheet">
         <!--<link rel="stylesheet" href="/theme/css/statocles-bootstrap.css" />-->
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
         <title>Bosh and Cloud Foundry, an intro - Neil H. Watson</title>
-        <meta name="generator" content="Statocles 0.094" />
+        <meta content="Statocles 0.094" name="generator">
         
 
         <!-- Twitter for websites -->
@@ -31,7 +31,7 @@
          }(document, "script", "twitter-wjs"));</script>
 
         <!-- For source highlighting -->
-        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/default.min.css">
+        <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/default.min.css" rel="stylesheet">
         <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js"></script>
         <script>hljs.initHighlightingOnLoad();</script>
 
@@ -42,7 +42,7 @@
                 <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
                     <div class="navbar-header">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#top-navbar-collapse-1">
+                        <button class="navbar-toggle" data-target="#top-navbar-collapse-1" data-toggle="collapse" type="button">
                             <span class="sr-only">Toggle navigation</span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
@@ -88,7 +88,7 @@
 
             </header>
             <section id="section-1">
-                <p><a href="https://cloudfoundry.org/"><img style='float:right' alt='cloudfoundry website' width='120px' src='/static/images/Cloud-Foundry-Logo.png'></a></p>
+                <p><a href="https://cloudfoundry.org/"><img alt="cloudfoundry website" src="/static/images/Cloud-Foundry-Logo.png" style="float:right" width="120px"></a></p>
 
 <p><a href="https://www.cloudfoundry.org/">Cloud Foundry</a> is an open source platform as a service product owned by Pivotal Software. CF allows you to deploy applications to containers on AWS, Azue, VMware vSphere, and others.</p>
 
@@ -102,7 +102,7 @@
 
 <h2>Installation</h2>
 
-<p>The installation of Bosh and CF is not for the faint of heart. I found the documentation to be lacking in details, but if you're careful and pay attention to detail you'll do fine. Some of the difficulties I had:</p>
+<p>The installation of Bosh and CF is not for the faint of heart. I found the documentation to be lacking in details, but if you&#39;re careful and pay attention to detail you&#39;ll do fine. Some of the difficulties I had:</p>
 
 <ol>
 <li>First you have to learn how to build and deploy a Bosh director.</li>
@@ -110,10 +110,10 @@
 <li>The requirements are large. For a vSphere install: two subnets and about 30 VMs.</li>
 <li>You need a working DNS. Your CF endpoints and applications must have DNS records. Most will point to the ha_proxy end point.</li>
 <li>Applications are isolated by IP filtering, default deny. You have to deploy your own rules to allow traffic between applications or out to the public network.</li>
-<li>The default amount of RAM and storage given to CF 'runner' VMs was not correct and had to be changed. See disk_mb and memory_mb in the CF docs for more info.</li>
+<li>The default amount of RAM and storage given to CF &#39;runner&#39; VMs was not correct and had to be changed. See disk_mb and memory_mb in the CF docs for more info.</li>
 </ol>
 
-<p>Though the time to build Bosh and CF is not short it's hands off once you get going. So you make a change, run the install, and come back later to see if it worked.</p>
+<p>Though the time to build Bosh and CF is not short it&#39;s hands off once you get going. So you make a change, run the install, and come back later to see if it worked.</p>
 
 <p>Each deployment of CF is built up on the one before it and Bosh remembers each. So you can deploy changes, including upgrades, to CF and Bosh will do so live. You can roll back to any older deployment too.</p>
 
@@ -123,7 +123,7 @@
 
 <h2>High availability</h2>
 
-<p>Deployed applications can have multiple instances that reside on multiple Cloud Foundry hosts. All traffic is directed though CF's ha_proxy host.</p>
+<p>Deployed applications can have multiple instances that reside on multiple Cloud Foundry hosts. All traffic is directed though CF&#39;s ha_proxy host.</p>
 
 <p>Cloud Foundry itself has many redundant services. Remember that the CF VMs are configured and built by Bosh. If any host is destroyed or becomes unresponsive Bosh will automatically rebuilt it. Meanwhile CF will move or redeploy applications if they are lost by a downed CF host.</p>
 
@@ -138,7 +138,7 @@
     </div>
 
     <div class="col-md-3">
-        <iframe src="https://duckduckgo.com/search.html?site=watson-wilson.ca&prefill=Search DuckDuckGo" style="overflow:hidden;margin:0;padding:0;width:350px;height:40px;" frameborder="0"></iframe>
+        <iframe frameborder="0" src="https://duckduckgo.com/search.html?site=watson-wilson.ca&amp;prefill=Search DuckDuckGo" style="overflow:hidden;margin:0;padding:0;width:350px;height:40px;"></iframe>
 
         <nav id="tags">
             <h1>Tags</h1>
@@ -242,35 +242,31 @@
 
 </div>
 
-<div class='row'>
-   <div class='col-md-1'>
-       <img atl='Neil Watson' src='https://gravatar.com/avatar/1f0969599955a953e592034929ed7a23' >
+<div class="row">
+   <div class="col-md-1">
+       <img atl="Neil Watson" src="https://gravatar.com/avatar/1f0969599955a953e592034929ed7a23">
    </div>
 
-       <div class='col-md-1'>
+       <div class="col-md-1">
             <!-- reddit this -->
-            <a href="//www.reddit.com/submit" onclick="window.location = '//www.reddit.com/submit?url=' + encodeURIComponent(window.location); return false"><img src="//www.redditstatic.com/spreddit7.gif" alt="submit to reddit" border="0" /></a>
+            <a href="//www.reddit.com/submit" onclick="window.location = &#39;//www.reddit.com/submit?url=&#39; + encodeURIComponent(window.location); return false"><img alt="submit to reddit" border="0" src="//www.redditstatic.com/spreddit7.gif"></a>
        </div>
 
-       <div class='col-md-1'>
+       <div class="col-md-1">
           <!-- Tweet this -->
-          <a class="twitter-share-button"
-             href="https://twitter.com/intent/tweet">
+          <a class="twitter-share-button" href="https://twitter.com/intent/tweet">
           Tweet</a>
        </div>
 
-       <div class='col-md-1'>
+       <div class="col-md-1">
           <!-- follow me on twitter -->
-         <a class="twitter-follow-button"
-            data-show-count="false"
-            data-show-screen-name="false"
-           href="https://twitter.com/neil_h_watson">
+         <a class="twitter-follow-button" data-show-count="false" data-show-screen-name="false" href="https://twitter.com/neil_h_watson">
          Follow @neil_h_watson</a>
         </div>
 
-       <div class='col-md-1'>
+       <div class="col-md-1">
            <!-- follw me on github -->
-            <a aria-label="Follow @neilhwatson on GitHub" data-style="mega" href="https://github.com/neilhwatson" class="github-button">Follow</a>
+            <a aria-label="Follow @neilhwatson on GitHub" class="github-button" data-style="mega" href="https://github.com/neilhwatson">Follow</a>
             <script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
        </div>
 
@@ -280,9 +276,9 @@
         <footer>
             
             <h1></h1>
-            <div class='col-md-5'> </div>
+            <div class="col-md-5"> </div>
             <div class="col-md-3 container tagline">
-                <a href="http://preaction.me/statocles">Made with Statocles</a><br/>
+                <a href="http://preaction.me/statocles">Made with Statocles</a><br>
                 <a href="http://www.perl.org">Powered by Perl</a>
             </div>
         </footer>

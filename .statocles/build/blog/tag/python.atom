@@ -3,13 +3,13 @@
     <id>http://watson-wilson.ca/blog/tag/python/</id>
     <title>Neil H. Watson</title>
     <updated>2017-04-18T00:00:00Z</updated>
-    <link rel="self" href="http://watson-wilson.ca/blog/tag/python.atom"/>
-    <link rel="alternate" href="http://watson-wilson.ca/blog/tag/python/"/>
+    <link href="http://watson-wilson.ca/blog/tag/python.atom" rel="self" />
+    <link href="http://watson-wilson.ca/blog/tag/python/" rel="alternate" />
     <generator version="0.094">Statocles</generator>
     <entry>
         <id>http://watson-wilson.ca/blog/2017/04/18/improve-programming/</id>
         <title>Improve your Python, Perl, or Ruby</title>
-        <link rel="alternate" href="http://watson-wilson.ca/blog/2017/04/18/improve-programming/" />
+        <link href="http://watson-wilson.ca/blog/2017/04/18/improve-programming/" rel="alternate" />
         <content type="html"><![CDATA[
             <p><img alt="oreilly funny book cover" src="http://watson-wilson.ca/static/images/copy-paste-stack.jpg" style="float:right" width="120px"></p>
 
@@ -36,7 +36,7 @@
     <entry>
         <id>http://watson-wilson.ca/blog/2016/07/22/grip/</id>
         <title>Previewing Markdown using grip</title>
-        <link rel="alternate" href="http://watson-wilson.ca/blog/2016/07/22/grip/" />
+        <link href="http://watson-wilson.ca/blog/2016/07/22/grip/" rel="alternate" />
         <content type="html"><![CDATA[
             <p>Review your markdown locally with <a href="https://github.com/joeyespo/grip">Grip</a>,
 powered by Python.</p>

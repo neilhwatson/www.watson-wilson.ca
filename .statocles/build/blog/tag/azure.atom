@@ -3,13 +3,13 @@
     <id>http://watson-wilson.ca/blog/tag/azure/</id>
     <title>Neil H. Watson</title>
     <updated>2017-04-18T00:00:00Z</updated>
-    <link rel="self" href="http://watson-wilson.ca/blog/tag/azure.atom"/>
-    <link rel="alternate" href="http://watson-wilson.ca/blog/tag/azure/"/>
+    <link href="http://watson-wilson.ca/blog/tag/azure.atom" rel="self" />
+    <link href="http://watson-wilson.ca/blog/tag/azure/" rel="alternate" />
     <generator version="0.094">Statocles</generator>
     <entry>
         <id>http://watson-wilson.ca/blog/2017/04/18/terraform-azure/</id>
         <title>Build on Azure with Terraform</title>
-        <link rel="alternate" href="http://watson-wilson.ca/blog/2017/04/18/terraform-azure/" />
+        <link href="http://watson-wilson.ca/blog/2017/04/18/terraform-azure/" rel="alternate" />
         <content type="html"><![CDATA[
             <p><a href="https://terraform.io/"><img alt="terraform logo" src="https://raw.githubusercontent.com/hashicorp/terraform-website/master/content//source/assets/images/og-image.png" style="float:right" width="120px"></a></p>
 

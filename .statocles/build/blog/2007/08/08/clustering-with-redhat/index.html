@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="en"> 
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
         <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-        <link rel="stylesheet" href="/theme/css/readability-bootstrap.min.css" />
+        <link href="/theme/css/readability-bootstrap.min.css" rel="stylesheet">
         <!--<link rel="stylesheet" href="/theme/css/statocles-bootstrap.css" />-->
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
         <title>Clustering with Red Hat - Neil H. Watson</title>
-        <meta name="generator" content="Statocles 0.094" />
+        <meta content="Statocles 0.094" name="generator">
         
-        <link rel="stylesheet" href="/theme/plugin/highlight/default.css" type="text/css" />
+        <link href="/theme/plugin/highlight/default.css" rel="stylesheet" type="text/css">
 
         <!-- Twitter for websites -->
          <script>window.twttr = (function(d, s, id) {
@@ -32,7 +32,7 @@
          }(document, "script", "twitter-wjs"));</script>
 
         <!-- For source highlighting -->
-        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/default.min.css">
+        <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/default.min.css" rel="stylesheet">
         <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js"></script>
         <script>hljs.initHighlightingOnLoad();</script>
 
@@ -43,7 +43,7 @@
                 <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
                     <div class="navbar-header">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#top-navbar-collapse-1">
+                        <button class="navbar-toggle" data-target="#top-navbar-collapse-1" data-toggle="collapse" type="button">
                             <span class="sr-only">Toggle navigation</span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
@@ -112,7 +112,7 @@ clusters for other services.</p>
 
 <p><a href="#appendix-a">DB2 init script</a></p>
 
-<h2><a name='rh-cluster-suite'></a>Redhat Cluster Software</h2>
+<h2><a name="rh-cluster-suite"></a>Redhat Cluster Software</h2>
 
 <p>The Redhat Cluster Suite offers a prepackaged front-end to setup and manage
 high availability Linux clusters. Using this method, the cluster nodes share a
@@ -133,7 +133,7 @@ a time is using the data.</p>
 <li>All nodes could fail if the shared data is corrupted.</li>
 </ul>
 
-<h2><a name='install'></a>Installation</h2>
+<h2><a name="install"></a>Installation</h2>
 
 <p>The chief reference for this procedure is the Redhat Cluster Suite
 documentation provided by Redhat (see appendix). It should be read fully in
@@ -185,7 +185,7 @@ IPADDR=172.16.1.203
 </code></pre></li>
 <li><p>Activate the bonding by restarting the network service. Test for fail over.</p></li>
 <li>Stop all unneeded services from starting at boot.
-<code><pre>chkconfig --del <service></pre></code></li>
+<code><pre>chkconfig --del <service></service></pre></code></li>
 <li>Install the NTP service and point it to an ntp server.</li>
 <li>Install Redhat Cluster Suite by subscribing the system to the channel and
 running up2date.
@@ -238,7 +238,7 @@ Ensure that the service does not start at boot time.</li>
 the IP address each time. One could also clone the nodes and then change the IP
 addresses and host names afterwards.</p>
 
-<h2><a name='config'></a>Configuring the Cluster Suite</h2>
+<h2><a name="config"></a>Configuring the Cluster Suite</h2>
 
 <p>Configuring the cluster</p>
 
@@ -286,7 +286,7 @@ any error that may have been caused by fail over.</p>
 duplicated across each node. Other information that may need duplication across
 nodes are user accounts and group IDs.</p>
 
-<h2><a name='testing'></a>Testing the Cluster</h2>
+<h2><a name="testing"></a>Testing the Cluster</h2>
 
 <p>Prior to deploying the cluster into service it should be tested to ensure fail
 over happens as and when expected. Prepare test cases for the node. The current
@@ -397,7 +397,7 @@ impact the SLA for the cluster.</p>
 was left as is. The data being written to DB2 was complete up to the last
 commit. Uncommitted data was lost.</p>
 
-<h2><a name='manage'></a>Managing the cluster</h2>
+<h2><a name="manage"></a>Managing the cluster</h2>
 
 <p>During the life of the cluster, the administrator will need to perform certain
 tasks regularly. The following is a list of those tasks and how to complete
@@ -508,9 +508,9 @@ Aug 16 15:09:40 caesar db2:  succeeded
 
 <pre><code>Aug 16 15:03:26 hadrian kernel: end_request: I/O error, dev sda, sector 65
 Aug 16 15:03:26 hadrian kernel: EXT3-fs: unable to read superblock
-Aug 16 15:03:26 hadrian clurgmgrd: [4679]: &lt;err&gt; 'mount -t ext3
-/dev/sda1 /db2' failed, error=32
-Aug 16 15:03:26 hadrian clurgmgrd[4679]: &lt;notice&gt; start on fs "db2"
+Aug 16 15:03:26 hadrian clurgmgrd: [4679]: &lt;err&gt; &#39;mount -t ext3
+/dev/sda1 /db2&#39; failed, error=32
+Aug 16 15:03:26 hadrian clurgmgrd[4679]: &lt;notice&gt; start on fs &quot;db2&quot;
 returned 2 (invalid argument(s))
 Aug 16 15:03:26 hadrian clurgmgrd[4679]: &lt;warning&gt; #68: Failed to start
 db2; return value: 1
@@ -535,7 +535,7 @@ Aug 16 15:03:35 hadrian clurgmgrd[4679]: &lt;notice&gt; Service db2 is now
 running on member 1
 </code></pre>
 
-<h3><a name='conslusion'></a>Conclusions</h3>
+<h3><a name="conslusion"></a>Conclusions</h3>
 
 <p>The Redhat Cluster Suite can offer a significant amount of redundancy above
 that of a single, well built server. Additionally, down time is reduced since
@@ -558,7 +558,7 @@ cluster other services like Apache or Bind. It is even possible to have a
 cluster provide more than one service. Clusters can also be configured with
 load balancing instead of or, in addition to redundancy.</p>
 
-<h3><a name='refs'></a>References and Additional Reading</h3>
+<h3><a name="refs"></a>References and Additional Reading</h3>
 
 <ol>
 <li><a href="http://www.redhat.com/docs/manuals/csgfs/browse/rh-cs-en/index.html">Redhat Cluster Suite</a></li>
@@ -566,7 +566,7 @@ load balancing instead of or, in addition to redundancy.</p>
 <li><a href="http://publib.boulder.ibm.com/infocenter/db2luw/v9/index.jsp?topic=/com.ibm.db2.udb.uprun.doc/doc/t0008238.htm">Kernel Parameters for Linux</a></li>
 </ol>
 
-<h3><a name='appendix-a'></a>DB2 init script</h3>
+<h3><a name="appendix-a"></a>DB2 init script</h3>
 
 <pre><code class="hljs"><span class="hljs-comment">#!/bin/bash</span><span class="hljs-comment">
 </span><span class="hljs-comment">#</span><span class="hljs-comment">
@@ -582,52 +582,52 @@ load balancing instead of or, in addition to redundancy.</p>
 </span>USER=dwapinst
 
 RETVAL=0
-prog=<span class="hljs-string">"db2"</span>
+prog=<span class="hljs-string">&quot;db2&quot;</span>
 
 <span class="hljs-string">start()</span> <span class="hljs-keyword">{</span>
-    <span class="hljs-built-in">echo</span> -n <span class="hljs-string">$"Starting </span>$prog<span class="hljs-string">:"</span>
-    initlog -c <span class="hljs-string">"/bin/su - </span>$USER<span class="hljs-string"> -c 'db2start'"</span> <span class="hljs-keyword">&amp;&amp;</span> success <span class="hljs-keyword">||</span> failure
+    <span class="hljs-built-in">echo</span> -n <span class="hljs-string">$&quot;Starting </span>$prog<span class="hljs-string">:&quot;</span>
+    initlog -c <span class="hljs-string">&quot;/bin/su - </span>$USER<span class="hljs-string"> -c &#39;db2start&#39;&quot;</span> <span class="hljs-keyword">&amp;&amp;</span> success <span class="hljs-keyword">||</span> failure
     RETVAL=$?
-    <span class="hljs-built-in">echo</span> <span class="hljs-string">""</span>
+    <span class="hljs-built-in">echo</span> <span class="hljs-string">&quot;&quot;</span>
 
 <span class="hljs-keyword">}</span>
 
 <span class="hljs-string">status()</span> <span class="hljs-keyword">{</span>
-    initlog -c <span class="hljs-string">"/bin/su - </span>$USER<span class="hljs-string"> -c 'db2gcf -s'"</span> <span class="hljs-keyword">&amp;&amp;</span> success <span class="hljs-keyword">||</span> failure
+    initlog -c <span class="hljs-string">&quot;/bin/su - </span>$USER<span class="hljs-string"> -c &#39;db2gcf -s&#39;&quot;</span> <span class="hljs-keyword">&amp;&amp;</span> success <span class="hljs-keyword">||</span> failure
     RETVAL=$?
-    <span class="hljs-built-in">echo</span> <span class="hljs-string">""</span>
+    <span class="hljs-built-in">echo</span> <span class="hljs-string">&quot;&quot;</span>
 <span class="hljs-keyword">}</span>
 
 <span class="hljs-string">stop()</span> <span class="hljs-keyword">{</span>
-    <span class="hljs-built-in">echo</span> -n <span class="hljs-string">$"Stopping </span>$prog<span class="hljs-string">:"</span>
+    <span class="hljs-built-in">echo</span> -n <span class="hljs-string">$&quot;Stopping </span>$prog<span class="hljs-string">:&quot;</span>
 
     <span class="hljs-comment"># Is DB2 already stopped?</span><span class="hljs-comment">
 </span>    status
     <span class="hljs-keyword">if</span><span class="hljs-built-in"> [</span> $RETVAL -gt 0<span class="hljs-built-in"> ]</span>; <span class="hljs-keyword">then</span>
 
         <span class="hljs-comment"># Already stoped return 0</span><span class="hljs-comment">
-</span>        <span class="hljs-built-in">echo</span> <span class="hljs-string">"Already stopped"</span>
+</span>        <span class="hljs-built-in">echo</span> <span class="hljs-string">&quot;Already stopped&quot;</span>
         success
         RETVAL=0
-        <span class="hljs-built-in">echo</span> <span class="hljs-string">""</span>
+        <span class="hljs-built-in">echo</span> <span class="hljs-string">&quot;&quot;</span>
     <span class="hljs-keyword">else</span>
         <span class="hljs-comment"># DB2 must still be running.  Stop it.</span><span class="hljs-comment">
-</span>        initlog -c <span class="hljs-string">"/bin/su - </span>$USER<span class="hljs-string"> -c </span><span class="hljs-type">\
-</span><span class="hljs-string">            'db2 force application all'"</span> \
+</span>        initlog -c <span class="hljs-string">&quot;/bin/su - </span>$USER<span class="hljs-string"> -c </span><span class="hljs-type">\
+</span><span class="hljs-string">            &#39;db2 force application all&#39;&quot;</span> \
             <span class="hljs-keyword">&amp;&amp;</span> success <span class="hljs-keyword">||</span> failure <span class="hljs-keyword">&amp;</span>
         sleep 5
-        initlog -c <span class="hljs-string">"/bin/su - </span>$USER<span class="hljs-string"> -c </span><span class="hljs-type">\
-</span><span class="hljs-string">            'db2stop force'"</span> <span class="hljs-keyword">&amp;&amp;</span> success \
+        initlog -c <span class="hljs-string">&quot;/bin/su - </span>$USER<span class="hljs-string"> -c </span><span class="hljs-type">\
+</span><span class="hljs-string">            &#39;db2stop force&#39;&quot;</span> <span class="hljs-keyword">&amp;&amp;</span> success \
             <span class="hljs-keyword">||</span> failure <span class="hljs-keyword">&amp;</span>
         sleep 5
-        initlog -c <span class="hljs-string">"/bin/su - </span>$USER<span class="hljs-string"> -c </span><span class="hljs-type">\
-</span><span class="hljs-string">            'db2_kill'"</span> <span class="hljs-keyword">&amp;&amp;</span> success \
+        initlog -c <span class="hljs-string">&quot;/bin/su - </span>$USER<span class="hljs-string"> -c </span><span class="hljs-type">\
+</span><span class="hljs-string">            &#39;db2_kill&#39;&quot;</span> <span class="hljs-keyword">&amp;&amp;</span> success \
             <span class="hljs-keyword">||</span> failure <span class="hljs-keyword">&amp;</span>
-        <span class="hljs-built-in">echo</span> <span class="hljs-string">""</span>
+        <span class="hljs-built-in">echo</span> <span class="hljs-string">&quot;&quot;</span>
     <span class="hljs-keyword">fi</span>
 <span class="hljs-keyword">}</span>
 
-<span class="hljs-keyword">case</span> <span class="hljs-string">"</span>$1<span class="hljs-string">"</span><span class="hljs-keyword"> in</span>
+<span class="hljs-keyword">case</span> <span class="hljs-string">&quot;</span>$1<span class="hljs-string">&quot;</span><span class="hljs-keyword"> in</span>
  start<span class="hljs-keyword">)</span>
    start
         <span class="hljs-keyword">;;</span>
@@ -645,7 +645,7 @@ prog=<span class="hljs-string">"db2"</span>
    start
         <span class="hljs-keyword">;;</span>
  *<span class="hljs-keyword">)</span>
-    <span class="hljs-built-in">echo</span> <span class="hljs-string">$"Usage: </span>$0<span class="hljs-string"> {start|stop|restart}"</span>
+    <span class="hljs-built-in">echo</span> <span class="hljs-string">$&quot;Usage: </span>$0<span class="hljs-string"> {start|stop|restart}&quot;</span>
     RETVAL=1
     <span class="hljs-keyword">;;</span>
 <span class="hljs-keyword">esac</span>
@@ -660,7 +660,7 @@ prog=<span class="hljs-string">"db2"</span>
     </div>
 
     <div class="col-md-3">
-        <iframe src="https://duckduckgo.com/search.html?site=watson-wilson.ca&prefill=Search DuckDuckGo" style="overflow:hidden;margin:0;padding:0;width:350px;height:40px;" frameborder="0"></iframe>
+        <iframe frameborder="0" src="https://duckduckgo.com/search.html?site=watson-wilson.ca&amp;prefill=Search DuckDuckGo" style="overflow:hidden;margin:0;padding:0;width:350px;height:40px;"></iframe>
 
         <nav id="tags">
             <h1>Tags</h1>
@@ -764,35 +764,31 @@ prog=<span class="hljs-string">"db2"</span>
 
 </div>
 
-<div class='row'>
-   <div class='col-md-1'>
-       <img atl='Neil Watson' src='https://gravatar.com/avatar/1f0969599955a953e592034929ed7a23' >
+<div class="row">
+   <div class="col-md-1">
+       <img atl="Neil Watson" src="https://gravatar.com/avatar/1f0969599955a953e592034929ed7a23">
    </div>
 
-       <div class='col-md-1'>
+       <div class="col-md-1">
             <!-- reddit this -->
-            <a href="//www.reddit.com/submit" onclick="window.location = '//www.reddit.com/submit?url=' + encodeURIComponent(window.location); return false"><img src="//www.redditstatic.com/spreddit7.gif" alt="submit to reddit" border="0" /></a>
+            <a href="//www.reddit.com/submit" onclick="window.location = &#39;//www.reddit.com/submit?url=&#39; + encodeURIComponent(window.location); return false"><img alt="submit to reddit" border="0" src="//www.redditstatic.com/spreddit7.gif"></a>
        </div>
 
-       <div class='col-md-1'>
+       <div class="col-md-1">
           <!-- Tweet this -->
-          <a class="twitter-share-button"
-             href="https://twitter.com/intent/tweet">
+          <a class="twitter-share-button" href="https://twitter.com/intent/tweet">
           Tweet</a>
        </div>
 
-       <div class='col-md-1'>
+       <div class="col-md-1">
           <!-- follow me on twitter -->
-         <a class="twitter-follow-button"
-            data-show-count="false"
-            data-show-screen-name="false"
-           href="https://twitter.com/neil_h_watson">
+         <a class="twitter-follow-button" data-show-count="false" data-show-screen-name="false" href="https://twitter.com/neil_h_watson">
          Follow @neil_h_watson</a>
         </div>
 
-       <div class='col-md-1'>
+       <div class="col-md-1">
            <!-- follw me on github -->
-            <a aria-label="Follow @neilhwatson on GitHub" data-style="mega" href="https://github.com/neilhwatson" class="github-button">Follow</a>
+            <a aria-label="Follow @neilhwatson on GitHub" class="github-button" data-style="mega" href="https://github.com/neilhwatson">Follow</a>
             <script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
        </div>
 
@@ -802,9 +798,9 @@ prog=<span class="hljs-string">"db2"</span>
         <footer>
             
             <h1></h1>
-            <div class='col-md-5'> </div>
+            <div class="col-md-5"> </div>
             <div class="col-md-3 container tagline">
-                <a href="http://preaction.me/statocles">Made with Statocles</a><br/>
+                <a href="http://preaction.me/statocles">Made with Statocles</a><br>
                 <a href="http://www.perl.org">Powered by Perl</a>
             </div>
         </footer>

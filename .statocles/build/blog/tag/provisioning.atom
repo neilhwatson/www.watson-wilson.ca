@@ -3,13 +3,13 @@
     <id>http://watson-wilson.ca/blog/tag/provisioning/</id>
     <title>Neil H. Watson</title>
     <updated>2015-12-08T00:00:00Z</updated>
-    <link rel="self" href="http://watson-wilson.ca/blog/tag/provisioning.atom"/>
-    <link rel="alternate" href="http://watson-wilson.ca/blog/tag/provisioning/"/>
+    <link href="http://watson-wilson.ca/blog/tag/provisioning.atom" rel="self" />
+    <link href="http://watson-wilson.ca/blog/tag/provisioning/" rel="alternate" />
     <generator version="0.094">Statocles</generator>
     <entry>
         <id>http://watson-wilson.ca/blog/2015/12/08/spacewalk/</id>
         <title>Installing Spacewalk</title>
-        <link rel="alternate" href="http://watson-wilson.ca/blog/2015/12/08/spacewalk/" />
+        <link href="http://watson-wilson.ca/blog/2015/12/08/spacewalk/" rel="alternate" />
         <content type="html"><![CDATA[
             <p>Here&#39;s a quick procedure for installing <a href="http://spacewalk.redhat.com/">Spacewalk</a>.</p>
 
@@ -33,7 +33,7 @@
         <id>http://watson-wilson.ca/blog/2015/07/29/new-packages-promises-in-efl/</id>
         <title>New packages promises in EFL</title>
         <author><name>nwatson</name></author>
-        <link rel="alternate" href="http://watson-wilson.ca/blog/2015/07/29/new-packages-promises-in-efl/" />
+        <link href="http://watson-wilson.ca/blog/2015/07/29/new-packages-promises-in-efl/" rel="alternate" />
         <content type="html"><![CDATA[
             <p><img alt="A package" src="http://watson-wilson.ca/static/images/cubimal-package.png"></p>
 
@@ -58,7 +58,7 @@ like this:</p>
         <id>http://watson-wilson.ca/blog/2014/10/30/changes-in-virt-install-and-kickstart-in-rhel7/</id>
         <title>Changes in virt-install and Kickstart in RHEL7</title>
         <author><name>nwatson</name></author>
-        <link rel="alternate" href="http://watson-wilson.ca/blog/2014/10/30/changes-in-virt-install-and-kickstart-in-rhel7/" />
+        <link href="http://watson-wilson.ca/blog/2014/10/30/changes-in-virt-install-and-kickstart-in-rhel7/" rel="alternate" />
         <content type="html"><![CDATA[
             <p><img alt="army provisions" src="http://watson-wilson.ca/static/images/mre-case.jpg"></p>
 

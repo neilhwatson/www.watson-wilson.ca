@@ -3,14 +3,14 @@
     <id>http://watson-wilson.ca/blog/tag/sysctl/</id>
     <title>Neil H. Watson</title>
     <updated>2013-08-07T16:13:42Z</updated>
-    <link rel="self" href="http://watson-wilson.ca/blog/tag/sysctl.atom"/>
-    <link rel="alternate" href="http://watson-wilson.ca/blog/tag/sysctl/"/>
+    <link href="http://watson-wilson.ca/blog/tag/sysctl.atom" rel="self" />
+    <link href="http://watson-wilson.ca/blog/tag/sysctl/" rel="alternate" />
     <generator version="0.094">Statocles</generator>
     <entry>
         <id>http://watson-wilson.ca/blog/2013/08/07/secure-sysctl-settings-with-cfengine/</id>
         <title>Secure sysctl settings with CFEngine</title>
         <author><name>nwatson</name></author>
-        <link rel="alternate" href="http://watson-wilson.ca/blog/2013/08/07/secure-sysctl-settings-with-cfengine/" />
+        <link href="http://watson-wilson.ca/blog/2013/08/07/secure-sysctl-settings-with-cfengine/" rel="alternate" />
         <content type="html"><![CDATA[
             <p>Here&#39;s how to maintain Linux sysctl settings across all hosts in
 an organization using the Evolve <a href="http://watson-wilson.ca/evolve-thinkings-free-cfengine-library/">free promise library</a>

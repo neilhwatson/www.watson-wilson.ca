@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="en"> 
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
         <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-        <link rel="stylesheet" href="/theme/css/readability-bootstrap.min.css" />
+        <link href="/theme/css/readability-bootstrap.min.css" rel="stylesheet">
         <!--<link rel="stylesheet" href="/theme/css/statocles-bootstrap.css" />-->
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
         <title>Intro to Lambda using Ansible - Neil H. Watson</title>
-        <meta name="generator" content="Statocles 0.094" />
+        <meta content="Statocles 0.094" name="generator">
         
-        <link rel="stylesheet" href="/theme/plugin/highlight/default.css" type="text/css" />
+        <link href="/theme/plugin/highlight/default.css" rel="stylesheet" type="text/css">
 
         <!-- Twitter for websites -->
          <script>window.twttr = (function(d, s, id) {
@@ -32,7 +32,7 @@
          }(document, "script", "twitter-wjs"));</script>
 
         <!-- For source highlighting -->
-        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/default.min.css">
+        <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/default.min.css" rel="stylesheet">
         <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js"></script>
         <script>hljs.initHighlightingOnLoad();</script>
 
@@ -43,7 +43,7 @@
                 <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
                     <div class="navbar-header">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#top-navbar-collapse-1">
+                        <button class="navbar-toggle" data-target="#top-navbar-collapse-1" data-toggle="collapse" type="button">
                             <span class="sr-only">Toggle navigation</span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
@@ -90,36 +90,36 @@
 
             </header>
             <section id="section-1">
-                <p><img style='float:right' alt='aws logo' width='120px' src='/static/images/aws.png'></p>
+                <p><img alt="aws logo" src="/static/images/aws.png" style="float:right" width="120px"></p>
 
-<p>Here's a simple example of an <a href="https://aws.amazon.com/lambda/">AWS Lambda</a> using <a href="https://www.ansible.com/">Ansible</a> to set it up.</p>
+<p>Here&#39;s a simple example of an <a href="https://aws.amazon.com/lambda/">AWS Lambda</a> using <a href="https://www.ansible.com/">Ansible</a> to set it up.</p>
 
             </section>
             <section id="section-2">
-                <p>Lambda is another example of AWS's crazy none-intuitive naming convention. I highly recommend you bookmark <a href="https://www.expeditedssl.com/aws-in-plain-english">AWS in Plain English</a>, an excellent site that demystifies AWS's whimsical names. Name aside, Lambda is serverless way to run your code.</p>
+                <p>Lambda is another example of AWS&#39;s crazy none-intuitive naming convention. I highly recommend you bookmark <a href="https://www.expeditedssl.com/aws-in-plain-english">AWS in Plain English</a>, an excellent site that demystifies AWS&#39;s whimsical names. Name aside, Lambda is serverless way to run your code.</p>
 
-<p>Serverless sounds like witchery but, like all cloud, it's simply someone else's server. One of the key concepts of AWS is that its services are often built on top of other services. An <a href="https://aws.amazon.com/rds/">RDS</a> instance is, behind the scenes, built on top of an <a href="https://aws.amazon.com/ec2/">EC2</a> instance. If you really want to understand AWS, learn the foundation: VPC, EC2, IAM, and ELB.</p>
+<p>Serverless sounds like witchery but, like all cloud, it&#39;s simply someone else&#39;s server. One of the key concepts of AWS is that its services are often built on top of other services. An <a href="https://aws.amazon.com/rds/">RDS</a> instance is, behind the scenes, built on top of an <a href="https://aws.amazon.com/ec2/">EC2</a> instance. If you really want to understand AWS, learn the foundation: VPC, EC2, IAM, and ELB.</p>
 
-<p>Lambda is no exception, it's a service for running your code on short lived pre-built containers. The containers are pre-built and you load your supported (Node.js, Java, C#, Python, and Go at this time) code onto them to run. Let's look at a super simple example and deploy it using Ansible.</p>
+<p>Lambda is no exception, it&#39;s a service for running your code on short lived pre-built containers. The containers are pre-built and you load your supported (Node.js, Java, C#, Python, and Go at this time) code onto them to run. Let&#39;s look at a super simple example and deploy it using Ansible.</p>
 
 <h2>The code</h2>
 
 <p>This code returns a data structure and nothing else.</p>
 
 <pre><code class="hljs">    <span class="hljs-keyword">def</span> my_lambda<span class="hljs-string">(event</span>, context<span class="hljs-string">):</span>
-        <span class="hljs-comment">'''The name of this sub must match the lambda handler, and the two </span><span class="hljs-comment">
-</span><span class="hljs-comment">        parameters are required.'''</span><span class="hljs-comment">
+        <span class="hljs-comment">&#39;&#39;&#39;The name of this sub must match the lambda handler, and the two </span><span class="hljs-comment">
+</span><span class="hljs-comment">        parameters are required.&#39;&#39;&#39;</span><span class="hljs-comment">
 </span><span class="hljs-comment">        </span><span class="hljs-comment">
 </span><span class="hljs-comment">        # Return whatever you like.</span><span class="hljs-comment">
 </span><span class="hljs-comment">        return [ </span><span class="hljs-comment">
-</span><span class="hljs-comment">                 { "context_function_name": context.function_name },</span><span class="hljs-comment">
-</span><span class="hljs-comment">                 { "event": event },</span><span class="hljs-comment">
-</span><span class="hljs-comment">                 { "test": "one", "result": "pass" },</span><span class="hljs-comment">
-</span><span class="hljs-comment">                 { "test": "two", "result": "pass" }</span><span class="hljs-comment">
+</span><span class="hljs-comment">                 { &quot;context_function_name&quot;: context.function_name },</span><span class="hljs-comment">
+</span><span class="hljs-comment">                 { &quot;event&quot;: event },</span><span class="hljs-comment">
+</span><span class="hljs-comment">                 { &quot;test&quot;: &quot;one&quot;, &quot;result&quot;: &quot;pass&quot; },</span><span class="hljs-comment">
+</span><span class="hljs-comment">                 { &quot;test&quot;: &quot;two&quot;, &quot;result&quot;: &quot;pass&quot; }</span><span class="hljs-comment">
 </span><span class="hljs-comment">               ]</span><span class="hljs-comment">
 </span></code></pre>
 
-<p>Any parameters you pass go into the 'event' parameter. What is returned will end up in stdout. <a href="https://docs.aws.amazon.com/lambda/latest/dg/python-context-object.html">Context</a> is a object that contains information about the instance of the lambda.</p>
+<p>Any parameters you pass go into the &#39;event&#39; parameter. What is returned will end up in stdout. <a href="https://docs.aws.amazon.com/lambda/latest/dg/python-context-object.html">Context</a> is a object that contains information about the instance of the lambda.</p>
 
 <h2>The playbook</h2>
 
@@ -139,7 +139,7 @@
 
 <h3>Upload the Lambda</h3>
 
-<p>Make the Lambda. Note the handler, it's the name of the Lambda and the function in the code that will be called. Every Lambda needs an IAM role, here I make it a variable that I can define elsewhere.</p>
+<p>Make the Lambda. Note the handler, it&#39;s the name of the Lambda and the function in the code that will be called. Every Lambda needs an IAM role, here I make it a variable that I can define elsewhere.</p>
 
 <pre><code>- name: my lambda function
   lambda:
@@ -148,14 +148,14 @@
     zip_file: lambda.py.zip
     runtime: python2.7
     handler: lambda.my_lambda
-    role: "{{ role }}"
+    role: &quot;{{ role }}&quot;
     tags:
-      'responsible party': nwatson@example.com
+      &#39;responsible party&#39;: nwatson@example.com
 </code></pre>
 
 <h3>Run the Lambda</h3>
 
-<p>This executes the Lambda passing the payload as arguments. They go into the 'events' parameter.Wait waits for the Lambda to finish. Finally we save the results with register.</p>
+<p>This executes the Lambda passing the payload as arguments. They go into the &#39;events&#39; parameter.Wait waits for the Lambda to finish. Finally we save the results with register.</p>
 
 <pre><code>- name: Run my lambda
   execute_lambda:
@@ -178,7 +178,7 @@
 <h3>The results</h3>
 
 <pre><code>- debug:
-    msg: "{{ my_lambda }}"
+    msg: &quot;{{ my_lambda }}&quot;
 </code></pre>
 
 <p>Here they are:</p>
@@ -206,7 +206,7 @@ ok: [localhost] =&gt;
     changed: true
     failed: false
     result:
-      logs: ''
+      logs: &#39;&#39;
       output:
       - context_function_name: my_lambda
       - event:
@@ -222,7 +222,7 @@ PLAY RECAP **************************************************************
 localhost                : ok=6    changed=4    unreachable=0    failed=0   
 </code></pre>
 
-<p>There's a lot more to Lambdas; I encourage you to read up on them. Also know that Lambda is not unique. Other container technologies like <a href="https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/">Kubernetes</a> and <a href="https://www.cloudfoundry.org/">Cloud Foundry</a> can run short duration containers. You can find the the code for this post <a href="https://github.com/neilhwatson/nustuff/tree/master/aws/lambda">here</a>.</p>
+<p>There&#39;s a lot more to Lambdas; I encourage you to read up on them. Also know that Lambda is not unique. Other container technologies like <a href="https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/">Kubernetes</a> and <a href="https://www.cloudfoundry.org/">Cloud Foundry</a> can run short duration containers. You can find the the code for this post <a href="https://github.com/neilhwatson/nustuff/tree/master/aws/lambda">here</a>.</p>
 
             </section>
         </main>
@@ -231,7 +231,7 @@ localhost                : ok=6    changed=4    unreachable=0    failed=0
     </div>
 
     <div class="col-md-3">
-        <iframe src="https://duckduckgo.com/search.html?site=watson-wilson.ca&prefill=Search DuckDuckGo" style="overflow:hidden;margin:0;padding:0;width:350px;height:40px;" frameborder="0"></iframe>
+        <iframe frameborder="0" src="https://duckduckgo.com/search.html?site=watson-wilson.ca&amp;prefill=Search DuckDuckGo" style="overflow:hidden;margin:0;padding:0;width:350px;height:40px;"></iframe>
 
         <nav id="tags">
             <h1>Tags</h1>
@@ -335,35 +335,31 @@ localhost                : ok=6    changed=4    unreachable=0    failed=0
 
 </div>
 
-<div class='row'>
-   <div class='col-md-1'>
-       <img atl='Neil Watson' src='https://gravatar.com/avatar/1f0969599955a953e592034929ed7a23' >
+<div class="row">
+   <div class="col-md-1">
+       <img atl="Neil Watson" src="https://gravatar.com/avatar/1f0969599955a953e592034929ed7a23">
    </div>
 
-       <div class='col-md-1'>
+       <div class="col-md-1">
             <!-- reddit this -->
-            <a href="//www.reddit.com/submit" onclick="window.location = '//www.reddit.com/submit?url=' + encodeURIComponent(window.location); return false"><img src="//www.redditstatic.com/spreddit7.gif" alt="submit to reddit" border="0" /></a>
+            <a href="//www.reddit.com/submit" onclick="window.location = &#39;//www.reddit.com/submit?url=&#39; + encodeURIComponent(window.location); return false"><img alt="submit to reddit" border="0" src="//www.redditstatic.com/spreddit7.gif"></a>
        </div>
 
-       <div class='col-md-1'>
+       <div class="col-md-1">
           <!-- Tweet this -->
-          <a class="twitter-share-button"
-             href="https://twitter.com/intent/tweet">
+          <a class="twitter-share-button" href="https://twitter.com/intent/tweet">
           Tweet</a>
        </div>
 
-       <div class='col-md-1'>
+       <div class="col-md-1">
           <!-- follow me on twitter -->
-         <a class="twitter-follow-button"
-            data-show-count="false"
-            data-show-screen-name="false"
-           href="https://twitter.com/neil_h_watson">
+         <a class="twitter-follow-button" data-show-count="false" data-show-screen-name="false" href="https://twitter.com/neil_h_watson">
          Follow @neil_h_watson</a>
         </div>
 
-       <div class='col-md-1'>
+       <div class="col-md-1">
            <!-- follw me on github -->
-            <a aria-label="Follow @neilhwatson on GitHub" data-style="mega" href="https://github.com/neilhwatson" class="github-button">Follow</a>
+            <a aria-label="Follow @neilhwatson on GitHub" class="github-button" data-style="mega" href="https://github.com/neilhwatson">Follow</a>
             <script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
        </div>
 
@@ -373,9 +369,9 @@ localhost                : ok=6    changed=4    unreachable=0    failed=0
         <footer>
             
             <h1></h1>
-            <div class='col-md-5'> </div>
+            <div class="col-md-5"> </div>
             <div class="col-md-3 container tagline">
-                <a href="http://preaction.me/statocles">Made with Statocles</a><br/>
+                <a href="http://preaction.me/statocles">Made with Statocles</a><br>
                 <a href="http://www.perl.org">Powered by Perl</a>
             </div>
         </footer>

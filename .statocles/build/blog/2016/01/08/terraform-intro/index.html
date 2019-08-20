@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="en"> 
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
         <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-        <link rel="stylesheet" href="/theme/css/readability-bootstrap.min.css" />
+        <link href="/theme/css/readability-bootstrap.min.css" rel="stylesheet">
         <!--<link rel="stylesheet" href="/theme/css/statocles-bootstrap.css" />-->
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
         <title>Introduction to Terraform - Neil H. Watson</title>
-        <meta name="generator" content="Statocles 0.094" />
+        <meta content="Statocles 0.094" name="generator">
         
-        <link rel="stylesheet" href="/theme/plugin/highlight/default.css" type="text/css" />
+        <link href="/theme/plugin/highlight/default.css" rel="stylesheet" type="text/css">
 
         <!-- Twitter for websites -->
          <script>window.twttr = (function(d, s, id) {
@@ -32,7 +32,7 @@
          }(document, "script", "twitter-wjs"));</script>
 
         <!-- For source highlighting -->
-        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/default.min.css">
+        <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/default.min.css" rel="stylesheet">
         <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js"></script>
         <script>hljs.initHighlightingOnLoad();</script>
 
@@ -43,7 +43,7 @@
                 <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
                     <div class="navbar-header">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#top-navbar-collapse-1">
+                        <button class="navbar-toggle" data-target="#top-navbar-collapse-1" data-toggle="collapse" type="button">
                             <span class="sr-only">Toggle navigation</span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
@@ -88,7 +88,7 @@
 
             </header>
             <section id="section-1">
-                <p><a href="https://terraform.io/"><img style='float:right' alt='terraform logo' width='120px' src='https://raw.githubusercontent.com/hashicorp/terraform-website/master/content//source/assets/images/og-image.png' ></a></p>
+                <p><a href="https://terraform.io/"><img alt="terraform logo" src="https://raw.githubusercontent.com/hashicorp/terraform-website/master/content//source/assets/images/og-image.png" style="float:right" width="120px"></a></p>
 
 <p><a href="https://terraform.io/">Terraform</a> allows you to manage your AWS, and other
 cloud infrastructure, the same way you would manage servers using configuration
@@ -106,7 +106,7 @@ convergent so only required changes are applied.</p>
 <li>A tc2.micro EC2 instance with the above applied to it.</li>
 </ol>
 
-<p>The 'provider' part of the file indicates to terraform to use its AWS provider
+<p>The &#39;provider&#39; part of the file indicates to terraform to use its AWS provider
 with the given credentials. If you know AWS at all the terraform code is not
 hard to follow.</p>
 
@@ -129,62 +129,62 @@ are not yet defined. But the groups and keys will be created next, so,
 run terraform a second time and it will converge, by creating just the instance
 while leaving the already existing groups and keys as they are.</p>
 
-<pre><code class="hljs">provider <span class="hljs-string">"aws"</span> {
-   access_key = <span class="hljs-string">"your_key_here"</span>
-   secret_key = <span class="hljs-string">"your_secret_here"</span>
-   region = <span class="hljs-string">"us-east-1"</span>
+<pre><code class="hljs">provider <span class="hljs-string">&quot;aws&quot;</span> {
+   access_key = <span class="hljs-string">&quot;your_key_here&quot;</span>
+   secret_key = <span class="hljs-string">&quot;your_secret_here&quot;</span>
+   region = <span class="hljs-string">&quot;us-east-1&quot;</span>
 }
 
-resource <span class="hljs-string">"aws_key_pair"</span> <span class="hljs-string">"neptune"</span> {
-   key_name = <span class="hljs-string">"neptune"</span>
-   public_key = <span class="hljs-string">"ssh-rsa AAA removed for brevity 1XCr neil@neptune"</span>
+resource <span class="hljs-string">&quot;aws_key_pair&quot;</span> <span class="hljs-string">&quot;neptune&quot;</span> {
+   key_name = <span class="hljs-string">&quot;neptune&quot;</span>
+   public_key = <span class="hljs-string">&quot;ssh-rsa AAA removed for brevity 1XCr neil@neptune&quot;</span>
 }
 
-resource <span class="hljs-string">"aws_security_group"</span> <span class="hljs-string">"ssh"</span> {
-   <span class="hljs-type">name</span> = <span class="hljs-string">"ssh"</span>
-   <span class="hljs-type">description</span> = <span class="hljs-string">"Allow inbound ssh"</span>
+resource <span class="hljs-string">&quot;aws_security_group&quot;</span> <span class="hljs-string">&quot;ssh&quot;</span> {
+   <span class="hljs-type">name</span> = <span class="hljs-string">&quot;ssh&quot;</span>
+   <span class="hljs-type">description</span> = <span class="hljs-string">&quot;Allow inbound ssh&quot;</span>
    ingress = {
       from_port = 0
       to_port   = <span class="hljs-number">22</span>
-      <span class="hljs-type">protocol</span>  = <span class="hljs-string">"tcp"</span>
-      cidr_blocks = [ <span class="hljs-string">"0.0.0.0/0"</span> ]
+      <span class="hljs-type">protocol</span>  = <span class="hljs-string">&quot;tcp&quot;</span>
+      cidr_blocks = [ <span class="hljs-string">&quot;0.0.0.0/0&quot;</span> ]
    }
 }
 
-resource <span class="hljs-string">"aws_security_group"</span> <span class="hljs-string">"http"</span> {
-   <span class="hljs-type">name</span> = <span class="hljs-string">"http"</span>
-   <span class="hljs-type">description</span> = <span class="hljs-string">"Allow inbound http"</span>
+resource <span class="hljs-string">&quot;aws_security_group&quot;</span> <span class="hljs-string">&quot;http&quot;</span> {
+   <span class="hljs-type">name</span> = <span class="hljs-string">&quot;http&quot;</span>
+   <span class="hljs-type">description</span> = <span class="hljs-string">&quot;Allow inbound http&quot;</span>
    ingress = {
       from_port = 0
       to_port   = <span class="hljs-number">80</span> 
-      <span class="hljs-type">protocol</span>  = <span class="hljs-string">"tcp"</span>
-      cidr_blocks = [ <span class="hljs-string">"0.0.0.0/0"</span> ]
+      <span class="hljs-type">protocol</span>  = <span class="hljs-string">&quot;tcp&quot;</span>
+      cidr_blocks = [ <span class="hljs-string">&quot;0.0.0.0/0&quot;</span> ]
    }
    egress = {
       from_port = 0
       to_port   = <span class="hljs-number">80</span>
-      <span class="hljs-type">protocol</span>  = <span class="hljs-string">"tcp"</span>
-      cidr_blocks = [ <span class="hljs-string">"0.0.0.0/0"</span> ]
+      <span class="hljs-type">protocol</span>  = <span class="hljs-string">&quot;tcp&quot;</span>
+      cidr_blocks = [ <span class="hljs-string">&quot;0.0.0.0/0&quot;</span> ]
    }
    egress = {
       from_port = 0
       to_port   = 443
-      <span class="hljs-type">protocol</span>  = <span class="hljs-string">"tcp"</span>
-      cidr_blocks = [ <span class="hljs-string">"0.0.0.0/0"</span> ]
+      <span class="hljs-type">protocol</span>  = <span class="hljs-string">&quot;tcp&quot;</span>
+      cidr_blocks = [ <span class="hljs-string">&quot;0.0.0.0/0&quot;</span> ]
    }
 }
 
-resource <span class="hljs-string">"aws_instance"</span> <span class="hljs-string">"tfdemo"</span> {
+resource <span class="hljs-string">&quot;aws_instance&quot;</span> <span class="hljs-string">&quot;tfdemo&quot;</span> {
 
-    ami = <span class="hljs-string">"ami-60b6c60a"</span>
-    instance_type = <span class="hljs-string">"t2.micro"</span>
+    ami = <span class="hljs-string">&quot;ami-60b6c60a&quot;</span>
+    instance_type = <span class="hljs-string">&quot;t2.micro&quot;</span>
 
-   key_name = <span class="hljs-string">"neptune"</span>
-   security_groups = [ <span class="hljs-string">"ssh"</span>, <span class="hljs-string">"http"</span>, <span class="hljs-string">"default"</span> ]
+   key_name = <span class="hljs-string">&quot;neptune&quot;</span>
+   security_groups = [ <span class="hljs-string">&quot;ssh&quot;</span>, <span class="hljs-string">&quot;http&quot;</span>, <span class="hljs-string">&quot;default&quot;</span> ]
 }
 </code></pre>
 
-<p>I've shown only a small portion of what terraform can do. Most
+<p>I&#39;ve shown only a small portion of what terraform can do. Most
 <a href="https://terraform.io/docs/providers/aws/index.html">things</a> you might want to
 do in AWS can be defined in Terraform and not just AWS. Terraform also supports
 Cloudflare, DigitalOcean, Docker, Google Cloud, vSphere, Azure, and
@@ -197,7 +197,7 @@ Cloudflare, DigitalOcean, Docker, Google Cloud, vSphere, Azure, and
     </div>
 
     <div class="col-md-3">
-        <iframe src="https://duckduckgo.com/search.html?site=watson-wilson.ca&prefill=Search DuckDuckGo" style="overflow:hidden;margin:0;padding:0;width:350px;height:40px;" frameborder="0"></iframe>
+        <iframe frameborder="0" src="https://duckduckgo.com/search.html?site=watson-wilson.ca&amp;prefill=Search DuckDuckGo" style="overflow:hidden;margin:0;padding:0;width:350px;height:40px;"></iframe>
 
         <nav id="tags">
             <h1>Tags</h1>
@@ -301,35 +301,31 @@ Cloudflare, DigitalOcean, Docker, Google Cloud, vSphere, Azure, and
 
 </div>
 
-<div class='row'>
-   <div class='col-md-1'>
-       <img atl='Neil Watson' src='https://gravatar.com/avatar/1f0969599955a953e592034929ed7a23' >
+<div class="row">
+   <div class="col-md-1">
+       <img atl="Neil Watson" src="https://gravatar.com/avatar/1f0969599955a953e592034929ed7a23">
    </div>
 
-       <div class='col-md-1'>
+       <div class="col-md-1">
             <!-- reddit this -->
-            <a href="//www.reddit.com/submit" onclick="window.location = '//www.reddit.com/submit?url=' + encodeURIComponent(window.location); return false"><img src="//www.redditstatic.com/spreddit7.gif" alt="submit to reddit" border="0" /></a>
+            <a href="//www.reddit.com/submit" onclick="window.location = &#39;//www.reddit.com/submit?url=&#39; + encodeURIComponent(window.location); return false"><img alt="submit to reddit" border="0" src="//www.redditstatic.com/spreddit7.gif"></a>
        </div>
 
-       <div class='col-md-1'>
+       <div class="col-md-1">
           <!-- Tweet this -->
-          <a class="twitter-share-button"
-             href="https://twitter.com/intent/tweet">
+          <a class="twitter-share-button" href="https://twitter.com/intent/tweet">
           Tweet</a>
        </div>
 
-       <div class='col-md-1'>
+       <div class="col-md-1">
           <!-- follow me on twitter -->
-         <a class="twitter-follow-button"
-            data-show-count="false"
-            data-show-screen-name="false"
-           href="https://twitter.com/neil_h_watson">
+         <a class="twitter-follow-button" data-show-count="false" data-show-screen-name="false" href="https://twitter.com/neil_h_watson">
          Follow @neil_h_watson</a>
         </div>
 
-       <div class='col-md-1'>
+       <div class="col-md-1">
            <!-- follw me on github -->
-            <a aria-label="Follow @neilhwatson on GitHub" data-style="mega" href="https://github.com/neilhwatson" class="github-button">Follow</a>
+            <a aria-label="Follow @neilhwatson on GitHub" class="github-button" data-style="mega" href="https://github.com/neilhwatson">Follow</a>
             <script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
        </div>
 
@@ -339,9 +335,9 @@ Cloudflare, DigitalOcean, Docker, Google Cloud, vSphere, Azure, and
         <footer>
             
             <h1></h1>
-            <div class='col-md-5'> </div>
+            <div class="col-md-5"> </div>
             <div class="col-md-3 container tagline">
-                <a href="http://preaction.me/statocles">Made with Statocles</a><br/>
+                <a href="http://preaction.me/statocles">Made with Statocles</a><br>
                 <a href="http://www.perl.org">Powered by Perl</a>
             </div>
         </footer>

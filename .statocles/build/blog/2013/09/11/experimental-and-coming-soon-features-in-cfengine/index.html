@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en"> 
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
         <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-        <link rel="stylesheet" href="/theme/css/readability-bootstrap.min.css" />
+        <link href="/theme/css/readability-bootstrap.min.css" rel="stylesheet">
         <!--<link rel="stylesheet" href="/theme/css/statocles-bootstrap.css" />-->
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
         <title>Experimental and coming soon features in CFEngine - Neil H. Watson</title>
-        <meta name="generator" content="Statocles 0.094" />
+        <meta content="Statocles 0.094" name="generator">
         
 
         <!-- Twitter for websites -->
@@ -31,7 +31,7 @@
          }(document, "script", "twitter-wjs"));</script>
 
         <!-- For source highlighting -->
-        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/default.min.css">
+        <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/default.min.css" rel="stylesheet">
         <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js"></script>
         <script>hljs.initHighlightingOnLoad();</script>
 
@@ -42,7 +42,7 @@
                 <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
                     <div class="navbar-header">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#top-navbar-collapse-1">
+                        <button class="navbar-toggle" data-target="#top-navbar-collapse-1" data-toggle="collapse" type="button">
                             <span class="sr-only">Toggle navigation</span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
@@ -87,8 +87,8 @@
             </header>
             <section id="section-1">
                 <p>Pull requests for CFEngine Core, at <a href="https://github.com/cfengine/core/pulls">Github</a>,
-and CFEngine's <a href="https://cfengine.com/dev/projects/core">issue tracker</a>
-show some interesting proposals for future versions of CFEngine. Here's
+and CFEngine&#39;s <a href="https://cfengine.com/dev/projects/core">issue tracker</a>
+show some interesting proposals for future versions of CFEngine. Here&#39;s
 a quick summary for you.</p>
 
             </section>
@@ -96,29 +96,29 @@ a quick summary for you.</p>
                 <h4><a href="https://github.com/cfengine/core/pull/925">TLS encryption</a></h4>
 
 <p>The proposal is to replace the current transmission encryption of
-CFEngine with the standard TLS protocol. I'm told that this transition
+CFEngine with the standard TLS protocol. I&#39;m told that this transition
 will be transparent and that CFEngine will fall back to the old
 protocol automatically if required.</p>
 
 <h4><a href="https://github.com/cfengine/core/pull/325">LMDB replacing TCDB</a></h4>
 
-<p>OpenLDAP's Lightning Memory-Mapped Database will replace TokyoCabinet.
+<p>OpenLDAP&#39;s Lightning Memory-Mapped Database will replace TokyoCabinet.
 TokyoCabinet was disappointing in its reliability. A better DB will be
 welcome.</p>
 
 <h4><a href="https://cfengine.com/dev/issues/3279">JSON data containers</a></h4>
 
-<p>If you use CSV files with CFEngine, like Evolve's own <a href="http://watson-wilson.ca/evolve-thinkings-free-cfengine-library/">free promise
+<p>If you use CSV files with CFEngine, like Evolve&#39;s own <a href="http://watson-wilson.ca/evolve-thinkings-free-cfengine-library/">free promise
 library</a>,
 you know that large CSV files can be cumbersome. Data represented in
 JSON format will be easier to manage.</p>
 
 <h4><a href="https://cfengine.com/dev/issues/3323">Includes</a></h4>
 
-<p>There's a proposal to allow include type statements in CFEngine policy
+<p>There&#39;s a proposal to allow include type statements in CFEngine policy
 files. This will allow more dynamic policies.</p>
 
-<p>It's too early for me to say when or if we'll see these features in
+<p>It&#39;s too early for me to say when or if we&#39;ll see these features in
 real life. If they interest you and you have an opinion about them now
 is the time to voice it.</p>
 
@@ -129,7 +129,7 @@ is the time to voice it.</p>
     </div>
 
     <div class="col-md-3">
-        <iframe src="https://duckduckgo.com/search.html?site=watson-wilson.ca&prefill=Search DuckDuckGo" style="overflow:hidden;margin:0;padding:0;width:350px;height:40px;" frameborder="0"></iframe>
+        <iframe frameborder="0" src="https://duckduckgo.com/search.html?site=watson-wilson.ca&amp;prefill=Search DuckDuckGo" style="overflow:hidden;margin:0;padding:0;width:350px;height:40px;"></iframe>
 
         <nav id="tags">
             <h1>Tags</h1>
@@ -233,35 +233,31 @@ is the time to voice it.</p>
 
 </div>
 
-<div class='row'>
-   <div class='col-md-1'>
-       <img atl='Neil Watson' src='https://gravatar.com/avatar/1f0969599955a953e592034929ed7a23' >
+<div class="row">
+   <div class="col-md-1">
+       <img atl="Neil Watson" src="https://gravatar.com/avatar/1f0969599955a953e592034929ed7a23">
    </div>
 
-       <div class='col-md-1'>
+       <div class="col-md-1">
             <!-- reddit this -->
-            <a href="//www.reddit.com/submit" onclick="window.location = '//www.reddit.com/submit?url=' + encodeURIComponent(window.location); return false"><img src="//www.redditstatic.com/spreddit7.gif" alt="submit to reddit" border="0" /></a>
+            <a href="//www.reddit.com/submit" onclick="window.location = &#39;//www.reddit.com/submit?url=&#39; + encodeURIComponent(window.location); return false"><img alt="submit to reddit" border="0" src="//www.redditstatic.com/spreddit7.gif"></a>
        </div>
 
-       <div class='col-md-1'>
+       <div class="col-md-1">
           <!-- Tweet this -->
-          <a class="twitter-share-button"
-             href="https://twitter.com/intent/tweet">
+          <a class="twitter-share-button" href="https://twitter.com/intent/tweet">
           Tweet</a>
        </div>
 
-       <div class='col-md-1'>
+       <div class="col-md-1">
           <!-- follow me on twitter -->
-         <a class="twitter-follow-button"
-            data-show-count="false"
-            data-show-screen-name="false"
-           href="https://twitter.com/neil_h_watson">
+         <a class="twitter-follow-button" data-show-count="false" data-show-screen-name="false" href="https://twitter.com/neil_h_watson">
          Follow @neil_h_watson</a>
         </div>
 
-       <div class='col-md-1'>
+       <div class="col-md-1">
            <!-- follw me on github -->
-            <a aria-label="Follow @neilhwatson on GitHub" data-style="mega" href="https://github.com/neilhwatson" class="github-button">Follow</a>
+            <a aria-label="Follow @neilhwatson on GitHub" class="github-button" data-style="mega" href="https://github.com/neilhwatson">Follow</a>
             <script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
        </div>
 
@@ -271,9 +267,9 @@ is the time to voice it.</p>
         <footer>
             
             <h1></h1>
-            <div class='col-md-5'> </div>
+            <div class="col-md-5"> </div>
             <div class="col-md-3 container tagline">
-                <a href="http://preaction.me/statocles">Made with Statocles</a><br/>
+                <a href="http://preaction.me/statocles">Made with Statocles</a><br>
                 <a href="http://www.perl.org">Powered by Perl</a>
             </div>
         </footer>

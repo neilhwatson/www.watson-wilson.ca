@@ -3,13 +3,13 @@
     <id>http://watson-wilson.ca/blog/tag/slaac/</id>
     <title>Neil H. Watson</title>
     <updated>2017-04-29T00:00:00Z</updated>
-    <link rel="self" href="http://watson-wilson.ca/blog/tag/slaac.atom"/>
-    <link rel="alternate" href="http://watson-wilson.ca/blog/tag/slaac/"/>
+    <link href="http://watson-wilson.ca/blog/tag/slaac.atom" rel="self" />
+    <link href="http://watson-wilson.ca/blog/tag/slaac/" rel="alternate" />
     <generator version="0.094">Statocles</generator>
     <entry>
         <id>http://watson-wilson.ca/blog/2017/04/29/ipv6-priv/</id>
         <title>Linux, Ubiquity, and IPv6 privacy extensions</title>
-        <link rel="alternate" href="http://watson-wilson.ca/blog/2017/04/29/ipv6-priv/" />
+        <link href="http://watson-wilson.ca/blog/2017/04/29/ipv6-priv/" rel="alternate" />
         <content type="html"><![CDATA[
             <p><img alt="Success with IPv6" src="http://watson-wilson.ca/static/images/ipv6-success-kid.jpg" style="float:right" width="150"></p>
 

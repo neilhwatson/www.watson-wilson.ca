@@ -3,13 +3,13 @@
     <id>http://watson-wilson.ca/blog/tag/backup/</id>
     <title>Neil H. Watson</title>
     <updated>2011-10-02T00:00:00Z</updated>
-    <link rel="self" href="http://watson-wilson.ca/blog/tag/backup.atom"/>
-    <link rel="alternate" href="http://watson-wilson.ca/blog/tag/backup/"/>
+    <link href="http://watson-wilson.ca/blog/tag/backup.atom" rel="self" />
+    <link href="http://watson-wilson.ca/blog/tag/backup/" rel="alternate" />
     <generator version="0.094">Statocles</generator>
     <entry>
         <id>http://watson-wilson.ca/blog/2011/10/02/cfengine-backups/</id>
         <title>Backups using Cfengine</title>
-        <link rel="alternate" href="http://watson-wilson.ca/blog/2011/10/02/cfengine-backups/" />
+        <link href="http://watson-wilson.ca/blog/2011/10/02/cfengine-backups/" rel="alternate" />
         <content type="html"><![CDATA[
             <h3>Problem</h3>
 
@@ -32,7 +32,7 @@
     <entry>
         <id>http://watson-wilson.ca/blog/2011/07/14/dr-for-soho/</id>
         <title>Disaster recovery for small business</title>
-        <link rel="alternate" href="http://watson-wilson.ca/blog/2011/07/14/dr-for-soho/" />
+        <link href="http://watson-wilson.ca/blog/2011/07/14/dr-for-soho/" rel="alternate" />
         <content type="html"><![CDATA[
             <p>Not everyone can afford redundant servers and sites. If you are a small
 business here are some off site disaster recovery options to think about.</p>

@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en"> 
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
         <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-        <link rel="stylesheet" href="/theme/css/readability-bootstrap.min.css" />
+        <link href="/theme/css/readability-bootstrap.min.css" rel="stylesheet">
         <!--<link rel="stylesheet" href="/theme/css/statocles-bootstrap.css" />-->
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
         <title>Backups using Cfengine - Neil H. Watson</title>
-        <meta name="generator" content="Statocles 0.094" />
+        <meta content="Statocles 0.094" name="generator">
         
 
         <!-- Twitter for websites -->
@@ -31,7 +31,7 @@
          }(document, "script", "twitter-wjs"));</script>
 
         <!-- For source highlighting -->
-        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/default.min.css">
+        <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/default.min.css" rel="stylesheet">
         <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js"></script>
         <script>hljs.initHighlightingOnLoad();</script>
 
@@ -42,7 +42,7 @@
                 <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
                     <div class="navbar-header">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#top-navbar-collapse-1">
+                        <button class="navbar-toggle" data-target="#top-navbar-collapse-1" data-toggle="collapse" type="button">
                             <span class="sr-only">Toggle navigation</span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
@@ -110,34 +110,34 @@ shell commands allow you to use your own backup tools.</p>
 <pre><code>bundle agent main {
 
    vars:
-      "backupdir" string =&gt; "/srv/aux/backup",
-         handle =&gt; "main_vars_backupdir",
-         comment =&gt; "Location for backups";
+      &quot;backupdir&quot; string =&gt; &quot;/srv/aux/backup&quot;,
+         handle =&gt; &quot;main_vars_backupdir&quot;,
+         comment =&gt; &quot;Location for backups&quot;;
 
-      "backups" slist =&gt; {
-            "/home/neil/.kde/share/apps/amarok",
-            "/home/neil/.ssh",
-            "/home/neil/.gnupg",
-            "/home/neil/.gnucash",
-            "/home/neil/Mail",
-            "/srv/music/playlists",
-            "/etc",
-            "/var/www",
-            "/srv/svn/"
+      &quot;backups&quot; slist =&gt; {
+            &quot;/home/neil/.kde/share/apps/amarok&quot;,
+            &quot;/home/neil/.ssh&quot;,
+            &quot;/home/neil/.gnupg&quot;,
+            &quot;/home/neil/.gnucash&quot;,
+            &quot;/home/neil/Mail&quot;,
+            &quot;/srv/music/playlists&quot;,
+            &quot;/etc&quot;,
+            &quot;/var/www&quot;,
+            &quot;/srv/svn/&quot;
          },
-         handle =&gt; "vars_home_backups",
-         comment =&gt; "Dirs to backup";
+         handle =&gt; &quot;vars_home_backups&quot;,
+         comment =&gt; &quot;Dirs to backup&quot;;
 
    methods:
 
       Hr01::
 
-         "backup" usebundle =&gt; backup( 
+         &quot;backup&quot; usebundle =&gt; backup( 
                ${backupdir}, 
                @{main.backups} ),
-            action =&gt; if_elapsed("60"),
-            depends_on =&gt; { "svn_checkin" },
-            handle =&gt; "main_methods_home_backups";
+            action =&gt; if_elapsed(&quot;60&quot;),
+            depends_on =&gt; { &quot;svn_checkin&quot; },
+            handle =&gt; &quot;main_methods_home_backups&quot;;
 
 }
 </code></pre>
@@ -159,27 +159,27 @@ ensure that that promise is kept. Now let’s look at the called bundle.</p>
 
 vars:
 
-   "dirs" string =&gt; join(" ", "backups"),
-      handle =&gt; "backup_vars_dirs",
-      comment =&gt; "Make list of string for tar";
+   &quot;dirs&quot; string =&gt; join(&quot; &quot;, &quot;backups&quot;),
+      handle =&gt; &quot;backup_vars_dirs&quot;,
+      comment =&gt; &quot;Make list of string for tar&quot;;
 
 files:
 
-   "${dir}/."
-      handle =&gt; "backup_files_srv_backups",
-      create =&gt; "true";
+   &quot;${dir}/.&quot;
+      handle =&gt; &quot;backup_files_srv_backups&quot;,
+      create =&gt; &quot;true&quot;;
 
 commands:
 
-   "/bin/tar -czf ${dir}/cfbackup-${g.day}.tgz ${dirs}"
-      handle =&gt; "backup_commands_tar",
+   &quot;/bin/tar -czf ${dir}/cfbackup-${g.day}.tgz ${dirs}&quot;
+      handle =&gt; &quot;backup_commands_tar&quot;,
       contain =&gt; silent,
-      classes =&gt; if_else("backup_go_encrypt","backup_tar_failed");
+      classes =&gt; if_else(&quot;backup_go_encrypt&quot;,&quot;backup_tar_failed&quot;);
 
 reports:
 
    backup_tar_failed::
-      "Backup tar command failed."; 
+      &quot;Backup tar command failed.&quot;; 
 }
 </code></pre>
 
@@ -212,12 +212,12 @@ another hard drive on my workstation. First the method.</p>
 
    Hr01::
 
-      "backup_pictures" usebundle =&gt; local_sync(
-            "/home/neil/Pictures",
-            "/srv/aux/backup-pictures"
+      &quot;backup_pictures&quot; usebundle =&gt; local_sync(
+            &quot;/home/neil/Pictures&quot;,
+            &quot;/srv/aux/backup-pictures&quot;
          ),
-         action =&gt; if_elapsed("10080"),
-         handle =&gt; "main_methods_local_sync_pictures";
+         action =&gt; if_elapsed(&quot;10080&quot;),
+         handle =&gt; &quot;main_methods_local_sync_pictures&quot;;
 </code></pre>
 
 <p>This method passes two strings, both directories, to a bundle. The if_elapsed
@@ -227,15 +227,15 @@ body sets the frequency of this backup to once per week. Now the bundle.</p>
 
 files:
 
-   "${dest}/."
-      handle =&gt; "local_sync_files_dest_create",
-      create =&gt; "true",
-      perms =&gt; mog("644","root","root");
+   &quot;${dest}/.&quot;
+      handle =&gt; &quot;local_sync_files_dest_create&quot;,
+      create =&gt; &quot;true&quot;,
+      perms =&gt; mog(&quot;644&quot;,&quot;root&quot;,&quot;root&quot;);
 
-   "${dest}"
-      handle =&gt; "local_sync_files_dest_copy",
-      depth_search =&gt; recurse("inf"),
-      copy_from =&gt; local_cp("${src}");
+   &quot;${dest}&quot;
+      handle =&gt; &quot;local_sync_files_dest_copy&quot;,
+      depth_search =&gt; recurse(&quot;inf&quot;),
+      copy_from =&gt; local_cp(&quot;${src}&quot;);
 }
 </code></pre>
 
@@ -248,22 +248,22 @@ instead.</p>
 
 <h4>Encryption and off-site backups</h4>
 
-<p>Some of my backups are sent to an off-site host. I don't fully trust the
+<p>Some of my backups are sent to an off-site host. I don&#39;t fully trust the
 off-site location so I encrypt the backup files first. Again from my main
 bundle.</p>
 
 <pre><code>methods:
 
-   "backup_encrypt_neil" usebundle =&gt; backup_encrypt_neil("cfbackup-${g.day}.tgz"),
-      action =&gt; if_elapsed("60"),
-      handle =&gt; "main_methods__backup_encrypt_neil_cfbackup";
+   &quot;backup_encrypt_neil&quot; usebundle =&gt; backup_encrypt_neil(&quot;cfbackup-${g.day}.tgz&quot;),
+      action =&gt; if_elapsed(&quot;60&quot;),
+      handle =&gt; &quot;main_methods__backup_encrypt_neil_cfbackup&quot;;
 
    oort.(Saturday|Wednesday).(Hr10|Hr11)::
 
-      "remote_backup" usebundle =&gt; remote_backup_vps,
-         handle =&gt; "main_methods_oort_remote_backup_vps",
-         comment =&gt; "CEST time zone",
-         action =&gt; if_elapsed("120");
+      &quot;remote_backup&quot; usebundle =&gt; remote_backup_vps,
+         handle =&gt; &quot;main_methods_oort_remote_backup_vps&quot;,
+         comment =&gt; &quot;CEST time zone&quot;,
+         action =&gt; if_elapsed(&quot;120&quot;);
 </code></pre>
 
 <p>The first method calls a bundle make encrypted copies of my backup tar balls.
@@ -276,23 +276,23 @@ bundles.</p>
 
 vars:
 
-  "backup_dir" string =&gt; "/srv/aux/backup",
-      handle =&gt; "backup_encrype_neil_backup_dir";
+  &quot;backup_dir&quot; string =&gt; &quot;/srv/aux/backup&quot;,
+      handle =&gt; &quot;backup_encrype_neil_backup_dir&quot;;
 
-  "encrypted_dir" string =&gt; "/srv/aux/backup/encrypted",
-      handle =&gt; "backup_encrype_neil_encrypted_dir";
+  &quot;encrypted_dir&quot; string =&gt; &quot;/srv/aux/backup/encrypted&quot;,
+      handle =&gt; &quot;backup_encrype_neil_encrypted_dir&quot;;
 
 files:
 
-  "${encrypted_dir}/."
-      handle =&gt; "backup_encrypt_neil_files_encrypted",
-      create =&gt; "true";
+  &quot;${encrypted_dir}/.&quot;
+      handle =&gt; &quot;backup_encrypt_neil_files_encrypted&quot;,
+      create =&gt; &quot;true&quot;;
 
 commands:
 
-  "/usr/bin/gpg -r 'Neil Watson' -o  ${encrypted_dir}/${file}.en -e ${backup_dir}/${file}",
+  &quot;/usr/bin/gpg -r &#39;Neil Watson&#39; -o  ${encrypted_dir}/${file}.en -e ${backup_dir}/${file}&quot;,
       contain =&gt; silent,
-      handle =&gt; "backup_encrypt_neil_commands_encrypt";
+      handle =&gt; &quot;backup_encrypt_neil_commands_encrypt&quot;;
 }
 </code></pre>
 
@@ -319,13 +319,13 @@ exists.</p>
 
 files:
 
-   "/home/neil/backups"
-      handle =&gt; "remote_backup_vps_files_backups",
-      depth_search =&gt; recurse("inf"),
-      file_select =&gt; by_name(".*?${g.day}.*?\.en"),
+   &quot;/home/neil/backups&quot;
+      handle =&gt; &quot;remote_backup_vps_files_backups&quot;,
+      depth_search =&gt; recurse(&quot;inf&quot;),
+      file_select =&gt; by_name(&quot;.*?${g.day}.*?\.en&quot;),
       copy_from =&gt; remote_dcp(
-         "/srv/aux/backup/encrypted",
-         "${sys.policy_hub}"
+         &quot;/srv/aux/backup/encrypted&quot;,
+         &quot;${sys.policy_hub}&quot;
       );
 }
 </code></pre>
@@ -350,7 +350,7 @@ it is set then kickoff of the remote backup bundle.</p>
     </div>
 
     <div class="col-md-3">
-        <iframe src="https://duckduckgo.com/search.html?site=watson-wilson.ca&prefill=Search DuckDuckGo" style="overflow:hidden;margin:0;padding:0;width:350px;height:40px;" frameborder="0"></iframe>
+        <iframe frameborder="0" src="https://duckduckgo.com/search.html?site=watson-wilson.ca&amp;prefill=Search DuckDuckGo" style="overflow:hidden;margin:0;padding:0;width:350px;height:40px;"></iframe>
 
         <nav id="tags">
             <h1>Tags</h1>
@@ -454,35 +454,31 @@ it is set then kickoff of the remote backup bundle.</p>
 
 </div>
 
-<div class='row'>
-   <div class='col-md-1'>
-       <img atl='Neil Watson' src='https://gravatar.com/avatar/1f0969599955a953e592034929ed7a23' >
+<div class="row">
+   <div class="col-md-1">
+       <img atl="Neil Watson" src="https://gravatar.com/avatar/1f0969599955a953e592034929ed7a23">
    </div>
 
-       <div class='col-md-1'>
+       <div class="col-md-1">
             <!-- reddit this -->
-            <a href="//www.reddit.com/submit" onclick="window.location = '//www.reddit.com/submit?url=' + encodeURIComponent(window.location); return false"><img src="//www.redditstatic.com/spreddit7.gif" alt="submit to reddit" border="0" /></a>
+            <a href="//www.reddit.com/submit" onclick="window.location = &#39;//www.reddit.com/submit?url=&#39; + encodeURIComponent(window.location); return false"><img alt="submit to reddit" border="0" src="//www.redditstatic.com/spreddit7.gif"></a>
        </div>
 
-       <div class='col-md-1'>
+       <div class="col-md-1">
           <!-- Tweet this -->
-          <a class="twitter-share-button"
-             href="https://twitter.com/intent/tweet">
+          <a class="twitter-share-button" href="https://twitter.com/intent/tweet">
           Tweet</a>
        </div>
 
-       <div class='col-md-1'>
+       <div class="col-md-1">
           <!-- follow me on twitter -->
-         <a class="twitter-follow-button"
-            data-show-count="false"
-            data-show-screen-name="false"
-           href="https://twitter.com/neil_h_watson">
+         <a class="twitter-follow-button" data-show-count="false" data-show-screen-name="false" href="https://twitter.com/neil_h_watson">
          Follow @neil_h_watson</a>
         </div>
 
-       <div class='col-md-1'>
+       <div class="col-md-1">
            <!-- follw me on github -->
-            <a aria-label="Follow @neilhwatson on GitHub" data-style="mega" href="https://github.com/neilhwatson" class="github-button">Follow</a>
+            <a aria-label="Follow @neilhwatson on GitHub" class="github-button" data-style="mega" href="https://github.com/neilhwatson">Follow</a>
             <script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
        </div>
 
@@ -492,9 +488,9 @@ it is set then kickoff of the remote backup bundle.</p>
         <footer>
             
             <h1></h1>
-            <div class='col-md-5'> </div>
+            <div class="col-md-5"> </div>
             <div class="col-md-3 container tagline">
-                <a href="http://preaction.me/statocles">Made with Statocles</a><br/>
+                <a href="http://preaction.me/statocles">Made with Statocles</a><br>
                 <a href="http://www.perl.org">Powered by Perl</a>
             </div>
         </footer>

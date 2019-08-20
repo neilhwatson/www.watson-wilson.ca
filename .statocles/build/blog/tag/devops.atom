@@ -3,14 +3,14 @@
     <id>http://watson-wilson.ca/blog/tag/devops/</id>
     <title>Neil H. Watson</title>
     <updated>2015-08-20T15:33:18Z</updated>
-    <link rel="self" href="http://watson-wilson.ca/blog/tag/devops.atom"/>
-    <link rel="alternate" href="http://watson-wilson.ca/blog/tag/devops/"/>
+    <link href="http://watson-wilson.ca/blog/tag/devops.atom" rel="self" />
+    <link href="http://watson-wilson.ca/blog/tag/devops/" rel="alternate" />
     <generator version="0.094">Statocles</generator>
     <entry>
         <id>http://watson-wilson.ca/blog/2015/08/20/testing-cfengine-using-efl-tap-and-perl/</id>
         <title>Testing CFEngine policy using EFL, TAP, and Perl</title>
         <author><name>nwatson</name></author>
-        <link rel="alternate" href="http://watson-wilson.ca/blog/2015/08/20/testing-cfengine-using-efl-tap-and-perl/" />
+        <link href="http://watson-wilson.ca/blog/2015/08/20/testing-cfengine-using-efl-tap-and-perl/" rel="alternate" />
         <content type="html"><![CDATA[
             <p><img alt="Prove and TAP output" src="http://watson-wilson.ca/static/images/efl_tests.png"></p>
 
@@ -36,7 +36,7 @@ TAP output.</p>
         <id>http://watson-wilson.ca/blog/2014/10/30/changes-in-virt-install-and-kickstart-in-rhel7/</id>
         <title>Changes in virt-install and Kickstart in RHEL7</title>
         <author><name>nwatson</name></author>
-        <link rel="alternate" href="http://watson-wilson.ca/blog/2014/10/30/changes-in-virt-install-and-kickstart-in-rhel7/" />
+        <link href="http://watson-wilson.ca/blog/2014/10/30/changes-in-virt-install-and-kickstart-in-rhel7/" rel="alternate" />
         <content type="html"><![CDATA[
             <p><img alt="army provisions" src="http://watson-wilson.ca/static/images/mre-case.jpg"></p>
 
@@ -71,7 +71,7 @@ hosts.</p>
         <id>http://watson-wilson.ca/blog/2014/09/19/testing-cfengine-policy-by-counting-classes/</id>
         <title>Testing CFEngine policy by counting classes</title>
         <author><name>nwatson</name></author>
-        <link rel="alternate" href="http://watson-wilson.ca/blog/2014/09/19/testing-cfengine-policy-by-counting-classes/" />
+        <link href="http://watson-wilson.ca/blog/2014/09/19/testing-cfengine-policy-by-counting-classes/" rel="alternate" />
         <content type="html"><![CDATA[
             <p><img alt="counting" src="http://watson-wilson.ca/static/images/counting.jpg"></p>
 
@@ -104,7 +104,7 @@ template.</p>
         <id>http://watson-wilson.ca/blog/2014/09/17/testing-cfengine-policy/</id>
         <title>Testing CFEngine policy</title>
         <author><name>nwatson</name></author>
-        <link rel="alternate" href="http://watson-wilson.ca/blog/2014/09/17/testing-cfengine-policy/" />
+        <link href="http://watson-wilson.ca/blog/2014/09/17/testing-cfengine-policy/" rel="alternate" />
         <content type="html"><![CDATA[
             <p><img alt="f4-crashtest" src="http://watson-wilson.ca/static/images/f4-crashtest.jpg"></p>
 
@@ -133,7 +133,7 @@ there?</p>
         <id>http://watson-wilson.ca/blog/2014/09/04/devops-days-toronto-12-13-sept-2014/</id>
         <title>Devops Days Toronto 12-13  Sept 2014</title>
         <author><name>nwatson</name></author>
-        <link rel="alternate" href="http://watson-wilson.ca/blog/2014/09/04/devops-days-toronto-12-13-sept-2014/" />
+        <link href="http://watson-wilson.ca/blog/2014/09/04/devops-days-toronto-12-13-sept-2014/" rel="alternate" />
         <content type="html"><![CDATA[
             <p><img alt="Devops days toronto 2014 logo" src="http://watson-wilson.ca/static/images/devopsdaystoronto.png"></p>
 

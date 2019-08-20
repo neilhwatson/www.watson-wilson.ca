@@ -3,13 +3,13 @@
     <id>http://watson-wilson.ca/blog/tag/heartbeat/</id>
     <title>Neil H. Watson</title>
     <updated>2011-03-07T00:00:00Z</updated>
-    <link rel="self" href="http://watson-wilson.ca/blog/tag/heartbeat.atom"/>
-    <link rel="alternate" href="http://watson-wilson.ca/blog/tag/heartbeat/"/>
+    <link href="http://watson-wilson.ca/blog/tag/heartbeat.atom" rel="self" />
+    <link href="http://watson-wilson.ca/blog/tag/heartbeat/" rel="alternate" />
     <generator version="0.094">Statocles</generator>
     <entry>
         <id>http://watson-wilson.ca/blog/2011/03/07/heartbeat2-cheatsheet/</id>
         <title>Heartbeat 2 cheatsheet</title>
-        <link rel="alternate" href="http://watson-wilson.ca/blog/2011/03/07/heartbeat2-cheatsheet/" />
+        <link href="http://watson-wilson.ca/blog/2011/03/07/heartbeat2-cheatsheet/" rel="alternate" />
         <content type="html"><![CDATA[
             <h3>Commands</h3>
 

@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en"> 
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
         <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-        <link rel="stylesheet" href="/theme/css/readability-bootstrap.min.css" />
+        <link href="/theme/css/readability-bootstrap.min.css" rel="stylesheet">
         <!--<link rel="stylesheet" href="/theme/css/statocles-bootstrap.css" />-->
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
         <title>Testing CFEngine policy using EFL, TAP, and Perl - Neil H. Watson</title>
-        <meta name="generator" content="Statocles 0.094" />
+        <meta content="Statocles 0.094" name="generator">
         
 
         <!-- Twitter for websites -->
@@ -31,7 +31,7 @@
          }(document, "script", "twitter-wjs"));</script>
 
         <!-- For source highlighting -->
-        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/default.min.css">
+        <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/default.min.css" rel="stylesheet">
         <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js"></script>
         <script>hljs.initHighlightingOnLoad();</script>
 
@@ -42,7 +42,7 @@
                 <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
                     <div class="navbar-header">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#top-navbar-collapse-1">
+                        <button class="navbar-toggle" data-target="#top-navbar-collapse-1" data-toggle="collapse" type="button">
                             <span class="sr-only">Toggle navigation</span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
@@ -89,9 +89,9 @@
 
             </header>
             <section id="section-1">
-                <p><img src="/static/images/efl_tests.png" alt="Prove and TAP output" /></p>
+                <p><img alt="Prove and TAP output" src="/static/images/efl_tests.png"></p>
 
-<p>It's a dirty secret that few test their CFEngine policies, and fewer
+<p>It&#39;s a dirty secret that few test their CFEngine policies, and fewer
 still test them well. Now EFL has two bundles for testing that produce
 TAP output.</p>
 
@@ -100,14 +100,14 @@ TAP output.</p>
                 <h3>What is TAP?</h3>
 
 <p>The <a href="https://en.wikipedia.org/wiki/Test_Anything_Protocol"><em>Test Anything Protocol</em></a>
-was invented for unit testing Perl. It's simple yet powerful with a
+was invented for unit testing Perl. It&#39;s simple yet powerful with a
 format like this:</p>
 
 <pre><code>(start test number)..(end test number)
 (ok|not ok) (test number) - Test name in free form
 </code></pre>
 
-<p>Here's and example output:</p>
+<p>Here&#39;s and example output:</p>
 
 <pre><code>R: efl_data_efl_test_vars_efl_global_strings_json_26ca18b4fe77f2fc4a494be
 1..3
@@ -124,7 +124,7 @@ will summarize them for you.</p>
 
 <p>EFL comes with two testing bundles that generate TAP output via reports
 promises. <em>Efl_test_classes</em> tests if a class is defined or not, and <em>efl_test_vars</em>
-tests the value of a variable. Let's look at some examples. Note that I
+tests the value of a variable. Let&#39;s look at some examples. Note that I
 assume you have working CFEngine master framework policy and <a href="https://github.com/neilhwatson/evolve_cfengine_freelib/blob/master/INSTALL.md">EFL
 installed</a></p>
 
@@ -135,29 +135,29 @@ Efl_test_classes takes a parameter file like this:</p>
 
 <pre><code>[
    {
-      "class"         : "test_for_am_middleware_host",
-      "class_to_test" : "am_middleware_host",
-      "test_type"     : "is",
-      "name"          : "Testing if 'am_middleware_host is set"
+      &quot;class&quot;         : &quot;test_for_am_middleware_host&quot;,
+      &quot;class_to_test&quot; : &quot;am_middleware_host&quot;,
+      &quot;test_type&quot;     : &quot;is&quot;,
+      &quot;name&quot;          : &quot;Testing if &#39;am_middleware_host is set&quot;
    }
 ]
 </code></pre>
 
-<p>The test type works like Perl's <a href="https://metacpan.org/pod/Test::More">Test::More module</a>.
+<p>The test type works like Perl&#39;s <a href="https://metacpan.org/pod/Test::More">Test::More module</a>.
 Available test types are is, isnt, like, and unlike. The above test
-will pass if <em>class_to_test</em> is defined. Let's run it.</p>
+will pass if <em>class_to_test</em> is defined. Let&#39;s run it.</p>
 
 <pre><code>cf-agent -D run_test_suite,test_for_am_middleware_host
 R: efl_test_classes_json_bbb9ad33c9792ef54f738a641bb72abfc75640a4
 1..1
 R: efl_test_classes_json_bbb9ad33c9792ef54f738a641bb72abfc75640a4
-ok 1 - Testing if 'am_middleware_host is set
+ok 1 - Testing if &#39;am_middleware_host is set
 </code></pre>
 
-<p>At this point you might say "Neil, why don't you just grep verbose
-output to see if the class is true?". Sure, that type of adhoc testing
+<p>At this point you might say &quot;Neil, why don&#39;t you just grep verbose
+output to see if the class is true?&quot;. Sure, that type of adhoc testing
 is fine, but the testing offered here is for automatic testing, so you
-can script this test using Perl's prove. Below we encapsulate the
+can script this test using Perl&#39;s prove. Below we encapsulate the
 cf-agent command into <em>cf-test.t</em> because prove works by running files
 ending in .t and parsing TAP output.</p>
 
@@ -183,11 +183,11 @@ classes are automatically defined:</p>
 
 <pre><code>body classes efl_rkn( promiser, handle )
 {
-      promise_kept      =&gt; { "${promiser}_handle_${handle}_kept" };
-      promise_repaired  =&gt; { "${promiser}_handle_${handle}_repaired" };
-      repair_failed     =&gt; { "${promiser}_handle_${handle}_notkept" };
-      repair_denied     =&gt; { "${promiser}_handle_${handle}_notkept" };
-      repair_timeout    =&gt; { "${promiser}_handle_${handle}_notkept" };
+      promise_kept      =&gt; { &quot;${promiser}_handle_${handle}_kept&quot; };
+      promise_repaired  =&gt; { &quot;${promiser}_handle_${handle}_repaired&quot; };
+      repair_failed     =&gt; { &quot;${promiser}_handle_${handle}_notkept&quot; };
+      repair_denied     =&gt; { &quot;${promiser}_handle_${handle}_notkept&quot; };
+      repair_timeout    =&gt; { &quot;${promiser}_handle_${handle}_notkept&quot; };
 }
 </code></pre>
 
@@ -198,35 +198,35 @@ can have test cases for any new policy.</p>
 
 <p>Efl_test_vars is similar to efl_test_classes. You compare the value of
 a given variable against a give string or regex. Again it uses is,
-isnt, like, and unlike. Here's an example from EFL's own test suite:</p>
+isnt, like, and unlike. Here&#39;s an example from EFL&#39;s own test suite:</p>
 
 <pre><code>[
    {
-      "test_case" : "Neil H. Watson (neil@watson-wilson.ca)",
-      "test_type" : "is",
-      "class" : "any",
-      "name" : "main_efl_dev [${efl_global_strings.main_efl_dev}]",
-      "var_to_test" : "${efl_global_strings.main_efl_dev}"
+      &quot;test_case&quot; : &quot;Neil H. Watson (neil@watson-wilson.ca)&quot;,
+      &quot;test_type&quot; : &quot;is&quot;,
+      &quot;class&quot; : &quot;any&quot;,
+      &quot;name&quot; : &quot;main_efl_dev [${efl_global_strings.main_efl_dev}]&quot;,
+      &quot;var_to_test&quot; : &quot;${efl_global_strings.main_efl_dev}&quot;
    },
    {
-      "test_type" : "is",
-      "class" : "any",
-      "name" : "gateway [${efl_global_strings.gateway}]",
-      "var_to_test" : "${efl_global_strings.gateway}",
-      "test_case" : "2001:DB8::1"
+      &quot;test_type&quot; : &quot;is&quot;,
+      &quot;class&quot; : &quot;any&quot;,
+      &quot;name&quot; : &quot;gateway [${efl_global_strings.gateway}]&quot;,
+      &quot;var_to_test&quot; : &quot;${efl_global_strings.gateway}&quot;,
+      &quot;test_case&quot; : &quot;2001:DB8::1&quot;
    },
    {
-      "test_case" : "3",
-      "test_type" : "is",
-      "class" : "any",
-      "var_to_test" : "${efl_global_strings.cf_major}",
-      "name" : "cfe version [${efl_global_strings.cf_major}]"
+      &quot;test_case&quot; : &quot;3&quot;,
+      &quot;test_type&quot; : &quot;is&quot;,
+      &quot;class&quot; : &quot;any&quot;,
+      &quot;var_to_test&quot; : &quot;${efl_global_strings.cf_major}&quot;,
+      &quot;name&quot; : &quot;cfe version [${efl_global_strings.cf_major}]&quot;
    }
 ]
 </code></pre>
 
-<p>This data is used by EFL's test suite to test that the bundle
-efl_global_strings correctly defines variables. Here's the raw output:</p>
+<p>This data is used by EFL&#39;s test suite to test that the bundle
+efl_global_strings correctly defines variables. Here&#39;s the raw output:</p>
 
 <pre><code>t/31_efl_global_strings_json.t
 R: efl_data_efl_test_vars_efl_global_strings_json_26ca18b4fe77f2fc4a494be0
@@ -239,7 +239,7 @@ R: efl_data_efl_test_vars_efl_global_strings_json_26ca18b4fe77f2fc4a494be0
 ok 3 - cfe version [3]
 </code></pre>
 
-<p>And here's the output from prove:</p>
+<p>And here&#39;s the output from prove:</p>
 
 <pre><code>prove t/31_efl_global_strings_json.t 
 t/31_efl_global_strings_json.t .. ok   
@@ -249,7 +249,7 @@ Result: PASS
 </code></pre>
 
 <p>I hope this has given you some ideas on how you can improve your policy
-testing. Feel free to contact me if you have questions or if you'd like
+testing. Feel free to contact me if you have questions or if you&#39;d like
 a consulting engagement. Happy testing!</p>
 
             </section>
@@ -259,7 +259,7 @@ a consulting engagement. Happy testing!</p>
     </div>
 
     <div class="col-md-3">
-        <iframe src="https://duckduckgo.com/search.html?site=watson-wilson.ca&prefill=Search DuckDuckGo" style="overflow:hidden;margin:0;padding:0;width:350px;height:40px;" frameborder="0"></iframe>
+        <iframe frameborder="0" src="https://duckduckgo.com/search.html?site=watson-wilson.ca&amp;prefill=Search DuckDuckGo" style="overflow:hidden;margin:0;padding:0;width:350px;height:40px;"></iframe>
 
         <nav id="tags">
             <h1>Tags</h1>
@@ -363,35 +363,31 @@ a consulting engagement. Happy testing!</p>
 
 </div>
 
-<div class='row'>
-   <div class='col-md-1'>
-       <img atl='Neil Watson' src='https://gravatar.com/avatar/1f0969599955a953e592034929ed7a23' >
+<div class="row">
+   <div class="col-md-1">
+       <img atl="Neil Watson" src="https://gravatar.com/avatar/1f0969599955a953e592034929ed7a23">
    </div>
 
-       <div class='col-md-1'>
+       <div class="col-md-1">
             <!-- reddit this -->
-            <a href="//www.reddit.com/submit" onclick="window.location = '//www.reddit.com/submit?url=' + encodeURIComponent(window.location); return false"><img src="//www.redditstatic.com/spreddit7.gif" alt="submit to reddit" border="0" /></a>
+            <a href="//www.reddit.com/submit" onclick="window.location = &#39;//www.reddit.com/submit?url=&#39; + encodeURIComponent(window.location); return false"><img alt="submit to reddit" border="0" src="//www.redditstatic.com/spreddit7.gif"></a>
        </div>
 
-       <div class='col-md-1'>
+       <div class="col-md-1">
           <!-- Tweet this -->
-          <a class="twitter-share-button"
-             href="https://twitter.com/intent/tweet">
+          <a class="twitter-share-button" href="https://twitter.com/intent/tweet">
           Tweet</a>
        </div>
 
-       <div class='col-md-1'>
+       <div class="col-md-1">
           <!-- follow me on twitter -->
-         <a class="twitter-follow-button"
-            data-show-count="false"
-            data-show-screen-name="false"
-           href="https://twitter.com/neil_h_watson">
+         <a class="twitter-follow-button" data-show-count="false" data-show-screen-name="false" href="https://twitter.com/neil_h_watson">
          Follow @neil_h_watson</a>
         </div>
 
-       <div class='col-md-1'>
+       <div class="col-md-1">
            <!-- follw me on github -->
-            <a aria-label="Follow @neilhwatson on GitHub" data-style="mega" href="https://github.com/neilhwatson" class="github-button">Follow</a>
+            <a aria-label="Follow @neilhwatson on GitHub" class="github-button" data-style="mega" href="https://github.com/neilhwatson">Follow</a>
             <script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
        </div>
 
@@ -401,9 +397,9 @@ a consulting engagement. Happy testing!</p>
         <footer>
             
             <h1></h1>
-            <div class='col-md-5'> </div>
+            <div class="col-md-5"> </div>
             <div class="col-md-3 container tagline">
-                <a href="http://preaction.me/statocles">Made with Statocles</a><br/>
+                <a href="http://preaction.me/statocles">Made with Statocles</a><br>
                 <a href="http://www.perl.org">Powered by Perl</a>
             </div>
         </footer>

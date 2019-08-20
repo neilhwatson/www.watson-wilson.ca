@@ -3,13 +3,13 @@
     <id>http://watson-wilson.ca/blog/tag/programming/</id>
     <title>Neil H. Watson</title>
     <updated>2017-04-18T00:00:00Z</updated>
-    <link rel="self" href="http://watson-wilson.ca/blog/tag/programming.atom"/>
-    <link rel="alternate" href="http://watson-wilson.ca/blog/tag/programming/"/>
+    <link href="http://watson-wilson.ca/blog/tag/programming.atom" rel="self" />
+    <link href="http://watson-wilson.ca/blog/tag/programming/" rel="alternate" />
     <generator version="0.094">Statocles</generator>
     <entry>
         <id>http://watson-wilson.ca/blog/2017/04/18/improve-programming/</id>
         <title>Improve your Python, Perl, or Ruby</title>
-        <link rel="alternate" href="http://watson-wilson.ca/blog/2017/04/18/improve-programming/" />
+        <link href="http://watson-wilson.ca/blog/2017/04/18/improve-programming/" rel="alternate" />
         <content type="html"><![CDATA[
             <p><img alt="oreilly funny book cover" src="http://watson-wilson.ca/static/images/copy-paste-stack.jpg" style="float:right" width="120px"></p>
 
@@ -36,7 +36,7 @@
     <entry>
         <id>http://watson-wilson.ca/blog/2015/11/25/perl-cheatsheet/</id>
         <title>Perl cheatsheet</title>
-        <link rel="alternate" href="http://watson-wilson.ca/blog/2015/11/25/perl-cheatsheet/" />
+        <link href="http://watson-wilson.ca/blog/2015/11/25/perl-cheatsheet/" rel="alternate" />
         <content type="html"><![CDATA[
             <p>If you are looking for my Perl cheatsheet, it&#39;s over
 <a href="https://github.com/neilhwatson/nustuff/blob/master/perl/cheatsheet.pod">here</a>.

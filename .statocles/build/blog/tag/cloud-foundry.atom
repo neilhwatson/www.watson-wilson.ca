@@ -3,13 +3,13 @@
     <id>http://watson-wilson.ca/blog/tag/cloud-foundry/</id>
     <title>Neil H. Watson</title>
     <updated>2016-10-10T00:00:00Z</updated>
-    <link rel="self" href="http://watson-wilson.ca/blog/tag/cloud-foundry.atom"/>
-    <link rel="alternate" href="http://watson-wilson.ca/blog/tag/cloud-foundry/"/>
+    <link href="http://watson-wilson.ca/blog/tag/cloud-foundry.atom" rel="self" />
+    <link href="http://watson-wilson.ca/blog/tag/cloud-foundry/" rel="alternate" />
     <generator version="0.094">Statocles</generator>
     <entry>
         <id>http://watson-wilson.ca/blog/2016/10/10/cloudfoundry/</id>
         <title>Bosh and Cloud Foundry, an intro</title>
-        <link rel="alternate" href="http://watson-wilson.ca/blog/2016/10/10/cloudfoundry/" />
+        <link href="http://watson-wilson.ca/blog/2016/10/10/cloudfoundry/" rel="alternate" />
         <content type="html"><![CDATA[
             <p><a href="https://cloudfoundry.org/"><img alt="cloudfoundry website" src="http://watson-wilson.ca/static/images/Cloud-Foundry-Logo.png" style="float:right" width="120px"></a></p>
 

@@ -3,13 +3,13 @@
     <id>http://watson-wilson.ca/blog/tag/cfengine-cookbook/</id>
     <title>Neil H. Watson</title>
     <updated>2011-10-02T00:00:00Z</updated>
-    <link rel="self" href="http://watson-wilson.ca/blog/tag/cfengine-cookbook.atom"/>
-    <link rel="alternate" href="http://watson-wilson.ca/blog/tag/cfengine-cookbook/"/>
+    <link href="http://watson-wilson.ca/blog/tag/cfengine-cookbook.atom" rel="self" />
+    <link href="http://watson-wilson.ca/blog/tag/cfengine-cookbook/" rel="alternate" />
     <generator version="0.094">Statocles</generator>
     <entry>
         <id>http://watson-wilson.ca/blog/2011/10/02/cfengine-backups/</id>
         <title>Backups using Cfengine</title>
-        <link rel="alternate" href="http://watson-wilson.ca/blog/2011/10/02/cfengine-backups/" />
+        <link href="http://watson-wilson.ca/blog/2011/10/02/cfengine-backups/" rel="alternate" />
         <content type="html"><![CDATA[
             <h3>Problem</h3>
 
@@ -32,7 +32,7 @@
     <entry>
         <id>http://watson-wilson.ca/blog/2011/09/16/cfengine-dynamic-bundlesequence/</id>
         <title>Dynamic bundlesequence in CFEngine</title>
-        <link rel="alternate" href="http://watson-wilson.ca/blog/2011/09/16/cfengine-dynamic-bundlesequence/" />
+        <link href="http://watson-wilson.ca/blog/2011/09/16/cfengine-dynamic-bundlesequence/" rel="alternate" />
         <content type="html"><![CDATA[
             <h3>Problem</h3>
 
@@ -53,7 +53,7 @@
     <entry>
         <id>http://watson-wilson.ca/blog/2011/05/26/cfengine-banning-process/</id>
         <title>Banning processes using CFEngine</title>
-        <link rel="alternate" href="http://watson-wilson.ca/blog/2011/05/26/cfengine-banning-process/" />
+        <link href="http://watson-wilson.ca/blog/2011/05/26/cfengine-banning-process/" rel="alternate" />
         <content type="html"><![CDATA[
             <h3>Problem</h3>
 
@@ -76,7 +76,7 @@
     <entry>
         <id>http://watson-wilson.ca/blog/2011/05/26/cfengine-templates/</id>
         <title>Template files using CFEngine</title>
-        <link rel="alternate" href="http://watson-wilson.ca/blog/2011/05/26/cfengine-templates/" />
+        <link href="http://watson-wilson.ca/blog/2011/05/26/cfengine-templates/" rel="alternate" />
         <content type="html"><![CDATA[
             <h3>Problem</h3>
 
@@ -99,7 +99,7 @@ different file for so many hosts? Sysadmins are a lazy lot.</p>
     <entry>
         <id>http://watson-wilson.ca/blog/2011/05/26/cfengine-ssh-keys/</id>
         <title>SSH public key distribution using CFEngine</title>
-        <link rel="alternate" href="http://watson-wilson.ca/blog/2011/05/26/cfengine-ssh-keys/" />
+        <link href="http://watson-wilson.ca/blog/2011/05/26/cfengine-ssh-keys/" rel="alternate" />
         <content type="html"><![CDATA[
             <h3>Problem</h3>
 

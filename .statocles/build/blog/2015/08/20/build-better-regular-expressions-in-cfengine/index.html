@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en"> 
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
         <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-        <link rel="stylesheet" href="/theme/css/readability-bootstrap.min.css" />
+        <link href="/theme/css/readability-bootstrap.min.css" rel="stylesheet">
         <!--<link rel="stylesheet" href="/theme/css/statocles-bootstrap.css" />-->
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
         <title>Build better regular expressions in CFEngine - Neil H. Watson</title>
-        <meta name="generator" content="Statocles 0.094" />
+        <meta content="Statocles 0.094" name="generator">
         
 
         <!-- Twitter for websites -->
@@ -31,7 +31,7 @@
          }(document, "script", "twitter-wjs"));</script>
 
         <!-- For source highlighting -->
-        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/default.min.css">
+        <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/default.min.css" rel="stylesheet">
         <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js"></script>
         <script>hljs.initHighlightingOnLoad();</script>
 
@@ -42,7 +42,7 @@
                 <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
                     <div class="navbar-header">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#top-navbar-collapse-1">
+                        <button class="navbar-toggle" data-target="#top-navbar-collapse-1" data-toggle="collapse" type="button">
                             <span class="sr-only">Toggle navigation</span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
@@ -89,59 +89,59 @@
 
             </header>
             <section id="section-1">
-                <p><img src="/static/images/regex.png" alt="picture of a regex" /></p>
+                <p><img alt="picture of a regex" src="/static/images/regex.png"></p>
 
 <p>Regular expressions can vary from simple to WTF. Usually they tend
-toward the latter. What most don't realized, or are too lazy to use, is
+toward the latter. What most don&#39;t realized, or are too lazy to use, is
 that regular expressions can be made to include friendly whitespace and
 comments. CFEngine is no exception.</p>
 
             </section>
             <section id="section-2">
-                <p>Let's look at an example regular expression and policy to match IP
+                <p>Let&#39;s look at an example regular expression and policy to match IP
 addresses. This is a non-trivial expression. (Thanks to the Perl module
 <a href="https://metacpan.org/pod/Regexp::Common::net">Regexp::Common::net</a> for
 my regex source). In this example I match a list of three IP addresses
 against the regex and set a class for each match. Reports promises
-produce a TAP output (ok) if there was a match. First let's see the
+produce a TAP output (ok) if there was a match. First let&#39;s see the
 horrific regular expression.</p>
 
 <pre><code>body common control
 {
-        bundlesequence =&gt; { "main", };
+        bundlesequence =&gt; { &quot;main&quot;, };
 }
 
 bundle agent main
 {
    vars:
-      "ips" slist =&gt; { "10.0.0.1", "192.168.0.1", "172.16.233.255" };
+      &quot;ips&quot; slist =&gt; { &quot;10.0.0.1&quot;, &quot;192.168.0.1&quot;, &quot;172.16.233.255&quot; };
 
    classes:
-      "match_${ips}"
-         comment    =&gt; "Oh, the horror!",
+      &quot;match_${ips}&quot;
+         comment    =&gt; &quot;Oh, the horror!&quot;,
          expression =&gt; regcmp( 
-"(25[0-5]|2[0-4][0-9]|[0-1]?[0-9]{1,2})[.](25[0-5]|2[0-4][0-9]|[0-1]?[0-9]{1,2})[.](25[0-5]|2[0-4][0-9]|[0-1]?[0-9]{1,2})[.](25[0-5]|2[0-4][0-9]|[0-1]?[0-9]{1,2})",
+&quot;(25[0-5]|2[0-4][0-9]|[0-1]?[0-9]{1,2})[.](25[0-5]|2[0-4][0-9]|[0-1]?[0-9]{1,2})[.](25[0-5]|2[0-4][0-9]|[0-1]?[0-9]{1,2})[.](25[0-5]|2[0-4][0-9]|[0-1]?[0-9]{1,2})&quot;,
             ${ips}
             );
 
       reports:
-         "1..3";
-         "ok 1 - Match 10.0.0.1"
-            if =&gt; canonify( "match_10.0.0.1" );
-         "not ok 1 - Match 10.0.0.1"
-            if =&gt; not( canonify( "match_10.0.0.1" ));
-         "ok 1 - Match 192.168.0.1"
-            if =&gt; canonify( "match_192.168.0.1" );
-         "not ok 1 - Match 192.168.0.1"
-            if =&gt; not( canonify( "match_192.168.0.1" ));
-         "ok 1 - Match 172.16.233.255"
-            if =&gt; canonify( "match_172.16.233.255" );
-         "not ok 1 - Match 172.16.233.255"
-            if =&gt; not( canonify( "match_172.16.233.255" ));
+         &quot;1..3&quot;;
+         &quot;ok 1 - Match 10.0.0.1&quot;
+            if =&gt; canonify( &quot;match_10.0.0.1&quot; );
+         &quot;not ok 1 - Match 10.0.0.1&quot;
+            if =&gt; not( canonify( &quot;match_10.0.0.1&quot; ));
+         &quot;ok 1 - Match 192.168.0.1&quot;
+            if =&gt; canonify( &quot;match_192.168.0.1&quot; );
+         &quot;not ok 1 - Match 192.168.0.1&quot;
+            if =&gt; not( canonify( &quot;match_192.168.0.1&quot; ));
+         &quot;ok 1 - Match 172.16.233.255&quot;
+            if =&gt; canonify( &quot;match_172.16.233.255&quot; );
+         &quot;not ok 1 - Match 172.16.233.255&quot;
+            if =&gt; not( canonify( &quot;match_172.16.233.255&quot; ));
 }
 </code></pre>
 
-<p>You'd rather insult Chuck Norris' wife than read that regex. But, it
+<p>You&#39;d rather insult Chuck Norris&#39; wife than read that regex. But, it
 actually works:</p>
 
 <pre><code>R: 1..3
@@ -150,7 +150,7 @@ R: ok 1 - Match 192.168.0.1
 R: ok 1 - Match 172.16.233.255
 </code></pre>
 
-<p>Now, let's lessen the stress, pain, and wrath of the future maintainers
+<p>Now, let&#39;s lessen the stress, pain, and wrath of the future maintainers
 of our code. Here we use the setting (?mxs) (Note that the mxs can be
 in any order so long as the question mark is first) which allows us to
 spread the regex over multiple lines and add comments because # and
@@ -159,19 +159,19 @@ magic, but part of PCRE.</p>
 
 <pre><code>body common control
 {
-        bundlesequence =&gt; { "main", };
+        bundlesequence =&gt; { &quot;main&quot;, };
 }
 
 bundle agent main
 {
    vars:
-      "ips" slist =&gt; { "10.0.0.1", "192.168.0.1", "172.16.233.255" };
+      &quot;ips&quot; slist =&gt; { &quot;10.0.0.1&quot;, &quot;192.168.0.1&quot;, &quot;172.16.233.255&quot; };
 
    classes:
-      "match_${ips}"
-         comment    =&gt; "I deserve a raise for this.",
+      &quot;match_${ips}&quot;
+         comment    =&gt; &quot;I deserve a raise for this.&quot;,
          expression =&gt; regcmp( 
-         "(?xms)
+         &quot;(?xms)
             # First octet 
             (?:
                25[0-5]            # Remember ips go as high as 255.
@@ -208,38 +208,38 @@ bundle agent main
                |                  # or
                [0-1]?[0-9]{1,2}   # Less than 200.
             ) 
-         ",
+         &quot;,
             ${ips}
             );
 
       reports:
-         "1..3";
-         "ok 1 - Match 10.0.0.1"
-            if =&gt; canonify( "match_10.0.0.1" );
-         "not ok 1 - Match 10.0.0.1"
-            if =&gt; not( canonify( "match_10.0.0.1" ));
-         "ok 1 - Match 192.168.0.1"
-            if =&gt; canonify( "match_192.168.0.1" );
-         "not ok 1 - Match 192.168.0.1"
-            if =&gt; not( canonify( "match_192.168.0.1" ));
-         "ok 1 - Match 172.16.233.255"
-            if =&gt; canonify( "match_172.16.233.255" );
-         "not ok 1 - Match 172.16.233.255"
-            if =&gt; not( canonify( "match_172.16.233.255" ));
+         &quot;1..3&quot;;
+         &quot;ok 1 - Match 10.0.0.1&quot;
+            if =&gt; canonify( &quot;match_10.0.0.1&quot; );
+         &quot;not ok 1 - Match 10.0.0.1&quot;
+            if =&gt; not( canonify( &quot;match_10.0.0.1&quot; ));
+         &quot;ok 1 - Match 192.168.0.1&quot;
+            if =&gt; canonify( &quot;match_192.168.0.1&quot; );
+         &quot;not ok 1 - Match 192.168.0.1&quot;
+            if =&gt; not( canonify( &quot;match_192.168.0.1&quot; ));
+         &quot;ok 1 - Match 172.16.233.255&quot;
+            if =&gt; canonify( &quot;match_172.16.233.255&quot; );
+         &quot;not ok 1 - Match 172.16.233.255&quot;
+            if =&gt; not( canonify( &quot;match_172.16.233.255&quot; ));
 }
 </code></pre>
 
-<p>That's much nicer and it produces the same results. Also notice the use
+<p>That&#39;s much nicer and it produces the same results. Also notice the use
 non-capture groups (?:). This is good practice in regular expression to
 avoid unwanted captures.</p>
 
-<p>Note that because (?msx) ignores whitespace you'll have to use <em>\s</em> and
+<p>Note that because (?msx) ignores whitespace you&#39;ll have to use <em>\s</em> and
 perhaps modifiers to express any whitespace, including new lines.</p>
 
 <p>I encourage you to use (?mxs) in all your regular expressions. Be
 considerate of your fellows and your future shelf. Make you regexes
 readable and documented just as you would your other code (your other
-code is pretty isn't!?).</p>
+code is pretty isn&#39;t!?).</p>
 
 <h3>Further reading</h3>
 
@@ -256,7 +256,7 @@ code is pretty isn't!?).</p>
     </div>
 
     <div class="col-md-3">
-        <iframe src="https://duckduckgo.com/search.html?site=watson-wilson.ca&prefill=Search DuckDuckGo" style="overflow:hidden;margin:0;padding:0;width:350px;height:40px;" frameborder="0"></iframe>
+        <iframe frameborder="0" src="https://duckduckgo.com/search.html?site=watson-wilson.ca&amp;prefill=Search DuckDuckGo" style="overflow:hidden;margin:0;padding:0;width:350px;height:40px;"></iframe>
 
         <nav id="tags">
             <h1>Tags</h1>
@@ -360,35 +360,31 @@ code is pretty isn't!?).</p>
 
 </div>
 
-<div class='row'>
-   <div class='col-md-1'>
-       <img atl='Neil Watson' src='https://gravatar.com/avatar/1f0969599955a953e592034929ed7a23' >
+<div class="row">
+   <div class="col-md-1">
+       <img atl="Neil Watson" src="https://gravatar.com/avatar/1f0969599955a953e592034929ed7a23">
    </div>
 
-       <div class='col-md-1'>
+       <div class="col-md-1">
             <!-- reddit this -->
-            <a href="//www.reddit.com/submit" onclick="window.location = '//www.reddit.com/submit?url=' + encodeURIComponent(window.location); return false"><img src="//www.redditstatic.com/spreddit7.gif" alt="submit to reddit" border="0" /></a>
+            <a href="//www.reddit.com/submit" onclick="window.location = &#39;//www.reddit.com/submit?url=&#39; + encodeURIComponent(window.location); return false"><img alt="submit to reddit" border="0" src="//www.redditstatic.com/spreddit7.gif"></a>
        </div>
 
-       <div class='col-md-1'>
+       <div class="col-md-1">
           <!-- Tweet this -->
-          <a class="twitter-share-button"
-             href="https://twitter.com/intent/tweet">
+          <a class="twitter-share-button" href="https://twitter.com/intent/tweet">
           Tweet</a>
        </div>
 
-       <div class='col-md-1'>
+       <div class="col-md-1">
           <!-- follow me on twitter -->
-         <a class="twitter-follow-button"
-            data-show-count="false"
-            data-show-screen-name="false"
-           href="https://twitter.com/neil_h_watson">
+         <a class="twitter-follow-button" data-show-count="false" data-show-screen-name="false" href="https://twitter.com/neil_h_watson">
          Follow @neil_h_watson</a>
         </div>
 
-       <div class='col-md-1'>
+       <div class="col-md-1">
            <!-- follw me on github -->
-            <a aria-label="Follow @neilhwatson on GitHub" data-style="mega" href="https://github.com/neilhwatson" class="github-button">Follow</a>
+            <a aria-label="Follow @neilhwatson on GitHub" class="github-button" data-style="mega" href="https://github.com/neilhwatson">Follow</a>
             <script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
        </div>
 
@@ -398,9 +394,9 @@ code is pretty isn't!?).</p>
         <footer>
             
             <h1></h1>
-            <div class='col-md-5'> </div>
+            <div class="col-md-5"> </div>
             <div class="col-md-3 container tagline">
-                <a href="http://preaction.me/statocles">Made with Statocles</a><br/>
+                <a href="http://preaction.me/statocles">Made with Statocles</a><br>
                 <a href="http://www.perl.org">Powered by Perl</a>
             </div>
         </footer>

@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en"> 
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
         <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-        <link rel="stylesheet" href="/theme/css/readability-bootstrap.min.css" />
+        <link href="/theme/css/readability-bootstrap.min.css" rel="stylesheet">
         <!--<link rel="stylesheet" href="/theme/css/statocles-bootstrap.css" />-->
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
         <title>Auditing hosts using CFEngine, EFL, and Delta Reporting - Neil H. Watson</title>
-        <meta name="generator" content="Statocles 0.094" />
+        <meta content="Statocles 0.094" name="generator">
         
 
         <!-- Twitter for websites -->
@@ -31,7 +31,7 @@
          }(document, "script", "twitter-wjs"));</script>
 
         <!-- For source highlighting -->
-        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/default.min.css">
+        <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/default.min.css" rel="stylesheet">
         <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js"></script>
         <script>hljs.initHighlightingOnLoad();</script>
 
@@ -42,7 +42,7 @@
                 <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
                     <div class="navbar-header">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#top-navbar-collapse-1">
+                        <button class="navbar-toggle" data-target="#top-navbar-collapse-1" data-toggle="collapse" type="button">
                             <span class="sr-only">Toggle navigation</span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
@@ -90,12 +90,12 @@
 
             </header>
             <section id="section-1">
-                <p><img src="/static/images/Liste-300px.png" alt="Clip board" /></p>
+                <p><img alt="Clip board" src="/static/images/Liste-300px.png"></p>
 
 <p>Sometimes you want to audit a host without changing it. This can be
 hard with CFEngine, but with <a href="https://github.com/neilhwatson/evolve_cfengine_freelib">EFL</a>
 and <a href="https://github.com/neilhwatson/delta_reporting">Delta Reporting</a>
-it's possible.</p>
+it&#39;s possible.</p>
 
             </section>
             <section id="section-2">
@@ -112,103 +112,103 @@ it's possible.</p>
 <p>Testing is all about classes in CFEngine. Whether or not a class is set
 determines the results of your test. EFL has many bundles for creating
 classes. Two of them, efl_class_cmd_regcmp and efl_class_returnszero,
-I'll use to make the above tests. I'm assuming that you have some
+I&#39;ll use to make the above tests. I&#39;m assuming that you have some
 knowledge of CFEngine and EFL.</p>
 
 <p>The first three tests can be accomplished by testing the output of a
-command with a regular expression. I'll use the bundle
+command with a regular expression. I&#39;ll use the bundle
 efl_class_cmd_regcmp for that. Here is the parameter file:</p>
 
 <pre><code>[
    {
-      "class": "any",
-      "class_to_set": "vm_swappiness_is_60",
-      "command" : "/sbin/sysctl vm.swappiness",
-      "regex" : "\Qvm.swappiness = 60\E",
-      "expression" : "expression",
-      "useshell" : "noshell",
-      "promisee" : "infosec audit"
+      &quot;class&quot;: &quot;any&quot;,
+      &quot;class_to_set&quot;: &quot;vm_swappiness_is_60&quot;,
+      &quot;command&quot; : &quot;/sbin/sysctl vm.swappiness&quot;,
+      &quot;regex&quot; : &quot;\Qvm.swappiness = 60\E&quot;,
+      &quot;expression&quot; : &quot;expression&quot;,
+      &quot;useshell&quot; : &quot;noshell&quot;,
+      &quot;promisee&quot; : &quot;infosec audit&quot;
    },
    {
-      "class": "any",
-      "class_to_set": "vm_swappiness_is_not_70",
-      "command" : "/sbin/sysctl vm.swappiness",
-      "regex" : "\Qvm.swappiness = 70\E",
-      "expression" : "not",
-      "useshell" : "noshell",
-      "promisee" : "infosec audit"
+      &quot;class&quot;: &quot;any&quot;,
+      &quot;class_to_set&quot;: &quot;vm_swappiness_is_not_70&quot;,
+      &quot;command&quot; : &quot;/sbin/sysctl vm.swappiness&quot;,
+      &quot;regex&quot; : &quot;\Qvm.swappiness = 70\E&quot;,
+      &quot;expression&quot; : &quot;not&quot;,
+      &quot;useshell&quot; : &quot;noshell&quot;,
+      &quot;promisee&quot; : &quot;infosec audit&quot;
    },
    {
-      "class": "any",
-      "class_to_set": "ssh_config_hash_is_6005ad62cd337cecbe177097cc74f0052eb15de92713eccd57c2e22fb162eaef",
-      "command" : "/usr/bin/sha256sum /etc/ssh/ssh_config",
-      "regex" : "(?x) 6005ad62cd337cecbe177097cc74f0052eb15de92713eccd57c2e22fb162eaef \s+ /etc/ssh/ssh_config",
-      "expression" : "expression",
-      "useshell" : "noshell",
-      "promisee" : "infosec audit"
+      &quot;class&quot;: &quot;any&quot;,
+      &quot;class_to_set&quot;: &quot;ssh_config_hash_is_6005ad62cd337cecbe177097cc74f0052eb15de92713eccd57c2e22fb162eaef&quot;,
+      &quot;command&quot; : &quot;/usr/bin/sha256sum /etc/ssh/ssh_config&quot;,
+      &quot;regex&quot; : &quot;(?x) 6005ad62cd337cecbe177097cc74f0052eb15de92713eccd57c2e22fb162eaef \s+ /etc/ssh/ssh_config&quot;,
+      &quot;expression&quot; : &quot;expression&quot;,
+      &quot;useshell&quot; : &quot;noshell&quot;,
+      &quot;promisee&quot; : &quot;infosec audit&quot;
    }
 ]
 </code></pre>
 
 <p>The last two tests can be performed by testing the return value of
-chkconfig. I'll use the bundle efl_class_returnszero for that. Here is
+chkconfig. I&#39;ll use the bundle efl_class_returnszero for that. Here is
 the parameter file:</p>
 
 <pre><code>[
    {
-      "class" : "any",
-      "class_to_set" : "ntpd_boot_startup_enabled",
-      "command" : "/sbin/chkconfig -c ntp",
-      "zero" : "yes",
-      "shell" : "noshell",
-      "promisee" : "infosec audit"
+      &quot;class&quot; : &quot;any&quot;,
+      &quot;class_to_set&quot; : &quot;ntpd_boot_startup_enabled&quot;,
+      &quot;command&quot; : &quot;/sbin/chkconfig -c ntp&quot;,
+      &quot;zero&quot; : &quot;yes&quot;,
+      &quot;shell&quot; : &quot;noshell&quot;,
+      &quot;promisee&quot; : &quot;infosec audit&quot;
    },
    {
-      "class" : "any",
-      "class_to_set" : "ftpd_boot_startup_disabled",
-      "command" : "/sbin/chkconfig -c ftpd",
-      "zero" : "no",
-      "shell" : "noshell",
-      "promisee" : "infosec audit"
+      &quot;class&quot; : &quot;any&quot;,
+      &quot;class_to_set&quot; : &quot;ftpd_boot_startup_disabled&quot;,
+      &quot;command&quot; : &quot;/sbin/chkconfig -c ftpd&quot;,
+      &quot;zero&quot; : &quot;no&quot;,
+      &quot;shell&quot; : &quot;noshell&quot;,
+      &quot;promisee&quot; : &quot;infosec audit&quot;
    }
 ]
 </code></pre>
 
-<p>Both bundles will be run using EFL's efl_main bundle, which I won't
-show here. I also want some pretty and testable output. I can use EFL's
+<p>Both bundles will be run using EFL&#39;s efl_main bundle, which I won&#39;t
+show here. I also want some pretty and testable output. I can use EFL&#39;s
 efl_test_classes bundle for that. (see <a href="http://watson-wilson.ca/testing-cfengine-using-efl-tap-and-perl/">TAP and EFL</a>).
 Here is the parameter file:</p>
 
 <pre><code>[
    {
-      "class"         : "any",
-      "class_to_test" : "vm_swappiness_is_60",
-      "test_type"     : "is",
-      "name"          : "Testing if vm.swappiness is 60"
+      &quot;class&quot;         : &quot;any&quot;,
+      &quot;class_to_test&quot; : &quot;vm_swappiness_is_60&quot;,
+      &quot;test_type&quot;     : &quot;is&quot;,
+      &quot;name&quot;          : &quot;Testing if vm.swappiness is 60&quot;
    },
    {
-      "class"         : "any",
-      "class_to_test" : "vm_swappiness_is_not_70",
-      "test_type"     : "is",
-      "name"          : "Testing if vm.swappiness is not 70"
+      &quot;class&quot;         : &quot;any&quot;,
+      &quot;class_to_test&quot; : &quot;vm_swappiness_is_not_70&quot;,
+      &quot;test_type&quot;     : &quot;is&quot;,
+      &quot;name&quot;          : &quot;Testing if vm.swappiness is not 70&quot;
    },
    {
-      "class"         : "any",
-      "class_to_test" : "ssh_config_hash_is_6005ad62cd337cecbe177097cc74f0052eb15de92713eccd57c2e22fb162eaef", 
-      "test_type"     : "is",
-      "name"          : "Testing if ssh_config is the correct file"
+      &quot;class&quot;         : &quot;any&quot;,
+      &quot;class_to_test&quot; : &quot;ssh_config_hash_is_6005ad62cd337cecbe177097cc74f0052eb15de92713eccd57c2e22fb162eaef&quot;, 
+      &quot;test_type&quot;     : &quot;is&quot;,
+      &quot;name&quot;          : &quot;Testing if ssh_config is the correct file&quot;
    },
    {
-      "class"         : "any",
-      "class_to_test" : "ntpd_boot_startup_enabled",
-      "test_type"     : "is",
-      "name"          : "Testing if ntpd boot start is enabled"
+      &quot;class&quot;         : &quot;any&quot;,
+      &quot;class_to_test&quot; : &quot;ntpd_boot_startup_enabled&quot;,
+      &quot;test_type&quot;     : &quot;is&quot;,
+      &quot;name&quot;          : &quot;Testing if ntpd boot start is enabled&quot;
    },
    {
-      "class"         : "any",
-      "class_to_test" : "ftpd_boot_startup_disabled",
-      "test_type"     : "is",
-      "name"          : "Testing if ftpd boot start is disabled"
+      &quot;class&quot;         : &quot;any&quot;,
+      &quot;class_to_test&quot; : &quot;ftpd_boot_startup_disabled&quot;,
+      &quot;test_type&quot;     : &quot;is&quot;,
+      &quot;name&quot;          : &quot;Testing if ftpd boot start is disabled&quot;
    }
 ]
 </code></pre>
@@ -236,11 +236,11 @@ Reporting</a>. By
 integrating the first two bundles into my production policy I can use
 DR to search for class membership.</p>
 
-<p><img src="/static/images/auditing1.png" alt="Auditing hosts using Delta Reporting" />
+<p><img alt="Auditing hosts using Delta Reporting" src="/static/images/auditing1.png">
 Auditing hosts using Delta Reporting[/caption]</p>
 
 <p><strong>Without writing any new CFEngine policy</strong> I was able to audit my
-hosts in a safe and passive manner. I hope you'll try this for yourself
+hosts in a safe and passive manner. I hope you&#39;ll try this for yourself
 and feel free to contact us for help.</p>
 
             </section>
@@ -250,7 +250,7 @@ and feel free to contact us for help.</p>
     </div>
 
     <div class="col-md-3">
-        <iframe src="https://duckduckgo.com/search.html?site=watson-wilson.ca&prefill=Search DuckDuckGo" style="overflow:hidden;margin:0;padding:0;width:350px;height:40px;" frameborder="0"></iframe>
+        <iframe frameborder="0" src="https://duckduckgo.com/search.html?site=watson-wilson.ca&amp;prefill=Search DuckDuckGo" style="overflow:hidden;margin:0;padding:0;width:350px;height:40px;"></iframe>
 
         <nav id="tags">
             <h1>Tags</h1>
@@ -354,35 +354,31 @@ and feel free to contact us for help.</p>
 
 </div>
 
-<div class='row'>
-   <div class='col-md-1'>
-       <img atl='Neil Watson' src='https://gravatar.com/avatar/1f0969599955a953e592034929ed7a23' >
+<div class="row">
+   <div class="col-md-1">
+       <img atl="Neil Watson" src="https://gravatar.com/avatar/1f0969599955a953e592034929ed7a23">
    </div>
 
-       <div class='col-md-1'>
+       <div class="col-md-1">
             <!-- reddit this -->
-            <a href="//www.reddit.com/submit" onclick="window.location = '//www.reddit.com/submit?url=' + encodeURIComponent(window.location); return false"><img src="//www.redditstatic.com/spreddit7.gif" alt="submit to reddit" border="0" /></a>
+            <a href="//www.reddit.com/submit" onclick="window.location = &#39;//www.reddit.com/submit?url=&#39; + encodeURIComponent(window.location); return false"><img alt="submit to reddit" border="0" src="//www.redditstatic.com/spreddit7.gif"></a>
        </div>
 
-       <div class='col-md-1'>
+       <div class="col-md-1">
           <!-- Tweet this -->
-          <a class="twitter-share-button"
-             href="https://twitter.com/intent/tweet">
+          <a class="twitter-share-button" href="https://twitter.com/intent/tweet">
           Tweet</a>
        </div>
 
-       <div class='col-md-1'>
+       <div class="col-md-1">
           <!-- follow me on twitter -->
-         <a class="twitter-follow-button"
-            data-show-count="false"
-            data-show-screen-name="false"
-           href="https://twitter.com/neil_h_watson">
+         <a class="twitter-follow-button" data-show-count="false" data-show-screen-name="false" href="https://twitter.com/neil_h_watson">
          Follow @neil_h_watson</a>
         </div>
 
-       <div class='col-md-1'>
+       <div class="col-md-1">
            <!-- follw me on github -->
-            <a aria-label="Follow @neilhwatson on GitHub" data-style="mega" href="https://github.com/neilhwatson" class="github-button">Follow</a>
+            <a aria-label="Follow @neilhwatson on GitHub" class="github-button" data-style="mega" href="https://github.com/neilhwatson">Follow</a>
             <script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
        </div>
 
@@ -392,9 +388,9 @@ and feel free to contact us for help.</p>
         <footer>
             
             <h1></h1>
-            <div class='col-md-5'> </div>
+            <div class="col-md-5"> </div>
             <div class="col-md-3 container tagline">
-                <a href="http://preaction.me/statocles">Made with Statocles</a><br/>
+                <a href="http://preaction.me/statocles">Made with Statocles</a><br>
                 <a href="http://www.perl.org">Powered by Perl</a>
             </div>
         </footer>

@@ -3,13 +3,13 @@
     <id>http://watson-wilson.ca/blog/tag/autoscaling/</id>
     <title>Neil H. Watson</title>
     <updated>2018-02-11T00:00:00Z</updated>
-    <link rel="self" href="http://watson-wilson.ca/blog/tag/autoscaling.atom"/>
-    <link rel="alternate" href="http://watson-wilson.ca/blog/tag/autoscaling/"/>
+    <link href="http://watson-wilson.ca/blog/tag/autoscaling.atom" rel="self" />
+    <link href="http://watson-wilson.ca/blog/tag/autoscaling/" rel="alternate" />
     <generator version="0.094">Statocles</generator>
     <entry>
         <id>http://watson-wilson.ca/blog/2018/02/11/aws-asg-of-one/</id>
         <title>AWS single host resilience with autoscaling groups</title>
-        <link rel="alternate" href="http://watson-wilson.ca/blog/2018/02/11/aws-asg-of-one/" />
+        <link href="http://watson-wilson.ca/blog/2018/02/11/aws-asg-of-one/" rel="alternate" />
         <content type="html"><![CDATA[
             <p><a href="https://aws.amazon.com/"><img alt="aws logo" src="http://watson-wilson.ca/static/images/aws.png" style="float:right" width="120px"></a></p>
 

@@ -3,14 +3,14 @@
     <id>http://watson-wilson.ca/blog/tag/mustache/</id>
     <title>Neil H. Watson</title>
     <updated>2015-03-26T10:59:43Z</updated>
-    <link rel="self" href="http://watson-wilson.ca/blog/tag/mustache.atom"/>
-    <link rel="alternate" href="http://watson-wilson.ca/blog/tag/mustache/"/>
+    <link href="http://watson-wilson.ca/blog/tag/mustache.atom" rel="self" />
+    <link href="http://watson-wilson.ca/blog/tag/mustache/" rel="alternate" />
     <generator version="0.094">Statocles</generator>
     <entry>
         <id>http://watson-wilson.ca/blog/2015/03/26/mustache-template-in-cfengine/</id>
         <title>Mustache template in CFEngine</title>
         <author><name>nwatson</name></author>
-        <link rel="alternate" href="http://watson-wilson.ca/blog/2015/03/26/mustache-template-in-cfengine/" />
+        <link href="http://watson-wilson.ca/blog/2015/03/26/mustache-template-in-cfengine/" rel="alternate" />
         <content type="html"><![CDATA[
             <p>Here&#39;s a quick example of how to use mustache templates in CFEngine.</p>
 

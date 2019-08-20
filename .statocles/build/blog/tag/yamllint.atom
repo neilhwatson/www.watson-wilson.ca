@@ -3,13 +3,13 @@
     <id>http://watson-wilson.ca/blog/tag/yamllint/</id>
     <title>Neil H. Watson</title>
     <updated>2018-07-11T00:00:00Z</updated>
-    <link rel="self" href="http://watson-wilson.ca/blog/tag/yamllint.atom"/>
-    <link rel="alternate" href="http://watson-wilson.ca/blog/tag/yamllint/"/>
+    <link href="http://watson-wilson.ca/blog/tag/yamllint.atom" rel="self" />
+    <link href="http://watson-wilson.ca/blog/tag/yamllint/" rel="alternate" />
     <generator version="0.094">Statocles</generator>
     <entry>
         <id>http://watson-wilson.ca/blog/2018/07/11/ansible-tips/</id>
         <title>More Ansible tips</title>
-        <link rel="alternate" href="http://watson-wilson.ca/blog/2018/07/11/ansible-tips/" />
+        <link href="http://watson-wilson.ca/blog/2018/07/11/ansible-tips/" rel="alternate" />
         <content type="html"><![CDATA[
             <p><a href="http://ansible.com"><img alt="go to ansible.com" src="http://watson-wilson.ca/static/images/ansible_logo_round.png" style="float:right" width="150px"></a></p>
 

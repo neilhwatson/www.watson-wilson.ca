@@ -3,13 +3,13 @@
     <id>http://watson-wilson.ca/blog/tag/json/</id>
     <title>Neil H. Watson</title>
     <updated>2016-11-15T00:00:00Z</updated>
-    <link rel="self" href="http://watson-wilson.ca/blog/tag/json.atom"/>
-    <link rel="alternate" href="http://watson-wilson.ca/blog/tag/json/"/>
+    <link href="http://watson-wilson.ca/blog/tag/json.atom" rel="self" />
+    <link href="http://watson-wilson.ca/blog/tag/json/" rel="alternate" />
     <generator version="0.094">Statocles</generator>
     <entry>
         <id>http://watson-wilson.ca/blog/2016/11/15/docker_api_from_cli/</id>
         <title>Docker API from CLI</title>
-        <link rel="alternate" href="http://watson-wilson.ca/blog/2016/11/15/docker_api_from_cli/" />
+        <link href="http://watson-wilson.ca/blog/2016/11/15/docker_api_from_cli/" rel="alternate" />
         <content type="html"><![CDATA[
             <p><a href="https://docker.com/"><img alt="Docker website" src="http://watson-wilson.ca/static/images/docker-logo.png" style="float:right" width="120px"></a></p>
 

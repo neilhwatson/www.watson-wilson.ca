@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en"> 
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
         <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-        <link rel="stylesheet" href="/theme/css/readability-bootstrap.min.css" />
+        <link href="/theme/css/readability-bootstrap.min.css" rel="stylesheet">
         <!--<link rel="stylesheet" href="/theme/css/statocles-bootstrap.css" />-->
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
         <title>Terraform modules - Neil H. Watson</title>
-        <meta name="generator" content="Statocles 0.094" />
+        <meta content="Statocles 0.094" name="generator">
         
 
         <!-- Twitter for websites -->
@@ -31,7 +31,7 @@
          }(document, "script", "twitter-wjs"));</script>
 
         <!-- For source highlighting -->
-        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/default.min.css">
+        <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/default.min.css" rel="stylesheet">
         <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js"></script>
         <script>hljs.initHighlightingOnLoad();</script>
 
@@ -42,7 +42,7 @@
                 <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
                     <div class="navbar-header">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#top-navbar-collapse-1">
+                        <button class="navbar-toggle" data-target="#top-navbar-collapse-1" data-toggle="collapse" type="button">
                             <span class="sr-only">Toggle navigation</span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
@@ -88,46 +88,46 @@
 
             </header>
             <section id="section-1">
-                <p><a href="https://terraform.io/"><img style='float:right' alt='terraform logo' width='120px' src='https://raw.githubusercontent.com/hashicorp/terraform-website/master/content//source/assets/images/og-image.png' ></a></p>
+                <p><a href="https://terraform.io/"><img alt="terraform logo" src="https://raw.githubusercontent.com/hashicorp/terraform-website/master/content//source/assets/images/og-image.png" style="float:right" width="120px"></a></p>
 
-<p>Here's what I've learned so far using Terraform and its modules. I've just scratched the surface so test and research on your own.</p>
+<p>Here&#39;s what I&#39;ve learned so far using Terraform and its modules. I&#39;ve just scratched the surface so test and research on your own.</p>
 
             </section>
             <section id="section-2">
                 <p>Modules allow you to build parameterized reusable code as you would in programming. Terraform scopes its variables strictly, denying access to variables outside of the running module or inside of another. More later.</p>
 
-<p>In our main terraform file we call a module. Terraform is odd in that if you do a terraform plan it will error out until you 'get' the module. So always do a 'terraform get' first.</p>
+<p>In our main terraform file we call a module. Terraform is odd in that if you do a terraform plan it will error out until you &#39;get&#39; the module. So always do a &#39;terraform get&#39; first.</p>
 
 <pre><code># Create an s3 bucket with the given name
-module "my-s3-bucket" {
-    source = "./s3/make_bucket"
-    name   = "my-s3-bucket"
+module &quot;my-s3-bucket&quot; {
+    source = &quot;./s3/make_bucket&quot;
+    name   = &quot;my-s3-bucket&quot;
 }
 </code></pre>
 
 <p>The module is all .tf files under ./s3/make_bucket/. In this example we have just one file: main.tf by convention.</p>
 
 <pre><code># Must declare expected inputs:
-variable "name" {}
+variable &quot;name&quot; {}
 
 # Build a named bucket
-resource "aws_s3_bucket" "web_bucket" {
+resource &quot;aws_s3_bucket&quot; &quot;web_bucket&quot; {
 
-   bucket = "${var.name}"
+   bucket = &quot;${var.name}&quot;
    force_destroy = true
-   acl = "public-read"
+   acl = &quot;public-read&quot;
     tags = {
-        layer = "terraform"
+        layer = &quot;terraform&quot;
     }
    policy = &lt;&lt;POLICY
 {
-  "Version":"2012-10-17",
-  "Statement":[{
-    "Sid":"PublicReadForGetBucketObjects",
-        "Effect":"Allow",
-      "Principal": "*",
-      "Action":"s3:GetObject",
-      "Resource":["arn:aws:s3:::${var.name}/*"
+  &quot;Version&quot;:&quot;2012-10-17&quot;,
+  &quot;Statement&quot;:[{
+    &quot;Sid&quot;:&quot;PublicReadForGetBucketObjects&quot;,
+        &quot;Effect&quot;:&quot;Allow&quot;,
+      &quot;Principal&quot;: &quot;*&quot;,
+      &quot;Action&quot;:&quot;s3:GetObject&quot;,
+      &quot;Resource&quot;:[&quot;arn:aws:s3:::${var.name}/*&quot;
       ]
     }
   ]
@@ -135,14 +135,14 @@ resource "aws_s3_bucket" "web_bucket" {
 POLICY
 
    website {
-      index_document = "index.html"
+      index_document = &quot;index.html&quot;
 # TODO 404.html
    }
 }
 
 # Allow the bucket id to be dereferenced form outside
-output "bucket_id"
-   value = "${aws_s3_bucket.web_bucket.id}"
+output &quot;bucket_id&quot;
+   value = &quot;${aws_s3_bucket.web_bucket.id}&quot;
 }
 </code></pre>
 
@@ -153,35 +153,35 @@ output "bucket_id"
 
 <p>You should read more over at <a href="https://www.terraform.io/docs/index.html">terraform.io</a>.</p>
 
-<h4>Don't use named parameters</h4>
+<h4>Don&#39;t use named parameters</h4>
 
-<pre><code>module "mymod" {
-    source = "./mymod"
+<pre><code>module &quot;mymod&quot; {
+    source = &quot;./mymod&quot;
     param  =  {
-        one = "my param"
-        two = "my other param"
+        one = &quot;my param&quot;
+        two = &quot;my other param&quot;
     }
 }
 
 
 # Module starts here
-variable "param" {
-    type = "map"
-    one  = "1"
-    two  = "2"
+variable &quot;param&quot; {
+    type = &quot;map&quot;
+    one  = &quot;1&quot;
+    two  = &quot;2&quot;
 }
 </code></pre>
 
 <p>This is a tempting idiom and common in many languages, but it does not work in Terraform. Or rather it does not work as expected. Each parameter passed to a module erases the default declaration in the module. Thus a passed map deletes, and does not merge with, the default declared map. All defaults will be lost.</p>
 
-<h3>Other things I've learned about terraform</h3>
+<h3>Other things I&#39;ve learned about terraform</h3>
 
 <ul>
-<li><p>There are no loops. You can't pass a module a list of data for it to loop over. You must call the module multiple times by hand.</p></li>
+<li><p>There are no loops. You can&#39;t pass a module a list of data for it to loop over. You must call the module multiple times by hand.</p></li>
 <li><p>Use <a href="https://www.terraform.io/docs/state/remote.html">remote state</a>.</p></li>
 <li><p>Use a <a href="https://www.terraform.io/docs/providers/aws/index.html">role based host</a> like at an AWS EC2 host with IAM to authorize terraform to access your provider. Avoid storing passwords.</p></li>
 <li><p>Terraform plan, plan, and plan more while you get the hang of it.</p></li>
-<li><p>If using <a href="https://aws.amazon.com/route53/details/">Route53</a> for your DNS but your domain is registered else where you'll get new NS AWS servers when create a new zone. So if you destroy and recreate a zone you'll have to update your registrar.</p></li>
+<li><p>If using <a href="https://aws.amazon.com/route53/details/">Route53</a> for your DNS but your domain is registered else where you&#39;ll get new NS AWS servers when create a new zone. So if you destroy and recreate a zone you&#39;ll have to update your registrar.</p></li>
 </ul>
 
 <h3>Further reading</h3>
@@ -197,7 +197,7 @@ variable "param" {
     </div>
 
     <div class="col-md-3">
-        <iframe src="https://duckduckgo.com/search.html?site=watson-wilson.ca&prefill=Search DuckDuckGo" style="overflow:hidden;margin:0;padding:0;width:350px;height:40px;" frameborder="0"></iframe>
+        <iframe frameborder="0" src="https://duckduckgo.com/search.html?site=watson-wilson.ca&amp;prefill=Search DuckDuckGo" style="overflow:hidden;margin:0;padding:0;width:350px;height:40px;"></iframe>
 
         <nav id="tags">
             <h1>Tags</h1>
@@ -301,35 +301,31 @@ variable "param" {
 
 </div>
 
-<div class='row'>
-   <div class='col-md-1'>
-       <img atl='Neil Watson' src='https://gravatar.com/avatar/1f0969599955a953e592034929ed7a23' >
+<div class="row">
+   <div class="col-md-1">
+       <img atl="Neil Watson" src="https://gravatar.com/avatar/1f0969599955a953e592034929ed7a23">
    </div>
 
-       <div class='col-md-1'>
+       <div class="col-md-1">
             <!-- reddit this -->
-            <a href="//www.reddit.com/submit" onclick="window.location = '//www.reddit.com/submit?url=' + encodeURIComponent(window.location); return false"><img src="//www.redditstatic.com/spreddit7.gif" alt="submit to reddit" border="0" /></a>
+            <a href="//www.reddit.com/submit" onclick="window.location = &#39;//www.reddit.com/submit?url=&#39; + encodeURIComponent(window.location); return false"><img alt="submit to reddit" border="0" src="//www.redditstatic.com/spreddit7.gif"></a>
        </div>
 
-       <div class='col-md-1'>
+       <div class="col-md-1">
           <!-- Tweet this -->
-          <a class="twitter-share-button"
-             href="https://twitter.com/intent/tweet">
+          <a class="twitter-share-button" href="https://twitter.com/intent/tweet">
           Tweet</a>
        </div>
 
-       <div class='col-md-1'>
+       <div class="col-md-1">
           <!-- follow me on twitter -->
-         <a class="twitter-follow-button"
-            data-show-count="false"
-            data-show-screen-name="false"
-           href="https://twitter.com/neil_h_watson">
+         <a class="twitter-follow-button" data-show-count="false" data-show-screen-name="false" href="https://twitter.com/neil_h_watson">
          Follow @neil_h_watson</a>
         </div>
 
-       <div class='col-md-1'>
+       <div class="col-md-1">
            <!-- follw me on github -->
-            <a aria-label="Follow @neilhwatson on GitHub" data-style="mega" href="https://github.com/neilhwatson" class="github-button">Follow</a>
+            <a aria-label="Follow @neilhwatson on GitHub" class="github-button" data-style="mega" href="https://github.com/neilhwatson">Follow</a>
             <script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
        </div>
 
@@ -339,9 +335,9 @@ variable "param" {
         <footer>
             
             <h1></h1>
-            <div class='col-md-5'> </div>
+            <div class="col-md-5"> </div>
             <div class="col-md-3 container tagline">
-                <a href="http://preaction.me/statocles">Made with Statocles</a><br/>
+                <a href="http://preaction.me/statocles">Made with Statocles</a><br>
                 <a href="http://www.perl.org">Powered by Perl</a>
             </div>
         </footer>
